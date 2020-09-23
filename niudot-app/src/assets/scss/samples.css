@@ -1,0 +1,23 @@
+html,
+body {
+	padding: 0.5rem;
+	background-color: #ffffff;
+	color: #000000;
+}
+
+code {
+	border-radius: 0.25rem;
+	background-color: #dddddd;
+	padding: 0.25rem 0.5rem;
+	font-family: 'Nunito', sans-serif;
+	font-size: 0.8rem;
+}
+
+.inline-code {
+	display: inline;
+}
+
+.block-code {
+	display: block;
+	margin: 1rem 0;
+}

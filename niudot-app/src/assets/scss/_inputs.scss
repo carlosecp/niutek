@@ -1,0 +1,150 @@
+.form-container {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-auto-rows: minmax($input-height, auto);
+	width: 40rem;
+	gap: 0.75rem;
+	margin-bottom: 4rem;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.input-container {
+	display: flex;
+	align-items: center;
+}
+
+%input-container {
+	width: 100%;
+}
+
+%input {
+	// Sizing
+	display: flex;
+	height: $input-height;
+	padding: 0 $input-x-padding;
+	align-items: center;
+
+	// Appearance
+	font-size: 0.87rem;
+	caret-color: $dark-caret;
+	color: $dark-caret;
+	background-color: $dark-secondary;
+	border: none;
+	outline: none;
+
+	&::placeholder {
+		color: $dark-info;
+	}
+}
+
+.std-input {
+	@extend %input;
+	width: 100%;
+	flex: 1;
+}
+
+.alt-input-container {
+	margin: 0 0.75rem;
+}
+
+.alt-input {
+	@extend %input;
+}
+
+.input-checkbox-content {
+	width: 100%;
+	text-align: center;
+}
+
+%btn {
+	height: $input-height;
+	transition: opacity 100ms;
+	&:hover,
+	&:active,
+	&:focus {
+		opacity: 0.8;
+	}
+}
+
+.input-container-lg {
+	@extend %input-container;
+	grid-column: span 12;
+}
+
+.input-container-md {
+	@extend %input-container;
+	grid-column: span 6;
+}
+
+.input-container-sm {
+	@extend %input-container;
+	grid-column: span 3;
+}
+
+.input-container-xs {
+	@extend %input-container;
+	grid-column: span 1;
+}
+
+.input-container-md-nl {
+	grid-column: 1 / span 6;
+}
+
+.input-container-sm-nl {
+	grid-column: 1 / span 3;
+}
+
+// Utilizado solo para los inputs que van a tener un boton al lado.
+.input-container-flex {
+	display: flex;
+}
+
+// Estos estilos son solo aplicables para los botones que van a estar integrados dentro de un input.
+.input-btn {
+	@extend %btn;
+
+	// Sizing
+	width: 2rem;
+	min-width: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	// Appearance
+	background-color: $dark-primary;
+	cursor: pointer;
+}
+
+%form-btn {
+	@extend %btn;
+
+	// Sizing
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	// Appearance
+	color: #ffffff;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+.form-btn-success {
+	@extend %form-btn;
+	background-color: $dark-success;
+}
+
+.form-btn-primary {
+	@extend %form-btn;
+	background-color: $dark-primary;
+}
+
+.form-btn-alert {
+	@extend %form-btn;
+	background-color: $dark-alert;
+}

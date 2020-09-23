@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
+
+// & Global Colors
+$dark-primary: #456cf6;
+$dark-secondary: #353c4a;
+$dark-background: #1e2530;
+$nav-background: #283140;
+$dark-success: #36a794;
+$dark-alert: #bd783f;
+$dark-info: #9ba6ad;
+
+// & Inputs & Forms
+$input-height: 2.5rem;
+$input-x-padding: 0.75rem;
+$dark-caret: #ffffff;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: inherit;
+}
+
+:root {
+	font-size: 16px;
+}
+
+html,
+body {
+	font-family: 'Nunito', sans-serif !important;
+	background-color: $dark-background;
+	color: #ffffff;
+}
+
+.rounded {
+	border-radius: 0.5rem;
+}
+
+.rounded-l {
+	border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.rounded-r {
+	border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.icon {
+	color: #ffffff;
+}

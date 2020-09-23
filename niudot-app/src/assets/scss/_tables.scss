@@ -1,0 +1,51 @@
+.table-container {
+	grid-column: 1/-1;
+	color: white;
+	border-collapse: collapse;
+}
+
+tr {
+	display: flex;
+	height: $input-height;
+}
+
+%form-cell {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+thead {
+	th {
+		@extend %form-cell;
+		background-color: $dark-primary;
+
+		&:first-child {
+			border-radius: 0.5rem 0 0 0;
+		}
+
+		&:last-child {
+			border-radius: 0 0.5rem 0 0;
+		}
+	}
+}
+
+tbody {
+	tr:last-of-type {
+		td {
+			&:first-child {
+				border-radius: 0 0 0 0.5rem;
+			}
+
+			&:last-child {
+				border-radius: 0 0 0.5rem 0;
+			}
+		}
+	}
+
+	td {
+		@extend %form-cell;
+		background-color: $dark-secondary;
+	}
+}

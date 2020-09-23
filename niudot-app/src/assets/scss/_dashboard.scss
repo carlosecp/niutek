@@ -1,0 +1,31 @@
+.dashboard {
+	min-height: 100%;
+	width: calc(100% - 12rem);
+	margin-left: 12rem;
+
+	.topbar {
+		height: 70px;
+		width: 100%;
+		background-color: $nav-background;
+		position: fixed;
+
+		h2 {
+			padding-left: 1rem;
+			vertical-align: middle;
+			line-height: 70px;
+		}
+	}
+
+	body {
+		padding: 2rem;
+		padding-top: calc(70px + 2rem);
+	}
+
+	h4 {
+		color: $dark-info;
+		font-weight: lighter;
+		padding-top: 0.5rem;
+		padding-bottom: 1rem;
+	}
+}
+
