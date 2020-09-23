@@ -1,7 +1,7 @@
 import React from 'react';
-import '../assets/scss/styles.css'
-import Sidebar from './Sidebar'
-import Dashboard from './Dashboard';
+import './assets/styles/styles.css'
+import Sidebar from './components/layout/Sidebar'
+import Dashboard from './components/Dashboard';
 
 
 function App() {

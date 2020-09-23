@@ -1,0 +1,30 @@
+@media screen and (max-width: 690px) {
+	.input-container-md {
+		grid-column: span 12;
+	}
+
+	.input-container-sm {
+		grid-column: span 6;
+	}
+
+	.input-container-xs {
+		grid-column: span 2;
+	}
+
+	.input-container-md-nl {
+		grid-column: 1/ -1;
+	}
+
+	.input-container-sm-nl {
+		grid-column: 1 / span 6;
+	}
+
+	.sidebar {
+		// ! Cambiar esto luego
+		display: none;
+	}
+
+	.dashboard {
+		margin: 0;
+	}
+}
