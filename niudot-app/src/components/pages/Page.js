@@ -1,15 +1,29 @@
 import React from 'react'
-import {Switch, Route} from 'react-router-dom'
-import CrearPersonaNatural from './persona-natural/CrearPersonaNatural'
-import PersonaNatural from './persona-natural/PersonaNatural'
+import { Switch, Route } from 'react-router-dom'
+import Topbar from './Topbar'
+import Inicio from './inicio/Inicio'
+import PersonaJuridica from './clientes/PersonaJuridica'
+import PersonaNatural from './clientes/PersonaNatural'
 
 function Page() {
 	return (
-		<div class='page'>
-			<Switch>
-				<Route exact path='/clientes/crear-persona-natural' component={CrearPersonaNatural} />
-				<Route exact path='/clientes/persona-natural' component={PersonaNatural} />
-			</Switch>
+		<div className='page'>
+			<Topbar />
+			<div className='page-container'>
+				<Switch>
+					<Route exact path='/inicio' component={Inicio} />
+					<Route
+						exact
+						path='/clientes/persona-natural'
+						component={PersonaNatural}
+					/>
+					<Route
+						exact
+						path='/clientes/persona-juridica'
+						component={PersonaJuridica}
+					/>
+				</Switch>
+			</div>
 		</div>
 	)
 }

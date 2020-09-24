@@ -1,72 +1,8 @@
 import React, { useState } from 'react'
 import SidebarItem from './SidebarItem'
-
-const pages = [
-	{
-		name: 'Inicio',
-		iconCode: 'FaHome',
-		dropdownOptions: [
-			{ path: 'clientes/persona-natural', name: 'Persona Natural' },
-			{ path: 'clientes/persona-juridica', name: 'Persona Juridica' }
-		]
-	},
-	{
-		name: 'Caja',
-		iconCode: 'FaCashRegister',
-		dropdownOptions: [
-			{ path: 'clientes/persona-natural', name: 'Persona Natural' },
-			{ path: 'clientes/persona-juridica', name: 'Persona Juridica' }
-		]
-	},
-	{
-		name: 'Clientes',
-		iconCode: 'FaUsers',
-		dropdownOptions: [
-			{ path: 'clientes/persona-natural', name: 'Persona Natural' },
-			{ path: 'clientes/persona-juridica', name: 'Persona Juridica' }
-		]
-	},
-	{
-		name: 'Ahorros',
-		iconCode: 'FaPiggyBank',
-		dropdownOptions: [
-			{ path: 'clientes/persona-natural', name: 'Persona Natural' },
-			{ path: 'clientes/persona-juridica', name: 'Persona Juridica' }
-		]
-	},
-	{
-		name: 'Reportes',
-		iconCode: 'FaChartBar',
-		dropdownOptions: [
-			{ path: 'clientes/persona-natural', name: 'Persona Natural' },
-			{ path: 'clientes/persona-juridica', name: 'Persona Juridica' }
-		]
-	},
-	{
-		name: 'Cobranza',
-		iconCode: 'FaReceipt',
-		dropdownOptions: [
-			{ path: 'clientes/persona-natural', name: 'Persona Natural' },
-			{ path: 'clientes/persona-juridica', name: 'Persona Juridica' }
-		]
-	},
-	{
-		name: 'Productos',
-		iconCode: 'FaChevronCircleDown',
-		dropdownOptions: [
-			{ path: 'clientes/persona-natural', name: 'Persona Natural' },
-			{ path: 'clientes/persona-juridica', name: 'Persona Juridica' }
-		]
-	},
-	{
-		name: 'Crédito',
-		iconCode: 'FaCreditCard',
-		dropdownOptions: [
-			{ path: 'clientes/persona-natural', name: 'Persona Natural' },
-			{ path: 'clientes/persona-juridica', name: 'Persona Juridica' }
-		]
-	}
-]
+import pages from '../../pages/pages'
+import { FaHome } from 'react-icons/fa/index'
+import { Link } from 'react-router-dom'
 
 function Sidebar() {
 	const [activedDropdown, setActiveDropdown] = useState('')
@@ -82,9 +18,17 @@ function Sidebar() {
 			<h2 className='sidebar-logo'>niudot.</h2>
 			<nav className='sidebar-nav'>
 				<ul>
+					<Link to='/inicio'>
+						<li className='sidebar-list-item rounded'>
+							<div className='sidebar-list-item-info'>
+								<FaHome className='sidebar-item-icon' />
+								Inicio
+							</div>
+						</li>
+					</Link>
 					{pages.map((page) => (
 						<SidebarItem
-							key={page.path}
+							key={page.name}
 							name={page.name}
 							iconCode={page.iconCode}
 							dropdownOptions={page.dropdownOptions}

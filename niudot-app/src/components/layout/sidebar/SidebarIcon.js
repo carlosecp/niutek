@@ -1,28 +1,35 @@
 import React from 'react'
-import { FaHome, FaCashRegister, FaUsers, FaPiggyBank, FaCreditCard, FaChartBar, FaReceipt, FaCircle, FaChevronCircleDown } from 'react-icons/fa/index'
+import {
+	FaCashRegister,
+	FaUsers,
+	FaPiggyBank,
+	FaCreditCard,
+	FaChartBar,
+	FaReceipt,
+	FaCircle,
+	FaChevronCircleDown
+} from 'react-icons/fa/index'
 
-function SidebarIcon({iconCode}) {
+function SidebarIcon({ iconCode }) {
 	switch (iconCode) {
-			case 'FaHome':
-				return <FaHome style={{display: 'block',marginRight: '0.5rem'}}/>
-			case 'FaCashRegister':
-				return <FaCashRegister style={{display: 'block',marginRight: '0.5rem'}}/>
-			case 'FaUsers':
-				return <FaUsers style={{display: 'block',marginRight: '0.5rem'}}/>
-			case 'FaPiggyBank':
-				return <FaPiggyBank style={{display: 'block',marginRight: '0.5rem'}}/>
-			case 'FaCreditCard':
-				return <FaCreditCard style={{display: 'block',marginRight: '0.5rem'}}/>
-			case 'FaChartBar':
-				return <FaChartBar style={{display: 'block',marginRight: '0.5rem'}}/>
-			case 'FaReceipt':
-				return <FaReceipt style={{display: 'block',marginRight: '0.5rem'}}/>
-			case 'FaCircle':
-				return <FaCircle  style={{display: 'block',marginRight: '0.5rem'}}/>
-			case 'FaChevronCircleDown':
-				return <FaChevronCircleDown style={{display: 'block',marginRight: '0.5rem'}}/>
-			default:
-				return <FaChevronCircleDown style={{display: 'block',marginRight: '0.5rem'}}/>
+		case 'FaCashRegister':
+			return <FaCashRegister className='sidebar-item-icon' />
+		case 'FaUsers':
+			return <FaUsers className='sidebar-item-icon' />
+		case 'FaPiggyBank':
+			return <FaPiggyBank className='sidebar-item-icon' />
+		case 'FaCreditCard':
+			return <FaCreditCard className='sidebar-item-icon' />
+		case 'FaChartBar':
+			return <FaChartBar className='sidebar-item-icon' />
+		case 'FaReceipt':
+			return <FaReceipt className='sidebar-item-icon' />
+		case 'FaCircle':
+			return <FaCircle className='sidebar-item-icon' />
+		case 'FaChevronCircleDown':
+			return <FaChevronCircleDown className='sidebar-item-icon' />
+		default:
+			return <FaChevronCircleDown className='sidebar-item-icon' />
 	}
 }
 

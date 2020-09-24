@@ -1,3 +1,7 @@
+.form-title {
+
+}
+
 .form-container {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
@@ -10,16 +14,13 @@
 	}
 }
 
-.input-container {
+%form-field {
 	display: flex;
 	align-items: center;
-}
-
-%input-container {
 	width: 100%;
 }
 
-%input {
+%field {
 	display: flex;
 	height: $input-height;
 	padding: 0 $input-x-padding;

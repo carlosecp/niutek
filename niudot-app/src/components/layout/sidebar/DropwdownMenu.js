@@ -5,7 +5,11 @@ function DropdownMenu({ dropdownOptions }) {
 	return (
 		<ul className='sidebar-dropdown-menu rounded'>
 			{dropdownOptions.map((option) => (
-				<DropdownMenuItem path={option.path} name={option.name} />
+				<DropdownMenuItem
+					key={option.name}
+					path={option.path}
+					name={option.name}
+				/>
 			))}
 		</ul>
 	)
