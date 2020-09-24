@@ -78,6 +78,11 @@
 	grid-column: span 6;
 }
 
+.input-container-md-sm {
+	@extend %input-container;
+	grid-column: span 4;
+}
+
 .input-container-sm {
 	@extend %input-container;
 	grid-column: span 3;
@@ -106,7 +111,7 @@
 	@extend %btn;
 
 	// Sizing
-	width: 2rem;
+	width: 2.5rem;
 	min-width: 2rem;
 	display: flex;
 	justify-content: center;
@@ -130,7 +135,7 @@
 	outline: none;
 	border: none;
 	cursor: pointer;
-	font-weight: bold;
+	font-weight: regular;
 	font-size: 1rem;
 }
 
@@ -148,3 +153,4 @@
 	@extend %form-btn;
 	background-color: $dark-alert;
 }
+

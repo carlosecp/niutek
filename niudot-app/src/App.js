@@ -1,15 +1,14 @@
 import React from 'react';
-import './assets/styles/styles.css'
+import { BrowserRouter as Router } from "react-router-dom";
 import Sidebar from './components/layout/Sidebar'
-import Dashboard from './components/Dashboard';
-
+import Page from './components/pages/Page'
 
 function App() {
   return (
-    <div>
+    <Router>
       <Sidebar />
-      <Dashboard />
-    </div>
+      <Page />
+    </Router>
   );
 }
 
