@@ -19,7 +19,7 @@ tr {
 thead {
 	th {
 		@extend %form-cell;
-		background-color: $dark-primary;
+		background-color: $color-primary;
 
 		&:first-child {
 			border-radius: 0.5rem 0 0 0;
@@ -46,6 +46,6 @@ tbody {
 
 	td {
 		@extend %form-cell;
-		background-color: $dark-secondary;
+		background-color: $color-secondary;
 	}
 }

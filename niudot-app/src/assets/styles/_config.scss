@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
 
-// & Global Colors
-$dark-primary: #456cf6;
-$dark-secondary: #353c4a;
-$dark-background: #1e2530;
+// & Global Variables
+$color-primary: #456cf6;
+$color-secondary: #353c4a;
+$page-background: #1e2530;
 $nav-background: #283140;
-$dark-success: #36a794;
-$dark-alert: #bd783f;
-$dark-info: #9ba6ad;
-
-// & Inputs & Forms
+$color-success: #36a794;
+$color-alert: #bd783f;
+$color-text-primary: #ffffff;
+$color-text-secondary: #9ba6ad;
 $input-height: 2.5rem;
 $input-x-padding: 0.75rem;
-$dark-caret: #ffffff;
+$transition-default: 150ms;
 
 * {
 	padding: 0;
@@ -38,8 +37,8 @@ li {
 html,
 body {
 	font-family: 'Nunito', sans-serif !important;
-	background-color: $dark-background;
-	color: #ffffff;
+	background-color: $page-background;
+	color: $color-text-primary;
 }
 
 .rounded {
@@ -55,5 +54,5 @@ body {
 }
 
 .icon {
-	color: #ffffff;
+	color: $color-text-primary;
 }

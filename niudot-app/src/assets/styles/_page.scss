@@ -4,29 +4,17 @@
 	margin-left: 12rem;
 
 	.topbar {
+		z-index: 1;
 		height: 70px;
 		width: 100%;
 		background-color: $nav-background;
 		position: fixed;
 		display: flex;
 		align-items: center;
-
-		h2 {
-			padding-left: 1rem;
-			vertical-align: middle;
-		}
 	}
 
 	main {
 		padding: 2rem;
 		padding-top: calc(70px + 2rem);
 	}
-
-	h4 {
-		color: $dark-info;
-		font-weight: lighter;
-		padding-top: 0.5rem;
-		padding-bottom: 1rem;
-	}
 }
-

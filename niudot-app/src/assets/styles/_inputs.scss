@@ -20,22 +20,20 @@
 }
 
 %input {
-	// Sizing
 	display: flex;
 	height: $input-height;
 	padding: 0 $input-x-padding;
 	align-items: center;
 
-	// Appearance
 	font-size: 0.87rem;
-	caret-color: $dark-caret;
-	color: $dark-caret;
-	background-color: $dark-secondary;
+	caret-color: $color-text-primary;
+	color: $color-text-primary;
+	background-color: $color-secondary;
 	border: none;
 	outline: none;
 
 	&::placeholder {
-		color: $dark-info;
+		color: $color-text-secondary;
 	}
 }
 
@@ -60,7 +58,7 @@
 
 %btn {
 	height: $input-height;
-	transition: opacity 100ms;
+	transition: opacity $transition-default;
 	&:hover,
 	&:active,
 	&:focus {
@@ -101,36 +99,30 @@
 	grid-column: 1 / span 3;
 }
 
-// Utilizado solo para los inputs que van a tener un boton al lado.
 .input-container-flex {
 	display: flex;
 }
 
-// Estos estilos son solo aplicables para los botones que van a estar integrados dentro de un input.
 .input-btn {
 	@extend %btn;
 
-	// Sizing
 	width: 2.5rem;
 	min-width: 2rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	// Appearance
-	background-color: $dark-primary;
+	background-color: $color-primary;
 	cursor: pointer;
 }
 
 %form-btn {
 	@extend %btn;
 
-	// Sizing
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	// Appearance
 	color: #ffffff;
 	outline: none;
 	border: none;
@@ -141,27 +133,19 @@
 
 .form-btn-success {
 	@extend %form-btn;
-	background-color: $dark-success;
+	background-color: $color-success;
 }
 
 .form-btn-primary {
 	@extend %form-btn;
-	background-color: $dark-primary;
+	background-color: $color-primary;
 }
 
 .form-btn-alert {
 	@extend %form-btn;
-	background-color: $dark-alert;
+	background-color: $color-alert;
 }
 
-input[type=checkbox] {
-    transform: scale(1.5);
-}
-
-h2 {
-	font-weight: bold;
-}
-
-h3 {
-	font-size: 20px;
+input[type='checkbox'] {
+	transform: scale(1.5);
 }

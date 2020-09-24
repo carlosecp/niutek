@@ -7,8 +7,8 @@ function Page() {
 	return (
 		<div class='page'>
 			<Switch>
-				<Route exact path='/crear-persona-natural' component={CrearPersonaNatural} />
-				<Route exact path='/persona-natural' component={PersonaNatural} />
+				<Route exact path='/clientes/crear-persona-natural' component={CrearPersonaNatural} />
+				<Route exact path='/clientes/persona-natural' component={PersonaNatural} />
 			</Switch>
 		</div>
 	)
