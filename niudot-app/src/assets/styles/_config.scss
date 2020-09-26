@@ -36,6 +36,8 @@ li {
 
 html,
 body {
+	min-height: 100vh;
+	
 	font-family: 'Nunito', sans-serif !important;
 	background-color: $page-background;
 	color: $color-text-primary;

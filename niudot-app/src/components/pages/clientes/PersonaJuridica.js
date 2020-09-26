@@ -1,7 +1,13 @@
 import React from 'react'
+import SearchUserForm from '../utils/SearchUserForm'
+
 
 function PersonaJuridica() {
-	return <>Persona Juridica</>
+	return (
+		<>
+			<SearchUserForm />
+		</>
+	)
 }
 
 export default PersonaJuridica

@@ -12,7 +12,7 @@ const pages = [
 		iconCode: 'FaUsers',
 		dropdownOptions: [
 			{ path: 'clientes/persona-natural', name: 'Persona Natural' },
-			{ path: 'clientes/persona-juridica', name: 'Persona Juridica' }
+			{ path: 'clientes/persona-juridica', name: 'Persona Jurídica' }
 		]
 	},
 	{
