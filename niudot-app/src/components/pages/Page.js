@@ -1,9 +1,9 @@
 import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Topbar from '../layout/Topbar'
 import Inicio from './inicio/Inicio'
-import PersonaJuridica from './clientes/PersonaJuridica'
-import PersonaNatural from './clientes/PersonaNatural'
+import PersonaJuridica from './clientes/personajuridica/PersonaJuridica'
+import PersonaNatural from './clientes/personanatural/PersonaNatural'
 
 function Page() {
 	return (

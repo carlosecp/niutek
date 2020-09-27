@@ -1,4 +1,4 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 802px) {
 	.form-field-xl {
 		grid-column: span 12;
 	}
@@ -17,6 +17,10 @@
 
 	.form-field-xs {
 		grid-column: span 3;
+	}
+
+	.form-field-lg-nl {
+		grid-column: span 12;
 	}
 
 	.form-field-sm-nl {
@@ -42,6 +46,10 @@
 	.page-container {
 		padding: 1rem;
 		padding-top: calc(4rem + 1rem);
+	}
+
+	.form-field-lg-nl {
+		grid-column: span 12;
 	}
 
 	.form-field-md {
