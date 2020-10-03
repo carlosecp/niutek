@@ -8,6 +8,11 @@
 	background-color: $nav-background;
 }
 
+.sidebar-hide {
+	left: -100%;
+	transition: position 2s;
+}
+
 .sidebar-logo {
 	text-align: center;
 	padding: 1rem;

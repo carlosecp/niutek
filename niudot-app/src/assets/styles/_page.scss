@@ -9,8 +9,9 @@
 	height: 4rem;
 	position: fixed;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
-	padding-left: 1rem;
+	padding: 0 1rem;
 
 	background-color: $nav-background;
 }
@@ -18,4 +19,12 @@
 .page-container {
 	padding: 2rem;
 	padding-top: calc(4rem + 2rem);
+}
+
+.burger-menu {
+	// display: none;
+
+	width: 2rem;
+	height: 2rem;
+	background-color: white;
 }
