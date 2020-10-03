@@ -235,8 +235,8 @@ tbody td {
 .pro-sidebar {
   color: #ffffff;
   height: 100%;
-  width: 12rem;
-  min-width: 12rem;
+  width: 14rem;
+  min-width: 14rem;
   text-align: left;
   transition: width, left, right, 0.3s;
   position: relative;
@@ -303,7 +303,7 @@ tbody td {
 @media (max-width: 480px) {
   .pro-sidebar.xs {
     position: fixed;
-    left: -12rem;
+    left: -14rem;
   }
   .pro-sidebar.xs.collapsed {
     left: -5rem;
@@ -316,7 +316,7 @@ tbody td {
   }
   .pro-sidebar.xs.rtl {
     left: auto;
-    right: -12rem;
+    right: -14rem;
   }
   .pro-sidebar.xs.rtl.collapsed {
     left: auto;
@@ -330,7 +330,7 @@ tbody td {
 @media (max-width: 576px) {
   .pro-sidebar.sm {
     position: fixed;
-    left: -12rem;
+    left: -14rem;
   }
   .pro-sidebar.sm.collapsed {
     left: -5rem;
@@ -343,7 +343,7 @@ tbody td {
   }
   .pro-sidebar.sm.rtl {
     left: auto;
-    right: -12rem;
+    right: -14rem;
   }
   .pro-sidebar.sm.rtl.collapsed {
     left: auto;
@@ -357,7 +357,7 @@ tbody td {
 @media (max-width: 768px) {
   .pro-sidebar.md {
     position: fixed;
-    left: -12rem;
+    left: -14rem;
   }
   .pro-sidebar.md.collapsed {
     left: -5rem;
@@ -370,7 +370,7 @@ tbody td {
   }
   .pro-sidebar.md.rtl {
     left: auto;
-    right: -12rem;
+    right: -14rem;
   }
   .pro-sidebar.md.rtl.collapsed {
     left: auto;
@@ -384,7 +384,7 @@ tbody td {
 @media (max-width: 992px) {
   .pro-sidebar.lg {
     position: fixed;
-    left: -12rem;
+    left: -14rem;
   }
   .pro-sidebar.lg.collapsed {
     left: -5rem;
@@ -397,7 +397,7 @@ tbody td {
   }
   .pro-sidebar.lg.rtl {
     left: auto;
-    right: -12rem;
+    right: -14rem;
   }
   .pro-sidebar.lg.rtl.collapsed {
     left: auto;
@@ -411,7 +411,7 @@ tbody td {
 @media (max-width: 1200px) {
   .pro-sidebar.xl {
     position: fixed;
-    left: -12rem;
+    left: -14rem;
   }
   .pro-sidebar.xl.collapsed {
     left: -5rem;
@@ -424,7 +424,7 @@ tbody td {
   }
   .pro-sidebar.xl.rtl {
     left: auto;
-    right: -12rem;
+    right: -14rem;
   }
   .pro-sidebar.xl.rtl.collapsed {
     left: auto;
@@ -442,7 +442,7 @@ tbody td {
   width: 4px;
   min-width: 4px;
   height: 4px;
-  border: 1px solid #323d50;
+  border: 1px solid #283140;
   border-radius: 50%;
   margin-right: 15px;
   position: relative;
@@ -461,7 +461,7 @@ tbody td {
 }
 .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
   position: relative;
-  background-color: #323d50;
+  background-color: #283140;
 }
 .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul {
   padding-top: 15px;
@@ -481,13 +481,13 @@ tbody td {
   background-color: transparent;
 }
 .pro-sidebar .pro-menu a:hover {
-  color: #ffffff;
+  color: #456cf6;
 }
 .pro-sidebar .pro-menu .pro-menu-item {
   font-size: 15px;
 }
 .pro-sidebar .pro-menu .pro-menu-item.active {
-  color: #ffffff;
+  color: #456cf6;
 }
 .pro-sidebar .pro-menu .pro-menu-item .suffix-wrapper {
   opacity: 1;
@@ -508,7 +508,7 @@ tbody td {
 }
 .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:focus {
   outline: none;
-  color: #ffffff;
+  color: #456cf6;
 }
 .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
   margin-right: 10px;
@@ -531,7 +531,7 @@ tbody td {
   flex-shrink: 1;
 }
 .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover {
-  color: #ffffff;
+  color: #456cf6;
 }
 .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover .pro-icon-wrapper .pro-icon {
   animation: swing ease-in-out 0.5s 1 alternate;
@@ -739,9 +739,12 @@ tbody td {
 .pro-inner-item {
   padding-left: 0.5rem !important;
 }
+.pro-inner-item:hover .pro-arrow-wrapper .pro-arrow {
+  border-color: #456cf6 !important;
+}
 
-.react-slidedown .pro-inner-list-item {
-  border-radius: 50% !important;
+li.pro-menu-item.pro-sub-menu.sidebar-list-item.rounded.open > div.pro-inner-item > span.pro-arrow-wrapper > span {
+  border-color: #456cf6 !important;
 }
 
 .pro-arrow-wrapper {
@@ -750,7 +753,6 @@ tbody td {
 }
 
 .pro-sidebar .pro-menu .pro-menu-item.pro-sub-menu .pro-inner-list-item .pro-inner-item:before {
-  background-color: #ffffff;
   border: none;
 }
 
@@ -775,17 +777,10 @@ tbody td {
   border: none !important;
 }
 
-.sidebar-list-item {
-  transition: background-color 150ms;
-}
-.sidebar-list-item:hover {
-  background-color: #456cf6;
-}
-
 .page {
   min-height: 100%;
-  width: calc(100% - 12rem);
-  margin-left: 12rem;
+  width: calc(100% - 14rem);
+  margin-left: 14rem;
 }
 
 .topbar {
