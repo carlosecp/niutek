@@ -1,79 +1,70 @@
-.sidebar-container {
+$sidebar-bg-color: $nav-background !default;
+$sidebar-color: $color-text-primary !default;
+$sidebar-width: 12rem !default;
+$sidebar-collapsed-width: 5rem !default;
+$highlight-color: $color-text-primary !default;
+$submenu-bg-color: lighten($nav-background, 5%) !default;
+$submenu-bg-color-collapsed: $nav-background !default;
+$icon-bg-color: $color-text-primary !default;
+$icon-size: 2rem !default;
+
+@import '../../../node_modules/react-pro-sidebar/dist/scss/styles.scss';
+
+.pro-sidebar {
 	position: fixed;
-	width: 12rem;
-	height: 100%;
+}
+
+.pro-sidebar .pro-menu .pro-menu-item {
+	font-size: 1rem;
+}
+
+.pro-inner-item {
+	padding-left: 0.5rem !important;
+}
+
+.react-slidedown .pro-inner-list-item {
+	border-radius: 50% !important;
+}
+
+.pro-arrow-wrapper {
+	display: flex !important;
+	align-items: center !important;
+}
+
+.pro-sidebar
+	.pro-menu
+	.pro-menu-item.pro-sub-menu
+	.pro-inner-list-item
+	.pro-inner-item:before {
+	background-color: $color-text-primary;
+	border: none;
+}
+
+.pro-icon-wrapper {
+	margin-right: 0.25rem !important;
+}
+
+.pro-menu {
+	padding: 0 0.75rem;
+}
+
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul {
+	padding: 0.25rem 0;
+}
+
+.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-header {
+	padding: 0;
+	height: 4rem;
 	display: flex;
-	flex-direction: column;
-
-	background-color: $nav-background;
-}
-
-.sidebar-hide {
-	left: -100%;
-	transition: position 2s;
-}
-
-.sidebar-logo {
-	text-align: center;
-	padding: 1rem;
-}
-
-.sidebar-nav {
-	margin: 1rem 0;
-	padding: 0 1rem;
+	justify-content: center;
+	align-items: center;
+	border: none !important;
 }
 
 .sidebar-list-item {
-	height: $input-height;
-	margin: 0.5rem 0;
-	padding: 0 0.75rem;
-
-	position: relative;
-
-	cursor: pointer;
 	transition: background-color $transition-default;
 
 	&:hover {
 		background-color: $color-primary;
-	}
-}
-
-.sidebar-list-item-info {
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-
-.sidebar-dropdown-menu {
-	padding-left: 0.75rem;
-
-	.sidebar-dropdown-item {
-		padding: 0.5rem 0;
-		font-size: 0.9rem;
-
-		&:hover {
-			color: $color-primary;
-		}
-	}
-}
-
-.sidebar-item-icon {
-	margin-right: 0.5rem;
-}
-
-.is-active {
-	background-color: $color-primary;
-}
-
-.sidebar-dropdown-item {
-	padding: 0.5rem 1rem;
-	cursor: pointer;
-	font-size: 0.9rem;
-	color: $color-text-secondary;
-	display: flex;
-	align-items: center;
-
-	&:hover {
-		color: $color-primary;
 	}
 }
