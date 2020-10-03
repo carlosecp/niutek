@@ -4,7 +4,7 @@ import SearchUserForm from '../../utils/SearchUserForm'
 import PersonaNaturalCreate from './PersonaNaturalCreate'
 
 function PersonaNatural() {
-	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
+	const [showCreateFormButton, setShowCreateFormButton] = useState(true)
 
 	return (
 		<>
