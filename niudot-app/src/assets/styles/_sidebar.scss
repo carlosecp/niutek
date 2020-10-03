@@ -12,21 +12,6 @@ $icon-size: 2rem !default;
 
 .pro-sidebar {
 	position: fixed;
-<<<<<<< HEAD
-	z-index: 10;
-	width: 12rem;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-
-	background-color: $nav-background;
-}
-
-.sidebar-hide {
-	left: -12rem;
-	transition: left position 2s;
-=======
->>>>>>> sidebar-redesign
 }
 
 .pro-sidebar-inner ::-webkit-scrollbar {
