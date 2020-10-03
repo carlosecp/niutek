@@ -1,5 +1,18 @@
-.sidebar-container {
+$sidebar-bg-color: $nav-background !default;
+$sidebar-color: $color-text-primary !default;
+$sidebar-width: 14rem !default;
+$sidebar-collapsed-width: 5rem !default;
+$highlight-color: $color-text-primary !default;
+$submenu-bg-color: lighten($nav-background, 5%) !default;
+$submenu-bg-color-collapsed: $nav-background !default;
+$icon-bg-color: $color-text-primary !default;
+$icon-size: 2rem !default;
+
+@import '../../../node_modules/react-pro-sidebar/dist/scss/styles.scss';
+
+.pro-sidebar {
 	position: fixed;
+<<<<<<< HEAD
 	z-index: 10;
 	width: 12rem;
 	height: 100%;
@@ -12,26 +25,36 @@
 .sidebar-hide {
 	left: -12rem;
 	transition: left position 2s;
+=======
+>>>>>>> sidebar-redesign
 }
 
-.sidebar-logo {
-	text-align: center;
-	padding: 1rem;
+.pro-sidebar-inner ::-webkit-scrollbar {
+	width: 0;
 }
 
-.sidebar-nav {
-	margin: 1rem 0;
-	padding: 0 1rem;
+.pro-menu-item {
+	font-size: 1rem !important;
 }
 
-.sidebar-list-item {
-	height: $input-height;
-	margin: 0.5rem 0;
-	padding: 0 0.75rem;
+.pro-sidebar-header {
+	position: fixed;
+	width: 14rem;
+	height: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $nav-background !important;
+	color: $color-text-primary;
+	border-bottom: none !important;
+	z-index: 10;
+}
 
-	position: relative;
+.pro-sidebar-content {
+	margin-top: 4rem;
+}
 
-	cursor: pointer;
+.sidebar-item {
 	transition: background-color $transition-default;
 
 	&:hover {
@@ -39,42 +62,6 @@
 	}
 }
 
-.sidebar-list-item-info {
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-
-.sidebar-dropdown-menu {
-	padding-left: 0.75rem;
-
-	.sidebar-dropdown-item {
-		padding: 0.5rem 0;
-		font-size: 0.9rem;
-
-		&:hover {
-			color: $color-primary;
-		}
-	}
-}
-
-.sidebar-item-icon {
-	margin-right: 0.5rem;
-}
-
-.is-active {
-	background-color: $color-primary;
-}
-
-.sidebar-dropdown-item {
-	padding: 0.5rem 1rem;
-	cursor: pointer;
-	font-size: 0.9rem;
-	color: $color-text-secondary;
-	display: flex;
-	align-items: center;
-
-	&:hover {
-		color: $color-primary;
-	}
+.pro-inner-list-item .pro-inner-item:hover {
+	color: $color-primary !important;
 }

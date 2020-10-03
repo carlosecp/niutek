@@ -9,9 +9,12 @@ $color-success: #36a794;
 $color-alert: #bd783f;
 $color-text-primary: #ffffff;
 $color-text-secondary: #9ba6ad;
+
 $input-height: 2.5rem;
 $input-x-padding: 0.75rem;
 $transition-default: 150ms;
+$border-radius: 0.25rem;
+
 
 * {
 	padding: 0;
@@ -44,15 +47,15 @@ body {
 }
 
 .rounded {
-	border-radius: 0.5rem;
+	border-radius: $border-radius;
 }
 
 .rounded-l {
-	border-radius: 0.5rem 0 0 0.5rem;
+	border-radius: $border-radius 0 0 $border-radius;
 }
 
 .rounded-r {
-	border-radius: 0 0.5rem 0.5rem 0;
+	border-radius: 0 $border-radius $border-radius 0;
 }
 
 .icon {

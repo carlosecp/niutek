@@ -1,6 +1,14 @@
 import React from 'react'
+import { useFormik } from 'formik'
 
-export default function PersonaJuridicaCreate() {
+function PersonaJuridicaCreate() {
+	const formik = useFormik({
+		initialValues: {
+			codigoCliente: '',
+			// razonSocial
+		}
+	})
+
 	return (
 		<div className='form'>
 			<div className='form-title-container'>
@@ -52,26 +60,34 @@ export default function PersonaJuridicaCreate() {
 					/>
 				</div>
 				<div className='form-field-sm'>
-					<input type='text' className='std-input rounded' placeholder='Teléfono 1' />
+					<input
+						type='text'
+						className='std-input rounded'
+						placeholder='Teléfono 1'
+					/>
 				</div>
-				<div className="form-field-sm">
-					<input type="text" className="std-input rounded" placeholder='Teléfono 2'/>
+				<div className='form-field-sm'>
+					<input
+						type='text'
+						className='std-input rounded'
+						placeholder='Teléfono 2'
+					/>
 				</div>
-                <div className='form-field-xl'>
+				<div className='form-field-xl'>
 					<input
 						type='text'
 						className='std-input rounded'
 						placeholder='Dirección'
 					/>
 				</div>
-                <div className='form-field-lg'>
+				<div className='form-field-lg'>
 					<input
 						type='text'
 						className='std-input rounded'
 						placeholder='Fecha de constitución'
 					/>
 				</div>
-                <div className='form-field-lg'>
+				<div className='form-field-lg'>
 					<input
 						type='text'
 						className='std-input rounded'
@@ -82,3 +98,5 @@ export default function PersonaJuridicaCreate() {
 		</div>
 	)
 }
+
+export default PersonaJuridicaCreate
