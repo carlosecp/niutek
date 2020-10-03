@@ -32,7 +32,20 @@
 	}
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 970px) {
+	.form-retractile > .form-retractile {
+		margin-left: 0;
+	}
+
+	.form-retractile {
+		.form-container {
+			margin-left: 0;
+		}
+	}
+}
+
+
+@media screen and (max-width: 678px) {
 	.sidebar-container {
 		width: 16rem;
 		left: 0;
@@ -71,5 +84,10 @@
 
 	.form-field-xs-nl {
 		grid-column: 1 / span 1;
+	}
+
+	.form-retractile-form {
+		padding-bottom: 0.75rem;
+		margin-bottom: 0.75rem;
 	}
 }

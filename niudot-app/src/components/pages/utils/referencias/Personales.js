@@ -1,28 +1,12 @@
 import React from 'react'
-import { Formik } from 'formik'
 import { FaChevronDown } from 'react-icons/fa'
-import DatosEconomicos from './DatosEconomicos'
-import PrincipalesProveedores from './principalesproveedores/PrincipalesProveedores'
-import Referencias from '../../utils/referencias/Referencias'
-import AccionistasMayoritarios from './accionistasmayoritarios/AccionistasMayoritarios'
-import OrigenFondos from './OrigenFondos'
+import RetractileForm from '../RetractileForm'
 
-function PersonaJuridicaCreate() {
+function Personales({ title }) {
 	return (
-		<div className='form'>
-			<div className='form-title-container'>
-				<h2>Crear Un Nuevo Cliente</h2>
-				<p className='form-description'>Registra un nuevo cliente.</p>
-			</div>
+		<RetractileForm formTitle={title}>
 			<form className='form-container'>
-				<div className='form-field-md'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Código de Cliente'
-					/>
-				</div>
-				<div className='form-field-lg-nl'>
+				<div className='form-field-lg'>
 					<input
 						type='text'
 						className='std-input rounded'
@@ -46,14 +30,14 @@ function PersonaJuridicaCreate() {
 						<FaChevronDown />
 					</div>
 				</div>
-				<div className='form-field-lg'>
+				<div className='form-field-sm'>
 					<input
 						type='text'
 						className='std-input rounded'
-						placeholder='No. Identificacion'
+						placeholder='No. Identificación'
 					/>
 				</div>
-				<div className='form-field-lg'>
+				<div className='form-field-sm'>
 					<input
 						type='text'
 						className='std-input rounded'
@@ -64,21 +48,24 @@ function PersonaJuridicaCreate() {
 					<input
 						type='text'
 						className='std-input rounded'
-						placeholder='Fecha de Nacimiento'
+						placeholder='Fecha de nacimiento'
 					/>
 				</div>
 				<div className='form-field-sm'>
 					<input
 						type='text'
-						className='std-input rounded'
-						placeholder='Estado Civil'
+						className='std-input rounded-l'
+						placeholder='Estado civil'
 					/>
+					<div className='btn input-btn-transparent rounded-r'>
+						<FaChevronDown />
+					</div>
 				</div>
 				<div className='form-field-sm'>
 					<input
 						type='text'
 						className='std-input rounded'
-						placeholder='Número de Hijos'
+						placeholder='Número de hijos'
 					/>
 				</div>
 				<div className='form-field-xl'>
@@ -92,24 +79,19 @@ function PersonaJuridicaCreate() {
 					<input
 						type='text'
 						className='std-input rounded'
-						placeholder='Fecha de Constitución'
+						placeholder='Tiempo de conocer al referido'
 					/>
 				</div>
 				<div className='form-field-lg'>
 					<input
 						type='text'
 						className='std-input rounded'
-						placeholder='Fecha de Personería'
+						placeholder='Email'
 					/>
 				</div>
 			</form>
-			<DatosEconomicos />
-			<PrincipalesProveedores />
-			<Referencias />
-			<AccionistasMayoritarios />
-			<OrigenFondos />
-		</div>
+		</RetractileForm>
 	)
 }
 
-export default PersonaJuridicaCreate
+export default Personales

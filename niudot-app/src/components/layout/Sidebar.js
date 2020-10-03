@@ -6,10 +6,10 @@ import {
 	SidebarContent,
 	Menu,
 	MenuItem,
-	SubMenu
 } from 'react-pro-sidebar'
 import { FaHome } from 'react-icons/fa/index'
 import pages from '../pages/pages'
+import SidebarSubMenu from './SidebarSubMenu'
 
 function Sidebar() {
 	return (
@@ -24,18 +24,7 @@ function Sidebar() {
 						<Link to='/inicio'/>
 					</MenuItem>
 					{pages.map((page) => (
-						<SubMenu
-							title={page.name}
-							icon={page.icon}
-							className='sidebar-item'
-						>
-							{page.dropdownOptions.map((option) => (
-								<MenuItem>
-									{option.name}
-									<Link to={`/${option.path}`} />
-								</MenuItem>
-							))}
-						</SubMenu>
+						<SidebarSubMenu page={page}/>
 					))}
 				</Menu>
 			</SidebarContent>

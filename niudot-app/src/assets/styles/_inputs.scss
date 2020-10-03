@@ -1,7 +1,3 @@
-.form {
-	margin-bottom: 2rem;
-}
-
 .form-container {
 	max-width: 40rem;
 	margin-bottom: 2rem;
@@ -10,10 +6,6 @@
 	grid-template-columns: repeat(12, 1fr);
 	grid-auto-rows: minmax($input-height, auto);
 	gap: 0.75rem;
-
-	&:last-child {
-		margin-bottom: 0;
-	}
 }
 
 .form-title-container {
@@ -32,6 +24,33 @@
 	}
 
 	.form-description {
+		color: $color-text-secondary;
+	}
+}
+
+.form-retractile > .form-retractile {
+	margin-left: 1rem;
+	color: $color-text-primary;
+}
+
+.form-retractile {
+	.form-container {
+		margin-left: 1rem;
+	}
+}
+
+.form-retractile-form {
+	padding-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
+	border-bottom: 1px solid $color-secondary;
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.form-retractile-title {
+	&:hover {
 		color: $color-text-secondary;
 	}
 }
@@ -105,6 +124,10 @@
 	grid-column: span 1;
 }
 
+.form-field-xs > .std-input {
+	text-align: center;
+}
+
 .form-field-lg-nl {
 	grid-column: 1 / span 6;
 }
@@ -125,10 +148,8 @@
 	display: flex;
 }
 
-.form-retractile {
-	form {
-		// padding-left: 1.5rem;
-	}
+.form-retractile-child {
+	color: $color-text-secondary;
 }
 
 .form-title-chevron {

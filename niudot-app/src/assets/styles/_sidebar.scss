@@ -7,8 +7,13 @@ $submenu-bg-color: lighten($nav-background, 5%) !default;
 $submenu-bg-color-collapsed: $nav-background !default;
 $icon-bg-color: $color-text-primary !default;
 $icon-size: 2rem !default;
+$breakpoint-sm: 678px !default;
 
 @import '../../../node_modules/react-pro-sidebar/dist/scss/styles.scss';
+
+li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
+	background-color: $color-primary;
+}
 
 .pro-sidebar {
 	position: fixed;

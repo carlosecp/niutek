@@ -11,17 +11,17 @@ function RetractileForm({ formTitle, children }) {
 	return (
 		<div className='form form-retractile'>
 			<div
-				className='form-title-container form-title-chevron'
+				className='form-title-container form-title-chevron form-retractile-title'
 				onClick={toggleRetraction}
 			>
 				<FaChevronRight
 					className={`form-retractile-chevron ${
-						itsRetracted && 'form-active'
+						itsRetracted || 'form-active'
 					}`}
 				/>
 				<h2>{formTitle}</h2>
 			</div>
-			{itsRetracted && <>{children}</>}
+			{itsRetracted || <>{children}</>}
 		</div>
 	)
 }
