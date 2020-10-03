@@ -11,7 +11,7 @@ function Sidebar() {
 
 	useEffect(() => {
 		if (window.innerWidth >= 576) {
-			setShowSidebar(true)
+			setShowSidebar(false)
 		}
 	}, [setShowSidebar])
 

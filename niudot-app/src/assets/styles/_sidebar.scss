@@ -1,5 +1,6 @@
 .sidebar-container {
 	position: fixed;
+	z-index: 10;
 	width: 12rem;
 	height: 100%;
 	display: flex;
@@ -9,8 +10,8 @@
 }
 
 .sidebar-hide {
-	left: -100%;
-	transition: position 2s;
+	left: -12rem;
+	transition: left position 2s;
 }
 
 .sidebar-logo {
