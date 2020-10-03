@@ -2,8 +2,8 @@ $sidebar-bg-color: $nav-background !default;
 $sidebar-color: $color-text-primary !default;
 $sidebar-width: 14rem !default;
 $sidebar-collapsed-width: 5rem !default;
-$highlight-color: $color-primary !default;
-$submenu-bg-color: $nav-background !default;
+$highlight-color: $color-text-primary !default;
+$submenu-bg-color: lighten($nav-background, 5%) !default;
 $submenu-bg-color-collapsed: $nav-background !default;
 $icon-bg-color: $color-text-primary !default;
 $icon-size: 2rem !default;
@@ -14,58 +14,39 @@ $icon-size: 2rem !default;
 	position: fixed;
 }
 
-.pro-sidebar .pro-menu .pro-menu-item {
-	font-size: 1rem;
+.pro-sidebar-inner ::-webkit-scrollbar {
+	width: 0;
 }
 
-.pro-inner-item {
-	padding-left: 0.5rem !important;
-
-	&:hover {
-		.pro-arrow-wrapper .pro-arrow {
-			border-color: $color-primary !important;
-		}
-	}
+.pro-menu-item {
+	font-size: 1rem !important;
 }
 
-li.pro-menu-item.pro-sub-menu.sidebar-list-item.rounded.open
-	> div.pro-inner-item
-	> span.pro-arrow-wrapper
-	> span {
-	border-color: $color-primary !important;
-}
-
-.pro-arrow-wrapper {
-	display: flex !important;
-	align-items: center !important;
-}
-
-.pro-sidebar
-	.pro-menu
-	.pro-menu-item.pro-sub-menu
-	.pro-inner-list-item
-	.pro-inner-item:before {
-	// background-color: $color-text-primary;
-	border: none;
-}
-
-.pro-icon-wrapper {
-	margin-right: 0.25rem !important;
-}
-
-.pro-menu {
-	padding: 0 0.75rem;
-}
-
-.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul {
-	padding: 0.25rem 0;
-}
-
-.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-header {
-	padding: 0;
+.pro-sidebar-header {
+	position: fixed;
+	width: 14rem;
 	height: 4rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: none !important;
+	background-color: $nav-background !important;
+	color: $color-text-primary;
+	border-bottom: none !important;
+	z-index: 10;
+}
+
+.pro-sidebar-content {
+	margin-top: 4rem;
+}
+
+.sidebar-item {
+	transition: background-color $transition-default;
+
+	&:hover {
+		background-color: $color-primary;
+	}
+}
+
+.pro-inner-list-item .pro-inner-item:hover {
+	color: $color-primary !important;
 }
