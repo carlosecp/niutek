@@ -5,7 +5,7 @@ import {
 	SidebarHeader,
 	SidebarContent,
 	Menu,
-	MenuItem,
+	MenuItem
 } from 'react-pro-sidebar'
 import { FaHome } from 'react-icons/fa/index'
 import pages from '../pages/pages'
@@ -21,10 +21,10 @@ function Sidebar() {
 				<Menu>
 					<MenuItem icon={<FaHome />} className='sidebar-item'>
 						Inicio
-						<Link to='/inicio'/>
+						<Link to='/inicio' />
 					</MenuItem>
 					{pages.map((page) => (
-						<SidebarSubMenu page={page}/>
+						<SidebarSubMenu key={page.name} page={page} />
 					))}
 				</Menu>
 			</SidebarContent>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Formik } from 'formik'
 import { FaChevronDown } from 'react-icons/fa'
 import DatosEconomicos from './DatosEconomicos'
 import PrincipalesProveedores from './principalesproveedores/PrincipalesProveedores'
