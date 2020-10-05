@@ -1,9 +1,13 @@
 import React from 'react'
-import { Formik, Field, Form } from 'formik'
+import { Formik, Form } from 'formik'
 import { FaChevronDown } from 'react-icons/fa'
 import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
-import { TextInput, CheckboxInput } from '../../utils/formikComponents'
+import {
+	FormTextInput,
+	FormCheckboxInput
+} from '../../utils/formikComponentsEndpoint'
+import TextInput from '../../utils/formikComponents/TextInput'
 
 function PersonaNaturalCreate() {
 	return (
@@ -35,30 +39,19 @@ function PersonaNaturalCreate() {
 					<p className='form-description'>Registra un nuevo cliente.</p>
 				</div>
 				<Form className='form-container'>
-					<div className='form-field-md'>
-						<TextInput
-							name='codigoCliente'
-							type='text'
-							className='std-input rounded'
-							placeholder='Código de Cliente'
-						/>
-					</div>
-					<div className='form-field-lg-nl'>
-						<TextInput
-							name='nombres'
-							type='text'
-							className='std-input rounded'
-							placeholder='Nombres'
-						/>
-					</div>
-					<div className='form-field-lg'>
-						<TextInput
-							name='apellidos'
-							type='text'
-							className='std-input rounded'
-							placeholder='Apellidos'
-						/>
-					</div>
+					<FormTextInput
+						name='codigoCliente'
+						classes='md'
+						placeholder='Código de Cliente'
+					/>
+					<FormTextInput name='nombres' classes='lg-nl' placeholder='Nombres' />
+					<FormTextInput
+						name='apellidos'
+						classes='lg'
+						placeholder='Apellidos'
+					/>
+
+					{/* Falta convertir los selection a Formik */}
 					<div className='form-field-lg'>
 						<TextInput
 							name='tipoId'
@@ -70,91 +63,67 @@ function PersonaNaturalCreate() {
 							<FaChevronDown />
 						</div>
 					</div>
+
+					<FormTextInput
+						name='numeroId'
+						classes='lg'
+						placeholder='No. Identificacion'
+					/>
+					<FormTextInput
+						name='nacionalidad'
+						classes='lg'
+						placeholder='Nacionalidad'
+					/>
+					<FormTextInput
+						name='fechaNacimiento'
+						classes='lg'
+						placeholder='Fecha de Nacimiento'
+					/>
+					<FormTextInput
+						name='estadoCivil'
+						classes='sm'
+						placeholder='Estado Civil'
+					/>
+					<FormTextInput
+						name='numeroHijos'
+						classes='sm'
+						placeholder='Número de Hijos'
+					/>
+					<FormTextInput
+						name='direccion'
+						classes='xl'
+						placeholder='Dirección'
+					/>
+					<FormTextInput
+						name='telefono1'
+						classes='sm'
+						placeholder='Teléfono 1'
+					/>
+					<FormTextInput
+						name='telefono2'
+						classes='sm'
+						placeholder='Teléfono 2'
+					/>
+					<FormTextInput
+						name='municipio'
+						classes='sm'
+						placeholder='Municipio'
+					/>
+					<FormTextInput
+						name='departamento'
+						classes='sm'
+						placeholder='Departamento'
+					/>
+					{/* 
 					<div className='form-field-lg'>
-						<TextInput
-							name='numeroId'
-							type='text'
-							className='std-input rounded'
-							placeholder='No. Identificacion'
-						/>
-					</div>
-					<div className='form-field-lg'>
-						<TextInput
-							name='nacionalidad'
-							type='text'
-							className='std-input rounded'
-							placeholder='Nacionalidad'
-						/>
-					</div>
-					<div className='form-field-lg'>
-						<TextInput
-							name='fechaNacimiento'
-							type='text'
-							className='std-input rounded'
-							placeholder='Fecha de Nacimiento'
-						/>
-					</div>
-					<div className='form-field-sm'>
-						<TextInput
-							name='estadoCivil'
-							type='text'
-							className='std-input rounded'
-							placeholder='Estado Civil'
-						/>
-					</div>
-					<div className='form-field-sm'>
-						<TextInput
-							name='numeroHijos'
-							type='text'
-							className='std-input rounded'
-							placeholder='Número de Hijos'
-						/>
-					</div>
-					<div className='form-field-xl'>
-						<TextInput
-							name='direccion'
-							type='text'
-							className='std-input rounded'
-							placeholder='Dirección'
-						/>
-					</div>
-					<div className='form-field-sm'>
-						<TextInput
-							name='telefono1'
-							type='text'
-							className='std-input rounded'
-							placeholder='Teléfono 1'
-						/>
-					</div>
-					<div className='form-field-sm'>
-						<TextInput
-							name='telefono2'
-							type='text'
-							className='std-input rounded'
-							placeholder='Teléfono 2'
-						/>
-					</div>
-					<div className='form-field-sm'>
-						<TextInput
-							name='municipio'
-							type='text'
-							className='std-input rounded'
-							placeholder='Municipio'
-						/>
-					</div>
-					<div className='form-field-sm'>
-						<TextInput
-							name='departamento'
-							type='text'
-							className='std-input rounded'
-							placeholder='Departamento'
-						/>
-					</div>
-					<div className='form-field-lg'>
-						<div className='std-input rou'>
-							<Field type='checkbox' name='cargoPublico' />
-						</div>
-					</div>
+						<div className='std-input rounded'> */}
+
+					<FormCheckboxInput
+						label='Esta es mi label'
+						name='cargoPublico'
+						classes='lg'
+					/>
+
 					<button type='submit'>Submit</button>
 				</Form>
 				<DatosProfesionalesEconomicos />
