@@ -5,7 +5,8 @@ import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
 import {
 	FormTextInput,
-	FormCheckboxInput
+	FormCheckboxInput,
+	FormDropdownInput
 } from '../../utils/formikComponentsEndpoint'
 import TextInput from '../../utils/formikComponents/TextInput'
 
@@ -52,17 +53,10 @@ function PersonaNaturalCreate() {
 					/>
 
 					{/* Falta convertir los selection a Formik */}
-					<div className='form-field-lg'>
-						<TextInput
-							name='tipoId'
-							type='text'
-							className='std-input rounded-l'
-							placeholder='Tipo de Identificacion'
-						/>
-						<div className='btn input-btn-transparent rounded-r'>
-							<FaChevronDown />
-						</div>
-					</div>
+
+					<FormDropdownInput
+						classes='lg'
+					/>
 
 					<FormTextInput
 						name='numeroId'

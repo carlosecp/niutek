@@ -176,6 +176,37 @@
 	}
 }
 
-input[type='checkbox'] {
-	// Empty
+.dropdown {
+	position: relative;
+  }
+  
+
+.dropdown-content {
+	position: absolute;
+	background-color: $color-secondary;
+	min-width: 100%;
+	top: $input-height;
+	border-radius: $border-radius;
+}
+
+.dropdown-content li {
+	color: white;
+	padding: 12px 1rem;
+	text-decoration: none;
+}
+
+.dropdown-content li:hover {
+	background-color: $color-primary;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.changeRadius {
+	border-radius: 0 0 $border-radius $border-radius;
+}
+
+.changeFormRadius {
+	border-radius: 0;
 }
