@@ -178,35 +178,35 @@
 
 .dropdown {
 	position: relative;
-  }
-  
+}
 
 .dropdown-content {
 	position: absolute;
 	background-color: $color-secondary;
 	min-width: 100%;
 	top: $input-height;
-	border-radius: $border-radius;
+	border-radius: 0 0 $border-radius $border-radius;
+	box-shadow: 0 0.25rem 0.25rem rgba($color: #000000, $alpha: 0.25);
 }
 
 .dropdown-content li {
-	color: white;
-	padding: 12px 1rem;
-	text-decoration: none;
+	color: $color-text-primary;
+	padding: 0.75rem 1rem;
+	transition: background-color $transition-default;
+	cursor: pointer;
+	&:last-child {
+		border-radius: 0 0 $border-radius $border-radius;
+	}
 }
 
 .dropdown-content li:hover {
 	background-color: $color-primary;
 }
 
-.dropdown:hover .dropdown-content {
-	display: block;
+.dropdown-active-input {
+	border-radius: $border-radius 0 0 0;
 }
 
-.changeRadius {
-	border-radius: 0 0 $border-radius $border-radius;
-}
-
-.changeFormRadius {
-	border-radius: 0;
+.dropdown-active-btn {
+	border-radius: 0 $border-radius 0 0;
 }

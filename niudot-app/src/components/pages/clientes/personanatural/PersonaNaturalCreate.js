@@ -52,11 +52,12 @@ function PersonaNaturalCreate() {
 						placeholder='Apellidos'
 					/>
 
-					{/* Falta convertir los selection a Formik */}
-
-					<FormDropdownInput
-						classes='lg'
-					/>
+					<FormDropdownInput classes='lg'>
+						<li>Option 1</li>
+						<li>Option 2</li>
+						<li>Option 3</li>
+						<li>Option 4</li>
+					</FormDropdownInput>
 
 					<FormTextInput
 						name='numeroId'
@@ -108,9 +109,6 @@ function PersonaNaturalCreate() {
 						classes='sm'
 						placeholder='Departamento'
 					/>
-					{/* 
-					<div className='form-field-lg'>
-						<div className='std-input rounded'> */}
 
 					<FormCheckboxInput
 						label='Esta es mi label'
