@@ -1,6 +1,5 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-import { FaChevronDown } from 'react-icons/fa'
 import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
 import {
@@ -22,7 +21,7 @@ function PersonaNaturalCreate() {
 				nacionalidad: '',
 				fechaNacimiento: '',
 				estadoCivil: '',
-				numeroHijos: 0,
+				numeroHijos: '',
 				direccion: '',
 				telefono1: '',
 				telefono2: '',
@@ -52,11 +51,11 @@ function PersonaNaturalCreate() {
 						placeholder='Apellidos'
 					/>
 
-					<FormDropdownInput classes='lg'>
-						<li>Option 1</li>
-						<li>Option 2</li>
-						<li>Option 3</li>
-						<li>Option 4</li>
+					<FormDropdownInput classes='lg' name='tipoId'>
+						<option value="Option1">Option 1</option>
+						<option value="Option2">Option 2</option>
+						<option value="Option3">Option 3</option>
+						<option value="Option4">Option 4</option>
 					</FormDropdownInput>
 
 					<FormTextInput

@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { FaChevronDown } from 'react-icons/fa'
 import TextInput from './formikComponents/TextInput'
 import CheckboxInput from './formikComponents/CheckboxInput'
-import { FaChevronDown } from 'react-icons/fa'
+import DropdownInput from './formikComponents/DropdownInput'
 
-function FormTextInput({ classes, name, placeholder }) {
+function FormTextInput({ classes, name, placeholder, type = 'text' }) {
 	return (
 		<div className={`form-field-${classes}`}>
-			<TextInput name={name} type='text' placeholder={placeholder} />
+			<TextInput name={name} type={type} placeholder={placeholder} />
 		</div>
 	)
 }
@@ -20,30 +21,12 @@ function FormCheckboxInput({ classes, name, label }) {
 }
 
 function FormDropdownInput({ classes, ...props }) {
-	const [showDropdown, setShowDropdown] = useState(false)
-
 	return (
-		<div className={`form-field-${classes} dropdown`}>
-			<div
-				className={`std-input ${
-					!showDropdown ? 'rounded-l' : 'dropdown-active-input'
-				}`}
-			></div>
-
-			<div
-				className={`btn input-btn-transparent ${
-					!showDropdown ? 'rounded-r' : 'dropdown-active-btn'
-				}`}
-				onClick={() => setShowDropdown(!showDropdown)}
-			>
+		<div className={`form-field-${classes} dropdown-container rounded`}>
+			<DropdownInput {...props} />
+			<span className='dropdown-icon'>
 				<FaChevronDown />
-			</div>
-
-			{showDropdown && (
-				<div className={`dropdown-content`}>
-					<ul>{props.children}</ul>
-				</div>
-			)}
+			</span>
 		</div>
 	)
 }

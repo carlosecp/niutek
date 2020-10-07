@@ -15,14 +15,12 @@ $input-x-padding: 0.75rem;
 $transition-default: 150ms;
 $border-radius: 0.25rem;
 
-
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: inherit;
 	color: inherit;
-	font-family: 'Nunito Sans';
+	font-family: 'Nunito', sans-serif !important;
 }
 
 :root {
@@ -41,7 +39,6 @@ html,
 body {
 	min-height: 100vh;
 
-	font-family: 'Nunito', sans-serif !important;
 	background-color: $page-background;
 	color: $color-text-primary;
 }

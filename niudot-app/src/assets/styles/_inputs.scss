@@ -176,37 +176,37 @@
 	}
 }
 
-.dropdown {
+.dropdown-container {
 	position: relative;
-}
-
-.dropdown-content {
-	position: absolute;
+	max-width: 100%;
+	display: flex;
+	height: $input-height;
+	align-items: stretch;
+	
+	color: $color-text-secondary;
 	background-color: $color-secondary;
-	min-width: 100%;
-	top: $input-height;
-	border-radius: 0 0 $border-radius $border-radius;
-	box-shadow: 0 0.25rem 0.25rem rgba($color: #000000, $alpha: 0.25);
+	border: none;
+	outline: none;
 }
 
-.dropdown-content li {
-	color: $color-text-primary;
-	padding: 0.75rem 1rem;
-	transition: background-color $transition-default;
-	cursor: pointer;
-	&:last-child {
-		border-radius: 0 0 $border-radius $border-radius;
+.dropdown-container select {
+	appearance: none;
+	width: 100%;
+	padding: 0 $input-x-padding;
+	
+	font-size: 0.87rem;
+	background-color: $color-secondary;
+	border: none;
+	border-radius: $border-radius;
+
+	&:focus {
+		outline: none;
 	}
 }
 
-.dropdown-content li:hover {
-	background-color: $color-primary;
-}
-
-.dropdown-active-input {
-	border-radius: $border-radius 0 0 0;
-}
-
-.dropdown-active-btn {
-	border-radius: 0 $border-radius 0 0;
+.dropdown-icon {
+	position: absolute;
+	right: 0.75rem;
+	bottom: 25%;
+	transform: translateY(calc(25% - 0.05rem));
 }
