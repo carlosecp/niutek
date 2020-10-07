@@ -22,11 +22,13 @@ function FormCheckboxInput({ classes, name, label }) {
 
 function FormDropdownInput({ classes, ...props }) {
 	return (
-		<div className={`form-field-${classes} dropdown-container rounded`}>
-			<DropdownInput {...props} />
-			<span className='dropdown-icon'>
-				<FaChevronDown />
-			</span>
+		<div className={`form-field-${classes}`}>
+			<div className='dropdown-container rounded'>
+				<DropdownInput {...props} />
+				<span className='dropdown-icon'>
+					<FaChevronDown />
+				</span>
+			</div>
 		</div>
 	)
 }
