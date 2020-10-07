@@ -1,25 +1,22 @@
 import React from 'react'
 import RetractileForm from '../../utils/RetractileForm'
+import {
+	FormTextInput
+} from '../../utils/formikComponentsEndpoint'
 
 function DatosProfesionalesEconomicos() {
 	return (
 		<RetractileForm formTitle='Datos Profesionales y Económicos'>
-			<form className='form-container'>
-				<div className='form-field-lg'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Profesion u oficio'
-					/>
-				</div>
+			<div className='form-container'>
+
+				<FormTextInput name='profesion' classes='lg' placeholder='Profesion u oficio'/>
+
 				<div className='form-field-lg'>
 					<input
 						type='text'
 						className='std-input rounded'
 						placeholder='Ocupación / Puesto'
 					/>
-				</div>
-				<div className='form-field-lg'>
 					<input
 						type='text'
 						className='std-input rounded'
@@ -54,7 +51,7 @@ function DatosProfesionalesEconomicos() {
 						placeholder='Ingreso anual aproximado'
 					/>
 				</div>
-			</form>
+			</div>
 		</RetractileForm>
 	)
 }

@@ -134,7 +134,6 @@ body {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 4rem;
 }
 
 .form-field-xl {
@@ -231,6 +230,30 @@ body {
   bottom: 25%;
   transform: translateY(calc(25% - 0.15rem));
   pointer-events: none;
+}
+
+.form-btn-container {
+  margin-top: 2rem;
+}
+
+.form-btn-alert, .form-btn-primary, .form-btn-success, .form-cancel-btn, .form-submit-btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.form-submit-btn {
+  background-color: #36a794;
+}
+
+.form-cancel-btn {
+  background-color: #bd783f;
 }
 
 .table-container {
@@ -952,13 +975,13 @@ li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
   align-items: center;
 }
 
-.form-btn-alert, .form-btn-primary, .form-btn-success, .input-btn-transparent, .input-btn-primary {
+.form-btn-alert, .form-btn-primary, .form-btn-success, .form-submit-btn, .form-cancel-btn, .input-btn-transparent, .input-btn-primary {
   height: 2.5rem;
   transition: opacity 150ms;
   outline: none;
   border: none;
 }
-.form-btn-alert:hover, .form-btn-primary:hover, .form-btn-success:hover, .input-btn-transparent:hover, .input-btn-primary:hover, .form-btn-alert:active, .form-btn-primary:active, .form-btn-success:active, .input-btn-transparent:active, .input-btn-primary:active, .form-btn-alert:focus, .form-btn-primary:focus, .form-btn-success:focus, .input-btn-transparent:focus, .input-btn-primary:focus {
+.form-btn-alert:hover, .form-btn-primary:hover, .form-btn-success:hover, .form-submit-btn:hover, .form-cancel-btn:hover, .input-btn-transparent:hover, .input-btn-primary:hover, .form-btn-alert:active, .form-btn-primary:active, .form-btn-success:active, .form-submit-btn:active, .form-cancel-btn:active, .input-btn-transparent:active, .input-btn-primary:active, .form-btn-alert:focus, .form-btn-primary:focus, .form-btn-success:focus, .form-submit-btn:focus, .form-cancel-btn:focus, .input-btn-transparent:focus, .input-btn-primary:focus {
   opacity: 0.8;
 }
 
@@ -979,7 +1002,7 @@ li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
   background-color: #353c4a;
 }
 
-.form-btn-alert, .form-btn-primary, .form-btn-success {
+.form-btn-alert, .form-btn-primary, .form-btn-success, .form-submit-btn, .form-cancel-btn {
   display: flex;
   justify-content: center;
   align-items: center;

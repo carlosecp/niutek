@@ -1,126 +1,38 @@
 import React from 'react'
-import { Formik, Form } from 'formik'
+import { Form } from 'formik'
 import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
-import {
-	FormTextInput,
-	FormCheckboxInput,
-	FormDropdownInput
-} from '../../utils/formikComponentsEndpoint'
-import TextInput from '../../utils/formikComponents/TextInput'
+import NuevoCliente from './NuevoCliente'
 
 function PersonaNaturalCreate() {
 	return (
-		<Formik
-			initialValues={{
-				codigoCliente: '',
-				nombres: '',
-				apellidos: '',
-				tipoId: '',
-				numeroId: '',
-				nacionalidad: '',
-				fechaNacimiento: '',
-				estadoCivil: '',
-				numeroHijos: '',
-				direccion: '',
-				telefono1: '',
-				telefono2: '',
-				municipio: '',
-				departamento: '',
-				cargoPublico: false
-			}}
-			onSubmit={(values) => {
-				alert(JSON.stringify(values, null, 2))
-			}}
-		>
-			<div className='form'>
-				<div className='form-title-container'>
-					<h2>Crear Un Nuevo Cliente</h2>
-					<p className='form-description'>Registra un nuevo cliente.</p>
-				</div>
-				<Form className='form-container'>
-					<FormTextInput
-						name='codigoCliente'
-						classes='md'
-						placeholder='Código de Cliente'
-					/>
-					<FormTextInput name='nombres' classes='lg-nl' placeholder='Nombres' />
-					<FormTextInput
-						name='apellidos'
-						classes='lg'
-						placeholder='Apellidos'
-					/>
-
-					<FormDropdownInput classes='lg' name='tipoId'>
-						<option value="Option1">Option 1</option>
-						<option value="Option2">Option 2</option>
-						<option value="Option3">Option 3</option>
-						<option value="Option4">Option 4</option>
-					</FormDropdownInput>
-
-					<FormTextInput
-						name='numeroId'
-						classes='lg'
-						placeholder='No. Identificacion'
-					/>
-					<FormTextInput
-						name='nacionalidad'
-						classes='lg'
-						placeholder='Nacionalidad'
-					/>
-					<FormTextInput
-						name='fechaNacimiento'
-						classes='lg'
-						placeholder='Fecha de Nacimiento'
-					/>
-					<FormTextInput
-						name='estadoCivil'
-						classes='sm'
-						placeholder='Estado Civil'
-					/>
-					<FormTextInput
-						name='numeroHijos'
-						classes='sm'
-						placeholder='Número de Hijos'
-					/>
-					<FormTextInput
-						name='direccion'
-						classes='xl'
-						placeholder='Dirección'
-					/>
-					<FormTextInput
-						name='telefono1'
-						classes='sm'
-						placeholder='Teléfono 1'
-					/>
-					<FormTextInput
-						name='telefono2'
-						classes='sm'
-						placeholder='Teléfono 2'
-					/>
-					<FormTextInput
-						name='municipio'
-						classes='sm'
-						placeholder='Municipio'
-					/>
-					<FormTextInput
-						name='departamento'
-						classes='sm'
-						placeholder='Departamento'
-					/>
-
-					<FormCheckboxInput
-						label='Esta es mi label'
-						name='cargoPublico'
-						classes='lg'
-					/>
-
-					<button type='submit'>Submit</button>
-				</Form>
-				<DatosProfesionalesEconomicos />
-				<Referencias />
+		<Form className='form'>
+			<div className='form-title-container'>
+				<h2>Crear Un Nuevo Cliente</h2>
+				<p className='form-description'>Registra un nuevo cliente.</p>
 			</div>
-		</Formik>
+
+			<NuevoCliente />
+
+			<DatosProfesionalesEconomicos />
+			
+			<Referencias />
+
+			<div className='form'>
+				<div className='form-container form-btn-container'>
+					<div className='form-field-sm-nl'>
+						<button type='submit' className='form-submit-btn rounded'>
+							Submit
+						</button>
+					</div>
+					<div className='form-field-sm'>
+						<button type='cancel' className='form-cancel-btn rounded'>
+							Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</Form>
 	)
 }
 
