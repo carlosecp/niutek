@@ -28,6 +28,7 @@ function NuevoCliente() {
 				classes='lg'
 				placeholder='No. Identificacion'
 			/>
+			
 			<FormTextInput
 				name='nacionalidad'
 				classes='lg'

@@ -1,6 +1,6 @@
 .page {
 	min-height: 100%;
-	width: calc(100% - 14rem);
+	width: calc(100% - $sidebar-width);
 	margin-left: 14rem;
 }
 

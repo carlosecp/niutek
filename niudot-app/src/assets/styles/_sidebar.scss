@@ -1,6 +1,6 @@
 $sidebar-bg-color: $nav-background !default;
 $sidebar-color: $color-text-primary !default;
-$sidebar-width: 14rem !default;
+$sidebar-width: $sidebar-width !default;
 $sidebar-collapsed-width: 5rem !default;
 $highlight-color: $color-text-primary !default;
 $submenu-bg-color: lighten($nav-background, 5%) !default;
@@ -29,7 +29,7 @@ li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
 
 .pro-sidebar-header {
 	position: fixed;
-	width: 14rem;
+	width: $sidebar-width;
 	height: 4rem;
 	display: flex;
 	justify-content: center;

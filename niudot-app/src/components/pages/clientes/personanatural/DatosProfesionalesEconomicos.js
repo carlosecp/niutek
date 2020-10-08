@@ -17,12 +17,15 @@ function DatosProfesionalesEconomicos() {
 						className='std-input rounded'
 						placeholder='Ocupación / Puesto'
 					/>
+					
 					<input
 						type='text'
 						className='std-input rounded'
 						placeholder='Nombre de la empresa'
 					/>
+					
 				</div>
+				
 				<div className='form-field-lg'>
 					<input
 						type='text'
