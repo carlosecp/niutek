@@ -16,19 +16,19 @@ function NuevoCliente() {
 			<FormTextInput name='nombres' classes='lg-nl' placeholder='Nombres' />
 			<FormTextInput name='apellidos' classes='lg' placeholder='Apellidos' />
 
-			<FormDropdownInput classes='lg' name='tipoId'>
-				<option value='Option1'>Option 1</option>
-				<option value='Option2'>Option 2</option>
-				<option value='Option3'>Option 3</option>
-				<option value='Option4'>Option 4</option>
+			<FormDropdownInput classes='lg' name='tipo_id'>
+				<option value='option_1'>Option 1</option>
+				<option value='option_2'>Option 2</option>
+				<option value='option_3'>Option 3</option>
+				<option value='option_4'>Option 4</option>
 			</FormDropdownInput>
 
 			<FormTextInput
-				name='numeroId'
+				name='numero_id'
 				classes='lg'
 				placeholder='No. Identificacion'
 			/>
-			
+
 			<FormTextInput
 				name='nacionalidad'
 				classes='lg'

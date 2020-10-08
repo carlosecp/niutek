@@ -1,6 +1,5 @@
 import React from 'react'
-import { FaChevronDown } from 'react-icons/fa'
-import { FormTextInput } from '../formikComponentsEndpoint'
+import { FormDropdownInput, FormTextInput } from '../formikComponentsEndpoint'
 import RetractileForm from '../RetractileForm'
 
 function Bancarias() {
@@ -39,7 +38,19 @@ function Bancarias() {
 					placeholder='Número de cuenta'
 				/>
 
+				<FormDropdownInput classes='sm' name='moneda'>
+					<option value='option_1'>Option 1</option>
+					<option value='option_2'>Option 2</option>
+					<option value='option_3'>Option 3</option>
+					<option value='option_4'>Option 4</option>
+				</FormDropdownInput>
 
+				<FormTextInput name='nombre_banco' classes='lg' placeholder='Nombre del banco' />
+
+				<FormTextInput name='numero_cuenta' classes='sm' placeholder='Número de cuenta' />
+
+				{/*
+					// * Todas estas son dropdowns, las vamos a tener que refactorizar, pero todas son la misma dropdown, asi que mejor iteremos un lista, no tengo energias para pensar hoy.
 				<div className='form-field-sm'>
 					<input
 						type='text'
@@ -50,10 +61,7 @@ function Bancarias() {
 						<FaChevronDown />
 					</div>
 				</div>
-
-			
-
-				<div className='form-field-lg'>
+				 <div className='form-field-lg'>
 					<input
 						type='text'
 						className='std-input rounded'
@@ -83,31 +91,7 @@ function Bancarias() {
 						className='std-input rounded'
 						placeholder='Nombre del banco'
 					/>
-				</div>
-				<div className='form-field-sm'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Número de cuenta'
-					/>
-				</div>
-				<div className='form-field-sm'>
-					<input
-						type='text'
-						className='std-input rounded-l'
-						placeholder='Moneda'
-					/>
-					<div className='btn input-btn-transparent rounded-r'>
-						<FaChevronDown />
-					</div>
-				</div>
-				<div className='form-field-lg'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Nombre del banco'
-					/>
-				</div>
+				</div> */}
 			</div>
 		</RetractileForm>
 	)
