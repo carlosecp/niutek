@@ -30,6 +30,7 @@
 	.form-field-xs-nl {
 		grid-column: 1 / span 1;
 	}
+
 }
 
 @media screen and (max-width: 970px) {
@@ -42,6 +43,8 @@
 			margin-left: 0;
 		}
 	}
+
+	
 }
 
 
@@ -89,5 +92,16 @@
 	.form-retractile-form {
 		padding-bottom: 0.75rem;
 		margin-bottom: 0.75rem;
+	}
+	
+}
+
+@media screen and (max-width: 1200px) {
+	.vertical-menu {
+		display: none;
+	}
+
+	.page-container {
+		grid-template-columns: 1fr;
 	}
 }

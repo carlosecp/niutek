@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Form } from 'formik'
 import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
 import NuevoCliente from './NuevoCliente'
+import * as Scroll from 'react-scroll';
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import RightMenu from '../../../layout/right-menu/RightMenu'
+
 
 function PersonaNaturalCreate() {
+	
 	return (
 		<Form className='form'>
 			<div className='form-title-container'>
@@ -15,7 +20,7 @@ function PersonaNaturalCreate() {
 			<NuevoCliente />
 
 			<DatosProfesionalesEconomicos />
-			
+
 			<Referencias />
 
 			<div className='form'>
@@ -30,10 +35,12 @@ function PersonaNaturalCreate() {
 							Cancel
 						</button>
 					</div>
+					
 				</div>
 			</div>
 		</Form>
 	)
 }
+
 
 export default PersonaNaturalCreate

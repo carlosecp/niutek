@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Sidebar from './components/layout/Sidebar'
 import Login from './components/login/Login'
 import Page from './components/pages/Page'
+import RightMenu from './components/layout/right-menu/RightMenu'
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 						<>
 							<Sidebar />
 							<Page />
+							
 						</>
 					)}
 				/>
