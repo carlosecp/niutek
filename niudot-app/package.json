@@ -18,6 +18,7 @@
 		"react-scrolling-nav": "^1.1.5",
 		"react-select": "^3.1.0",
 		"react-transition-group": "^4.4.1",
+		"uuid": "^8.3.1",
 		"yup": "^0.29.3"
 	},
 	"scripts": {
