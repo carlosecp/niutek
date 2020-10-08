@@ -5,7 +5,7 @@ import RetractileForm from '../RetractileForm'
 function Personales({ title }) {
 	return (
 		<RetractileForm formTitle={title}>
-			<form className='form-container'>
+			<div className='form-container'>
 				<div className='form-field-lg'>
 					<input
 						type='text'
@@ -89,7 +89,7 @@ function Personales({ title }) {
 						placeholder='Email'
 					/>
 				</div>
-			</form>
+			</div>
 		</RetractileForm>
 	)
 }

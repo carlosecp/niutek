@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Formik } from 'formik'
 
 import PageMenu from '../../utils/PageMenu'
 import SearchUserForm from '../../utils/SearchUserForm'
@@ -22,23 +21,21 @@ function PersonaJuridica() {
 	]
 
 	return (
-		<Formik initialValues={{
-			
-		}}>
-			<>
+		<>
+			<div>
 				<SearchUserForm />
-				<PageMenu
-					activeSection={activeSection}
-					setActiveSection={setActiveSection}
-					sections={sections}
-				/>
 				{showCreateFormButton ? (
 					<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
 				) : (
 					<PersonaJuridicaCreate />
 				)}
-			</>
-		</Formik>
+			</div>
+			<PageMenu
+				activeSection={activeSection}
+				setActiveSection={setActiveSection}
+				sections={sections}
+			/>
+		</>
 	)
 }
 

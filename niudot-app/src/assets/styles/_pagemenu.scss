@@ -1,4 +1,5 @@
 .page-menu {
+	width: 250px;
 	position: fixed;
 
 	display: flex;
@@ -22,6 +23,7 @@
 
 .page-menu a:hover {
 	background-color: $color-primary;
+	color: $color-text-primary;
 }
 
 .page-menu a.active {

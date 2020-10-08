@@ -1,53 +1,45 @@
 import React from 'react'
 import { FaChevronDown } from 'react-icons/fa'
+import { FormTextInput } from '../formikComponentsEndpoint'
 import RetractileForm from '../RetractileForm'
 
 function Bancarias() {
 	return (
 		<RetractileForm formTitle='Bancarias'>
-			<form className='form-container'>
-				<div className='form-field-lg'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Nombre de la entidad'
-					/>
-				</div>
-				<div className='form-field-lg-nl'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Fecha inicio de la relación'
-					/>
-				</div>
-				<div className='form-field-lg'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Tipo de servicio recibido'
-					/>
-				</div>
-				<div className='form-field-lg'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Años con la entidad'
-					/>
-				</div>
-				<div className='form-field-lg'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Teléfono'
-					/>
-				</div>
-				<div className='form-field-sm'>
-					<input
-						type='text'
-						className='std-input rounded'
-						placeholder='Número de cuenta'
-					/>
-				</div>
+			<div className='form-container'>
+				<FormTextInput
+					name='nombre_entidad'
+					classes='lg'
+					placeholder='Nombre de la entidad'
+				/>
+
+				<FormTextInput
+					name='inicio_relacion'
+					classes='lg-nl'
+					placeholder='Fecha inicio de la relación'
+				/>
+
+				<FormTextInput
+					name='tipo_servicio'
+					classes='lg'
+					placeholder='Tipo de servicio recibido'
+				/>
+
+				<FormTextInput
+					name='tiempo_entidad'
+					classes='lg'
+					placeholder='Años con la entidad'
+				/>
+
+				<FormTextInput name='telefono' classes='lg' placeholder='Teléfono' />
+
+				<FormTextInput
+					name='numero_cuenta'
+					classes='sm'
+					placeholder='Número de cuenta'
+				/>
+
+
 				<div className='form-field-sm'>
 					<input
 						type='text'
@@ -58,6 +50,9 @@ function Bancarias() {
 						<FaChevronDown />
 					</div>
 				</div>
+
+			
+
 				<div className='form-field-lg'>
 					<input
 						type='text'
@@ -113,7 +108,7 @@ function Bancarias() {
 						placeholder='Nombre del banco'
 					/>
 				</div>
-			</form>
+			</div>
 		</RetractileForm>
 	)
 }

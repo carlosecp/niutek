@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik'
 import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
 import NuevoCliente from './NuevoCliente'
+import SubmitBtn from '../../utils/SubmitBtn'
 
 function PersonaNaturalCreate() {
 	return (
@@ -25,7 +26,11 @@ function PersonaNaturalCreate() {
 				'cargo_publico': false,
 				'profesion': '',
 				'ocupacion': '',
-				
+				'nombre_empresa': '',
+				'descripcion_actividad_empresa': '',
+				'telefono_empresa': '',
+				'email_empresa': '',
+				'ingreso_anual': ''
 			}}
 			onSubmit={(values) => {
 				alert(JSON.stringify(values, null, 2))
@@ -34,30 +39,11 @@ function PersonaNaturalCreate() {
 			<Form className='form'>
 				<div className='form-title-container'>
 					<h2>Crear Un Nuevo Cliente</h2>
-					<p className='form-description'>Registra un nuevo cliente.</p>
 				</div>
-
 				<NuevoCliente id="nuevo-cliente" />
-
 				<DatosProfesionalesEconomicos id="datos-profesionales-economicos"/>
-
 				<Referencias  id="referencias"/>
-
-				<div className='form'>
-					<div className='form-container form-btn-container'>
-						<div className='form-field-sm-nl'>
-							<button type='submit' className='form-submit-btn rounded'>
-								Guardar
-							</button>
-						</div>
-						<div className='form-field-sm'>
-							<button type='cancel' className='form-cancel-btn rounded'>
-								Cancelar
-							</button>
-						</div>
-					</div>
-					
-				</div>
+				<SubmitBtn />
 			</Form>
 		</Formik>
 	)
