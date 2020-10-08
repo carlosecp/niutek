@@ -1,6 +1,6 @@
 /* Error: Can't find stylesheet to import.
  *   ,
- * 9 | @import 'PageMenu';
+ * 9 | @import 'pagemenu';
  *   |         ^^^^^^^^^^
  *   '
  *   src\assets\styles\styles.scss 9:9  root stylesheet */
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 9 \2502  @import 'PageMenu';\a   \2502          ^^^^^^^^^^\a   \2575 \a   src\\assets\\styles\\styles.scss 9:9  root stylesheet";
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 9 \2502  @import 'pagemenu';\a   \2502          ^^^^^^^^^^\a   \2575 \a   src\\assets\\styles\\styles.scss 9:9  root stylesheet";
 }
