@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import { Formik, Form } from 'formik'
 // import { Link } from 'react-router-dom'
 import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
-import userContext from '../../context/user/userContext'
+import authContext from '../../context/auth/authContext'
 
 function Login() {
-	const {logUser} = useContext(userContext)
+	const {logUser} = useContext(authContext)
 
 	return (
 		<Formik

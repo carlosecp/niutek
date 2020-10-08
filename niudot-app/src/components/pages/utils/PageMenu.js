@@ -9,7 +9,7 @@ function PageMenu({ sections, ...props }) {
         </div>
     )
 }
-
+/*  */
 function PageMenuItem({ section, activeSection, setActiveSection }) {
     function handleClick() {
         setActiveSection(section)

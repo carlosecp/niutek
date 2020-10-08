@@ -9,7 +9,7 @@ function NuevoCliente() {
 	return (
 		<div className='form-container'>
 			<FormTextInput
-				name='codigoCliente'
+				name='codigo_cliente'
 				classes='md'
 				placeholder='Código de Cliente'
 			/>
@@ -35,23 +35,23 @@ function NuevoCliente() {
 				placeholder='Nacionalidad'
 			/>
 			<FormTextInput
-				name='fechaNacimiento'
+				name='fecha_nacimiento'
 				classes='lg'
 				placeholder='Fecha de Nacimiento'
 			/>
 			<FormTextInput
-				name='estadoCivil'
+				name='estado_civil'
 				classes='sm'
 				placeholder='Estado Civil'
 			/>
 			<FormTextInput
-				name='numeroHijos'
+				name='numero_hijos'
 				classes='sm'
 				placeholder='Número de Hijos'
 			/>
 			<FormTextInput name='direccion' classes='xl' placeholder='Dirección' />
-			<FormTextInput name='telefono1' classes='sm' placeholder='Teléfono 1' />
-			<FormTextInput name='telefono2' classes='sm' placeholder='Teléfono 2' />
+			<FormTextInput name='telefono_1' classes='sm' placeholder='Teléfono 1' />
+			<FormTextInput name='telefono_2' classes='sm' placeholder='Teléfono 2' />
 			<FormTextInput name='municipio' classes='sm' placeholder='Municipio' />
 			<FormTextInput
 				name='departamento'
@@ -61,7 +61,7 @@ function NuevoCliente() {
 
 			<FormCheckboxInput
 				label='Esta es mi label'
-				name='cargoPublico'
+				name='cargo_publico'
 				classes='lg'
 			/>
 		</div>

@@ -1,6 +1,6 @@
 import { LOGGED_IN } from '../types'
 
-export default function userReducer(state, action) {
+function authReducer(state, action) {
 	switch (action.type) {
 		case LOGGED_IN:
 			return { ...state, token: action.payload }
@@ -8,3 +8,5 @@ export default function userReducer(state, action) {
 			return state
 	}
 }
+
+export default  authReducer

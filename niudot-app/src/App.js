@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Sidebar from './components/layout/Sidebar'
 import Login from './components/login/Login'
 import Page from './components/pages/Page'
-import UserState from './context/user/UserState'
+import AuthState from './context/auth/AuthState'
 
 function App() {
 	return (
-		<UserState>
+		<AuthState>
 			<Router>
 				<Switch>
 					<Route exact path='/' component={Login} />
@@ -21,7 +21,7 @@ function App() {
 					/>
 				</Switch>
 			</Router>
-		</UserState>
+		</AuthState>
 	)
 }
 

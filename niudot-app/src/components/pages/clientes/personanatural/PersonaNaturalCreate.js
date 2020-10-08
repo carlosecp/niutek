@@ -8,22 +8,24 @@ function PersonaNaturalCreate() {
 	return (
 		<Formik
 			initialValues={{
-				codigoCliente: '',
-				nombres: '',
-				apellidos: '',
-				tipoId: '',
-				numeroId: '',
-				nacionalidad: '',
-				fechaNacimiento: '',
-				estadoCivil: '',
-				numeroHijos: '',
-				direccion: '',
-				telefono1: '',
-				telefono2: '',
-				municipio: '',
-				departamento: '',
-				cargoPublico: false,
-				profesion: ''
+				'codigo_cliente': '',
+				'nombres': '',
+				'apellidos': '',
+				'tipo_id': '',
+				'numero_id': '',
+				'nacionalidad': '',
+				'fecha_nacimiento': '',
+				'estado_civil': '',
+				'numero_hijos': '',
+				'direccion': '',
+				'telefono_1': '',
+				'telefono_2': '',
+				'municipio': '',
+				'departamento': '',
+				'cargo_publico': false,
+				'profesion': '',
+				'ocupacion': '',
+				
 			}}
 			onSubmit={(values) => {
 				alert(JSON.stringify(values, null, 2))
