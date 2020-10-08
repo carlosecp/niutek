@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import SearchUserForm from '../../utils/SearchUserForm'
 import PersonaNaturalCreate from './PersonaNaturalCreate'
-import { Formik, Form } from 'formik'
+import { Formik } from 'formik'
 import PageMenu from '../../utils/PageMenu'
 
 function PersonaNatural() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(true)
+	const [activeSection, setActiveSection] = useState("datos-profesionales-y-economicos")
+
+	const sections = ['datos-profesionales-y-economicos', 'referencias', 'comerciales', 'bancarias', 'personales']
 
 	return (
 		<Formik
@@ -34,7 +37,7 @@ function PersonaNatural() {
 			>
 			<>
 				<SearchUserForm />
-				<PageMenu />
+				<PageMenu activeSection={activeSection} setActiveSection={setActiveSection} sections={sections}/>
 				{showCreateFormButton ? (
 					<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
 				) : (
