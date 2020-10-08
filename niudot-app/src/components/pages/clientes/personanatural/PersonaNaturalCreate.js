@@ -5,7 +5,6 @@ import Referencias from '../../utils/referencias/Referencias'
 import NuevoCliente from './NuevoCliente'
 import * as Scroll from 'react-scroll';
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-import RightMenu from '../../../layout/right-menu/RightMenu'
 
 
 function PersonaNaturalCreate() {
@@ -40,11 +39,11 @@ function PersonaNaturalCreate() {
 					<p className='form-description'>Registra un nuevo cliente.</p>
 				</div>
 
-				<NuevoCliente />
+				<NuevoCliente id="nuevo-cliente" />
 
-				<DatosProfesionalesEconomicos />
+				<DatosProfesionalesEconomicos id="datos-profesionales-economicos"/>
 
-				<Referencias />
+				<Referencias  id="referencias"/>
 
 				<div className='form'>
 					<div className='form-container form-btn-container'>
