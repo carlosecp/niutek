@@ -1,20 +1,10 @@
-<<<<<<< HEAD
 import React from 'react'
 import { Formik, Form } from 'formik'
-=======
-import React, { useRef } from 'react'
-import { Form } from 'formik'
->>>>>>> 6ea6e8dbe5bfd310709006ceea6fe9fd29b863cd
 import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
 import NuevoCliente from './NuevoCliente'
-import * as Scroll from 'react-scroll';
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-import RightMenu from '../../../layout/right-menu/RightMenu'
-
 
 function PersonaNaturalCreate() {
-	
 	return (
 		<Formik
 			initialValues={{
@@ -47,13 +37,7 @@ function PersonaNaturalCreate() {
 
 				<NuevoCliente />
 
-<<<<<<< HEAD
 				<DatosProfesionalesEconomicos />
-=======
-			<DatosProfesionalesEconomicos />
-
-			<Referencias />
->>>>>>> 6ea6e8dbe5bfd310709006ceea6fe9fd29b863cd
 
 				<Referencias />
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import RightMenu from '../../../layout/right-menu/RightMenu'
+import { Formik } from 'formik'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import SearchUserForm from '../../utils/SearchUserForm'
 import PersonaNaturalCreate from './PersonaNaturalCreate'
@@ -8,16 +8,6 @@ function PersonaNatural() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(true)
 
 	return (
-<<<<<<< HEAD
-		<>
-			<SearchUserForm />
-			{showCreateFormButton ? (
-				<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
-			) : (
-				<PersonaNaturalCreate />
-			)}
-		</>
-=======
 		<Formik
 			initialValues={{
 				codigoCliente: '',
@@ -40,7 +30,7 @@ function PersonaNatural() {
 			onSubmit={(values) => {
 				alert(JSON.stringify(values, null, 2))
 			}}
-			>
+		>
 			<>
 				<SearchUserForm />
 				<RightMenu />
@@ -51,8 +41,6 @@ function PersonaNatural() {
 				)}
 			</>
 		</Formik>
-		
->>>>>>> 6ea6e8dbe5bfd310709006ceea6fe9fd29b863cd
 	)
 }
 
