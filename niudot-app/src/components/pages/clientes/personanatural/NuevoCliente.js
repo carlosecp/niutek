@@ -16,7 +16,7 @@ function NuevoCliente() {
 			<FormTextInput name='nombres' classes='lg-nl' placeholder='Nombres' />
 			<FormTextInput name='apellidos' classes='lg' placeholder='Apellidos' />
 
-			<FormDropdownInput classes='lg' name='tipo_id'>
+			<FormDropdownInput classes='lg' name='tipo_id' label='Select Option'>
 				<option value='option_1'>Option 1</option>
 				<option value='option_2'>Option 2</option>
 				<option value='option_3'>Option 3</option>

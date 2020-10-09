@@ -10,7 +10,6 @@ function SearchForm() {
 	function handleUserNameSubmit(event) {
 		event.preventDefault()
 
-		// ! Eliminar
 		console.log('Aca le envio el nombre de usuario al backend: ', userName)
 		
 		setUserName('')
@@ -25,7 +24,7 @@ function SearchForm() {
 				</p>
 			</div>
 			<form className='form-container' onSubmit={handleUserNameSubmit}>
-				<div className='form-field-lg'>
+				<div className='form-field-lg search-input'>
 					<input type='text' className='std-input rounded-l' placeholder='Nombre del Cliente' onChange={handleUserNameInput} value={userName}/>
 					<button className='btn input-btn-primary rounded-r'></button>
 				</div>

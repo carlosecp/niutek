@@ -5,7 +5,7 @@ function PageMenu({ sections, ...props }) {
 		<div>
 			<div className='page-menu'>
 				{sections.map((section) => (
-					<PageMenuItem section={section} {...props} />
+					<PageMenuItem key={section} section={section} {...props} />
 				))}
 			</div>
 		</div>

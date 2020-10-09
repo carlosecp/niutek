@@ -5,8 +5,6 @@ import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
 import NuevoCliente from './NuevoCliente'
 import SubmitBtn from '../../utils/SubmitBtn'
-import { FormTextInput } from '../../utils/formikComponentsEndpoint'
-import TextInput from '../../utils/formikComponents/TextInput'
 
 const initialValues = {
 	codigo_cliente: '',
@@ -33,10 +31,23 @@ const initialValues = {
 	ingreso_anual: ''
 }
 
+const YupValidationSchema = Yup.object().shape({
+	codigo_cliente: Yup.string()
+		.min(15, 'Minimo 15 caracteres')
+		.required('Requerido'),
+	nombres: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
+	apellidos: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
+	numero_id: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
+	nacionalidad: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
+	fecha_nacimiento: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
+	
+})
+
 function PersonaNaturalCreate() {
 	return (
 		<Formik
 			initialValues={initialValues}
+			validationSchema={YupValidationSchema}
 			onSubmit={(values) => {
 				alert(JSON.stringify(values, null, 2))
 			}}
@@ -44,11 +55,11 @@ function PersonaNaturalCreate() {
 			<Form className='form'>
 				<div className='form-title-container'>
 					<h2>Crear Un Nuevo Cliente</h2>
+					<p className='form-description'>Crear un nuevo cliente.</p>
 				</div>
-				{' '}
-				{/*<NuevoCliente id='nuevo-cliente' />
+				<NuevoCliente id='nuevo-cliente' />
 				<DatosProfesionalesEconomicos id='datos-profesionales-economicos' />
-				<Referencias id='referencias' /> */}
+				<Referencias id='referencias' />
 				<SubmitBtn />
 			</Form>
 		</Formik>

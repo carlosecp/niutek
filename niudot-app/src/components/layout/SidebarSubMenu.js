@@ -8,7 +8,6 @@ function SidebarSubMenu({ page }) {
 			title={page.name}
 			icon={page.icon}
 			className={`sidebar-item`}
-			onClick={() => console.log('Hello World')}
 		>
 			{page.dropdownOptions.map((option) => (
 				<MenuItem key={option.name}>

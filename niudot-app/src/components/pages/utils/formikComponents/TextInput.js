@@ -1,23 +1,18 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import { useField } from 'formik'
-import alertContext from '../../../../context/alert/alertContext'
 
 function TextInput({ type, placeholder, ...props }) {
 	const [field, meta] = useField(props)
-	const { setAlert } = useContext(alertContext)
-
-	useEffect(() => {
-		console.log(meta.touched)
-	}, [meta])
 
 	return (
 		<>
 			<input
 				type={type}
-				className='std-input rounded'
+				className={`std-input rounded ${meta.touched && meta.error && 'input-error'}`}
 				placeholder={placeholder}
 				{...field}
 			/>
+			<span className='error'>{meta.touched && meta.error && meta.error}</span>
 		</>
 	)
 }
