@@ -5,26 +5,33 @@ import { FaChevronDown } from 'react-icons/fa'
 import TextInput from './formikComponents/TextInput'
 import CheckboxInput from './formikComponents/CheckboxInput'
 
-function FormTextInput({ classes, name, label = 'Label', placeholder, type = 'text' }) {
+function FormTextInput({
+	classes,
+	name,
+	label = 'Label',
+	placeholder,
+	type = 'text',
+	...props
+}) {
 	return (
 		<div className={`form-field-${classes}`}>
-			<label htmlFor={name}>{placeholder}</label>
-			<TextInput name={name} type={type} placeholder={placeholder} />
+			<label htmlFor={name}>{label}</label>
+			<TextInput name={name} type={type} placeholder={placeholder} {...props}/>
 		</div>
 	)
 }
 
-function FormCheckboxInput({ classes, label, name }) {
+function FormCheckboxInput({ classes, label, name, title }) {
 	return (
 		<div className={`form-field-${classes}`}>
 			<label htmlFor={name}>{label}</label>
-			<CheckboxInput name={name} label={label} />
+			<CheckboxInput name={name} label={label} title={title} />
 		</div>
 	)
 }
 
 function FormDropdownInput({ classes, label, ...props }) {
-	const [field, meta] = useField(props)
+	const [field] = useField(props)
 
 	return (
 		<div className={`form-field-${classes}`}>
@@ -35,7 +42,6 @@ function FormDropdownInput({ classes, label, ...props }) {
 					<FaChevronDown />
 				</span>
 			</div>
-			<span className='error'>{meta.touched && meta.error && meta.error}</span>
 		</div>
 	)
 }

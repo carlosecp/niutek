@@ -1,3 +1,10 @@
+// * Comentarios para Juan
+/* 
+	Esta es la pagina en donde nos encargamos de guardar todos los valores iniciales de todos los inputs de una pantalla, como dije antes, cada pantalla tiene su archivo de valores iniciales. Los valores iniciales tienen una notacion estandar como podes notar, en donde anteponemos el nombre de la seccion a la que pertenecen, esto debe ser asi ya que podemos tener muchos input con el mismo nombre en una misma pagina, como por ejemplo, muchos nombres, pero cada uno perteneciente a un input diferente.
+
+	La funcionalidad de este archivo es declarar los valores iniciales de todos los formularios que va a seguir Formik, asi que pues, claramente, tenemos que poner los valores iniciales. En el caso de los checkboxes son booleanos como podes ver en createValues, y en el caso de los dropdowns son strings.
+*/
+
 export const createValues = {
 	create_codigo_cliente: '',
 	create_nombres: '',

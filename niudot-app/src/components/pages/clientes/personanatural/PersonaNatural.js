@@ -6,6 +6,12 @@ import SearchUserForm from '../../utils/SearchUserForm'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import PersonaNaturalCreate from './PersonaNaturalCreate'
 
+// * Comentarios para Juan
+{
+	/* Esta es la pantalla principal de Persona Natural, aca no hay muchas cosas interesantes la verdad. Acuerdense de que 	ustedes van a cambiar algo aca porque tenemos el menu de la derecha... Pero de eso ya no se yo... Asi que ahora podes avanzar a PersonaNaturalCreate...
+	 */
+}
+
 function PersonaNatural() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
 	const [activeSection, setActiveSection] = useState(
