@@ -9,14 +9,14 @@ function NuevoCliente() {
 	return (
 		<div className='form-container'>
 			<FormTextInput
-				name='codigo_cliente'
+				name='create_codigo_cliente'
 				classes='md'
 				placeholder='Código de Cliente'
 			/>
-			<FormTextInput name='nombres' classes='lg-nl' placeholder='Nombres' />
-			<FormTextInput name='apellidos' classes='lg' placeholder='Apellidos' />
+			<FormTextInput name='create_nombres' classes='lg-nl' placeholder='Nombres' />
+			<FormTextInput name='create_apellidos' classes='lg' placeholder='Apellidos' />
 
-			<FormDropdownInput classes='lg' name='tipo_id' label='Select Option'>
+			<FormDropdownInput classes='lg' name='create_tipo_id' label='Select Option'>
 				<option value='option_1'>Option 1</option>
 				<option value='option_2'>Option 2</option>
 				<option value='option_3'>Option 3</option>
@@ -24,44 +24,44 @@ function NuevoCliente() {
 			</FormDropdownInput>
 
 			<FormTextInput
-				name='numero_id'
+				name='create_numero_id'
 				classes='lg'
 				placeholder='No. Identificacion'
 			/>
 
 			<FormTextInput
-				name='nacionalidad'
+				name='create_nacionalidad'
 				classes='lg'
 				placeholder='Nacionalidad'
 			/>
 			<FormTextInput
-				name='fecha_nacimiento'
+				name='create_fecha_nacimiento'
 				classes='lg'
 				placeholder='Fecha de Nacimiento'
 			/>
 			<FormTextInput
-				name='estado_civil'
+				name='create_estado_civil'
 				classes='sm'
 				placeholder='Estado Civil'
 			/>
 			<FormTextInput
-				name='numero_hijos'
+				name='create_numero_hijos'
 				classes='sm'
 				placeholder='Número de Hijos'
 			/>
-			<FormTextInput name='direccion' classes='xl' placeholder='Dirección' />
-			<FormTextInput name='telefono_1' classes='sm' placeholder='Teléfono 1' />
-			<FormTextInput name='telefono_2' classes='sm' placeholder='Teléfono 2' />
-			<FormTextInput name='municipio' classes='sm' placeholder='Municipio' />
+			<FormTextInput name='create_direccion' classes='xl' placeholder='Dirección' />
+			<FormTextInput name='create_telefono_1' classes='sm' placeholder='Teléfono 1' />
+			<FormTextInput name='create_telefono_2' classes='sm' placeholder='Teléfono 2' />
+			<FormTextInput name='create_municipio' classes='sm' placeholder='Municipio' />
 			<FormTextInput
-				name='departamento'
+				name='create_departamento'
 				classes='sm'
 				placeholder='Departamento'
 			/>
 
 			<FormCheckboxInput
 				label='Esta es mi label'
-				name='cargo_publico'
+				name='create_cargo_publico'
 				classes='lg'
 			/>
 		</div>

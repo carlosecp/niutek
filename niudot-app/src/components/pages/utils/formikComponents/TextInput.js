@@ -8,11 +8,18 @@ function TextInput({ type, placeholder, ...props }) {
 		<>
 			<input
 				type={type}
-				className={`std-input rounded ${meta.touched && meta.error && 'input-error'}`}
+				className={`std-input rounded ${
+					meta.touched && meta.error && 'input-error'
+				}`}
 				placeholder={placeholder}
 				{...field}
+				required
 			/>
-			<span className='error'>{meta.touched && meta.error && meta.error}</span>
+			{
+				<span className='error'>
+					{meta.touched && meta.error && meta.error}
+				</span>
+			}
 		</>
 	)
 }

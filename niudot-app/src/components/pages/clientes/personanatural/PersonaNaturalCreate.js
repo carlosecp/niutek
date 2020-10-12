@@ -5,42 +5,93 @@ import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
 import NuevoCliente from './NuevoCliente'
 import SubmitBtn from '../../utils/SubmitBtn'
+import {
+	GenerateYupBoolean,
+	GenerateYupDropdown,
+	GenerateYupNumber,
+	GenerateYupString
+} from '../../utils/yupValidationEndpoint'
+import {
+	createValues,
+	datosValues,
+	refComercialesValues,
+	refBancariasValues,
+	refPersonales1Values,
+	refPersonales2Values
+} from './formInitialValues'
 
-const initialValues = {
-	codigo_cliente: '',
-	nombres: '',
-	apellidos: '',
-	tipo_id: '',
-	numero_id: '',
-	nacionalidad: '',
-	fecha_nacimiento: '',
-	estado_civil: '',
-	numero_hijos: 0,
-	direccion: '',
-	telefono_1: '',
-	telefono_2: '',
-	municipio: '',
-	departamento: '',
-	cargo_publico: false,
-	profesion: '',
-	ocupacion: '',
-	nombre_empresa: '',
-	descripcion_actividad_empresa: '',
-	telefono_empresa: '',
-	email_empresa: '',
-	ingreso_anual: ''
+export const initialValues = {
+	...createValues,
+	...datosValues,
+	...refComercialesValues,
+	...refBancariasValues,
+	...refPersonales1Values,
+	...refPersonales2Values
 }
 
 const YupValidationSchema = Yup.object().shape({
-	codigo_cliente: Yup.string()
-		.min(15, 'Minimo 15 caracteres')
-		.required('Requerido'),
-	nombres: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
-	apellidos: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
-	numero_id: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
-	nacionalidad: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
-	fecha_nacimiento: Yup.string().min(15, 'Minimo 15 caracteres').required('Requerido'),
-	
+	// Create New Client
+	create_codigo_cliente: GenerateYupString(),
+	create_nombres: GenerateYupString(),
+	create_apellidos: GenerateYupString(),
+	create_tipo_id: GenerateYupDropdown(),
+	create_numero_id: GenerateYupNumber(),
+	create_nacionalidad: GenerateYupString(5),
+	create_fecha_nacimiento: GenerateYupString(5),
+	create_estado_civil: GenerateYupString(5),
+	create_numero_hijos: GenerateYupNumber(),
+	create_direccion: GenerateYupString(),
+	create_telefono_1: GenerateYupString(5),
+	create_telefono_2: GenerateYupString(5),
+	create_municipio: GenerateYupString(),
+	create_departamento: GenerateYupString(5),
+	create_cargo_publico: GenerateYupBoolean(),
+	// Datos Profesiones y Economicos
+	datos_profesion: GenerateYupString(),
+	datos_ocupacion: GenerateYupString(),
+	datos_nombre_empresa: GenerateYupString(),
+	datos_descripcion_actividad_empresa: GenerateYupString(),
+	datos_telefono_empresa: GenerateYupString(),
+	datos_email_empresa: GenerateYupString(),
+	datos_ingreso_anual: GenerateYupNumber(),
+	// Referencias Comeciales
+	ref_comerciales_nombre_entidad: GenerateYupString(),
+	ref_comerciales_persona_contacto: GenerateYupString(),
+	ref_comerciales_direccion: GenerateYupString(),
+	ref_comerciales_tiempo_entidad: GenerateYupNumber(),
+	ref_comerciales_telefono: GenerateYupString(),
+	// Referencias Bancarias
+	ref_bancarias_nombre_entidad: GenerateYupString(),
+	ref_bancarias_fecha_relacion: GenerateYupString(),
+	ref_bancarias_tipo_servicio: GenerateYupString(),
+	ref_bancarias_tiempo_entidad: GenerateYupNumber(),
+	ref_bancarias_telefono: GenerateYupString(),
+	ref_bancarias_numero_cuenta: GenerateYupString(),
+	ref_bancarias_nombre_banco: GenerateYupString(),
+	// Referencias Personales 1
+	ref_personales_1_nombres: GenerateYupString(),
+	ref_personales_1_apellidos: GenerateYupString(),
+	ref_personales_1_tipo_id: GenerateYupDropdown(),
+	ref_personales_1_numero_id: GenerateYupString(),
+	ref_personales_1_nacionalidad: GenerateYupString(),
+	ref_personales_1_fecha_nacimiento: GenerateYupString(),
+	ref_personales_1_estado_civil: GenerateYupDropdown(),
+	ref_personales_1_numero_hijos: GenerateYupNumber(),
+	ref_personales_1_direccion: GenerateYupString(),
+	ref_personales_1_tiempo_relacion: GenerateYupNumber(),
+	ref_personales_1_email: GenerateYupString(),
+	// Referencias personales 2
+	ref_personales_2_nombres: GenerateYupString(),
+	ref_personales_2_apellidos: GenerateYupString(),
+	ref_personales_2_tipo_id: GenerateYupDropdown(),
+	ref_personales_2_numero_id: GenerateYupString(),
+	ref_personales_2_nacionalidad: GenerateYupString(),
+	ref_personales_2_fecha_nacimiento: GenerateYupString(),
+	ref_personales_2_estado_civil: GenerateYupDropdown(),
+	ref_personales_2_numero_hijos: GenerateYupString(),
+	ref_personales_2_direccion: GenerateYupString(),
+	ref_personales_2_tiempo_relacion: GenerateYupNumber(),
+	ref_personales_2_email: GenerateYupString()
 })
 
 function PersonaNaturalCreate() {
@@ -49,7 +100,7 @@ function PersonaNaturalCreate() {
 			initialValues={initialValues}
 			validationSchema={YupValidationSchema}
 			onSubmit={(values) => {
-				alert(JSON.stringify(values, null, 2))
+				console.log(values)
 			}}
 		>
 			<Form className='form'>

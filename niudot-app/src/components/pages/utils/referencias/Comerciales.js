@@ -7,26 +7,34 @@ function Comerciales() {
 		<RetractileForm formTitle='Comerciales'>
 			<div className='form-container'>
 				<FormTextInput
-					name='nombre_entidad'
+					name='ref_comerciales_nombre_entidad'
 					classes='lg'
 					placeholder='Nombre de la entidad'
 				/>
 
 				<FormTextInput
-					name='persona_contacto'
+					name='ref_comerciales_persona_contacto'
 					classes='lg'
 					placeholder='Persona de contacto'
 				/>
 
-				<FormTextInput name='direccion' classes='xl' placeholder='Dirección' />
+				<FormTextInput
+					name='ref_comerciales_direccion'
+					classes='xl'
+					placeholder='Dirección'
+				/>
 
 				<FormTextInput
-					name='tiempo_entidad'
+					name='ref_comerciales_tiempo_entidad'
 					classes='lg'
 					placeholder='Años con la entidad'
 				/>
 
-				<FormTextInput name='telefono' classes='lg' placeholder='Teléfono' />
+				<FormTextInput
+					name='ref_comerciales_telefono'
+					classes='lg'
+					placeholder='Teléfono'
+				/>
 			</div>
 		</RetractileForm>
 	)

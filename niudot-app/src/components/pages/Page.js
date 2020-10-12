@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Topbar from '../layout/Topbar'
 import Inicio from './inicio/Inicio'
 import PersonaJuridica from './clientes/personajuridica/PersonaJuridica'
 import PersonaNatural from './clientes/personanatural/PersonaNatural'
 
-function Page() {
+function Page({ toggled, setToggled }) {
 	return (
 		<div className='page'>
-			<Topbar />
+			<Topbar toggled={toggled} setToggled={setToggled} />
 			<div className='page-container'>
 				<Switch>
 					<Route exact path='/inicio' component={Inicio} />

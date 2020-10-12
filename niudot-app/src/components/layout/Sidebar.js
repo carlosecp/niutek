@@ -11,9 +11,9 @@ import { FaHome } from 'react-icons/fa/index'
 import pages from '../pages/pages'
 import SidebarSubMenu from './SidebarSubMenu'
 
-function Sidebar() {
+function Sidebar({toggled, setToggled}) {
 	return (
-		<ProSidebar breakPoint='sm'>
+		<ProSidebar breakPoint='sm' toggled={toggled} onToggle={setToggled}>
 			<SidebarHeader>
 				<h2>niudot.</h2>
 			</SidebarHeader>

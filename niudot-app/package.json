@@ -42,5 +42,6 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	}
+	},
+	"proxy": "https://ccef7dd9-9b73-4122-97f4-488a39e31db3-ide.cs50.xyz:8080/"
 }

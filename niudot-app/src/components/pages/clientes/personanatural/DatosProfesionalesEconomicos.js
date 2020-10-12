@@ -7,43 +7,43 @@ function DatosProfesionalesEconomicos() {
 		<RetractileForm formTitle='Datos Profesionales y Económicos'>
 			<div className='form-container'>
 				<FormTextInput
-					name='profesion'
+					name='datos_profesion'
 					classes='lg'
 					placeholder='Profesion u oficio'
 				/>
 
 				<FormTextInput
-					name='ocupacion'
+					name='datos_ocupacion'
 					classes='lg'
 					placeholder='Ocupación / Puesto'
 				/>
 
 				<FormTextInput
-					name='nombre-empresa'
+					name='datos_nombre_empresa'
 					classes='lg'
 					placeholder='Nombre de la empresa'
 				/>
 
 				<FormTextInput
-					name='descripcion-actividad-empresa'
+					name='datos_descripcion_actividad_empresa'
 					classes='lg'
 					placeholder='Descripción actividad de la empresa'
 				/>
 
 				<FormTextInput
-					name='telefono-empresa'
+					name='datos_telefon_-empresa'
 					classes='sm-nl'
 					placeholder='Teléfono Empresa'
 				/>
 
 				<FormTextInput
-					name='email-empresa'
+					name='datos_email_empresa'
 					classes='sm'
 					placeholder='Email empresa'
 				/>
 
 				<FormTextInput
-					name='ingreso-anual'
+					name='datos_ingreso_anual'
 					classes='lg'
 					placeholder='Ingreso anual aproximado'
 				/>

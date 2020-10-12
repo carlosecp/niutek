@@ -55,3 +55,15 @@ li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
 .pro-inner-list-item .pro-inner-item:hover {
 	color: $color-primary !important;
 }
+
+li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
+	background-color: transparent;
+}
+
+.custom-overlay {
+	position: fixed;
+	z-index: 20;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba($color: yellow, $alpha: 0.5);
+}
