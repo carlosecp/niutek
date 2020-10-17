@@ -9,6 +9,7 @@ import OrigenFondos from './OrigenFondos'
 import {
 	createValues,
 	datosValues,
+	origenFondos,
 	refComercialesValues,
 	refBancariasValues,
 	refPersonales1Values,
@@ -30,6 +31,7 @@ import {
 export const initialValues = {
 	...createValues,
 	...datosValues,
+	...origenFondos,
 	...refComercialesValues,
 	...refBancariasValues,
 	...refPersonales1Values,

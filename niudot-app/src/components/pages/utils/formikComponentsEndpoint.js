@@ -9,13 +9,14 @@ function FormTextInput({
 	classes,
 	name,
 	label = 'Label',
+	showLabel = true,
 	placeholder,
 	type = 'text',
 	...props
 }) {
 	return (
 		<div className={`form-field-${classes}`}>
-			<label htmlFor={name}>{label}</label>
+			{showLabel && <label htmlFor={name}>{label}</label>}
 			<TextInput name={name} type={type} placeholder={placeholder} {...props} />
 		</div>
 	)

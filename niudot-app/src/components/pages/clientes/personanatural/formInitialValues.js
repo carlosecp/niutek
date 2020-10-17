@@ -23,6 +23,27 @@ export const createValues = {
 	create_cargo_publico: false
 }
 
+export const origenFondos = {
+	origen_fondos_negocio_propio: false,
+	origen_fondos_negocio_propio_nombre: '',
+	origen_fondos_profesion_independiente: false,
+	origen_fondos_profesion_independiente_profesion: '',
+	origen_fondos_herencia: false,
+	origen_fondos_herencia_procedencia: '',
+	origen_fondos_herencia_monto: 0,
+	origen_fondos_inversiones: false,
+	origen_fondos_inversiones_tipo: '',
+	origen_fondos_prestamo: false,
+	origen_fondos_prestamo_institucion: '',
+	origen_fondos_salario: false,
+	origen_fondos_ventas: false,
+	origen_fondos_ventas_producto: '',
+	origen_fondos_ahorro: false,
+	origen_fondos_ahorro_institucion: '',
+	origen_fondos_otros: false,
+	origen_fondos_otros_descripcion: ''
+}
+
 export const datosValues = {
 	datos_profesion: '',
 	datos_ocupacion: '',
@@ -77,4 +98,3 @@ export const refPersonales2Values = {
 	ref_personales_2_tiempo_relacion: 0,
 	ref_personales_2_email: ''
 }
-
