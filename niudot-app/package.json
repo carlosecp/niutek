@@ -24,6 +24,7 @@
 	"scripts": {
 		"start:react": "react-scripts start",
 		"start:css": "sass --watch --no-source-map ./src/assets/styles/styles.scss ./src/assets/styles/styles.css ",
+		"dev": "concurrently \"npm run start:react\" \"npm run start:css\"",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
@@ -43,5 +44,8 @@
 			"last 1 safari version"
 		]
 	},
-	"proxy": "https://ccef7dd9-9b73-4122-97f4-488a39e31db3-ide.cs50.xyz:8080/"
+	"proxy": "https://ccef7dd9-9b73-4122-97f4-488a39e31db3-ide.cs50.xyz:8080/",
+	"devDependencies": {
+		"concurrently": "^5.3.0"
+	}
 }
