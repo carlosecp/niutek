@@ -56,9 +56,10 @@ li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
 	color: $color-primary !important;
 }
 
-li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
-	background-color: transparent;
-}
+// ! Esto hace que no se quede morado en el open 
+// li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
+// 	background-color: transparent;
+// }
 
 .custom-overlay {
 	position: fixed;

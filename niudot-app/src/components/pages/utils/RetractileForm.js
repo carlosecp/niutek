@@ -9,7 +9,7 @@ function RetractileForm({ formTitle, children }) {
 	}
 
 	return (
-		<div className='form form-retractile'>
+		<div className='form-retractile'>
 			<div
 				className='form-title-container form-title-chevron form-retractile-title'
 				onClick={toggleRetraction}

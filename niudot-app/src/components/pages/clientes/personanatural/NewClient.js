@@ -35,7 +35,7 @@ import {
 
 function NuevoCliente() {
 	return (
-		<div className='form-container'>
+		<div className='form form-container'>
 			<FormTextInput
 				name='create_codigo_cliente'
 				classes='md'
@@ -102,7 +102,7 @@ function NuevoCliente() {
 				name='create_direccion'
 				classes='xl'
 				placeholder='Dirección'
-				direccion='Dirección'
+				label='Dirección'
 			/>
 			<FormTextInput
 				name='create_telefono_1'

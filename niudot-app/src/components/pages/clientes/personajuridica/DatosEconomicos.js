@@ -4,7 +4,7 @@ import RetractileForm from '../../utils/RetractileForm'
 function DatosEconomicos() {
 	return (
 		<RetractileForm formTitle='Datos Económicos'>
-			<form className='form-container'>
+			<form className='form form-container'>
 				<div className='form-field-lg'>
 					<input
 						type='text'

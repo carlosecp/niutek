@@ -2,8 +2,9 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import DatosProfesionalesEconomicos from './DatosProfesionalesEconomicos'
 import Referencias from '../../utils/referencias/Referencias'
-import NuevoCliente from './NuevoCliente'
+import NewClient from './NewClient'
 import SubmitBtn from '../../utils/SubmitBtn'
+import OrigenFondos from './OrigenFondos'
 
 import {
 	createValues,
@@ -41,14 +42,18 @@ function PersonaNaturalCreate() {
 			initialValues={initialValues}
 			onSubmit={(values) => {
 				console.log(values)
+				for (const value in values) {
+					console.log(value)
+				}
 			}}
 		>
-			<Form className='form'>
+			<Form>
 				<div className='form-title-container'>
 					<h2>Crear Un Nuevo Cliente</h2>
 					<p className='form-description'>Crear un nuevo cliente.</p>
 				</div>
-				<NuevoCliente id='nuevo-cliente' />
+				<NewClient id='nuevo-cliente' />
+				<OrigenFondos />
 				<DatosProfesionalesEconomicos id='datos-profesionales-economicos' />
 				<Referencias id='referencias' />
 				<SubmitBtn />

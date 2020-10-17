@@ -7,17 +7,19 @@ function Personales({ title }) {
 
 	return (
 		<RetractileForm formTitle={title}>
-			<div className='form-container'>
+			<div className='form form-container'>
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_nombres`}
 					classes='lg'
 					placeholder='Nombres'
+					label='Nombres'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_apellidos`}
 					classes='lg'
 					placeholder='Apellidos'
+					label='Apellidos'
 				/>
 
 				<FormDropdownInput
@@ -35,18 +37,21 @@ function Personales({ title }) {
 					name={`ref_personales_${referenceInstance}_numero_id`}
 					classes='sm'
 					placeholder='No. Identificación'
+					label='No. Identificación'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_nacionalidad`}
 					classes='sm'
 					placeholder='Nacionalidad'
+					label='Nacionalidad'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_fecha_nacimiento`}
 					classes='lg'
 					placeholder='Fecha de nacimiento'
+					label='Fecha de nacimiento'
 				/>
 
 				<FormDropdownInput
@@ -64,24 +69,29 @@ function Personales({ title }) {
 					name={`ref_personales_${referenceInstance}_numero_hijos`}
 					classes='sm'
 					placeholder='Número de hijos'
+					label='Número de hijos'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_direccion`}
 					classes='xl'
 					placeholder='Dirección'
+					label='Dirección'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_tiempo_relacion`}
 					classes='lg'
 					placeholder='Tiempo de conocer al referido'
+					label='Tiempo de conocer al referido'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_email`}
 					classes='lg'
 					placeholder='Email'
+					label='Email'
+					pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'
 				/>
 			</div>
 		</RetractileForm>

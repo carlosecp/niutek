@@ -5,41 +5,49 @@ import RetractileForm from '../RetractileForm'
 function Bancarias() {
 	return (
 		<RetractileForm formTitle='Bancarias'>
-			<div className='form-container'>
+			<div className='form form-container'>
 				<FormTextInput
 					name='ref_bancarias_nombre_entidad'
 					classes='lg'
 					placeholder='Nombre de la entidad'
+					label='Nombre de la entidad'
 				/>
 
 				<FormTextInput
 					name='ref_bancarias_fecha_relacion'
 					classes='lg-nl'
 					placeholder='Fecha inicio de la relación'
+					label='Fecha inicio de la relación'
 				/>
 
 				<FormTextInput
 					name='ref_bancarias_tipo_servicio'
 					classes='lg'
 					placeholder='Tipo de servicio recibido'
+					label='Tipo de servicio recibido'
 				/>
 
 				<FormTextInput
 					name='ref_bancarias_tiempo_entidad'
 					classes='lg'
 					placeholder='Años con la entidad'
+					label='Años con la entidad'
+					type='number'
+					min='0'
 				/>
 
 				<FormTextInput
 					name='ref_bancarias_telefono'
 					classes='lg'
 					placeholder='Teléfono'
+					label='Teléfono'
 				/>
 
 				<FormTextInput
 					name='ref_bancarias_numero_cuenta'
 					classes='sm'
 					placeholder='Número de cuenta'
+					label='Número de cuenta'
 				/>
 
 				<FormDropdownInput classes='sm' name='ref_bancarias_moneda' label=' '>
@@ -53,6 +61,7 @@ function Bancarias() {
 					name='ref_bancarias_nombre_banco'
 					classes='lg'
 					placeholder='Nombre del banco'
+					label='Nombre del banco'
 				/>
 
 				{/*

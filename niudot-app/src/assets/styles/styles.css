@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   color: inherit;
-  font-family: "Nunito", sans-serif !important;
+  font-family: "Nunito Sans", sans-serif !important;
 }
 
 :root {
@@ -870,10 +870,6 @@ li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
   color: #456cf6 !important;
 }
 
-li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
-  background-color: transparent;
-}
-
 .custom-overlay {
   position: fixed;
   z-index: 20;
@@ -908,9 +904,13 @@ li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
 }
 
 .burger-btn {
-  width: 2rem;
-  height: 2rem;
-  background-color: #ffffff;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.burger-icon {
+  width: 100%;
+  height: 100%;
 }
 
 .page-menu {

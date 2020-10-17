@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FaSearch } from 'react-icons/fa'
 
 function SearchForm() {
 	const [userName, setUserName] = useState('')
@@ -10,8 +11,17 @@ function SearchForm() {
 	function handleUserNameSubmit(event) {
 		event.preventDefault()
 
-		console.log('Aca le envio el nombre de usuario al backend: ', userName)
-		
+		console.log(
+			'%c SUCESS ' +
+				'%c - Username: ' +
+				`%c${userName}` +
+				'%c sent to backend ',
+			'color: white; font-weight: bold; background-color: green;',
+			'color: white;',
+			'color: white;  font-style: italic; text-decoration: underline;',
+			'color: white;'
+		)
+
 		setUserName('')
 	}
 
@@ -25,8 +35,16 @@ function SearchForm() {
 			</div>
 			<form className='form-container' onSubmit={handleUserNameSubmit}>
 				<div className='form-field-lg search-input'>
-					<input type='text' className='std-input rounded-l' placeholder='Nombre del Cliente' onChange={handleUserNameInput} value={userName}/>
-					<button className='btn input-btn-primary rounded-r'></button>
+					<input
+						type='text'
+						className='std-input rounded-l'
+						placeholder='Nombre del Cliente'
+						onChange={handleUserNameInput}
+						value={userName}
+					/>
+					<button className='btn input-btn-primary rounded-r'>
+						<FaSearch />
+					</button>
 				</div>
 			</form>
 		</div>

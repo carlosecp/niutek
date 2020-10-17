@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function PageMenu({ sections, ...props }) {
 	return (
@@ -11,7 +12,7 @@ function PageMenu({ sections, ...props }) {
 		</div>
 	)
 }
-/*  */
+
 function PageMenuItem({ section, activeSection, setActiveSection }) {
 	function handleClick() {
 		setActiveSection(section)
@@ -34,6 +35,16 @@ function PageMenuItem({ section, activeSection, setActiveSection }) {
 			</a>
 		</div>
 	)
+}
+
+PageMenu.propTypes = {
+	sections: PropTypes.array.isRequired
+}
+
+PageMenuItem.propTypes = {
+	section: PropTypes.string.isRequired,
+	activeSection: PropTypes.string.isRequired,
+	setActiveSection: PropTypes.func.isRequired
 }
 
 export default PageMenu

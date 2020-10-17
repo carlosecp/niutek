@@ -16,15 +16,15 @@ function FormTextInput({
 	return (
 		<div className={`form-field-${classes}`}>
 			<label htmlFor={name}>{label}</label>
-			<TextInput name={name} type={type} placeholder={placeholder} {...props}/>
+			<TextInput name={name} type={type} placeholder={placeholder} {...props} />
 		</div>
 	)
 }
 
-function FormCheckboxInput({ classes, label, name, title }) {
+function FormCheckboxInput({ classes, label, showLabel = true, name, title }) {
 	return (
 		<div className={`form-field-${classes}`}>
-			<label htmlFor={name}>{label}</label>
+			{showLabel && <label htmlFor={name}>{label}</label>}
 			<CheckboxInput name={name} label={label} title={title} />
 		</div>
 	)
