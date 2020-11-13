@@ -948,6 +948,7 @@ li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .form-btn-alert, .form-btn-primary, .form-btn-success, .form-submit-btn, .form-cancel-btn, .input-btn-transparent, .input-btn-primary {
