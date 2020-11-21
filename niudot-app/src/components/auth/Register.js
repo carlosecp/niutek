@@ -1,17 +1,31 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Formik, Form } from 'formik'
 import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
+import authContext from '../../context/auth/authContext'
 
-function Register() {
+function Register(props) {
   const initialValues = {
     name: '',
     email: '',
     password: '',
     password_conf: ''
-  }
+	}
+
+	const { registerUser, isAuthenticated } = useContext(authContext)
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/inicio')
+    }
+  }, [isAuthenticated, props.history])
+
 
   function handleSubmit(values) {
-    console.log(values)
+    if (values.password !== values.password_conf) {
+      console.log('Las constraseñas deben ser iguales')
+    } else {
+      registerUser(values)
+    }
   }
 
   return (

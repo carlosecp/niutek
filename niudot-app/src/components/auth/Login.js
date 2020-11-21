@@ -1,15 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Formik, Form } from 'formik'
 import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
+import authContext from '../../context/auth/authContext'
 
-function Login() {
+function Login(props) {
   const initialValues = {
-    email: '',
+    username: '',
     password: ''
   }
 
+  const { loadUser, loginUser, isAuthenticated } = useContext(authContext)
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/inicio')
+      loadUser()
+    }
+  }, [isAuthenticated, props.history])
+
   function handleSubmit(values) {
-    console.log(values)
+    loginUser(values)
   }
 
   return (
@@ -21,11 +31,11 @@ function Login() {
         <Form>
           <div className='form-container'>
             <FormTextInput
-              name='email'
+              name='username'
               classes='md'
-              placeholder='juan@example.com'
-              label='Correo Electronico'
-              type='email'
+              placeholder=''
+              label='Nombre de usuario'
+              type='text'
             />
             <FormTextInput
               name='password'
