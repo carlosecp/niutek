@@ -951,6 +951,12 @@ li.pro-menu-item.pro-sub-menu.sidebar-item.open > div.pro-inner-item {
   height: 100vh;
 }
 
+.vlogin-container {
+  display: "flex";
+  flex-direction: "column";
+  width: "33vh";
+}
+
 .form-btn-alert, .form-btn-primary, .form-btn-success, .form-submit-btn, .form-cancel-btn, .input-btn-transparent, .input-btn-primary {
   height: 2.5rem;
   transition: opacity 150ms;

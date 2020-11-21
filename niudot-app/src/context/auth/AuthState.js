@@ -1,21 +1,40 @@
 import React, { useReducer } from 'react'
-import { LOGGED_IN } from '../types'
+import * as types from '../types'
 import authContext from './authContext'
 import authReducer from './authReducer'
 
 function AuthState(props) {
 	const initialState = {
-		token: ''
+		user: null,
+		token: '',
+		isAuthenticated: false,
+		loading: true,
+		error: null,
 	}
 
 	const [state, dispatch] = useReducer(authReducer, initialState)
 
-	function logUser(token) {
-		dispatch({ type: LOGGED_IN, payload: token })
-	}
+	async function loadUser() {}
+
+	async function register() {}
+
+	async function loginUser() {}
+
+	async function logout() {}
+
+	function clearErrors() {}
 
 	return (
-		<authContext.Provider value={{ token: state.token, logUser }}>
+		<authContext.Provider
+			value={{
+				...state,
+				loadUser,
+				register,
+				loginUser,
+				logout,
+				clearErrors,
+			}}
+		>
 			{props.children}
 		</authContext.Provider>
 	)

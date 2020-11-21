@@ -15,7 +15,6 @@
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "3.4.3",
 		"react-scrolling-nav": "^1.1.5",
-		"sass": "^1.29.0",
 		"uuid": "^8.3.1"
 	},
 	"scripts": {
@@ -41,8 +40,9 @@
 			"last 1 safari version"
 		]
 	},
-	"proxy": "https://ccef7dd9-9b73-4122-97f4-488a39e31db3-ide.cs50.xyz:8080/",
+	"proxy": "https://nicascriptproject.uc.r.appspot.com/",
 	"devDependencies": {
+		"babel-eslint": "^10.1.0",
 		"concurrently": "^5.3.0"
 	}
 }
