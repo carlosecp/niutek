@@ -12,10 +12,10 @@ function Page(props) {
 			<Topbar {...props} />
 			<div className='page-container'>
 				<Switch>
-					<Route exact path='/inicio' component={Inicio} />
+					<Route exact path='/' component={Inicio} />
 
 					<Route
-						exact
+					exact
 						path='/clientes/persona-natural'
 						component={PersonaNatural}
 					/>
