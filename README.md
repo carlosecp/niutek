@@ -13,4 +13,4 @@ Esta aplicación está siendo construída con tecnología como ReactJS, Flask y 
 ```
 npm run dev
 ```
-Esto inicializa el compilador de estilos SASS y inicia el servidor de ReactJS.
+Esto inicializa el compilador de estilos Tailwind e inicia el servidor de ReactJS.
