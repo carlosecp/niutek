@@ -19,12 +19,13 @@
 		"uuid": "^8.3.1"
 	},
 	"scripts": {
-		"start:react": "react-scripts start",
-		"start:css": "sass --watch --no-source-map ./src/assets/styles/styles.scss ./src/assets/styles/styles.css ",
-		"dev": "concurrently \"npm run start:react\" \"npm run start:css\"",
-		"build": "react-scripts build",
+		"dev": "npm run watch:tailwind && react-scripts start",
+		"build": "npm run build:tailwind && react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"watch:react": "react-scripts start",
+		"watch:tailwind": "postcss src/assets/tailwind.css -o src/assets/main.css",
+		"build:tailwind": "postcss src/assets/tailwind.css -o src/assets/main.css"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -43,7 +44,10 @@
 	},
 	"proxy": "https://nicascriptproject.uc.r.appspot.com/",
 	"devDependencies": {
+		"autoprefixer": "^9.8.6",
 		"babel-eslint": "^10.1.0",
-		"concurrently": "^5.3.0"
+		"postcss": "^7.0.35",
+		"postcss-cli": "^8.3.0",
+		"tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1"
 	}
 }
