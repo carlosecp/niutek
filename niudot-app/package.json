@@ -23,7 +23,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"build:tailwind": "npx tailwindcss-cli@latest build ./src/assets/tailwind.css -o ./src/assets/main.css"
+		"build:tw": "tailwindcss-cli build ./src/assets/tailwind.css -o ./src/assets/main.css"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -42,6 +42,7 @@
 	},
 	"proxy": "https://nicascriptproject.uc.r.appspot.com/",
 	"devDependencies": {
-		"babel-eslint": "^10.1.0"
+		"babel-eslint": "^10.1.0",
+		"tailwindcss-cli": "^0.1.2"
 	}
 }

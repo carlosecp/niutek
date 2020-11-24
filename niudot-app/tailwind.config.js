@@ -5,9 +5,9 @@ module.exports = {
 		extend: {
 			colors: {
 				gray: {
-					1000: '#25272A',
-					1100: '#1C1E21',
-					text: '#CFCFD0'
+					'dark-overlay': '#25272A',
+					'dark-bg': '#1C1E21',
+					'dark-text': '#CFCFD0'
 				}
 			},
 			transitionDelay: {

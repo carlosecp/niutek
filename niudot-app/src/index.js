@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-// import './assets/styles/styles.css'
 import './assets/main.css'
 import ThemeState from './context/theme/ThemeState'
 
