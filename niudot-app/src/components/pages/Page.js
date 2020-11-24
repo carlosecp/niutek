@@ -8,14 +8,14 @@ import PersonaNatural from './clientes/personanatural/PersonaNatural'
 
 function Page(props) {
 	return (
-		<div className='page'>
+		<div className='w-full'>
 			<Topbar {...props} />
 			<div className='page-container'>
 				<Switch>
 					<Route exact path='/' component={Inicio} />
 
 					<Route
-					exact
+						exact
 						path='/clientes/persona-natural'
 						component={PersonaNatural}
 					/>

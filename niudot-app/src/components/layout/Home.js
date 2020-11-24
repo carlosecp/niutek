@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from 'react'
 import authContext from '../../context/auth/authContext'
 import Page from '../pages/Page'
 import Sidebar from './Sidebar'
-import '../../assets/styles/styles.css'
 
 function Home(props) {
 	const [toggled, setToggled] = useState(false)
@@ -18,10 +17,10 @@ function Home(props) {
 	}, [isAuthenticated])
 
 	return (
-		<>
+		<div className='h-full flex items-stretch'>
 			<Sidebar toggled={toggled} setToggled={setToggled} />
 			<Page toggled={toggled} setToggled={setToggled} />
-		</>
+		</div>
 	)
 }
 

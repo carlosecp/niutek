@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
 import authContext from '../../context/auth/authContext'
-import { FaLightbulb } from 'react-icons/fa'
 import themeContext from '../../context/theme/themeContext'
+import { FaMoon, FaSun } from 'react-icons/fa'
 
 function Login(props) {
 	const initialValues = {
@@ -13,7 +13,7 @@ function Login(props) {
 	}
 
 	const { loadUser, loginUser, isAuthenticated } = useContext(authContext)
-	const { toggleTheme } = useContext(themeContext)
+	const { theme, toggleTheme } = useContext(themeContext)
 
 	useEffect(() => {
 		if (isAuthenticated) {
@@ -28,27 +28,33 @@ function Login(props) {
 
 	return (
 		<>
-			<div className='fixed w-full bg-transparent transition'>
+			<div className='fixed w-full bg-white dark:bg-gray-dark-bg transition z-10'>
 				<div className='max-w-screen-xl h-24 px-8 flex items-center justify-between mx-auto'>
 					<h1 className='tw-header text-2xl'>niudot</h1>
-					<p className='tw-text-secondary'>
+					<p className='tw-text-secondary flex items-center'>
 						<span className='sm:hidden'>¿Aún no tienes una cuenta? </span>
 						<Link to='/register'>
 							<span className='font-bold tw-text-accent pl-1 cursor-pointer hover:underline hover:text-blue-600 dark:text-blue-700 dark:hover:text-blue-500'>
 								Regístrate
 							</span>
 						</Link>
+						<div
+							className='hidden sm:flex w-8 h-8 ml-2 tw-rnd-button-accent'
+							onClick={toggleTheme}
+						>
+							{theme ? <FaSun /> : <FaMoon />}
+						</div>
 					</p>
 				</div>
 			</div>
 			<div className='m-auto h-full flex-col-center tw-std-bg transition'>
-				<h1 className='tw-header text-3xl'>Bienvenido de vuelta</h1>
+				<h1 className='tw-header text-3xl'>Bienvenido</h1>
 				<Formik
 					initialValues={initialValues}
 					onSubmit={(values) => handleSubmit(values)}
 				>
 					<Form>
-						<div className='mt-12 mb-4'>
+						<div className='mt-12 mb-6 w-80 sm:w-64'>
 							<div className='mb-2'>
 								<div className='mb-1'>
 									<label
@@ -63,13 +69,13 @@ function Login(props) {
 									placeholder=''
 									label=''
 									type='text'
-									className='tw-form-field w-80 transition'
+									className='tw-form-field w-full transition'
 								/>
 							</div>
-							<div>
+							<div className=''>
 								<div className='mb-1'>
 									<label
-										htmlFor='username'
+										htmlFor='password'
 										className='font-bold dark:text-gray-dark-text'
 									>
 										Contraseña
@@ -80,20 +86,20 @@ function Login(props) {
 									placeholder=''
 									label=''
 									type='password'
-									className='tw-form-field w-80 transition'
+									className='tw-form-field w-full transition'
 								/>
 							</div>
 						</div>
-						<button className='w-80 tw-button-accent transition'>
+						<button className='w-full tw-button-accent transition'>
 							Ingresar
 						</button>
 					</Form>
 				</Formik>
 				<div
-					className='absolute right-12 bottom-12 sm:right-8 sm:bottom-8 w-12 h-12 sm:w-14 sm:h-14 tw-rnd-button-accent transition'
+					className='absolute right-12 bottom-12 w-12 h-12 sm:w-14 sm:h-14 tw-rnd-button-accent transition sm:hidden'
 					onClick={toggleTheme}
 				>
-					<FaLightbulb />
+					{theme ? <FaSun /> : <FaMoon />}
 				</div>
 			</div>
 		</>

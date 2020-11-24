@@ -7,7 +7,8 @@ module.exports = {
 				gray: {
 					'dark-overlay': '#25272A',
 					'dark-bg': '#1C1E21',
-					'dark-text': '#CFCFD0'
+					'dark-text': '#CFCFD0',
+					'light-overlay': '#CCCCCC'
 				}
 			},
 			transitionDelay: {

@@ -4,9 +4,9 @@ import { MenuItem, SubMenu } from 'react-pro-sidebar'
 
 function SidebarSubMenu({ page }) {
 	return (
-		<SubMenu title={page.name} icon={page.icon} className='sidebar-item'>
+		<SubMenu title={page.name} icon={page.icon}>
 			{page.dropdownOptions.map((option) => (
-				<MenuItem key={option.name}>
+				<MenuItem key={option.name} className=''>
 					{option.name}
 					<Link to={`/${option.path}`} />
 				</MenuItem>

@@ -103,3 +103,11 @@ html, body {
 	/*Dark Theme Pseudo-Classes*/
 	@apply dark:hover:bg-blue-500;
 }
+
+.tw-sidebar {
+	/*Light Theme Defaults*/
+	@apply text-black !important;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-gray-dark-bg text-white;
+}
