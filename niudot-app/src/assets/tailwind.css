@@ -1,3 +1,105 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Nunito Sans', sans-serif;	
+}
+
+#root, #root > div {
+	height: 100%;
+}
+
+.flex-col-center {
+	@apply flex flex-col justify-center items-center;
+}
+
+.tw-std-bg {
+	/*Light Theme Defaults*/
+	@apply bg-white;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-gray-dark-bg;
+}
+
+.tw-form-field {
+	/*Global*/
+	@apply text-sm p-2 rounded outline-none border-2 border-solid;
+
+	/*Light Theme Defaults*/
+	@apply text-black bg-white border-gray-200;
+
+	/*Light Theme Pseudo-Classes*/
+	@apply focus:bg-gray-100 focus:border-gray-300;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-gray-dark-text dark:bg-gray-dark-overlay dark:border-gray-dark-overlay;
+
+	/*Dark Theme Pseudo-Classes*/
+	@apply dark:focus:bg-gray-dark-overlay dark:focus:border-blue-500;
+}
+
+.tw-header {
+	/*Global*/
+	@apply font-bold;
+
+	/*Light Theme Defaults*/
+	@apply text-black;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-white;
+}
+
+.tw-text-secondary {
+	/*Light Theme Defaults*/
+	@apply text-gray-600;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-gray-dark-text;
+}
+
+.tw-text-accent {
+	/*Light Theme Defaults*/
+	@apply text-blue-500;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-blue-700;
+}
+
+.tw-button-accent {
+	/*Global*/
+	@apply py-2 text-white font-bold rounded cursor-pointer;
+
+	/*Light Theme Defaults*/
+	@apply bg-blue-500;
+
+	/*Light Theme Pseudo-Classes*/
+	@apply hover:bg-blue-600;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-blue-700;
+
+	/*Dark Theme Pseudo-Classes*/
+	@apply dark:hover:bg-blue-500;
+}
+
+.tw-rnd-button-accent {
+	/*Global*/
+	@apply py-2 text-white font-bold rounded-full cursor-pointer flex-col-center fill-current;
+
+	/*Light Theme Defaults*/
+	@apply bg-blue-500;
+
+	/*Light Theme Pseudo-Classes*/
+	@apply hover:bg-blue-600;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-white dark:bg-blue-700;
+
+	/*Dark Theme Pseudo-Classes*/
+	@apply dark:hover:bg-blue-500;
+}
