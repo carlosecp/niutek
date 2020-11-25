@@ -8,11 +8,14 @@ module.exports = {
 					'dark-overlay': '#25272A',
 					'dark-bg': '#1C1E21',
 					'dark-text': '#CFCFD0',
-					'light-overlay': '#CCCCCC'
+					'darker-bg': '#151618'
 				}
 			},
 			transitionDelay: {
 				25: '25ms'
+			},
+			padding: {
+				18: '4.5rem'
 			}
 		},
 		screens: {

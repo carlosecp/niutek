@@ -6,38 +6,54 @@ import TextInput from './formikComponents/TextInput'
 import CheckboxInput from './formikComponents/CheckboxInput'
 
 function FormTextInput({
-	classes,
+	size,
 	name,
 	label = 'Label',
 	showLabel = true,
 	placeholder,
 	type = 'text',
+	newLine = false,
 	...props
 }) {
 	return (
-		<div className={`form-field-${classes}`}>
-			{showLabel && <label htmlFor={name}>{label}</label>}
+		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`}`}>
+			{showLabel && (
+				<label className='tw-text-label' htmlFor={name}>
+					{label}
+				</label>
+			)}
 			<TextInput name={name} type={type} placeholder={placeholder} {...props} />
 		</div>
 	)
 }
 
-function FormCheckboxInput({ classes, label, showLabel = true, name, title }) {
+function FormCheckboxInput({
+	size,
+	label,
+	showLabel = true,
+	name,
+	title,
+	newLine = false
+}) {
 	return (
-		<div className={`form-field-${classes}`}>
-			{showLabel && <label htmlFor={name}>{label}</label>}
+		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`}`}>
+			{showLabel && (
+				<label className='tw-text-label' htmlFor={name}>
+					{label}
+				</label>
+			)}
 			<CheckboxInput name={name} label={label} title={title} />
 		</div>
 	)
 }
 
-function FormDropdownInput({ classes, label, ...props }) {
+function FormDropdownInput({ size, label, newLine = true, ...props }) {
 	const [field] = useField(props)
 
 	return (
-		<div className={`form-field-${classes}`}>
-			<label htmlFor=''>{label}</label>
-			<div className='dropdown-container rounded'>
+		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`}`}>
+			<label className='tw-text-label'>{label}</label>
+			<div>
 				<select {...field} {...props} />
 				<span className='dropdown-icon'>
 					<FaChevronDown />

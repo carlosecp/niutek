@@ -8,9 +8,9 @@ import PersonaNatural from './clientes/personanatural/PersonaNatural'
 
 function Page(props) {
 	return (
-		<div className='w-full'>
+		<div className='pl-64 sm:p-0 w-full'>
 			<Topbar {...props} />
-			<div className='page-container'>
+			<div className='px-4 pt-18 bg-white dark:bg-gray-dark-bg transition '>
 				<Switch>
 					<Route exact path='/' component={Inicio} />
 

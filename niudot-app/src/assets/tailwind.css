@@ -28,7 +28,7 @@ html, body {
 
 .tw-form-field {
 	/*Global*/
-	@apply text-sm p-2 rounded outline-none border-2 border-solid;
+	@apply text-sm p-2 rounded outline-none border-2 border-solid transition;
 
 	/*Light Theme Defaults*/
 	@apply text-black bg-white border-gray-200;
@@ -43,18 +43,104 @@ html, body {
 	@apply dark:focus:bg-gray-dark-overlay dark:focus:border-blue-500;
 }
 
+.tw-ff-xs {
+	@apply col-span-2;
+
+	/*Responsive Settings*/
+	@apply sm:col-span-6;
+}
+
+.tw-ff-sm {
+	@apply col-span-3; 
+
+	/*Responsive Settings*/
+	@apply sm:col-span-6;
+}
+
+.tw-ff-md {
+	@apply col-span-4;
+
+	/*Responsive Settings*/
+	@apply sm:col-span-6;
+}
+
+.tw-ff-lg {
+	@apply col-span-6;
+
+	/*Responsive Settings*/
+	@apply sm:col-span-6;
+}
+
+.tw-ff-xl {
+	@apply col-span-12; 
+
+	/*Responsive Settings*/
+	@apply sm:col-span-12;
+}
+
+.tw-ff-xs-nl {
+	@apply col-start-1 col-end-3;
+
+	/*Responsive Settings*/
+	@apply sm:col-end-6;
+}
+
+.tw-ff-sm-nl {
+	@apply col-start-1 col-end-4;
+
+	/*Responsive Settings*/
+	@apply sm:col-end-6;
+}
+
+.tw-ff-md-nl {
+	@apply col-start-1 col-end-5; 
+
+	/*Responsive Settings*/
+	@apply sm:col-end-7;
+}
+
+.tw-ff-lg-nl {
+	@apply col-start-1 col-end-7; 
+
+	/*Responsive Settings*/
+	@apply sm:col-end-7;
+}
+
+.tw-ff-xl-nl {
+	@apply col-start-1 col-end-13; 
+
+	/*Responsive Settings*/
+	@apply sm:col-end-13;
+}
+
 .tw-header {
 	/*Global*/
 	@apply font-bold;
 
 	/*Light Theme Defaults*/
 	@apply text-black;
+}
+
+.tw-header-secondary {
+	/*Light Theme Defaults*/
+	@apply text-black;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-white;
+	@apply dark:text-gray-200;
 }
 
 .tw-text-secondary {
+	/*Light Theme Defaults*/
+	@apply text-gray-600;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-gray-dark-text;
+}
+
+.tw-text-label {
+	/*Global*/
+	@apply font-bold mb-2 ;
+
 	/*Light Theme Defaults*/
 	@apply text-gray-600;
 
@@ -111,3 +197,5 @@ html, body {
 	/*Dark Theme Defaults*/
 	@apply dark:bg-gray-dark-bg text-white;
 }
+
+

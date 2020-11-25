@@ -5,16 +5,14 @@ function TextInput({ type, placeholder, ...props }) {
 	const [field] = useField(props)
 
 	return (
-		<>
-			<input
-				type={type}
-				className='std-input rounded'
-				placeholder={placeholder}
-				{...field}
-				{...props}
-				required
-			/>
-		</>
+		<input
+			type={type}
+			className='tw-form-field w-full'
+			placeholder={placeholder}
+			{...field}
+			{...props}
+			required
+		/>
 	)
 }
 

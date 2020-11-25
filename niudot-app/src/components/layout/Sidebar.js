@@ -10,14 +10,16 @@ import {
 	SidebarFooter
 } from 'react-pro-sidebar'
 
-import { FaHome } from 'react-icons/fa/index'
+import { FaHome, FaMoon, FaSun } from 'react-icons/fa/index'
 import pages from '../pages/pages'
 import SidebarSubMenu from './SidebarSubMenu'
 import authContext from '../../context/auth/authContext'
+import themeContext from '../../context/theme/themeContext'
 import '../../assets/pro-sidebar.css'
 
 function Sidebar({ toggled, setToggled }) {
 	const { logout } = useContext(authContext)
+	const { theme, toggleTheme } = useContext(themeContext)
 
 	function handleLogout() {
 		logout()
@@ -25,15 +27,15 @@ function Sidebar({ toggled, setToggled }) {
 
 	return (
 		<ProSidebar
+			className={`fixed w-64 shadow-md ${theme && 'dark'}`}
 			breakPoint='sm'
-			className='fixed'
 			toggled={toggled}
 			onToggle={setToggled}
 		>
 			<SidebarHeader className='tw-sidebar flex-col-center'>
 				<h2 className='font-bold text-2xl'>niudot.</h2>
 			</SidebarHeader>
-			<SidebarContent className='tw-sidebar bg-gray-200'>
+			<SidebarContent className='tw-sidebar'>
 				<Menu>
 					<MenuItem icon={<FaHome />} className='sidebar-item'>
 						Inicio
@@ -45,6 +47,15 @@ function Sidebar({ toggled, setToggled }) {
 				</Menu>
 			</SidebarContent>
 			<SidebarFooter>
+				<div
+					className='flex justify-center items-center gap-1 h-8 tw-text-accent cursor-pointer'
+					onClick={toggleTheme}
+				>
+					{theme ? <FaSun /> : <FaMoon />}
+					<p className='hover:underline'>
+						{theme ? 'Modo Claro' : 'Modo Oscuro'}
+					</p>
+				</div>
 				<button onClick={handleLogout} style={{ color: 'black' }}>
 					Logout
 				</button>

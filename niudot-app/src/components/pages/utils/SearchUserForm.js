@@ -10,39 +10,27 @@ function SearchForm() {
 
 	function handleUserNameSubmit(event) {
 		event.preventDefault()
-
-		console.log(
-			'%c SUCESS ' +
-				'%c - Username: ' +
-				`%c${userName}` +
-				'%c sent to backend ',
-			'color: white; font-weight: bold; background-color: green;',
-			'color: white;',
-			'color: white;  font-style: italic; text-decoration: underline;',
-			'color: white;'
-		)
-
 		setUserName('')
 	}
 
 	return (
-		<div className='form'>
-			<div className='form-title-container'>
-				<h2>Buscar Cliente Existente</h2>
-				<p className='form-description'>
-					Buscar entre los clientes registrados.
-				</p>
-			</div>
-			<form className='form-container' onSubmit={handleUserNameSubmit}>
-				<div className='form-field-lg search-input'>
+		<div className='mb-8'>
+			<h2 className='tw-header text-xl tw-header-secondary'>
+				Buscar Cliente Existente
+			</h2>
+			<p className='mb-2 tw-text-secondary'>
+				Buscar entre los clientes registrados.
+			</p>
+			<form className='' onSubmit={handleUserNameSubmit}>
+				<div className='flex items-center gap-2'>
 					<input
 						type='text'
-						className='std-input rounded-l'
+						className='tw-form-field w-72'
 						placeholder='Nombre del Cliente'
 						onChange={handleUserNameInput}
 						value={userName}
 					/>
-					<button className='btn input-btn-primary rounded-r'>
+					<button className='w-10 h-10 tw-button-accent flex-col-center'>
 						<FaSearch />
 					</button>
 				</div>

@@ -17,7 +17,7 @@ function Home(props) {
 	}, [isAuthenticated])
 
 	return (
-		<div className='h-full flex items-stretch'>
+		<div className='h-full flex'>
 			<Sidebar toggled={toggled} setToggled={setToggled} />
 			<Page toggled={toggled} setToggled={setToggled} />
 		</div>
