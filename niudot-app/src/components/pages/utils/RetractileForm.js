@@ -1,29 +1,10 @@
 import React, { useState } from 'react'
 import { FaChevronRight } from 'react-icons/fa'
+import RetractileFormTemplate from './RetractileFormTemplate'
+
 
 function RetractileForm({ formTitle, children }) {
-	const [itsRetracted, setItsRetracted] = useState(true)
-
-	function toggleRetraction() {
-		setItsRetracted(!itsRetracted)
-	}
-
-	return (
-		<div className='form-retractile'>
-			<div
-				className='form-title-container form-title-chevron form-retractile-title'
-				onClick={toggleRetraction}
-			>
-				<FaChevronRight
-					className={`form-retractile-chevron ${
-						itsRetracted || 'form-active'
-					}`}
-				/>
-				<h2>{formTitle}</h2>
-			</div>
-			{itsRetracted || <>{children}</>}
-		</div>
-	)
+	const retractionHook = useState(true)
+	return RetractileFormTemplate(retractionHook, formTitle, children)
 }
-
 export default RetractileForm
