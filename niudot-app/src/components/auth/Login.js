@@ -30,7 +30,7 @@ function Login(props) {
 		<>
 			<div className='fixed w-full bg-white dark:bg-gray-dark-bg transition z-10'>
 				<div className='max-w-screen-xl h-24 px-8 flex items-center justify-between mx-auto'>
-					<h1 className='tw-header text-2xl'>niudot</h1>
+					<h1 className='tw-header text-2xl dark:text-white'>niudot</h1>
 					<div className='tw-text-secondary flex items-center'>
 						<span className='sm:hidden'>¿Aún no tienes una cuenta? </span>
 						<Link to='/register'>
@@ -50,7 +50,7 @@ function Login(props) {
 				</div>
 			</div>
 			<div className='m-auto h-full flex-col-center tw-std-bg transition'>
-				<h1 className='tw-header text-3xl'>Bienvenido</h1>
+				<h1 className='tw-header text-3xl dark:text-white'>Bienvenido</h1>
 				<Formik
 					initialValues={initialValues}
 					onSubmit={(values) => handleSubmit(values)}
