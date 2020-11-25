@@ -1,5 +1,10 @@
 import React, { useContext } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {
+	Redirect,
+	BrowserRouter as Router,
+	Route,
+	Switch
+} from 'react-router-dom'
 import PrivateRoute from './components/routing/PrivateRoute'
 import AuthState from './context/auth/AuthState'
 import Home from './components/layout/Home'
@@ -27,6 +32,9 @@ function App() {
 			<AuthState>
 				<Router>
 					<Switch>
+						<Route exact path='/'>
+							<Redirect to='/login' />
+						</Route>
 						<Route exact path='/login' component={Login} />
 						<Route exact path='/register' component={Register} />
 						<PrivateRoute path='/' component={Home} />

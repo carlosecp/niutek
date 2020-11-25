@@ -43,11 +43,13 @@ function Register(props) {
 								Inicia Sesión
 							</span>
 						</Link>
-						<div
-							className='hidden sm:flex w-8 h-8 ml-2 tw-rnd-button-accent'
-							onClick={toggleTheme}
-						>
-							{theme ? <FaSun /> : <FaMoon />}
+						<div className='hidden sm:block'>
+							<div
+								className='w-8 h-8 ml-2 tw-rnd-button-accent'
+								onClick={toggleTheme}
+							>
+								{theme ? <FaSun /> : <FaMoon />}
+							</div>
 						</div>
 					</p>
 				</div>

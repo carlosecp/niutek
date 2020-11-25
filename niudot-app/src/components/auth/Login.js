@@ -31,20 +31,22 @@ function Login(props) {
 			<div className='fixed w-full bg-white dark:bg-gray-dark-bg transition z-10'>
 				<div className='max-w-screen-xl h-24 px-8 flex items-center justify-between mx-auto'>
 					<h1 className='tw-header text-2xl'>niudot</h1>
-					<p className='tw-text-secondary flex items-center'>
+					<div className='tw-text-secondary flex items-center'>
 						<span className='sm:hidden'>¿Aún no tienes una cuenta? </span>
 						<Link to='/register'>
 							<span className='font-bold tw-text-accent pl-1 cursor-pointer hover:underline hover:text-blue-600 dark:text-blue-700 dark:hover:text-blue-500'>
 								Regístrate
 							</span>
 						</Link>
-						<div
-							className='hidden sm:flex w-8 h-8 ml-2 tw-rnd-button-accent'
-							onClick={toggleTheme}
-						>
-							{theme ? <FaSun /> : <FaMoon />}
+						<div className='hidden sm:block'>
+							<div
+								className='w-8 h-8 ml-2 tw-rnd-button-accent'
+								onClick={toggleTheme}
+							>
+								{theme ? <FaSun /> : <FaMoon />}
+							</div>
 						</div>
-					</p>
+					</div>
 				</div>
 			</div>
 			<div className='m-auto h-full flex-col-center tw-std-bg transition'>

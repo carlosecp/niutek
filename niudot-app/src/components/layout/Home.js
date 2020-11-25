@@ -4,6 +4,11 @@ import Page from '../pages/Page'
 import Sidebar from './Sidebar'
 
 function Home(props) {
+	useEffect(() => {
+		props.history.push('/inicio')
+		console.log('Hello World')
+	}, [])
+
 	const [toggled, setToggled] = useState(false)
 
 	const { isAuthenticated, loadUser } = useContext(authContext)
