@@ -53,11 +53,8 @@ function FormDropdownInput({ size, label, newLine = true, ...props }) {
 	return (
 		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`}`}>
 			<label className='tw-text-label'>{label}</label>
-			<div>
-				<select {...field} {...props} />
-				<span className='dropdown-icon'>
-					<FaChevronDown />
-				</span>
+			<div className=''>
+				<select className='w-full tw-form-field' {...field} {...props} />
 			</div>
 		</div>
 	)

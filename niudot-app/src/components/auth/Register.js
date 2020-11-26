@@ -54,7 +54,7 @@ function Register(props) {
 					</p>
 				</div>
 			</div>
-			<div className='m-auto h-full flex-col-center tw-std-bg transition'>
+			<div className='m-auto h-full flex-col-center tw-page-bg transition'>
 				<h1 className='tw-header text-3xl dark:text-white'>Registrarse</h1>
 				<Formik
 					initialValues={initialValues}
@@ -131,7 +131,7 @@ function Register(props) {
 								/>
 							</div>
 						</div>
-						<button className='w-full tw-button-accent transition'>
+						<button className='w-full tw-button-accent transition select-none'>
 							Crear Cuenta
 						</button>
 					</Form>

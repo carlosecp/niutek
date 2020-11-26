@@ -5,9 +5,9 @@ function CheckboxInput({ label, children, title, ...props }) {
 	const [field] = useField({ ...props, type: 'checkbox' })
 
 	return (
-		<div className='std-input rounded'>
-			<input type='checkbox' {...field} />
-			<div className='input-checkbox-content'>{title}</div>
+		<div className='tw-ff'>
+			<input type='tw-text-label' {...field} />
+			<div className=''>{title}</div>
 		</div>
 	)
 }

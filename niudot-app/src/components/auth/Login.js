@@ -49,7 +49,7 @@ function Login(props) {
 					</div>
 				</div>
 			</div>
-			<div className='m-auto h-full flex-col-center tw-std-bg transition'>
+			<div className='m-auto h-full flex-col-center tw-page-bg transition'>
 				<h1 className='tw-header text-3xl dark:text-white'>Bienvenido</h1>
 				<Formik
 					initialValues={initialValues}
@@ -92,7 +92,7 @@ function Login(props) {
 								/>
 							</div>
 						</div>
-						<button className='w-full tw-button-accent transition'>
+						<button className='w-full tw-button-accent transition select-none'>
 							Ingresar
 						</button>
 					</Form>

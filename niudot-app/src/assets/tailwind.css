@@ -18,7 +18,7 @@ html, body {
 	@apply flex flex-col justify-center items-center;
 }
 
-.tw-std-bg {
+.tw-page-bg {
 	/*Light Theme Defaults*/
 	@apply bg-white;
 
@@ -26,7 +26,7 @@ html, body {
 	@apply dark:bg-gray-dark-bg;
 }
 
-.tw-form-field {
+.tw-ff {
 	/*Global*/
 	@apply text-sm p-2 rounded outline-none border-2 border-solid transition;
 
