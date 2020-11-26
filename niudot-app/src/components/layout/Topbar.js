@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FaBars } from 'react-icons/fa'
-import { useLocation } from 'react-router-dom'
+import { Redirect, useLocation } from 'react-router-dom'
 import pages from '../pages/pages'
 
 function Topbar({ toggled, setToggled }) {
@@ -16,6 +16,10 @@ function Topbar({ toggled, setToggled }) {
 	const [currentPage] = options.filter(
 		(option) => `/${option.path}` === location.pathname
 	)
+
+	if (!currentPage) {
+		return <Redirect to='/login' />
+	}
 
 	return (
 		<div className='fixed w-full h-16 flex items-center justify-between px-4 shadow-md bg-gray-100 text-black dark:bg-gray-darker-bg dark:text-white transition'>
