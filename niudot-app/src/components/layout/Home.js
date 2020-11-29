@@ -1,14 +1,10 @@
 import React, { useEffect, useContext, useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import authContext from '../../context/auth/authContext'
 import Page from '../pages/Page'
 import Sidebar from './Sidebar'
 
 function Home(props) {
-	useEffect(() => {
-		props.history.push('/inicio')
-		console.log('Hello World')
-	}, [])
-
 	const [toggled, setToggled] = useState(false)
 
 	const { isAuthenticated, loadUser } = useContext(authContext)
