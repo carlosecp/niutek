@@ -8,7 +8,7 @@ import RetractileForm from '../../utils/RetractileForm'
 function OrigenFondos() {
 	return (
 		<>
-			<div className='form form-container form-retractile-form'>
+			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_negocio_propio'
 					size='lg'
@@ -22,7 +22,7 @@ function OrigenFondos() {
 					showLabel={false}
 				/>
 			</div>
-			<div className='form form-container form-retractile-form'>
+			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_profesion_independiente'
 					size='lg'
@@ -36,7 +36,7 @@ function OrigenFondos() {
 					showLabel={false}
 				/>
 			</div>
-			<div className='form form-container form-retractile-form'>
+			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_herencia'
 					size='lg'
@@ -58,7 +58,7 @@ function OrigenFondos() {
 					min='0'
 				/>
 			</div>
-			<div className='form form-container form-retractile-form'>
+			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_inversiones'
 					size='lg'
@@ -72,7 +72,7 @@ function OrigenFondos() {
 					showLabel={false}
 				/>
 			</div>
-			<div className='form form-container form-retractile-form'>
+			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_prestamo'
 					size='lg'
@@ -86,7 +86,7 @@ function OrigenFondos() {
 					showLabel={false}
 				/>
 			</div>
-			<div className='form form-container form-retractile-form'>
+			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_ventas'
 					size='lg'
@@ -100,7 +100,7 @@ function OrigenFondos() {
 					showLabel={false}
 				/>
 			</div>
-			<div className='form form-container form-retractile-form'>
+			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_salario'
 					size='lg'
@@ -108,7 +108,7 @@ function OrigenFondos() {
 					showLabel={false}
 				/>
 			</div>
-			<div className='form form-container form-retractile-form'>
+			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_ahorro'
 					size='lg'
@@ -122,7 +122,7 @@ function OrigenFondos() {
 					showLabel={false}
 				/>
 			</div>
-			<div className='form form-container form-retractile-form'>
+			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_otros'
 					size='lg'

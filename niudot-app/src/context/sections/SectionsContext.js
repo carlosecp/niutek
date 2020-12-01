@@ -1,8 +1,8 @@
-import {createContext, useState} from 'react'
+import React, {createContext, useState} from 'react'
 
 export const PageContext = createContext()
 
-export const SectionsProvider = props => {
+export default function SectionsProvider (props) {
 	const [sections, setSections] = useState()
 
 	const changeCurrentSection = section => {

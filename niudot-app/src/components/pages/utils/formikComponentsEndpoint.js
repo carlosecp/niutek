@@ -51,10 +51,10 @@ function FormDropdownInput({ size, label, newLine = true, ...props }) {
 	const [field] = useField(props)
 
 	return (
-		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`}`}>
+		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`} `}>
 			<label className='tw-text-label'>{label}</label>
 			<div className=''>
-				<select className='w-full tw-form-field' {...field} {...props} />
+				<select className='w-full tw-form-field h-10' {...field} {...props} />
 			</div>
 		</div>
 	)

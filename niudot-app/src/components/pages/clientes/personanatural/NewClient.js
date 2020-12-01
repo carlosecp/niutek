@@ -5,7 +5,7 @@ import {
 	FormDropdownInput
 } from '../../utils/formikComponentsEndpoint'
 
-// * Comentarios para Juan
+// * Comentarios 
 {
 	/* NuevoCliente es simplemente una de las muchas secciones que podemos tener dentro de una pagina, algunas van a estar entro de Retractile forms, pero todas funcionan igual practicamente. Tenemos tres tipos de componentes por ahora, faltan las tablas creo solamente:
 	
@@ -35,6 +35,7 @@ import {
 
 function NuevoCliente() {
 	return (
+		<>
 		<div className='grid grid-cols-12 gap-2 max-w-xl'>
 			<FormTextInput
 				name='create_codigo_cliente'
@@ -130,13 +131,19 @@ function NuevoCliente() {
 				label='Departamento'
 			/>
 
-			<FormCheckboxInput
+			{/* <FormCheckboxInput
 				label='Esta es mi label'
 				name='create_cargo_publico'
 				size='lg'
 				title='Acepto que Java me gusta'
-			/>
+			/>  
+			
+			MUY POCOS CUMPLIDOS PARA JAVA, POR FAVOR ADORAR MAS - Atentamente, Juan Matus
+			
+			*/}
 		</div>
+</>
+
 	)
 }
 

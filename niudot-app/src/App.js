@@ -12,6 +12,7 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import setAuthToken from './utils/setAuthToken'
 import themeContext from './context/theme/themeContext'
+import SectionsProvider from './context/sections/SectionsContext'
 
 // * Comentarios para Juan
 {
@@ -29,15 +30,17 @@ function App() {
 
 	return (
 		<div className={`${theme && 'dark'}`}>
-			<AuthState>
-				<Router>
-					<Switch>
-						<Route exact path='/login' component={Login} />
-						<Route exact path='/register' component={Register} />
-						<PrivateRoute path='/' component={Home} />
-					</Switch>
-				</Router>
-			</AuthState>
+			<SectionsProvider>
+				<AuthState>
+					<Router>
+						<Switch>
+							<Route exact path='/login' component={Login} />
+							<Route exact path='/register' component={Register} />
+							<PrivateRoute path='/' component={Home} />
+						</Switch>
+					</Router>
+				</AuthState>
+			</SectionsProvider>
 		</div>
 	)
 }
