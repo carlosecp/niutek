@@ -38,14 +38,6 @@ function Login(props) {
 								Regístrate
 							</span>
 						</Link>
-						<div className='hidden sm:block'>
-							<div
-								className='w-8 h-8 ml-2 tw-rnd-button-accent'
-								onClick={toggleTheme}
-							>
-								{theme ? <FaSun /> : <FaMoon />}
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -98,10 +90,20 @@ function Login(props) {
 					</Form>
 				</Formik>
 				<div
-					className='absolute right-12 bottom-12 w-12 h-12 sm:w-14 sm:h-14 tw-rnd-button-accent transition sm:hidden'
+					className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-700 transition'
 					onClick={toggleTheme}
 				>
-					{theme ? <FaSun /> : <FaMoon />}
+					<div
+						className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-500 transform flex justify-center items-center ${
+							theme && 'translate-x-6'
+						}`}
+					>
+						{theme ? (
+							<FaMoon className='text-white fill-current' />
+						) : (
+							<FaSun className='text-blue-500 fill-current' />
+						)}
+					</div>
 				</div>
 			</div>
 		</>
