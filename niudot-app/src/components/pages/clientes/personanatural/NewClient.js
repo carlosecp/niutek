@@ -36,7 +36,9 @@ import {
 function NuevoCliente() {
 	return (
 		<>
+		
 		<div className='grid grid-cols-12 gap-2 max-w-xl'>
+			
 			<FormTextInput
 				name='create_codigo_cliente'
 				size='md'
@@ -130,6 +132,7 @@ function NuevoCliente() {
 				placeholder='Departamento'
 				label='Departamento'
 			/>
+			
 
 			{/* <FormCheckboxInput
 				label='Esta es mi label'

@@ -55,8 +55,8 @@ function PersonaNaturalCreate() {
 				</h2>
 				<p className='mb-4 tw-text-secondary'>Crear un nuevo cliente.</p>
 				<NewClient id='nuevo-cliente' />
-				<OrigenFondos />
 				<DatosProfesionalesEconomicos id='datos-profesionales-economicos' />
+				<OrigenFondos />
 				<Referencias id='referencias' />
 				<SubmitBtn />
 			</Form>

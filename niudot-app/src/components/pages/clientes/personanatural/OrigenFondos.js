@@ -1,28 +1,32 @@
 import React from 'react'
 import {
 	FormCheckboxInput,
-	FormTextInput
+	FormTextInput,
+	FormDropdownInput
 } from '../../utils/formikComponentsEndpoint'
 import RetractileForm from '../../utils/RetractileForm'
 
 function OrigenFondos() {
 	return (
 		<>
-			<div className='form-retractile-form'>
-				<FormCheckboxInput
-					name='origen_fondos_negocio_propio'
-					size='lg'
-					title='Negocio Propio'
-					showLabel={false}
-				/>
-				<FormTextInput
-					name='origen_fondos_negocio_propio_nombre'
-					size='lg'
-					placeholder='Nombre del Negocio'
-					showLabel={false}
-				/>
-			</div>
-			<div className='form-retractile-form'>
+			<RetractileForm formTitle='Origen Fondos'>
+				<div className='grid grid-cols-12 gap-2 max-w-xl '>
+					<FormCheckboxInput
+						name='origen_fondos_negocio_propio'
+						size='lg'
+						placeholder='Negocio Propio'
+						showLabel={false}
+					/>
+				</div>
+
+				<div className='grid grid-cols-12 gap-2 max-w-xl'>
+					<FormTextInput
+						name='origen_fondos_negocio_propio_nombre'
+						size='lg'
+						placeholder='Nombre del Negocio'
+						showLabel={false}
+					/>
+				</div>
 				<FormCheckboxInput
 					name='origen_fondos_profesion_independiente'
 					size='lg'
@@ -35,12 +39,10 @@ function OrigenFondos() {
 					placeholder='Profesión de ejerce'
 					showLabel={false}
 				/>
-			</div>
-			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_herencia'
 					size='lg'
-					title='Herencia'
+					placeholder='Herencia'
 					showLabel={false}
 				/>
 				<FormTextInput
@@ -57,12 +59,10 @@ function OrigenFondos() {
 					type='number'
 					min='0'
 				/>
-			</div>
-			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_inversiones'
 					size='lg'
-					title='Inversiones'
+					placeholder='Inversiones'
 					showLabel={false}
 				/>
 				<FormTextInput
@@ -71,12 +71,11 @@ function OrigenFondos() {
 					placeholder='Tipo de Inversiones'
 					showLabel={false}
 				/>
-			</div>
-			<div className='form-retractile-form'>
+
 				<FormCheckboxInput
 					name='origen_fondos_prestamo'
 					size='lg'
-					title='Préstamo'
+					placeholder='Préstamo'
 					showLabel={false}
 				/>
 				<FormTextInput
@@ -85,12 +84,10 @@ function OrigenFondos() {
 					placeholder='Institucion Financiera'
 					showLabel={false}
 				/>
-			</div>
-			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_ventas'
 					size='lg'
-					title='Ventas'
+					placeholder='Ventas'
 					showLabel={false}
 				/>
 				<FormTextInput
@@ -99,20 +96,17 @@ function OrigenFondos() {
 					placeholder='Productos'
 					showLabel={false}
 				/>
-			</div>
-			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_salario'
 					size='lg'
-					title='Salario'
+					placeholder='Salario'
 					showLabel={false}
 				/>
-			</div>
-			<div className='form-retractile-form'>
+
 				<FormCheckboxInput
 					name='origen_fondos_ahorro'
 					size='lg'
-					title='Ahorro'
+					placeholder='Ahorro'
 					showLabel={false}
 				/>
 				<FormTextInput
@@ -121,12 +115,10 @@ function OrigenFondos() {
 					placeholder='Institución Financiera'
 					showLabel={false}
 				/>
-			</div>
-			<div className='form-retractile-form'>
 				<FormCheckboxInput
 					name='origen_fondos_otros'
 					size='lg'
-					title='Otros'
+					placeholder='Otros'
 					showLabel={false}
 				/>
 				<FormTextInput
@@ -135,7 +127,7 @@ function OrigenFondos() {
 					placeholder='Especifique'
 					showLabel={false}
 				/>
-			</div>
+			</RetractileForm>
 		</>
 	)
 }

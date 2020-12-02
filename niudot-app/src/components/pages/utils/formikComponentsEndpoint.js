@@ -36,7 +36,11 @@ function FormCheckboxInput({
 	newLine = false
 }) {
 	return (
-		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`}`}>
+		<div
+			className={`tw-ff-${size} ${
+				newLine && `tw-ff-${size}-nl`
+			} flex items-center`}
+		>
 			{showLabel && (
 				<label className='tw-text-label' htmlFor={name}>
 					{label}
@@ -47,11 +51,11 @@ function FormCheckboxInput({
 	)
 }
 
-function FormDropdownInput({ size, label, newLine = true, ...props }) {
+function FormDropdownInput({ size, label, newLine = false, ...props }) {
 	const [field] = useField(props)
 
 	return (
-		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`} `}>
+		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`}`}>
 			<label className='tw-text-label'>{label}</label>
 			<div className=''>
 				<select className='w-full tw-form-field h-10' {...field} {...props} />

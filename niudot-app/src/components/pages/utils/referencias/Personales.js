@@ -7,23 +7,23 @@ function Personales({ title }) {
 
 	return (
 		<RetractileForm formTitle={title}>
-			<div className='form form-container'>
+			<div className='grid grid-cols-12 gap-2 max-w-xl'>
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_nombres`}
-					classes='lg'
+					size='lg'
 					placeholder='Nombres'
 					label='Nombres'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_apellidos`}
-					classes='lg'
+					size='lg'
 					placeholder='Apellidos'
 					label='Apellidos'
 				/>
 
 				<FormDropdownInput
-					classes='lg'
+					size='lg'
 					name={`ref_personales_${referenceInstance}_tipo_id`}
 					label='Select Option'
 				>
@@ -35,27 +35,27 @@ function Personales({ title }) {
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_numero_id`}
-					classes='sm'
+					size='sm'
 					placeholder='No. Identificación'
 					label='No. Identificación'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_nacionalidad`}
-					classes='sm'
+					size='sm'
 					placeholder='Nacionalidad'
 					label='Nacionalidad'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_fecha_nacimiento`}
-					classes='lg'
+					size='lg'
 					placeholder='Fecha de nacimiento'
 					label='Fecha de nacimiento'
 				/>
 
 				<FormDropdownInput
-					classes='lg'
+					size='lg'
 					name={`ref_personales_${referenceInstance}_estado_civil`}
 					label='Select Option'
 				>
@@ -67,28 +67,28 @@ function Personales({ title }) {
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_numero_hijos`}
-					classes='sm'
+					size='sm'
 					placeholder='Número de hijos'
 					label='Número de hijos'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_direccion`}
-					classes='xl'
+					size='xl'
 					placeholder='Dirección'
 					label='Dirección'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_tiempo_relacion`}
-					classes='lg'
+					size='lg'
 					placeholder='Tiempo de conocer al referido'
 					label='Tiempo de conocer al referido'
 				/>
 
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_email`}
-					classes='lg'
+					size='lg'
 					placeholder='Email'
 					label='Email'
 					pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'

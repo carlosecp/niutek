@@ -5,38 +5,39 @@ import RetractileForm from '../RetractileForm'
 function Comerciales() {
 	return (
 		<RetractileForm formTitle='Comerciales'>
-			<div className='form form-container'>
+
+			<div className='grid grid-cols-12 gap-2 max-w-xl'>
 				<FormTextInput
 					name='ref_comerciales_nombre_entidad'
-					classes='lg'
+					size='lg'
 					placeholder='Nombre de la entidad'
 					label='Nombre de la entidad'
 				/>
 
 				<FormTextInput
 					name='ref_comerciales_persona_contacto'
-					classes='lg'
+					size='lg'
 					placeholder='Persona de contacto'
 					label='Persona de contacto'
 				/>
 
 				<FormTextInput
 					name='ref_comerciales_direccion'
-					classes='xl'
+					size='xl'
 					placeholder='Dirección'
 					label='Dirección'
 				/>
 
 				<FormTextInput
 					name='ref_comerciales_tiempo_entidad'
-					classes='lg'
+					size='lg'
 					placeholder='Años con la entidad'
 					label='Años con la entidad'
 				/>
 
 				<FormTextInput
 					name='ref_comerciales_telefono'
-					classes='lg'
+					size='lg'
 					placeholder='Teléfono'
 					label='Teléfono'
 				/>
