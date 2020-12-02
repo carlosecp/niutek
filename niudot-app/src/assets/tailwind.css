@@ -20,20 +20,46 @@ html, body {
 /* === COLORING === */
 /* ================ */
 
-/* La forma en la que funcionan estas clases es que tienen dos colores principales en el nombre, el primero indica el color que se va a tener en light theme y el segundo pues el color del dark theme. Adicionalmente se indican otras flags de las clases, como por ejemplo, si esta cambia el color del background o del texto. En algunos casos se indica en numero en alguno de los colores, esto inidica la el grado del color, es decir, mientras menor sea el grado, mas oscuro sera el color, y por lo tanto, se tendra que ocupar para elementos mas cercanos al background de la pagina. Asi por ejemplo, gray-0, significa que es el gris mas oscuro de la paleta de grises, por lo tanto, debe ir al fondo de todos, un gray-1 iria en un elemento que este por encima del fondo, y por debajo de un elemento con gray-2 y asi. */
+/* La forma en la que funcionan estas clases es que tienen dos colores principales en el nombre, el primero indica el color que se va a tener en light theme y el segundo pues el color del dark theme. Adicionalmente se indican otras flags de las clases, como por ejemplo, si esta cambia el color del background o del texto. */ 
 
-.bg-white-gray-0 {
+.bg-white-gray {
 	/*Esta clase se utiliza exclusivamente para el fondo de la pagina.*/
 
 	/*Light Theme Defaults*/
 	@apply bg-white;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-gray-0;
+	@apply dark:bg-gray-cstm-0;
+}
+
+.bg-blue-blue {
+	/* Este es el caracterisitica color azul de acento. Cambia ligeramente en dark mode, se hace mas oscuro, por eso la clase la verdad. Esta clase se aplica en todo lo que tenga color azul de fondo, no de texto */
+
+	/*Global*/
+	@apply text-white transition;
+
+	/*Light Theme Defaults*/
+	@apply bg-blue-500 hover:bg-blue-700;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-blue-700 dark:hover:bg-blue-500;
+}
+
+.text-blue-blue {
+	/*Esta clase es para el texto que esta en color azul, el cambio es el mismo que la clase para cambiar el fondo azul, pero pues, en text.*/
+
+	/*Light Theme Defaults*/
+	@apply text-blue-500 hover:text-blue-700;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-blue-700 dark:hover:text-blue-500;
 }
 
 .text-black-white {
 	/*Es la clase que se utiliza para los headers por ejemplos o titulos pues, ya que son los textos con mayor jerarquia, y por lo tanto van en negro en light mode, y en blanco puro en dark mode. Ademas se suelen poner en bold, pero para hacer esta clase lo mas reutilizable posible se tienen que indicar explicitamente que va a ser bold cada texto.*/
+
+	/*Global*/
+	@apply transition select-none;
 
 	/*Light Theme Defaults*/
 	@apply text-black;
@@ -42,13 +68,31 @@ html, body {
 	@apply dark:text-white
 }
 
+.text-gray-gray {
+	/*Esta clase es para texto que es secundario, como por ejemplo, descripciones de secciones o algo asi. Es bastante similar a un titulo por ejemplo, pero claro, de menor importancia.*/
+
+	/*Global*/
+	@apply transition select-none;
+
+	/*Light Theme Defaults*/
+	@apply text-gray-600;
+
+	/*Dark Theme Defaults*/
+	@apply text-gray-cstm-1;
+}
+
 /* ================ */
 /* == COMPONENTS == */
 /* ================ */
 
-.form-field-container {
+.btn-block {
 	/*Global*/
-	@apply text-sm p-2 rounded outline-none border-2 border-solid transition;
+	@apply h-std rounded block w-full font-bold select-none;
+}
+
+.form-field {
+	/*Global*/
+	@apply w-full text-sm h-std p-2 rounded outline-none border-2 border-solid;
 
 	/*Light Theme Defaults*/
 	@apply text-black bg-white border-gray-200;
@@ -57,10 +101,10 @@ html, body {
 	@apply focus:bg-gray-100 focus:border-gray-300;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-gray-dark-text dark:bg-gray-dark-overlay dark:border-gray-dark-overlay;
+	@apply dark:text-gray-cstm-10 dark:bg-gray-cstm-1 dark:border-gray-cstm-2;
 
 	/*Dark Theme Pseudo-Classes*/
-	@apply dark:focus:bg-gray-dark-overlay dark:focus:border-blue-500;
+	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-500;
 }
 
 .tw-ff-xs {

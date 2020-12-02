@@ -5,17 +5,26 @@ module.exports = {
 		extend: {
 			colors: {
 				gray: {
-					0: '#1C1E21',
-					'dark-overlay': '#25272A',
-					'dark-text': '#CFCFD0',
-					'darker-bg': '#151618'
+					'cstm-0': '#1C1E21',
+					'cstm-1': '#27292c',
+					'cstm-2': '#333538',
+					'cstm-3': '#3f4144',
+					'cstm-4': '#4b4d4f',
+					'cstm-5': '#57595b',
+					'cstm-6': '#636467',
+					'cstm-7': '#6f7072',
+					'cstm-8': '#7b7c7e',
+					'cstm-9': '#87888a',
+					'cstm-10': '#939495',
+					'cstm-11': '#9f9fa1',
+					'cstm-12': '#ababad',
+					'cstm-13': '#b7b7b8',
+					'cstm-14': '#c3c3c4',
+					'cstm-15': '#cfcfd0'
 				}
 			},
-			transitionDelay: {
-				25: '25ms'
-			},
-			padding: {
-				18: '4.5rem'
+			spacing: {
+				std: '2.5rem'
 			}
 		},
 		screens: {

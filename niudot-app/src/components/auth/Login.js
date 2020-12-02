@@ -28,22 +28,22 @@ function Login(props) {
 
 	return (
 		<>
-			<div className='fixed w-full bg-white-gray-0'>
+			<div className='fixed w-full bg-white-gray'>
 				<div className='max-w-screen-xl h-24 px-8 flex items-center justify-between mx-auto'>
-					<h1 className='text-black-white text-2xl'>niudot</h1>
+					<h1 className='text-black-white text-2xl font-bold'>niudot</h1>
 					<div className='text-black-white flex items-center'>
 						<span className='sm:hidden'>¿Aún no tienes una cuenta? </span>
 						<Link to='/register'>
-							<span className='font-bold pl-1 cursor-pointer hover:underline hover:text-blue-600 dark:text-blue-700 dark:hover:text-blue-500'>
+							<span className='ml-2 mr-6 font-bold cursor-pointer hover:underline text-blue-blue'>
 								Regístrate
 							</span>
 						</Link>
 						<div
-							className='ml-4 w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-700 transition'
+							className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition'
 							onClick={toggleTheme}
 						>
 							<div
-								className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-500 transform flex justify-center items-center ${
+								className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-700 transform flex justify-center items-center ${
 									theme && 'translate-x-6'
 								}`}
 							>
@@ -57,8 +57,10 @@ function Login(props) {
 					</div>
 				</div>
 			</div>
-			<div className='m-auto h-full flex flex-col justify-center items-center tw-page-bg transition'>
-				<h1 className='text-black-white font-bold text-3xl'>Bienvenido</h1>
+			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center'>
+				<h1 className='text-black-white font-bold text-3xl select-none'>
+					Bienvenido
+				</h1>
 				<Formik
 					initialValues={initialValues}
 					onSubmit={(values) => handleSubmit(values)}
@@ -69,7 +71,7 @@ function Login(props) {
 								<div className='mb-1'>
 									<label
 										htmlFor='username'
-										className='font-bold dark:text-gray-dark-text'
+										className='text-black-white font-bold'
 									>
 										Correo Electrónico
 									</label>
@@ -79,15 +81,14 @@ function Login(props) {
 									placeholder=''
 									label=''
 									type='text'
-									className='form-field-container w-full transition'
+									className='form-field'
 								/>
 							</div>
-
-							<div className=''>
+							<div>
 								<div className='mb-1'>
 									<label
 										htmlFor='password'
-										className='font-bold dark:text-gray-dark-text'
+										className='text-black-white font-bold'
 									>
 										Contraseña
 									</label>
@@ -97,13 +98,11 @@ function Login(props) {
 									placeholder=''
 									label=''
 									type='password'
-									className='form-field-container w-full transition'
+									className='form-field'
 								/>
 							</div>
 						</div>
-						<button className='w-full tw-button-accent transition select-none'>
-							Ingresar
-						</button>
+						<button className='btn-block bg-blue-blue'>Ingresar</button>
 					</Form>
 				</Formik>
 			</div>
