@@ -5,8 +5,8 @@ module.exports = {
 		extend: {
 			colors: {
 				gray: {
+					0: '#1C1E21',
 					'dark-overlay': '#25272A',
-					'dark-bg': '#1C1E21',
 					'dark-text': '#CFCFD0',
 					'darker-bg': '#151618'
 				}

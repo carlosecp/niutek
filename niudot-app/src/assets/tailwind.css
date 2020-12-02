@@ -1,8 +1,10 @@
 @import "tailwindcss/base";
-
 @import "tailwindcss/components";
-
 @import "tailwindcss/utilities";
+
+/* ================ */
+/* ==== GLOBAL ==== */
+/* ================ */
 
 html, body {
 	width: 100%;
@@ -14,19 +16,37 @@ html, body {
 	height: 100%;
 }
 
-.flex-col-center {
-	@apply flex flex-col justify-center items-center;
-}
+/* ================ */
+/* === COLORING === */
+/* ================ */
 
-.tw-page-bg {
+/* La forma en la que funcionan estas clases es que tienen dos colores principales en el nombre, el primero indica el color que se va a tener en light theme y el segundo pues el color del dark theme. Adicionalmente se indican otras flags de las clases, como por ejemplo, si esta cambia el color del background o del texto. En algunos casos se indica en numero en alguno de los colores, esto inidica la el grado del color, es decir, mientras menor sea el grado, mas oscuro sera el color, y por lo tanto, se tendra que ocupar para elementos mas cercanos al background de la pagina. Asi por ejemplo, gray-0, significa que es el gris mas oscuro de la paleta de grises, por lo tanto, debe ir al fondo de todos, un gray-1 iria en un elemento que este por encima del fondo, y por debajo de un elemento con gray-2 y asi. */
+
+.bg-white-gray-0 {
+	/*Esta clase se utiliza exclusivamente para el fondo de la pagina.*/
+
 	/*Light Theme Defaults*/
 	@apply bg-white;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-gray-dark-bg;
+	@apply dark:bg-gray-0;
 }
 
-.tw-ff {
+.text-black-white {
+	/*Es la clase que se utiliza para los headers por ejemplos o titulos pues, ya que son los textos con mayor jerarquia, y por lo tanto van en negro en light mode, y en blanco puro en dark mode. Ademas se suelen poner en bold, pero para hacer esta clase lo mas reutilizable posible se tienen que indicar explicitamente que va a ser bold cada texto.*/
+
+	/*Light Theme Defaults*/
+	@apply text-black;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-white
+}
+
+/* ================ */
+/* == COMPONENTS == */
+/* ================ */
+
+.form-field-container {
 	/*Global*/
 	@apply text-sm p-2 rounded outline-none border-2 border-solid transition;
 
@@ -113,49 +133,6 @@ html, body {
 	@apply sm:col-end-13;
 }
 
-.tw-header {
-	/*Global*/
-	@apply font-bold;
-
-	/*Light Theme Defaults*/
-	@apply text-black;
-}
-
-.tw-header-secondary {
-	/*Light Theme Defaults*/
-	@apply text-black;
-
-	/*Dark Theme Defaults*/
-	@apply dark:text-gray-200;
-}
-
-.tw-text-secondary {
-	/*Light Theme Defaults*/
-	@apply text-gray-600;
-
-	/*Dark Theme Defaults*/
-	@apply dark:text-gray-dark-text;
-}
-
-.tw-text-label {
-	/*Global*/
-	@apply font-bold mb-2 ;
-
-	/*Light Theme Defaults*/
-	@apply text-gray-600;
-
-	/*Dark Theme Defaults*/
-	@apply dark:text-gray-dark-text;
-}
-
-.tw-text-accent {
-	/*Light Theme Defaults*/
-	@apply text-blue-500;
-
-	/*Dark Theme Defaults*/
-	@apply dark:text-blue-700;
-}
-
 .tw-button-accent {
 	/*Global*/
 	@apply py-2 text-white font-bold rounded cursor-pointer;
@@ -172,30 +149,3 @@ html, body {
 	/*Dark Theme Pseudo-Classes*/
 	@apply dark:hover:bg-blue-500;
 }
-
-.tw-rnd-button-accent {
-	/*Global*/
-	@apply py-2 text-white font-bold rounded-full cursor-pointer flex-col-center fill-current;
-
-	/*Light Theme Defaults*/
-	@apply bg-blue-500;
-
-	/*Light Theme Pseudo-Classes*/
-	@apply hover:bg-blue-600;
-
-	/*Dark Theme Defaults*/
-	@apply dark:text-white dark:bg-blue-700;
-
-	/*Dark Theme Pseudo-Classes*/
-	@apply dark:hover:bg-blue-500;
-}
-
-.tw-sidebar {
-	/*Light Theme Defaults*/
-	@apply text-black !important;
-
-	/*Dark Theme Defaults*/
-	@apply dark:bg-gray-dark-bg text-white;
-}
-
-
