@@ -101,7 +101,7 @@ html, body {
 	@apply focus:bg-gray-100 focus:border-gray-300;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-gray-cstm-10 dark:bg-gray-cstm-1 dark:border-gray-cstm-2;
+	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-1 dark:border-gray-cstm-2;
 
 	/*Dark Theme Pseudo-Classes*/
 	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-500;

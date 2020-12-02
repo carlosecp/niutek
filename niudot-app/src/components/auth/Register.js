@@ -41,7 +41,7 @@ function Register(props) {
 							</span>
 						</Link>
 						<div
-							className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-1 transition'
+							className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition'
 							onClick={toggleTheme}
 						>
 							<div
