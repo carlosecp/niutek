@@ -22,6 +22,33 @@ function PersonaNatural() {
 
 	const {sections, setSections} = useContext(PageContext)
 
+
+	const PNsections = [
+		'datos-profesionales-y-economicos',
+		'referencias',
+		'comerciales',
+		'bancarias',
+		'personales'
+	]
+
+	const useSection = parent => {
+		const [state, setState] = useState(true)
+		if (parent) {
+			const setChildState = (retracted) => {
+				const [...setParentState] = sections[parent]
+				if(!retracted){
+					setParentState(retracted)
+				}
+				setChildState(retracted)
+			}
+			return [state, setChildState]
+		}
+		return [state, setState]
+	}
+
+
+	useEffect(() => setSections(PNsections), [])
+	
 	return (
 		<>
 			<div>
