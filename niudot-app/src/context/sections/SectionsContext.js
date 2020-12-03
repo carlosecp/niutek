@@ -3,7 +3,7 @@ import React, {createContext, useState} from 'react'
 export const PageContext = createContext()
 
 export default function SectionsProvider (props) {
-	const [sections, setSections] = useState()
+	const [sections, setSections] = useState([])
 
 	const changeCurrentSection = section => {
 		if (section && sections) {
