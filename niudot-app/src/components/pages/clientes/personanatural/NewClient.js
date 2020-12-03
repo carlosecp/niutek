@@ -1,11 +1,10 @@
 import React from 'react'
 import {
 	FormTextInput,
-	FormCheckboxInput,
 	FormDropdownInput
 } from '../../utils/formikComponentsEndpoint'
 
-// * Comentarios 
+// * Comentarios
 {
 	/* NuevoCliente es simplemente una de las muchas secciones que podemos tener dentro de una pagina, algunas van a estar entro de Retractile forms, pero todas funcionan igual practicamente. Tenemos tres tipos de componentes por ahora, faltan las tablas creo solamente:
 	
@@ -36,105 +35,101 @@ import {
 function NuevoCliente() {
 	return (
 		<>
-		
-		<div className='grid grid-cols-12 gap-2 max-w-xl'>
-			
-			<FormTextInput
-				name='create_codigo_cliente'
-				size='md'
-				placeholder='Código de Cliente'
-				label='Código de Cliente'
-			/>
-			<FormTextInput
-				name='create_nombres'
-				size='lg'
-				placeholder='Nombres'
-				label='Nombres'
-				newLine={true}
-			/>
-			<FormTextInput
-				name='create_apellidos'
-				size='lg'
-				placeholder='Apellidos'
-				label='Apellidos'
-			/>
+			<div className='form-grid-layout'>
+				<FormTextInput
+					name='create_codigo_cliente'
+					size='md'
+					placeholder='Código de Cliente'
+					label='Código de Cliente'
+				/>
+				<FormTextInput
+					name='create_nombres'
+					size='lg'
+					placeholder='Nombres'
+					label='Nombres'
+					newLine={true}
+				/>
+				<FormTextInput
+					name='create_apellidos'
+					size='lg'
+					placeholder='Apellidos'
+					label='Apellidos'
+				/>
 
-			<FormDropdownInput
-				size='lg'
-				name='create_tipo_id'
-				label='Tipo Identificación'
-			>
-				<option value='option_1'>Option 1</option>
-				<option value='option_2'>Option 2</option>
-				<option value='option_3'>Option 3</option>
-				<option value='option_4'>Option 4</option>
-			</FormDropdownInput>
+				<FormDropdownInput
+					size='lg'
+					name='create_tipo_id'
+					label='Tipo Identificación'
+				>
+					<option value='option_1'>Option 1</option>
+					<option value='option_2'>Option 2</option>
+					<option value='option_3'>Option 3</option>
+					<option value='option_4'>Option 4</option>
+				</FormDropdownInput>
+				<FormTextInput
+					name='create_numero_id'
+					size='lg'
+					placeholder='No. Identificación'
+					label='No. Identificación'
+				/>
+				<FormTextInput
+					name='create_nacionalidad'
+					size='lg'
+					placeholder='Nacionalidad'
+					label='Nacionalidad'
+				/>
+				<FormTextInput
+					name='create_fecha_nacimiento'
+					size='lg'
+					placeholder='Fecha de Nacimiento'
+					label='Fecha de Nacimiento'
+				/>
+				<FormTextInput
+					name='create_estado_civil'
+					size='sm'
+					placeholder='Estado Civil'
+					label='Estado Civil'
+				/>
+				<FormTextInput
+					name='create_numero_hijos'
+					size='sm'
+					placeholder='Número de Hijos'
+					label='Número de Hijos'
+					type='number'
+					min='0'
+				/>
+				<FormTextInput
+					name='create_direccion'
+					size='xl'
+					placeholder='Dirección'
+					label='Dirección'
+				/>
+				<FormTextInput
+					name='create_telefono_1'
+					size='sm'
+					placeholder='Teléfono 1'
+					label='Teléfono 1'
+				/>
+				<FormTextInput
+					name='create_telefono_2'
+					size='sm'
+					placeholder='Teléfono 2'
+					label='Teléfono 2'
+				/>
+				<FormTextInput
+					name='create_municipio'
+					size='sm'
+					placeholder='Municipio'
+					label='Municipio'
+				/>
+				<FormTextInput
+					name='create_departamento'
+					size='sm'
+					placeholder='Departamento'
+					label='Departamento'
+				/>
 
-			<FormTextInput
-				name='create_numero_id'
-				size='lg'
-				placeholder='No. Identificación'
-				label='No. Identificación'
-			/>
-			<FormTextInput
-				name='create_nacionalidad'
-				size='lg'
-				placeholder='Nacionalidad'
-				label='Nacionalidad'
-			/>
-			<FormTextInput
-				name='create_fecha_nacimiento'
-				size='lg'
-				placeholder='Fecha de Nacimiento'
-				label='Fecha de Nacimiento'
-			/>
-			<FormTextInput
-				name='create_estado_civil'
-				size='sm'
-				placeholder='Estado Civil'
-				label='Estado Civil'
-			/>
-			<FormTextInput
-				name='create_numero_hijos'
-				size='sm'
-				placeholder='Número de Hijos'
-				label='Número de Hijos'
-				type='number'
-				min='0'
-			/>
-			<FormTextInput
-				name='create_direccion'
-				size='xl'
-				placeholder='Dirección'
-				label='Dirección'
-			/>
-			<FormTextInput
-				name='create_telefono_1'
-				size='sm'
-				placeholder='Teléfono 1'
-				label='Teléfono 1'
-			/>
-			<FormTextInput
-				name='create_telefono_2'
-				size='sm'
-				placeholder='Teléfono 2'
-				label='Teléfono 2'
-			/>
-			<FormTextInput
-				name='create_municipio'
-				size='sm'
-				placeholder='Municipio'
-				label='Municipio'
-			/>
-			<FormTextInput
-				name='create_departamento'
-				size='sm'
-				placeholder='Departamento'
-				label='Departamento'
-			/>
-			
-
-			{/* <FormCheckboxInput
+				{/* <FormCheckboxInput
 				label='Esta es mi label'
 				name='create_cargo_publico'
 				size='lg'
@@ -144,9 +139,8 @@ function NuevoCliente() {
 			MUY POCOS CUMPLIDOS PARA JAVA, POR FAVOR ADORAR MAS - Atentamente, Juan Matus
 			
 			*/}
-		</div>
-</>
-
+			</div>
+		</>
 	)
 }
 

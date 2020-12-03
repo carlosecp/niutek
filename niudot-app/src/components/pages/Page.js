@@ -10,10 +10,9 @@ function Page(props) {
 	return (
 		<div className='pl-64 sm:p-0 w-full'>
 			<Topbar {...props} />
-			<div className='px-4 pt-18 bg-white dark:bg-gray-dark-bg transition '>
+			<div className='px-4 pt-20 bg-white-gray'>
 				<Switch>
 					<Route exact path='/' component={Inicio} />
-
 					<Route
 						exact
 						path='/clientes/persona-natural'

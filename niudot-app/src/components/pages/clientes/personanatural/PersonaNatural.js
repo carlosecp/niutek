@@ -5,8 +5,12 @@ import SearchUserForm from '../../utils/SearchUserForm'
 
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import PersonaNaturalCreate from './PersonaNaturalCreate'
+<<<<<<< HEAD
 import { Link } from 'react-router-dom'
 import {PageContext} from '../../../../context/sections/SectionsContext'
+=======
+
+>>>>>>> ee87ea2f46cfee87ed64fa9549c3fdde5b38098c
 // * Comentarios para Juan
 {
 	/* Esta es la pantalla principal de Persona Natural, aca no hay muchas cosas interesantes la verdad. Acuerdense de que 	ustedes van a cambiar algo aca porque tenemos el menu de la derecha... Pero de eso ya no se yo... Asi que ahora podes avanzar a PersonaNaturalCreate...
@@ -20,34 +24,6 @@ function PersonaNatural() {
 	)
 
 	const {sections, setSections} = useContext(PageContext)
-	const PNsections = [
-		'datos-profesionales-y-economicos',
-		'referencias',
-		'comerciales',
-		'bancarias',
-		'personales'
-	]
-
-	const useSection = parent => {
-		const [state, setState] = useState(true)
-		if (parent) {
-			const setChildState = (retracted) => {
-				const [...setParentState] = sections[parent]
-				if(!retracted){
-					setParentState(retracted)
-				}
-				setChildState(retracted)
-			}
-			return [state, setChildState]
-		}
-		return [state, setState]
-	}
-
-
-	useEffect(() => setSections(PNsections), [])
-	//setSections(PNsections)
-	//console.log('sections:', sections)
-	
 
 	return (
 		<>

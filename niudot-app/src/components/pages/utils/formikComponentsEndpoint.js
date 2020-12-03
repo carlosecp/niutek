@@ -1,7 +1,5 @@
 import React from 'react'
 import { useField } from 'formik'
-import { FaChevronDown } from 'react-icons/fa'
-
 import TextInput from './formikComponents/TextInput'
 import CheckboxInput from './formikComponents/CheckboxInput'
 
@@ -16,37 +14,33 @@ function FormTextInput({
 	...props
 }) {
 	return (
-		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`}`}>
+		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
 			{showLabel && (
-				<label className='tw-text-label' htmlFor={name}>
+				<label className='text-black-white' htmlFor={name}>
 					{label}
 				</label>
 			)}
-			<TextInput name={name} type={type} placeholder={placeholder} {...props} />
+			<TextInput
+				className='form-field w-full'
+				name={name}
+				type={type}
+				placeholder={placeholder}
+				{...props}
+			/>
 		</div>
 	)
 }
 
 function FormCheckboxInput({
 	size,
-	label,
-	showLabel = true,
+	label = '',
 	name,
-	title,
+	description,
 	newLine = false
 }) {
 	return (
-		<div
-			className={`tw-ff-${size} ${
-				newLine && `tw-ff-${size}-nl`
-			} flex items-center`}
-		>
-			{showLabel && (
-				<label className='tw-text-label' htmlFor={name}>
-					{label}
-				</label>
-			)}
-			<CheckboxInput name={name} label={label} title={title} />
+		<div className={`form-container-${newLine ? `${size}-nl` : size} flex`}>
+			<CheckboxInput name={name} label={label} description={description} />
 		</div>
 	)
 }
@@ -55,10 +49,10 @@ function FormDropdownInput({ size, label, newLine = false, ...props }) {
 	const [field] = useField(props)
 
 	return (
-		<div className={`tw-ff-${size} ${newLine && `tw-ff-${size}-nl`}`}>
-			<label className='tw-text-label'>{label}</label>
+		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
+			<label className='text-black-white'>{label}</label>
 			<div className=''>
-				<select className='w-full tw-form-field h-10' {...field} {...props} />
+				<select className='form-field w-full' {...field} {...props} />
 			</div>
 		</div>
 	)

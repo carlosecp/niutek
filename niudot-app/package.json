@@ -23,8 +23,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"build:tw": "tailwindcss-cli build ./src/assets/tailwind.css -o ./src/assets/main.css",
-		"build:css": "sass --watch --no-source-map ./src/assets/styles/styles.scss ./src/assets/styles/styles.css"
+		"build:tw": "tailwindcss-cli build ./src/assets/tailwind.css -o ./src/assets/main.css"
 	},
 	"eslintConfig": {
 		"extends": "react-app"

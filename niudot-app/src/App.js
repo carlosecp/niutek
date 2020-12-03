@@ -1,10 +1,5 @@
 import React, { useContext } from 'react'
-import {
-	Redirect,
-	BrowserRouter as Router,
-	Route,
-	Switch
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import PrivateRoute from './components/routing/PrivateRoute'
 import AuthState from './context/auth/AuthState'
 import Home from './components/layout/Home'
