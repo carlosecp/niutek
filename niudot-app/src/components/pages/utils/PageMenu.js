@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function PageMenu({ sections, ...props }) {
+function PageMenu({sections, ...props }) {
+	if (!sections) {
+		return <></>
+	}
 	return (
 		<div>
 			<div className='page-menu'>
