@@ -202,6 +202,10 @@ html, body {
 	@apply sm:pb-4 pt-2;
 }
 
+.dark .checkbox-description {
+	border-bottom: 2px solid rgba(51, 53, 56, 1);
+}
+
 .checkbox-description:last-child {
 	border-bottom: none;
 }
