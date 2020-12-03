@@ -1,15 +1,20 @@
 import React, {useContext} from 'react'
-import PageContext from '../../../context/sections/SectionsContext'
+import {PageContext} from '../../../context/sections/SectionsContext'
 import PropTypes from 'prop-types'
 
 function PageMenu() {
 
     const {sections} = useContext(PageContext)
+	console.log('', sections)
+
+	if (!sections) {return <> </>}
 	return (
 		<div>
 			<div className='page-menu'>
 				{Object.keys(sections).map((section) => (
-					<PageMenuItem key={section} section={section} />
+					section == 'current'? <> </> :
+					 <PageMenuItem key={section} section={section} />
+				
 				))}
 			</div>
 		</div>
@@ -24,10 +29,11 @@ function PageMenuItem({ section }) {
 	const {sections, changeCurrentSection} = useContext(PageContext)
 
 	
-	const [...setRetraction] = sections[section]
+	const [retracted, setRetraction] = sections[section]
 	
 	function handleClick() {
-		setRetraction(false)
+		//setRetraction(false)
+		console.log(retracted)
 		changeCurrentSection(section)
 	}
 
@@ -40,16 +46,16 @@ function PageMenuItem({ section }) {
 		<div>
 			<a
 				href={`#${section}`}
-				className={`${sections[current] === section && 'active'}`}
+				className={`${sections['current'] === section && 'active'}`}
 				onClick={() => handleClick()}
 			>
 				{' '}
-				{getSectionTitle(section)}
+				{getSectionTitle(section) + ` ${retracted}` }
 			</a>
 		</div>
 	)
 }
-
+/*
 PageMenu.propTypes = {
 	sections: PropTypes.array.isRequired
 }
@@ -59,5 +65,5 @@ PageMenuItem.propTypes = {
 	activeSection: PropTypes.string.isRequired,
 	setActiveSection: PropTypes.func.isRequired
 }
-
+*/
 export default PageMenu
