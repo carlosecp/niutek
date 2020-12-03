@@ -2,12 +2,14 @@ import React, {useContext} from 'react'
 import PageContext from '../../../context/sections/SectionsContext'
 import PropTypes from 'prop-types'
 
-function PageMenu({ sections, ...props }) {
+function PageMenu() {
+
+    const {sections} = useContext(PageContext)
 	return (
 		<div>
 			<div className='page-menu'>
-				{sections.map((section) => (
-					<PageMenuItem key={section} section={section} {...props} />
+				{Object.keys(sections).map((section) => (
+					<PageMenuItem key={section} section={section} />
 				))}
 			</div>
 		</div>
@@ -38,7 +40,7 @@ function PageMenuItem({ section }) {
 		<div>
 			<a
 				href={`#${section}`}
-				className={`${activeSection === section && 'active'}`}
+				className={`${sections[current] === section && 'active'}`}
 				onClick={() => handleClick()}
 			>
 				{' '}
