@@ -8,7 +8,6 @@
 
 html, body {
 	width: 100%;
-	height: 100%;
 	font-family: 'Nunito Sans', sans-serif;	
 }
 
@@ -75,10 +74,10 @@ html, body {
 	@apply transition select-none;
 
 	/*Light Theme Defaults*/
-	@apply text-gray-600;
+	@apply text-gray-cstm-6;
 
 	/*Dark Theme Defaults*/
-	@apply text-gray-cstm-1;
+	@apply dark:text-gray-cstm-14;
 }
 
 /* ================ */
@@ -90,106 +89,119 @@ html, body {
 	@apply h-std rounded block w-full font-bold select-none;
 }
 
+.form-grid-layout {
+	/*Esta es la clase que aplican para hacer una nueva seccion que contiene un formulario. Esa seccion que contiene las casillas de texto o lo que sea (la que las contiene a todas), ya que aca se definen las propiedades del grid.*/
+
+	@apply mt-2 grid grid-cols-12 gap-2 max-w-xl;
+}
+
 .form-field {
+	/*Esta clase es para cada una de las input de texto o numericas o similares. Son todos esos rectangulos que en light theme tienen bordes grises claros, todas, incluidas checkboxes y dropdowns.*/
+
 	/*Global*/
-	@apply w-full text-sm h-std p-2 rounded outline-none border-2 border-solid;
+	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid;
 
 	/*Light Theme Defaults*/
 	@apply text-black bg-white border-gray-200;
 
 	/*Light Theme Pseudo-Classes*/
-	@apply focus:bg-gray-100 focus:border-gray-300;
+	@apply focus:bg-gray-100 focus:border-gray-cstm-14;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-1 dark:border-gray-cstm-2;
+	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-1 dark:border-gray-cstm-2 placeholder-gray-cstm-10;
 
 	/*Dark Theme Pseudo-Classes*/
 	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-500;
 }
 
-.tw-ff-xs {
+.form-container-xs {
 	@apply col-span-2;
 
 	/*Responsive Settings*/
 	@apply sm:col-span-6;
 }
 
-.tw-ff-sm {
+.form-container-sm {
 	@apply col-span-3; 
 
 	/*Responsive Settings*/
 	@apply sm:col-span-6;
 }
 
-.tw-ff-md {
+.form-container-md {
 	@apply col-span-4;
 
 	/*Responsive Settings*/
 	@apply sm:col-span-6;
 }
 
-.tw-ff-lg {
+.form-container-lg {
 	@apply col-span-6;
 
 	/*Responsive Settings*/
 	@apply sm:col-span-6;
 }
 
-.tw-ff-xl {
+.form-container-lg-mobile {
+	@apply col-span-6;
+
+	/*Responsive Settings*/
+	@apply sm:col-span-12;
+}
+
+.form-container-xl {
 	@apply col-span-12; 
 
 	/*Responsive Settings*/
 	@apply sm:col-span-12;
 }
 
-.tw-ff-xs-nl {
+.form-container-xs-nl {
 	@apply col-start-1 col-end-3;
 
 	/*Responsive Settings*/
 	@apply sm:col-end-6;
 }
 
-.tw-ff-sm-nl {
+.form-container-sm-nl {
 	@apply col-start-1 col-end-4;
 
 	/*Responsive Settings*/
 	@apply sm:col-end-6;
 }
 
-.tw-ff-md-nl {
+.form-container-md-nl {
 	@apply col-start-1 col-end-5; 
 
 	/*Responsive Settings*/
 	@apply sm:col-end-7;
 }
 
-.tw-ff-lg-nl {
+.form-container-lg-nl {
 	@apply col-start-1 col-end-7; 
 
 	/*Responsive Settings*/
 	@apply sm:col-end-7;
 }
 
-.tw-ff-xl-nl {
+.form-container-xl-nl {
 	@apply col-start-1 col-end-13; 
 
 	/*Responsive Settings*/
 	@apply sm:col-end-13;
 }
 
-.tw-button-accent {
+.checkbox-description {
+	/*Esta clase es utilizada para los contenendores que junten un checbox con una input de texto como descripcion, por ejemplo, las checkboxes de las secciones de origen de fondo de persona natural y juridica.*/
+
 	/*Global*/
-	@apply py-2 text-white font-bold rounded cursor-pointer;
+	@apply form-grid-layout pb-2;
+	border-bottom: 2px solid #e5e7eb;  
 
-	/*Light Theme Defaults*/
-	@apply bg-blue-500;
+	/*Responsive Settings*/
+	@apply sm:pb-4 pt-2;
+}
 
-	/*Light Theme Pseudo-Classes*/
-	@apply hover:bg-blue-600;
-
-	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-700;
-
-	/*Dark Theme Pseudo-Classes*/
-	@apply dark:hover:bg-blue-500;
+.checkbox-description:last-child {
+	border-bottom: none;
 }

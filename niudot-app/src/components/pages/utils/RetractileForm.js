@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import { useState } from 'react'
 import RetractileFormTemplate from './RetractileFormTemplate'
 
-export default function RetractileForm({formTitle, children}){
+export default function RetractileForm({ children, ...props }) {
 	const retractionHook = useState(true)
-	return RetractileFormTemplate({retractionHook, formTitle, children})
+	return RetractileFormTemplate({ retractionHook, children, ...props })
 }

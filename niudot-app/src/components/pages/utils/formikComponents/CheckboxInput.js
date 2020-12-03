@@ -1,13 +1,13 @@
 import React from 'react'
 import { useField } from 'formik'
 
-function CheckboxInput({ label, children, title, ...props }) {
+function CheckboxInput({ children, description, ...props }) {
 	const [field] = useField({ ...props, type: 'checkbox' })
 
 	return (
-		<div className='tw-ff'>
-			<input type='tw-text-label' {...field} />
-			<div className=''>{title}</div>
+		<div className='form-field w-full flex justify-center items-center relative mt-auto'>
+			<input type='checkbox' className='absolute left-2' {...field} />
+			<div className=''>{description}</div>
 		</div>
 	)
 }

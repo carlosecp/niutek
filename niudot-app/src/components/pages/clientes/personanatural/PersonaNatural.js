@@ -5,7 +5,6 @@ import SearchUserForm from '../../utils/SearchUserForm'
 
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import PersonaNaturalCreate from './PersonaNaturalCreate'
-import { Link } from 'react-router-dom'
 
 // * Comentarios para Juan
 {

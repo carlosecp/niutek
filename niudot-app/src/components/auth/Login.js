@@ -20,6 +20,7 @@ function Login(props) {
 			props.history.push('/inicio')
 			loadUser()
 		}
+		// eslint-disable-next-line
 	}, [isAuthenticated, props.history])
 
 	function handleSubmit(values) {
@@ -81,7 +82,7 @@ function Login(props) {
 									placeholder=''
 									label=''
 									type='text'
-									className='form-field'
+									className='form-field w-full'
 								/>
 							</div>
 							<div>
@@ -98,7 +99,7 @@ function Login(props) {
 									placeholder=''
 									label=''
 									type='password'
-									className='form-field'
+									className='form-field w-full'
 								/>
 							</div>
 						</div>

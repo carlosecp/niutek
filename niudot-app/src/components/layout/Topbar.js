@@ -22,11 +22,19 @@ function Topbar({ toggled, setToggled }) {
 	}
 
 	return (
-		<div className='fixed w-full h-16 flex items-center justify-between px-4 shadow-md bg-gray-100 text-black dark:bg-gray-darker-bg dark:text-white transition'>
-			<h2 className='font-bold text-2xl'>{currentPage.name}</h2>
-			<div className='burger-btn' onClick={() => setToggled(!toggled)}>
-				<FaBars className='burger-menu w-6 h-6 hidden sm:block' />
+		<div className='z-10 fixed w-full'>
+			<div className='h-16 flex items-center justify-between px-4 bg-white-gray'>
+				<h2 className='text-black-white font-bold text-2xl'>
+					{currentPage.name}
+				</h2>
+				<div className='burger-btn' onClick={() => setToggled(!toggled)}>
+					<FaBars className='burger-menu w-6 h-6 hidden sm:block' />
+				</div>
 			</div>
+			<div
+				className='w-full bg-gray-200 dark:bg-gray-cstm-2'
+				style={{ height: '2px' }}
+			></div>
 		</div>
 	)
 }

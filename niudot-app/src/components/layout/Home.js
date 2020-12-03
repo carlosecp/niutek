@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from 'react'
-import { Redirect } from 'react-router-dom'
 import authContext from '../../context/auth/authContext'
 import Page from '../pages/Page'
 import Sidebar from './Sidebar'

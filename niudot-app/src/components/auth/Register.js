@@ -22,6 +22,7 @@ function Register(props) {
 			props.history.push('/inicio')
 			loadUser()
 		}
+		// eslint-disable-next-line
 	}, [isAuthenticated, props.history])
 
 	function handleSubmit(values) {
@@ -80,7 +81,7 @@ function Register(props) {
 									placeholder=''
 									label=''
 									type='text'
-									className='form-field'
+									className='form-field w-full'
 								/>
 							</div>
 							<div className='mb-2'>
@@ -94,7 +95,7 @@ function Register(props) {
 									placeholder=''
 									label=''
 									type='text'
-									className='form-field'
+									className='form-field w-full'
 								/>
 							</div>
 							<div className='mb-2'>
@@ -111,7 +112,7 @@ function Register(props) {
 									placeholder=''
 									label=''
 									type='password'
-									className='form-field'
+									className='form-field w-full'
 								/>
 							</div>
 							<div className='mb-2'>
@@ -128,7 +129,7 @@ function Register(props) {
 									placeholder=''
 									label=''
 									type='password'
-									className='form-field'
+									className='form-field w-full'
 								/>
 							</div>
 						</div>

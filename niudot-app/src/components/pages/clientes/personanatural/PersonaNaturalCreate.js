@@ -50,10 +50,10 @@ function PersonaNaturalCreate() {
 			}}
 		>
 			<Form>
-				<h2 className='tw-header text-xl tw-header-secondary'>
+				<h2 className='text-black-white text-xl font-bold'>
 					Crear Un Nuevo Cliente
 				</h2>
-				<p className='mb-4 tw-text-secondary'>Crear un nuevo cliente.</p>
+				<p className='text-gray-gray'>Crear un nuevo cliente.</p>
 				<NewClient id='nuevo-cliente' />
 				<DatosProfesionalesEconomicos id='datos-profesionales-economicos' />
 				<OrigenFondos />
