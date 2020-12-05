@@ -8,6 +8,7 @@ import OrigenFondos from './OrigenFondos'
 
 import {
 	createValues,
+	createValuesSchema,
 	datosValues,
 	origenFondos,
 	refComercialesValues,
@@ -38,15 +39,17 @@ export const initialValues = {
 	...refPersonales2Values
 }
 
+const validationSchema = {
+	...createValuesSchema
+}
+
 function PersonaNaturalCreate() {
 	return (
 		<Formik
 			initialValues={initialValues}
+			validationSchema={createValuesSchema}
 			onSubmit={(values) => {
-				console.log(values)
-				for (const value in values) {
-					console.log(value)
-				}
+				alert(JSON.stringify(values, null, 2))
 			}}
 		>
 			<Form>

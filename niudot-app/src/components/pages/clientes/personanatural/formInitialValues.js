@@ -1,3 +1,5 @@
+import * as Yup from 'yup'
+
 // * Comentarios para Juan
 /* 
 	Esta es la pagina en donde nos encargamos de guardar todos los valores iniciales de todos los inputs de una pantalla, como dije antes, cada pantalla tiene su archivo de valores iniciales. Los valores iniciales tienen una notacion estandar como podes notar, en donde anteponemos el nombre de la seccion a la que pertenecen, esto debe ser asi ya que podemos tener muchos input con el mismo nombre en una misma pagina, como por ejemplo, muchos nombres, pero cada uno perteneciente a un input diferente.
@@ -22,6 +24,12 @@ export const createValues = {
 	create_departamento: '',
 	create_cargo_publico: false
 }
+
+export const createValuesSchema = Yup.object({
+	create_apellidos: Yup.string()
+		.max(20, 'Must be 15 characters or less')
+		.required('Required')
+})
 
 export const origenFondos = {
 	origen_fondos_negocio_propio: false,

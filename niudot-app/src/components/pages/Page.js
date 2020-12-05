@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import Topbar from '../layout/Topbar'
@@ -10,7 +10,7 @@ function Page(props) {
 	return (
 		<div className='pl-64 sm:p-0 w-full'>
 			<Topbar {...props} />
-			<div className='px-4 pt-20 bg-white-gray'>
+			<div className='px-4 pt-20 bg-white-gray relative'>
 				<Switch>
 					<Route exact path='/' component={Inicio} />
 					<Route

@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useField } from 'formik'
+import alertsContext from '../../../../context/alerts/alerts/alertsContext'
 
 function TextInput({ type, placeholder, ...props }) {
-	const [field] = useField(props)
+	const [field, meta] = useField(props)
+	const { addAlert } = useContext(alertsContext)
+
+	useEffect(() => {
+		if (meta.error) {
+			addAlert(meta.error)
+		}
+	}, [meta.error])
 
 	return (
 		<input
@@ -11,7 +19,6 @@ function TextInput({ type, placeholder, ...props }) {
 			placeholder={placeholder}
 			{...field}
 			{...props}
-			required
 		/>
 	)
 }
