@@ -1,21 +1,23 @@
-import React, {useContext} from 'react'
-import {PageContext} from '../../../context/sections/SectionsContext'
+import React, { useContext } from 'react'
+import { PageContext } from '../../../context/sections/SectionsContext'
 import PropTypes from 'prop-types'
 
 function PageMenu() {
+	const { sections } = useContext(PageContext)
 
-    const {sections} = useContext(PageContext)
-	console.log('', sections)
-
-	if (!sections) {return <> </>}
+	if (!sections) {
+		return <> </>
+	}
 	return (
 		<div>
 			<div className='page-menu'>
-				{Object.keys(sections).map((section) => (
-					section == 'current'? <> </> :
-					 <PageMenuItem key={section} section={section} />
-				
-				))}
+				{Object.keys(sections).map((section) =>
+					section == 'current' ? (
+						<> </>
+					) : (
+						<PageMenuItem key={section} section={section} />
+					)
+				)}
 			</div>
 		</div>
 	)
@@ -26,11 +28,10 @@ function PageMenu() {
 */
 function PageMenuItem({ section }) {
 	// Obtiene las secciones de la pagina y el metodo para actualizarla
-	const {sections, changeCurrentSection} = useContext(PageContext)
+	const { sections, changeCurrentSection } = useContext(PageContext)
 
-	
 	const [retracted, setRetraction] = sections[section]
-	
+
 	function handleClick() {
 		//setRetraction(false)
 		console.log(retracted)
@@ -50,7 +51,7 @@ function PageMenuItem({ section }) {
 				onClick={() => handleClick()}
 			>
 				{' '}
-				{getSectionTitle(section) + ` ${retracted}` }
+				{getSectionTitle(section) + ` ${retracted}`}
 			</a>
 		</div>
 	)

@@ -20,13 +20,7 @@ function FormTextInput({
 					{label}
 				</label>
 			)}
-			<TextInput
-				className='form-field w-full'
-				name={name}
-				type={type}
-				placeholder={placeholder}
-				{...props}
-			/>
+			<TextInput name={name} type={type} placeholder={placeholder} {...props} />
 		</div>
 	)
 }

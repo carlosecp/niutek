@@ -8,9 +8,9 @@ function AlertsState(props) {
 	function addAlert(msg) {
 		const alertId = uuidv4()
 		setAlerts([...alerts, { id: alertId, msg }])
-		//setTimeout(() => {
-		//setAlerts(alerts.filter((alert) => alert.id !== alertId))
-		//}, 3000)
+		setTimeout(() => {
+			setAlerts((alerts) => alerts.filter((alert) => alert.id !== alertId))
+		}, 3000)
 	}
 
 	return (

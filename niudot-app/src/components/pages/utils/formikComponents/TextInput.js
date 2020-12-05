@@ -7,15 +7,17 @@ function TextInput({ type, placeholder, ...props }) {
 	const { addAlert } = useContext(alertsContext)
 
 	useEffect(() => {
-		if (meta.error) {
+		if (meta.touched && meta.error) {
 			addAlert(meta.error)
 		}
-	}, [meta.error])
+	}, [meta.touched, meta.error])
 
 	return (
 		<input
 			type={type}
-			className='tw-form-field w-full'
+			className={`form-field w-full ${
+				meta.touched && meta.error && 'form-field-error'
+			}`}
 			placeholder={placeholder}
 			{...field}
 			{...props}
