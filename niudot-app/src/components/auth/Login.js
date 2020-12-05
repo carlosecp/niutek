@@ -58,7 +58,7 @@ function Login(props) {
 					</div>
 				</div>
 			</div>
-			<div className='bg-white-gray m-auto h-screen flex flex-col justify-center items-center'>
+			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center'>
 				<h1 className='text-black-white font-bold text-3xl select-none'>
 					Bienvenido
 				</h1>
