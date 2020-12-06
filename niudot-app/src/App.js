@@ -9,6 +9,7 @@ import setAuthToken from './utils/setAuthToken'
 import themeContext from './context/theme/themeContext'
 import SectionsProvider from './context/sections/SectionsContext'
 import AlertsState from './context/alerts/alerts/AlertsState'
+import RoutesState from './context/routes/RoutesState'
 
 // * Comentarios para Juan
 {
@@ -26,19 +27,21 @@ function App() {
 
 	return (
 		<div className={`${theme && 'dark'}`}>
-			<AlertsState>
-				<SectionsProvider>
-					<AuthState>
-						<Router>
-							<Switch>
-								<Route exact path='/login' component={Login} />
-								<Route exact path='/register' component={Register} />
-								<PrivateRoute path='/' component={Home} />
-							</Switch>
-						</Router>
-					</AuthState>
-				</SectionsProvider>
-			</AlertsState>
+			<RoutesState>
+				<AlertsState>
+					<SectionsProvider>
+						<AuthState>
+							<Router>
+								<Switch>
+									<Route exact path='/login' component={Login} />
+									<Route exact path='/register' component={Register} />
+									<PrivateRoute path='/' component={Home} />
+								</Switch>
+							</Router>
+						</AuthState>
+					</SectionsProvider>
+				</AlertsState>
+			</RoutesState>
 		</div>
 	)
 }

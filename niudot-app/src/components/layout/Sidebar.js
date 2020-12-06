@@ -16,10 +16,12 @@ import SidebarSubMenu from './SidebarSubMenu'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
 import '../../assets/pro-sidebar.css'
+import routesContext from '../../context/routes/routesContext'
 
 function Sidebar({ toggled, setToggled }) {
 	const { logout } = useContext(authContext)
 	const { theme, toggleTheme } = useContext(themeContext)
+	const { changePage } = useContext(routesContext)
 
 	function handleLogout() {
 		logout()
@@ -32,14 +34,14 @@ function Sidebar({ toggled, setToggled }) {
 			toggled={toggled}
 			onToggle={setToggled}
 		>
-			<SidebarHeader className='tw-sidebar flex-col-center'>
+			<SidebarHeader className=''>
 				<h2 className='font-bold text-2xl'>niudot.</h2>
 			</SidebarHeader>
-			<SidebarContent className='tw-sidebar'>
+			<SidebarContent className=''>
 				<Menu>
 					<MenuItem icon={<FaHome />} className='sidebar-item'>
 						Inicio
-						<Link to='/inicio' />
+						<Link to='/inicio' onClick={() => changePage('inicio')} />
 					</MenuItem>
 					{pages.map((page) => (
 						<SidebarSubMenu key={page.name} page={page} />
