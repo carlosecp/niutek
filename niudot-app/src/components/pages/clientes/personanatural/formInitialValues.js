@@ -26,10 +26,11 @@ export const createValues = {
 }
 
 export const createValuesSchema = Yup.object({
-	create_nombres: Yup.string().max(5, 'Nombres Length').required('Nombres'),
+	create_nombres: Yup.string().max(5, 'Hola Juan').required('Nombres'),
 	create_apellidos: Yup.string()
 		.max(5, 'Apellidos Length')
-		.required('Apellidos')
+		.required('Apellidos'),
+	create_numero_id: Yup.string().max(5, 'Hola Juan').required('Nombres')
 })
 
 export const origenFondos = {

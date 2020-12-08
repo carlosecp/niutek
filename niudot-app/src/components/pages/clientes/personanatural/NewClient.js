@@ -55,7 +55,6 @@ function NuevoCliente() {
 					placeholder='Apellidos'
 					label='Apellidos'
 				/>
-
 				<FormDropdownInput
 					size='lg'
 					name='create_tipo_id'
