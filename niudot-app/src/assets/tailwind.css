@@ -196,25 +196,6 @@ html, body {
 	@apply sm:col-end-13;
 }
 
-.checkbox-description {
-	/*Esta clase es utilizada para los contenendores que junten un checbox con una input de texto como descripcion, por ejemplo, las checkboxes de las secciones de origen de fondo de persona natural y juridica.*/
-
-	/*Global*/
-	@apply form-grid-layout pb-2;
-	border-bottom: 2px solid #e5e7eb;  
-
-	/*Responsive Settings*/
-	@apply sm:pb-4 pt-2;
-}
-
-.dark .checkbox-description {
-	border-bottom: 2px solid rgba(51, 53, 56, 1);
-}
-
-.checkbox-description:last-child {
-	border-bottom: none;
-}
-
 .alerts-container {
 	@apply fixed top-20 right-4 z-10 flex flex-col items-end gap-4;
 }
