@@ -32,7 +32,6 @@ function OrigenFondos() {
 				<FormTextInput
 					name='origen_fondos_herencia_monto'
 					size='lg'
-					newLine={true}
 					placeholder='Monto'
 					label='Monto'
 					type='number'
@@ -43,53 +42,38 @@ function OrigenFondos() {
 					size='lg'
 					placeholder='Tipo de Inversiones'
 					label='Tipo de Inversiones'
+					newLine={true}
 				/>
 				<FormTextInput
 					name='origen_fondos_prestamo_institucion'
 					size='md'
 					placeholder='Institucion Financiera'
 					label='Institucion Financiera'
+					newLine={true}
 				/>
 				<FormTextInput
 					name='origen_fondos_ventas_producto'
 					size='md'
-					placeholder='Productos'
-					label='Productos'
+					placeholder='Venta de...'
+					label='Ventas'
+					newLine={true}
 				/>
-				<div className='checkbox-description'>
-					<FormCheckboxInput
-						name='origen_fondos_salario'
-						size='md'
-						description='Salario'
-						label='Salario'
-					/>
-				</div>
-				<div className='checkbox-description'>
-					<FormCheckboxInput
-						name='origen_fondos_ahorro'
-						size='md'
-						description='Ahorro'
-					/>
-					<FormTextInput
-						name='origen_fondos_ahorro_institucion'
-						size='md'
-						placeholder='Institución Financiera'
-						label='Institución Financiera'
-					/>
-				</div>
-				<div className='checkbox-description'>
-					<FormCheckboxInput
-						name='origen_fondos_otros'
-						size='md'
-						description='Otros'
-					/>
+				<FormTextInput
+					name='origen_fondos_ahorro_institucion'
+					size='md'
+					placeholder='Institución Financiera'
+					label='Institución Financiera'
+					newLine={true}
+				/>
+				
 					<FormTextInput
 						name='origen_fondos_otros_descripcion'
 						size='md'
 						placeholder='Especifique'
-						label='Especifique'
+						label='Otros'
+						newLine={true}
 					/>
-				</div>{' '}
+				
 			</div>
 		</RetractileForm>
 	)

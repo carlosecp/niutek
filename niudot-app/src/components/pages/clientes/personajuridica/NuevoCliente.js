@@ -67,5 +67,3 @@ function NuevoCliente() {
 		</div>
 	)
 }
-
-export default NuevoCliente
