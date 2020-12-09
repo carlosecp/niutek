@@ -17,7 +17,8 @@ import {
 	refPersonales2Values
 } from './formInitialValues'
 
-// * Comentarios para Juan
+
+// 
 {
 	/* Para trabajar con Formik necesitamos valores iniciales en los formularios. Cada formulario tiene un archivo dentro del mismo directorio en donde esta al formulario, que tiene el nombre de formInitialValues, aca se almacenan los valores por defecto que necesita Formik. Andate a ese archivo y despues volves aca...
 
@@ -44,7 +45,8 @@ const validationSchema = {
 }
 
 function PersonaNaturalCreate() {
-	return (
+	return (<>
+	
 		<Formik
 			initialValues={initialValues}
 			validationSchema={createValuesSchema}
@@ -53,6 +55,7 @@ function PersonaNaturalCreate() {
 			}}
 		>
 			<Form>
+
 				<h2 className='text-black-white text-xl font-bold'>
 					Crear Un Nuevo Cliente
 				</h2>
@@ -64,6 +67,7 @@ function PersonaNaturalCreate() {
 				<SubmitBtn />
 			</Form>
 		</Formik>
+		</>
 	)
 }
 

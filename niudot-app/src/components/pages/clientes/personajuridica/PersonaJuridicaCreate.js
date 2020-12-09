@@ -1,18 +1,37 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
-
-import { FaChevronDown } from 'react-icons/fa'
-
 import DatosEconomicos from './DatosEconomicos'
-import PrincipalesProveedores from './principalesproveedores/PrincipalesProveedores'
+import PrincipalesProveedores from './PrincipalesProveedores'
 import Referencias from '../../utils/referencias/Referencias'
-import AccionistasMayoritarios from './accionistasmayoritarios/AccionistasMayoritarios'
+import AccionistasMayoritarios from './AccionistasMayoritarios'
 import OrigenFondos from './OrigenFondos'
 import NuevoCliente from './NewClient'
+import SubmitBtn from '../../utils/SubmitBtn'
+
+import {
+	createValues,
+	createValuesSchema,
+	datosValues,
+	origenFondos,
+	refComercialesValues,
+	refBancariasValues,
+	refPersonales1Values,
+	refPersonales2Values
+} from './formInitialValues'
+
+export const initialValues = {
+	...createValues
+}
 
 function PersonaJuridicaCreate() {
 	return (
-		<Formik>
+		<Formik
+		initialValues={initialValues}
+		validationSchema={createValuesSchema}
+		onSubmit={(values) => {
+			alert(JSON.stringify(values, null, 2))
+		}}
+		>
 			<Form className='form'>
 				<NuevoCliente />
 				<DatosEconomicos />
@@ -20,6 +39,7 @@ function PersonaJuridicaCreate() {
 				<Referencias />
 				<AccionistasMayoritarios />
 				<OrigenFondos />
+				<SubmitBtn />
 			</Form>
 		</Formik>
 	)

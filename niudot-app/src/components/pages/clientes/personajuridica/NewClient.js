@@ -100,27 +100,17 @@ function NuevoCliente() {
 				/>
 				<FormTextInput
 					name='create_fecha_constitucion'
-					size='xl'
+					size='lg'
 					placeholder='Fecha de Constitución'
 					label='Fecha de Constitución'
 				/>
 				<FormTextInput
 					name='create_fecha_personería'
-					size='xl'
+					size='lg'
 					placeholder='Fecha de Personería'
 					label='Fecha de Personería'
 				/>
 
-				{/* <FormCheckboxInput
-				label='Esta es mi label'
-				name='create_cargo_publico'
-				size='lg'
-				title='Acepto que Java me gusta'
-			/>  
-			
-			MUY POCOS CUMPLIDOS PARA JAVA, POR FAVOR ADORAR MAS - Atentamente, Juan Matus
-			
-			*/}
 			</div>
 		</>
 	)
