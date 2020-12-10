@@ -257,7 +257,6 @@ html, body {
 	@apply dark:bg-blue-500;
 }
 
-
 .pro-menu-item > .pro-inner-item > .pro-item-content {
 	/*Esta clase maneja todo lo que es texto en cada uno de los elementos de la lista de links en el sidebar. Todos, incluidos los que estan en submenus.*/
 
