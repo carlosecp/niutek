@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "./sidebar.css";
 
 /* ================ */
 /* ==== GLOBAL ==== */
@@ -208,4 +209,58 @@ html, body {
 
 	/*Light Theme Defaults*/
 	@apply bg-white;
+}
+
+.pro-sidebar {
+	/*Global*/
+	@apply font-bold text-white transition;
+
+	/*Light Theme Defaults*/
+	@apply bg-blue-500;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-blue-700;
+}
+
+.pro-sidebar-header {
+	/*Esta clase es de nombre bastante descriptivo.*/
+
+	/*Global*/
+	@apply z-10;
+
+	/*Light Theme Defaults*/
+	@apply bg-blue-500;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-blue-700;
+}
+
+.pro-sidebar > .pro-sidebar-inner {
+	/*Esta clase es para todo lo que esta en el body de la sidebar, entre el header y el footer.*/
+
+	/*Global*/
+
+	/*Light Theme Defaults*/
+	@apply bg-blue-500;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-blue-700;
+}
+
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
+	/*Esta clase es para los submenus. El contenedor de los submenus si, no cada uno de las opciones.*/
+
+	/*Light Theme Defaults*/
+	@apply bg-blue-600;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-blue-500;
+}
+
+
+.pro-menu-item > .pro-inner-item > .pro-item-content {
+	/*Esta clase maneja todo lo que es texto en cada uno de los elementos de la lista de links en el sidebar. Todos, incluidos los que estan en submenus.*/
+
+	/*Global*/
+	@apply text-base hover:underline;
 }
