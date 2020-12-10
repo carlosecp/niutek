@@ -8,7 +8,7 @@ import PersonaNaturalCreate from './PersonaNaturalCreate'
 import { Link } from 'react-router-dom'
 import { PageContext } from '../../../../context/sections/SectionsContext'
 import alertsContext from '../../../../context/alerts/alerts/alertsContext'
-import RowElement from '../../utils/Tablas/Column/RowElement'
+
 
 
 // * Comentarios para Juan
@@ -83,7 +83,6 @@ function PersonaNatural() {
 					<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
 				) : (
 					<>
-					<RowElement />
 					<PersonaNaturalCreate />
 					</>
 				)}
