@@ -209,3 +209,13 @@ html, body {
 	/*Light Theme Defaults*/
 	@apply bg-white;
 }
+
+
+td {
+	border-right: 2px solid;
+	@apply border-gray-200;
+}
+
+td:last-child {
+	border: none;
+}

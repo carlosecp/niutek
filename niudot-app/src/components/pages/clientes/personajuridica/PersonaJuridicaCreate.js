@@ -7,7 +7,6 @@ import AccionistasMayoritarios from './AccionistasMayoritarios'
 import OrigenFondos from './OrigenFondos'
 import NuevoCliente from './NewClient'
 import SubmitBtn from '../../utils/SubmitBtn'
-
 import {
 	createValues,
 	createValuesSchema,
@@ -18,6 +17,7 @@ import {
 	refPersonales1Values,
 	refPersonales2Values
 } from './formInitialValues'
+import RowElement from '../../utils/Tablas/Column/RowElement'
 
 export const initialValues = {
 	...createValues
@@ -40,6 +40,7 @@ function PersonaJuridicaCreate() {
 				<AccionistasMayoritarios />
 				<OrigenFondos />
 				<SubmitBtn />
+				
 			</Form>
 		</Formik>
 	)
