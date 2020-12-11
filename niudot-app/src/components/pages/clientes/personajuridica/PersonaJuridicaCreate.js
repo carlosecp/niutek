@@ -10,20 +10,38 @@ import SubmitBtn from '../../utils/SubmitBtn'
 import {
 	createValues,
 	createValuesSchema,
-	datosValues,
+	principalesProveedores,
 	origenFondos,
 	refComercialesValues,
 	refBancariasValues,
 	refPersonales1Values,
-	refPersonales2Values
+	refPersonales2Values,
+	accionistasMayoritarios,
 } from './formInitialValues'
-import RowElement from '../../utils/Tablas/Column/RowElement'
+
+
 
 export const initialValues = {
-	...createValues
+	...createValues,
+	...principalesProveedores,
+	...origenFondos,
+	...refComercialesValues,
+	...refBancariasValues,
+	...refPersonales1Values,
+	...refPersonales2Values,
+	...accionistasMayoritarios,
 }
 
-function PersonaJuridicaCreate() {
+
+const validationSchema = {
+	...createValuesSchema
+}
+
+
+
+function PersonaJuridicaCreate(props) {
+	
+
 	return (
 		<Formik
 		initialValues={initialValues}

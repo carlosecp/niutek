@@ -30,7 +30,7 @@ function FormCheckboxInput({
 	label = '',
 	name,
 	description,
-	newLine = false
+	newLine = false,
 }) {
 	return (
 		<div className={`form-container-${newLine ? `${size}-nl` : size} flex`}>
@@ -39,14 +39,14 @@ function FormCheckboxInput({
 	)
 }
 
-function FormDropdownInput({ size, label, newLine = false, ...props }) {
+function FormDropdownInput({ value, handleChange, size, label, newLine = false, ...props }) {
 	const [field] = useField(props)
-
+	
 	return (
 		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
 			<label className='text-black-white'>{label}</label>
 			<div className=''>
-				<select className='form-field w-full' {...field} {...props} />
+				<select onChange={handleChange} value={value} className='form-field w-full' {...field} {...props} />
 			</div>
 		</div>
 	)

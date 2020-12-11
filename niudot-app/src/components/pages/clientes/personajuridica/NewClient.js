@@ -1,8 +1,11 @@
 import React from 'react'
+import { create } from 'yup/lib/Reference';
 import {
 	FormTextInput,
 	FormDropdownInput
 } from '../../utils/formikComponentsEndpoint'
+import { createValues } from './formInitialValues'
+
 
 // * Comentarios
 {
@@ -32,7 +35,8 @@ import {
 	*/
 }
 
-function NuevoCliente() {
+function NuevoCliente(props) {
+
 	return (
 		<>
 			<div className='form-grid-layout'>
@@ -54,10 +58,11 @@ function NuevoCliente() {
 					name='create_tipo_id'
 					label='Tipo Identificación'
 				>
-					<option value='option_1'>Option 1</option>
+					<option value=''>Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
+					
 				</FormDropdownInput>
 				<FormTextInput
 					name='create_numero_id'
@@ -77,8 +82,7 @@ function NuevoCliente() {
 					placeholder='Número de Empleados'
 					label='Número de Empleados'
 					type='number'
-                    min='0'
-                    
+					min='0'
 				/>
 				<FormTextInput
 					name='create_telefono_1'
@@ -92,7 +96,7 @@ function NuevoCliente() {
 					placeholder='Teléfono 2'
 					label='Teléfono 2'
 				/>
-                <FormTextInput
+				<FormTextInput
 					name='create_direccion'
 					size='xl'
 					placeholder='Dirección'
@@ -110,8 +114,9 @@ function NuevoCliente() {
 					placeholder='Fecha de Personería'
 					label='Fecha de Personería'
 				/>
-
+				
 			</div>
+			
 		</>
 	)
 }
