@@ -11,7 +11,7 @@ function Page(props) {
 	return (
 		<div className='pl-64 sm:p-0 w-full'>
 			<Topbar {...props} />
-			<div className='px-4 pt-20 bg-white-gray relative'>
+			<div className='px-4 pt-20 bg-white-gray relative min-h-full'>
 				<Switch>
 					<Route exact path='/' component={Inicio} />
 					<Route
@@ -26,7 +26,7 @@ function Page(props) {
 					/>
 					<Route
 						exact
-						path='/productos/productos-1'
+						path='/productos/productos'
 						component={Products}
 					/>
 				</Switch>

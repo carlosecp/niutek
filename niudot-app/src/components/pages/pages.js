@@ -6,7 +6,8 @@ import {
 	FaChartBar,
 	FaReceipt,
 	FaChevronCircleDown,
-	FaCreditCard
+	FaCreditCard,
+	FaMoneyCheck
 } from 'react-icons/fa/index'
 
 const pages = [
@@ -54,8 +55,7 @@ const pages = [
 		name: 'Productos',
 		icon: <FaChevronCircleDown />,
 		dropdownOptions: [
-			{ path: 'productos/productos-1', name: 'Productos 1' },
-			{ path: 'productos/productos-2', name: 'Productos 2' }
+			{ path: 'productos/productos', name: 'Productos' },
 		]
 	},
 	{
@@ -65,7 +65,15 @@ const pages = [
 			{ path: 'credito/creditos-1', name: 'Credito 1' },
 			{ path: 'credito/creditos-2', name: 'Credito 2' }
 		]
-	}
+	},
+	{
+		name: 'Cheques',
+		icon: <FaMoneyCheck />,
+		dropdownOptions: [
+			{ path: 'credito/cheques', name: 'Cheques' },
+		]
+	},
+
 ]
 
 export default pages
