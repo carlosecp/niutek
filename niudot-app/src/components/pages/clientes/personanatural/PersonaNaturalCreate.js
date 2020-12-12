@@ -16,6 +16,7 @@ import {
 	refPersonales1Values,
 	refPersonales2Values
 } from './formInitialValues'
+import Table from '../../utils/Table'
 
 
 export const initialValues = {
@@ -43,7 +44,7 @@ function PersonaNaturalCreate() {
 			}}
 		>
 			<Form>
-
+			<Table />
 				<h2 className='text-black-white text-xl font-bold'>
 					Crear Un Nuevo Cliente
 				</h2>

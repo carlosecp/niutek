@@ -70,7 +70,7 @@ const pages = [
 		name: 'Cheques',
 		icon: <FaMoneyCheck />,
 		dropdownOptions: [
-			{ path: 'credito/cheques', name: 'Cheques' },
+			{ path: 'cheques/cheques', name: 'Cheques' },
 		]
 	},
 

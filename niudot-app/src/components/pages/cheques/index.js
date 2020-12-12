@@ -3,17 +3,11 @@ import { PageContext } from '../../../context/sections/SectionsContext'
 import alertsContext from '../../../context/alerts/alerts/alertsContext'
 import CreateNewClientBtn from '../utils/CreateNewClientBtn'
 import PageMenu from '../utils/PageMenu'
-import ProductsCreate from './ProductsCreate'
+import CheckCreate from './CheckCreate'
 
 
 
-// * Comentarios para Juan
-{
-	/* Esta es la pantalla principal de Persona Natural, aca no hay muchas cosas interesantes la verdad. Acuerdense de que 	ustedes van a cambiar algo aca porque tenemos el menu de la derecha... Pero de eso ya no se yo... Asi que ahora podes avanzar a PersonaNaturalCreate...
-	 */
-}
-
-function Products() {
+function Check() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
 
 	const { sections, changeCurrentSection, setSections } = useContext(
@@ -78,7 +72,7 @@ function Products() {
 					<CreateNewClientBtn />
 				) : (
 					<>
-					<ProductsCreate />
+					<CheckCreate />
 					</>
 				)}
 			</div>
@@ -87,4 +81,4 @@ function Products() {
 	)
 }
 
-export default Products
+export default Check

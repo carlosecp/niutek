@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { Switch, Route } from 'react-router-dom'
-
 import Topbar from '../layout/Topbar'
 import Inicio from './inicio/Inicio'
 import PersonaJuridica from './clientes/personajuridica/PersonaJuridica'
 import PersonaNatural from './clientes/personanatural'
 import Products from './products/index'
+import Check from './cheques'
 
 function Page(props) {
 	return (
@@ -29,6 +29,12 @@ function Page(props) {
 						path='/productos/productos'
 						component={Products}
 					/>
+					<Route
+						exact
+						path='/cheques/cheques'
+						component={Check}
+					/>
+					
 				</Switch>
 			</div>
 		</div>
