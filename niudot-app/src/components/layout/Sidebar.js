@@ -64,6 +64,7 @@ function Sidebar({ toggled, setToggled }) {
 						)}
 					</div>
 				</div>
+
 				<button onClick={handleLogout} style={{ color: 'black' }}>
 					Logout
 				</button>
