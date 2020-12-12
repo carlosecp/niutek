@@ -4,7 +4,8 @@ import { Switch, Route } from 'react-router-dom'
 import Topbar from '../layout/Topbar'
 import Inicio from './inicio/Inicio'
 import PersonaJuridica from './clientes/personajuridica/PersonaJuridica'
-import PersonaNatural from './clientes/personanatural/PersonaNatural'
+import PersonaNatural from './clientes/personanatural'
+import Products from './products/index'
 
 function Page(props) {
 	return (
@@ -22,6 +23,11 @@ function Page(props) {
 						exact
 						path='/clientes/persona-juridica'
 						component={PersonaJuridica}
+					/>
+					<Route
+						exact
+						path='/productos/productos-1'
+						component={Products}
 					/>
 				</Switch>
 			</div>

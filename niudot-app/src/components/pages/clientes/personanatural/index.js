@@ -2,10 +2,8 @@ import React, { useState, useContext, useEffect } from 'react'
 
 import PageMenu from '../../utils/PageSectionMenu'
 import SearchUserForm from '../../utils/SearchUserForm'
-
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import PersonaNaturalCreate from './PersonaNaturalCreate'
-import { Link } from 'react-router-dom'
 import { PageContext } from '../../../../context/sections/SectionsContext'
 import alertsContext from '../../../../context/alerts/alerts/alertsContext'
 

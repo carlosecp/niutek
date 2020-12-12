@@ -2,6 +2,7 @@ import React from 'react'
 import { useField } from 'formik'
 import TextInput from './formikComponents/TextInput'
 import CheckboxInput from './formikComponents/CheckboxInput'
+import TextArea from './formikComponents/TextArea'
 
 function FormTextInput({
 	size,
@@ -24,6 +25,29 @@ function FormTextInput({
 		</div>
 	)
 }
+
+function FormTextArea({
+	size,
+	name,
+	label = 'Label',
+	showLabel = true,
+	placeholder,
+	type = 'text',
+	newLine = false,
+	...props
+}) {
+	return (
+		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
+			{showLabel && (
+				<label className='text-black-white' htmlFor={name}>
+					{label}
+				</label>
+			)}
+			<TextArea name={name} type={type} placeholder={placeholder} {...props} />
+		</div>
+	)
+}
+
 
 function FormCheckboxInput({
 	size,
@@ -52,4 +76,4 @@ function FormDropdownInput({ value, handleChange, size, label, newLine = false, 
 	)
 }
 
-export { FormTextInput, FormCheckboxInput, FormDropdownInput }
+export { FormTextInput, FormCheckboxInput, FormDropdownInput, FormTextArea }
