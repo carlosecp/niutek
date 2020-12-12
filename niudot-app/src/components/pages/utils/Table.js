@@ -1,7 +1,7 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit'
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
+import '../../../assets/tables.css'
 
 const { ExportCSVButton } = CSVExport
 

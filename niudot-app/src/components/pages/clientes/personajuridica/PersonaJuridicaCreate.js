@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
 import DatosEconomicos from './DatosEconomicos'
 import PrincipalesProveedores from './PrincipalesProveedores'
 import Referencias from '../../utils/referencias/Referencias'
@@ -7,6 +8,7 @@ import AccionistasMayoritarios from './AccionistasMayoritarios'
 import OrigenFondos from './OrigenFondos'
 import NuevoCliente from './NewClient'
 import SubmitBtn from '../../utils/SubmitBtn'
+
 import {
 	createValues,
 	createValuesSchema,
@@ -16,10 +18,8 @@ import {
 	refBancariasValues,
 	refPersonales1Values,
 	refPersonales2Values,
-	accionistasMayoritarios,
+	accionistasMayoritarios
 } from './formInitialValues'
-
-
 
 export const initialValues = {
 	...createValues,
@@ -29,26 +29,21 @@ export const initialValues = {
 	...refBancariasValues,
 	...refPersonales1Values,
 	...refPersonales2Values,
-	...accionistasMayoritarios,
+	...accionistasMayoritarios
 }
 
-
-const validationSchema = {
+const validationSchema = Yup.object({
 	...createValuesSchema
-}
+})
 
-
-
-function PersonaJuridicaCreate(props) {
-	
-
+function PersonaJuridicaCreate() {
 	return (
 		<Formik
-		initialValues={initialValues}
-		validationSchema={createValuesSchema}
-		onSubmit={(values) => {
-			alert(JSON.stringify(values, null, 2))
-		}}
+			initialValues={initialValues}
+			validationSchema={validationSchema}
+			onSubmit={(values) => {
+				alert(JSON.stringify(values, null, 2))
+			}}
 		>
 			<Form className='form'>
 				<NuevoCliente />
@@ -58,7 +53,6 @@ function PersonaJuridicaCreate(props) {
 				<AccionistasMayoritarios />
 				<OrigenFondos />
 				<SubmitBtn />
-				
 			</Form>
 		</Formik>
 	)

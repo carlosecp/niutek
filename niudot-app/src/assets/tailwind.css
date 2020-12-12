@@ -93,12 +93,7 @@ html, body {
 
 .btn-border-blue {
 	/*Global*/
-	@apply text-white focus:outline-none focus:ring focus:text-white hover:text-white;
-}
-
-.btn-border-gray {
-	/*Global*/
-	@apply text-white focus:outline-none focus:ring focus:ring-gray-cstm-14 focus:text-white hover:text-white;
+	@apply text-white focus:outline-none focus:ring focus:text-white hover:text-white dark:focus:ring-blue-400;
 }
 
 .form-grid-layout {
