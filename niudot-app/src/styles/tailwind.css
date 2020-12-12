@@ -227,7 +227,7 @@ html, body {
 
 .pro-sidebar {
 	/*Global*/
-	@apply font-bold text-white transition;
+	@apply font-bold text-white;
 
 	/*Light Theme Defaults*/
 	@apply bg-blue-500;
