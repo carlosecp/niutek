@@ -86,15 +86,25 @@ html, body {
 /* == COMPONENTS == */
 /* ================ */
 
-.btn-block {
+.btn { 
 	/*Global*/
-	@apply h-std rounded block w-full font-bold select-none;
+	@apply h-std rounded font-bold select-none px-4;
+}
+
+.btn-border-blue {
+	/*Global*/
+	@apply text-white focus:outline-none focus:ring focus:text-white hover:text-white;
+}
+
+.btn-border-gray {
+	/*Global*/
+	@apply text-white focus:outline-none focus:ring focus:ring-gray-cstm-14 focus:text-white hover:text-white;
 }
 
 .form-grid-layout {
 	/*Esta es la clase que aplican para hacer una nueva seccion que contiene un formulario. Esa seccion que contiene las casillas de texto o lo que sea (la que las contiene a todas), ya que aca se definen las propiedades del grid.*/
 
-	@apply mt-2 grid grid-cols-12 gap-2 max-w-xl;
+	@apply mt-2 grid grid-cols-12 gap-2 max-w-2xl;
 }
 
 .form-field {
@@ -211,15 +221,14 @@ html, body {
 	@apply bg-white;
 }
 
-
-td {
-	border-right: 2px solid;
-	@apply border-gray-200;
+.table {
+	/*Global*/
+	@apply max-w-2xl rounded outline-none border-2 border-solid;
 }
 
-td:last-child {
-	border: none;
-}
+/* ================= */
+/* == PRO-SIDEBAR == */
+/* ================= */
 
 .pro-sidebar {
 	/*Global*/

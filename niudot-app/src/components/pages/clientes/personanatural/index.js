@@ -7,14 +7,6 @@ import PersonaNaturalCreate from './PersonaNaturalCreate'
 import { PageContext } from '../../../../context/sections/SectionsContext'
 import alertsContext from '../../../../context/alerts/alerts/alertsContext'
 
-
-
-// * Comentarios para Juan
-{
-	/* Esta es la pantalla principal de Persona Natural, aca no hay muchas cosas interesantes la verdad. Acuerdense de que 	ustedes van a cambiar algo aca porque tenemos el menu de la derecha... Pero de eso ya no se yo... Asi que ahora podes avanzar a PersonaNaturalCreate...
-	 */
-}
-
 function PersonaNatural() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
 
@@ -80,9 +72,7 @@ function PersonaNatural() {
 				{showCreateFormButton ? (
 					<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
 				) : (
-					<>
 					<PersonaNaturalCreate />
-					</>
 				)}
 			</div>
 			<PageMenu />

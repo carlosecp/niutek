@@ -1,12 +1,10 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
-import ToolkitProvider, {
-	CSVExport
-} from 'react-bootstrap-table2-toolkit'
+import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
-import 'bootstrap/dist/css/bootstrap.css'
 
 const { ExportCSVButton } = CSVExport
+
 const products = [
 	{
 		cheque: '20668',
@@ -14,29 +12,29 @@ const products = [
 		destinatario: 'Carlos Arcia',
 		moneda: 'Córdobas',
 		monto: '10500'
-    },
-    {
+	},
+	{
 		cheque: '20668',
 		fecha: '24/05/20',
 		destinatario: 'Juan Matus',
 		moneda: 'Córdobas',
 		monto: '10500'
-    },
-    {
+	},
+	{
 		cheque: '20668',
 		fecha: '24/05/20',
 		destinatario: 'Luis Montenegro',
 		moneda: 'Córdobas',
 		monto: '10500'
-    },
-    {
+	},
+	{
 		cheque: '20668',
 		fecha: '24/05/20',
 		destinatario: 'Eduardo Castillo',
 		moneda: 'Córdobas',
 		monto: '10500'
-    },
-    {
+	},
+	{
 		cheque: '20668',
 		fecha: '24/05/20',
 		destinatario: 'Ben Awad',
@@ -80,7 +78,10 @@ export default function Table() {
 			{(props) => (
 				<React.Fragment>
 					<BootstrapTable {...props.baseProps} />
-					<ExportCSVButton className='btn-primary' {...props.csvProps}>
+					<ExportCSVButton
+						className='btn bg-blue-blue btn-border-blue'
+						{...props.csvProps}
+					>
 						Descargar CSV
 					</ExportCSVButton>
 				</React.Fragment>
