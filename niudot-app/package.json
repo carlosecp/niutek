@@ -11,6 +11,8 @@
 		"react": "^16.13.1",
 		"react-bootstrap-icons": "^1.0.0",
 		"react-bootstrap-table-next": "^4.0.3",
+		"react-bootstrap-table2-editor": "^1.4.0",
+		"react-bootstrap-table2-toolkit": "^2.1.3",
 		"react-dom": "^16.13.1",
 		"react-icons": "^3.11.0",
 		"react-pro-sidebar": "^0.4.4",
@@ -25,7 +27,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"build:tw": "tailwindcss-cli build ./src/assets/tailwind.css -o ./src/assets/main.css"
+		"build:tw": "tailwindcss-cli build ./src/styles/tailwind.css -o ./src/styles/main.css"
 	},
 	"eslintConfig": {
 		"extends": "react-app"

@@ -3,7 +3,6 @@ import { PageContext } from '../../../context/sections/SectionsContext'
 import alertsContext from '../../../context/alerts/alerts/alertsContext'
 import CreateNewClientBtn from '../utils/CreateNewClientBtn'
 import PageMenu from '../utils/PageMenu'
-import SearchUserForm from '../../../components/pages/utils/SearchUserForm'
 import ProductsCreate from './ProductsCreate'
 
 
