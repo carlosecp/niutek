@@ -49,13 +49,20 @@ function Sidebar({ toggled, setToggled }) {
 			</SidebarContent>
 			<SidebarFooter>
 				<div
-					className='flex justify-center items-center gap-1 h-8 tw-text-accent cursor-pointer'
+					className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition'
 					onClick={toggleTheme}
 				>
-					{theme ? <FaSun /> : <FaMoon />}
-					<p className='hover:underline'>
-						{theme ? 'Modo Claro' : 'Modo Oscuro'}
-					</p>
+					<div
+						className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-700 transform flex justify-center items-center ${
+							theme && 'translate-x-6'
+						}`}
+					>
+						{theme ? (
+							<FaMoon className='text-white fill-current' />
+						) : (
+							<FaSun className='text-blue-500 fill-current' />
+						)}
+					</div>
 				</div>
 				<button onClick={handleLogout} style={{ color: 'black' }}>
 					Logout
