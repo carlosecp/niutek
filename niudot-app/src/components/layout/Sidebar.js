@@ -15,7 +15,6 @@ import pages from '../pages/pages'
 import SidebarSubMenu from './SidebarSubMenu'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
-import '../../assets/pro-sidebar.css'
 import routesContext from '../../context/routes/routesContext'
 
 function Sidebar({ toggled, setToggled }) {
