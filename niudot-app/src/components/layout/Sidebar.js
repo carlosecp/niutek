@@ -11,7 +11,7 @@ import {
 } from 'react-pro-sidebar'
 
 import { FaHome, FaMoon, FaSun } from 'react-icons/fa/index'
-import pages from '../pages/pages'
+import pages from '../routing'
 import SidebarSubMenu from './SidebarSubMenu'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
