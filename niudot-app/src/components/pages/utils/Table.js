@@ -1,151 +1,92 @@
 import React from 'react'
-import BootstrapTable from 'react-bootstrap-table-next'
+import { useTable, usePagination } from 'react-table'
 import '../../../styles/tables.css'
-import cellEditFactory, { Type } from 'react-bootstrap-table2-editor'
-// ...
 
-const products = [
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Carlos Arcia',
-		moneda: 'Córdobas',
-		monto: '10500'
-	},
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Juan Matus',
-		moneda: 'Córdobas',
-		monto: '10500'
-	},
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Luis Montenegro',
-		moneda: 'Córdobas',
-		monto: '10500'
-	},
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Eduardo Castillo',
-		moneda: 'Córdobas',
-		monto: '10500'
-	},
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Ben Awad',
-		moneda: 'Córdobas',
-		monto: '10500'
-	}
-]
-
-const columns = [
-	{
-		dataField: 'cheque',
-		text: 'No. Cheque'
-	},
-	{
-		dataField: 'fecha',
-		text: 'Fecha',
-		formatter: (cell) => {
-			let dateObj = cell
-			if (typeof cell !== 'object') {
-				dateObj = new Date(cell)
-			}
-			return `${('0' + dateObj.getUTCDate()).slice(-2)}/${(
-				'0' +
-				(dateObj.getUTCMonth() + 1)
-			).slice(-2)}/${dateObj.getUTCFullYear()}`
-		},
-		editor: {
-			type: Type.DATE
-		}
-	},
-	{
-		dataField: 'destinatario',
-		text: 'Páguese A:'
-	},
-	{
-		dataField: 'moneda',
-		text: 'Moneda'
-	},
-	{
-		dataField: 'monto',
-		text: 'Monto'
-	}
-]
-
-const RemoteCellEdit = (props) => {
-	
-	const cellEdit = {
-		mode: 'click',
-		errorMessage: props.errorMessage,
-		blurToSave: true 
-	}
-
-	return (
-		<div>
-		<BootstrapTable
-			keyField='id'
-			data={products}
-			columns={columns}
-			cellEdit={cellEditFactory(cellEdit)}
-			remote={{ cellEdit: true }}
-			onTableChange={props.onTableChange}
-		/>
-		</div>
-	)
-}
-
-
-class Table extends React.Component {
-	constructor(props) {
-	  super(props);
-	  this.state = {
-		data: products,
-		errorMessage: null
-	  };
+const EditableCell = ({
+	value: initialValue,
+	row: { index },
+	column: { id },
+	updateMyData, // This is a custom function that we supplied to our table instance
+  }) => {
+	// We need to keep and update the state of the cell normally
+	const [value, setValue] = React.useState(initialValue)
+  
+	const onChange = e => {
+	  setValue(e.target.value)
 	}
   
-	handleTableChange = (type, { data, cellEdit: { rowId, dataField, newValue } }) => {
-	  setTimeout(() => {
-		if (newValue === 'test' && dataField === 'name') {
-		  this.setState(() => ({
-			data,
-			errorMessage: 'Oops, product name should not be test'
-		  }));
-		} else {
-		  const result = data.map((row) => {
-			if (row.id === rowId) {
-			  const newRow = { ...row };
-			  newRow[dataField] = newValue;
-			  return newRow;
-			}
-			return row;
-		  });
-		  this.setState(() => ({
-			data: result,
-			errorMessage: null
-		  }));
-		}
-	  }, 2000);
+	// We'll only update the external data when the input is blurred
+	const onBlur = () => {
+	  updateMyData(index, id, value)
 	}
   
-	render() {
-	  return (
-		<RemoteCellEdit
-		  data={ this.state.data }
-		  errorMessage={ this.state.errorMessage }
-		  onTableChange={ this.handleTableChange }
-		/>
-	  );
-	}
+	// If the initialValue is changed external, sync it up with our state
+	React.useEffect(() => {
+	  setValue(initialValue)
+	}, [initialValue])
+  
+	return <input value={value} onChange={onChange} onBlur={onBlur} />
   }
+  
+  // Set our editable cell renderer as the default Cell renderer
+  const defaultColumn = {
+	Cell: EditableCell,
+  }
+  
 
 
 
+export default function Table({ columns, data, updateMyData, skipPageReset }) {
 
-  export default Table
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    prepareRow,
+    page,
+  } = useTable(
+    {
+      columns,
+      data,
+      defaultColumn,
+      // use the skipPageReset option to disable page resetting temporarily
+      autoResetPage: !skipPageReset,
+      // updateMyData isn't part of the API, but
+      // anything we put into these options will
+      // automatically be available on the instance.
+      // That way we can call this function from our
+      // cell renderer!
+      updateMyData,
+    },
+    usePagination
+  )
+
+  // Render the UI for your table
+  return (
+    <>
+      <table className='table' {...getTableProps()}>
+        <thead>
+          {headerGroups.map(headerGroup => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map(column => (
+                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {page.map((row, i) => {
+            prepareRow(row)
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map(cell => {
+                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                })}
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </>
+  )
+}
