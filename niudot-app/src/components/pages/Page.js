@@ -13,7 +13,7 @@ function Page(props) {
 			<Topbar {...props} />
 			<div className='px-4 pt-20 bg-white-gray relative min-h-full'>
 				<Switch>
-					<Route exact path='/' component={Dashboard} />
+					<Route exact path='/inicio' component={Dashboard} />
 					<Route
 						exact
 						path='/clientes/persona-natural'
