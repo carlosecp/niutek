@@ -1,9 +1,8 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
-import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit'
 import '../../../styles/tables.css'
-
-const { ExportCSVButton } = CSVExport
+import cellEditFactory, { Type } from 'react-bootstrap-table2-editor'
+// ...
 
 const products = [
 	{
@@ -50,7 +49,20 @@ const columns = [
 	},
 	{
 		dataField: 'fecha',
-		text: 'Fecha'
+		text: 'Fecha',
+		formatter: (cell) => {
+			let dateObj = cell
+			if (typeof cell !== 'object') {
+				dateObj = new Date(cell)
+			}
+			return `${('0' + dateObj.getUTCDate()).slice(-2)}/${(
+				'0' +
+				(dateObj.getUTCMonth() + 1)
+			).slice(-2)}/${dateObj.getUTCFullYear()}`
+		},
+		editor: {
+			type: Type.DATE
+		}
 	},
 	{
 		dataField: 'destinatario',
@@ -66,26 +78,74 @@ const columns = [
 	}
 ]
 
-export default function Table() {
+const RemoteCellEdit = (props) => {
+	
+	const cellEdit = {
+		mode: 'click',
+		errorMessage: props.errorMessage,
+		blurToSave: true 
+	}
+
 	return (
-		<ToolkitProvider
-			bootstrap4
+		<div>
+		<BootstrapTable
 			keyField='id'
 			data={products}
 			columns={columns}
-			search
-		>
-			{(props) => (
-				<React.Fragment>
-					<BootstrapTable {...props.baseProps} />
-					<ExportCSVButton
-						className='btn bg-blue-blue btn-border-blue'
-						{...props.csvProps}
-					>
-						Descargar CSV
-					</ExportCSVButton>
-				</React.Fragment>
-			)}
-		</ToolkitProvider>
+			cellEdit={cellEditFactory(cellEdit)}
+			remote={{ cellEdit: true }}
+			onTableChange={props.onTableChange}
+		/>
+		</div>
 	)
 }
+
+
+class Table extends React.Component {
+	constructor(props) {
+	  super(props);
+	  this.state = {
+		data: products,
+		errorMessage: null
+	  };
+	}
+  
+	handleTableChange = (type, { data, cellEdit: { rowId, dataField, newValue } }) => {
+	  setTimeout(() => {
+		if (newValue === 'test' && dataField === 'name') {
+		  this.setState(() => ({
+			data,
+			errorMessage: 'Oops, product name should not be test'
+		  }));
+		} else {
+		  const result = data.map((row) => {
+			if (row.id === rowId) {
+			  const newRow = { ...row };
+			  newRow[dataField] = newValue;
+			  return newRow;
+			}
+			return row;
+		  });
+		  this.setState(() => ({
+			data: result,
+			errorMessage: null
+		  }));
+		}
+	  }, 2000);
+	}
+  
+	render() {
+	  return (
+		<RemoteCellEdit
+		  data={ this.state.data }
+		  errorMessage={ this.state.errorMessage }
+		  onTableChange={ this.handleTableChange }
+		/>
+	  );
+	}
+  }
+
+
+
+
+  export default Table
