@@ -5,12 +5,12 @@ import { dummyData } from '../dashboard/dummy'
 
 function NotificationCard({ notification: { label, value } }) {
 	return (
-		<div className='p-4 bg-gray-100 col-span-2 rounded border-2 border-gray-200 flex items-center sm:col-span-3'>
+		<div className='p-4 bg-gray-100 col-span-2 rounded border-2 border-gray-200 flex items-center dark:bg-gray-cstm-1 dark:border-gray-cstm-3 sm:col-span-6'>
 			<div className='flex flex-col flex-1'>
-				<h2 className='text-2xl font-bold'>{value}</h2>
-				<small>{label}</small>
+				<h2 className='text-2xl font-bold dark:text-white'>{value}</h2>
+				<small className='dark:text-gray-cstm-14'>{label}</small>
 			</div>
-			<div className='w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-500 transition hover:text-white'>
+			<div className='w-12 h-12 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-500 transition hover:text-white dark:text-white'>
 				<FaRegBell size={24} />
 			</div>
 		</div>
@@ -19,7 +19,7 @@ function NotificationCard({ notification: { label, value } }) {
 
 function DashboardStat() {
 	return (
-		<div className='p-4 bg-gray-100 col-span-3 rounded border-2 border-gray-200'>
+		<div className='p-4 bg-gray-100 col-span-3 rounded border-2 border-gray-200 sm:col-span-6 dark:bg-gray-cstm-1 dark:border-gray-cstm-3 sm:col-span-6'>
 			<Doughnut />
 		</div>
 	)
@@ -68,7 +68,7 @@ function Dashboard() {
 					<DashboardStat />
 				))}
 			</div>
-			<div className='my-3 p-4 bg-gray-100 col-span-2 rounded border-2 border-gray-200'>
+			<div className='my-3 p-4 bg-gray-100 rounded border-2 border-gray-200 dark:bg-gray-cstm-1 dark:border-gray-cstm-3'>
 				<Line
 					data={chartsData.mainChart}
 					options={{
