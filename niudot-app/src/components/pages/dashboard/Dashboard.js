@@ -17,70 +17,123 @@ function NotificationCard({ notification: { label, value } }) {
 	)
 }
 
-function DashboardStat() {
+function DashboardStat({ stat }) {
+	console.log(stat)
 	return (
 		<div className='p-4 bg-gray-100 col-span-3 rounded border-2 border-gray-200 sm:col-span-6 dark:bg-gray-cstm-1 dark:border-gray-cstm-3 sm:col-span-6'>
-			<Doughnut />
+			<Doughnut
+				data={stat}
+				options={{
+					tooltips: {
+						enabled: false
+					}
+				}}
+			/>
+			{stat.title}
+			{stat.value}
 		</div>
 	)
 }
 
 function Dashboard() {
 	const [chartsData, setChartsData] = useState({
-		mainChart: {
-			labels: [
-				'Ene',
-				'Feb',
-				'Mar',
-				'Abr',
-				'May',
-				'Jun',
-				'Jul',
-				'Ago',
-				'Sep',
-				'Oct',
-				'Nov',
-				'Dic'
-			],
-			datasets: [
-				{
-					label: 'Label Main Chart',
-					data: [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-				}
-			]
-		},
-		statsCharts: [{}, {}]
+		notifications: [],
+		mainChart: {},
+		stats: []
 	})
 
-	function updateData() {}
+	function updateData({ notifications, stats, mainChart }) {
+		const mainChartLabels = [
+			'Ene',
+			'Feb',
+			'Mar',
+			'Abr',
+			'May',
+			'Jun',
+			'Jul',
+			'Ago',
+			'Sep',
+			'Oct',
+			'Nov',
+			'Dic'
+		]
 
-	useEffect(() => {}, [])
+		setChartsData({
+			mainChart: {
+				labels: mainChartLabels,
+				datasets: [
+					{
+						label: 'Grafico',
+						data: mainChart.data,
+						backgroundColor: 'transparent',
+						borderColor: 'rgba(59, 130, 246, 0.5)',
+						lineTension: 0.1,
+						pointBackgroundColor: '#3B82F6',
+						pointRadius: 4,
+						pointHitRadius: 10,
+						pointHoverRadius: 8
+					}
+				]
+			},
+			stats: stats.map((stat) => {
+				const styledStat = {
+					...stat,
+					datasets: stat.datasets.map((dataset) => {
+						return {
+							...dataset,
+							backgroundColor: ['#3B82F6', 'rgba(59, 130, 246, 0.5)']
+						}
+					})
+				}
+				return styledStat
+			}),
+			notifications
+		})
+	}
+
+	useEffect(() => {
+		updateData(dummyData)
+	}, [])
 
 	return (
 		<div className='max-w-4xl'>
 			<div className='grid grid-cols-6 gap-3'>
-				{dummyData.notificationData.map((notification) => (
+				{chartsData.notifications.map((notification) => (
 					<NotificationCard notification={notification} />
 				))}
 			</div>
 			<div className='mt-3 grid grid-cols-6 gap-3'>
-				{chartsData.statsCharts.map((stat) => (
-					<DashboardStat />
-				))}
+				{chartsData.stats &&
+					chartsData.stats.map((stat) => <DashboardStat stat={stat} />)}
 			</div>
 			<div className='my-3 p-4 bg-gray-100 rounded border-2 border-gray-200 dark:bg-gray-cstm-1 dark:border-gray-cstm-3'>
-				<Line
-					data={chartsData.mainChart}
-					options={{
-						responsive: true,
-						legend: {
-							display: false
-						}
-					}}
-				/>
+				<Line data={chartsData.mainChart} options={mainChartOptions} />
 			</div>
 		</div>
 	)
+}
+
+const mainChartOptions = {
+	responsive: true,
+	legend: {
+		display: false
+	},
+	scales: {
+		xAxes: [
+			{
+				gridLines: {
+					display: false
+				}
+			}
+		],
+		yAxes: [
+			{
+				ticks: {
+					suggestedMax: 100
+				}
+			}
+		]
+	}
 }
 
 export default Dashboard

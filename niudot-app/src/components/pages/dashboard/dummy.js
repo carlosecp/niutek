@@ -1,5 +1,5 @@
 export const dummyData = {
-	notificationData: [
+	notifications: [
 		{
 			value: 69,
 			label: 'Creditos Pendientes 1'
@@ -13,37 +13,29 @@ export const dummyData = {
 			label: 'Creditos Pendientes 3'
 		}
 	],
-	statsData: [
+	mainChart: {
+		data: [20, 15, 76, 69, 44, 56, 90, 65, 89, 25, 31, 56]
+	},
+	stats: [
 		{
-			values: {
-				percentage: 80,
-				value: 6200.33
-			},
-			label: 'Mejor Credito'
+			title: 'Mejor Credito',
+			value: 6220.33,
+			datasets: [
+				{
+					label: 'Grafico Secundario 1',
+					data: [60, 40]
+				}
+			]
 		},
 		{
-			values: {
-				percentage: 80,
-				value: 6200.33
-			},
-			label: 'Credito Promedio'
+			title: 'Credito Promedio',
+			value: 400.33,
+			datasets: [
+				{
+					label: 'Grafico Secundario 1',
+					data: [40, 60]
+				}
+			]
 		}
-	],
-	mainData: {
-		labels: [
-			'Ene',
-			'Feb',
-			'Mar',
-			'Abr',
-			'May',
-			'Jun',
-			'Jul',
-			'Ago',
-			'Sep',
-			'Oct',
-			'Nov',
-			'Dic'
-		],
-		values: [5, 3, 7, 8, 9, 1, 2, 5, 6, 8, 9, 5]
-	}
+	]
 }
