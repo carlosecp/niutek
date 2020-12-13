@@ -24,21 +24,19 @@ const validationSchema = {
 
 export default function ProductsCreate() {
 	return (
-		<>
-			<Formik
-				initialValues={initialValues}
-				validationSchema={createSavingAccountsSchema}
-				onSubmit={(values) => {
-					alert(JSON.stringify(values, null, 2))
-				}}
-			>
-				<Form>
-					<SavingAccounts />
-					<TimeDeposits />
-					<CreditProducts />
-					<SubmitBtn />
-				</Form>
-			</Formik>
-		</>
+		<Formik
+			initialValues={initialValues}
+			validationSchema={createSavingAccountsSchema}
+			onSubmit={(values) => {
+				alert(JSON.stringify(values, null, 2))
+			}}
+		>
+			<Form>
+				<SavingAccounts />
+				<TimeDeposits />
+				<CreditProducts />
+				<SubmitBtn />
+			</Form>
+		</Formik>
 	)
 }

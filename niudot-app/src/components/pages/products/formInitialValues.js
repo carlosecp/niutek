@@ -1,28 +1,28 @@
 import * as Yup from 'yup'
 
 export const createSavingAccountsSchema = Yup.object({
-    nombre_del_producto_savingaccounts: Yup.string()
+	nombre_del_producto_savingaccounts: Yup.string()
 		.min(1)
-        .required('Nombre del Producto'),
-        descripcion_de_producto_savingaccounts: Yup.string()
+		.required('Nombre del Producto'),
+	descripcion_de_producto_savingaccounts: Yup.string()
 		.min(1)
-        .required('Descripción de Producto'),
-        tasa_de_interes_savingaccounts: Yup.number()
+		.required('Descripción de Producto'),
+	tasa_de_interes_savingaccounts: Yup.number()
+		.min(0)
+		.required('Tasa de Interés')
+		.typeError('You must specify a number'),
+	monto_minimo_apertura_savingaccounts: Yup.string()
 		.min(1)
-        .required('Tasa de Interés'),
-        monto_minimo_apertura_savingaccounts: Yup.string()
+		.required('Monto Mínimo Apertura'),
+	monto_maximo_retiros_savingaccounts: Yup.string()
 		.min(1)
-        .required('Monto Mínimo Apertura'),
-        monto_maximo_retiros_savingaccounts: Yup.string()
+		.required('Monto Máximo Retiros'),
+	monto_promedio_mensual_savingaccounts: Yup.string()
 		.min(1)
-        .required('Monto Máximo Retiros'),
-        monto_promedio_mensual_savingaccounts: Yup.string()
+		.required('Monto Promedio Mensual'),
+	monto_retiros_mensuales_savingaccounts: Yup.string()
 		.min(1)
-        .required('Monto Promedio Mensual'),
-        monto_retiros_mensuales_savingaccounts: Yup.string()
-		.min(1)
-        .required('Monto Retiros Mensuales'),
-
+		.required('Monto Retiros Mensuales')
 })
 
 export const savingAccounts = {
