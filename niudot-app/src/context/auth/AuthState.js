@@ -43,8 +43,6 @@ function AuthState(props) {
 
 	// &Register
 	async function registerUser(formData) {
-		console.log('Mandado')
-
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
@@ -62,6 +60,7 @@ function AuthState(props) {
 			)
 
 			console.log(res.data)
+
 			dispatch({ type: types.REGISTER_SUCCESS, payload: res.data })
 
 			loadUser()
