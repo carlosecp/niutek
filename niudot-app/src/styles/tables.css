@@ -11,12 +11,9 @@
 
 .table thead th {
 	vertical-align: bottom;
-	border-bottom: 2px solid #eceeef;
+	border-bottom: 2px solid #ababad;
 }
 
-.table tbody + tbody {
-	border-top: 2px solid #eceeef;
-}
 
 .table .table {
 	background-color: #fff;

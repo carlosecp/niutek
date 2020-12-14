@@ -292,7 +292,7 @@ html, body {
 	@apply focus:bg-gray-100 focus:border-gray-cstm-14;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-1 dark:border-gray-cstm-2 placeholder-gray-cstm-10;
+	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-1 dark:border-gray-cstm-12 placeholder-gray-cstm-10;
 
 	/*Dark Theme Pseudo-Classes*/
 	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-500;

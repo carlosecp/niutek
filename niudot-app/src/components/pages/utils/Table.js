@@ -70,7 +70,7 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 	return (
 		<div className="styled-table">
 		<div className="tableWrap">
-			<table className="table" {...getTableProps()}>
+			<table className="table table-field" {...getTableProps()}>
 				<thead>
 					{headerGroups.map((headerGroup) => (
 						<tr {...headerGroup.getHeaderGroupProps()}>
