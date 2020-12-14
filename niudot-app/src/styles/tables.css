@@ -164,24 +164,24 @@
 	text-align: center;
 }
 
-.styled-div {
+.styled-table {
 	display: block;
 	max-width: 100%;
 }
 
-.styled-div .tableWrap {
+.styled-table .tableWrap {
 	display: block;
 	max-width: 100%;
 	overflow-x: scroll;
 	overflow-y: hidden;
 }
 
-.styled-div table {
+.styled-table table {
 	width: 100%;
 	border-spacing: 0;
 }
 
-.styled-div table tr :last-child td {
+.styled-table table tr :last-child td {
 	border-bottom: 0;
 }
 
