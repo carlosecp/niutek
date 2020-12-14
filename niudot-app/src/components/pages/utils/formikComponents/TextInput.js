@@ -7,6 +7,7 @@ function TextInput({ type, placeholder, ...props }) {
 	const { addAlert } = useContext(alertsContext)
 
 	useEffect(() => {
+		console.log(meta.error)
 		if (meta.touched && meta.error) {
 			addAlert(meta.error)
 		}

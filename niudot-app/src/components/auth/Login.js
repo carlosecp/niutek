@@ -104,7 +104,7 @@ function Login(props) {
 								/>
 							</div>
 						</div>
-						<button className='btn-block bg-blue-blue'>Ingresar</button>
+						<button className='btn w-full bg-blue-blue'>Ingresar</button>
 					</Form>
 				</Formik>
 			</div>

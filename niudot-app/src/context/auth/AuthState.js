@@ -9,7 +9,7 @@ function AuthState(props) {
 	const initialState = {
 		user: null,
 		token: localStorage.getItem('token'),
-		isAuthenticated: true,
+		isAuthenticated: false,
 		loading: true,
 		error: null
 	}
@@ -43,6 +43,8 @@ function AuthState(props) {
 
 	// &Register
 	async function registerUser(formData) {
+		console.log('Mandado')
+
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
@@ -50,13 +52,16 @@ function AuthState(props) {
 			}
 		}
 
+		console.log(formData)
+
 		try {
 			const res = await axios.post(
-				'https://nicascriptproject.uc.r.appspot.com/auth',
+				'https://nicascriptproject.uc.r.appspot.com/register',
 				formData,
 				config
 			)
 
+			console.log(res.data)
 			dispatch({ type: types.REGISTER_SUCCESS, payload: res.data })
 
 			loadUser()
