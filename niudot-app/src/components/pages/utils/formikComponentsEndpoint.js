@@ -72,6 +72,7 @@ function FormDropdownInput({
 	size,
 	label,
 	newLine = false,
+	option,
 	...props
 }) {
 	const [field] = useField(props)
@@ -86,7 +87,9 @@ function FormDropdownInput({
 					className='form-field w-full'
 					{...field}
 					{...props}
-				/>
+				>
+						{props.children}
+				</select>
 			</div>
 		</div>
 	)

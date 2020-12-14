@@ -1,27 +1,36 @@
 import React from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
+import { object } from 'yup'
+import { FormDropdownInput } from '../utils/formikComponentsEndpoint'
 import Table from '../utils/Table'
+import { Formik, Form } from 'formik'
 
 export default function CheckCreate() {
-	function Header(text) {
-		return <div style={{ textAlign: 'center' }}>{text}</div>
-	}
-
-
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'First Name',
-				accessor: 'firstName',
+				Header: 'Moneda',
+				accessor: 'currency',
+				Cell: ({ label, ...props }) => {
+					console.log('hola', props)
+
+					return (
+						<FormDropdownInput size='lg' label={label} >
+							{props.value.map((x) => (
+								<option>{x}</option>
+							))}
+						</FormDropdownInput>
+					)
+				}
 			},
 			{
 				Header: 'Last Name',
-				accessor: 'lastName',
+				accessor: 'lastName'
 			},
 
 			{
 				Header: 'Age',
-				accessor: 'age',
+				accessor: 'age'
 			}
 		],
 		[]
@@ -29,25 +38,24 @@ export default function CheckCreate() {
 	const rows = React.useMemo(
 		() => [
 			{
-				firstName: 'Juan',
+				currency: ['Córdobas', 'Dolares', 'Euro', 'Quetzal'],
 				lastName: 'Matus',
-				age: '18',
-				
+				age: '18'
 			},
 
 			{
-				firstName: 'Carlos',
+				currency: ['Córdobas', 'Dolares', 'Euro', 'Quetzal'],
 				lastName: 'Arcia',
 				age: '19'
 			},
 
 			{
-				firstName: 'Carlos',
+				currency: ['Córdobas', 'Dolares', 'Euro', 'Quetzal'],
 				lastName: 'Castillo',
 				age: '19'
 			},
 			{
-				firstName: 'Gato',
+				currency: ['Córdobas', 'Dolares', 'Euro', 'Quetzal'],
 				lastName: 'Niudot',
 				age: '20'
 			}
@@ -88,12 +96,22 @@ export default function CheckCreate() {
 
 	return (
 		<>
-			<Table
-				className='table'
-				columns={columns}
-				data={data}
-				updateMyData={updateMyData}
-			/>
+			<Formik
+				/* initialValues={initialValues}
+			validationSchema={validationSchema} */
+				onSubmit={(values) => {
+					alert(JSON.stringify(values, null, 2))
+				}}
+			>
+				<Form className='form'>
+					<Table
+						className='table'
+						columns={columns}
+						data={data}
+						updateMyData={updateMyData}
+					/>
+				</Form>
+			</Formik>
 		</>
 	)
 }
