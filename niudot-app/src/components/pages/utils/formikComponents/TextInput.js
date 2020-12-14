@@ -11,6 +11,7 @@ function TextInput({ type, placeholder, ...props }) {
 			addAlert(meta.error)
 			console.log(meta.error)
 		}
+		// eslint-disable-next-line
 	}, [meta.touched, meta.error])
 
 	return (

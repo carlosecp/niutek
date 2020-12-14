@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { PageContext } from '../../../context/sections/SectionsContext'
-import alertsContext from '../../../context/alerts/alerts/alertsContext'
 import CreateNewClientBtn from '../utils/CreateNewClientBtn'
 import PageMenu from '../utils/PageMenu'
 import ProductsCreate from './ProductsCreate'
+import Alerts from '../alerts/Alerts'
 
 function Products() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
@@ -11,7 +11,6 @@ function Products() {
 	const { sections, changeCurrentSection, setSections } = useContext(
 		PageContext
 	)
-	const { alerts } = useContext(alertsContext)
 
 	/* Custom Hook para las secciones. Su deber es expandir la seccion padre si se desea ver
 	 * al hijo, pero no expandir el hijo a causa del padre, ni retraer los hijos a cuasa del
@@ -59,13 +58,7 @@ function Products() {
 	return (
 		<>
 			<div>
-				{alerts && (
-					<div className='alerts-container'>
-						{alerts.map((alert) => (
-							<div className='alert'>{alert.msg}</div>
-						))}
-					</div>
-				)}
+				<Alerts />
 				{showCreateFormButton ? <CreateNewClientBtn /> : <ProductsCreate />}
 			</div>
 			<PageMenu />

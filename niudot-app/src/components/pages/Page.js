@@ -6,6 +6,7 @@ import PersonaJuridica from './clientes/personajuridica/PersonaJuridica'
 import PersonaNatural from './clientes/personanatural'
 import Products from './products/index'
 import Check from './cheques'
+import NotFound from '../routing/NotFound'
 
 function Page(props) {
 	return (
@@ -26,6 +27,7 @@ function Page(props) {
 					/>
 					<Route exact path='/productos/productos' component={Products} />
 					<Route exact path='/cheques/cheques' component={Check} />
+					<Route path='*' component={NotFound} />
 				</Switch>
 			</div>
 		</div>
