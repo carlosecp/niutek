@@ -5,14 +5,6 @@ import CreateNewClientBtn from '../utils/CreateNewClientBtn'
 import PageMenu from '../utils/PageMenu'
 import ProductsCreate from './ProductsCreate'
 
-
-
-// * Comentarios para Juan
-{
-	/* Esta es la pantalla principal de Persona Natural, aca no hay muchas cosas interesantes la verdad. Acuerdense de que 	ustedes van a cambiar algo aca porque tenemos el menu de la derecha... Pero de eso ya no se yo... Asi que ahora podes avanzar a PersonaNaturalCreate...
-	 */
-}
-
 function Products() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
 
@@ -74,15 +66,9 @@ function Products() {
 						))}
 					</div>
 				)}
-				{showCreateFormButton ? (
-					<CreateNewClientBtn />
-				) : (
-					<>
-					<ProductsCreate />
-					</>
-				)}
+				{showCreateFormButton ? <CreateNewClientBtn /> : <ProductsCreate />}
 			</div>
-			<PageMenu/>
+			<PageMenu />
 		</>
 	)
 }
