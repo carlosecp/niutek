@@ -3,6 +3,9 @@ import { useTable, usePagination } from 'react-table'
 import '../../../styles/tables.css'
 import styled from 'styled-components'
 
+
+/* Table Styles */
+
 const Styles = styled.div
 `
   /* This is required to make the table full-width */
@@ -119,6 +122,7 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 		usePagination
 	)
 
+	
 	// Render the UI for your table
 	return (
 		<Styles>

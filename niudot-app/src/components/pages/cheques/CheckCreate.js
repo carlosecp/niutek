@@ -11,8 +11,8 @@ export default function CheckCreate() {
 	const columns = React.useMemo(
 		() => [
 			{
+				Header: 'First Name',
 				accessor: 'firstName',
-				Header: Header('First Name'),
 			},
 			{
 				Header: 'Last Name',
