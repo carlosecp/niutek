@@ -8,6 +8,7 @@ import themeContext from '../../context/theme/themeContext'
 import { FaMoon, FaSun } from 'react-icons/fa'
 
 function Login(props) {
+	// Username es realmente el email
 	const initialValues = {
 		username: '',
 		password: ''
