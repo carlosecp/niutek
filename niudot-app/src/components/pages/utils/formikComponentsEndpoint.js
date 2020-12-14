@@ -16,7 +16,7 @@ function FormTextInput({
 	...props
 }) {
 	return (
-		<div className={`form-container-${newLine ? `${size}nl` : size}`}>
+		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
 			{showLabel && (
 				<label
 					className={`text-black-white ${boldLabel && 'font-bold'}`}
