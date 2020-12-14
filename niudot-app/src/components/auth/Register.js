@@ -6,6 +6,7 @@ import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
 import { FaMoon, FaSun } from 'react-icons/fa'
+import Alerts from '../pages/alerts/Alerts'
 
 function Register(props) {
 	const initialValues = {
@@ -61,18 +62,23 @@ function Register(props) {
 					</div>
 				</div>
 			</div>
-			<div className='bg-white-gray pt-36 m-auto h-full flex flex-col items-center sm:justify-center sm:pt-0'>
+
+			<Alerts />
+
+			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
 				<h1 className='text-black-white font-bold text-3xl select-none'>
 					Registrarse
 				</h1>
 				<Formik
 					initialValues={initialValues}
 					validationSchema={Yup.object({
-						name: Yup.string().required('Requerido'),
-						email: Yup.string().email().required('Requerido'),
-						password: Yup.string().min(6).required(),
+						name: Yup.string().required('Nombre Requerido'),
+						email: Yup.string()
+							.email('Correo Electrónico Invalido')
+							.required('Correo Electrónico Requerido'),
+						password: Yup.string().min(6).required('Contraseña Requerida'),
 						password_conf: Yup.string()
-							.oneOf([Yup.ref('password'), null], 'Password must match')
+							.oneOf([Yup.ref('password'), null], 'Contraseñas No Coinciden')
 							.required()
 					})}
 					onSubmit={(values) => handleSubmit(values)}
@@ -98,8 +104,8 @@ function Register(props) {
 							<div className='mb-2'>
 								<FormTextInput
 									name='password'
-									placeholder='Correo Electrónico'
-									label='Password'
+									placeholder='Contraseña'
+									label='Contraseña'
 									boldLabel={true}
 									type='password'
 								/>
@@ -107,8 +113,8 @@ function Register(props) {
 							<div className='mb-2'>
 								<FormTextInput
 									name='password_conf'
-									placeholder='Correo Electrónico'
-									label='Password'
+									placeholder='Confirmar Contraseña'
+									label='Confirmar Contraseña'
 									boldLabel={true}
 									type='password'
 								/>

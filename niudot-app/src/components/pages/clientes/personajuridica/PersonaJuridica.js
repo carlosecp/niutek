@@ -5,6 +5,7 @@ import SearchUserForm from '../../utils/SearchUserForm'
 
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import PersonaJuridicaCreate from './PersonaJuridicaCreate'
+import Alerts from '../../alerts/Alerts'
 
 function PersonaJuridica() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
@@ -22,6 +23,7 @@ function PersonaJuridica() {
 
 	return (
 		<>
+			<Alerts />
 			<div>
 				<SearchUserForm />
 				{showCreateFormButton ? (

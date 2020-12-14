@@ -5,7 +5,7 @@ import SearchUserForm from '../../utils/SearchUserForm'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import PersonaNaturalCreate from './PersonaNaturalCreate'
 import { PageContext } from '../../../../context/sections/SectionsContext'
-import alertsContext from '../../../../context/alerts/alerts/alertsContext'
+import Alerts from '../../alerts/Alerts'
 
 function PersonaNatural() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
@@ -13,7 +13,6 @@ function PersonaNatural() {
 	const { sections, changeCurrentSection, setSections } = useContext(
 		PageContext
 	)
-	const { alerts } = useContext(alertsContext)
 
 	/* Custom Hook para las secciones. Su deber es expandir la seccion padre si se desea ver
 	 * al hijo, pero no expandir el hijo a causa del padre, ni retraer los hijos a cuasa del
@@ -56,18 +55,13 @@ function PersonaNatural() {
 	useEffect(() => {
 		setSections(PNsections)
 		changeCurrentSection('datos-profesionales-y-economicos')
+		// eslint-disable-next-line
 	}, [])
 
 	return (
 		<>
 			<div>
-				{alerts && (
-					<div className='alerts-container'>
-						{alerts.map((alert) => (
-							<div className='alert'>{alert.msg}</div>
-						))}
-					</div>
-				)}
+				<Alerts />
 				<SearchUserForm />
 				{showCreateFormButton ? (
 					<CreateNewClientBtn setShowForm={setShowCreateFormButton} />

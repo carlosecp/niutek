@@ -210,10 +210,7 @@ html, body {
 	/*Estas son las alertas que van a aparecer como toast. Las genera Formik, yo solo las muestro.*/
 
 	/*Global*/
-	@apply px-4 py-3 border-2 border-solid rounded  text-red-400 font-bold underline border-red-400 shadow-md;
-
-	/*Light Theme Defaults*/
-	@apply bg-white;
+	@apply px-4 py-3 bg-red-500 border-2 border-solid rounded  text-white font-bold border-red-700 shadow-md;
 }
 
 .table {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
 import SavingAccounts from './SavingAccounts'
 import TimeDeposits from './TimeDeposits'
 import SubmitBtn from '../utils/SubmitBtn'
@@ -18,15 +19,14 @@ export const initialValues = {
 	...creditProducts
 }
 
-const validationSchema = {
+const validationSchema = Yup.object({
 	...createSavingAccountsSchema
-}
-
+})
 export default function ProductsCreate() {
 	return (
 		<Formik
 			initialValues={initialValues}
-			validationSchema={createSavingAccountsSchema}
+			validationSchema={validationSchema}
 			onSubmit={(values) => {
 				alert(JSON.stringify(values, null, 2))
 			}}
