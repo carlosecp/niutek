@@ -161,3 +161,8 @@
 .table-responsive.table-bordered {
   border: 0;
 }
+
+.center {
+  text-align: center;
+}
+

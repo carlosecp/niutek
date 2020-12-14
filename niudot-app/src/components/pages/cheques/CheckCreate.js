@@ -3,21 +3,26 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 import Table from '../utils/Table'
 
 export default function CheckCreate() {
+	function Header(text) {
+		return <div style={{ textAlign: 'center' }}>{text}</div>
+	}
+
+
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'First Name',
-				accessor: 'firstName'
+				accessor: 'firstName',
+				Header: Header('First Name'),
 			},
 			{
 				Header: 'Last Name',
-				accessor: 'lastName'
+				accessor: 'lastName',
 			},
 
 			{
 				Header: 'Age',
-				accessor: 'age'
-			},
+				accessor: 'age',
+			}
 		],
 		[]
 	)
@@ -27,34 +32,33 @@ export default function CheckCreate() {
 				firstName: 'Juan',
 				lastName: 'Matus',
 				age: '18',
+				
 			},
 
 			{
 				firstName: 'Carlos',
 				lastName: 'Arcia',
-				age: '19',
+				age: '19'
 			},
 
 			{
 				firstName: 'Carlos',
 				lastName: 'Castillo',
-				age: '19',
-
+				age: '19'
 			},
 			{
 				firstName: 'Gato',
 				lastName: 'Niudot',
-				age: '20',
-			},
+				age: '20'
+			}
 		],
 
 		[]
 	)
-	
-	const [data, setData] = React.useState(rows)
-	const [originalData] = React.useState(data);
-	const [skipPageReset, setSkipPageReset] = React.useState(false)
 
+	const [data, setData] = React.useState(rows)
+	const [originalData] = React.useState(data)
+	const [skipPageReset, setSkipPageReset] = React.useState(false)
 
 	// We need to keep the table from resetting the pageIndex when we
 	// Update data. So we can keep track of that flag with a ref.
@@ -79,8 +83,8 @@ export default function CheckCreate() {
 
 	React.useEffect(() => {
 		setSkipPageReset(false)
-	  }, [data])
-	console.log(data);
+	}, [data])
+	console.log(data)
 
 	return (
 		<>

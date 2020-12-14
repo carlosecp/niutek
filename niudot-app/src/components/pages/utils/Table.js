@@ -25,7 +25,14 @@ const EditableCell = ({
 		setValue(initialValue)
 	}, [initialValue])
 
-	return <input value={value} onChange={onChange} onBlur={onBlur} />
+	return (
+		<input
+			value={value}
+			onChange={onChange}
+			onBlur={onBlur}
+			style={{ textAlign: 'center' }}
+		/>
+	)
 }
 
 // Set our editable cell renderer as the default Cell renderer
@@ -88,4 +95,3 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 }
 
 export default Table
-
