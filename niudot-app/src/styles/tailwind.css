@@ -294,3 +294,11 @@ html, body {
 	/*Dark Theme Pseudo-Classes*/
 	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-500;
 }
+
+.table thead th {
+	@apply align-bottom;
+
+	@apply border-gray-cstm-14;
+
+	@apply dark:dark:border-b-2 border-gray-cstm-12;
+}
