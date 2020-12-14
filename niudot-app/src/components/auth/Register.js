@@ -61,14 +61,19 @@ function Register(props) {
 					</div>
 				</div>
 			</div>
-			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center'>
+			<div className='bg-white-gray pt-36 m-auto h-full flex flex-col items-center sm:justify-center sm:pt-0'>
 				<h1 className='text-black-white font-bold text-3xl select-none'>
 					Registrarse
 				</h1>
 				<Formik
 					initialValues={initialValues}
 					validationSchema={Yup.object({
-						name: Yup.string().required()
+						name: Yup.string().required('Requerido'),
+						email: Yup.string().email().required('Requerido'),
+						password: Yup.string().min(6).required(),
+						password_conf: Yup.string()
+							.oneOf([Yup.ref('password'), null], 'Password must match')
+							.required()
 					})}
 					onSubmit={(values) => handleSubmit(values)}
 				>
@@ -93,19 +98,19 @@ function Register(props) {
 							<div className='mb-2'>
 								<FormTextInput
 									name='password'
-									label='Contraseña'
-									type='password'
-									className='form-field w-full'
+									placeholder='Correo Electrónico'
+									label='Password'
 									boldLabel={true}
+									type='password'
 								/>
 							</div>
 							<div className='mb-2'>
 								<FormTextInput
 									name='password_conf'
-									label='Confirmar Contraseña'
-									type='password'
-									className='form-field w-full'
+									placeholder='Correo Electrónico'
+									label='Password'
 									boldLabel={true}
+									type='password'
 								/>
 							</div>
 						</div>

@@ -18,7 +18,6 @@ function NotificationCard({ notification: { label, value } }) {
 }
 
 function DashboardStat({ stat }) {
-	console.log(stat)
 	return (
 		<div className='p-4 bg-gray-100 col-span-3 rounded border-2 border-gray-200 sm:col-span-6 dark:bg-gray-cstm-1 dark:border-gray-cstm-3 sm:col-span-6'>
 			<Doughnut

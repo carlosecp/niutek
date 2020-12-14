@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
 import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
@@ -59,52 +60,41 @@ function Login(props) {
 					</div>
 				</div>
 			</div>
-			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center'>
+			<div className='bg-white-gray pt-64 m-auto h-full flex flex-col items-center sm:justify-center sm:pt-0'>
 				<h1 className='text-black-white font-bold text-3xl select-none'>
 					Bienvenido
 				</h1>
 				<Formik
 					initialValues={initialValues}
+					validationSchema={Yup.object({
+						username: Yup.string().required(),
+						password: Yup.string().required()
+					})}
 					onSubmit={(values) => handleSubmit(values)}
 				>
 					<Form>
 						<div className='mt-12 mb-6 w-80 sm:w-64'>
 							<div className='mb-2'>
-								<div className='mb-1'>
-									<label
-										htmlFor='username'
-										className='text-black-white font-bold'
-									>
-										Correo Electrónico
-									</label>
-								</div>
 								<FormTextInput
 									name='username'
 									placeholder=''
-									label=''
-									type='text'
+									label='Email'
+									boldLabel={true}
 									className='form-field w-full'
 								/>
 							</div>
 							<div>
-								<div className='mb-1'>
-									<label
-										htmlFor='password'
-										className='text-black-white font-bold'
-									>
-										Contraseña
-									</label>
-								</div>
 								<FormTextInput
 									name='password'
 									placeholder=''
-									label=''
+									label='Password'
 									type='password'
+									boldLabel={true}
 									className='form-field w-full'
 								/>
 							</div>
 						</div>
-						<button className='btn-block bg-blue-blue'>Ingresar</button>
+						<button className='btn w-full bg-blue-blue'>Ingresar</button>
 					</Form>
 				</Formik>
 			</div>
