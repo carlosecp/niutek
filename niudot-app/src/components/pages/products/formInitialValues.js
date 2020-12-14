@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 
-export const createSavingAccountsSchema = Yup.object({
+export const createSavingAccountsSchema = {
 	nombre_del_producto_savingaccounts: Yup.string()
 		.min(1)
 		.required('Nombre del Producto'),
@@ -23,7 +23,7 @@ export const createSavingAccountsSchema = Yup.object({
 	monto_retiros_mensuales_savingaccounts: Yup.string()
 		.min(1)
 		.required('Monto Retiros Mensuales')
-})
+}
 
 export const savingAccounts = {
 	nombre_del_producto_savingaccounts: '',

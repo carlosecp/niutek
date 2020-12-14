@@ -12,13 +12,9 @@ export const createValues = {
 	create_direccion: '',
 	create_fecha_constitucion: '',
 	create_fecha_personería: ''
-
-	
 }
 
-
-
-export const createValuesSchema = Yup.object({
+export const createValuesSchema = {
 	create_nombres: Yup.string().max(5, 'Hola Juan').required('Nombres'),
 	create_apellidos: Yup.string()
 		.max(5, 'Apellidos Length')
@@ -30,11 +26,7 @@ export const createValuesSchema = Yup.object({
 	create_telefono_1: Yup.string().min(8).required('Teléfono 1'),
 	create_direccion: Yup.string().min(10).required('Dirección'),
 	create_fecha_constitucion: Yup.string().min()
-
-
-
-
-})
+}
 
 export const origenFondos = {
 	origen_fondos_negocio_propio: false,

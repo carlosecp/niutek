@@ -25,7 +25,7 @@ export const createValues = {
 	create_cargo_publico: false
 }
 
-export const createValuesSchema = Yup.object({
+export const createValuesSchema = {
 	create_nombres: Yup.string()
 		.min(1)
 		.max(50, 'Demasiado texto')
@@ -37,9 +37,8 @@ export const createValuesSchema = Yup.object({
 	create_nacionalidad: Yup.string()
 		.max(58, 'Demasiado Texto')
 		.required('Nacionalidad'),
-	create_fecha_nacimiento: Yup.string()
-		.max()
-})
+	create_fecha_nacimiento: Yup.string().max()
+}
 
 export const origenFondos = {
 	origen_fondos_negocio_propio: false,
