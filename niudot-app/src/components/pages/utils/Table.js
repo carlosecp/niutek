@@ -27,6 +27,7 @@ const EditableCell = ({
 
 	return (
 		<input
+			className={"text-black-white table-field"}
 			value={value}
 			onChange={onChange}
 			onBlur={onBlur}
@@ -69,12 +70,12 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 	return (
 		<div className="styled-table">
 		<div className="tableWrap">
-			<table className="table"{...getTableProps()}>
+			<table className="table" {...getTableProps()}>
 				<thead>
 					{headerGroups.map((headerGroup) => (
 						<tr {...headerGroup.getHeaderGroupProps()}>
 							{headerGroup.headers.map((column) => (
-								<th {...column.getHeaderProps()}>{column.render('Header')}</th>
+								<th className="text-black-white"{...column.getHeaderProps()}>{column.render('Header')}</th>
 							))}
 						</tr>
 					))}

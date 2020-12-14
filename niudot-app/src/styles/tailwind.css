@@ -278,3 +278,22 @@ html, body {
 	@apply text-base hover:underline;
 }
 
+
+.table-field {
+	/*Esta clase es para cada una de las input de texto o numericas o similares. Son todos esos rectangulos que en light theme tienen bordes grises claros, todas, incluidas checkboxes y dropdowns.*/
+
+	/*Global*/
+	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid;
+
+	/*Light Theme Defaults*/
+	@apply text-black bg-white border-gray-200;
+
+	/*Light Theme Pseudo-Classes*/
+	@apply focus:bg-gray-100 focus:border-gray-cstm-14;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-1 dark:border-gray-cstm-2 placeholder-gray-cstm-10;
+
+	/*Dark Theme Pseudo-Classes*/
+	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-500;
+}
