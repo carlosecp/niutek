@@ -1,64 +1,6 @@
 import React from 'react'
 import { useTable, usePagination } from 'react-table'
 import '../../../styles/tables.css'
-import styled from 'styled-components'
-
-
-/* Table Styles */
-
-const Styles = styled.div
-`
-  /* This is required to make the table full-width */
-
-  display: block;
-  max-width: 100%;
-
-  /* This will make the table scrollable when it gets too small */
-
-  .tableWrap {
-    display: block;
-    max-width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-
-  table {
-    /* Make sure the inner table is always as wide as needed */
-    width: 100%;
-    border-spacing: 0;
-
-    tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
-      }
-    }
-
-    th,
-    td {
-      margin: 0;
-      padding: 0.5rem;
-
-      /* The secret sauce */
-      /* Each cell should grow equally */
-      width: 1%;
-      /* But "collapsed" cells should be as small as possible */
-      &.collapse {
-        width: 0.0000000001%;
-      }
-
-      :last-child {
-        border-right: 0;
-      }
-    }
-  }
-
-  .pagination {
-    padding: 0.5rem;
-  }
-`
-
 
 const EditableCell = ({
 	value: initialValue,
@@ -125,9 +67,9 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 	
 	// Render the UI for your table
 	return (
-		<Styles>
+		<div className="styled-div">
 		<div className="tableWrap">
-			<table className='table' {...getTableProps()}>
+			<table className="table"{...getTableProps()}>
 				<thead>
 					{headerGroups.map((headerGroup) => (
 						<tr {...headerGroup.getHeaderGroupProps()}>
@@ -151,7 +93,8 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 				</tbody>
 			</table>
 		</div>
-		</Styles>
+		</div>
+		
 	)
 }
 
