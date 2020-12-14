@@ -296,7 +296,7 @@ html, body {
 }
 
 .table thead th {
-	@apply align-bottom border-2;
+	@apply align-bottom border-b-2;
 
 	@apply border-gray-cstm-14;
 
