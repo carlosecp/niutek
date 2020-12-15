@@ -270,14 +270,18 @@ html, body {
 }
 
 .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul > li {
+	/*Light Theme Defaults*/
 	@apply bg-blue-600;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-blue-500;
 }
 
 .pro-menu-item > .pro-inner-item > .pro-item-content {
 	/*Esta clase maneja todo lo que es texto en cada uno de los elementos de la lista de links en el sidebar. Todos, incluidos los que estan en submenus.*/
 
 	/*Global*/
-	@apply text-base hover:underline break-words;
+	@apply text-base hover:underline;
 }
 
 .table-field {
