@@ -1,8 +1,9 @@
 import React from 'react'
-import { useField } from 'formik'
+import { useField, useFormikContext } from 'formik'
 import TextInput from './formikComponents/TextInput'
 import CheckboxInput from './formikComponents/CheckboxInput'
 import TextArea from './formikComponents/TextArea'
+import DatePicker from 'react-datepicker'
 
 function FormTextInput({
 	size,
@@ -72,6 +73,7 @@ function FormDropdownInput({
 	size,
 	label,
 	newLine = false,
+	option,
 	...props
 }) {
 	const [field] = useField(props)
@@ -86,7 +88,9 @@ function FormDropdownInput({
 					className='form-field w-full'
 					{...field}
 					{...props}
-				/>
+				>
+					{props.children}
+				</select>
 			</div>
 		</div>
 	)

@@ -1,27 +1,67 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
+import { object } from 'yup'
+import { FormDropdownInput } from '../utils/formikComponentsEndpoint'
 import Table from '../utils/Table'
+import { Formik, Form } from 'formik'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 export default function CheckCreate() {
-	function Header(text) {
-		return <div style={{ textAlign: 'center' }}>{text}</div>
-	}
-
-
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'First Name',
-				accessor: 'firstName',
-			},
-			{
-				Header: 'Last Name',
-				accessor: 'lastName',
+				Header: 'Date',
+				accessor: 'date',
+				Cell: ({ value }) => {
+					const [startDate, setStartDate] = useState(value)
+
+					return (
+						<DatePicker
+							selected={startDate}
+							onChange={(date) => setStartDate(date)}
+							className='table-field'
+						/>
+					)
+				}
 			},
 
 			{
 				Header: 'Age',
-				accessor: 'age',
+				accessor: 'age'
+			},
+			{
+				Header: 'Moneda',
+				accessor: 'currency',
+				Cell: ({
+					label,
+					value: initialValue,
+					updateMyData,
+					row: { index },
+					column: { id },
+					...props
+				}) => {
+					const Options = ['Córdobas', 'Dolares', 'Euro', 'Quetzal']
+					const [selected, selectChange] = useState(initialValue)
+					const handleChange = (e) => {
+						selectChange(e.target.value)
+						updateMyData(index, id, e.target.value)
+					}
+
+					return (
+						<FormDropdownInput
+							size='lg'
+							label={label}
+							value={'fff'}
+							onChange={handleChange}
+							onBlur={() => {}}
+						>
+							{Options.map((x) => (
+								<option key={x}>{x}</option>
+							))}
+						</FormDropdownInput>
+					)
+				}
 			}
 		],
 		[]
@@ -29,26 +69,25 @@ export default function CheckCreate() {
 	const rows = React.useMemo(
 		() => [
 			{
-				firstName: 'Juan',
-				lastName: 'Matus',
-				age: '18',
-				
+				currency: '',
+				date: new Date('12/7/1997'),
+				age: '18'
 			},
 
 			{
-				firstName: 'Carlos',
-				lastName: 'Arcia',
+				currency: '',
+				date: new Date(),
 				age: '19'
 			},
 
 			{
-				firstName: 'Carlos',
-				lastName: 'Castillo',
+				currency: '',
+				date: new Date(),
 				age: '19'
 			},
 			{
-				firstName: 'Gato',
-				lastName: 'Niudot',
+				currency: '',
+				date: new Date(),
 				age: '20'
 			}
 		],
@@ -88,12 +127,22 @@ export default function CheckCreate() {
 
 	return (
 		<>
-			<Table
-				className='table'
-				columns={columns}
-				data={data}
-				updateMyData={updateMyData}
-			/>
+			<Formik
+				/* initialValues={initialValues}
+			validationSchema={validationSchema} */
+				onSubmit={(values) => {
+					alert(JSON.stringify(values, null, 2))
+				}}
+			>
+				<Form className='form'>
+					<Table
+						className='table'
+						columns={columns}
+						data={data}
+						updateMyData={updateMyData}
+					/>
+				</Form>
+			</Formik>
 		</>
 	)
 }
