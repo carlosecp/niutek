@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-function PageMenu({sections, ...props }) {
+function PageMenu({ sections, ...props }) {
 	if (!sections) {
 		return <></>
 	}
@@ -38,16 +37,6 @@ function PageMenuItem({ section, activeSection, setActiveSection }) {
 			</a>
 		</div>
 	)
-}
-
-PageMenu.propTypes = {
-	sections: PropTypes.array.isRequired
-}
-
-PageMenuItem.propTypes = {
-	section: PropTypes.string.isRequired,
-	activeSection: PropTypes.string.isRequired,
-	setActiveSection: PropTypes.func.isRequired
 }
 
 export default PageMenu

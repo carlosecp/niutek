@@ -128,7 +128,8 @@ function NuevoCliente() {
 					label='Departamento'
 				/>
 
-				{/* <FormCheckboxInput
+				{/* 
+				<FormCheckboxInput
 				label='Esta es mi label'
 				name='create_cargo_publico'
 				size='lg'

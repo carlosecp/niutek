@@ -210,10 +210,7 @@ html, body {
 	/*Estas son las alertas que van a aparecer como toast. Las genera Formik, yo solo las muestro.*/
 
 	/*Global*/
-	@apply px-4 py-3 border-2 border-solid rounded  text-red-400 font-bold underline border-red-400 shadow-md;
-
-	/*Light Theme Defaults*/
-	@apply bg-white;
+	@apply px-4 py-3 bg-red-500 border-2 border-solid rounded  text-white font-bold border-red-700 shadow-md;
 }
 
 .table {
@@ -269,12 +266,43 @@ html, body {
 
 	/*Dark Theme Defaults*/
 	@apply dark:bg-blue-500;
+
+}
+
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul > li {
+	@apply bg-blue-600;
 }
 
 .pro-menu-item > .pro-inner-item > .pro-item-content {
 	/*Esta clase maneja todo lo que es texto en cada uno de los elementos de la lista de links en el sidebar. Todos, incluidos los que estan en submenus.*/
 
 	/*Global*/
-	@apply text-base hover:underline;
+	@apply text-base hover:underline break-words;
 }
 
+.table-field {
+	/*Esta clase es para cada una de las input de texto o numericas o similares. Son todos esos rectangulos que en light theme tienen bordes grises claros, todas, incluidas checkboxes y dropdowns.*/
+
+	/*Global*/
+	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid;
+
+	/*Light Theme Defaults*/
+	@apply text-black bg-white border-gray-200;
+
+	/*Light Theme Pseudo-Classes*/
+	@apply focus:bg-gray-100 focus:border-gray-cstm-14;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-1 dark:border-gray-cstm-12 placeholder-gray-cstm-10;
+
+	/*Dark Theme Pseudo-Classes*/
+	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-500;
+}
+
+.table thead th {
+	@apply align-bottom border-b-2;
+
+	@apply border-gray-200;
+
+	@apply dark:border-gray-cstm-12;
+}

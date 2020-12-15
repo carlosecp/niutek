@@ -1,91 +1,106 @@
 import React from 'react'
-import BootstrapTable from 'react-bootstrap-table-next'
-import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit'
+import { useTable, usePagination } from 'react-table'
 import '../../../styles/tables.css'
+import { FormDropdownInput } from './formikComponentsEndpoint'
 
-const { ExportCSVButton } = CSVExport
+const EditableCell = ({
+	value: initialValue,
+	row: { index },
+	column: { id },
+	updateMyData // This is a custom function that we supplied to our table instance
+}) => {
+	// We need to keep and update the state of the cell normally
+	const [value, setValue] = React.useState(initialValue)
 
-const products = [
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Carlos Arcia',
-		moneda: 'Córdobas',
-		monto: '10500'
-	},
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Juan Matus',
-		moneda: 'Córdobas',
-		monto: '10500'
-	},
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Luis Montenegro',
-		moneda: 'Córdobas',
-		monto: '10500'
-	},
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Eduardo Castillo',
-		moneda: 'Córdobas',
-		monto: '10500'
-	},
-	{
-		cheque: '20668',
-		fecha: '24/05/20',
-		destinatario: 'Ben Awad',
-		moneda: 'Córdobas',
-		monto: '10500'
+	const onChange = (e) => {
+		setValue(e.target.value)
 	}
-]
 
-const columns = [
-	{
-		dataField: 'cheque',
-		text: 'No. Cheque'
-	},
-	{
-		dataField: 'fecha',
-		text: 'Fecha'
-	},
-	{
-		dataField: 'destinatario',
-		text: 'Páguese A:'
-	},
-	{
-		dataField: 'moneda',
-		text: 'Moneda'
-	},
-	{
-		dataField: 'monto',
-		text: 'Monto'
+	// We'll only update the external data when the input is blurred
+	const onBlur = () => {
+		updateMyData(index, id, value)
 	}
-]
 
-export default function Table() {
+	// If the initialValue is changed external, sync it up with our state
+	React.useEffect(() => {
+		setValue(initialValue)
+	}, [initialValue])
+
 	return (
-		<ToolkitProvider
-			bootstrap4
-			keyField='id'
-			data={products}
-			columns={columns}
-			search
-		>
-			{(props) => (
-				<React.Fragment>
-					<BootstrapTable {...props.baseProps} />
-					<ExportCSVButton
-						className='btn bg-blue-blue btn-border-blue'
-						{...props.csvProps}
-					>
-						Descargar CSV
-					</ExportCSVButton>
-				</React.Fragment>
-			)}
-		</ToolkitProvider>
+		<input
+			className={'text-black-white table-field'}
+			value={value}
+			onChange={onChange}
+			onBlur={onBlur}
+			style={{ textAlign: 'center' }}
+		/>
 	)
 }
+
+
+// Set our editable cell renderer as the default Cell renderer
+const defaultColumn = {
+	Cell: EditableCell
+}
+
+function Table({ columns, data, updateMyData, skipPageReset }) {
+	const {
+		getTableProps,
+		getTableBodyProps,
+		headerGroups,
+		prepareRow,
+		page
+	} = useTable(
+		{
+			columns,
+			data,
+			defaultColumn,
+			// use the skipPageReset option to disable page resetting temporarily
+			autoResetPage: !skipPageReset,
+			// updateMyData isn't part of the API, but
+			// anything we put into these options will
+			// automatically be available on the instance.
+			// That way we can call this function from our
+			// cell renderer!
+			updateMyData
+		},
+		usePagination
+	)
+
+	// Render the UI for your table
+	return (
+		<div className='styled-table'>
+			<div className='tableWrap'>
+				<table className='table table-field' {...getTableProps()}>
+					<thead>
+						{headerGroups.map((headerGroup) => (
+							<tr {...headerGroup.getHeaderGroupProps()}>
+								{headerGroup.headers.map((column) => (
+									<th className='text-black-white' {...column.getHeaderProps()}>
+										{column.render('Header')}
+									</th>
+								))}
+							</tr>
+						))}
+					</thead>
+					<tbody {...getTableBodyProps()}>
+						{page.map((row) => {
+							prepareRow(row)
+							return (
+								<tr {...row.getRowProps()}>
+									{row.cells.map((cell) => {
+										return (
+											<td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+										)
+									})}
+								</tr>
+							)
+						})}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	)
+}
+
+export default Table

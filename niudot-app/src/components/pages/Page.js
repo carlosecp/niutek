@@ -1,11 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Topbar from '../layout/Topbar'
-import Inicio from './inicio/Inicio'
+import Dashboard from './dashboard/Dashboard'
 import PersonaJuridica from './clientes/personajuridica/PersonaJuridica'
 import PersonaNatural from './clientes/personanatural'
 import Products from './products/index'
 import Check from './cheques'
+import NotFound from '../routing/NotFound'
+import AnticipatedCancellation from './caja/anticipatedcancellation/index'
 
 function Page(props) {
 	return (
@@ -13,7 +15,7 @@ function Page(props) {
 			<Topbar {...props} />
 			<div className='px-4 pt-20 bg-white-gray relative min-h-full'>
 				<Switch>
-					<Route exact path='/' component={Inicio} />
+					<Route exact path='/inicio' component={Dashboard} />
 					<Route
 						exact
 						path='/clientes/persona-natural'
@@ -24,17 +26,15 @@ function Page(props) {
 						path='/clientes/persona-juridica'
 						component={PersonaJuridica}
 					/>
+					<Route exact path='/productos/productos' component={Products} />
+					<Route exact path='/cheques/cheques' component={Check} />
 					<Route
 						exact
-						path='/productos/productos'
-						component={Products}
+						path='/caja/cancelacion-anticipada'
+						component={AnticipatedCancellation}
 					/>
-					<Route
-						exact
-						path='/cheques/cheques'
-						component={Check}
-					/>
-					
+					{' '}
+					<Route path='*' component={NotFound} />
 				</Switch>
 			</div>
 		</div>

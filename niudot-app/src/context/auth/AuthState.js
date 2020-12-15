@@ -52,14 +52,11 @@ function AuthState(props) {
 
 		try {
 			const res = await axios.post(
-				'https://nicascriptproject.uc.r.appspot.com/auth',
+				'https://nicascriptproject.uc.r.appspot.com/register',
 				formData,
 				config
 			)
-
 			dispatch({ type: types.REGISTER_SUCCESS, payload: res.data })
-
-			loadUser()
 		} catch (err) {
 			dispatch({ type: types.REGISTER_FAIL, payload: err })
 		}
@@ -76,12 +73,11 @@ function AuthState(props) {
 
 		try {
 			const res = await axios.post('/auth', formData, config)
-
 			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
-
 			loadUser()
 		} catch (err) {
 			dispatch({ type: types.LOGIN_FAIL, payload: err })
+			return 0
 		}
 	}
 

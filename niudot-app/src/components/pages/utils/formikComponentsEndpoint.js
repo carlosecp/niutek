@@ -1,8 +1,9 @@
 import React from 'react'
-import { useField } from 'formik'
+import { useField, useFormikContext } from 'formik'
 import TextInput from './formikComponents/TextInput'
 import CheckboxInput from './formikComponents/CheckboxInput'
 import TextArea from './formikComponents/TextArea'
+import DatePicker from 'react-datepicker'
 
 function FormTextInput({
 	size,
@@ -12,12 +13,16 @@ function FormTextInput({
 	placeholder,
 	type = 'text',
 	newLine = false,
+	boldLabel = false,
 	...props
 }) {
 	return (
 		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
 			{showLabel && (
-				<label className='text-black-white' htmlFor={name}>
+				<label
+					className={`text-black-white ${boldLabel && 'font-bold'}`}
+					htmlFor={name}
+				>
 					{label}
 				</label>
 			)}
@@ -48,13 +53,12 @@ function FormTextArea({
 	)
 }
 
-
 function FormCheckboxInput({
 	size,
 	label = '',
 	name,
 	description,
-	newLine = false,
+	newLine = false
 }) {
 	return (
 		<div className={`form-container-${newLine ? `${size}-nl` : size} flex`}>
@@ -63,14 +67,30 @@ function FormCheckboxInput({
 	)
 }
 
-function FormDropdownInput({ value, handleChange, size, label, newLine = false, ...props }) {
+function FormDropdownInput({
+	value,
+	handleChange,
+	size,
+	label,
+	newLine = false,
+	option,
+	...props
+}) {
 	const [field] = useField(props)
-	
+
 	return (
 		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
 			<label className='text-black-white'>{label}</label>
 			<div className=''>
-				<select onChange={handleChange} value={value} className='form-field w-full' {...field} {...props} />
+				<select
+					onChange={handleChange}
+					value={value}
+					className='form-field w-full'
+					{...field}
+					{...props}
+				>
+					{props.children}
+				</select>
 			</div>
 		</div>
 	)

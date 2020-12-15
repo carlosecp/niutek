@@ -1,10 +1,12 @@
 import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
 import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
 import { FaMoon, FaSun } from 'react-icons/fa'
+import Alerts from '../pages/alerts/Alerts'
 
 function Register(props) {
 	const initialValues = {
@@ -14,7 +16,7 @@ function Register(props) {
 		password_conf: ''
 	}
 
-	const { loadUser, RegisterUser, isAuthenticated } = useContext(authContext)
+	const { loadUser, registerUser, isAuthenticated } = useContext(authContext)
 	const { theme, toggleTheme } = useContext(themeContext)
 
 	useEffect(() => {
@@ -25,8 +27,8 @@ function Register(props) {
 		// eslint-disable-next-line
 	}, [isAuthenticated, props.history])
 
-	function handleSubmit(values) {
-		RegisterUser(values)
+	function handleSubmit({ name, email, password }) {
+		registerUser({ name, email, password })
 	}
 
 	return (
@@ -60,80 +62,65 @@ function Register(props) {
 					</div>
 				</div>
 			</div>
-			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center'>
+
+			<Alerts />
+
+			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
 				<h1 className='text-black-white font-bold text-3xl select-none'>
 					Registrarse
 				</h1>
 				<Formik
 					initialValues={initialValues}
+					validationSchema={Yup.object({
+						name: Yup.string().required('Nombre Requerido'),
+						email: Yup.string()
+							.email('Correo Electrónico Invalido')
+							.required('Correo Electrónico Requerido'),
+						password: Yup.string().min(6).required('Contraseña Requerida'),
+						password_conf: Yup.string()
+							.oneOf([Yup.ref('password'), null], 'Contraseñas No Coinciden')
+							.required()
+					})}
 					onSubmit={(values) => handleSubmit(values)}
 				>
 					<Form>
 						<div className='mt-12 mb-6 w-80 sm:w-64'>
 							<div className='mb-2'>
-								<div className='mb-1'>
-									<label htmlFor='name' className='text-black-white font-bold'>
-										Nombre
-									</label>
-								</div>
 								<FormTextInput
 									name='name'
-									placeholder=''
-									label=''
-									type='text'
-									className='form-field w-full'
+									placeholder='Nombre'
+									label='Nombre'
+									boldLabel={true}
 								/>
 							</div>
 							<div className='mb-2'>
-								<div className='mb-1'>
-									<label htmlFor='email' className='text-black-white font-bold'>
-										Correo Electrónico
-									</label>
-								</div>
 								<FormTextInput
 									name='email'
-									placeholder=''
-									label=''
-									type='text'
-									className='form-field w-full'
+									placeholder='Correo Electrónico'
+									label='Correo Electrónico'
+									boldLabel={true}
 								/>
 							</div>
 							<div className='mb-2'>
-								<div className='mb-1'>
-									<label
-										htmlFor='password'
-										className='text-black-white font-bold'
-									>
-										Contraseña
-									</label>
-								</div>
 								<FormTextInput
 									name='password'
-									placeholder=''
-									label=''
+									placeholder='Contraseña'
+									label='Contraseña'
+									boldLabel={true}
 									type='password'
-									className='form-field w-full'
 								/>
 							</div>
 							<div className='mb-2'>
-								<div className='mb-1'>
-									<label
-										htmlFor='password_conf'
-										className='text-black-white font-bold'
-									>
-										Confirmar Contraseña
-									</label>
-								</div>
 								<FormTextInput
 									name='password_conf'
-									placeholder=''
-									label=''
+									placeholder='Confirmar Contraseña'
+									label='Confirmar Contraseña'
+									boldLabel={true}
 									type='password'
-									className='form-field w-full'
 								/>
 							</div>
 						</div>
-						<button className='btn-block bg-blue-blue'>Crear Cuenta</button>
+						<button className='btn w-full bg-blue-blue'>Crear Cuenta</button>
 					</Form>
 				</Formik>
 			</div>

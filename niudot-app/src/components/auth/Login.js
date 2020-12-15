@@ -1,12 +1,16 @@
 import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Formik, Form } from 'formik'
+import * as Yup from 'yup'
 import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
 import { FaMoon, FaSun } from 'react-icons/fa'
+import Alerts from '../pages/alerts/Alerts'
+import alertsContext from '../../context/alerts/alerts/alertsContext'
 
 function Login(props) {
+	// Username es realmente el email
 	const initialValues = {
 		username: '',
 		password: ''
@@ -14,6 +18,7 @@ function Login(props) {
 
 	const { loadUser, loginUser, isAuthenticated } = useContext(authContext)
 	const { theme, toggleTheme } = useContext(themeContext)
+	const { addAlert } = useContext(alertsContext)
 
 	useEffect(() => {
 		if (isAuthenticated) {
@@ -23,8 +28,10 @@ function Login(props) {
 		// eslint-disable-next-line
 	}, [isAuthenticated, props.history])
 
-	function handleSubmit(values) {
-		loginUser(values)
+	async function handleSubmit(values) {
+		if ((await loginUser(values)) === 0) {
+			addAlert('Usuario No Registrado')
+		}
 	}
 
 	return (
@@ -59,54 +66,53 @@ function Login(props) {
 					</div>
 				</div>
 			</div>
-			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center'>
-				<h1 className='text-black-white font-bold text-3xl select-none'>
-					Bienvenido
-				</h1>
-				<Formik
-					initialValues={initialValues}
-					onSubmit={(values) => handleSubmit(values)}
-				>
-					<Form>
-						<div className='mt-12 mb-6 w-80 sm:w-64'>
-							<div className='mb-2'>
-								<div className='mb-1'>
-									<label
-										htmlFor='username'
-										className='text-black-white font-bold'
-									>
-										Correo Electrónico
-									</label>
+
+			<Alerts />
+
+			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
+				<div className='flex flex-col items-center justify-center'>
+					<h1 className='text-black-white font-bold text-3xl select-none'>
+						Bienvenido
+					</h1>
+					<Formik
+						initialValues={initialValues}
+						validationSchema={Yup.object({
+							username: Yup.string()
+								.email('Correo Electrónico Invalido')
+								.required('Correo Electrónico Requerido'),
+							password: Yup.string()
+								.required('Contraseña Requerida')
+								.min(6, 'Minimo 6 caracteres')
+						})}
+						onSubmit={(values) => handleSubmit(values)}
+					>
+						<Form>
+							<div className='mt-12 mb-6 w-80 sm:w-64'>
+								<div className='mb-2'>
+									<FormTextInput
+										name='username'
+										placeholder='Correo Electrónico'
+										label='Correo Electrónico'
+										boldLabel={true}
+									/>
 								</div>
-								<FormTextInput
-									name='username'
-									placeholder=''
-									label=''
-									type='text'
-									className='form-field w-full'
-								/>
-							</div>
-							<div>
-								<div className='mb-1'>
-									<label
-										htmlFor='password'
-										className='text-black-white font-bold'
-									>
-										Contraseña
-									</label>
+								<div>
+									<FormTextInput
+										name='password'
+										placeholder='Contraseña'
+										label='Contraseña'
+										type='password'
+										boldLabel={true}
+									/>
 								</div>
-								<FormTextInput
-									name='password'
-									placeholder=''
-									label=''
-									type='password'
-									className='form-field w-full'
-								/>
 							</div>
-						</div>
-						<button className='btn-block bg-blue-blue'>Ingresar</button>
-					</Form>
-				</Formik>
+							<button className='btn w-full bg-blue-blue'>Ingresar</button>
+						</Form>
+					</Formik>
+					<p className='mt-6 font-bold text-blue-500 dark:text-blue-700 cursor-pointer hover:underline'>
+						Recuperar Contraseña (Sin funcionalidad)
+					</p>
+				</div>
 			</div>
 		</>
 	)
