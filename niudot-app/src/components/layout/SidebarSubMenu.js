@@ -9,7 +9,7 @@ function SidebarSubMenu({ page }) {
 	return (
 		<SubMenu title={page.name} icon={page.icon}>
 			{page.dropdownOptions.map((option) => (
-				<MenuItem key={option.name} className=''>
+				<MenuItem key={option.name} className='bg-yellow-500'>
 					{option.name}
 					<Link
 						to={`/${option.path}`}

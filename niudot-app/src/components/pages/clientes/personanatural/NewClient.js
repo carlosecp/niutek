@@ -55,13 +55,12 @@ function NuevoCliente() {
 					placeholder='Apellidos'
 					label='Apellidos'
 				/>
-
 				<FormDropdownInput
 					size='lg'
 					name='create_tipo_id'
 					label='Tipo Identificación'
 				>
-					<option value='option_1'>Option 1</option>
+					<option value='' >Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
@@ -129,7 +128,8 @@ function NuevoCliente() {
 					label='Departamento'
 				/>
 
-				{/* <FormCheckboxInput
+				{/* 
+				<FormCheckboxInput
 				label='Esta es mi label'
 				name='create_cargo_publico'
 				size='lg'

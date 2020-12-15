@@ -25,12 +25,20 @@ export const createValues = {
 	create_cargo_publico: false
 }
 
-export const createValuesSchema = Yup.object({
-	create_nombres: Yup.string().max(5, 'Nombres Length').required('Nombres'),
-	create_apellidos: Yup.string()
-		.max(5, 'Apellidos Length')
-		.required('Apellidos')
-})
+export const createValuesSchema = {
+	create_nombres: Yup.string()
+		.min(1)
+		.max(50, 'Demasiado texto')
+		.required('Nombres'),
+	create_apellidos: Yup.string().max(50).required('Apellidos'),
+	create_numero_id: Yup.string()
+		.max(5, 'Hola Juan')
+		.required('Número Identificación'),
+	create_nacionalidad: Yup.string()
+		.max(58, 'Demasiado Texto')
+		.required('Nacionalidad'),
+	create_fecha_nacimiento: Yup.string().max()
+}
 
 export const origenFondos = {
 	origen_fondos_negocio_propio: false,

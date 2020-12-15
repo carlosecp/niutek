@@ -11,7 +11,7 @@ function Home(props) {
 	useEffect(() => {
 		loadUser()
 		if (!isAuthenticated) {
-			props.history.push('/login')
+			props.history.push('/')
 		}
 		// eslint-disable-next-line
 	}, [isAuthenticated])
