@@ -9,7 +9,7 @@ function SidebarSubMenu({ page }) {
 	return (
 		<SubMenu title={page.name} icon={page.icon} >
 			{page.dropdownOptions.map((option) => (
-				<MenuItem key={option.name} >
+				<MenuItem key={option.name}  className="break-all">
 					{option.name}
 					<Link
 						to={`/${option.path}`}
