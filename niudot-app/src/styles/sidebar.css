@@ -679,9 +679,12 @@
 
 .pro-sidebar-content {
   margin-top: 4rem;
+  overflow-wrap: break-word;
 }
 
 .sidebar-item {
   -webkit-transition: background-color 75ms;
   transition: background-color 75ms;
+  overflow-wrap: break-word;
+
 }

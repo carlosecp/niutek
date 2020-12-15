@@ -33,26 +33,31 @@ export default function CheckCreate() {
 			{
 				Header: 'Moneda',
 				accessor: 'currency',
-				Cell: ({ label, value: initialValue, updateMyData, row:{index}, column: {id}, ...props }) => {
+				Cell: ({
+					label,
+					value: initialValue,
+					updateMyData,
+					row: { index },
+					column: { id },
+					...props
+				}) => {
 					const Options = ['Córdobas', 'Dolares', 'Euro', 'Quetzal']
 					const [selected, selectChange] = useState(initialValue)
-					const handleChange = e => {
+					const handleChange = (e) => {
 						selectChange(e.target.value)
-						updateMyData(index,id, e.target.value)
+						updateMyData(index, id, e.target.value)
 					}
 
 					return (
 						<FormDropdownInput
 							size='lg'
 							label={label}
-							value={"fff"}
-							onChange={
-									handleChange
-							}
+							value={'fff'}
+							onChange={handleChange}
 							onBlur={() => {}}
 						>
 							{Options.map((x) => (
-								<option key={x} >{x}</option>
+								<option key={x}>{x}</option>
 							))}
 						</FormDropdownInput>
 					)
@@ -64,24 +69,24 @@ export default function CheckCreate() {
 	const rows = React.useMemo(
 		() => [
 			{
-				currency: "",
+				currency: '',
 				date: new Date('12/7/1997'),
 				age: '18'
 			},
 
 			{
-				currency: "",
+				currency: '',
 				date: new Date(),
 				age: '19'
 			},
 
 			{
-				currency: "",
+				currency: '',
 				date: new Date(),
 				age: '19'
 			},
 			{
-				currency: "",
+				currency: '',
 				date: new Date(),
 				age: '20'
 			}

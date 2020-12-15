@@ -15,8 +15,12 @@ const pages = [
 		name: 'Caja',
 		icon: <FaCashRegister />,
 		dropdownOptions: [
-			{ path: 'caja/caja-1', name: 'Caja 1' },
-			{ path: 'caja/caja-2', name: 'Caja 2' }
+			{ path: 'caja/cancelacion-anticipada', name: 'Cancelación Anticipada' },
+			{ path: 'caja/apertura-de-cuenta-de-ahorro-pendiente', name: 'Apertura de Cuenta de Ahorro Pendiente' },
+			{ path: 'caja/apertura-certificado-a-plazo-fijo', name: 'Apertura de Certificado a Plazo Fijo' },
+			{ path: 'caja/abono-a-prestamo', name: 'Abono a Préstamo' },
+			{ path: 'caja/deposito-a-cuenta-de-ahorro', name: 'Depósito a Cuenta de Ahorro' },
+			{ path: 'caja/retiro-a-cuenta-de-ahorro', name: 'Retiro a Cuenta de Ahorro' },
 		]
 	},
 	{
