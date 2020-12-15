@@ -33,7 +33,7 @@ function App() {
 						<AuthState>
 							<Router>
 								<Switch>
-									<Route exact path='/login' component={Login} />
+									<Route exact path='/' component={Login} />
 									<Route exact path='/register' component={Register} />
 									<PrivateRoute path='/' component={Home} />
 								</Switch>
