@@ -7,8 +7,7 @@ import PersonaNatural from './clientes/personanatural'
 import Products from './products/index'
 import Check from './cheques'
 import NotFound from '../routing/NotFound'
-import AnticipatedCancellation from './caja/anticipatedcancellation/index'
-
+//import AnticipatedCancellation from './caja/anticipatedcancellation/index'
 
 function Page(props) {
 	return (
@@ -29,11 +28,13 @@ function Page(props) {
 					/>
 					<Route exact path='/productos/productos' component={Products} />
 					<Route exact path='/cheques/cheques' component={Check} />
+					{/*
 					<Route
 						exact
 						path='/caja/cancelacion-anticipada'
 						component={AnticipatedCancellation}
 					/>
+					*/}{' '}
 					<Route path='*' component={NotFound} />
 				</Switch>
 			</div>
