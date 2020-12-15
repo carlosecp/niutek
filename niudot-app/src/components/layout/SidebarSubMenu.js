@@ -7,9 +7,9 @@ function SidebarSubMenu({ page }) {
 	const { changePage } = useContext(routesContext)
 
 	return (
-		<SubMenu title={page.name} icon={page.icon} >
+		<SubMenu title={page.name} icon={page.icon}>
 			{page.dropdownOptions.map((option) => (
-				<MenuItem key={option.name}  className="break-all">
+				<MenuItem key={option.name} className='bg-yellow-500'>
 					{option.name}
 					<Link
 						to={`/${option.path}`}

@@ -270,16 +270,15 @@ html, body {
 }
 
 .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul > li {
-	@apply bg-blue-600 break-words;
-  }
+	@apply bg-blue-600;
+}
 
 .pro-menu-item > .pro-inner-item > .pro-item-content {
 	/*Esta clase maneja todo lo que es texto en cada uno de los elementos de la lista de links en el sidebar. Todos, incluidos los que estan en submenus.*/
 
 	/*Global*/
-	@apply text-base hover:underline;
+	@apply text-base hover:underline break-words;
 }
-
 
 .table-field {
 	/*Esta clase es para cada una de las input de texto o numericas o similares. Son todos esos rectangulos que en light theme tienen bordes grises claros, todas, incluidas checkboxes y dropdowns.*/
