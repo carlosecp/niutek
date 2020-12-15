@@ -1,36 +1,54 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 import { object } from 'yup'
 import { FormDropdownInput } from '../utils/formikComponentsEndpoint'
 import Table from '../utils/Table'
 import { Formik, Form } from 'formik'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 export default function CheckCreate() {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'Moneda',
-				accessor: 'currency',
-				Cell: ({ label, ...props }) => {
-					console.log('hola', props)
+				Header: 'Date',
+				accessor: 'date',
+				Cell: ({ value }) => {
+					const [startDate, setStartDate] = useState(value)
 
 					return (
-						<FormDropdownInput size='lg' label={label} >
-							{props.value.map((x) => (
-								<option>{x}</option>
-							))}
-						</FormDropdownInput>
+						<DatePicker
+							selected={startDate}
+							onChange={(date) => setStartDate(date)}
+							className='table-field'
+						/>
 					)
 				}
-			},
-			{
-				Header: 'Last Name',
-				accessor: 'lastName'
 			},
 
 			{
 				Header: 'Age',
 				accessor: 'age'
+			},
+			{
+				Header: 'Moneda',
+				accessor: 'currency',
+				Cell: ({ label, ...props }) => {
+					const Options = ['Córdobas', 'Dolares', 'Euro', 'Quetzal']
+
+					return (
+						<FormDropdownInput
+							size='lg'
+							label={label}
+							value={props.value.selected}
+							onChange={(e) => (props.value.selected = e.target.value)}
+						>
+							{Options.map((x) => (
+								<option>{x}</option>
+							))}
+						</FormDropdownInput>
+					)
+				}
 			}
 		],
 		[]
@@ -38,25 +56,33 @@ export default function CheckCreate() {
 	const rows = React.useMemo(
 		() => [
 			{
-				currency: ['Córdobas', 'Dolares', 'Euro', 'Quetzal'],
-				lastName: 'Matus',
+				currency: {
+					selected: ''
+				},
+				date: new Date('12/7/1997'),
 				age: '18'
 			},
 
 			{
-				currency: ['Córdobas', 'Dolares', 'Euro', 'Quetzal'],
-				lastName: 'Arcia',
+				currency: {
+					selected: ''
+				},
+				date: new Date(),
 				age: '19'
 			},
 
 			{
-				currency: ['Córdobas', 'Dolares', 'Euro', 'Quetzal'],
-				lastName: 'Castillo',
+				currency: {
+					selected: ''
+				},
+				date: new Date(),
 				age: '19'
 			},
 			{
-				currency: ['Córdobas', 'Dolares', 'Euro', 'Quetzal'],
-				lastName: 'Niudot',
+				currency: {
+					selected: ''
+				},
+				date: new Date(),
 				age: '20'
 			}
 		],
