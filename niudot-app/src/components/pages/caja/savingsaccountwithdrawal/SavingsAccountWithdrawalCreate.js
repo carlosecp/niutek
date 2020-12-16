@@ -23,7 +23,7 @@ export default function SavingsAccountWithdrawalCreate() {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='form'>
+			<Form className='section'>
 				<RetiroACuentaDeAhorro />
 
 			</Form>

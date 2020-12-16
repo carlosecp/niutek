@@ -43,7 +43,7 @@ function FormTextArea({
 	...props
 }) {
 	return (
-		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
+		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
 			{showLabel && (
 				<label
 					className={`text-black-white ${boldLabel && 'font-bold'}`}
@@ -65,7 +65,7 @@ function FormCheckboxInput({
 	newLine = false
 }) {
 	return (
-		<div className={`form-container-${newLine ? `${size}-nl` : size} flex`}>
+		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
 			<CheckboxInput name={name} label={label} description={description} />
 		</div>
 	)
@@ -86,7 +86,7 @@ function FormDropdownInput({
 	const [field] = useField(props)
 
 	return (
-		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
+		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
 			<label
 				className={`text-black-white ${boldLabel && 'font-bold'}`}
 				htmlFor={name}

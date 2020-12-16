@@ -50,10 +50,9 @@ function Page(props) {
 					/>
 					<Route
 						exact
-						path='/app/caja/apertura-certificado-a-plazo-fijo'
-						component={FixedTermCertificateOpening}
+						path='/app/caja/abono-a-prestamo'
+						component={LoanPayment}
 					/>
-					<Route exact path='/caja/abono-a-prestamo' component={LoanPayment} />
 					<Route
 						exact
 						path='/app/caja/deposito-a-cuenta-de-ahorro'

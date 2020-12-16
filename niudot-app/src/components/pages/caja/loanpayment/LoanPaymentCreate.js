@@ -20,7 +20,7 @@ function LoanPaymentCreate() {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form>
+			<Form className="section">
 				<h2 className='text-black-white text-xl font-bold'>
 					Abono a Préstamo{' '}
 				</h2>

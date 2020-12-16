@@ -11,34 +11,34 @@ export default function DepositoACuentaDeAhorro({ value }) {
 			<div className='form-grid-layout'>
 				<FormTextInput
 					name='create_nombre_del_cliente'
-					size='xl'
+					size='lg'
 					placeholder='Nombre de cliente'
 					label='Cliente'
 				/>
 
 				<FormTextInput
 					name='create_tipo_crédito'
-					size='xl'
+					size='lg'
 					placeholder='Tipo de Crédito'
 					label='Tipo de Crédito'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='create_nombre_del_producto'
-					size='xl'
+					size='lg'
 					placeholder='Nombre del Producto'
 					label='Nombre del Producto'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='create_numero_de_identificacion'
-					size='lg'
+					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
 					newLine={true}
 				/>
 				<FormDropdownInput
-					size='lg'
+					size='md'
 					name='create_tipo_id'
 					label='Tipo Identificación'
 				>
@@ -49,14 +49,14 @@ export default function DepositoACuentaDeAhorro({ value }) {
 				</FormDropdownInput>
 				<FormTextInput
 					name='create_fecha_de_abono'
-					size='lg'
+					size='md'
 					placeholder='Fecha de Abono'
 					label='Fecha de Abono'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='create_monto_vencido'
-					size='lg'
+					size='md'
 					placeholder='Monto Vencido'
 					label='Monto Vencido'
 					newLine={true}
@@ -65,7 +65,7 @@ export default function DepositoACuentaDeAhorro({ value }) {
 				/>
 				<FormTextInput
 					name='create_monto_corriente'
-					size='lg'
+					size='md'
 					placeholder='Monto Corriente'
 					label='Monto Corriente'
 					newLine={true}
@@ -75,7 +75,7 @@ export default function DepositoACuentaDeAhorro({ value }) {
 
 				<FormTextInput
 					name='create_abono_extraordinario'
-					size='lg'
+					size='md'
 					placeholder='Abono Extraordinario'
 					label='Abono Extraordinario'
 					newLine={true}
@@ -84,7 +84,7 @@ export default function DepositoACuentaDeAhorro({ value }) {
 				/>
 				<FormTextInput
 					name='create_total_a_pagar'
-					size='lg'
+					size='md'
 					placeholder='Total a Pagar'
 					label='Total a Pagar'
 					newLine={true}
@@ -92,7 +92,7 @@ export default function DepositoACuentaDeAhorro({ value }) {
 					min='0'
 				/>
 
-				<FormDropdownInput size='lg' name='create_moneda' label='Moneda'>
+				<FormDropdownInput size='md' name='create_moneda' label='Moneda'>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
@@ -101,7 +101,7 @@ export default function DepositoACuentaDeAhorro({ value }) {
 
 				<FormTextInput
 					name='create_efectivo'
-					size='lg'
+					size='md'
 					placeholder='Efectivo'
 					label='Efectivo'
 					newLine={true}
@@ -111,28 +111,28 @@ export default function DepositoACuentaDeAhorro({ value }) {
 
 				<FormTextInput
 					name='create_numero_cheque'
-					size='lg'
+					size='md'
 					placeholder='No. Cheque'
 					label='Número de Cheque'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='create_nombre_del_banco'
-					size='lg'
+					size='md'
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
 
 				<FormTextInput
 					name='create_tarjeta'
-					size='lg'
+					size='md'
 					placeholder='Tarjeta'
 					label='Tarjeta'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='create_nombre_del_banco1'
-					size='lg'
+					size='md'
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>

@@ -8,40 +8,40 @@ import SubmitBtn from '../../utils/SubmitBtn'
 export default function RetiroACuentaDeAhorro({ value }) {
 	return (
 		<>
-			<h2 className='text-black-white text-xl font-bold'>
+			<h2 className='text-black-white text-lg font-bold'>
             Retiro a Cuenta de Ahorro{' '}
 			</h2>
 			<div className='form-grid-layout'>
 				<FormTextInput
 					name='create_nombre_del_cliente'
-					size='xl'
+					size='lg'
 					placeholder='Nombre de cliente'
 					label='Cliente'
 				/>
 
 				<FormTextInput
 					name='create_producto_de_certificado'
-					size='xl'
+					size='lg'
 					placeholder='Producto de Certificado'
 					label='Producto de Certificado'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='create_numero_de_cuenta'
-					size='xl'
+					size='lg'
 					placeholder='Número de Cuenta'
 					label='Número de Cuenta'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='create_numero_de_identificacion'
-					size='lg'
+					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
 					newLine={true}
 				/>
 				<FormDropdownInput
-					size='lg'
+					size='md'
 					name='create_tipo_id'
 					label='Tipo Identificación'
 				>
@@ -50,7 +50,7 @@ export default function RetiroACuentaDeAhorro({ value }) {
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
 				</FormDropdownInput>
-				<FormDropdownInput size='lg' name='create_moneda' label='Moneda'>
+				<FormDropdownInput size='md' name='create_moneda' label='Moneda'>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
@@ -58,7 +58,7 @@ export default function RetiroACuentaDeAhorro({ value }) {
 				</FormDropdownInput>
 				<FormTextInput
 					name='create_fecha_de_entrega'
-					size='lg'
+					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
 					newLine={true}
@@ -66,7 +66,7 @@ export default function RetiroACuentaDeAhorro({ value }) {
 
 				<FormTextInput
 					name='create_numero_de_cheque'
-					size='lg'
+					size='md'
 					placeholder='Número de Cheque'
 					label='Número de Cheque'
 					newLine={true}
@@ -74,20 +74,20 @@ export default function RetiroACuentaDeAhorro({ value }) {
 
 				<FormTextInput
 					name='create_nombre_del_banco'
-					size='lg'
+					size='md'
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
                 <FormTextInput
 					name='create_tarjeta'
-					size='lg'
+					size='md'
 					placeholder='Tarjeta'
 					label='Tarjeta'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='create_nombre_del_banco1'
-					size='lg'
+					size='md'
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>

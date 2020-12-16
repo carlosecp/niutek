@@ -21,7 +21,7 @@ function FixedTermCertificateOpeningCreate() {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='form'>
+			<Form className='section'>
 				<h2 className='text-black-white text-xl font-bold'>
 					Apertura de Cuenta de Certificado a Plazo Fijo{' '}
 				</h2>
