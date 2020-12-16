@@ -56,7 +56,7 @@ function AuthState(props) {
 
 		try {
 			const res = await axios.post(
-				'https://nicascriptproject.uc.r.appspot.com/register',
+				'https://backend-dot-nicascriptproject.uc.r.appspot.com/register',
 				formData,
 				config
 			)
