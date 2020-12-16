@@ -64,7 +64,7 @@ export default function CheckCreate() {
 						<FormDropdownInput
 							size='lg'
 							label={label}
-							value={'fff'}
+							value={selected}
 							onChange={handleChange}
 							onBlur={() => {}}
 						>
@@ -87,7 +87,7 @@ export default function CheckCreate() {
 		() => [
 			{
 				// date must be set in english format, it will be displayed in spanish
-				currency: '',
+				currency: 'Euro',
 				date: new Date('12/20/2020'),
 				checkNumber: '901332',
 				amount: '',
