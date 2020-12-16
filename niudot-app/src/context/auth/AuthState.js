@@ -23,9 +23,12 @@ function AuthState(props) {
 		}
 
 		try {
-			const res = axios.get('localhost:5000')
-			console.log(res)
+			// HABILITAR PARA TESTING DE LOAD USER EN LOCALHOST
+			//const res = await fetch('http://localhost:5000')
+			//const data = await res.json()
+			//const { user } = data
 
+			// HABILITAR PARA TRABAJAR NORMAL
 			const user = {
 				username: 'CarlosECP01',
 				favoriteLanguage: 'Java',
@@ -57,6 +60,7 @@ function AuthState(props) {
 				formData,
 				config
 			)
+			loadUser()
 			dispatch({ type: types.REGISTER_SUCCESS, payload: res.data })
 		} catch (err) {
 			dispatch({ type: types.REGISTER_FAIL, payload: err })
@@ -74,8 +78,8 @@ function AuthState(props) {
 
 		try {
 			const res = await axios.post('/auth', formData, config)
-			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
 			loadUser()
+			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
 		} catch (err) {
 			dispatch({ type: types.LOGIN_FAIL, payload: err })
 			return 0

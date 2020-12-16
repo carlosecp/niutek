@@ -16,12 +16,12 @@ function Login(props) {
 		password: ''
 	}
 
-	const { loadUser, loginUser, isAuthenticated } = useContext(authContext)
+	const { user, loadUser, loginUser, isAuthenticated } = useContext(authContext)
 	const { theme, toggleTheme } = useContext(themeContext)
 	const { addAlert } = useContext(alertsContext)
 
 	useEffect(() => {
-		if (isAuthenticated) {
+		if (isAuthenticated && user) {
 			props.history.push('/app/inicio')
 			loadUser()
 		}
