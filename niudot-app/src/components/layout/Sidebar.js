@@ -38,9 +38,10 @@ function Sidebar({ toggled, setToggled }) {
 			</SidebarHeader>
 			<SidebarContent className=''>
 				<Menu>
-					<MenuItem icon={<FaHome />} className='sidebar-item'>
+					<MenuItem icon={<FaHome />} className='sidebar-item' >
 						Inicio
 						<Link to='/inicio' onClick={() => changePage('inicio')} />
+
 					</MenuItem>
 					{pages.map((page) => (
 						<SidebarSubMenu key={page.name} page={page} />
