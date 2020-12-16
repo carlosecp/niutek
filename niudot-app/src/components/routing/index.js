@@ -86,7 +86,7 @@ const pages = [
 	{
 		name: 'Cheques',
 		icon: <FaMoneyCheck />,
-		dropdownOptions: [{ path: 'app/cheques/cheques', name: 'Cheques' }]
+		dropdownOptions: [{ path: 'app/cheques/cheques', name: 'Cheques por Imprimir' }]
 	}
 ]
 

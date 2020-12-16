@@ -106,6 +106,14 @@ html, body {
 	@apply bg-white;
 }
 
+.table-section {
+
+	@apply rounded mx-auto max-w-min py-8 px-8 mb-4;
+	/*Light Theme Defaults*/
+	@apply bg-white;
+
+}
+
 .form-grid-layout {
 	/*Esta es la clase que aplican para hacer una nueva seccion que contiene un formulario. Esa seccion que contiene las casillas de texto o lo que sea (la que las contiene a todas), ya que aca se definen las propiedades del grid.*/
 	@apply mt-2 grid grid-cols-12 gap-2;

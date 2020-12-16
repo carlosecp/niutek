@@ -10,8 +10,13 @@ import 'react-datepicker/dist/react-datepicker.css'
 export default function CheckCreate() {
 	const columns = React.useMemo(
 		() => [
+
 			{
-				Header: 'Date',
+				Header: 'Número de Cheque',
+				accessor: 'checkNumber'
+			},
+			{
+				Header: 'Fecha',
 				accessor: 'date',
 				Cell: ({ value }) => {
 					const [startDate, setStartDate] = useState(value)
@@ -25,14 +30,17 @@ export default function CheckCreate() {
 					)
 				}
 			},
-
 			{
-				Header: 'Age',
-				accessor: 'age'
-			},
-			{
-				Header: 'Moneda',
+				Header: () => (
+					<div
+					  style={{
+						width: 200,
+					  }}>
+					  Moneda
+					</div>
+				  ),
 				accessor: 'currency',
+				width: 800,
 				Cell: ({
 					label,
 					value: initialValue,
@@ -62,7 +70,12 @@ export default function CheckCreate() {
 						</FormDropdownInput>
 					)
 				}
-			}
+				
+			},
+			{
+				Header: 'Monto',
+				accessor: 'amount'
+			},
 		],
 		[]
 	)
@@ -71,24 +84,28 @@ export default function CheckCreate() {
 			{
 				currency: '',
 				date: new Date('12/7/1997'),
-				age: '18'
+				checkNumber: '901332',
+				amount: '',
 			},
 
 			{
 				currency: '',
 				date: new Date(),
-				age: '19'
+				checkNumber: '302312',
+				amount: '',
 			},
 
 			{
 				currency: '',
 				date: new Date(),
-				age: '19'
+				checkNumber: '380212',
+				amount: '',
 			},
 			{
 				currency: '',
 				date: new Date(),
-				age: '20'
+				checkNumber: '381312',
+				amount: '',
 			}
 		],
 
@@ -134,9 +151,8 @@ export default function CheckCreate() {
 					alert(JSON.stringify(values, null, 2))
 				}}
 			>
-				<Form className='form'>
+				<Form className='table-section'>
 					<Table
-						className='table'
 						columns={columns}
 						data={data}
 						updateMyData={updateMyData}
