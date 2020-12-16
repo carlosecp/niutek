@@ -4,14 +4,6 @@ import alertsContext from '../../../../context/alerts/alerts/alertsContext'
 
 function TextInput({ type, placeholder, ...props }) {
 	const [field, meta] = useField(props)
-	const { addAlert } = useContext(alertsContext)
-
-	useEffect(() => {
-		if (meta.touched && meta.error) {
-			addAlert(meta.error)
-			console.log(meta.error)
-		}
-	}, [meta.touched, meta.error])
 
 	return (
 		<>
@@ -24,6 +16,9 @@ function TextInput({ type, placeholder, ...props }) {
 				{...field}
 				{...props}
 			/>
+			{meta.touched && meta.error && (
+				<small className='font-bold text-red-500'>{meta.error}</small>
+			)}
 		</>
 	)
 }

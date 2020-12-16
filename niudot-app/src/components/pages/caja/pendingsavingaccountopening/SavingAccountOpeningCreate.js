@@ -27,7 +27,6 @@ function SavingAccountOpeningCreate() {
 					Apertura de Cuenta de Ahorro Pendiente{' '}
 				</h2>
                 <AperturaDeCuenta />
-				<SubmitBtn />
 			</Form>
 		</Formik>
 	)

@@ -6,6 +6,7 @@ import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import PersonaNaturalCreate from './PersonaNaturalCreate'
 import { PageContext } from '../../../../context/sections/SectionsContext'
 import Alerts from '../../alerts/Alerts'
+import routesContext from '../../../../context/routes/routesContext'
 
 function PersonaNatural() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
@@ -13,6 +14,7 @@ function PersonaNatural() {
 	const { sections, changeCurrentSection, setSections } = useContext(
 		PageContext
 	)
+	const { changePage } = useContext(routesContext)
 
 	/* Custom Hook para las secciones. Su deber es expandir la seccion padre si se desea ver
 	 * al hijo, pero no expandir el hijo a causa del padre, ni retraer los hijos a cuasa del
@@ -55,6 +57,10 @@ function PersonaNatural() {
 	useEffect(() => {
 		setSections(PNsections)
 		changeCurrentSection('datos-profesionales-y-economicos')
+
+		// Esto es para el context de los titulos
+		changePage('Persona Natural')
+
 		// eslint-disable-next-line
 	}, [])
 

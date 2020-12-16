@@ -18,7 +18,7 @@ import themeContext from '../../context/theme/themeContext'
 import routesContext from '../../context/routes/routesContext'
 
 function Sidebar({ toggled, setToggled }) {
-	const { logout } = useContext(authContext)
+	const { loadUser, logout } = useContext(authContext)
 	const { theme, toggleTheme } = useContext(themeContext)
 	const { changePage } = useContext(routesContext)
 
@@ -38,10 +38,9 @@ function Sidebar({ toggled, setToggled }) {
 			</SidebarHeader>
 			<SidebarContent className=''>
 				<Menu>
-					<MenuItem icon={<FaHome />} className='sidebar-item' >
+					<MenuItem icon={<FaHome />} className='sidebar-item'>
 						Inicio
-						<Link to='/inicio' onClick={() => changePage('inicio')} />
-
+						<Link to='app/inicio' onClick={() => changePage('inicio')} />
 					</MenuItem>
 					{pages.map((page) => (
 						<SidebarSubMenu key={page.name} page={page} />
@@ -69,6 +68,7 @@ function Sidebar({ toggled, setToggled }) {
 				<button onClick={handleLogout} style={{ color: 'black' }}>
 					Logout
 				</button>
+				<button onClick={loadUser}>Load User</button>
 			</SidebarFooter>
 		</ProSidebar>
 	)

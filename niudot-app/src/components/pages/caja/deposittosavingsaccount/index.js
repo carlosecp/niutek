@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import SearchUserForm from '../../utils/SearchUserForm'
+import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
+import Alerts from '../../alerts/Alerts'
+import routesContext from '../../../../context/routes/routesContext'
+import DepositToSavingsAccountCreate from './DepositToSavingsAccountCreate'
 
 export default function DepositToSavingsAccount() {
-    return (
-        <div>
-            
-        </div>
-    )
+
+	const { changePage } = useContext(routesContext)
+
+	useEffect(() => {
+		changePage('Depósito a Cuenta de Ahorro')
+	}, [])
+
+    const [showCreateFormButton, setShowCreateFormButton] = useState(false)
+
+	return (
+		<>
+			<div>
+				<Alerts />
+				<SearchUserForm />
+				{showCreateFormButton ? (
+					<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
+				) : (
+					<DepositToSavingsAccountCreate />
+				)}
+			</div>
+		</>
+	)
 }
+

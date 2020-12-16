@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import authContext from '../../context/auth/authContext'
 import Page from '../pages/Page'
 import Sidebar from './Sidebar'
@@ -8,13 +9,16 @@ function Home(props) {
 
 	const { isAuthenticated, loadUser } = useContext(authContext)
 
-	useEffect(() => {
-		loadUser()
-		if (!isAuthenticated) {
-			props.history.push('/')
-		}
-		// eslint-disable-next-line
-	}, [isAuthenticated])
+	//useEffect(() => {
+	//loadUser()
+	//if (!isAuthenticated) {
+	//props.history.push('/')
+	//}
+	//}, [isAuthenticated])
+
+	if (!isAuthenticated) {
+		return <Redirect to='/' />
+	}
 
 	return (
 		<div className='h-full flex'>

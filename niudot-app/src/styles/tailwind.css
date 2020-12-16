@@ -96,10 +96,19 @@ html, body {
 	@apply text-white focus:outline-none focus:ring focus:text-white hover:text-white dark:focus:ring-blue-400;
 }
 
+.section {
+	/*Esta clase es para la seccion mas general de cada formulario, es el fondo blanco que centra todo su contenido, dentro de este contenedor generalmente van los formulario en si, cada uno de ellos, y su contenedor grid respectivo (usando la clase .form-grid-layout).*/
+
+	/*Global*/
+	@apply rounded mx-auto max-w-2xl py-4 px-8 mb-4;
+
+	/*Light Theme Defaults*/
+	@apply bg-white;
+}
+
 .form-grid-layout {
 	/*Esta es la clase que aplican para hacer una nueva seccion que contiene un formulario. Esa seccion que contiene las casillas de texto o lo que sea (la que las contiene a todas), ya que aca se definen las propiedades del grid.*/
-
-	@apply mt-2 grid grid-cols-12 gap-2 max-w-2xl;
+	@apply mt-2 grid grid-cols-12 gap-2;
 }
 
 .form-field {
@@ -125,81 +134,29 @@ html, body {
 	@apply border-red-500 !important;
 }
 
-.form-container-xs {
-	@apply col-span-2;
-
-	/*Responsive Settings*/
-	@apply sm:col-span-6;
-}
-
 .form-container-sm {
-	@apply col-span-3; 
+	@apply col-span-3;
 
 	/*Responsive Settings*/
-	@apply sm:col-span-6;
+	@apply sm:col-span-12;
 }
 
 .form-container-md {
-	@apply col-span-4;
+	@apply col-span-6;
 
 	/*Responsive Settings*/
-	@apply sm:col-span-6;
+	@apply sm:col-span-12;
 }
 
 .form-container-lg {
-	@apply col-span-6;
-
-	/*Responsive Settings*/
-	@apply sm:col-span-6;
-}
-
-.form-container-lg-mobile {
-	@apply col-span-6;
+	@apply col-span-12;
 
 	/*Responsive Settings*/
 	@apply sm:col-span-12;
 }
 
-.form-container-xl {
-	@apply col-span-12; 
-
-	/*Responsive Settings*/
-	@apply sm:col-span-12;
-}
-
-.form-container-xs-nl {
-	@apply col-start-1 col-end-3;
-
-	/*Responsive Settings*/
-	@apply sm:col-end-6;
-}
-
-.form-container-sm-nl {
-	@apply col-start-1 col-end-4;
-
-	/*Responsive Settings*/
-	@apply sm:col-end-6;
-}
-
-.form-container-md-nl {
-	@apply col-start-1 col-end-5; 
-
-	/*Responsive Settings*/
-	@apply sm:col-end-7;
-}
-
-.form-container-lg-nl {
-	@apply col-start-1 col-end-7; 
-
-	/*Responsive Settings*/
-	@apply sm:col-end-7;
-}
-
-.form-container-xl-nl {
-	@apply col-start-1 col-end-13; 
-
-	/*Responsive Settings*/
-	@apply sm:col-end-13;
+.force-newline {
+	grid-column-start: 1 !important;
 }
 
 .alerts-container {

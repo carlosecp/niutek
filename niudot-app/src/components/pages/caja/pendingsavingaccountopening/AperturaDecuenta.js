@@ -3,6 +3,7 @@ import {
 	FormTextInput,
 	FormDropdownInput
 } from '../../utils/formikComponentsEndpoint'
+import SubmitBtn from '../../utils/SubmitBtn'
 
 export default function AperturaDeCuenta({ value }) {
 	return (
@@ -106,6 +107,7 @@ export default function AperturaDeCuenta({ value }) {
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
+				<SubmitBtn />
 			</div>
 		</>
 	)
