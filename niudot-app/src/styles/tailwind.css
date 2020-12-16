@@ -98,8 +98,7 @@ html, body {
 
 .form-grid-layout {
 	/*Esta es la clase que aplican para hacer una nueva seccion que contiene un formulario. Esa seccion que contiene las casillas de texto o lo que sea (la que las contiene a todas), ya que aca se definen las propiedades del grid.*/
-
-	@apply mt-2 grid grid-cols-12 gap-2 max-w-2xl p-8 object-cover bg-white rounded-xl;
+	@apply mt-2 grid grid-cols-12 gap-2 max-w-2xl object-cover p-8 rounded-xl bg-white;
 }
 
 .form-field {

@@ -10,7 +10,7 @@ function Comerciales() {
 					name='ref_comerciales_nombre_entidad'
 					size='lg'
 					placeholder='Nombre de la entidad'
-					label='Nombre de la entidad'
+					label='Nombre de la entidad'	
 				/>
 				<FormTextInput
 					name='ref_comerciales_persona_contacto'

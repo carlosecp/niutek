@@ -8,11 +8,10 @@ import SubmitBtn from '../../utils/SubmitBtn'
 export default function CancelacionAnticipada({ value }) {
 	return (
 		<>
+			<h2 className='text-black-white text-xl font-bold'>
+				Cancelación Anticipada{' '}
+			</h2>
 			<div className='form-grid-layout'>
-				<h2 className='text-black-white text-xl font-bold'>
-					Cancelación Anticipada{' '}
-				</h2>
-
 				<FormTextInput
 					name='create_nombre_del_cliente'
 					size='xl'
@@ -90,6 +89,7 @@ export default function CancelacionAnticipada({ value }) {
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
+				
 				<SubmitBtn />
 			</div>
 		</>

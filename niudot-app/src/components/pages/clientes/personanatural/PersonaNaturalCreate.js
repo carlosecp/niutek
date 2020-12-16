@@ -45,7 +45,10 @@ function PersonaNaturalCreate() {
 			}}
 		>
 			<Form>
-
+				<h2 className='text-black-white text-xl font-bold'>
+					Crear Un Nuevo Cliente{' '}
+				</h2>
+				<p className='text-gray-gray'>Crear un nuevo cliente.</p>
 				<NewClient id='nuevo-cliente' />
 				<DatosProfesionalesEconomicos id='datos-profesionales-economicos' />
 				<OrigenFondos />

@@ -36,10 +36,6 @@ function NuevoCliente() {
 	return (
 		<>
 			<div className='form-grid-layout'>
-				<h2 className='text-black-white text-xl font-bold'>
-					Crear Un Nuevo Cliente{' '}
-				</h2>
-				<p className='text-gray-gray'>Crear un nuevo cliente.</p>
 				<FormTextInput
 					name='create_codigo_cliente'
 					size='md'
