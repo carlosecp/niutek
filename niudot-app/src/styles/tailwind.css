@@ -129,28 +129,28 @@ html, body {
 	@apply col-span-2;
 
 	/*Responsive Settings*/
-	@apply sm:col-span-6;
+	@apply sm:col-span-12;
 }
 
 .form-container-sm {
 	@apply col-span-3; 
 
 	/*Responsive Settings*/
-	@apply sm:col-span-6;
+	@apply sm:col-span-12;
 }
 
 .form-container-md {
 	@apply col-span-4;
 
 	/*Responsive Settings*/
-	@apply sm:col-span-6;
+	@apply sm:col-span-12;
 }
 
 .form-container-lg {
 	@apply col-span-6;
 
 	/*Responsive Settings*/
-	@apply sm:col-span-6;
+	@apply sm:col-span-12;
 }
 
 .form-container-lg-mobile {
@@ -178,21 +178,21 @@ html, body {
 	@apply col-start-1 col-end-4;
 
 	/*Responsive Settings*/
-	@apply sm:col-end-6;
+	@apply sm:col-end-13;
 }
 
 .form-container-md-nl {
 	@apply col-start-1 col-end-5; 
 
 	/*Responsive Settings*/
-	@apply sm:col-end-7;
+	@apply sm:col-end-13;
 }
 
 .form-container-lg-nl {
 	@apply col-start-1 col-end-7; 
 
 	/*Responsive Settings*/
-	@apply sm:col-end-7;
+	@apply sm:col-end-13;
 }
 
 .form-container-xl-nl {
