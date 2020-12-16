@@ -18,7 +18,7 @@ import themeContext from '../../context/theme/themeContext'
 import routesContext from '../../context/routes/routesContext'
 
 function Sidebar({ toggled, setToggled }) {
-	const { logout } = useContext(authContext)
+	const { loadUser, logout } = useContext(authContext)
 	const { theme, toggleTheme } = useContext(themeContext)
 	const { changePage } = useContext(routesContext)
 
@@ -68,6 +68,7 @@ function Sidebar({ toggled, setToggled }) {
 				<button onClick={handleLogout} style={{ color: 'black' }}>
 					Logout
 				</button>
+				<button onClick={loadUser}>Load User</button>
 			</SidebarFooter>
 		</ProSidebar>
 	)

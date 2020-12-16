@@ -9,7 +9,7 @@ function AuthState(props) {
 	const initialState = {
 		user: null,
 		token: localStorage.getItem('token'),
-		isAuthenticated: true,
+		isAuthenticated: false,
 		loading: true,
 		error: null
 	}
@@ -23,7 +23,8 @@ function AuthState(props) {
 		}
 
 		try {
-			// const res = await axios.post('/auth')
+			const res = axios.get('localhost:5000')
+			console.log(res)
 
 			const user = {
 				username: 'CarlosECP01',

@@ -26,7 +26,7 @@ function Login(props) {
 			loadUser()
 		}
 		// eslint-disable-next-line
-	}, [isAuthenticated, props.history])
+	}, [isAuthenticated])
 
 	async function handleSubmit(values) {
 		if ((await loginUser(values)) === 0) {
@@ -110,7 +110,7 @@ function Login(props) {
 						</Form>
 					</Formik>
 					<p className='mt-6 font-bold text-blue-500 dark:text-blue-700 cursor-pointer hover:underline'>
-						Recuperar Contraseña (Sin funcionalidad)
+						Recuperar Contraseña
 					</p>
 				</div>
 			</div>
