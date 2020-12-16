@@ -16,11 +16,13 @@ function Register(props) {
 		password_conf: ''
 	}
 
-	const { loadUser, registerUser, isAuthenticated } = useContext(authContext)
+	const { user, loadUser, registerUser, isAuthenticated } = useContext(
+		authContext
+	)
 	const { theme, toggleTheme } = useContext(themeContext)
 
 	useEffect(() => {
-		if (isAuthenticated) {
+		if (isAuthenticated && user) {
 			props.history.push('/app/inicio')
 			loadUser()
 		}
