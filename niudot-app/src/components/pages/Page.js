@@ -9,6 +9,10 @@ import Check from './cheques'
 import NotFound from '../routing/NotFound'
 import AnticipatedCancellation from './caja/anticipatedcancellation/index'
 import SavingAccountOpening from './caja/pendingsavingaccountopening'
+import FixedTermCertificateOpening from './caja/fixedtermcertificateopening'
+import LoanPayment from './caja/loanpayment'
+import DepositToSavingsAccount from './caja/deposittosavingsaccount'
+import SavingsAccountWithdrawal from './caja/savingsaccountwithdrawal'
 
 function Page(props) {
 	return (
@@ -39,6 +43,32 @@ function Page(props) {
 						path='/caja/apertura-de-cuenta-de-ahorro-pendiente'
 						component={SavingAccountOpening}
 					/>
+					<Route
+						exact
+						path='/caja/apertura-certificado-a-plazo-fijo'
+						component={FixedTermCertificateOpening}
+					/>
+					<Route
+						exact
+						path='/caja/apertura-certificado-a-plazo-fijo'
+						component={FixedTermCertificateOpening}
+					/>
+					<Route
+						exact
+						path='/caja/abono-a-prestamo'
+						component={LoanPayment}
+					/>
+					<Route
+						exact
+						path='/caja/deposito-a-cuenta-de-ahorro'
+						component={DepositToSavingsAccount}
+					/>
+					<Route
+						exact
+						path='/caja/retiro-a-cuenta-de-ahorro'
+						component={SavingsAccountWithdrawal}
+					/>
+
 
 					{' '}
 					<Route path='*' component={NotFound} />
