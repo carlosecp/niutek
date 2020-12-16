@@ -86,6 +86,7 @@ export default function CheckCreate() {
 	const rows = React.useMemo(
 		() => [
 			{
+				// date must be set in english format, it will be displayed in spanish
 				currency: '',
 				date: new Date('12/20/2020'),
 				checkNumber: '901332',

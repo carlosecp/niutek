@@ -31,7 +31,7 @@ export default function ProductsCreate() {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form>
+			<Form className="section">
 				<SavingAccounts />
 				<TimeDeposits />
 				<CreditProducts />
