@@ -21,7 +21,9 @@ function Login(props) {
 	const { addAlert } = useContext(alertsContext)
 
 	useEffect(() => {
-		if (isAuthenticated && user) {
+		// NO BORRAR LO SIGUIENTE, ESTA COMENTADO SOLO PARA TRABAJAR BIEN
+		//if (isAuthenticated && user) {
+		if (isAuthenticated) {
 			props.history.push('/app/inicio')
 			loadUser()
 		}
