@@ -20,16 +20,14 @@ function LoanPaymentCreate() {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='form'>
+			<Form>
 				<h2 className='text-black-white text-xl font-bold'>
 					Abono a Préstamo{' '}
 				</h2>
-                <AbonoAPrestamo />
-                
+				<AbonoAPrestamo />
 			</Form>
 		</Formik>
 	)
 }
 
 export default LoanPaymentCreate
-

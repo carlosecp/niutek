@@ -22,7 +22,7 @@ function Login(props) {
 
 	useEffect(() => {
 		if (isAuthenticated) {
-			props.history.push('/inicio')
+			props.history.push('/app/inicio')
 			loadUser()
 		}
 		// eslint-disable-next-line

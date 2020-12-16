@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
 	FormTextInput,
 	FormDropdownInput
@@ -89,7 +89,7 @@ export default function CancelacionAnticipada({ value }) {
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
-				
+
 				<SubmitBtn />
 			</div>
 		</>

@@ -14,7 +14,7 @@ function SearchForm() {
 	}
 
 	return (
-		<div className='mb-8'>
+		<div className='section'>
 			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Cliente Existente
 			</h2>

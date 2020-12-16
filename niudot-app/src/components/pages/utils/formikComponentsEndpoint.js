@@ -17,7 +17,7 @@ function FormTextInput({
 	...props
 }) {
 	return (
-		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
+		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
 			{showLabel && (
 				<label
 					className={`text-black-white ${boldLabel && 'font-bold'}`}
@@ -39,12 +39,16 @@ function FormTextArea({
 	placeholder,
 	type = 'text',
 	newLine = false,
+	boldLabel = false,
 	...props
 }) {
 	return (
 		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
 			{showLabel && (
-				<label className='text-black-white' htmlFor={name}>
+				<label
+					className={`text-black-white ${boldLabel && 'font-bold'}`}
+					htmlFor={name}
+				>
 					{label}
 				</label>
 			)}
@@ -68,30 +72,40 @@ function FormCheckboxInput({
 }
 
 function FormDropdownInput({
+	name,
 	value,
 	handleChange,
 	size,
 	label,
 	newLine = false,
 	option,
+	placeholder,
+	boldLabel = false,
 	...props
 }) {
 	const [field] = useField(props)
 
 	return (
 		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
-			<label className='text-black-white'>{label}</label>
-			<div className=''>
-				<select
-					onChange={handleChange}
-					value={value}
-					className='form-field w-full'
-					{...field}
-					{...props}
-				>
-					{props.children}
-				</select>
-			</div>
+			<label
+				className={`text-black-white ${boldLabel && 'font-bold'}`}
+				htmlFor={name}
+			>
+				{label}
+			</label>
+			<select
+				name={name}
+				onChange={handleChange}
+				value={value}
+				className='form-field w-full'
+				{...field}
+				{...props}
+			>
+				<option value='' selected hidden>
+					{placeholder}
+				</option>
+				{props.children}
+			</select>
 		</div>
 	)
 }
