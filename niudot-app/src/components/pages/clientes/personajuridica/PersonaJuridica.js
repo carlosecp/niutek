@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import PageMenu from '../../utils/PageMenu'
 import SearchUserForm from '../../utils/SearchUserForm'
@@ -6,12 +6,14 @@ import SearchUserForm from '../../utils/SearchUserForm'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import PersonaJuridicaCreate from './PersonaJuridicaCreate'
 import Alerts from '../../alerts/Alerts'
+import routesContext from '../../../../context/routes/routesContext'
 
 function PersonaJuridica() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
 	const [activeSection, setActiveSection] = useState(
 		'datos-profesionales-y-economicos'
 	)
+	const { changePage } = useContext(routesContext)
 
 	const sections = [
 		'datos-economicos',
@@ -20,6 +22,10 @@ function PersonaJuridica() {
 		'accionistas-mayoritarios',
 		'origen-fondos'
 	]
+
+	useEffect(() => {
+		changePage('Persona Juridica')
+	}, [])
 
 	return (
 		<>
