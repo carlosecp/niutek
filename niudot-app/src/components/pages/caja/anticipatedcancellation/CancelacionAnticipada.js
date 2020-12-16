@@ -3,11 +3,12 @@ import {
 	FormTextInput,
 	FormDropdownInput
 } from '../../utils/formikComponentsEndpoint'
+import SubmitBtn from '../../utils/SubmitBtn'
 
 export default function CancelacionAnticipada({ value }) {
 	return (
 		<>
-			<div className='form-grid-layout p-8 object-cover bg-white rounded-xl '>
+			<div className='form-grid-layout'>
 				<h2 className='text-black-white text-xl font-bold'>
 					Cancelación Anticipada{' '}
 				</h2>
@@ -89,6 +90,7 @@ export default function CancelacionAnticipada({ value }) {
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
+				<SubmitBtn />
 			</div>
 		</>
 	)

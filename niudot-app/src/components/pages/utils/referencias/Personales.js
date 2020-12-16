@@ -7,7 +7,7 @@ function Personales({ title }) {
 
 	return (
 		<RetractileForm formTitle={title}>
-			<div className='grid grid-cols-12 gap-2 max-w-xl'>
+			<div className='form-grid-layout grid grid-cols-12 gap-2 max-w-xl'>
 				<FormTextInput
 					name={`ref_personales_${referenceInstance}_nombres`}
 					size='lg'

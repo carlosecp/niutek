@@ -36,11 +36,16 @@ function NuevoCliente() {
 	return (
 		<>
 			<div className='form-grid-layout'>
+				<h2 className='text-black-white text-xl font-bold'>
+					Crear Un Nuevo Cliente{' '}
+				</h2>
+				<p className='text-gray-gray'>Crear un nuevo cliente.</p>
 				<FormTextInput
 					name='create_codigo_cliente'
 					size='md'
 					placeholder='Código de Cliente'
 					label='Código de Cliente'
+					newLine={true}
 				/>
 				<FormTextInput
 					name='create_nombres'
@@ -60,7 +65,7 @@ function NuevoCliente() {
 					name='create_tipo_id'
 					label='Tipo Identificación'
 				>
-					<option value='' >Tipo Identificación</option>
+					<option value=''>Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>

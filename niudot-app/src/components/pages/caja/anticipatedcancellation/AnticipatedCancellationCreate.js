@@ -26,7 +26,6 @@ function AnticipatedCancellationCreate() {
 		>
 			<Form className='form'>
 				<CancelacionAnticipada />
-				<SubmitBtn />
 
 			</Form>
 		</Formik>
