@@ -4,14 +4,10 @@ import {
 	FormDropdownInput
 } from '../../utils/formikComponentsEndpoint'
 
-export default function CancelacionAnticipada({ value }) {
+export default function AperturaDeCuenta({ value }) {
 	return (
 		<>
-			<div className='form-grid-layout p-8 object-cover bg-white rounded-xl '>
-				<h2 className='text-black-white text-xl font-bold'>
-					Cancelación Anticipada{' '}
-				</h2>
-
+			<div className='form-grid-layout'>
 				<FormTextInput
 					name='create_nombre_del_cliente'
 					size='xl'
@@ -20,17 +16,17 @@ export default function CancelacionAnticipada({ value }) {
 				/>
 
 				<FormTextInput
-					name='create_tipo_de_credito'
+					name='create_producto_de_ahorro'
 					size='xl'
-					placeholder='Tipo de Crédito'
-					label='Tipo de Crédito'
+					placeholder='Producto de Ahorro'
+					label='Producto de Ahorro'
 					newLine={true}
 				/>
 				<FormTextInput
-					name='create_nombre_del_producto'
-					size='xl'
-					placeholder='Nombre del Producto'
-					label='Nombre del Producto'
+					name='create_numero_de_cuenta_de_ahorro'
+					size='lg'
+					placeholder='Número de Cuenta de Ahorro'
+					label='Número de Cuenta de Ahorro'
 					newLine={true}
 				/>
 				<FormTextInput
@@ -63,28 +59,49 @@ export default function CancelacionAnticipada({ value }) {
 					label='Fecha de Entrega'
 					newLine={true}
 				/>
-				<FormDropdownInput
-					size='lg'
-					name='create_tipo_de_entrega'
-					label='Tipo de Entrega'
-					newLine={true}
-				>
-					<option value=''>Tipo de Entrega</option>
-					<option value='option_2'>Córdoba</option>
-					<option value='option_3'>Dólares</option>
-					<option value='option_4'>Colones</option>
-				</FormDropdownInput>
-
 				<FormTextInput
-					name='create_numero_de_cheque'
+					name='create_monto_a_apertura'
 					size='lg'
-					placeholder='Número de Cheque'
-					label='Número de Cheque'
+					placeholder='Monto a Apertura'
+					label='Monto a Apertura'
 					newLine={true}
+					type='number'
+					min='0'
 				/>
 
 				<FormTextInput
+					name='create_efectivo'
+					size='lg'
+					placeholder='Efectivo'
+					label='Efectivo'
+					newLine={true}
+					type='number'
+					min='0'
+				/>
+
+				<FormTextInput
+					name='create_numero_cheque'
+					size='lg'
+					placeholder='No. Cheque'
+					label='Número de Cheque'
+					newLine={true}
+				/>
+				<FormTextInput
 					name='create_nombre_del_banco'
+					size='lg'
+					placeholder='Nombre del Banco'
+					label='Nombre del Banco'
+				/>
+
+				<FormTextInput
+					name='create_tarjeta'
+					size='lg'
+					placeholder='Tarjeta'
+					label='Tarjeta'
+					newLine={true}
+				/>
+				<FormTextInput
+					name='create_nombre_del_banco1'
 					size='lg'
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'

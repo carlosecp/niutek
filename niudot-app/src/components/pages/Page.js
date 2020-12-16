@@ -8,12 +8,13 @@ import Products from './products/index'
 import Check from './cheques'
 import NotFound from '../routing/NotFound'
 import AnticipatedCancellation from './caja/anticipatedcancellation/index'
+import SavingAccountOpening from './caja/pendingsavingaccountopening'
 
 function Page(props) {
 	return (
 		<div className='pl-64 sm:p-0 w-full'>
 			<Topbar {...props} />
-			<div className='px-4 pt-20 bg-white-gray relative min-h-full'>
+			<div className='px-4 pt-20 bg-gray-100 relative min-h-full'>
 				<Switch>
 					<Route exact path='/inicio' component={Dashboard} />
 					<Route
@@ -33,6 +34,12 @@ function Page(props) {
 						path='/caja/cancelacion-anticipada'
 						component={AnticipatedCancellation}
 					/>
+					<Route
+						exact
+						path='/caja/apertura-de-cuenta-de-ahorro-pendiente'
+						component={SavingAccountOpening}
+					/>
+
 					{' '}
 					<Route path='*' component={NotFound} />
 				</Switch>
