@@ -32,7 +32,7 @@ function Page(props) {
 						component={PersonaJuridica}
 					/>
 					<Route exact path='/app/productos/productos' component={Products} />
-					<Route exact path='/app/cheques/cheques' component={Check} />
+					<Route exact path='/app/cheques/cheques-por-imprimir' component={Check} />
 					<Route
 						exact
 						path='/app/caja/cancelacion-anticipada'

@@ -4,8 +4,11 @@ import { object } from 'yup'
 import { FormDropdownInput } from '../utils/formikComponentsEndpoint'
 import Table from '../utils/Table'
 import { Formik, Form } from 'formik'
-import DatePicker from 'react-datepicker'
+import DatePicker, { registerLocale, setDefaultLocale }  from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import es from 'date-fns/locale/es';
+registerLocale('es', es)
+setDefaultLocale('es')
 
 export default function CheckCreate() {
 	const columns = React.useMemo(
@@ -23,6 +26,7 @@ export default function CheckCreate() {
 
 					return (
 						<DatePicker
+						locale='es'
 							selected={startDate}
 							onChange={(date) => setStartDate(date)}
 							className='table-field'
@@ -83,7 +87,7 @@ export default function CheckCreate() {
 		() => [
 			{
 				currency: '',
-				date: new Date('12/7/1997'),
+				date: new Date('12/20/2020'),
 				checkNumber: '901332',
 				amount: '',
 			},
