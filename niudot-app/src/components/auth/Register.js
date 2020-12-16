@@ -21,11 +21,11 @@ function Register(props) {
 
 	useEffect(() => {
 		if (isAuthenticated) {
-			props.history.push('/inicio')
+			props.history.push('/app/inicio')
 			loadUser()
 		}
 		// eslint-disable-next-line
-	}, [isAuthenticated, props.history])
+	}, [isAuthenticated])
 
 	function handleSubmit({ name, email, password }) {
 		registerUser({ name, email, password })

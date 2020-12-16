@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import PrivateRoute from './components/routing/PrivateRoute'
 import AuthState from './context/auth/AuthState'
@@ -12,12 +12,14 @@ import AlertsState from './context/alerts/alerts/AlertsState'
 import RoutesState from './context/routes/RoutesState'
 import { PageNotFound } from './components/routing/NotFound'
 
-if (localStorage.token) {
-	setAuthToken(localStorage.token)
-}
-
 function App() {
 	const { theme } = useContext(themeContext)
+
+	useEffect(() => {
+		if (localStorage.token) {
+			setAuthToken(localStorage.token)
+		}
+	}, [])
 
 	return (
 		<div className={`${theme && 'dark'}`}>
