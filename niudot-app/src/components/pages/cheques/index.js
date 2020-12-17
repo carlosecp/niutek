@@ -21,7 +21,7 @@ function Check() {
 	return (
 		<>
 			<div>
-			<SearchCheckForm />
+			
 				<Alerts />
 				{showCreateFormButton ? (
 					<CreateNewClientBtn />

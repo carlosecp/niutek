@@ -1,12 +1,13 @@
 import React from 'react'
-import { FaRegTimesCircle, FaRegCheckCircle, FaUserEdit, FaEdit } from 'react-icons/fa/index'
+import { FaEdit } from 'react-icons/fa/index'
 
-export default function EditButton() {
+export default function EditButton(props) {
 	return (
 		<div className='flex gap-2'>
 			<button
-				type='submit'
+				type='button'
 				className='btn bg-blue-blue btn-border-blue flex items-center gap-2'
+				{...props}
 			>
 				<FaEdit />
 			</button>

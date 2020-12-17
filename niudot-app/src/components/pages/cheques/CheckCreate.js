@@ -8,6 +8,7 @@ import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
 import EditButton from '../utils/EditButton'
+import SearchCheckForm from '../utils/SearchCheckForm'
 registerLocale('es', es)
 setDefaultLocale('es')
 
@@ -113,8 +114,12 @@ export default function CheckCreate() {
 			{
 				Header: '',
 				accessor: 'edit',
-				Cell: () => {
-					return <EditButton />
+				Cell: (props) => {
+					const row = props.row.index
+
+					const rowData = props.data[row]
+					
+					return <EditButton onClick={() => console.log(rowData)}/>
 				}
 			}
 		],
@@ -197,7 +202,8 @@ export default function CheckCreate() {
 					alert(JSON.stringify(values, null, 2))
 				}}
 			>
-				<Form className='table-section'>
+				<Form className='table-section content-start'>
+				<SearchCheckForm  className="mx-0 p-8"/>
 					<Table columns={columns} data={data} updateMyData={updateMyData} />
 				</Form>
 			</Formik>
