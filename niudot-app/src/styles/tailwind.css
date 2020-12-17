@@ -253,7 +253,7 @@ html, body {
 	/*Esta clase es para cada una de las input de texto o numericas o similares. Son todos esos rectangulos que en light theme tienen bordes grises claros, todas, incluidas checkboxes y dropdowns.*/
 
 	/*Global*/
-	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid;
+	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid w-full;
 
 	/*Light Theme Defaults*/
 	@apply text-black bg-white border-gray-200;

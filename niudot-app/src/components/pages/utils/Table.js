@@ -29,7 +29,7 @@ const EditableCell = ({
 	return (
 		<input 
 			readOnly 
-			className={'text-black-white table-field w-full'}
+			className={'text-black-white table-field'}
 			value={value}
 			onChange={onChange}
 			onBlur={onBlur}

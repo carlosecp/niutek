@@ -27,7 +27,13 @@ export default function CheckCreate() {
 				accessor: 'checkNumber'
 			},
 			{
-				Header: 'Fecha',
+				Header: () => (
+					<div
+						className='w-36'
+					>
+						Fecha
+					</div>
+				),
 				accessor: 'date',
 				Cell: ({ value }) => {
 					const [startDate, setStartDate] = useState(value)
