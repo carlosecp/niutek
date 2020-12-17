@@ -16,7 +16,7 @@ import { FormNotFound } from '../routing/NotFound'
 
 function Page(props) {
 	return (
-		<div className='pl-64 sm:p-0 w-full'>
+		<div className='pl-64 cstm:p-0 w-full'>
 			<Topbar {...props} />
 			<div className='px-4 pt-20 bg-white-gray relative min-h-full'>
 				<Switch>
@@ -32,7 +32,11 @@ function Page(props) {
 						component={PersonaJuridica}
 					/>
 					<Route exact path='/app/productos/productos' component={Products} />
-					<Route exact path='/app/cheques/cheques-por-imprimir' component={Check} />
+					<Route
+						exact
+						path='/app/cheques/cheques-por-imprimir'
+						component={Check}
+					/>
 					<Route
 						exact
 						path='/app/caja/cancelacion-anticipada'
