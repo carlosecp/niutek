@@ -27,8 +27,9 @@ const EditableCell = ({
 	}, [initialValue])
 
 	return (
-		<input
-			className={'text-black-white table-field'}
+		<input 
+			readOnly 
+			className={'text-black-white table-field w-full'}
 			value={value}
 			onChange={onChange}
 			onBlur={onBlur}
@@ -42,22 +43,6 @@ const defaultColumn = {
 	Cell: EditableCell
 }
 
-const IndeterminateCheckbox = React.forwardRef(
-	({ indeterminate, ...rest }, ref) => {
-		const defaultRef = React.useRef()
-		const resolvedRef = ref || defaultRef
-
-		React.useEffect(() => {
-			resolvedRef.current.indeterminate = indeterminate
-		}, [resolvedRef, indeterminate])
-
-		return (
-			<>
-				<input type='checkbox' ref={resolvedRef} {...rest} />
-			</>
-		)
-	}
-)
 
 function Table({ columns, data, updateMyData, skipPageReset }) {
 	const {
@@ -84,32 +69,13 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 		},
 		usePagination,
 		useRowSelect,
-		(hooks) => {
-			hooks.visibleColumns.push((columns) => [
-				// Let's make a column for selection
-				{
-					id: 'selection',
-					// The header can use the table's getToggleAllRowsSelectedProps method
-					// to render a checkbox
-
-					// The cell can use the individual row's getToggleRowSelectedProps method
-					// to the render a checkbox
-					Cell: ({ row }) => (
-						<div>
-							<IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
-						</div>
-					)
-				},
-				...columns
-			])
-		}
 	)
 
 	// Render the UI for your table
 	return (
 		<div className='styled-table'>
 			<div className='tableWrap'>
-				<table className='table table-field' {...getTableProps()}>
+				<table className='table table-field'  showPageJump={false} {...getTableProps()}>
 					<thead>
 						{headerGroups.map((headerGroup) => (
 							<tr {...headerGroup.getHeaderGroupProps()}>
@@ -136,20 +102,6 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 						})}
 					</tbody>
 				</table>
-				<pre>
-					<code>
-						{JSON.stringify(
-							{
-								selectedRowIds: selectedRowIds,
-								'selectedFlatRows[].original': selectedFlatRows.map(
-									(d) => d.original
-								)
-							},
-							null,
-							2
-						)}
-					</code>
-				</pre>
 			</div>
 		</div>
 	)

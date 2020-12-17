@@ -4,18 +4,26 @@ import { object } from 'yup'
 import { FormDropdownInput } from '../utils/formikComponentsEndpoint'
 import Table from '../utils/Table'
 import { Formik, Form } from 'formik'
-import DatePicker, { registerLocale, setDefaultLocale }  from 'react-datepicker'
+import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import es from 'date-fns/locale/es';
+import es from 'date-fns/locale/es'
+import EditButton from '../utils/EditButton'
 registerLocale('es', es)
 setDefaultLocale('es')
 
 export default function CheckCreate() {
 	const columns = React.useMemo(
 		() => [
-
 			{
-				Header: 'Número de Cheque',
+				Header: () => (
+					<div
+						style={{
+							width: 200
+						}}
+					>
+						Número de Cheque
+					</div>
+				),
 				accessor: 'checkNumber'
 			},
 			{
@@ -26,7 +34,8 @@ export default function CheckCreate() {
 
 					return (
 						<DatePicker
-						locale='es'
+							readOnly={true}
+							locale='es'
 							selected={startDate}
 							onChange={(date) => setStartDate(date)}
 							className='table-field'
@@ -37,12 +46,21 @@ export default function CheckCreate() {
 			{
 				Header: () => (
 					<div
-					  style={{
-						width: 200,
-					  }}>
-					  Moneda
+						className='w-72'
+					>
+						Páguese a
 					</div>
-				  ),
+				),
+				accessor: 'payTo'
+			},
+			{
+				Header: () => (
+					<div
+						className='w-36'
+					>
+						Moneda
+					</div>
+				),
 				accessor: 'currency',
 				width: 800,
 				Cell: ({
@@ -67,6 +85,7 @@ export default function CheckCreate() {
 							value={selected}
 							onChange={handleChange}
 							onBlur={() => {}}
+							
 						>
 							{Options.map((x) => (
 								<option key={x}>{x}</option>
@@ -74,12 +93,24 @@ export default function CheckCreate() {
 						</FormDropdownInput>
 					)
 				}
-				
 			},
 			{
-				Header: 'Monto',
+				Header: () => (
+					<div
+						className='w-36'
+					>
+						Monto
+					</div>
+				),
 				accessor: 'amount'
 			},
+			{
+				Header: '',
+				accessor: 'edit',
+				Cell: () => {
+					return <EditButton />
+				}
+			}
 		],
 		[]
 	)
@@ -90,27 +121,31 @@ export default function CheckCreate() {
 				currency: 'Euro',
 				date: new Date('12/20/2020'),
 				checkNumber: '901332',
-				amount: '',
+				amount: '3,543.84',
+				payTo: 'Juan Bosco Matus Gutiérrez'
 			},
 
 			{
 				currency: '',
 				date: new Date(),
 				checkNumber: '302312',
-				amount: '',
+				amount: '4323.31',
+				payTo: 'Carlos Eduardo Castillo Pereira'
 			},
 
 			{
 				currency: '',
 				date: new Date(),
 				checkNumber: '380212',
-				amount: '',
+				amount: '3312.32',
+				payTo: 'Carlos Fernando Arcia Castro'
 			},
 			{
 				currency: '',
 				date: new Date(),
 				checkNumber: '381312',
-				amount: '',
+				amount: '100.00',
+				payTo: 'El Gato de Niudot'
 			}
 		],
 
@@ -157,11 +192,7 @@ export default function CheckCreate() {
 				}}
 			>
 				<Form className='table-section'>
-					<Table
-						columns={columns}
-						data={data}
-						updateMyData={updateMyData}
-					/>
+					<Table columns={columns} data={data} updateMyData={updateMyData} />
 				</Form>
 			</Formik>
 		</>
