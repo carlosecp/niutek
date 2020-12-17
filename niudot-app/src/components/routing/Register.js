@@ -7,6 +7,7 @@ import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
 import { FaMoon, FaSun } from 'react-icons/fa'
 import Alerts from '../pages/alerts/Alerts'
+import Navbar from './Navbar'
 
 function Register(props) {
 	const initialValues = {
@@ -35,6 +36,7 @@ function Register(props) {
 
 	return (
 		<>
+			<Navbar prompt='¿Ya tienes una cuenta?' tag='Inicia Sesión' path='/' />
 			<div className='fixed w-full bg-white-gray'>
 				<div className='max-w-screen-xl h-24 px-8 flex items-center justify-between mx-auto'>
 					<h1 className='text-black-white text-2xl font-bold'>niudot</h1>
