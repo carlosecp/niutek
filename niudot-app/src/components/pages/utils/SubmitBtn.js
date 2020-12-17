@@ -3,7 +3,7 @@ import { FaRegTimesCircle, FaRegCheckCircle } from 'react-icons/fa/index'
 
 function SubmitBtn() {
 	return (
-		<div className='mt-4 flex gap-2'>
+		<div className='mt-4 flex gap-2 pb-4'>
 			<button
 				type='submit'
 				className='btn bg-blue-blue btn-border-blue flex items-center gap-2'

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 import { object } from 'yup'
-import { FormDropdownInput, FormTextInput } from '../utils/formikComponentsEndpoint'
+import {
+	FormDropdownInput,
+	FormTextInput
+} from '../utils/formikComponentsEndpoint'
 import Table from '../utils/Table'
 import { Formik, Form } from 'formik'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
@@ -17,83 +20,24 @@ import DatosDelCheque from './DatosDelCheque'
 registerLocale('es', es)
 setDefaultLocale('es')
 
-export default function CheckCreate() {
+export default function DatosDelChequeTable() {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: () => (
-					<div
-						style={{
-							width: 200
-						}}
-					>
-						Número de Cheque
-					</div>
-				),
-				accessor: 'checkNumber'
+				Header: () => <div className='w-60'>Cuenta</div>,
+				accessor: 'account'
 			},
 			{
-				Header: () => <div className='w-36'>Fecha</div>,
-				accessor: 'date',
-				Cell: ({ value }) => {
-					const [startDate, setStartDate] = useState(value)
-
-					return (
-						<DatePicker
-							readOnly={true}
-							locale='es'
-							selected={startDate}
-							onChange={(date) => setStartDate(date)}
-							className='table-field'
-						/>
-					)
-				}
+				Header: () => <div className='w-64'>Descripción</div>,
+				accessor: 'description'
 			},
 			{
-				Header: () => <div className='w-72'>Páguese a</div>,
-				accessor: 'payTo'
+				Header: () => <div className='w-32'>Débito</div>,
+				accessor: 'debit'
 			},
 			{
-				Header: () => <div className='w-36'>Moneda</div>,
-				accessor: 'currency',
-				width: 800,
-			},
-			{
-				Header: () => <div className='w-36'>Monto</div>,
-				accessor: 'amount'
-			},
-			{
-				Header: '',
-				accessor: 'edit',
-				Cell: (props) => {
-					const row = props.row.index
-
-					const rowData = props.data[row]
-
-					return (
-						<Popup
-							trigger={
-								<EditButton />
-							}
-							modal
-							nested
-							className="bg-black"
-						>
-							{close => (
-								<div className="section">
-							<Formik
-
-								onSubmit={(values) => {
-									alert(JSON.stringify(values, null, 2))
-								}}
-							>
-								<DatosDelCheque />
-							</Formik>
-							</div>
-							)}
-						</Popup>
-					)
-				}
+				Header: () => <div className='w-32'>Crédito</div>,
+				accessor: 'credit'
 			}
 		],
 		[]
@@ -175,8 +119,7 @@ export default function CheckCreate() {
 					alert(JSON.stringify(values, null, 2))
 				}}
 			>
-				<Form className='table-section content-start'>
-					<SearchCheckForm className='mx-0 p-8' />
+				<Form className='table-section p-0'>
 					<Table columns={columns} data={data} updateMyData={updateMyData} />
 				</Form>
 			</Formik>
