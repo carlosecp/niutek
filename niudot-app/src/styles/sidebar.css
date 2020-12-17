@@ -167,7 +167,7 @@
 	}
 }
 
-@media (max-width: 630px) {
+@media (max-width: 1028px) {
 	.pro-sidebar.sm {
 		position: fixed;
 		left: -256px;
