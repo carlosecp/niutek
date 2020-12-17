@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 import { object } from 'yup'
-import { FormDropdownInput } from '../utils/formikComponentsEndpoint'
+import { FormDropdownInput, FormTextInput } from '../utils/formikComponentsEndpoint'
 import Table from '../utils/Table'
 import { Formik, Form } from 'formik'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
@@ -9,6 +9,11 @@ import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
 import EditButton from '../utils/EditButton'
 import SearchCheckForm from '../utils/SearchCheckForm'
+
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
+import DatosDelCheque from './DatosDelCheque'
+
 registerLocale('es', es)
 setDefaultLocale('es')
 
@@ -28,13 +33,7 @@ export default function CheckCreate() {
 				accessor: 'checkNumber'
 			},
 			{
-				Header: () => (
-					<div
-						className='w-36'
-					>
-						Fecha
-					</div>
-				),
+				Header: () => <div className='w-36'>Fecha</div>,
 				accessor: 'date',
 				Cell: ({ value }) => {
 					const [startDate, setStartDate] = useState(value)
@@ -51,64 +50,16 @@ export default function CheckCreate() {
 				}
 			},
 			{
-				Header: () => (
-					<div
-						className='w-72'
-					>
-						Páguese a
-					</div>
-				),
+				Header: () => <div className='w-72'>Páguese a</div>,
 				accessor: 'payTo'
 			},
 			{
-				Header: () => (
-					<div
-						className='w-36'
-					>
-						Moneda
-					</div>
-				),
+				Header: () => <div className='w-36'>Moneda</div>,
 				accessor: 'currency',
 				width: 800,
-				Cell: ({
-					label,
-					value: initialValue,
-					updateMyData,
-					row: { index },
-					column: { id },
-					...props
-				}) => {
-					const Options = ['Córdobas', 'Dolares', 'Euro', 'Quetzal']
-					const [selected, selectChange] = useState(initialValue)
-					const handleChange = (e) => {
-						selectChange(e.target.value)
-						updateMyData(index, id, e.target.value)
-					}
-
-					return (
-						<FormDropdownInput
-							size='lg'
-							label={label}
-							value={selected}
-							onChange={handleChange}
-							onBlur={() => {}}
-							
-						>
-							{Options.map((x) => (
-								<option key={x}>{x}</option>
-							))}
-						</FormDropdownInput>
-					)
-				}
 			},
 			{
-				Header: () => (
-					<div
-						className='w-36'
-					>
-						Monto
-					</div>
-				),
+				Header: () => <div className='w-36'>Monto</div>,
 				accessor: 'amount'
 			},
 			{
@@ -118,8 +69,29 @@ export default function CheckCreate() {
 					const row = props.row.index
 
 					const rowData = props.data[row]
-					
-					return <EditButton onClick={() => console.log(rowData)}/>
+
+					return (
+						<Popup
+							trigger={
+								<EditButton />
+							}
+							modal
+							nested
+						>
+							{close => (
+								<div className="section">
+							<Formik
+
+								onSubmit={(values) => {
+									alert(JSON.stringify(values, null, 2))
+								}}
+							>
+								<DatosDelCheque />
+							</Formik>
+							</div>
+							)}
+						</Popup>
+					)
 				}
 			}
 		],
@@ -137,7 +109,7 @@ export default function CheckCreate() {
 			},
 
 			{
-				currency: '',
+				currency: 'Dolar',
 				date: new Date(),
 				checkNumber: '302312',
 				amount: '4323.31',
@@ -145,14 +117,14 @@ export default function CheckCreate() {
 			},
 
 			{
-				currency: '',
+				currency: 'Dolar',
 				date: new Date(),
 				checkNumber: '380212',
 				amount: '3312.32',
 				payTo: 'Carlos Fernando Arcia Castro'
 			},
 			{
-				currency: '',
+				currency: 'Dolar',
 				date: new Date(),
 				checkNumber: '381312',
 				amount: '100.00',
@@ -203,7 +175,7 @@ export default function CheckCreate() {
 				}}
 			>
 				<Form className='table-section content-start'>
-				<SearchCheckForm  className="mx-0 p-8"/>
+					<SearchCheckForm className='mx-0 p-8' />
 					<Table columns={columns} data={data} updateMyData={updateMyData} />
 				</Form>
 			</Formik>
