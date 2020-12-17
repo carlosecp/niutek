@@ -75,7 +75,6 @@ function PersonaNatural() {
 					<PersonaNaturalCreate />
 				)}
 			</div>
-			<PageMenu />
 		</>
 	)
 }

@@ -81,9 +81,9 @@ export default function DatosDelCheque({ value }) {
 				</FormDropdownInput>
 
                 
-			</div>
+			</div>	
             <DatosDelChequeTable />
-				<SubmitBtn />
+			
 		</>
 	)
 }

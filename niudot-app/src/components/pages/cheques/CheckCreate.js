@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 import { object } from 'yup'
-import { FormDropdownInput, FormTextInput } from '../utils/formikComponentsEndpoint'
+import {
+	FormDropdownInput,
+	FormTextInput
+} from '../utils/formikComponentsEndpoint'
 import Table from '../utils/Table'
 import { Formik, Form } from 'formik'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
@@ -13,6 +16,7 @@ import SearchCheckForm from '../utils/SearchCheckForm'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import DatosDelCheque from './DatosDelCheque'
+import SubmitBtn from '../utils/SubmitBtn'
 
 registerLocale('es', es)
 setDefaultLocale('es')
@@ -21,15 +25,7 @@ export default function CheckCreate() {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: () => (
-					<div
-						style={{
-							width: 200
-						}}
-					>
-						Número de Cheque
-					</div>
-				),
+				Header: () => <div className='w-44'>Número de Cheque</div>,
 				accessor: 'checkNumber'
 			},
 			{
@@ -56,7 +52,7 @@ export default function CheckCreate() {
 			{
 				Header: () => <div className='w-36'>Moneda</div>,
 				accessor: 'currency',
-				width: 800,
+				width: 800
 			},
 			{
 				Header: () => <div className='w-36'>Monto</div>,
@@ -69,27 +65,28 @@ export default function CheckCreate() {
 					const row = props.row.index
 
 					const rowData = props.data[row]
+					const [open, setOpen] = useState(false)
+					const closeModal = () => setOpen(false)
 
 					return (
 						<Popup
-							trigger={
-								<EditButton />
-							}
+							trigger={<EditButton />}
 							modal
 							nested
-							className="bg-black"
+							className='bg-black'
+							onClose={closeModal}
 						>
-							{close => (
-								<div className="section">
-							<Formik
-
-								onSubmit={(values) => {
-									alert(JSON.stringify(values, null, 2))
-								}}
-							>
-								<DatosDelCheque />
-							</Formik>
-							</div>
+							{(close) => (
+								<div className='section'>
+									<Formik
+										onSubmit={(values) => {
+											alert(JSON.stringify(values, null, 2))
+										}}
+									>
+										<DatosDelCheque />
+									</Formik>
+									<SubmitBtn onClick={close} />
+								</div>
 							)}
 						</Popup>
 					)

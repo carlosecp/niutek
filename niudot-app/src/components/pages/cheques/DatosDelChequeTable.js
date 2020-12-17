@@ -16,6 +16,7 @@ import SearchCheckForm from '../utils/SearchCheckForm'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import DatosDelCheque from './DatosDelCheque'
+import SubmitBtn from '../utils/SubmitBtn'
 
 registerLocale('es', es)
 setDefaultLocale('es')
@@ -24,7 +25,7 @@ export default function DatosDelChequeTable() {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: () => <div className='w-60'>Cuenta</div>,
+				Header: () => <div className='w-48'>Cuenta</div>,
 				accessor: 'account'
 			},
 			{
@@ -110,6 +111,7 @@ export default function DatosDelChequeTable() {
 	}, [data])
 	console.log(data)
 
+	
 	return (
 		<>
 			<Formik
@@ -119,8 +121,9 @@ export default function DatosDelChequeTable() {
 					alert(JSON.stringify(values, null, 2))
 				}}
 			>
-				<Form className='table-section p-0'>
+				<Form className='table-section-popup'>
 					<Table columns={columns} data={data} updateMyData={updateMyData} />
+					
 				</Form>
 			</Formik>
 		</>
