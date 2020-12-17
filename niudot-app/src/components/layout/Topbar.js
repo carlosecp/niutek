@@ -14,7 +14,7 @@ function Topbar({ toggled, setToggled }) {
 						currentPage.slice(1, currentPage.length)}
 				</h2>
 				<div className='burger-btn' onClick={() => setToggled(!toggled)}>
-					<FaBars className='burger-menu w-6 h-6 hidden sm:block dark:text-white dark:fill-current' />
+					<FaBars className='w-6 h-6 hidden sm:block dark:text-white dark:fill-current' />
 				</div>
 			</div>
 			<div
