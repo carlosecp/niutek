@@ -21,6 +21,8 @@ import * as Yup from 'yup'
 import { FaPaperPlane, FaPrint, FaTrashAlt, FaUserSlash } from 'react-icons/fa'
 import DeliverCheck from './DeliverCheck'
 import DeliverCheckBtn from '../../utils/DeliverCheckBtn'
+import DeleteBtn from '../../utils/DeleteBtn'
+import VoidBtn from '../../utils/VoidBtn'
 registerLocale('es', es)
 setDefaultLocale('es')
 export const initialValues = {
@@ -102,8 +104,8 @@ export default function ChecksToDeliverTable() {
 									></Formik>
 									<div></div>
 
-                                    <DeliverCheck />
-									<DeliverCheckBtn  onClick={close} />
+									<DeliverCheck />
+									<DeliverCheckBtn onClick={close} />
 								</div>
 							)}
 						</Popup>
@@ -185,7 +187,11 @@ export default function ChecksToDeliverTable() {
 										}}
 									></Formik>
 									<div></div>
-									<SubmitBtn onClick={close} />
+
+									<h2 className='text-black-white text-xl font-bold'>
+										¿Estás seguro que quieres eliminar este cheque?{' '}
+									</h2>
+									<DeleteBtn onClick={close} />
 								</div>
 							)}
 						</Popup>
@@ -226,7 +232,10 @@ export default function ChecksToDeliverTable() {
 										}}
 									></Formik>
 									<div></div>
-									<SubmitBtn onClick={close} />
+									<h2 className='text-black-white text-xl font-bold'>
+										¿Estás seguro que quieres anular este cheque?{' '}
+									</h2>
+									<VoidBtn onClick={close} />
 								</div>
 							)}
 						</Popup>
