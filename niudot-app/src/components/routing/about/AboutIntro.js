@@ -24,6 +24,13 @@ function AboutIntro() {
 					aplicación.
 				</aside>
 			</div>
+			<div className='max-w-3xl mx-auto p-8 text-white grid'>
+				<img
+					src={require('../../../assets/images/Analytics-bro.svg')}
+					alt='sistema_responsivo'
+					className='block'
+				/>
+			</div>
 		</div>
 	)
 }
