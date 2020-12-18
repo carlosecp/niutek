@@ -80,7 +80,6 @@ export default function DatosDelCheque({ value }) {
 						</div>
 					)}
 				</Popup>
-
 				<FormTextInput
 					name='create_cantidad_de'
 					size='sm'
