@@ -26,6 +26,35 @@ function Credit() {
 						excedentes a distribuir, capitalización de excedentes no retirados.
 					</li>
 				</ul>
+				<div className='my-2 mt-4 grid grid-cols-2 gap-2 sm:grid-cols-1'>
+					<div className='p-2 rounded border-2 border-solid text-black bg-white border-gray-200 dark:text-white dark:bg-gray-cstm-2 dark:border-gray-cstm-4'>
+						Consultas o Sociedades de Información Crediticia (Buró de Crédito).
+					</div>
+					<div className='p-2 rounded border-2 border-solid text-black bg-white border-gray-200 dark:text-white dark:bg-gray-cstm-2 dark:border-gray-cstm-4'>
+						Manejo y control de movimientos, cargos y abonos sobre préstamos.
+					</div>
+					<div className='p-2 rounded border-2 border-solid text-black bg-white border-gray-200 dark:text-white dark:bg-gray-cstm-2 dark:border-gray-cstm-4'>
+						Resoluación de crédito. Permite aprobar o denegar en base a
+						resolución de comité de crédito.
+					</div>
+					<div className='p-2 rounded border-2 border-solid text-black bg-white border-gray-200 dark:text-white dark:bg-gray-cstm-2 dark:border-gray-cstm-4'>
+						Productos de crédito, con características particulares según las
+						necesidades de la organización.
+					</div>
+					<div className='p-2 rounded border-2 border-solid text-black bg-white border-gray-200 dark:text-white dark:bg-gray-cstm-2 dark:border-gray-cstm-4'>
+						Generación automática de asientos hacia la contabidivdad.
+					</div>
+					<div className='p-2 rounded border-2 border-solid text-black bg-white border-gray-200 dark:text-white dark:bg-gray-cstm-2 dark:border-gray-cstm-4'>
+						Cálculo y cobro de comisiones en tres modadivdades: al formadivzar,
+						por cuota o de manera diferida.
+					</div>
+					<div className='p-2 rounded border-2 border-solid col-span-2 sm:col-span-1 text-black bg-white border-gray-200 dark:text-white dark:bg-gray-cstm-2 dark:border-gray-cstm-4'>
+						Registro y procesamiento de sodivcitudes de créditos: control de
+						documentación a presentar, cargos administrativos, registro de
+						pódivzas y de cargos por servicios profesionales. Registro de
+						garantías ofrecidas.
+					</div>
+				</div>
 			</div>
 		</div>
 	)

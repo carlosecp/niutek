@@ -2,9 +2,9 @@ import React from 'react'
 
 function AboutIntro() {
 	return (
-		<div className='bg-blue-500'>
+		<div className='bg-blue-500 dark:bg-blue-700'>
 			<div className='max-w-3xl mx-auto p-8 text-white'>
-				<h1 className='text-3xl font-bold'>¿Qué es niudot?</h1>
+				<h1 className='mt-4 text-3xl font-bold sm:mt-0'>¿Qué es niudot?</h1>
 				<div className='rounded-full bg-white-gray w-4/12 sm:w-full h-1 mt-4'></div>
 				<div className='my-4 flex flex-col gap-4'>
 					<p>
@@ -23,11 +23,11 @@ function AboutIntro() {
 					impulsar su crecimiento, unificando todos sus procesos en una sola
 					aplicación.
 				</aside>
-				<div className='mt-4 grid gap-4 grid-cols-3 sm:grid-cols-1'>
+				<div className='mt-4 grid gap-4 grid-cols-2 sm:grid-cols-1'>
 					<img
 						src={require('../../../assets/images/image_1.svg')}
 						alt='sistema_responsivo'
-						className='block col-span-2'
+						className='block col-span-1'
 					/>
 					<div className='flex items-center sm:block'>
 						<p>
