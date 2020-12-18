@@ -1,15 +1,21 @@
-import React from 'react'
+import { Formik } from 'formik'
+import React, { useState } from 'react'
 import ReactDatePicker from 'react-datepicker'
 import { FaSearch } from 'react-icons/fa'
+import Popup from 'reactjs-popup'
+import CancelBtn from '../../utils/CancelBtn'
 import {
 	FormDropdownInput,
 	FormTextArea,
 	FormTextInput
 } from '../../utils/formikComponentsEndpoint'
 import SubmitBtn from '../../utils/SubmitBtn'
+import BuscarProveedor from './BuscarProveedor'
 import DatosDelChequeTable from './DatosDelChequeTable'
 
 export default function DatosDelCheque({ value }) {
+	const [open, setOpen] = useState(false)
+	const closeModal = () => setOpen(false)
 	return (
 		<>
 			<h2 className='text-black-white text-xl font-bold p-4 pl-0'>
@@ -44,13 +50,37 @@ export default function DatosDelCheque({ value }) {
 					label='Paguese a la orden de'
 					newLine={true}
 				/>
-				<button
-					type='button'
-					className='btn bg-blue-blue btn-border-blue flex items-center gap-2 col-span-2 mt-6 min-w-min'
+				<Popup
+					trigger={
+						<button
+							type='button'
+							className='btn bg-blue-blue btn-border-blue flex items-center gap-2 col-span-2 mt-6 min-w-min'
+						>
+							Proveedor
+							<FaSearch />
+						</button>
+					}
+					modal
+					nested
+					onClose={closeModal}
 				>
-					Proveedor
-					<FaSearch />
-				</button>
+					{(close) => (
+						<div className='section'>
+							<Formik
+								/*initialValues={initialValues}
+					validationSchema={validationSchema}*/
+								onSubmit={(values) => {
+									alert(JSON.stringify(values, null, 2))
+								}}
+							>
+								<BuscarProveedor />
+
+							</Formik>
+							<CancelBtn onClick={close} />
+						</div>
+					)}
+				</Popup>
+
 				<FormTextInput
 					name='create_cantidad_de'
 					size='sm'
