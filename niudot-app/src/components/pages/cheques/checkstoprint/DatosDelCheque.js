@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDatePicker from 'react-datepicker'
+import { FaSearch } from 'react-icons/fa'
 import {
 	FormDropdownInput,
-    FormTextArea,
+	FormTextArea,
 	FormTextInput
-} from '../utils/formikComponentsEndpoint'
-import SubmitBtn from '../utils/SubmitBtn'
+} from '../../utils/formikComponentsEndpoint'
+import SubmitBtn from '../../utils/SubmitBtn'
 import DatosDelChequeTable from './DatosDelChequeTable'
 
 export default function DatosDelCheque({ value }) {
@@ -25,11 +26,11 @@ export default function DatosDelCheque({ value }) {
 				<FormTextInput
 					name='create_numero_de_cheque'
 					size='md'
-                    placeholder='Número de Cheque'
-                    newLine={true}
+					placeholder='Número de Cheque'
+					newLine={true}
 					label='Número de Cheque'
 				/>
-                <FormDropdownInput size='md' name='create_moneda' label='Moneda'>
+				<FormDropdownInput size='md' name='create_moneda' label='Moneda'>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
@@ -38,27 +39,33 @@ export default function DatosDelCheque({ value }) {
 
 				<FormTextInput
 					name='create_paguese_orden'
-					size='lg'
+					size='md'
 					placeholder='Paguese a la orden de'
 					label='Paguese a la orden de'
 					newLine={true}
 				/>
+				<button
+					type='button'
+					className='btn bg-blue-blue btn-border-blue flex items-center gap-2 col-span-2 mt-6 min-w-min'
+				>
+					Proveedor
+					<FaSearch />
+				</button>
 				<FormTextInput
 					name='create_cantidad_de'
 					size='sm'
 					placeholder='Cantidad'
 					label='La cantidad de'
-                    newLine={true}
-                    type='number'
+					newLine={true}
+					type='number'
 					min='0'
 				/>
 				<FormTextInput
 					name='create_cantidad_en_letras'
 					size='lg'
 					placeholder='CINCO MIL SETECIENTOS TRES CORDOBAS CON 47 CENTAVOS'
-                    label='Cantidad'
-                    newLine={true}
-                    
+					label='Cantidad'
+					newLine={true}
 				/>
 				<FormTextArea
 					name='create_por_concepto_de'
@@ -67,7 +74,7 @@ export default function DatosDelCheque({ value }) {
 					placeholder='Concepto de...'
 					label='Por concepto de:'
 				/>
-			
+
 				<FormDropdownInput
 					size='md'
 					name='create_cuenta_bancaria'
@@ -79,11 +86,8 @@ export default function DatosDelCheque({ value }) {
 					<option value='option_3'>Dólares</option>
 					<option value='option_4'>Colones</option>
 				</FormDropdownInput>
-
-                
-			</div>	
-            <DatosDelChequeTable />
-			
+			</div>
+			<DatosDelChequeTable />
 		</>
 	)
 }

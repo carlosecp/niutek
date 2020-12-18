@@ -1,25 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
-import { object } from 'yup'
-import {
-	FormDropdownInput,
-	FormTextInput
-} from '../utils/formikComponentsEndpoint'
-import Table from '../utils/Table'
+import Table from '../../utils/Table'
 import { Formik, Form } from 'formik'
-import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
-import EditButton from '../utils/EditButton'
-import SearchCheckForm from '../utils/SearchCheckForm'
-
-import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import DatosDelCheque from './DatosDelCheque'
-import SubmitBtn from '../utils/SubmitBtn'
-
-registerLocale('es', es)
-setDefaultLocale('es')
+import { FaPlusCircle, FaRegCheckCircle, FaRegTimesCircle, FaTrashAlt } from 'react-icons/fa'
 
 export default function DatosDelChequeTable() {
 	const columns = React.useMemo(
@@ -47,34 +33,30 @@ export default function DatosDelChequeTable() {
 		() => [
 			{
 				// date must be set in english format, it will be displayed in spanish
-				currency: 'Euro',
-				date: new Date('12/20/2020'),
-				checkNumber: '901332',
-				amount: '3,543.84',
-				payTo: 'Juan Bosco Matus Gutiérrez'
+				account: '381944812',
+				description: 'EQUIPO DE TRANSPORTE',
+				debit: '52,733.84',
+				credit: '42,482.00'
 			},
 
 			{
-				currency: 'Dolar',
-				date: new Date(),
-				checkNumber: '302312',
-				amount: '4323.31',
-				payTo: 'Carlos Eduardo Castillo Pereira'
+				account: '324821342',
+				description: 'BAC CORRIENTE',
+				debit: '212,323.42',
+				credit: '382,482.32'
 			},
 
 			{
-				currency: 'Dolar',
-				date: new Date(),
-				checkNumber: '380212',
-				amount: '3312.32',
-				payTo: 'Carlos Fernando Arcia Castro'
+				account: '849031843',
+				description: 'BANPRO AHORRO',
+				debit: '573,342.54',
+				credit: '633,941.44'
 			},
 			{
-				currency: 'Dolar',
-				date: new Date(),
-				checkNumber: '381312',
-				amount: '100.00',
-				payTo: 'El Gato de Niudot'
+				account: '148520132',
+				description: 'NIUDOT WALLET',
+				debit: '42,323.34',
+				credit: '50,482.32'
 			}
 		],
 
@@ -111,7 +93,6 @@ export default function DatosDelChequeTable() {
 	}, [data])
 	console.log(data)
 
-	
 	return (
 		<>
 			<Formik
@@ -123,7 +104,24 @@ export default function DatosDelChequeTable() {
 			>
 				<Form className='table-section-popup'>
 					<Table columns={columns} data={data} updateMyData={updateMyData} />
-					
+					<div className='mt-4 flex gap-2 pb-4'>
+						<button
+							type='button'
+							className='btn bg-blue-blue btn-border-blue flex items-center gap-2'
+						>
+							<FaPlusCircle />
+							Añadir
+							
+						</button>
+						<button
+							type='button'
+							className='text-white btn bg-gray-cstm-12 flex items-center gap-2 transition hover:bg-gray-cstm-10 focus:outline-none focus:ring focus:ring-gray-cstm-14 dark:bg-gray-cstm-2 dark:hover:bg-gray-cstm-4 dark:focus:ring-gray-cstm-5'
+						>
+							<FaTrashAlt/>
+							Eliminar
+							
+						</button>
+					</div>
 				</Form>
 			</Formik>
 		</>

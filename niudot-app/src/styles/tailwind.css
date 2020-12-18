@@ -107,6 +107,8 @@ html, body {
 
 	/*Dark Theme Defaults*/
 	@apply dark:bg-gray-cstm-2;
+
+
 }
 
 .table-section {

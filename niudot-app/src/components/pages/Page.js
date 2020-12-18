@@ -5,7 +5,7 @@ import Dashboard from './dashboard/Dashboard'
 import PersonaJuridica from './clientes/personajuridica/PersonaJuridica'
 import PersonaNatural from './clientes/personanatural'
 import Products from './products/index'
-import Check from './cheques'
+import ChecksToPrint from './cheques/checkstoprint'
 import AnticipatedCancellation from './caja/anticipatedcancellation/index'
 import SavingAccountOpening from './caja/pendingsavingaccountopening'
 import FixedTermCertificateOpening from './caja/fixedtermcertificateopening'
@@ -35,7 +35,7 @@ function Page(props) {
 					<Route
 						exact
 						path='/app/cheques/cheques-por-imprimir'
-						component={Check}
+						component={ChecksToPrint}
 					/>
 					<Route
 						exact

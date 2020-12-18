@@ -4,24 +4,36 @@ import { object } from 'yup'
 import {
 	FormDropdownInput,
 	FormTextInput
-} from '../utils/formikComponentsEndpoint'
-import Table from '../utils/Table'
+} from '../../utils/formikComponentsEndpoint'
+import Table from '../../utils/Table'
 import { Formik, Form } from 'formik'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
-import EditButton from '../utils/EditButton'
-import SearchCheckForm from '../utils/SearchCheckForm'
+import EditButton from '../../utils/EditButton'
+import SearchCheckForm from '../../utils/SearchCheckForm'
 
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import DatosDelCheque from './DatosDelCheque'
-import SubmitBtn from '../utils/SubmitBtn'
+import SubmitBtn from '../../utils/SubmitBtn'
+import {createValues, createValuesSchema }from './formInitialValues'
+import * as Yup from 'yup'
+
+
 
 registerLocale('es', es)
 setDefaultLocale('es')
 
-export default function CheckCreate() {
+export const initialValues = {
+	...createValues
+}
+const validationSchema = Yup.object({
+	...createValuesSchema
+})
+
+
+export default function CheckTable() {
 	const columns = React.useMemo(
 		() => [
 			{
@@ -73,18 +85,20 @@ export default function CheckCreate() {
 							trigger={<EditButton />}
 							modal
 							nested
-							className='bg-black'
 							onClose={closeModal}
 						>
 							{(close) => (
 								<div className='section'>
 									<Formik
+										initialValues={initialValues}
+										validationSchema={validationSchema}
 										onSubmit={(values) => {
 											alert(JSON.stringify(values, null, 2))
 										}}
 									>
 										<DatosDelCheque />
 									</Formik>
+									<div></div>
 									<SubmitBtn onClick={close} />
 								</div>
 							)}
@@ -165,18 +179,7 @@ export default function CheckCreate() {
 
 	return (
 		<>
-			<Formik
-				/* initialValues={initialValues}
-			validationSchema={validationSchema} */
-				onSubmit={(values) => {
-					alert(JSON.stringify(values, null, 2))
-				}}
-			>
-				<Form className='table-section content-start'>
-					<SearchCheckForm className='mx-0 p-8' />
 					<Table columns={columns} data={data} updateMyData={updateMyData} />
-				</Form>
-			</Formik>
 		</>
 	)
 }
