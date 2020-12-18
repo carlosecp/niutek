@@ -19,7 +19,10 @@ import SubmitBtn from '../../utils/SubmitBtn'
 import { createValues, createValuesSchema } from './formInitialValues'
 import * as Yup from 'yup'
 import { FaPaperPlane, FaPrint, FaTrashAlt, FaUserSlash } from 'react-icons/fa'
-
+import DeliverCheck from './DeliverCheck'
+import DeliverCheckBtn from '../../utils/DeliverCheckBtn'
+registerLocale('es', es)
+setDefaultLocale('es')
 export const initialValues = {
 	...createValues
 }
@@ -98,7 +101,9 @@ export default function ChecksToDeliverTable() {
 										}}
 									></Formik>
 									<div></div>
-									<SubmitBtn onClick={close} />
+
+                                    <DeliverCheck />
+									<DeliverCheckBtn  onClick={close} />
 								</div>
 							)}
 						</Popup>
@@ -307,14 +312,14 @@ export default function ChecksToDeliverTable() {
 					type='button'
 					className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm '
 				>
-					<FaPrint className="min-w-max"/>
+					<FaPrint className='min-w-max' />
 					Listado de Cheques Por Entregar
 				</button>
-                <button
+				<button
 					type='button'
 					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm '
 				>
-					<FaPrint className="min-w-max"/>
+					<FaPrint className='min-w-max' />
 					Reporte de Cheques
 				</button>
 			</div>
