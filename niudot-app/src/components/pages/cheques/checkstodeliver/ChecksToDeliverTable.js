@@ -310,6 +310,13 @@ export default function ChecksToDeliverTable() {
 					<FaPrint className="min-w-max"/>
 					Listado de Cheques Por Entregar
 				</button>
+                <button
+					type='button'
+					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm '
+				>
+					<FaPrint className="min-w-max"/>
+					Reporte de Cheques
+				</button>
 			</div>
 		</>
 	)
