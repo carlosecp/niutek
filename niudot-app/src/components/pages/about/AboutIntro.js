@@ -23,13 +23,20 @@ function AboutIntro() {
 					impulsar su crecimiento, unificando todos sus procesos en una sola
 					aplicación.
 				</aside>
-			</div>
-			<div className='max-w-3xl mx-auto p-8 text-white grid'>
-				<img
-					src={require('../../../assets/images/Analytics-bro.svg')}
-					alt='sistema_responsivo'
-					className='block'
-				/>
+				<div className='mt-4 grid gap-4 grid-cols-3 sm:grid-cols-1'>
+					<img
+						src={require('../../../assets/images/image_1.svg')}
+						alt='sistema_responsivo'
+						className='block col-span-2'
+					/>
+					<div className='flex items-center sm:block'>
+						<p>
+							<b className='underline'>niudot</b> ofrece un sistema responsivo a
+							cualquier tipo de pantalla, permitiendo a los usuarios accesar a
+							la aplicación desde cualquier dispositivo y en cualquier momento.
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	)

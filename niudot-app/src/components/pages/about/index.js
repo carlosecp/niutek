@@ -1,6 +1,8 @@
 import React from 'react'
-import Navbar from '../Navbar'
+import Navbar from '../../routing/Navbar'
 import AboutIntro from './AboutIntro'
+import Clients from './Clients'
+import Credit from './Credit'
 
 function About() {
 	return (
@@ -12,6 +14,8 @@ function About() {
 			/>
 			<div className='pt-24'>
 				<AboutIntro />
+				<Clients />
+				<Credit />
 			</div>
 		</>
 	)
