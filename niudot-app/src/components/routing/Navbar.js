@@ -7,8 +7,8 @@ function Navbar({ prompt, tag, path }) {
 	const { theme, toggleTheme } = useContext(themeContext)
 
 	return (
-		<div className='fixed w-full bg-white dark:bg-gray-cstm-1'>
-			<div className='max-w-screen-xl h-24 px-8 flex items-center justify-between mx-auto'>
+		<div className='fixed w-full bg-white-gray'>
+			<div className='max-w-screen-xl h-24 sm:h-20 px-8 flex items-center justify-between mx-auto'>
 				<h1 className='text-black-white text-2xl font-bold'>niudot</h1>
 				<div className='text-black-white flex items-center'>
 					<span className='sm:hidden'>{prompt}</span>
