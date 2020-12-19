@@ -8,31 +8,32 @@ function Comerciales() {
 			<div className='form-grid-layout'>
 				<FormTextInput
 					name='ref_comerciales_nombre_entidad'
-					size='lg'
+					size='md'
 					placeholder='Nombre de la entidad'
-					label='Nombre de la entidad'
+					label='Nombre de la entidad'	
 				/>
 				<FormTextInput
 					name='ref_comerciales_persona_contacto'
-					size='lg'
+					size='md'
 					placeholder='Persona de contacto'
 					label='Persona de contacto'
 				/>
 				<FormTextInput
 					name='ref_comerciales_direccion'
-					size='xl'
+					size='lg'
 					placeholder='Dirección'
 					label='Dirección'
+					newLine={true}
 				/>
 				<FormTextInput
 					name='ref_comerciales_tiempo_entidad'
-					size='lg'
+					size='md'
 					placeholder='Años con la entidad'
 					label='Años con la entidad'
 				/>
 				<FormTextInput
 					name='ref_comerciales_telefono'
-					size='lg'
+					size='md'
 					placeholder='Teléfono'
 					label='Teléfono'
 				/>

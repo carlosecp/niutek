@@ -11,10 +11,7 @@ function SidebarSubMenu({ page }) {
 			{page.dropdownOptions.map((option) => (
 				<MenuItem key={option.name} className='bg-yellow-500'>
 					{option.name}
-					<Link
-						to={`/${option.path}`}
-						onClick={() => changePage(option.name)}
-					/>
+					<Link to={`/${option.path}`} />
 				</MenuItem>
 			))}
 		</SubMenu>

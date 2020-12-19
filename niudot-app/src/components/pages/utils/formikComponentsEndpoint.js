@@ -17,7 +17,7 @@ function FormTextInput({
 	...props
 }) {
 	return (
-		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
+		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
 			{showLabel && (
 				<label
 					className={`text-black-white ${boldLabel && 'font-bold'}`}
@@ -39,12 +39,16 @@ function FormTextArea({
 	placeholder,
 	type = 'text',
 	newLine = false,
+	boldLabel = false,
 	...props
 }) {
 	return (
-		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
+		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
 			{showLabel && (
-				<label className='text-black-white' htmlFor={name}>
+				<label
+					className={`text-black-white ${boldLabel && 'font-bold'}`}
+					htmlFor={name}
+				>
 					{label}
 				</label>
 			)}
@@ -61,7 +65,7 @@ function FormCheckboxInput({
 	newLine = false
 }) {
 	return (
-		<div className={`form-container-${newLine ? `${size}-nl` : size} flex`}>
+		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
 			<CheckboxInput name={name} label={label} description={description} />
 		</div>
 	)
@@ -79,7 +83,7 @@ function FormDropdownInput({
 	const [field] = useField(props)
 
 	return (
-		<div className={`form-container-${newLine ? `${size}-nl` : size}`}>
+		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
 			<label className='text-black-white'>{label}</label>
 			<div className=''>
 				<select
@@ -95,5 +99,6 @@ function FormDropdownInput({
 		</div>
 	)
 }
+
 
 export { FormTextInput, FormCheckboxInput, FormDropdownInput, FormTextArea }

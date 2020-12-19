@@ -27,10 +27,10 @@ html, body {
 	/*Esta clase se utiliza exclusivamente para el fondo de la pagina.*/
 
 	/*Light Theme Defaults*/
-	@apply bg-white;
+	@apply bg-gray-100;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-gray-cstm-0;
+	@apply dark:bg-gray-cstm-1;
 }
 
 .bg-blue-blue {
@@ -40,20 +40,20 @@ html, body {
 	@apply text-white transition;
 
 	/*Light Theme Defaults*/
-	@apply bg-blue-500 hover:bg-blue-700;
+	@apply bg-blue-700 hover:bg-blue-500;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-700 dark:hover:bg-blue-500;
+	@apply dark:bg-blue-500 dark:hover:bg-blue-700;
 }
 
 .text-blue-blue {
 	/*Esta clase es para el texto que esta en color azul, el cambio es el mismo que la clase para cambiar el fondo azul, pero pues, en text.*/
 
 	/*Light Theme Defaults*/
-	@apply text-blue-500 hover:text-blue-700;
+	@apply text-blue-700 hover:text-blue-500;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-blue-700 dark:hover:text-blue-500;
+	@apply dark:text-blue-500 dark:hover:text-blue-700;
 }
 
 .text-black-white {
@@ -96,10 +96,48 @@ html, body {
 	@apply text-white focus:outline-none focus:ring focus:text-white hover:text-white dark:focus:ring-blue-400;
 }
 
+.section {
+	/*Esta clase es para la seccion mas general de cada formulario, es el fondo blanco que centra todo su contenido, dentro de este contenedor generalmente van los formulario en si, cada uno de ellos, y su contenedor grid respectivo (usando la clase .form-grid-layout).*/
+
+	/*Global*/
+	@apply rounded mx-auto max-w-2xl py-4 px-8 mb-4;
+
+	/*Light Theme Defaults*/
+	@apply bg-white;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-gray-cstm-2;
+
+
+}
+
+.table-section {
+
+	@apply rounded mx-auto max-w-min py-8 px-8 mb-4;
+	/*Light Theme Defaults*/
+	@apply bg-white;
+
+	/*Dark Theme Defaults*/
+
+	@apply dark:bg-gray-cstm-2;
+
+}
+
+.table-section-popup {
+
+	@apply rounded mx-auto max-w-min py-8 mb-4;
+	/*Light Theme Defaults*/
+	@apply bg-white;
+
+	/*Dark Theme Defaults*/
+
+	@apply dark:bg-gray-cstm-2;
+
+}
+
 .form-grid-layout {
 	/*Esta es la clase que aplican para hacer una nueva seccion que contiene un formulario. Esa seccion que contiene las casillas de texto o lo que sea (la que las contiene a todas), ya que aca se definen las propiedades del grid.*/
-
-	@apply mt-2 grid grid-cols-12 gap-2 max-w-2xl;
+	@apply mt-2 grid grid-cols-12 gap-2;
 }
 
 .form-field {
@@ -115,91 +153,39 @@ html, body {
 	@apply focus:bg-gray-100 focus:border-gray-cstm-14;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-1 dark:border-gray-cstm-2 placeholder-gray-cstm-10;
+	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-2 dark:border-gray-cstm-4 placeholder-gray-cstm-10;
 
 	/*Dark Theme Pseudo-Classes*/
-	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-500;
+	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-700;
 }
 
 .form-field-error {
 	@apply border-red-500 !important;
 }
 
-.form-container-xs {
-	@apply col-span-2;
-
-	/*Responsive Settings*/
-	@apply sm:col-span-6;
-}
-
 .form-container-sm {
-	@apply col-span-3; 
+	@apply col-span-3;
 
 	/*Responsive Settings*/
-	@apply sm:col-span-6;
+	@apply sm:col-span-12;
 }
 
 .form-container-md {
-	@apply col-span-4;
+	@apply col-span-6;
 
 	/*Responsive Settings*/
-	@apply sm:col-span-6;
+	@apply sm:col-span-12;
 }
 
 .form-container-lg {
-	@apply col-span-6;
-
-	/*Responsive Settings*/
-	@apply sm:col-span-6;
-}
-
-.form-container-lg-mobile {
-	@apply col-span-6;
+	@apply col-span-12;
 
 	/*Responsive Settings*/
 	@apply sm:col-span-12;
 }
 
-.form-container-xl {
-	@apply col-span-12; 
-
-	/*Responsive Settings*/
-	@apply sm:col-span-12;
-}
-
-.form-container-xs-nl {
-	@apply col-start-1 col-end-3;
-
-	/*Responsive Settings*/
-	@apply sm:col-end-6;
-}
-
-.form-container-sm-nl {
-	@apply col-start-1 col-end-4;
-
-	/*Responsive Settings*/
-	@apply sm:col-end-6;
-}
-
-.form-container-md-nl {
-	@apply col-start-1 col-end-5; 
-
-	/*Responsive Settings*/
-	@apply sm:col-end-7;
-}
-
-.form-container-lg-nl {
-	@apply col-start-1 col-end-7; 
-
-	/*Responsive Settings*/
-	@apply sm:col-end-7;
-}
-
-.form-container-xl-nl {
-	@apply col-start-1 col-end-13; 
-
-	/*Responsive Settings*/
-	@apply sm:col-end-13;
+.force-newline {
+	grid-column-start: 1 !important;
 }
 
 .alerts-container {
@@ -227,10 +213,10 @@ html, body {
 	@apply font-bold text-white;
 
 	/*Light Theme Defaults*/
-	@apply bg-blue-500;
+	@apply bg-blue-700;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-700;
+	@apply dark:bg-blue-500;
 }
 
 .pro-sidebar-header {
@@ -240,10 +226,10 @@ html, body {
 	@apply z-10;
 
 	/*Light Theme Defaults*/
-	@apply bg-blue-500;
+	@apply bg-blue-700;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-700;
+	@apply dark:bg-blue-500;
 }
 
 .pro-sidebar > .pro-sidebar-inner {
@@ -252,10 +238,10 @@ html, body {
 	/*Global*/
 
 	/*Light Theme Defaults*/
-	@apply bg-blue-500;
+	@apply bg-blue-700;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-700;
+	@apply dark:bg-blue-500;
 }
 
 .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
@@ -265,26 +251,30 @@ html, body {
 	@apply bg-blue-600;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-500;
+	@apply dark:bg-blue-700;
 
 }
 
 .pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item > div > ul > li {
+	/*Light Theme Defaults*/
 	@apply bg-blue-600;
+
+	/*Dark Theme Defaults*/
+	@apply dark:bg-blue-700;
 }
 
 .pro-menu-item > .pro-inner-item > .pro-item-content {
 	/*Esta clase maneja todo lo que es texto en cada uno de los elementos de la lista de links en el sidebar. Todos, incluidos los que estan en submenus.*/
 
 	/*Global*/
-	@apply text-base hover:underline break-words;
+	@apply text-base hover:underline;
 }
 
 .table-field {
 	/*Esta clase es para cada una de las input de texto o numericas o similares. Son todos esos rectangulos que en light theme tienen bordes grises claros, todas, incluidas checkboxes y dropdowns.*/
 
 	/*Global*/
-	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid;
+	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid w-full;
 
 	/*Light Theme Defaults*/
 	@apply text-black bg-white border-gray-200;
@@ -293,10 +283,10 @@ html, body {
 	@apply focus:bg-gray-100 focus:border-gray-cstm-14;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-1 dark:border-gray-cstm-12 placeholder-gray-cstm-10;
+	@apply dark:text-gray-cstm-15 dark:bg-gray-cstm-1 dark:border-gray-cstm-12 placeholder-gray-cstm-10;
 
 	/*Dark Theme Pseudo-Classes*/
-	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-500;
+	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-700;
 }
 
 .table thead th {
@@ -306,3 +296,15 @@ html, body {
 
 	@apply dark:border-gray-cstm-12;
 }
+
+.popup-content {
+	@apply bg-transparent border-transparent max-w-min max-h-screen overflow-y-auto min-w-full;
+  }
+
+  [role='tooltip'].popup-content {
+	@apply mx-auto;
+  }
+
+  .modal-body {
+	@apply max-h-screen	overflow-y-auto;
+  }

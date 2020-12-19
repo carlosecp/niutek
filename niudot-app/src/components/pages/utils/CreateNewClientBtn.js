@@ -6,7 +6,7 @@ function CreateNewClientBtn({ setShowForm }) {
 	}
 
 	return (
-		<div className=''>
+		<div className='mx-auto'>
 			<div className=''>
 				<h2>Crear Un Nuevo Cliente</h2>
 				<p className=''>Registra un nuevo cliente.</p>

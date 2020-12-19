@@ -7,7 +7,8 @@ import setAuthToken from '../../utils/setAuthToken'
 
 function AuthState(props) {
 	const initialState = {
-		user: null,
+		//user: null,
+		user: true,
 		token: localStorage.getItem('token'),
 		isAuthenticated: true,
 		loading: true,
@@ -23,8 +24,6 @@ function AuthState(props) {
 		}
 
 		try {
-			// const res = await axios.post('/auth')
-
 			const user = {
 				username: 'CarlosECP01',
 				favoriteLanguage: 'Java',
@@ -52,10 +51,11 @@ function AuthState(props) {
 
 		try {
 			const res = await axios.post(
-				'https://nicascriptproject.uc.r.appspot.com/register',
+				'https://backend-dot-nicascriptproject.uc.r.appspot.com/register',
 				formData,
 				config
 			)
+			loadUser()
 			dispatch({ type: types.REGISTER_SUCCESS, payload: res.data })
 		} catch (err) {
 			dispatch({ type: types.REGISTER_FAIL, payload: err })
@@ -72,9 +72,13 @@ function AuthState(props) {
 		}
 
 		try {
-			const res = await axios.post('/auth', formData, config)
-			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
+			const res = await axios.post(
+				'https://backend-dot-nicascriptproject.uc.r.appspot.com/auth',
+				formData,
+				config
+			)
 			loadUser()
+			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
 		} catch (err) {
 			dispatch({ type: types.LOGIN_FAIL, payload: err })
 			return 0

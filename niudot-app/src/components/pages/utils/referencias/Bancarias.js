@@ -8,28 +8,29 @@ function Bancarias() {
 			<div className='form-grid-layout'>
 				<FormTextInput
 					name='ref_bancarias_nombre_entidad'
-					size='lg'
+					size='md'
 					placeholder='Nombre de la entidad'
 					label='Nombre de la entidad'
 				/>
 
 				<FormTextInput
 					name='ref_bancarias_fecha_relacion'
-					size='lg-nl'
+					size='md'
 					placeholder='Fecha inicio de la relación'
 					label='Fecha inicio de la relación'
+					newLine={true}
 				/>
 
 				<FormTextInput
 					name='ref_bancarias_tipo_servicio'
-					size='lg'
+					size='md'
 					placeholder='Tipo de servicio recibido'
 					label='Tipo de servicio recibido'
 				/>
 
 				<FormTextInput
 					name='ref_bancarias_tiempo_entidad'
-					size='lg'
+					size='md'
 					placeholder='Años con la entidad'
 					label='Años con la entidad'
 					type='number'
@@ -38,7 +39,7 @@ function Bancarias() {
 
 				<FormTextInput
 					name='ref_bancarias_telefono'
-					size='lg'
+					size='md'
 					placeholder='Teléfono'
 					label='Teléfono'
 				/>
@@ -55,7 +56,7 @@ function Bancarias() {
 						<FaChevronDown />
 					</div>
 				</div>
-				 <div className='form-field-lg'>
+				 <div className='form-field-md'>
 					<input
 						type='text'
 						className='std-input rounded'
@@ -79,7 +80,7 @@ function Bancarias() {
 						<FaChevronDown />
 					</div>
 				</div>
-				<div className='form-field-lg'>
+				<div className='form-field-md'>
 					<input
 						type='text'
 						className='std-input rounded'
@@ -102,7 +103,7 @@ function Bancarias() {
 
 				<FormTextInput
 					name='ref_bancarias_nombre_banco'
-					size='lg'
+					size='md'
 					placeholder='Nombre del banco'
 					label='Nombre del banco'
 				/>

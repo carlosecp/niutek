@@ -28,15 +28,17 @@ export const createValues = {
 export const createValuesSchema = {
 	create_nombres: Yup.string()
 		.min(1)
-		.max(50, 'Demasiado texto')
-		.required('Nombres'),
-	create_apellidos: Yup.string().max(50).required('Apellidos'),
+		.max(25, 'Longitud Maxima: 25')
+		.required('Campo Requerido'),
+	create_apellidos: Yup.string()
+		.max(25, 'Longitud Maxima: 25')
+		.required('Campo Requerido'),
 	create_numero_id: Yup.string()
-		.max(5, 'Hola Juan')
-		.required('Número Identificación'),
+		.max(15, 'Longitud Maxima: 15')
+		.required('Campo Requerido'),
 	create_nacionalidad: Yup.string()
-		.max(58, 'Demasiado Texto')
-		.required('Nacionalidad'),
+		.max(25, 'Longitud Maxima: 25')
+		.required('Campo Requerido'),
 	create_fecha_nacimiento: Yup.string().max()
 }
 

@@ -21,18 +21,18 @@ function DatosProfesionalesEconomicos() {
 				<FormTextInput
 					name='datos_descripcion_actividad_empresa'
 					size='lg'
-					placeholder='Descripción actividad de la empresa'
-					label='Descripción actividad de la empresa'
+					placeholder='Actividad de la empresa'
+					label='Actividad de la empresa'
 				/>
 				<FormTextInput
 					name='datos_telefon_-empresa'
-					size='sm-nl'
+					size='md'
 					placeholder='Teléfono Empresa'
 					label='Teléfono Empresa'
 				/>
 				<FormTextInput
 					name='datos_email_empresa'
-					size='sm'
+					size='md'
 					placeholder='Email empresa'
 					label='Email empresa'
 					pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'
