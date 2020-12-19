@@ -77,7 +77,7 @@ function AuthState(props) {
 		}
 
 		try {
-			const res = await axios.post('/auth', formData, config)
+			const res = await axios.post('https://backend-dot-nicascriptproject.uc.r.appspot.com/auth', formData, config)
 			loadUser()
 			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
 		} catch (err) {

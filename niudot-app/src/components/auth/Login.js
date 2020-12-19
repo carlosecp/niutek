@@ -26,7 +26,7 @@ function Login(props) {
 			loadUser()
 		}
 		// eslint-disable-next-line
-	}, [isAuthenticated])
+	}, [isAuthenticated, user])
 
 	async function handleSubmit(values) {
 		if ((await loginUser(values)) === 0) {
