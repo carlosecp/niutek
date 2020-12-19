@@ -7,9 +7,9 @@ import setAuthToken from '../../utils/setAuthToken'
 
 function AuthState(props) {
 	const initialState = {
-		user: null,
+		user: true,
 		token: localStorage.getItem('token'),
-		isAuthenticated: false,
+		isAuthenticated: true,
 		loading: true,
 		error: null
 	}
