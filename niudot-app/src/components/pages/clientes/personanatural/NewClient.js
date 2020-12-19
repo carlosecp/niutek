@@ -28,7 +28,7 @@ function NuevoCliente() {
 					label='Apellidos'
 				/>
 				<FormDropdownInput
-					size='lg'
+					size='md'
 					name='create_tipo_id'
 					label='Tipo Identificación'
 					placeholder='Tipo Identificación'
@@ -39,7 +39,7 @@ function NuevoCliente() {
 				</FormDropdownInput>
 				<FormTextInput
 					name='create_numero_id'
-					size='lg'
+					size='md'
 					placeholder='No. Identificación'
 					label='No. Identificación'
 				/>

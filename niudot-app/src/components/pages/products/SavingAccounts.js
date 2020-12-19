@@ -9,20 +9,20 @@ import RetractileForm from '../utils/RetractileForm'
 export default function SavingAccounts() {
 	return (
 		<>
-			<h2 className='text-black-white text-xl font-bold'>
+			<h2 className='text-black-white text-lg font-bold'>
 				Cuentas de Ahorro
 			</h2>
 
 			<div className='form-grid-layout'>
 				<FormTextInput
 					name='nombre_del_producto_savingaccounts'
-					size='xl'
+					size='lg'
 					placeholder='Nombre del Producto'
 					label='Nombre del Producto'
 				/>
 				<FormTextArea
 					name='descripcion_de_producto_savingaccounts'
-					size='xl'
+					size='lg'
 					newLine={true}
 					placeholder='Descripción del Producto'
 					label='Descripción'
@@ -58,27 +58,27 @@ export default function SavingAccounts() {
 
 				<FormTextInput
 					name='monto_minimo_apertura_savingaccounts'
-					size='lg'
+					size='md'
 					placeholder='Monto Mínimo Apertura'
 					label='Monto Mínimo Apertura'
 				/>
 
 				<FormTextInput
 					name='monto_maximo_retiros_savingaccounts'
-					size='lg'
+					size='md'
 					placeholder='Monto Maximo Retiros'
 					label='Monto Maximo Retiros'
 				/>
 				<FormTextInput
 					name='monto_promedio_mensual_savingaccounts'
-					size='lg'
+					size='md'
 					placeholder='Monto Promedio Mensual'
 					label='Monto Promedio Mensual'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='monto_retiros_mensuales_savingaccounts'
-					size='lg'
+					size='md'
 					placeholder='Monto Retiros Mensuales'
 					label='Monto Retiros Mensuales'
 				/>

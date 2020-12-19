@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTable, usePagination } from 'react-table'
+import { useTable, usePagination, useRowSelect } from 'react-table'
 import '../../../styles/tables.css'
 import { FormDropdownInput } from './formikComponentsEndpoint'
 
@@ -27,7 +27,8 @@ const EditableCell = ({
 	}, [initialValue])
 
 	return (
-		<input
+		<input 
+			readOnly 
 			className={'text-black-white table-field'}
 			value={value}
 			onChange={onChange}
@@ -37,11 +38,11 @@ const EditableCell = ({
 	)
 }
 
-
 // Set our editable cell renderer as the default Cell renderer
 const defaultColumn = {
 	Cell: EditableCell
 }
+
 
 function Table({ columns, data, updateMyData, skipPageReset }) {
 	const {
@@ -49,7 +50,9 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 		getTableBodyProps,
 		headerGroups,
 		prepareRow,
-		page
+		page,
+		selectedFlatRows,
+		state: {selectedRowIds}
 	} = useTable(
 		{
 			columns,
@@ -64,14 +67,15 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 			// cell renderer!
 			updateMyData
 		},
-		usePagination
+		usePagination,
+		useRowSelect,
 	)
 
 	// Render the UI for your table
 	return (
 		<div className='styled-table'>
 			<div className='tableWrap'>
-				<table className='table table-field' {...getTableProps()}>
+				<table className='table table-field'  showPageJump={false} {...getTableProps()}>
 					<thead>
 						{headerGroups.map((headerGroup) => (
 							<tr {...headerGroup.getHeaderGroupProps()}>

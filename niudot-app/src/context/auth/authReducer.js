@@ -10,19 +10,12 @@ function authReducer(state, action) {
 				user: action.payload
 			}
 		case types.LOGIN_SUCCESS:
-			localStorage.setItem('token', action.payload.access_token)
-			return {
-				...state,
-				token: action.payload.access_token,
-				isAuthenticated: true,
-				loading: false
-			}
 		case types.REGISTER_SUCCESS:
 			localStorage.setItem('token', action.payload.access_token)
 			return {
 				...state,
 				token: action.payload.access_token,
-				isAuthenticated: false,
+				isAuthenticated: true,
 				loading: false
 			}
 		case types.LOGOUT:

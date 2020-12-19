@@ -19,7 +19,7 @@ function AnticipatedCancellation() {
 
 	return (
 		<>
-			<div>
+			<div >
 				<Alerts />
 				<SearchUserForm />
 				{showCreateFormButton ? (

@@ -12,26 +12,26 @@ export default function CreditProducts() {
 			<div className='form-grid-layout'>
 				<FormTextInput
 					name='tipo_de_credito'
-					size='lg'
+					size='md'
 					placeholder='Tipo de Crédito'
 					label='Tipo de Crédito'
 				/>
                 <FormTextInput
 					name='fuente_de_fondos'
-					size='lg'
+					size='md'
 					placeholder='Fuente de Fondos'
                     label='Fuente de Fondos'
                     newLine={true}
 				/>
 				<FormTextInput
 					name='nombre_del_producto_creditproducts'
-					size='xl'
+					size='lg'
 					placeholder='Nombre del Producto'
 					label='Nombre del Producto'
 				/>
 				<FormTextArea
 					name='descripcion_de_producto_creditproducts'
-					size='xl'
+					size='lg'
 					newLine={true}
 					placeholder='Descripción del Producto'
 					label='Descripción'
@@ -67,14 +67,14 @@ export default function CreditProducts() {
 
 				<FormTextInput
 					name='monto_minimo_apertura_creditproducts'
-					size='lg'
+					size='md'
 					placeholder='Monto Mínimo Apertura'
 					label='Monto Mínimo Apertura'
 				/>
 
 				<FormTextInput
 					name='frecuencia_de_pago_creditproducts'
-					size='lg'
+					size='md'
 					placeholder='Frecuencia de Pago'
 					label='Frecuencia de Pago'
 				/>
