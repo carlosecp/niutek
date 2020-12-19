@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import {
 	ProSidebar,
@@ -18,9 +17,9 @@ import themeContext from '../../context/theme/themeContext'
 import routesContext from '../../context/routes/routesContext'
 
 function Sidebar({ toggled, setToggled }) {
-	const { loadUser, logout } = useContext(authContext)
-	const { theme, toggleTheme } = useContext(themeContext)
 	const { changePage } = useContext(routesContext)
+	const { theme } = useContext(themeContext)
+	const { logout } = useContext(authContext)
 
 	function handleLogout() {
 		logout()
@@ -48,24 +47,6 @@ function Sidebar({ toggled, setToggled }) {
 				</Menu>
 			</SidebarContent>
 			<SidebarFooter>
-				<div className='px-24 pt-4'>
-					<div
-						className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition justify-self-center'
-						onClick={toggleTheme}
-					>
-						<div
-							className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-500 transform flex justify-center items-center ${
-								theme && 'translate-x-6'
-							}`}
-						>
-							{theme ? (
-								<FaMoon className='text-white fill-current' />
-							) : (
-								<FaSun className='text-blue-700 fill-current' />
-							)}
-						</div>
-					</div>
-				</div>
 				<div className='p-4 flex justify-center'>
 					<button onClick={handleLogout} className='btn bg-gray-cstm-14'>
 						Logout
@@ -76,9 +57,27 @@ function Sidebar({ toggled, setToggled }) {
 	)
 }
 
-Sidebar.propTypes = {
-	toggled: PropTypes.bool.isRequired,
-	setToggled: PropTypes.func.isRequired
+function ThemeSwitch() {
+	const { theme, toggleTheme } = useContext(themeContext)
+
+	return (
+		<div
+			className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition justify-self-center'
+			onClick={toggleTheme}
+		>
+			<div
+				className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-500 transform flex justify-center items-center ${
+					theme && 'translate-x-6'
+				}`}
+			>
+				{theme ? (
+					<FaMoon className='text-white fill-current' />
+				) : (
+					<FaSun className='text-blue-700 fill-current' />
+				)}
+			</div>
+		</div>
+	)
 }
 
 export default Sidebar
