@@ -31,7 +31,7 @@ function Login(props) {
 			<Navbar
 				prompt='¿Aún no tienes una cuenta?'
 				tag='Regístrate'
-				link='/register'
+				path='/register'
 			/>
 			<div className='bg-white dark:bg-gray-cstm-1 m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
 				<div className='flex flex-col items-center justify-center'>

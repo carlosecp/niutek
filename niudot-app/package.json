@@ -31,7 +31,8 @@
 		"build": "export NODE_ENV=production && npm run tailwind && react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"tailwind": "tailwindcss-cli build ./src/styles/tailwind.css -o ./src/styles/main.min.css"
+		"tailwind": "tailwindcss-cli build ./src/styles/tailwind.css -o ./src/styles/main.min.css",
+		"build": "export NODE_ENV=production && npm run tailwind && react-scripts build"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
