@@ -9,13 +9,13 @@ export default function TimeDeposits() {
 			<div className='form-grid-layout'>
 				<FormTextInput
 					name='nombre_del_producto_timedeposits'
-					size='xl'
+					size='lg'
 					placeholder='Nombre del Producto'
 					label='Nombre del Producto'
 				/>
 				<FormTextArea
 					name='descripcion_de_producto_timedeposits'
-					size='xl'
+					size='lg'
 					newLine={true}
 					placeholder='Descripción del Producto'
 					label='Descripción'
@@ -51,27 +51,27 @@ export default function TimeDeposits() {
 
 				<FormTextInput
 					name='monto_minimo_apertura_timedeposits'
-					size='lg'
+					size='md'
 					placeholder='Monto Mínimo Apertura'
 					label='Monto Mínimo Apertura'
 				/>
 
 				<FormTextInput
 					name='monto_maximo_retiros_timedeposits'
-					size='lg'
+					size='md'
 					placeholder='Monto Maximo Retiros'
 					label='Monto Maximo Retiros'
 				/>
 				<FormTextInput
 					name='monto_promedio_mensual_timedeposits'
-					size='lg'
+					size='md'
 					placeholder='Monto Promedio Mensual'
 					label='Monto Promedio Mensual'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='monto_retiros_mensuales_timedeposits'
-					size='lg'
+					size='md'
 					placeholder='Monto Retiros Mensuales'
 					label='Monto Retiros Mensuales'
 				/>
@@ -88,7 +88,7 @@ export default function TimeDeposits() {
 
 				<FormTextInput
 					name='monto_minimo_apertura_timedeposits1'
-					size='lg'
+					size='md'
 					placeholder='Monto Mínimo Apertura'
                     label='Monto Mínimo Apertura'
                     newLine={true}
@@ -96,20 +96,20 @@ export default function TimeDeposits() {
 
 				<FormTextInput
 					name='monto_maximo_retiros_timedeposits1'
-					size='lg'
+					size='md'
 					placeholder='Monto Maximo Retiros'
 					label='Monto Maximo Retiros'
 				/>
 				<FormTextInput
 					name='monto_promedio_mensual_timedeposits1'
-					size='lg'
+					size='md'
 					placeholder='Monto Promedio Mensual'
 					label='Monto Promedio Mensual'
 					newLine={true}
 				/>
 				<FormTextInput
 					name='monto_retiros_mensuales_timedeposits1'
-					size='lg'
+					size='md'
 					placeholder='Monto Retiros Mensuales_timedeposits1'
 					label='Monto Retiros Mensuales'
 				/>

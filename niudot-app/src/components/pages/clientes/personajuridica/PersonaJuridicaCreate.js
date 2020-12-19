@@ -45,7 +45,7 @@ function PersonaJuridicaCreate() {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='form '>
+			<Form className='section'>
 				<h2 className='text-black-white text-xl font-bold'>
 					Crear Un Nuevo Cliente{' '}
 				</h2>

@@ -21,7 +21,7 @@ export default function DepositToSavingsAccountCreate() {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='form'>
+			<Form className='section'>
 				<h2 className='text-black-white text-xl font-bold'>
 					Depósito a Cuenta de Ahorro{' '}
 				</h2>

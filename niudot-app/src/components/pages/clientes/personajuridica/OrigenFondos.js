@@ -11,27 +11,27 @@ function OrigenFondos() {
 			<div className='form-grid-layout'>
 				<FormTextInput
 					name='origen_fondos_negocio_propio_nombre'
-					size='lg'
+					size='md'
 					placeholder='Nombre del Negocio'
 					label='Nombre del Negocio'
 				/>
 				<FormTextInput
 					name='origen_fondos_profesion_independiente_profesion'
-					size='lg'
+					size='md'
 					newLine={true}
 					placeholder='Profesión de ejerce'
 					label='Profesión de ejerce'
 				/>
 				<FormTextInput
 					name='origen_fondos_herencia_procedencia'
-					size='lg'
+					size='md'
 					newLine={true}
 					placeholder='Procedencia'
 					label='Procedencia'
 				/>
 				<FormTextInput
 					name='origen_fondos_herencia_monto'
-					size='lg'
+					size='md'
 					placeholder='Monto'
 					label='Monto'
 					type='number'
@@ -39,7 +39,7 @@ function OrigenFondos() {
 				/>
 				<FormTextInput
 					name='origen_fondos_inversiones_tipo'
-					size='lg'
+					size='md'
 					placeholder='Tipo de Inversiones'
 					label='Tipo de Inversiones'
 					newLine={true}

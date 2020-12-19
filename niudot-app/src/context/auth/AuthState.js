@@ -23,12 +23,6 @@ function AuthState(props) {
 		}
 
 		try {
-			// HABILITAR PARA TESTING DE LOAD USER EN LOCALHOST
-			//const res = await fetch('http://localhost:5000')
-			//const data = await res.json()
-			//const { user } = data
-
-			// HABILITAR PARA TRABAJAR NORMAL
 			const user = {
 				username: 'CarlosECP01',
 				favoriteLanguage: 'Java',
@@ -77,7 +71,15 @@ function AuthState(props) {
 		}
 
 		try {
+<<<<<<< HEAD
 			const res = await axios.post('https://backend-dot-nicascriptproject.uc.r.appspot.com/auth', formData, config)
+=======
+			const res = await axios.post(
+				'https://backend-dot-nicascriptproject.uc.r.appspot.com/auth',
+				formData,
+				config
+			)
+>>>>>>> development
 			loadUser()
 			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
 		} catch (err) {

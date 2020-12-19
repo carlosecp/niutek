@@ -5,7 +5,7 @@ import Dashboard from './dashboard/Dashboard'
 import PersonaJuridica from './clientes/personajuridica/PersonaJuridica'
 import PersonaNatural from './clientes/personanatural'
 import Products from './products/index'
-import Check from './cheques'
+import ChecksToPrint from './cheques/checkstoprint'
 import AnticipatedCancellation from './caja/anticipatedcancellation/index'
 import SavingAccountOpening from './caja/pendingsavingaccountopening'
 import FixedTermCertificateOpening from './caja/fixedtermcertificateopening'
@@ -13,12 +13,13 @@ import LoanPayment from './caja/loanpayment'
 import DepositToSavingsAccount from './caja/deposittosavingsaccount'
 import SavingsAccountWithdrawal from './caja/savingsaccountwithdrawal'
 import { FormNotFound } from '../routing/NotFound'
+import ChecksToDeliver from './cheques/checkstodeliver'
 
 function Page(props) {
 	return (
-		<div className='pl-64 sm:p-0 w-full'>
+		<div className='pl-64 cstm:p-0 w-full'>
 			<Topbar {...props} />
-			<div className='px-4 pt-20 bg-gray-100 relative min-h-full'>
+			<div className='px-4 pt-20 bg-white-gray relative min-h-full'>
 				<Switch>
 					<Route exact path='/app/inicio' component={Dashboard} />
 					<Route
@@ -32,7 +33,16 @@ function Page(props) {
 						component={PersonaJuridica}
 					/>
 					<Route exact path='/app/productos/productos' component={Products} />
-					<Route exact path='/app/cheques/cheques' component={Check} />
+					<Route
+						exact
+						path='/app/cheques/cheques-por-imprimir'
+						component={ChecksToPrint}
+					/>
+					<Route
+						exact
+						path='/app/cheques/cheques-por-entregar'
+						component={ChecksToDeliver}
+					/>
 					<Route
 						exact
 						path='/app/caja/cancelacion-anticipada'
@@ -50,10 +60,9 @@ function Page(props) {
 					/>
 					<Route
 						exact
-						path='/app/caja/apertura-certificado-a-plazo-fijo'
-						component={FixedTermCertificateOpening}
+						path='/app/caja/abono-a-prestamo'
+						component={LoanPayment}
 					/>
-					<Route exact path='/caja/abono-a-prestamo' component={LoanPayment} />
 					<Route
 						exact
 						path='/app/caja/deposito-a-cuenta-de-ahorro'

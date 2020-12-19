@@ -1,13 +1,9 @@
 import React, { useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
 import authContext from '../../context/auth/authContext'
-import themeContext from '../../context/theme/themeContext'
-import { FaMoon, FaSun } from 'react-icons/fa'
-import Alerts from '../pages/alerts/Alerts'
-import alertsContext from '../../context/alerts/alerts/alertsContext'
+import Navbar from './Navbar'
 
 function Login(props) {
 	// Username es realmente el email
@@ -17,8 +13,6 @@ function Login(props) {
 	}
 
 	const { user, loadUser, loginUser, isAuthenticated } = useContext(authContext)
-	const { theme, toggleTheme } = useContext(themeContext)
-	const { addAlert } = useContext(alertsContext)
 
 	useEffect(() => {
 		if (isAuthenticated && user) {
@@ -29,47 +23,17 @@ function Login(props) {
 	}, [isAuthenticated, user])
 
 	async function handleSubmit(values) {
-		if ((await loginUser(values)) === 0) {
-			addAlert('Usuario No Registrado')
-		}
+		loginUser(values)
 	}
 
 	return (
 		<>
-			<div className='fixed w-full bg-white-gray'>
-				<div className='max-w-screen-xl h-24 px-8 flex items-center justify-between mx-auto'>
-					<h1 className='text-black-white text-2xl font-bold'>niudot</h1>
-					<div className='text-black-white flex items-center'>
-						<span className='sm:hidden'>¿Aún no tienes una cuenta? </span>
-						<Link to='/register'>
-							<span className='ml-2 mr-6 font-bold cursor-pointer hover:underline text-blue-blue'>
-								Regístrate
-							</span>
-						</Link>
-
-						<div
-							className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition'
-							onClick={toggleTheme}
-						>
-							<div
-								className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-700 transform flex justify-center items-center ${
-									theme && 'translate-x-6'
-								}`}
-							>
-								{theme ? (
-									<FaMoon className='text-white fill-current' />
-								) : (
-									<FaSun className='text-blue-500 fill-current' />
-								)}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<Alerts />
-
-			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
+			<Navbar
+				prompt='¿Aún no tienes una cuenta?'
+				tag='Regístrate'
+				link='/register'
+			/>
+			<div className='bg-white dark:bg-gray-cstm-1 m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
 				<div className='flex flex-col items-center justify-center'>
 					<h1 className='text-black-white font-bold text-3xl select-none'>
 						Bienvenido
@@ -109,7 +73,7 @@ function Login(props) {
 							<button className='btn w-full bg-blue-blue'>Ingresar</button>
 						</Form>
 					</Formik>
-					<p className='mt-6 font-bold text-blue-500 dark:text-blue-700 cursor-pointer hover:underline'>
+					<p className='mt-6 font-bold text-blue-700 dark:text-blue-500 cursor-pointer hover:underline'>
 						Recuperar Contraseña
 					</p>
 				</div>
