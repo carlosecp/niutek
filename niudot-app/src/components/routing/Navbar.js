@@ -7,7 +7,7 @@ function Navbar({ prompt, tag, path }) {
 	const { theme, toggleTheme } = useContext(themeContext)
 
 	return (
-		<div className='fixed w-full bg-white-gray'>
+		<div className='fixed w-full bg-white dark:bg-gray-cstm-1'>
 			<div className='max-w-screen-xl h-24 px-8 flex items-center justify-between mx-auto'>
 				<h1 className='text-black-white text-2xl font-bold'>niudot</h1>
 				<div className='text-black-white flex items-center'>
@@ -30,7 +30,7 @@ function Navbar({ prompt, tag, path }) {
 							{theme ? (
 								<FaMoon className='text-white fill-current' />
 							) : (
-								<FaSun className='text-blue-500 fill-current' />
+								<FaSun className='text-blue-700 fill-current' />
 							)}
 						</div>
 					</div>

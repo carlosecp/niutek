@@ -7,7 +7,8 @@ import setAuthToken from '../../utils/setAuthToken'
 
 function AuthState(props) {
 	const initialState = {
-		user: null,
+		//user: null,
+		user: true,
 		token: localStorage.getItem('token'),
 		isAuthenticated: true,
 		loading: true,
@@ -23,12 +24,6 @@ function AuthState(props) {
 		}
 
 		try {
-			// HABILITAR PARA TESTING DE LOAD USER EN LOCALHOST
-			//const res = await fetch('http://localhost:5000')
-			//const data = await res.json()
-			//const { user } = data
-
-			// HABILITAR PARA TRABAJAR NORMAL
 			const user = {
 				username: 'CarlosECP01',
 				favoriteLanguage: 'Java',
@@ -77,7 +72,11 @@ function AuthState(props) {
 		}
 
 		try {
-			const res = await axios.post('/auth', formData, config)
+			const res = await axios.post(
+				'https://backend-dot-nicascriptproject.uc.r.appspot.com/auth',
+				formData,
+				config
+			)
 			loadUser()
 			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
 		} catch (err) {

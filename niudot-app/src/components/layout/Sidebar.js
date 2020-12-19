@@ -48,38 +48,27 @@ function Sidebar({ toggled, setToggled }) {
 				</Menu>
 			</SidebarContent>
 			<SidebarFooter>
-
-				<div className="px-24 pt-4">
+				<div className='px-24 pt-4'>
 					<div
 						className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition justify-self-center'
 						onClick={toggleTheme}
 					>
 						<div
-							className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-700 transform flex justify-center items-center ${
+							className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-500 transform flex justify-center items-center ${
 								theme && 'translate-x-6'
 							}`}
 						>
 							{theme ? (
 								<FaMoon className='text-white fill-current' />
 							) : (
-								<FaSun className='text-blue-500 fill-current' />
+								<FaSun className='text-blue-700 fill-current' />
 							)}
 						</div>
 					</div>
 				</div>
-
-				<div className='px-6 py-4'>
-					<button
-						onClick={handleLogout}
-						className='btn bg-gray-cstm-14 inline-flex items-center gap-2 mx-2'
-					>
+				<div className='p-4 flex justify-center'>
+					<button onClick={handleLogout} className='btn bg-gray-cstm-14'>
 						Logout
-					</button>
-					<button
-						onClick={loadUser}
-						className='btn bg-gray-cstm-5 inline-flex items-center gap-2'
-					>
-						Load User
 					</button>
 				</div>
 			</SidebarFooter>
