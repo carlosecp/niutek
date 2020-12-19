@@ -27,11 +27,10 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"build": "export NODE_ENV=production && npm run tailwind && react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"tailwind": "tailwindcss-cli build ./src/styles/tailwind.css -o ./src/styles/main.min.css",
-		"deploy": "export NODE_ENV=production && npm run tailwind && npm run build"
+		"tailwind": "tailwindcss-cli build ./src/styles/tailwind.css -o ./src/styles/main.min.css"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
