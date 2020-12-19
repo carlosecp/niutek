@@ -13,8 +13,8 @@ function Topbar({ toggled, setToggled }) {
 					{currentPage.charAt(0).toUpperCase() +
 						currentPage.slice(1, currentPage.length)}
 				</h2>
-				<div className='burger-btn' onClick={() => setToggled(!toggled)}>
-					<FaBars className='burger-menu w-6 h-6 hidden sm:block dark:text-white dark:fill-current' />
+				<div className='' onClick={() => setToggled(!toggled)}>
+					<FaBars className='w-6 h-6 hidden cstm:block dark:text-white dark:fill-current' />
 				</div>
 			</div>
 			<div

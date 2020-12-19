@@ -15,14 +15,12 @@ function Login(props) {
 	const { user, loadUser, loginUser, isAuthenticated } = useContext(authContext)
 
 	useEffect(() => {
-		// NO BORRAR LO SIGUIENTE, ESTA COMENTADO SOLO PARA TRABAJAR BIEN
-		//if (isAuthenticated && user) {
-		if (isAuthenticated) {
+		if (isAuthenticated && user) {
 			props.history.push('/app/inicio')
 			loadUser()
 		}
 		// eslint-disable-next-line
-	}, [isAuthenticated])
+	}, [isAuthenticated, user])
 
 	async function handleSubmit(values) {
 		loginUser(values)
@@ -35,7 +33,7 @@ function Login(props) {
 				tag='Regístrate'
 				link='/register'
 			/>
-			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
+			<div className='bg-white dark:bg-gray-cstm-1 m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
 				<div className='flex flex-col items-center justify-center'>
 					<h1 className='text-black-white font-bold text-3xl select-none'>
 						Bienvenido
@@ -75,7 +73,7 @@ function Login(props) {
 							<button className='btn w-full bg-blue-blue'>Ingresar</button>
 						</Form>
 					</Formik>
-					<p className='mt-6 font-bold text-blue-500 dark:text-blue-700 cursor-pointer hover:underline'>
+					<p className='mt-6 font-bold text-blue-700 dark:text-blue-500 cursor-pointer hover:underline'>
 						Recuperar Contraseña
 					</p>
 				</div>

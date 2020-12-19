@@ -30,7 +30,7 @@ function Navbar({ prompt, tag, path }) {
 							{theme ? (
 								<FaMoon className='text-white fill-current' />
 							) : (
-								<FaSun className='text-blue-500 fill-current' />
+								<FaSun className='text-blue-700 fill-current' />
 							)}
 						</div>
 					</div>

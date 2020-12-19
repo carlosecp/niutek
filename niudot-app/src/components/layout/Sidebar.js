@@ -48,27 +48,29 @@ function Sidebar({ toggled, setToggled }) {
 				</Menu>
 			</SidebarContent>
 			<SidebarFooter>
-				<div
-					className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition'
-					onClick={toggleTheme}
-				>
+				<div className='px-24 pt-4'>
 					<div
-						className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-700 transform flex justify-center items-center ${
-							theme && 'translate-x-6'
-						}`}
+						className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition justify-self-center'
+						onClick={toggleTheme}
 					>
-						{theme ? (
-							<FaMoon className='text-white fill-current' />
-						) : (
-							<FaSun className='text-blue-500 fill-current' />
-						)}
+						<div
+							className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-500 transform flex justify-center items-center ${
+								theme && 'translate-x-6'
+							}`}
+						>
+							{theme ? (
+								<FaMoon className='text-white fill-current' />
+							) : (
+								<FaSun className='text-blue-700 fill-current' />
+							)}
+						</div>
 					</div>
 				</div>
-
-				<button onClick={handleLogout} style={{ color: 'black' }}>
-					Logout
-				</button>
-				<button onClick={loadUser}>Load User</button>
+				<div className='p-4 flex justify-center'>
+					<button onClick={handleLogout} className='btn bg-gray-cstm-14'>
+						Logout
+					</button>
+				</div>
 			</SidebarFooter>
 		</ProSidebar>
 	)

@@ -38,11 +38,7 @@ function PersonaJuridica() {
 					<PersonaJuridicaCreate />
 				)}
 			</div>
-			<PageMenu
-				activeSection={activeSection}
-				setActiveSection={setActiveSection}
-				sections={sections}
-			/>
+
 		</>
 	)
 }
