@@ -71,15 +71,11 @@ function AuthState(props) {
 		}
 
 		try {
-<<<<<<< HEAD
-			const res = await axios.post('https://backend-dot-nicascriptproject.uc.r.appspot.com/auth', formData, config)
-=======
 			const res = await axios.post(
 				'https://backend-dot-nicascriptproject.uc.r.appspot.com/auth',
 				formData,
 				config
 			)
->>>>>>> development
 			loadUser()
 			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
 		} catch (err) {
