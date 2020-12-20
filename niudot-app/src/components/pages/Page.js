@@ -17,6 +17,7 @@ import ChecksToDeliver from './cheques/checkstodeliver'
 import ChecksToBeReconciled from './cheques/checkstobereconciled'
 import ReconciledChecks from './cheques/reconciledchecks'
 import VoidedChecks from './cheques/voidedchecks'
+import CreditProducts from './credit/creditproducts'
 
 function Page(props) {
 	return (
@@ -90,6 +91,11 @@ function Page(props) {
 						exact
 						path='/app/caja/retiro-a-cuenta-de-ahorro'
 						component={SavingsAccountWithdrawal}
+					/>
+					<Route
+						exact
+						path='/app/credito/productos-de-credito'
+						component={CreditProducts}
 					/>
 					<Route path='*' component={FormNotFound} />
 				</Switch>

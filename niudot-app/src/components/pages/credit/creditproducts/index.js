@@ -1,21 +1,18 @@
 import React, { useState, useContext, useEffect } from 'react'
-
-import PageMenu from '../../utils/PageSectionMenu'
 import SearchUserForm from '../../utils/SearchUserForm'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
-import PersonaNaturalCreate from './PersonaNaturalCreate'
-import { PageContext } from '../../../../context/sections/SectionsContext'
 import Alerts from '../../alerts/Alerts'
 import routesContext from '../../../../context/routes/routesContext'
+import CreditProductsCreate from './CreditProductsCreate'
 
-function PersonaNatural() {
+export default function CreditProducts() {
 	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
 
 	const { changePage } = useContext(routesContext)
 	useEffect(() => {
 
 		// Esto es para el context de los titulos
-		changePage('Persona Natural')
+		changePage('Productos de Crédito')
 
 		// eslint-disable-next-line
 	}, [])
@@ -24,15 +21,12 @@ function PersonaNatural() {
 		<>
 			<div>
 				<Alerts />
-				<SearchUserForm />
 				{showCreateFormButton ? (
 					<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
 				) : (
-					<PersonaNaturalCreate />
+					<CreditProductsCreate />
 				)}
 			</div>
 		</>
 	)
 }
-
-export default PersonaNatural
