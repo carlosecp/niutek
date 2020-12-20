@@ -105,159 +105,6 @@ export default function ChecksToDeliverTable() {
 					)
 				}
 			},
-			{
-				Header: '',
-				accessor: 'print',
-				Cell: (props) => {
-					const row = props.row.index
-
-					const rowData = props.data[row]
-					const [open, setOpen] = useState(false)
-					const closeModal = () => setOpen(false)
-
-					return (
-						<Popup
-							trigger={
-								<div>
-									<button
-										data-tip
-										data-for='printTip'
-										type='button'
-										className='btn bg-blue-blue btn-border-blue flex items-center gap-2 col-span-2 min-w-min'
-									>
-										<FaPrint />
-									</button>
-
-									<ReactTooltip id='printTip' place='top' effect='solid'>
-										Imprimir Cheque
-									</ReactTooltip>
-								</div>
-							}
-							modal
-							nested
-							onClose={closeModal}
-						>
-							{(close) => (
-								<div className='section'>
-									<Formik
-										initialValues={initialValues}
-										validationSchema={validationSchema}
-										onSubmit={(values) => {
-											alert(JSON.stringify(values, null, 2))
-										}}
-									></Formik>
-									<SubmitBtn onClick={close} />
-								</div>
-							)}
-						</Popup>
-					)
-				}
-			},
-			{
-				Header: '',
-				accessor: 'delete',
-				Cell: (props) => {
-					const row = props.row.index
-
-					const rowData = props.data[row]
-					const [open, setOpen] = useState(false)
-					const closeModal = () => setOpen(false)
-
-					return (
-						<Popup
-							trigger={
-								<div>
-									<button
-										data-tip
-										data-for='deleteTip'
-										type='button'
-										className='btn bg-gray-cstm-12 btn-border-gray-cstm-12 hover:bg-gray-cstm-10 flex items-center gap-2 col-span-2 min-w-min'
-									>
-										<FaTrashAlt />
-									</button>
-
-									<ReactTooltip id='deleteTip' place='top' effect='solid'>
-										Eliminar Cheque
-									</ReactTooltip>
-								</div>
-							}
-							modal
-							nested
-							onClose={closeModal}
-						>
-							{(close) => (
-								<div className='section'>
-									<Formik
-										initialValues={initialValues}
-										validationSchema={validationSchema}
-										onSubmit={(values) => {
-											alert(JSON.stringify(values, null, 2))
-										}}
-									></Formik>
-									<div></div>
-
-									<h2 className='text-black-white text-xl font-bold'>
-										¿Estás seguro que quieres eliminar este cheque?{' '}
-									</h2>
-									<DeleteBtn onClick={close} />
-								</div>
-							)}
-						</Popup>
-					)
-				}
-			},
-			{
-				Header: '',
-				accessor: 'void',
-				Cell: (props) => {
-					const row = props.row.index
-
-					const rowData = props.data[row]
-					const [open, setOpen] = useState(false)
-					const closeModal = () => setOpen(false)
-
-					return (
-						<Popup
-							trigger={
-								<div>
-									<button
-										data-tip
-										data-for='voidTip'
-										type='button'
-										className='btn bg-red-400 btn-border-gray-cstm-12 hover:bg-gray-cstm-10 flex items-center gap-2 col-span-2 min-w-min'
-									>
-										<FaUserSlash />
-									</button>
-
-									<ReactTooltip id='voidTip' place='top' effect='solid'>
-										Anular Cheque
-									</ReactTooltip>
-								</div>
-							}
-							modal
-							nested
-							onClose={closeModal}
-						>
-							{(close) => (
-								<div className='section'>
-									<Formik
-										initialValues={initialValues}
-										validationSchema={validationSchema}
-										onSubmit={(values) => {
-											alert(JSON.stringify(values, null, 2))
-										}}
-									></Formik>
-									<div></div>
-									<h2 className='text-black-white text-xl font-bold'>
-										¿Estás seguro que quieres anular este cheque?{' '}
-									</h2>
-									<VoidBtn onClick={close} />
-								</div>
-							)}
-						</Popup>
-					)
-				}
-			}
 		],
 		[]
 	)
@@ -335,18 +182,19 @@ export default function ChecksToDeliverTable() {
 			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
 				<button
 					type='button'
-					className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 sm:flex-wrap'
+					className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3'
 				>
 					<FaPrint className='align-middle sm:mr-2' />
 					<span>Listado de Cheques Por Entregar</span>
 				</button>
 				<button
 					type='button'
-					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden col-auto sm:flex-wrap'
+					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden col-auto '
 				>
 					<FaPrint className='align-middle sm:mr-2' />
 					Reporte de Cheques
 				</button>
+				
 			</div>
 		</>
 	)

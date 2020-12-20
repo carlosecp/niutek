@@ -108,55 +108,7 @@ export default function ChecksToBeReconciledTable() {
 					)
 				}
 			},
-			{
-				Header: '',
-				accessor: 'print',
-				Cell: (props) => {
-					const row = props.row.index
 
-					const rowData = props.data[row]
-					const [open, setOpen] = useState(false)
-					const closeModal = () => setOpen(false)
-
-					return (
-						<Popup
-							trigger={
-								<div>
-									<button
-										data-tip
-										data-for='printTip'
-										type='button'
-										className='btn bg-blue-blue btn-border-blue flex items-center gap-2 col-span-2 min-w-min'
-									>
-										<FaPrint />
-									</button>
-
-									<ReactTooltip id='printTip' place='top' effect='solid'>
-										Imprimir Cheque
-									</ReactTooltip>
-								</div>
-							}
-							modal
-							nested
-							onClose={closeModal}
-						>
-							{(close) => (
-								<div className='section'>
-									<Formik
-										initialValues={initialValues}
-										validationSchema={validationSchema}
-										onSubmit={(values) => {
-											alert(JSON.stringify(values, null, 2))
-										}}
-									></Formik>
-									<div></div>
-									<SubmitBtn onClick={close} />
-								</div>
-							)}
-						</Popup>
-					)
-				}
-			}
 		],
 		[]
 	)
@@ -234,10 +186,10 @@ export default function ChecksToBeReconciledTable() {
 		<>
 			<Table columns={columns} data={data} updateMyData={updateMyData} />
 
-			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
+			<div className='mt-4 gap-2 pb-4 inline-flex flex-wrap '>
 				<button
 					type='button'
-					className='btn  bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 sm:flex-wrap'
+					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-ellipsis align-middle sm:mb-3 '
 				>
 					<FaPrint className='align-middle sm:mr-2' />
 					<span>Listado de Cheques Por Conciliar</span>

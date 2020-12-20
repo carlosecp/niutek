@@ -12,7 +12,6 @@ import Popup from 'reactjs-popup'
 import SubmitBtn from '../../utils/SubmitBtn'
 import ReactTooltip from 'react-tooltip'
 
-
 registerLocale('es', es)
 setDefaultLocale('es')
 
@@ -101,7 +100,6 @@ export default function ReconciledChecksTable() {
 											alert(JSON.stringify(values, null, 2))
 										}}
 									></Formik>
-									<div></div>
 									<SubmitBtn onClick={close} />
 								</div>
 							)}
@@ -188,7 +186,7 @@ export default function ReconciledChecksTable() {
 			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
 				<button
 					type='button'
-					className='btn  bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 sm:flex-wrap'
+					className='btn  bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 '
 				>
 					<FaPrint className='align-middle sm:mr-2' />
 					<span>Listado de Cheques Por Conciliados</span>

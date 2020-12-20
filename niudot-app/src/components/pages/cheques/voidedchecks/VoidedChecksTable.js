@@ -237,14 +237,14 @@ export default function VoidedChecksTable() {
 			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
 				<button
 					type='button'
-					className='btn  bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 sm:flex-wrap'
+					className='btn  bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 '
 				>
 					<FaPrint className='align-middle sm:mr-2' />
 					<span>Listado de Cheques Por Conciliados</span>
 				</button>
 				<button
 					type='button'
-					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden sm:flex-wrap sm:my-3'
+					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden sm:my-3'
 				>
 					<FaPrint className='align-middle sm:mr-2' />
 					Reporte de cheques

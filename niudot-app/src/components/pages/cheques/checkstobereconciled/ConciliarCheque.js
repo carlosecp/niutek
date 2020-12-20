@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FaPrint } from 'react-icons/fa'
 import {
 	FormDropdownInput,
 	FormTextArea,
@@ -66,12 +67,21 @@ export default function ConciliarCheque({ value }) {
 					placeholder='Concepto de...'
 					label='Por concepto de:'
 				/>
-                <FormTextInput
+				<FormTextInput
 					name='create_fecha_de_conciliacion'
 					size='md'
 					placeholder='Fecha de Conciliación'
 					label='Fecha de Conciliación'
 				/>
+			</div>
+			<div className='inline-flex flex-wrap py-4'>
+				<button
+					type='button'
+					className='btn bg-blue-blue btn-border-blue flex items-center gap-2 sm:my-3 mr-2'
+				>
+					<FaPrint className='align-middle sm:mr-2' />
+					Imprimir Cheque
+				</button>
 			</div>
 		</>
 	)
