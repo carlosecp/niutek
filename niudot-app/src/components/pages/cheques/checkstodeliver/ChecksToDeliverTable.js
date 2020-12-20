@@ -102,8 +102,7 @@ export default function ChecksToDeliverTable() {
 											alert(JSON.stringify(values, null, 2))
 										}}
 									></Formik>
-									<div></div>
-
+										
 									<DeliverCheck />
 									<DeliverCheckBtn onClick={close} />
 								</div>

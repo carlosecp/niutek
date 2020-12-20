@@ -8,6 +8,11 @@ import 'reactjs-popup/dist/index.css'
 import { createValues, createValuesSchema } from './formInitialValues'
 import * as Yup from 'yup'
 import { FaHandshake, FaPrint } from 'react-icons/fa'
+import Popup from 'reactjs-popup'
+import { Formik } from 'formik'
+import ConciliarCheque from './ConciliarCheque'
+import ReconcileBtn from '../../utils/ReconcileBtn'
+
 
 registerLocale('es', es)
 setDefaultLocale('es')
@@ -127,17 +132,42 @@ export default function ChecksToBeReconciledTable() {
 	}, [data])
 	console.log(data)
 
+	const [open, setOpen] = useState(false)
+	const closeModal = () => setOpen(false)
 	return (
 		<>
 			<Table columns={columns} data={data} updateMyData={updateMyData} />
+			<Popup
+				trigger={
+					<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
+						<button
+							type='button'
+							className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:my-3 sm:flex-wrap'
+						>
+							<FaHandshake className='align-middle sm:mr-2' />
+							<span>Conciliar Cheque</span>
+						</button>
+					</div>
+				}
+				modal
+				nested
+				onClose={closeModal}
+			>
+				{(close) => (
+					<div className='section'>
+						<Formik
+							initialValues={initialValues}
+							validationSchema={validationSchema}
+							onSubmit={(values) => {
+								alert(JSON.stringify(values, null, 2))
+							}}
+						></Formik>
+                        <ConciliarCheque />
+                        <ReconcileBtn onClick={close} />
+					</div>
+				)}
+			</Popup>
 			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
-				<button
-					type='button'
-					className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:my-3 sm:flex-wrap'
-				>
-					<FaHandshake className='align-middle sm:mr-2' />
-					<span>Conciliar Cheque</span>
-				</button>
 				<button
 					type='button'
 					className='btn  bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 sm:flex-wrap'
