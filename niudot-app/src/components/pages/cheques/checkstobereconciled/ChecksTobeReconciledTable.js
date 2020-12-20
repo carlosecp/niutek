@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 import Table from '../../utils/Table'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
