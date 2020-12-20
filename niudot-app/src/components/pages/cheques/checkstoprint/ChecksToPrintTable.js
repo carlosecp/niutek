@@ -57,7 +57,6 @@ export default function CheckTable() {
 			{
 				Header: () => <div className='w-36'>Moneda</div>,
 				accessor: 'currency',
-				width: 800
 			},
 			{
 				Header: () => <div className='w-36'>Monto</div>,

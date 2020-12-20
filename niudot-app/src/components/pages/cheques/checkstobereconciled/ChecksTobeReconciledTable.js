@@ -13,7 +13,6 @@ import { Formik } from 'formik'
 import ConciliarCheque from './ConciliarCheque'
 import ReconcileBtn from '../../utils/ReconcileBtn'
 
-
 registerLocale('es', es)
 setDefaultLocale('es')
 
@@ -55,11 +54,51 @@ export default function ChecksToBeReconciledTable() {
 			{
 				Header: () => <div className='w-36'>Moneda</div>,
 				accessor: 'currency',
-				width: 800
 			},
 			{
 				Header: () => <div className='w-36'>Monto</div>,
 				accessor: 'amount'
+			},
+			{
+				Header:'',
+				accessor: 'reconcile',
+				Cell: (props) => {
+					const row = props.row.index
+
+					const rowData = props.data[row]
+					const [open, setOpen] = useState(false)
+					const closeModal = () => setOpen(false)
+
+					return (
+						<Popup
+							trigger={
+								<button
+									type='button'
+									className='btn bg-blue-blue btn-border-blue flex items-center gap-2'
+								>
+									<FaHandshake className='align-middle' />
+								</button>
+							}
+							modal
+							nested
+							onClose={closeModal}
+						>
+							{(close) => (
+								<div className='section'>
+									<Formik
+										initialValues={initialValues}
+										validationSchema={validationSchema}
+										onSubmit={(values) => {
+											alert(JSON.stringify(values, null, 2))
+										}}
+									></Formik>
+									<ConciliarCheque />
+									<ReconcileBtn onClick={close} />
+								</div>
+							)}
+						</Popup>
+					)
+				}
 			}
 		],
 		[]
@@ -137,36 +176,7 @@ export default function ChecksToBeReconciledTable() {
 	return (
 		<>
 			<Table columns={columns} data={data} updateMyData={updateMyData} />
-			<Popup
-				trigger={
-					<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
-						<button
-							type='button'
-							className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:my-3 sm:flex-wrap'
-						>
-							<FaHandshake className='align-middle sm:mr-2' />
-							<span>Conciliar Cheque</span>
-						</button>
-					</div>
-				}
-				modal
-				nested
-				onClose={closeModal}
-			>
-				{(close) => (
-					<div className='section'>
-						<Formik
-							initialValues={initialValues}
-							validationSchema={validationSchema}
-							onSubmit={(values) => {
-								alert(JSON.stringify(values, null, 2))
-							}}
-						></Formik>
-                        <ConciliarCheque />
-                        <ReconcileBtn onClick={close} />
-					</div>
-				)}
-			</Popup>
+
 			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
 				<button
 					type='button'

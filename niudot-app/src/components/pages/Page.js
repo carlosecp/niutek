@@ -15,6 +15,8 @@ import SavingsAccountWithdrawal from './caja/savingsaccountwithdrawal'
 import { FormNotFound } from '../routing/NotFound'
 import ChecksToDeliver from './cheques/checkstodeliver'
 import ChecksToBeReconciled from './cheques/checkstobereconciled'
+import ReconciledChecks from './cheques/reconciledchecks'
+import VoidedChecks from './cheques/voidedchecks'
 
 function Page(props) {
 	return (
@@ -48,6 +50,16 @@ function Page(props) {
 						exact
 						path='/app/cheques/cheques-por-conciliar'
 						component={ChecksToBeReconciled}
+					/>
+					<Route
+						exact
+						path='/app/cheques/cheques-conciliados'
+						component={ReconciledChecks}
+					/>
+					<Route
+						exact
+						path='/app/cheques/cheques-anulados'
+						component={VoidedChecks}
 					/>
 					<Route
 						exact

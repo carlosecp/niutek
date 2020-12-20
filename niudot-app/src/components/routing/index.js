@@ -98,6 +98,14 @@ const pages = [
 			{
 				path: 'app/cheques/cheques-por-conciliar',
 				name: 'Cheques por Conciliar'
+			},
+			{
+				path: 'app/cheques/cheques-conciliados',
+				name: 'Cheques Conciliados'
+			},
+			{
+				path: 'app/cheques/cheques-anulados',
+				name: 'Cheques Anulados'
 			}
 		]
 	}
