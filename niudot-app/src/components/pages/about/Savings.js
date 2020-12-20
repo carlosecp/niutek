@@ -2,7 +2,7 @@ import React from 'react'
 
 function Savings() {
 	return (
-		<div className='bg-blue-500 dark:bg-blue-700'>
+		<div className='bg-blue-700 dark:bg-blue-500'>
 			<div className='max-w-3xl mx-auto p-8 text-white'>
 				<h1 className='text-3xl font-bold'>Ahorro</h1>
 				<div className='rounded-full bg-white-gray w-4/12 sm:w-full h-1 mt-4'></div>
