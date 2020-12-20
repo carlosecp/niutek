@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
-import { object } from 'yup'
-import {
-	FormDropdownInput,
-	FormTextInput
-} from '../../utils/formikComponentsEndpoint'
 import Table from '../../utils/Table'
-import { Formik, Form } from 'formik'
+import { Formik } from 'formik'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
-import EditButton from '../../utils/EditButton'
-import SearchCheckForm from '../../utils/SearchCheckForm'
 
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
@@ -23,6 +16,8 @@ import DeliverCheck from './DeliverCheck'
 import DeliverCheckBtn from '../../utils/DeliverCheckBtn'
 import DeleteBtn from '../../utils/DeleteBtn'
 import VoidBtn from '../../utils/VoidBtn'
+import ReactTooltip from 'react-tooltip'
+
 registerLocale('es', es)
 setDefaultLocale('es')
 export const initialValues = {
@@ -102,7 +97,7 @@ export default function ChecksToDeliverTable() {
 											alert(JSON.stringify(values, null, 2))
 										}}
 									></Formik>
-										
+
 									<DeliverCheck />
 									<DeliverCheckBtn onClick={close} />
 								</div>
@@ -124,12 +119,20 @@ export default function ChecksToDeliverTable() {
 					return (
 						<Popup
 							trigger={
-								<button
-									type='button'
-									className='btn bg-blue-blue btn-border-blue flex items-center gap-2 col-span-2 min-w-min'
-								>
-									<FaPrint />
-								</button>
+								<div>
+									<button
+										data-tip
+										data-for='printTip'
+										type='button'
+										className='btn bg-blue-blue btn-border-blue flex items-center gap-2 col-span-2 min-w-min'
+									>
+										<FaPrint />
+									</button>
+
+									<ReactTooltip id='printTip' place='top' effect='solid'>
+										Imprimir Cheque
+									</ReactTooltip>
+								</div>
 							}
 							modal
 							nested
@@ -144,7 +147,6 @@ export default function ChecksToDeliverTable() {
 											alert(JSON.stringify(values, null, 2))
 										}}
 									></Formik>
-									<div></div>
 									<SubmitBtn onClick={close} />
 								</div>
 							)}
@@ -165,12 +167,20 @@ export default function ChecksToDeliverTable() {
 					return (
 						<Popup
 							trigger={
-								<button
-									type='button'
-									className='btn bg-gray-cstm-12 btn-border-gray-cstm-12 hover:bg-gray-cstm-10 flex items-center gap-2 col-span-2 min-w-min'
-								>
-									<FaTrashAlt />
-								</button>
+								<div>
+									<button
+										data-tip
+										data-for='deleteTip'
+										type='button'
+										className='btn bg-gray-cstm-12 btn-border-gray-cstm-12 hover:bg-gray-cstm-10 flex items-center gap-2 col-span-2 min-w-min'
+									>
+										<FaTrashAlt />
+									</button>
+
+									<ReactTooltip id='deleteTip' place='top' effect='solid'>
+										Eliminar Cheque
+									</ReactTooltip>
+								</div>
 							}
 							modal
 							nested
@@ -210,12 +220,20 @@ export default function ChecksToDeliverTable() {
 					return (
 						<Popup
 							trigger={
-								<button
-									type='button'
-									className='btn bg-red-400 btn-border-gray-cstm-12 hover:bg-gray-cstm-10 flex items-center gap-2 col-span-2 min-w-min'
-								>
-									<FaUserSlash />
-								</button>
+								<div>
+									<button
+										data-tip
+										data-for='voidTip'
+										type='button'
+										className='btn bg-red-400 btn-border-gray-cstm-12 hover:bg-gray-cstm-10 flex items-center gap-2 col-span-2 min-w-min'
+									>
+										<FaUserSlash />
+									</button>
+
+									<ReactTooltip id='voidTip' place='top' effect='solid'>
+										Anular Cheque
+									</ReactTooltip>
+								</div>
 							}
 							modal
 							nested

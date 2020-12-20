@@ -12,6 +12,8 @@ import Popup from 'reactjs-popup'
 import { Formik } from 'formik'
 import ConciliarCheque from './ConciliarCheque'
 import ReconcileBtn from '../../utils/ReconcileBtn'
+import ReactTooltip from 'react-tooltip'
+import SubmitBtn from '../../utils/SubmitBtn'
 
 registerLocale('es', es)
 setDefaultLocale('es')
@@ -53,14 +55,14 @@ export default function ChecksToBeReconciledTable() {
 			},
 			{
 				Header: () => <div className='w-36'>Moneda</div>,
-				accessor: 'currency',
+				accessor: 'currency'
 			},
 			{
 				Header: () => <div className='w-36'>Monto</div>,
 				accessor: 'amount'
 			},
 			{
-				Header:'',
+				Header: '',
 				accessor: 'reconcile',
 				Cell: (props) => {
 					const row = props.row.index
@@ -72,12 +74,19 @@ export default function ChecksToBeReconciledTable() {
 					return (
 						<Popup
 							trigger={
-								<button
-									type='button'
-									className='btn bg-blue-blue btn-border-blue flex items-center gap-2'
-								>
-									<FaHandshake className='align-middle' />
-								</button>
+								<div>
+									<button
+										data-tip
+										data-for='reconcileTip'
+										type='button'
+										className='btn bg-blue-blue btn-border-blue flex items-center gap-2'
+									>
+										<FaHandshake className='align-middle' />
+									</button>
+									<ReactTooltip id='reconcileTip' place='top' effect='solid'>
+										Conciliar Cheque
+									</ReactTooltip>
+								</div>
 							}
 							modal
 							nested
@@ -94,6 +103,55 @@ export default function ChecksToBeReconciledTable() {
 									></Formik>
 									<ConciliarCheque />
 									<ReconcileBtn onClick={close} />
+								</div>
+							)}
+						</Popup>
+					)
+				}
+			},
+			{
+				Header: '',
+				accessor: 'print',
+				Cell: (props) => {
+					const row = props.row.index
+
+					const rowData = props.data[row]
+					const [open, setOpen] = useState(false)
+					const closeModal = () => setOpen(false)
+
+					return (
+						<Popup
+							trigger={
+								<div>
+									<button
+										data-tip
+										data-for='printTip'
+										type='button'
+										className='btn bg-blue-blue btn-border-blue flex items-center gap-2 col-span-2 min-w-min'
+									>
+										<FaPrint />
+									</button>
+
+									<ReactTooltip id='printTip' place='top' effect='solid'>
+										Imprimir Cheque
+									</ReactTooltip>
+								</div>
+							}
+							modal
+							nested
+							onClose={closeModal}
+						>
+							{(close) => (
+								<div className='section'>
+									<Formik
+										initialValues={initialValues}
+										validationSchema={validationSchema}
+										onSubmit={(values) => {
+											alert(JSON.stringify(values, null, 2))
+										}}
+									></Formik>
+									<div></div>
+									<SubmitBtn onClick={close} />
 								</div>
 							)}
 						</Popup>
@@ -184,13 +242,6 @@ export default function ChecksToBeReconciledTable() {
 				>
 					<FaPrint className='align-middle sm:mr-2' />
 					<span>Listado de Cheques Por Conciliar</span>
-				</button>
-				<button
-					type='button'
-					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden sm:flex-wrap'
-				>
-					<FaPrint className='align-middle sm:mr-2' />
-					Imprimir Cheque
 				</button>
 				<button
 					type='button'

@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 import Table from '../../utils/Table'
-import { Formik } from 'formik'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
-import EditButton from '../../utils/EditButton'
-import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import DatosDelCheque from './DatosDelCheque'
-import SubmitBtn from '../../utils/SubmitBtn'
 import { createValues, createValuesSchema } from './formInitialValues'
 import * as Yup from 'yup'
-import DeleteBtn from '../../utils/DeleteBtn'
+import { FaPrint, FaUndoAlt } from 'react-icons/fa'
+import Popup from 'reactjs-popup'
 import ReactTooltip from 'react-tooltip'
+import { Formik } from 'formik'
+import SubmitBtn from '../../utils/SubmitBtn'
 
-import { FaPlus, FaPrint, FaTrashAlt, FaUserSlash } from 'react-icons/fa'
-import VoidBtn from '../../utils/VoidBtn'
 
 registerLocale('es', es)
 setDefaultLocale('es')
@@ -28,7 +24,7 @@ const validationSchema = Yup.object({
 	...createValuesSchema
 })
 
-export default function CheckTable() {
+export default function VoidedChecksTable() {
 	const columns = React.useMemo(
 		() => [
 			{
@@ -58,54 +54,12 @@ export default function CheckTable() {
 			},
 			{
 				Header: () => <div className='w-36'>Moneda</div>,
-				accessor: 'currency'
+				accessor: 'currency',
+				width: 800
 			},
 			{
 				Header: () => <div className='w-36'>Monto</div>,
 				accessor: 'amount'
-			},
-			{
-				Header: '',
-				accessor: 'edit',
-				Cell: (props) => {
-					const row = props.row.index
-
-					const rowData = props.data[row]
-					const [open, setOpen] = useState(false)
-					const closeModal = () => setOpen(false)
-
-					return (
-						<Popup
-							trigger={
-								<div>
-									<EditButton data-tip data-for='editTip' />
-
-									<ReactTooltip id='editTip' place='top' effect='solid'>
-										Modificar Cheque
-									</ReactTooltip>
-								</div>
-							}
-							modal
-							nested
-							onClose={closeModal}
-						>
-							{(close) => (
-								<div className='section'>
-									<Formik
-										initialValues={initialValues}
-										validationSchema={validationSchema}
-										onSubmit={(values) => {
-											alert(JSON.stringify(values, null, 2))
-										}}
-									>
-										<DatosDelCheque />
-									</Formik>
-									<SubmitBtn onClick={close} />
-								</div>
-							)}
-						</Popup>
-					)
-				}
 			},
 			{
 				Header: '',
@@ -158,7 +112,7 @@ export default function CheckTable() {
 			},
 			{
 				Header: '',
-				accessor: 'delete',
+				accessor: 'restore',
 				Cell: (props) => {
 					const row = props.row.index
 
@@ -172,15 +126,15 @@ export default function CheckTable() {
 								<div>
 									<button
 										data-tip
-										data-for='deleteTip'
+										data-for='restoreTip'
 										type='button'
-										className='btn bg-gray-cstm-12 btn-border-gray-cstm-12 hover:bg-gray-cstm-10 flex items-center gap-2 col-span-2 min-w-min'
+										className='btn bg-blue-blue btn-border-blue flex items-center gap-2 col-span-2 min-w-min'
 									>
-										<FaTrashAlt />
+										<FaUndoAlt />
 									</button>
 
-									<ReactTooltip id='deleteTip' place='top' effect='solid'>
-										Eliminar Cheque
+									<ReactTooltip id='restoreTip' place='top' effect='solid'>
+										Eliminar Anulación
 									</ReactTooltip>
 								</div>
 							}
@@ -198,69 +152,13 @@ export default function CheckTable() {
 										}}
 									></Formik>
 									<div></div>
-
-									<h2 className='text-black-white text-xl font-bold'>
-										¿Estás seguro que quieres eliminar este cheque?{' '}
-									</h2>
-									<DeleteBtn />
+									<SubmitBtn onClick={close} />
 								</div>
 							)}
 						</Popup>
 					)
 				}
 			},
-			{
-				Header: '',
-				accessor: 'void',
-				Cell: (props) => {
-					const row = props.row.index
-
-					const rowData = props.data[row]
-					const [open, setOpen] = useState(false)
-					const closeModal = () => setOpen(false)
-
-					return (
-						<Popup
-							trigger={
-								<div>
-									<button
-										data-tip
-										data-for='voidTip'
-										type='button'
-										className='btn bg-red-400 btn-border-gray-cstm-12 hover:bg-gray-cstm-10 flex items-center gap-2 col-span-2 min-w-min'
-									>
-										<FaUserSlash />
-									</button>
-
-									<ReactTooltip id='voidTip' place='top' effect='solid'>
-										Anular Cheque
-									</ReactTooltip>
-								</div>
-							}
-							modal
-							nested
-							onClose={closeModal}
-						>
-							{(close) => (
-								<div className='section'>
-									<Formik
-										initialValues={initialValues}
-										validationSchema={validationSchema}
-										onSubmit={(values) => {
-											alert(JSON.stringify(values, null, 2))
-										}}
-									></Formik>
-									<div></div>
-									<h2 className='text-black-white text-xl font-bold'>
-										¿Estás seguro que quieres anular este cheque?{' '}
-									</h2>
-									<VoidBtn onClick={close} />
-								</div>
-							)}
-						</Popup>
-					)
-				}
-			}
 		],
 		[]
 	)
@@ -332,16 +230,18 @@ export default function CheckTable() {
 	}, [data])
 	console.log(data)
 
+	const [open, setOpen] = useState(false)
+	const closeModal = () => setOpen(false)
 	return (
 		<>
 			<Table columns={columns} data={data} updateMyData={updateMyData} />
 			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
 				<button
 					type='button'
-					className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:my-3 sm:flex-wrap'
+					className='btn  bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 sm:flex-wrap'
 				>
-					<FaPlus className='align-middle sm:mr-2' />
-					<span>Nuevo Cheque</span>
+					<FaPrint className='align-middle sm:mr-2' />
+					<span>Listado de Cheques Por Conciliados</span>
 				</button>
 				<button
 					type='button'
