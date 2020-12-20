@@ -298,7 +298,7 @@ html, body {
 }
 
 .popup-content {
-	@apply bg-transparent border-transparent max-w-min max-h-screen overflow-y-auto min-w-full;
+	@apply bg-transparent border-transparent max-w-min max-h-screen overflow-y-auto min-w-full sm:pb-16;
   }
 
   [role='tooltip'].popup-content {
@@ -308,3 +308,5 @@ html, body {
   .modal-body {
 	@apply max-h-screen	overflow-y-auto;
   }
+
+  
