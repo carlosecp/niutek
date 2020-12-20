@@ -1,15 +1,9 @@
-import { Formik } from 'formik'
 import React, { useState } from 'react'
-import ReactDatePicker from 'react-datepicker'
-import { FaSearch } from 'react-icons/fa'
-import Popup from 'reactjs-popup'
-import CancelBtn from '../../utils/CancelBtn'
 import {
 	FormDropdownInput,
 	FormTextArea,
 	FormTextInput
 } from '../../utils/formikComponentsEndpoint'
-import SubmitBtn from '../../utils/SubmitBtn'
 
 export default function DeliverCheck({ value }) {
 	const [open, setOpen] = useState(false)
