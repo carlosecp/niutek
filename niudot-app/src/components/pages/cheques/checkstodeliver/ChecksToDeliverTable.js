@@ -319,16 +319,16 @@ export default function ChecksToDeliverTable() {
 			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
 				<button
 					type='button'
-					className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden'
+					className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 sm:flex-wrap'
 				>
-					<FaPrint className='min-w-max' />
-					Listado de Cheques Por Entregar
+					<FaPrint className='align-middle sm:mr-2' />
+					<span>Listado de Cheques Por Entregar</span>
 				</button>
 				<button
 					type='button'
-					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden col-auto'
+					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden col-auto sm:flex-wrap'
 				>
-					<FaPrint className='min-w-max' />
+					<FaPrint className='align-middle sm:mr-2' />
 					Reporte de Cheques
 				</button>
 			</div>
