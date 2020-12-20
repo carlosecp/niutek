@@ -14,6 +14,7 @@ import DepositToSavingsAccount from './caja/deposittosavingsaccount'
 import SavingsAccountWithdrawal from './caja/savingsaccountwithdrawal'
 import { FormNotFound } from '../routing/NotFound'
 import ChecksToDeliver from './cheques/checkstodeliver'
+import ChecksToBeReconciled from './cheques/checkstobereconciled'
 
 function Page(props) {
 	return (
@@ -42,6 +43,11 @@ function Page(props) {
 						exact
 						path='/app/cheques/cheques-por-entregar'
 						component={ChecksToDeliver}
+					/>
+					<Route
+						exact
+						path='/app/cheques/cheques-por-conciliar'
+						component={ChecksToBeReconciled}
 					/>
 					<Route
 						exact

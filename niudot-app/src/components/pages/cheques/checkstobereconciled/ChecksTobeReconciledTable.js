@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 import Table from '../../utils/Table'
-import { Formik, Form } from 'formik'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
-import EditButton from '../../utils/EditButton'
-import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import DatosDelCheque from './DatosDelCheque'
-import SubmitBtn from '../../utils/SubmitBtn'
-import {createValues, createValuesSchema }from './formInitialValues'
+import { createValues, createValuesSchema } from './formInitialValues'
 import * as Yup from 'yup'
-
-
+import { FaHandshake, FaPrint } from 'react-icons/fa'
 
 registerLocale('es', es)
 setDefaultLocale('es')
@@ -25,8 +19,7 @@ const validationSchema = Yup.object({
 	...createValuesSchema
 })
 
-
-export default function CheckTable() {
+export default function ChecksToBeReconciledTable() {
 	const columns = React.useMemo(
 		() => [
 			{
@@ -62,42 +55,6 @@ export default function CheckTable() {
 			{
 				Header: () => <div className='w-36'>Monto</div>,
 				accessor: 'amount'
-			},
-			{
-				Header: '',
-				accessor: 'edit',
-				Cell: (props) => {
-					const row = props.row.index
-
-					const rowData = props.data[row]
-					const [open, setOpen] = useState(false)
-					const closeModal = () => setOpen(false)
-
-					return (
-						<Popup
-							trigger={<EditButton />}
-							modal
-							nested
-							onClose={closeModal}
-						>
-							{(close) => (
-								<div className='section'>
-									<Formik
-										initialValues={initialValues}
-										validationSchema={validationSchema}
-										onSubmit={(values) => {
-											alert(JSON.stringify(values, null, 2))
-										}}
-									>
-										<DatosDelCheque />
-									</Formik>
-									<div></div>
-									<SubmitBtn onClick={close} />
-								</div>
-							)}
-						</Popup>
-					)
-				}
 			}
 		],
 		[]
@@ -172,7 +129,37 @@ export default function CheckTable() {
 
 	return (
 		<>
-					<Table columns={columns} data={data} updateMyData={updateMyData} />
+			<Table columns={columns} data={data} updateMyData={updateMyData} />
+			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
+				<button
+					type='button'
+					className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:my-3 sm:flex-wrap'
+				>
+					<FaHandshake className='align-middle sm:mr-2' />
+					<span>Conciliar Cheque</span>
+				</button>
+				<button
+					type='button'
+					className='btn  bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:mb-3 sm:flex-wrap'
+				>
+					<FaPrint className='align-middle sm:mr-2' />
+					<span>Listado de Cheques Por Conciliar</span>
+				</button>
+				<button
+					type='button'
+					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden sm:flex-wrap'
+				>
+					<FaPrint className='align-middle sm:mr-2' />
+					Imprimir Cheque
+				</button>
+				<button
+					type='button'
+					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden sm:flex-wrap sm:my-3'
+				>
+					<FaPrint className='align-middle sm:mr-2' />
+					Reporte de cheques
+				</button>
+			</div>
 		</>
 	)
 }

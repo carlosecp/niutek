@@ -94,6 +94,10 @@ const pages = [
 			{
 				path: 'app/cheques/cheques-por-entregar',
 				name: 'Cheques por Entregar'
+			},
+			{
+				path: 'app/cheques/cheques-por-conciliar',
+				name: 'Cheques por Conciliar'
 			}
 		]
 	}

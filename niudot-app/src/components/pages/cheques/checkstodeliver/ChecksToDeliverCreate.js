@@ -3,7 +3,6 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 
 import { createValues, createValuesSchema } from './formInitialValues'
-import ChecksToDeliver from '.'
 import SearchCheckForm from '../../utils/SearchCheckForm'
 import ChecksToDeliverTable from './ChecksToDeliverTable'
 
