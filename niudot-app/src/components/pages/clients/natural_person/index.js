@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from 'react'
 // Other Components
 import SearchUserForm from '../../utils/SearchUserForm'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
-import NaturalPersonCreate from './PersonaNaturalCreate'
+import NaturalPersonCreate from './NaturalPersonCreate'
 import routesContext from '../../../../context/routes/routesContext'
 
 const NaturalPerson = () => {

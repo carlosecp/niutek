@@ -4,7 +4,7 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
-import DepositoACuentaDeAhorro from './DepositoACuentaDeAhorro'
+import DepositToSavingsAccount from './DepositToSavingsAccount'
 // Data
 import { createValues, createValuesSchema } from './initialValues'
 
@@ -28,7 +28,7 @@ const DepositToSavingsAccountCreate = () => {
 				<h2 className='text-black-white text-xl font-bold'>
 					Depósito a Cuenta de Ahorro{' '}
 				</h2>
-				<DepositoACuentaDeAhorro />
+				<DepositToSavingsAccount />
 			</Form>
 		</Formik>
 	)

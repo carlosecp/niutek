@@ -103,7 +103,9 @@ function Dashboard() {
 			</div>
 			<div className='mt-3 grid grid-cols-6 gap-3'>
 				{chartsData.stats &&
-					chartsData.stats.map((stat) => <DashboardStat stat={stat} />)}
+					chartsData.stats.map((stat) => (
+						<DashboardStat key={stat} stat={stat} />
+					))}
 			</div>
 			<div className='my-3 p-4 bg-gray-100 rounded border-2 border-gray-200 dark:bg-gray-cstm-1 dark:border-gray-cstm-3'>
 				<Line data={chartsData.mainChart} options={mainChartOptions} />

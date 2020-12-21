@@ -1,2 +1,4 @@
-export { LegalPerson } from './legal_person'
-export { NaturalPerson } from './natural_person'
+import LegalPerson from './legal_person'
+import NaturalPerson from './natural_person'
+
+export { LegalPerson, NaturalPerson }

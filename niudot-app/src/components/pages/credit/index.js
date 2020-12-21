@@ -1,3 +1,5 @@
-export { CreditProducts } from './products'
-export { CreditRequest } from './request'
-export { CreditResolution } from './resolution'
+import CreditProducts from './products'
+import CreditRequest from './request'
+import CreditResolution from './resolution'
+
+export { CreditResolution, CreditRequest, CreditProducts }

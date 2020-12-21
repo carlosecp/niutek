@@ -1,8 +1,11 @@
+// React and Router Stuff
 import React, { useContext, useEffect } from 'react'
-import PageMenu from '../utils/PageMenu'
+// Context
 import routesContext from '../../../context/routes/routesContext'
+// Other Components
+import ProductsCreate from './ProductsCreate'
 
-function Products() {
+const Products = () => {
 	/* Hook a correr  con la creacion del componente. Para inicializar
 	 * las secciones en el contexto de la pagina*/
 
@@ -12,7 +15,7 @@ function Products() {
 		changePage('Productos')
 	}, [])
 
-	return <PageMenu />
+	return <ProductsCreate />
 }
 
 export default Products

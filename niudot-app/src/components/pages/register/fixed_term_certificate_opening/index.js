@@ -1,17 +1,12 @@
-import React, { useState, useContext, useEffect } from 'react'
-
-import PageMenu from '../../utils/PageSectionMenu'
-import SearchUserForm from '../../utils/SearchUserForm'
-import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
-import { PageContext } from '../../../../context/sections/SectionsContext'
-import Alerts from '../../alerts/Alerts'
+// React and Router Stuff
+import React, { useContext, useEffect } from 'react'
+// Context
 import routesContext from '../../../../context/routes/routesContext'
+// Other Components
+import SearchUserForm from '../../utils/SearchUserForm'
 import FixedTermCertificateOpeningCreate from './FixedTermCertificateOpeningCreate'
 
-function FixedTermCertificateOpening() {
-
-	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
-
+const FixedTermCertificateOpening = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
@@ -20,18 +15,10 @@ function FixedTermCertificateOpening() {
 
 	return (
 		<>
-			<div>
-				<Alerts />
-				<SearchUserForm />
-				{showCreateFormButton ? (
-					<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
-				) : (
-					<FixedTermCertificateOpeningCreate />
-				)}
-			</div>
+			<SearchUserForm />
+			<FixedTermCertificateOpeningCreate />
 		</>
 	)
 }
 
 export default FixedTermCertificateOpening
-

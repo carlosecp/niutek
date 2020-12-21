@@ -4,7 +4,7 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
-import CancelacionAnticipada from './CancelacionAnticipada'
+import AnticipatedCancellation from './AnticipatedCancellation'
 // Data
 import { createValues, createValuesSchema } from './initialValues'
 
@@ -25,7 +25,7 @@ const AnticipatedCancellationCreate = () => {
 			}}
 		>
 			<Form className='section'>
-				<CancelacionAnticipada />
+				<AnticipatedCancellation />
 			</Form>
 		</Formik>
 	)

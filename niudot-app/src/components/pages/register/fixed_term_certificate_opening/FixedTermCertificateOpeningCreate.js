@@ -4,7 +4,7 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
-import AperturaCertificadoPlazo from './AperturaCertificadoPlazo'
+import FixedTermCertificateOpening from './FixedTermCertificateOpening'
 // Data
 import { createValues, createValuesSchema } from './initialValues'
 
@@ -28,7 +28,7 @@ const FixedTermCertificateOpeningCreate = () => {
 				<h2 className='text-black-white text-xl font-bold'>
 					Apertura de Cuenta de Certificado a Plazo Fijo{' '}
 				</h2>
-				<AperturaCertificadoPlazo />
+				<FixedTermCertificateOpening />
 			</Form>
 		</Formik>
 	)

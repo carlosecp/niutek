@@ -1,6 +1,9 @@
+// React and Router Stuff
 import React, { useContext, useEffect } from 'react'
-import SearchUserForm from '../../utils/SearchUserForm'
+// Context
 import routesContext from '../../../../context/routes/routesContext'
+// Other Components
+import SearchUserForm from '../../utils/SearchUserForm'
 import DepositToSavingsAccountCreate from './DepositToSavingsAccountCreate'
 
 const DepositToSavingsAccount = () => {
