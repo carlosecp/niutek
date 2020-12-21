@@ -73,7 +73,7 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 
 	// Render the UI for your table
 	return (
-		<div className='styled-table'>
+		<div className='styled-table '>
 			<div className='tableWrap'>
 				<table className='table table-field'  showPageJump={false} {...getTableProps()}>
 					<thead>

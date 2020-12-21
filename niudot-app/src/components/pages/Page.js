@@ -14,6 +14,10 @@ import DepositToSavingsAccount from './caja/deposittosavingsaccount'
 import SavingsAccountWithdrawal from './caja/savingsaccountwithdrawal'
 import { FormNotFound } from '../routing/NotFound'
 import ChecksToDeliver from './cheques/checkstodeliver'
+import ChecksToBeReconciled from './cheques/checkstobereconciled'
+import ReconciledChecks from './cheques/reconciledchecks'
+import VoidedChecks from './cheques/voidedchecks'
+import CreditProducts from './credit/creditproducts'
 
 function Page(props) {
 	return (
@@ -45,6 +49,21 @@ function Page(props) {
 					/>
 					<Route
 						exact
+						path='/app/cheques/cheques-por-conciliar'
+						component={ChecksToBeReconciled}
+					/>
+					<Route
+						exact
+						path='/app/cheques/cheques-conciliados'
+						component={ReconciledChecks}
+					/>
+					<Route
+						exact
+						path='/app/cheques/cheques-anulados'
+						component={VoidedChecks}
+					/>
+					<Route
+						exact
 						path='/app/caja/cancelacion-anticipada'
 						component={AnticipatedCancellation}
 					/>
@@ -72,6 +91,11 @@ function Page(props) {
 						exact
 						path='/app/caja/retiro-a-cuenta-de-ahorro'
 						component={SavingsAccountWithdrawal}
+					/>
+					<Route
+						exact
+						path='/app/credito/productos-de-credito'
+						component={CreditProducts}
 					/>
 					<Route path='*' component={FormNotFound} />
 				</Switch>

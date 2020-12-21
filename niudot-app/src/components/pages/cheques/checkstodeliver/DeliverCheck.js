@@ -1,15 +1,24 @@
 import { Formik } from 'formik'
 import React, { useState } from 'react'
-import ReactDatePicker from 'react-datepicker'
-import { FaSearch } from 'react-icons/fa'
+import { FaPrint, FaTrashAlt, FaUserSlash } from 'react-icons/fa'
 import Popup from 'reactjs-popup'
-import CancelBtn from '../../utils/CancelBtn'
+import DeleteBtn from '../../utils/DeleteBtn'
 import {
 	FormDropdownInput,
 	FormTextArea,
 	FormTextInput
 } from '../../utils/formikComponentsEndpoint'
-import SubmitBtn from '../../utils/SubmitBtn'
+import VoidBtn from '../../utils/VoidBtn'
+import { createValues, createValuesSchema } from './formInitialValues'
+import * as Yup from 'yup'
+
+
+export const initialValues = {
+	...createValues
+}
+const validationSchema = Yup.object({
+	...createValuesSchema
+})
 
 export default function DeliverCheck({ value }) {
 	const [open, setOpen] = useState(false)
@@ -17,7 +26,7 @@ export default function DeliverCheck({ value }) {
 	return (
 		<>
 			<h2 className='text-black-white text-xl font-bold p-4 pl-0'>
-				Datos del Cheque{' '}
+				Entregar Cheque{' '}
 			</h2>
 
 			<div className='form-grid-layout'>
@@ -93,7 +102,81 @@ export default function DeliverCheck({ value }) {
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
 				/>
+				
 			</div>
+			<div className='inline-flex flex-wrap pt-4 min-w-full pb-4'>
+						<button
+							type='button'
+							className='btn bg-blue-blue btn-border-blue flex items-center gap-2 sm:my-3 mr-2'
+						>
+							<FaPrint className='align-middle sm:mr-2' />
+							Imprimir Cheque
+						</button>
+
+						<Popup
+							trigger={
+								<button
+									type='button'
+									className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:max-w-full overflow-hidden sm:flex-wrap sm:my-3 mr-2'
+								>
+									<FaTrashAlt className='align-middle sm:mr-2' />
+									Eliminar Cheque
+								</button>
+							}
+							modal
+							nested
+							onClose={closeModal}
+						>
+							{(close) => (
+								<div className='section'>
+									<Formik
+										initialValues={initialValues}
+										validationSchema={validationSchema}
+										onSubmit={(values) => {
+											alert(JSON.stringify(values, null, 2))
+										}}
+									></Formik>
+									<div></div>
+
+									<h2 className='text-black-white text-xl font-bold'>
+										¿Estás seguro que quieres eliminar este cheque?{' '}
+									</h2>
+									<DeleteBtn onClick={close} />
+								</div>
+							)}
+						</Popup>
+						<Popup
+							trigger={
+								<button
+									type='button'
+									className='btn bg-red-400 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:max-w-full overflow-hidden sm:flex-wrap sm:my-3'
+								>
+									<FaUserSlash className='align-middle sm:mr-2' />
+									Anular Cheque
+								</button>
+							}
+							modal
+							nested
+							onClose={closeModal}
+						>
+							{(close) => (
+								<div className='section'>
+									<Formik
+										initialValues={initialValues}
+										validationSchema={validationSchema}
+										onSubmit={(values) => {
+											alert(JSON.stringify(values, null, 2))
+										}}
+									></Formik>
+									<div></div>
+									<h2 className='text-black-white text-xl font-bold'>
+										¿Estás seguro que quieres anular este cheque?{' '}
+									</h2>
+									<VoidBtn onClick={close} />
+								</div>
+							)}
+						</Popup>
+					</div>
 		</>
 	)
 }

@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
-import { object } from 'yup'
-import {
-	FormDropdownInput,
-	FormTextInput
-} from '../../utils/formikComponentsEndpoint'
 import Table from '../../utils/Table'
-import { Formik, Form } from 'formik'
+import { Formik } from 'formik'
 import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
 import EditButton from '../../utils/EditButton'
-import SearchCheckForm from '../../utils/SearchCheckForm'
-
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import DatosDelCheque from './DatosDelCheque'
 import SubmitBtn from '../../utils/SubmitBtn'
-import {createValues, createValuesSchema }from './formInitialValues'
+import { createValues, createValuesSchema } from './formInitialValues'
 import * as Yup from 'yup'
+import DeleteBtn from '../../utils/DeleteBtn'
+import ReactTooltip from 'react-tooltip'
 
-
+import { FaPlus, FaPrint, FaTrashAlt, FaUserSlash } from 'react-icons/fa'
+import VoidBtn from '../../utils/VoidBtn'
 
 registerLocale('es', es)
 setDefaultLocale('es')
@@ -31,7 +26,6 @@ export const initialValues = {
 const validationSchema = Yup.object({
 	...createValuesSchema
 })
-
 
 export default function CheckTable() {
 	const columns = React.useMemo(
@@ -63,8 +57,7 @@ export default function CheckTable() {
 			},
 			{
 				Header: () => <div className='w-36'>Moneda</div>,
-				accessor: 'currency',
-				width: 800
+				accessor: 'currency'
 			},
 			{
 				Header: () => <div className='w-36'>Monto</div>,
@@ -82,7 +75,15 @@ export default function CheckTable() {
 
 					return (
 						<Popup
-							trigger={<EditButton />}
+							trigger={
+								<div>
+									<EditButton data-tip data-for='editTip' />
+
+									<ReactTooltip id='editTip' place='top' effect='solid'>
+										Modificar Cheque
+									</ReactTooltip>
+								</div>
+							}
 							modal
 							nested
 							onClose={closeModal}
@@ -98,14 +99,13 @@ export default function CheckTable() {
 									>
 										<DatosDelCheque />
 									</Formik>
-									<div></div>
 									<SubmitBtn onClick={close} />
 								</div>
 							)}
 						</Popup>
 					)
 				}
-			}
+			},
 		],
 		[]
 	)
@@ -179,7 +179,23 @@ export default function CheckTable() {
 
 	return (
 		<>
-					<Table columns={columns} data={data} updateMyData={updateMyData} />
+			<Table columns={columns} data={data} updateMyData={updateMyData} />
+			<div className='mt-4 flex gap-2 pb-4 flex-wrap'>
+				<button
+					type='button'
+					className='btn bg-blue-blue btn-border-blue inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-visible sm:my-3 sm:flex-wrap'
+				>
+					<FaPlus className='align-middle sm:mr-2' />
+					<span>Nuevo Cheque</span>
+				</button>
+				<button
+					type='button'
+					className='btn bg-gray-cstm-14 inline-flex items-center gap-2 sm:break-words sm:text-sm sm:min-w-full overflow-hidden sm:flex-wrap sm:my-3'
+				>
+					<FaPrint className='align-middle sm:mr-2' />
+					Reporte de cheques
+				</button>
+			</div>
 		</>
 	)
 }

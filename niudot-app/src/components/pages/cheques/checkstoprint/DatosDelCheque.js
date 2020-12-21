@@ -1,6 +1,5 @@
 import { Formik } from 'formik'
 import React, { useState } from 'react'
-import ReactDatePicker from 'react-datepicker'
 import { FaSearch } from 'react-icons/fa'
 import Popup from 'reactjs-popup'
 import CancelBtn from '../../utils/CancelBtn'
@@ -9,7 +8,6 @@ import {
 	FormTextArea,
 	FormTextInput
 } from '../../utils/formikComponentsEndpoint'
-import SubmitBtn from '../../utils/SubmitBtn'
 import BuscarProveedor from './BuscarProveedor'
 import DatosDelChequeTable from './DatosDelChequeTable'
 

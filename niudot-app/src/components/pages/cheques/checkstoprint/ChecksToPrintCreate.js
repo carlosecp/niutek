@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import * as Yup from 'yup'
-
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 import { Formik, Form } from 'formik'
 import 'react-datepicker/dist/react-datepicker.css'
 import es from 'date-fns/locale/es'
