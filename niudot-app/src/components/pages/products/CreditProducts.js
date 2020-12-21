@@ -1,4 +1,6 @@
+// React and Router Stuff
 import React from 'react'
+// Other Components
 import {
 	FormTextInput,
 	FormTextArea,
@@ -6,7 +8,7 @@ import {
 } from '../utils/formikComponentsEndpoint'
 import RetractileForm from '../utils/RetractileForm'
 
-export default function CreditProducts() {
+const CreditProducts = () => {
 	return (
 		<RetractileForm id='CreditProducts' formTitle='Productos de Crédito'>
 			<div className='form-grid-layout'>
@@ -16,12 +18,12 @@ export default function CreditProducts() {
 					placeholder='Tipo de Crédito'
 					label='Tipo de Crédito'
 				/>
-                <FormTextInput
+				<FormTextInput
 					name='fuente_de_fondos'
 					size='md'
 					placeholder='Fuente de Fondos'
-                    label='Fuente de Fondos'
-                    newLine={true}
+					label='Fuente de Fondos'
+					newLine={true}
 				/>
 				<FormTextInput
 					name='nombre_del_producto_creditproducts'
@@ -78,14 +80,15 @@ export default function CreditProducts() {
 					placeholder='Frecuencia de Pago'
 					label='Frecuencia de Pago'
 				/>
-                <FormTextInput
+				<FormTextInput
 					name='monto_maximo_retiros_creditproducts'
 					size='md'
 					placeholder='Monto Maximo Retiros'
 					label='Monto Maximo Retiros'
 				/>
-				
 			</div>
 		</RetractileForm>
 	)
 }
+
+export default CreditProducts

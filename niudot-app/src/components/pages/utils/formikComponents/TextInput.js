@@ -1,6 +1,5 @@
-import React, { useEffect, useContext } from 'react'
+import React from 'react'
 import { useField } from 'formik'
-import alertsContext from '../../../../context/alerts/alerts/alertsContext'
 
 function TextInput({ type, placeholder, ...props }) {
 	const [field, meta] = useField(props)

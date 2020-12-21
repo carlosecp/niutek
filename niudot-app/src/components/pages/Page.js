@@ -18,6 +18,8 @@ import ChecksToBeReconciled from './cheques/checkstobereconciled'
 import ReconciledChecks from './cheques/reconciledchecks'
 import VoidedChecks from './cheques/voidedchecks'
 import CreditProducts from './credit/creditproducts'
+import 'reactjs-popup/dist/index.css'
+import 'react-datepicker/dist/react-datepicker.css'
 
 function Page(props) {
 	return (

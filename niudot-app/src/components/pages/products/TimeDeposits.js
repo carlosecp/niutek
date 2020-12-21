@@ -1,9 +1,14 @@
+// React and Router Stuff
 import React from 'react'
-import { FormTextInput, FormTextArea, FormDropdownInput } from '../utils/formikComponentsEndpoint'
+// Other Components
+import {
+	FormTextInput,
+	FormTextArea,
+	FormDropdownInput
+} from '../utils/formikComponentsEndpoint'
 import RetractileForm from '../utils/RetractileForm'
 
-
-export default function TimeDeposits() {
+const TimeDeposits = () => {
 	return (
 		<RetractileForm id='TimeDeposits' formTitle='Depósitos a Plazo Fijo'>
 			<div className='form-grid-layout'>
@@ -75,7 +80,7 @@ export default function TimeDeposits() {
 					placeholder='Monto Retiros Mensuales'
 					label='Monto Retiros Mensuales'
 				/>
-                <FormTextInput
+				<FormTextInput
 					name='tasa_de_interes_timedeposits1'
 					size='sm'
 					placeholder='Tasa de Interés'
@@ -90,8 +95,8 @@ export default function TimeDeposits() {
 					name='monto_minimo_apertura_timedeposits1'
 					size='md'
 					placeholder='Monto Mínimo Apertura'
-                    label='Monto Mínimo Apertura'
-                    newLine={true}
+					label='Monto Mínimo Apertura'
+					newLine={true}
 				/>
 
 				<FormTextInput
@@ -117,3 +122,5 @@ export default function TimeDeposits() {
 		</RetractileForm>
 	)
 }
+
+export default TimeDeposits

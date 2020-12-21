@@ -1,12 +1,8 @@
 import React, { useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
 import authContext from '../../context/auth/authContext'
-import themeContext from '../../context/theme/themeContext'
-import { FaMoon, FaSun } from 'react-icons/fa'
-import Alerts from '../pages/alerts/Alerts'
 import Navbar from './Navbar'
 
 function Register(props) {
@@ -20,7 +16,6 @@ function Register(props) {
 	const { user, loadUser, registerUser, isAuthenticated } = useContext(
 		authContext
 	)
-	const { theme, toggleTheme } = useContext(themeContext)
 
 	useEffect(() => {
 		if (isAuthenticated && user) {
@@ -37,7 +32,6 @@ function Register(props) {
 	return (
 		<>
 			<Navbar prompt='¿Ya tienes una cuenta?' tag='Inicia Sesión' path='/' />
-			<Alerts />
 
 			<div className='bg-white dark:bg-gray-cstm-1 m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
 				<div className='flex flex-col items-center justify-center'>

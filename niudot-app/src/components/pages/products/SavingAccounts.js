@@ -1,4 +1,6 @@
+// React and Router Stuff
 import React from 'react'
+// Other Components
 import {
 	FormTextInput,
 	FormTextArea,
@@ -6,12 +8,10 @@ import {
 } from '../utils/formikComponentsEndpoint'
 import RetractileForm from '../utils/RetractileForm'
 
-export default function SavingAccounts() {
+const SavingAccounts = () => {
 	return (
 		<>
-			<h2 className='text-black-white text-lg font-bold'>
-				Cuentas de Ahorro
-			</h2>
+			<h2 className='text-black-white text-lg font-bold'>Cuentas de Ahorro</h2>
 
 			<div className='form-grid-layout'>
 				<FormTextInput
@@ -86,3 +86,5 @@ export default function SavingAccounts() {
 		</>
 	)
 }
+
+export default SavingAccounts
