@@ -12,7 +12,7 @@ const SavingAccountCancellation = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
-		changePage('Persona Juridica')
+		changePage('Cancelación de Cuenta de Ahorro')
 	}, [])
 
 	return (
