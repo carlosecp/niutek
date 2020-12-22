@@ -22,6 +22,7 @@ import {
 	SavingsAccountWithdrawal,
 	DepositToSavingsAccount
 } from './register'
+import { Items } from './inventory'
 
 function Page(props) {
 	return (
@@ -97,6 +98,8 @@ function Page(props) {
 					/>
 					<Route exact path='/app/checks/reconciled' component={Reconciled} />
 					<Route exact path='/app/checks/voided}' component={Voided} />
+					{/* INVENTORY */}
+					<Route exact path='/app/inventory/items' component={Items} />
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
 				</Switch>
