@@ -18,10 +18,15 @@ import {
 	AnticipatedCancellation,
 	FixedTermCertificateOpening,
 	LoanPayment,
-	SavingsAccountOpening,
 	SavingsAccountWithdrawal,
 	DepositToSavingsAccount
 } from './register'
+import OrderStubs from './saving/order_stubs'
+import SavingAccountCancellation from './saving/account_cancellation'
+import FixedTermDepositOpening from './saving/fixed_term'
+import EarlyCancellation from './saving/early_cancellation'
+import PendingSavingAccountOpening from './register/pending_saving_account_opening'
+import SavingsAccountOpening from './saving/account_opening'
 
 function Page(props) {
 	return (
@@ -32,44 +37,36 @@ function Page(props) {
 					<Route exact path='/app/dashboard' component={Dashboard} />
 					{/* CAJA */}
 					<Route
-						exact
-						path='/app/register/anticipated-cancellation'
+						exact path='/app/register/anticipated-cancellation'
 						component={AnticipatedCancellation}
 					/>
 					<Route
-						exact
-						path='/app/register/saving-account'
-						component={SavingsAccountOpening}
+						exact path='/app/register/saving-account'
+						component={PendingSavingAccountOpening}
 					/>
 					<Route
-						exact
-						path='/app/register/fixed-term-certificate'
+						exact path='/app/register/fixed-term-certificate'
 						component={FixedTermCertificateOpening}
 					/>
 					<Route
-						exact
-						path='/app/register/loan-payment'
+						exact path='/app/register/loan-payment'
 						component={LoanPayment}
 					/>
 					<Route
-						exact
-						path='/app/register/withdrawal'
+						exact path='/app/register/withdrawal'
 						component={SavingsAccountWithdrawal}
 					/>
 					<Route
-						exact
-						path='/app/register/deposit'
+						exact path='/app/register/deposit'
 						component={DepositToSavingsAccount}
 					/>
 					{/* CLIENTES */}
 					<Route
-						exact
-						path='/app/clients/natural-person'
+						exact path='/app/clients/natural-person'
 						component={NaturalPerson}
 					/>
 					<Route
-						exact
-						path='/app/clients/legal-person'
+						exact path='/app/clients/legal-person'
 						component={LegalPerson}
 					/>
 					{/* PRODUCTS */}
@@ -77,8 +74,7 @@ function Page(props) {
 					{/* CREDITO */}
 					<Route exact path='/app/credit/products' component={CreditProducts} />
 					<Route
-						exact
-						path='/app/credit/resolution'
+						exact path='/app/credit/resolution'
 						component={CreditResolution}
 					/>
 					<Route exact path='/app/credit/request' component={CreditRequest} />
@@ -86,17 +82,24 @@ function Page(props) {
 					<Route exact path='/app/checks/print' component={ToPrint} />
 					<Route exact path='/app/checks/deliver' component={ToDeliver} />
 					<Route
-						exact
-						path='/app/checks/not-reconciled'
+						exact path='/app/checks/not-reconciled'
 						component={ToBeRecondiled}
 					/>
 					<Route
-						exact
-						path='/app/checks/not-reconciled'
+						exact path='/app/checks/not-reconciled'
 						component={ToBeRecondiled}
 					/>
 					<Route exact path='/app/checks/reconciled' component={Reconciled} />
-					<Route exact path='/app/checks/voided}' component={Voided} />
+					<Route exact path='/app/checks/voided' component={Voided} />
+					
+
+					{/* Ahorros */}
+					<Route exact path='/app/ahorros/savings-account-opening' component={SavingsAccountOpening} />
+					<Route exact path='/app/ahorros/assignment-of-payment-order-stubs' component={OrderStubs} />
+					<Route exact path='/app/ahorros/saving-account-cancellation' component={SavingAccountCancellation} />
+					<Route exact path='/app/ahorros/fixed-term-deposit-opening' component={FixedTermDepositOpening} />
+					<Route exact path='/app/ahorros/early-cancellation-fixed-term-deposit' component={EarlyCancellation} />
+
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
 				</Switch>

@@ -15,7 +15,7 @@ const validationSchema = Yup.object({
 	...createValuesSchema
 })
 
-const SavingAccountOpeningCreate = () => {
+const PendingSavingAccountOpeningCreate = () => {
 	return (
 		<Formik
 			initialValues={initialValues}
@@ -34,4 +34,4 @@ const SavingAccountOpeningCreate = () => {
 	)
 }
 
-export default SavingAccountOpeningCreate
+export default PendingSavingAccountOpeningCreate
