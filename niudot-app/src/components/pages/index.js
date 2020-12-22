@@ -9,7 +9,8 @@ import {
 	FaReceipt,
 	FaChevronCircleDown,
 	FaCreditCard,
-	FaMoneyCheck
+	FaMoneyCheck,
+	FaCubes
 } from 'react-icons/fa/index'
 
 const pages = [
@@ -130,6 +131,44 @@ const pages = [
 			{
 				path: 'app/checks/voided',
 				name: 'Anulados'
+			}
+		]
+	},
+	{
+		name: 'Inventario',
+		icon: <FaCubes />,
+		dropdownOptions: [
+			{
+				path: 'app/inventory/items',
+				name: 'Artículos'
+			},
+			{
+				path: 'app/inventory/purchase',
+				name: 'Compras'
+			},
+			{
+				path: 'app/inventory/products',
+				name: 'Productos'
+			},
+			{
+				path: 'app/inventory/requisitions',
+				name: 'Requisas'
+			},
+			{
+				path: 'app/inventory/physical-take',
+				name: 'Toma Física'
+			},
+			{
+				path: 'app/inventory/billing',
+				name: 'Facturación'
+			},
+			{
+				path: 'app/inventory/invoice-cancel',
+				name: 'Anula Factura'
+			},
+			{
+				path: 'app/inventory/reports',
+				name: 'Reportes'
 			}
 		]
 	}

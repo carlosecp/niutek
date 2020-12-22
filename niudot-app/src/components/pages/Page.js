@@ -21,14 +21,10 @@ import {
 	SavingsAccountWithdrawal,
 	DepositToSavingsAccount
 } from './register'
-import OrderStubs from './saving/order_stubs'
-import SavingAccountCancellation from './saving/account_cancellation'
-import FixedTermDepositOpening from './saving/fixed_term'
-import EarlyCancellation from './saving/early_cancellation'
-import PendingSavingAccountOpening from './register/pending_saving_account_opening'
-import SavingsAccountOpening from './saving/account_opening'
+import { Items } from './inventory'
+import {OrderStubs, SavingAccountCancellation, FixedTermDepositOpening, EarlyCancellation, PendingSavingAccountOpening, SavingsAccountOpening} from './savings'
 
-function Page(props) {
+const Page = (props) => {
 	return (
 		<div className='pl-64 cstm:p-0 w-full'>
 			<Topbar {...props} />
@@ -90,6 +86,11 @@ function Page(props) {
 						component={ToBeRecondiled}
 					/>
 					<Route exact path='/app/checks/reconciled' component={Reconciled} />
+<<<<<<< HEAD
+					<Route exact path='/app/checks/voided}' component={Voided} />
+					{/* INVENTORY */}
+					<Route exact path='/app/inventory/items' component={Items} />
+=======
 					<Route exact path='/app/checks/voided' component={Voided} />
 					
 
@@ -100,6 +101,7 @@ function Page(props) {
 					<Route exact path='/app/ahorros/fixed-term-deposit-opening' component={FixedTermDepositOpening} />
 					<Route exact path='/app/ahorros/early-cancellation-fixed-term-deposit' component={EarlyCancellation} />
 
+>>>>>>> 447b0a21a2143238a9a66299aa4cf4a78e76652c
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
 				</Switch>

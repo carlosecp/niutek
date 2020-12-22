@@ -17,16 +17,16 @@ const SearchForm = () => {
 
 	return (
 		<div className='section'>
-			<h2 className='text-black-white font-bold text-xl'>
-				Buscar Cliente Existente
-			</h2>
-			<p className='text-gray-gray'>Buscar entre los clientes registrados.</p>
+			<h2 className='text-black-white font-bold text-xl'>Buscar En Catalogo</h2>
+			<p className='text-gray-gray'>
+				Buscar segun el nombre del producto o nombre abreviado.
+			</p>
 			<form className='mt-2' onSubmit={handleUserNameSubmit}>
 				<div className='flex items-center gap-2'>
 					<input
 						type='text'
 						className='form-field w-72'
-						placeholder='Nombre del Cliente'
+						placeholder='Nombre del Producto'
 						onChange={handleUserNameInput}
 						value={userName}
 					/>
