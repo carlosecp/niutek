@@ -22,7 +22,13 @@ import {
 	DepositToSavingsAccount
 } from './register'
 import { Items } from './inventory'
-import {OrderStubs, SavingAccountCancellation, FixedTermDepositOpening, EarlyCancellation, PendingSavingAccountOpening, SavingsAccountOpening} from './savings'
+import {
+	OrderStubs,
+	AccountCancellation,
+	FixedTermDepositOpening,
+	EarlyCancellation,
+	AccountOpening
+} from './savings'
 
 const Page = (props) => {
 	return (
@@ -33,36 +39,44 @@ const Page = (props) => {
 					<Route exact path='/app/dashboard' component={Dashboard} />
 					{/* CAJA */}
 					<Route
-						exact path='/app/register/anticipated-cancellation'
+						exact
+						path='/app/register/anticipated-cancellation'
 						component={AnticipatedCancellation}
 					/>
 					<Route
-						exact path='/app/register/saving-account'
-						component={PendingSavingAccountOpening}
+						exact
+						path='/app/register/saving-account'
+						component={AccountOpening}
 					/>
 					<Route
-						exact path='/app/register/fixed-term-certificate'
+						exact
+						path='/app/register/fixed-term-certificate'
 						component={FixedTermCertificateOpening}
 					/>
 					<Route
-						exact path='/app/register/loan-payment'
+						exact
+						path='/app/register/loan-payment'
 						component={LoanPayment}
 					/>
 					<Route
-						exact path='/app/register/withdrawal'
+						exact
+						path='/app/register/withdrawal'
 						component={SavingsAccountWithdrawal}
 					/>
 					<Route
-						exact path='/app/register/deposit'
+						exact
+						path='/app/register/deposit'
 						component={DepositToSavingsAccount}
 					/>
 					{/* CLIENTES */}
 					<Route
-						exact path='/app/clients/natural-person'
+						exact
+						path='/app/clients/natural-person'
 						component={NaturalPerson}
 					/>
 					<Route
-						exact path='/app/clients/legal-person'
+						exact
+						path='/app/clients/legal-person'
 						component={LegalPerson}
 					/>
 					{/* PRODUCTS */}
@@ -70,7 +84,8 @@ const Page = (props) => {
 					{/* CREDITO */}
 					<Route exact path='/app/credit/products' component={CreditProducts} />
 					<Route
-						exact path='/app/credit/resolution'
+						exact
+						path='/app/credit/resolution'
 						component={CreditResolution}
 					/>
 					<Route exact path='/app/credit/request' component={CreditRequest} />
@@ -78,30 +93,46 @@ const Page = (props) => {
 					<Route exact path='/app/checks/print' component={ToPrint} />
 					<Route exact path='/app/checks/deliver' component={ToDeliver} />
 					<Route
-						exact path='/app/checks/not-reconciled'
+						exact
+						path='/app/checks/not-reconciled'
 						component={ToBeRecondiled}
 					/>
 					<Route
-						exact path='/app/checks/not-reconciled'
+						exact
+						path='/app/checks/not-reconciled'
 						component={ToBeRecondiled}
 					/>
 					<Route exact path='/app/checks/reconciled' component={Reconciled} />
-<<<<<<< HEAD
 					<Route exact path='/app/checks/voided}' component={Voided} />
 					{/* INVENTORY */}
 					<Route exact path='/app/inventory/items' component={Items} />
-=======
 					<Route exact path='/app/checks/voided' component={Voided} />
-					
-
 					{/* Ahorros */}
-					<Route exact path='/app/ahorros/savings-account-opening' component={SavingsAccountOpening} />
-					<Route exact path='/app/ahorros/assignment-of-payment-order-stubs' component={OrderStubs} />
-					<Route exact path='/app/ahorros/saving-account-cancellation' component={SavingAccountCancellation} />
-					<Route exact path='/app/ahorros/fixed-term-deposit-opening' component={FixedTermDepositOpening} />
-					<Route exact path='/app/ahorros/early-cancellation-fixed-term-deposit' component={EarlyCancellation} />
-
->>>>>>> 447b0a21a2143238a9a66299aa4cf4a78e76652c
+					<Route
+						exact
+						path='/app/ahorros/savings-account-opening'
+						component={AccountOpening}
+					/>
+					<Route
+						exact
+						path='/app/ahorros/assignment-of-payment-order-stubs'
+						component={OrderStubs}
+					/>
+					<Route
+						exact
+						path='/app/ahorros/saving-account-cancellation'
+						component={AccountCancellation}
+					/>
+					<Route
+						exact
+						path='/app/ahorros/fixed-term-deposit-opening'
+						component={FixedTermDepositOpening}
+					/>
+					<Route
+						exact
+						path='/app/ahorros/early-cancellation-fixed-term-deposit'
+						component={EarlyCancellation}
+					/>
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
 				</Switch>
