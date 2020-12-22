@@ -1,4 +1,6 @@
+// React and Router Stuff
 import React from 'react'
+// Extra libraries
 import { ChevronLeft } from 'react-bootstrap-icons'
 import { NavLink } from 'react-router-dom'
 
@@ -33,7 +35,7 @@ function FormNotFound() {
 					este sitio.
 				</p>
 				<NavLink
-					to='/app/inicio'
+					to='/app/dashboard'
 					className='flex items-center gap-1 font-bold stroke-current pt-3 border-t-2 border-white'
 				>
 					<ChevronLeft />

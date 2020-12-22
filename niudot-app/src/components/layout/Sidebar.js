@@ -10,7 +10,7 @@ import {
 } from 'react-pro-sidebar'
 
 import { FaCog, FaHome, FaMoon, FaSun } from 'react-icons/fa/index'
-import pages from '../routing'
+import pages from '../pages'
 import SidebarSubMenu from './SidebarSubMenu'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
@@ -41,7 +41,7 @@ function Sidebar({ toggled, setToggled }) {
 				<Menu>
 					<MenuItem icon={<FaHome />} className='sidebar-item'>
 						Inicio
-						<Link to='/app/inicio' onClick={() => changePage('inicio')} />
+						<Link to='/app/dashboard' onClick={() => changePage('inicio')} />
 					</MenuItem>
 					{pages.map((page) => (
 						<SidebarSubMenu key={page.name} page={page} />
