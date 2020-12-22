@@ -1,28 +1,30 @@
+// React and Router Stuff
 import React from 'react'
-import { FormDropdownInput, FormTextInput } from '../formikComponentsEndpoint'
-import RetractileForm from '../RetractileForm'
+// Other Components
+import { Dropdown, Text } from '../forms'
+import RetractileForm from '../retractile_sections'
 
-function Personales({ title }) {
+const Personal = ({ title }) => {
 	const referenceInstance = title.split(' ')[1]
 
 	return (
 		<RetractileForm formTitle={title}>
 			<div className='form-grid-layout grid grid-cols-12 gap-2 max-w-lg'>
-				<FormTextInput
+				<Text
 					name={`ref_personales_${referenceInstance}_nombres`}
 					size='md'
 					placeholder='Nombres'
 					label='Nombres'
 				/>
 
-				<FormTextInput
+				<Text
 					name={`ref_personales_${referenceInstance}_apellidos`}
 					size='md'
 					placeholder='Apellidos'
 					label='Apellidos'
 				/>
 
-				<FormDropdownInput
+				<Dropdown
 					size='md'
 					name={`ref_personales_${referenceInstance}_tipo_id`}
 					label='Select Option'
@@ -31,9 +33,9 @@ function Personales({ title }) {
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
-				</FormDropdownInput>
+				</Dropdown>
 
-				<FormTextInput
+				<Text
 					name={`ref_personales_${referenceInstance}_numero_id`}
 					size='md'
 					placeholder='No. Identificación'
@@ -41,21 +43,21 @@ function Personales({ title }) {
 					newLine={true}
 				/>
 
-				<FormTextInput
+				<Text
 					name={`ref_personales_${referenceInstance}_nacionalidad`}
 					size='md'
 					placeholder='Nacionalidad'
 					label='Nacionalidad'
 				/>
 
-				<FormTextInput
+				<Text
 					name={`ref_personales_${referenceInstance}_fecha_nacimiento`}
 					size='md'
 					placeholder='Fecha de nacimiento'
 					label='Fecha de nacimiento'
 				/>
 
-				<FormDropdownInput
+				<Dropdown
 					size='md'
 					name={`ref_personales_${referenceInstance}_estado_civil`}
 					label='Select Option'
@@ -64,30 +66,30 @@ function Personales({ title }) {
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
-				</FormDropdownInput>
+				</Dropdown>
 
-				<FormTextInput
+				<Text
 					name={`ref_personales_${referenceInstance}_numero_hijos`}
 					size='md'
 					placeholder='Número de hijos'
 					label='Número de hijos'
 				/>
 
-				<FormTextInput
+				<Text
 					name={`ref_personales_${referenceInstance}_direccion`}
 					size='lg'
 					placeholder='Dirección'
 					label='Dirección'
 				/>
 
-				<FormTextInput
+				<Text
 					name={`ref_personales_${referenceInstance}_tiempo_relacion`}
 					size='md'
 					placeholder='Tiempo de conocer al referido'
 					label='Tiempo de conocer al referido'
 				/>
 
-				<FormTextInput
+				<Text
 					name={`ref_personales_${referenceInstance}_email`}
 					size='md'
 					placeholder='Email'
@@ -99,4 +101,4 @@ function Personales({ title }) {
 	)
 }
 
-export default Personales
+export default Personal

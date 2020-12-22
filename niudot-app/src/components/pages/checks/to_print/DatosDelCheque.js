@@ -2,17 +2,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 // Extra libraries
-import * as Yup from 'yup'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 import Popup from 'reactjs-popup'
 // Ohter Components
-import {
-	FormDropdownInput,
-	FormTextArea,
-	FormTextInput
-} from '../../utils/formikComponentsEndpoint'
-import BuscarProveedor from './BuscarProveedor'
+import { Dropdown, Text } from '../../utils/forms'
+import BuscarProveedor from './SearchProvider'
 import DatosDelChequeTable from './DatosDelChequeTable'
 import CancelBtn from '../../utils/CancelBtn'
 
@@ -26,27 +21,27 @@ const DatosDelCheque = ({ value }) => {
 			</h2>
 
 			<div className='form-grid-layout'>
-				<FormTextInput
+				<Text
 					name='create_fecha_de_entrega'
 					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
 				/>
-				<FormTextInput
+				<Text
 					name='create_numero_de_cheque'
 					size='md'
 					placeholder='Número de Cheque'
 					newLine={true}
 					label='Número de Cheque'
 				/>
-				<FormDropdownInput size='md' name='create_moneda' label='Moneda'>
+				<Dropdown size='md' name='create_moneda' label='Moneda'>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
 					<option value='option_4'>Colones</option>
-				</FormDropdownInput>
+				</Dropdown>
 
-				<FormTextInput
+				<Text
 					name='create_paguese_orden'
 					size='md'
 					placeholder='Paguese a la orden de'
@@ -82,7 +77,7 @@ const DatosDelCheque = ({ value }) => {
 						</div>
 					)}
 				</Popup>
-				<FormTextInput
+				<Text
 					name='create_cantidad_de'
 					size='sm'
 					placeholder='Cantidad'
@@ -91,22 +86,23 @@ const DatosDelCheque = ({ value }) => {
 					type='number'
 					min='0'
 				/>
-				<FormTextInput
+				<Text
 					name='create_cantidad_en_letras'
 					size='lg'
 					placeholder='CINCO MIL SETECIENTOS TRES CORDOBAS CON 47 CENTAVOS'
 					label='Cantidad'
 					newLine={true}
 				/>
-				<FormTextArea
+				<Text
 					name='create_por_concepto_de'
 					size='lg'
 					newLine={true}
 					placeholder='Concepto de...'
 					label='Por concepto de:'
+					isTextArea={true}
 				/>
 
-				<FormDropdownInput
+				<Dropdown
 					size='md'
 					name='create_cuenta_bancaria'
 					label='Cuenta Bancaria'
@@ -116,7 +112,7 @@ const DatosDelCheque = ({ value }) => {
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
 					<option value='option_4'>Colones</option>
-				</FormDropdownInput>
+				</Dropdown>
 			</div>
 			<DatosDelChequeTable />
 		</>

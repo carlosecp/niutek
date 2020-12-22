@@ -4,7 +4,7 @@ import React, { useContext, useEffect } from 'react'
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
 import CreditResolutionCreate from './CreditResolutionCreate'
-import SearchUserForm from '../../utils/SearchUserForm'
+import SearchUserForm from '../../utils/search/SearchUserForm'
 
 const CreditResolution = () => {
 	const { changePage } = useContext(routesContext)

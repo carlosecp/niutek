@@ -1,14 +1,14 @@
 // React and Router Stuff
 import React from 'react'
 // Other Components
-import RetractileForm from '../../utils/RetractileForm'
-import { FormTextInput } from '../../utils/formikComponentsEndpoint'
+import RetractileForm from '../../utils/retractile_sections'
+import { Text } from '../../utils/forms'
 
 const EconomicData = () => {
 	return (
 		<RetractileForm formTitle='Datos Económicos'>
 			<div className='form-grid-layout'>
-				<FormTextInput
+				<Text
 					name='create_ingresos_anuales_aproximados'
 					size='lg'
 					placeholder='Ingresos Anuales Aproximados'
@@ -17,7 +17,7 @@ const EconomicData = () => {
 					min='0'
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_detalles_actividades'
 					size='lg'
 					placeholder='Detalles de las actividades a las que se dedica'

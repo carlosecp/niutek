@@ -2,10 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 // Other Components
-import {
-	FormTextInput,
-	FormDropdownInput
-} from '../../utils/formikComponentsEndpoint'
+import { Text, Dropdown } from '../../utils/forms'
 import SubmitBtn from '../../utils/SubmitBtn'
 
 const AnticipatedCancelation = ({ value }) => {
@@ -15,58 +12,54 @@ const AnticipatedCancelation = ({ value }) => {
 				Cancelación Anticipada{' '}
 			</h2>
 			<div className='form-grid-layout'>
-				<FormTextInput
+				<Text
 					name='create_nombre_del_cliente'
 					size='lg'
 					placeholder='Nombre de cliente'
 					label='Cliente'
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_tipo_de_credito'
 					size='lg'
 					placeholder='Tipo de Crédito'
 					label='Tipo de Crédito'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_nombre_del_producto'
 					size='lg'
 					placeholder='Nombre del Producto'
 					label='Nombre del Producto'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_numero_de_identificacion'
 					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
 					newLine={true}
 				/>
-				<FormDropdownInput
-					size='md'
-					name='create_tipo_id'
-					label='Tipo Identificación'
-				>
+				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
-				</FormDropdownInput>
-				<FormDropdownInput size='md' name='create_moneda' label='Moneda'>
+				</Dropdown>
+				<Dropdown size='md' name='create_moneda' label='Moneda'>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
 					<option value='option_4'>Colones</option>
-				</FormDropdownInput>
-				<FormTextInput
+				</Dropdown>
+				<Text
 					name='create_fecha_de_entrega'
 					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
 					newLine={true}
 				/>
-				<FormDropdownInput
+				<Dropdown
 					size='md'
 					name='create_tipo_de_entrega'
 					label='Tipo de Entrega'
@@ -76,9 +69,9 @@ const AnticipatedCancelation = ({ value }) => {
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
 					<option value='option_4'>Colones</option>
-				</FormDropdownInput>
+				</Dropdown>
 
-				<FormTextInput
+				<Text
 					name='create_numero_de_cheque'
 					size='md'
 					placeholder='Número de Cheque'
@@ -86,7 +79,7 @@ const AnticipatedCancelation = ({ value }) => {
 					newLine={true}
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_nombre_del_banco'
 					size='md'
 					placeholder='Nombre del Banco'

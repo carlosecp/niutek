@@ -4,11 +4,7 @@ import PropTypes from 'prop-types'
 // Extra libraries
 import { FaPrint } from 'react-icons/fa'
 // Other Components
-import {
-	FormDropdownInput,
-	FormTextArea,
-	FormTextInput
-} from '../../utils/formikComponentsEndpoint'
+import { Dropdown, Text } from '../../utils/forms'
 
 const ConciliarCheque = ({ value }) => {
 	const [open, setOpen] = useState(false)
@@ -20,27 +16,27 @@ const ConciliarCheque = ({ value }) => {
 			</h2>
 
 			<div className='form-grid-layout'>
-				<FormTextInput
+				<Text
 					name='create_fecha_de_entrega'
 					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
 				/>
-				<FormTextInput
+				<Text
 					name='create_numero_de_cheque'
 					size='md'
 					placeholder='Número de Cheque'
 					newLine={true}
 					label='Número de Cheque'
 				/>
-				<FormDropdownInput size='md' name='create_moneda' label='Moneda'>
+				<Dropdown size='md' name='create_moneda' label='Moneda'>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
 					<option value='option_4'>Colones</option>
-				</FormDropdownInput>
+				</Dropdown>
 
-				<FormTextInput
+				<Text
 					name='create_paguese_orden'
 					size='md'
 					placeholder='Paguese a la orden de'
@@ -48,7 +44,7 @@ const ConciliarCheque = ({ value }) => {
 					newLine={true}
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_cantidad_de'
 					size='sm'
 					placeholder='Cantidad'
@@ -57,21 +53,22 @@ const ConciliarCheque = ({ value }) => {
 					type='number'
 					min='0'
 				/>
-				<FormTextInput
+				<Text
 					name='create_cantidad_en_letras'
 					size='lg'
 					placeholder='CINCO MIL SETECIENTOS TRES CORDOBAS CON 47 CENTAVOS'
 					label='Cantidad'
 					newLine={true}
 				/>
-				<FormTextArea
+				<Text
 					name='create_por_concepto_de'
 					size='lg'
 					newLine={true}
 					placeholder='Concepto de...'
 					label='Por concepto de:'
+					isTextArea={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_fecha_de_conciliacion'
 					size='md'
 					placeholder='Fecha de Conciliación'

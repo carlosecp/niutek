@@ -13,7 +13,7 @@ import EditButton from '../../utils/EditButton'
 import DatosDelCheque from './DatosDelCheque'
 import SubmitBtn from '../../utils/SubmitBtn'
 // Data
-import { createValues, createValuesSchema } from './formInitialValues'
+import { createValues, createValuesSchema } from './initialValues'
 
 import { FaPlus, FaPrint, FaTrashAlt, FaUserSlash } from 'react-icons/fa'
 

@@ -1,12 +1,11 @@
 // React and Router Stuff
 import React, { useState } from 'react'
 // Extra libraries
-import * as Yup from 'yup'
 import { Form, Formik } from 'formik'
 import Table from '../../utils/Table'
 // Other Components
-import { FaCheckSquare, FaSearch } from 'react-icons/fa'
-import SearchProviderForm from '../../utils/SearchProviderForm'
+import { FaCheckSquare } from 'react-icons/fa'
+import SearchProviderForm from '../../utils/search/SearchProviderForm'
 
 const BuscarProveedor = () => {
 	const [open, setOpen] = useState(false)

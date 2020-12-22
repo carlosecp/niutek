@@ -4,11 +4,7 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
-import {
-	FormDropdownInput,
-	FormTextArea,
-	FormTextInput
-} from '../../utils/formikComponentsEndpoint'
+import { Dropdown, Text } from '../../utils/forms'
 import SubmitBtn from '../../utils/SubmitBtn'
 // Data
 import { createValues, createValuesSchema } from './initialValues'
@@ -36,35 +32,36 @@ const CreditProductsCreate = () => {
 						Productos de Crédito{' '}
 					</h2>
 					<div className='form-grid-layout'>
-						<FormTextInput
+						<Text
 							name='create_tipo_de_credito'
 							size='md'
 							placeholder='Tipo de Crédito'
 							label='Tipo de Crédito'
 						/>
-						<FormTextInput
+						<Text
 							name='create_fuente_de_fondos'
 							size='md'
 							placeholder='Fuente de Fondos'
 							label='Fuente de Fondos'
 							newLine={true}
 						/>
-						<FormTextInput
+						<Text
 							name='create_nombre_del_producto'
 							size='lg'
 							placeholder='Nombre del Producto'
 							label='Nombre del Producto'
 						/>
 
-						<FormTextArea
+						<Text
 							name='create_descripcion'
 							size='lg'
 							newLine={true}
 							placeholder='Descripción'
 							label='Descripción'
+							isTextArea={true}
 						/>
 
-						<FormDropdownInput
+						<Dropdown
 							size='md'
 							name='create_aplica_a_grupo_solidario'
 							label='Aplica a Grupo Solidario'
@@ -72,8 +69,8 @@ const CreditProductsCreate = () => {
 						>
 							<option value='option_2'>Sí</option>
 							<option value='option_3'>No</option>
-						</FormDropdownInput>
-						<FormDropdownInput
+						</Dropdown>
+						<Dropdown
 							size='md'
 							name='create_aplica_individual'
 							label='Aplica Individual'
@@ -81,9 +78,9 @@ const CreditProductsCreate = () => {
 						>
 							<option value='option_2'>Sí</option>
 							<option value='option_3'>No</option>
-						</FormDropdownInput>
+						</Dropdown>
 
-						<FormDropdownInput
+						<Dropdown
 							size='md'
 							name='create_moneda'
 							label='Moneda'
@@ -93,8 +90,8 @@ const CreditProductsCreate = () => {
 							<option value='option_2'>Córdobas</option>
 							<option value='option_3'>Dólares</option>
 							<option value='option_3'>Colones</option>
-						</FormDropdownInput>
-						<FormTextInput
+						</Dropdown>
+						<Text
 							name='create_tasa_de_interes_mensual'
 							size='md'
 							placeholder='Tasa de Interés Mensual'
@@ -103,7 +100,7 @@ const CreditProductsCreate = () => {
 							min='0'
 							newLine={true}
 						/>
-						<FormTextInput
+						<Text
 							name='create_monto_minimo'
 							size='md'
 							placeholder='Monto Mínimo'
@@ -112,7 +109,7 @@ const CreditProductsCreate = () => {
 							min='0'
 							newLine={true}
 						/>
-						<FormTextInput
+						<Text
 							name='create_monto_maximo'
 							size='md'
 							placeholder='Monto Máximo'
@@ -120,7 +117,7 @@ const CreditProductsCreate = () => {
 							type='number'
 							min='0'
 						/>
-						<FormTextInput
+						<Text
 							name='create_plazo_en_meses'
 							size='md'
 							placeholder='Plazo en Meses'
@@ -129,7 +126,7 @@ const CreditProductsCreate = () => {
 							min='1'
 							newLine={true}
 						/>
-						<FormTextInput
+						<Text
 							name='create_frecuencia_de_pago'
 							size='md'
 							placeholder='Frecuencia de Pago'
@@ -138,7 +135,7 @@ const CreditProductsCreate = () => {
 							min='0'
 							newLine={true}
 						/>
-						<FormTextInput
+						<Text
 							name='create_porcentaje_aportación'
 							size='md'
 							placeholder='Porcentaje de Aportación'
@@ -146,7 +143,7 @@ const CreditProductsCreate = () => {
 							type='number'
 							min='0'
 						/>
-						<FormTextInput
+						<Text
 							name='create_documentos_requeridos'
 							size='md'
 							placeholder='Documentos Requeridos'

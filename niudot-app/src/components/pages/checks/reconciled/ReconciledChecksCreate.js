@@ -4,10 +4,10 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 // Other Components
-import SearchCheckForm from '../../utils/SearchCheckForm'
+import SearchCheckForm from '../../utils/search/SearchCheckForm'
 import ReconciledChecksTable from './ReconciledChecksTable'
 // Data
-import { createValues, createValuesSchema } from './formInitialValues'
+import { createValues, createValuesSchema } from './initialValues'
 
 export const initialValues = {
 	...createValues

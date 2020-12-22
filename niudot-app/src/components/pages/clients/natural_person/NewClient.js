@@ -1,33 +1,30 @@
 import React from 'react'
-import {
-	FormTextInput,
-	FormDropdownInput
-} from '../../utils/formikComponentsEndpoint'
+import { Text, Dropdown } from '../../utils/forms'
 
 const NewClient = () => {
 	return (
 		<>
 			<div className='form-grid-layout'>
-				<FormTextInput
+				<Text
 					name='create_codigo_cliente'
 					size='md'
 					placeholder='Código de Cliente'
 					label='Código de Cliente'
 				/>
-				<FormTextInput
+				<Text
 					name='create_nombres'
 					size='md'
 					placeholder='Nombres'
 					label='Nombres'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_apellidos'
 					size='md'
 					placeholder='Apellidos'
 					label='Apellidos'
 				/>
-				<FormDropdownInput
+				<Dropdown
 					size='md'
 					name='create_tipo_id'
 					label='Tipo Identificación'
@@ -36,32 +33,32 @@ const NewClient = () => {
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
-				</FormDropdownInput>
-				<FormTextInput
+				</Dropdown>
+				<Text
 					name='create_numero_id'
 					size='md'
 					placeholder='No. Identificación'
 					label='No. Identificación'
 				/>
-				<FormTextInput
+				<Text
 					name='create_nacionalidad'
 					size='lg'
 					placeholder='Nacionalidad'
 					label='Nacionalidad'
 				/>
-				<FormTextInput
+				<Text
 					name='create_fecha_nacimiento'
 					size='lg'
 					placeholder='Fecha de Nacimiento'
 					label='Fecha de Nacimiento'
 				/>
-				<FormTextInput
+				<Text
 					name='create_estado_civil'
 					size='md'
 					placeholder='Estado Civil'
 					label='Estado Civil'
 				/>
-				<FormTextInput
+				<Text
 					name='create_numero_hijos'
 					size='md'
 					placeholder='Número de Hijos'
@@ -69,31 +66,31 @@ const NewClient = () => {
 					type='number'
 					min='0'
 				/>
-				<FormTextInput
+				<Text
 					name='create_direccion'
 					size='lg'
 					placeholder='Dirección'
 					label='Dirección'
 				/>
-				<FormTextInput
+				<Text
 					name='create_telefono_1'
 					size='md'
 					placeholder='Teléfono 1'
 					label='Teléfono 1'
 				/>
-				<FormTextInput
+				<Text
 					name='create_telefono_2'
 					size='md'
 					placeholder='Teléfono 2'
 					label='Teléfono 2'
 				/>
-				<FormTextInput
+				<Text
 					name='create_municipio'
 					size='md'
 					placeholder='Municipio'
 					label='Municipio'
 				/>
-				<FormTextInput
+				<Text
 					name='create_departamento'
 					size='md'
 					placeholder='Departamento'

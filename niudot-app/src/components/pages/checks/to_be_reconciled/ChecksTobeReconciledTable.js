@@ -13,7 +13,7 @@ import ReconcileBtn from '../../utils/ReconcileBtn'
 import ReactTooltip from 'react-tooltip'
 // Data
 import es from 'date-fns/locale/es'
-import { createValues, createValuesSchema } from './formInitialValues'
+import { createValues, createValuesSchema } from './initialValues'
 
 registerLocale('es', es)
 setDefaultLocale('es')

@@ -1,11 +1,15 @@
+// React and Router Stuff
 import React, { useEffect, useContext } from 'react'
-import { Formik, Form } from 'formik'
+// Extra libraries
 import * as Yup from 'yup'
-import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
+import { Formik, Form } from 'formik'
+// Context
 import authContext from '../../context/auth/authContext'
+// Other Components
+import { Text } from '../pages/utils/forms'
 import Navbar from './Navbar'
 
-function Register(props) {
+const Register = (props) => {
 	const initialValues = {
 		name: '',
 		email: '',
@@ -55,7 +59,7 @@ function Register(props) {
 						<Form>
 							<div className='mt-12 mb-6 w-80 sm:w-64'>
 								<div className='mb-2'>
-									<FormTextInput
+									<Text
 										name='name'
 										placeholder='Nombre'
 										label='Nombre'
@@ -63,7 +67,7 @@ function Register(props) {
 									/>
 								</div>
 								<div className='mb-2'>
-									<FormTextInput
+									<Text
 										name='email'
 										placeholder='Correo Electrónico'
 										label='Correo Electrónico'
@@ -71,7 +75,7 @@ function Register(props) {
 									/>
 								</div>
 								<div className='mb-2'>
-									<FormTextInput
+									<Text
 										name='password'
 										placeholder='Contraseña'
 										label='Contraseña'
@@ -80,7 +84,7 @@ function Register(props) {
 									/>
 								</div>
 								<div className='mb-2'>
-									<FormTextInput
+									<Text
 										name='password_conf'
 										placeholder='Confirmar Contraseña'
 										label='Confirmar Contraseña'

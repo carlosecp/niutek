@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
-import SearchUserForm from '../../utils/SearchUserForm'
+import SearchUserForm from '../../utils/search/SearchUserForm'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import LegalPersonCreate from './LegalPersonCreate'
 

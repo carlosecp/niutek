@@ -1,7 +1,7 @@
 // React and Router Stuff
 import React from 'react'
 // Other Components
-import RetractileForm from '../../utils/RetractileForm'
+import RetractileForm from '../../utils/retractile_sections'
 
 const MainSupliers = () => {
 	return (

@@ -12,7 +12,7 @@ import DeliverCheck from './DeliverCheck'
 import DeliverCheckBtn from '../../utils/DeliverCheckBtn'
 // Data
 import es from 'date-fns/locale/es'
-import { createValues, createValuesSchema } from './formInitialValues'
+import { createValues, createValuesSchema } from './initialValues'
 
 registerLocale('es', es)
 setDefaultLocale('es')

@@ -1,37 +1,39 @@
+// React and Router Stuff
 import React from 'react'
-import { FormTextInput } from '../formikComponentsEndpoint'
-import RetractileForm from '../RetractileForm'
+// Other Components
+import { Text } from '../forms'
+import RetractileForm from '../retractile_sections'
 
-function Comerciales() {
+const Comerciales = () => {
 	return (
 		<RetractileForm formTitle='Comerciales'>
 			<div className='form-grid-layout'>
-				<FormTextInput
+				<Text
 					name='ref_comerciales_nombre_entidad'
 					size='md'
 					placeholder='Nombre de la entidad'
-					label='Nombre de la entidad'	
+					label='Nombre de la entidad'
 				/>
-				<FormTextInput
+				<Text
 					name='ref_comerciales_persona_contacto'
 					size='md'
 					placeholder='Persona de contacto'
 					label='Persona de contacto'
 				/>
-				<FormTextInput
+				<Text
 					name='ref_comerciales_direccion'
 					size='lg'
 					placeholder='Dirección'
 					label='Dirección'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='ref_comerciales_tiempo_entidad'
 					size='md'
 					placeholder='Años con la entidad'
 					label='Años con la entidad'
 				/>
-				<FormTextInput
+				<Text
 					name='ref_comerciales_telefono'
 					size='md'
 					placeholder='Teléfono'

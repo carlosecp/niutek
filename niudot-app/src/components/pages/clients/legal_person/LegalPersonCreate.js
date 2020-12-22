@@ -6,7 +6,7 @@ import { Formik, Form } from 'formik'
 // Other Components
 import EconomicData from './EconomicData'
 import MainSupliers from './MainSuppliers'
-import Referencias from '../../utils/referencias/Referencias'
+import Referencias from '../../utils/references'
 import ControllingShareholders from './ControllingShareholders'
 import OriginFunds from './OriginFunds'
 import NewClient from './NewClient'

@@ -8,14 +8,10 @@ import { FaPrint, FaTrashAlt, FaUserSlash } from 'react-icons/fa'
 import Popup from 'reactjs-popup'
 // Other Components
 import DeleteBtn from '../../utils/DeleteBtn'
-import {
-	FormDropdownInput,
-	FormTextArea,
-	FormTextInput
-} from '../../utils/formikComponentsEndpoint'
+import { Dropdown, Text } from '../../utils/forms'
 import VoidBtn from '../../utils/VoidBtn'
 // Data
-import { createValues, createValuesSchema } from './formInitialValues'
+import { createValues, createValuesSchema } from './initialValues'
 
 const initialValues = {
 	...createValues
@@ -34,27 +30,27 @@ const DeliverCheck = ({ value }) => {
 			</h2>
 
 			<div className='form-grid-layout'>
-				<FormTextInput
+				<Text
 					name='create_fecha_de_entrega'
 					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
 				/>
-				<FormTextInput
+				<Text
 					name='create_numero_de_cheque'
 					size='md'
 					placeholder='Número de Cheque'
 					newLine={true}
 					label='Número de Cheque'
 				/>
-				<FormDropdownInput size='md' name='create_moneda' label='Moneda'>
+				<Dropdown size='md' name='create_moneda' label='Moneda'>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
 					<option value='option_4'>Colones</option>
-				</FormDropdownInput>
+				</Dropdown>
 
-				<FormTextInput
+				<Text
 					name='create_paguese_orden'
 					size='md'
 					placeholder='Paguese a la orden de'
@@ -62,7 +58,7 @@ const DeliverCheck = ({ value }) => {
 					newLine={true}
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_cantidad_de'
 					size='sm'
 					placeholder='Cantidad'
@@ -71,36 +67,37 @@ const DeliverCheck = ({ value }) => {
 					type='number'
 					min='0'
 				/>
-				<FormTextInput
+				<Text
 					name='create_cantidad_en_letras'
 					size='lg'
 					placeholder='CINCO MIL SETECIENTOS TRES CORDOBAS CON 47 CENTAVOS'
 					label='Cantidad'
 					newLine={true}
 				/>
-				<FormTextArea
+				<Text
 					name='create_por_concepto_de'
 					size='lg'
 					newLine={true}
 					placeholder='Concepto de...'
 					label='Por concepto de:'
+					isTextArea={true}
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_entregar_a'
 					size='lg'
 					placeholder='Nombre de la persona a entregar el cheque'
 					label='Entregar a'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_cedula'
 					size='lg'
 					placeholder='Número de Cédula'
 					label='Número de Cédula'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_fecha_de_entrega1'
 					size='md'
 					placeholder='Fecha de Entrega'

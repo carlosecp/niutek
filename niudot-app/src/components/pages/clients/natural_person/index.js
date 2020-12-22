@@ -1,7 +1,7 @@
 // React and Router Stuff
 import React, { useState, useContext, useEffect } from 'react'
 // Other Components
-import SearchUserForm from '../../utils/SearchUserForm'
+import SearchUserForm from '../../utils/search/SearchUserForm'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import NaturalPersonCreate from './NaturalPersonCreate'
 import routesContext from '../../../../context/routes/routesContext'

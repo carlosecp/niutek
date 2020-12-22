@@ -3,7 +3,7 @@ import React, { useState, useContext, useEffect } from 'react'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
-import SearchUserForm from '../../utils/SearchUserForm'
+import SearchUserForm from '../../utils/search/SearchUserForm'
 import LoanPaymentCreate from './LoanPaymentCreate'
 
 function LoanPayment() {

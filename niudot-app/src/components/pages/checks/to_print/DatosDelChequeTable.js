@@ -12,7 +12,7 @@ import Table from '../../utils/Table'
 import DeleteBtn from '../../utils/DeleteBtn'
 import VoidBtn from '../../utils/VoidBtn'
 // Data
-import { createValues, createValuesSchema } from './formInitialValues'
+import { createValues, createValuesSchema } from './initialValues'
 
 const initialValues = {
 	...createValues

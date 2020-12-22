@@ -12,7 +12,7 @@ import es from 'date-fns/locale/es'
 import Table from '../../utils/Table'
 import SubmitBtn from '../../utils/SubmitBtn'
 // Data
-import { createValues, createValuesSchema } from './formInitialValues'
+import { createValues, createValuesSchema } from './initialValues'
 
 registerLocale('es', es)
 setDefaultLocale('es')

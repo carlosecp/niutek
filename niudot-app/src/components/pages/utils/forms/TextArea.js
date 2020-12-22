@@ -1,7 +1,9 @@
+// React and Router Stuff
 import React from 'react'
+// Extral libraries
 import { useField } from 'formik'
 
-function TextArea({ type, placeholder, ...props }) {
+const TextArea = ({ type, placeholder, ...props }) => {
 	const [field, meta] = useField(props)
 
 	return (

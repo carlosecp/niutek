@@ -1,7 +1,9 @@
+// React and Router Stuff
 import React from 'react'
+// Extra libraries
 import { useField } from 'formik'
 
-function TextInput({ type, placeholder, ...props }) {
+const TextInput = ({ type, placeholder, ...props }) => {
 	const [field, meta] = useField(props)
 
 	return (

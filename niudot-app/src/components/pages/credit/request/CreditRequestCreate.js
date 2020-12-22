@@ -4,11 +4,7 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
-import {
-	FormDropdownInput,
-	FormTextArea,
-	FormTextInput
-} from '../../utils/formikComponentsEndpoint'
+import { Dropdown, Text } from '../../utils/forms'
 import SubmitBtn from '../../utils/SubmitBtn'
 // Data
 import { createValues, createValuesSchema } from './initialValues'
@@ -36,31 +32,31 @@ const CreditRequestCreate = () => {
 						Solicitud de Crédito{' '}
 					</h2>
 					<div className='form-grid-layout'>
-						<FormTextInput
+						<Text
 							name='create_tipo_de_credito'
 							size='md'
 							placeholder='Tipo de Crédito'
 							label='Tipo de Crédito'
 						/>
-						<FormTextInput
+						<Text
 							name='create_nombre_del_producto'
 							size='lg'
 							placeholder='Nombre del Producto'
 							label='Nombre del Producto'
 						/>
-						<FormTextInput
+						<Text
 							name='create_fecha_de_solicitud'
 							size='md'
 							placeholder='dd/mm/yyyy'
 							label='Fecha de Solicitud'
 						/>
-						<FormTextInput
+						<Text
 							name='create_promotor'
 							size='md'
 							placeholder='Promotor'
 							label='Promotor'
 						/>
-						<FormTextInput
+						<Text
 							name='create_monto_solicitado'
 							size='md'
 							placeholder='0'
@@ -69,7 +65,7 @@ const CreditRequestCreate = () => {
 							min='0'
 							newLine={true}
 						/>
-						<FormDropdownInput
+						<Dropdown
 							size='md'
 							name='create_moneda'
 							label='Moneda'
@@ -78,9 +74,9 @@ const CreditRequestCreate = () => {
 							<option value='option_2'>Córdobas</option>
 							<option value='option_3'>Dólares</option>
 							<option value='option_3'>Colones</option>
-						</FormDropdownInput>
+						</Dropdown>
 
-						<FormTextInput
+						<Text
 							name='create_tasa_de_interes_mensual'
 							size='md'
 							placeholder='Tasa de Interés Mensual'
@@ -89,7 +85,7 @@ const CreditRequestCreate = () => {
 							min='0'
 							newLine={true}
 						/>
-						<FormTextInput
+						<Text
 							name='create_plazo_en_meses'
 							size='md'
 							placeholder='Plazo en Meses'
@@ -98,7 +94,7 @@ const CreditRequestCreate = () => {
 							min='1'
 							newLine={true}
 						/>
-						<FormTextInput
+						<Text
 							name='create_frecuencia_de_pago'
 							size='md'
 							placeholder='Frecuencia de Pago'
@@ -107,7 +103,7 @@ const CreditRequestCreate = () => {
 							min='0'
 							newLine={true}
 						/>
-						<FormTextInput
+						<Text
 							name='create_porcentaje_aportación'
 							size='md'
 							placeholder='Porcentaje de Aportación'
@@ -115,17 +111,18 @@ const CreditRequestCreate = () => {
 							type='number'
 							min='0'
 						/>
-						<FormTextInput
+						<Text
 							name='create_documentos_requeridos'
 							size='md'
 							placeholder='Documentos Requeridos'
 							label='Documentos Requeridos'
 						/>
-						<FormTextArea
+						<Text
 							name='create_observaciones'
 							size='lg'
 							newLine={true}
 							placeholder='Observaciones'
+							isTextArea={true}
 							label='Observaciones'
 						/>
 					</div>

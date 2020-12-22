@@ -2,74 +2,62 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 // Other Components
-import {
-	FormTextInput,
-	FormDropdownInput
-} from '../../utils/formikComponentsEndpoint'
+import { Text, Dropdown } from '../../utils/forms'
 import SubmitBtn from '../../utils/SubmitBtn'
 
 const TermCertificateOpening = ({ value }) => {
 	return (
 		<>
 			<div className='form-grid-layout'>
-				<FormTextInput
+				<Text
 					name='create_nombre_del_cliente'
 					size='lg'
 					placeholder='Nombre de cliente'
 					label='Cliente'
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_producto_de_certificado'
 					size='lg'
 					placeholder='Producto de Certificado'
 					label='Producto de Certificado'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_numero_de_cuenta'
 					size='md'
 					placeholder='Número de Cuenta'
 					label='Número de Cuenta'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_numero_de_identificacion'
 					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
 					newLine={true}
 				/>
-				<FormDropdownInput
-					size='md'
-					name='create_tipo_id'
-					label='Tipo Identificación'
-				>
+				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
-				</FormDropdownInput>
+				</Dropdown>
 
-				<FormDropdownInput
-					size='md'
-					name='create_moneda'
-					label='Moneda'
-					newLine={true}
-				>
+				<Dropdown size='md' name='create_moneda' label='Moneda' newLine={true}>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
 					<option value='option_4'>Colones</option>
-				</FormDropdownInput>
-				<FormTextInput
+				</Dropdown>
+				<Text
 					name='create_fecha_de_entrega'
 					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_monto_a_apertura'
 					size='md'
 					placeholder='Monto a Apertura'
@@ -79,7 +67,7 @@ const TermCertificateOpening = ({ value }) => {
 					min='0'
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_efectivo'
 					size='md'
 					placeholder='Efectivo'
@@ -89,28 +77,28 @@ const TermCertificateOpening = ({ value }) => {
 					min='0'
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_numero_cheque'
 					size='md'
 					placeholder='No. Cheque'
 					label='Número de Cheque'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_nombre_del_banco'
 					size='md'
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
 
-				<FormTextInput
+				<Text
 					name='create_tarjeta'
 					size='md'
 					placeholder='Tarjeta'
 					label='Tarjeta'
 					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='create_nombre_del_banco1'
 					size='md'
 					placeholder='Nombre del Banco'

@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
 import ProfessionalData from './ProfessionalData'
-import Referencias from '../../utils/referencias/Referencias'
+import Referencias from '../../utils/references'
 import NewClient from './NewClient'
 import SubmitBtn from '../../utils/SubmitBtn'
 import OriginFunds from './OriginFunds'

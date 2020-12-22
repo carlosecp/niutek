@@ -5,9 +5,9 @@ import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
 import CheckTable from './ChecksToPrintTable'
-import SearchCheckForm from '../../utils/SearchCheckForm'
+import SearchCheckForm from '../../utils/search/SearchCheckForm'
 // Data
-import { createValues, createValuesSchema } from './formInitialValues'
+import { createValues, createValuesSchema } from './initialValues'
 
 const initialValues = {
 	...createValues
