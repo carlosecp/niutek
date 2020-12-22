@@ -4,9 +4,9 @@ import React, { useContext, useEffect } from 'react'
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
 import SearchUserForm from '../../utils/search/SearchUserForm'
-import SavingAccountOpeningCreate from './SavingAccountOpeningCreate'
+import PendingSavingAccountOpeningCreate from './PendingSavingAccountOpeningCreate'
 
-function SavingAccountOpening() {
+function PendingSavingAccountOpening() {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
@@ -16,9 +16,9 @@ function SavingAccountOpening() {
 	return (
 		<>
 			<SearchUserForm />
-			<SavingAccountOpeningCreate />
+			<PendingSavingAccountOpeningCreate />
 		</>
 	)
 }
 
-export default SavingAccountOpening
+export default PendingSavingAccountOpening

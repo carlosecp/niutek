@@ -62,8 +62,11 @@ const pages = [
 		name: 'Ahorros',
 		icon: <FaPiggyBank />,
 		dropdownOptions: [
-			{ path: 'app/ahorros/ahorros-1', name: 'Ahorros 1' },
-			{ path: 'app/ahorros/ahorros-2', name: 'Ahorros 2' }
+			{ path: 'app/ahorros/savings-account-opening', name: 'Apertura de Cuenta' },
+			{ path: 'app/ahorros/assignment-of-payment-order-stubs', name: 'Asignación de Talonario' },
+			{ path: 'app/ahorros/saving-account-cancellation', name: 'Cancelación de Cuenta' },
+			{ path: 'app/ahorros/fixed-term-deposit-opening', name: 'Apertura Depósito a Plazo Fijo' },
+			{ path: 'app/ahorros/early-cancellation-fixed-term-deposit', name: 'Cancelación Anticipada' },
 		]
 	},
 	{

@@ -4,18 +4,36 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
-import AccountOpening from './AccountOpening'
+
 // Data
-import { createValues, createValuesSchema } from './initialValues'
+import {
+	createValues,
+	createValuesSchema,
+	principalesProveedores,
+	origenFondos,
+	refComercialesValues,
+	refBancariasValues,
+	refPersonales1Values,
+	refPersonales2Values,
+	accionistasMayoritarios
+} from './initialValues'
 
 const initialValues = {
-	...createValues
+	...createValues,
+	...principalesProveedores,
+	...origenFondos,
+	...refComercialesValues,
+	...refBancariasValues,
+	...refPersonales1Values,
+	...refPersonales2Values,
+	...accionistasMayoritarios
 }
+
 const validationSchema = Yup.object({
 	...createValuesSchema
 })
 
-const SavingAccountOpeningCreate = () => {
+export default function SavingAccountCancellationCreate() {
 	return (
 		<Formik
 			initialValues={initialValues}
@@ -26,12 +44,10 @@ const SavingAccountOpeningCreate = () => {
 		>
 			<Form className='section'>
 				<h2 className='text-black-white text-xl font-bold'>
-					Apertura de Cuenta de Ahorro Pendiente{' '}
+					Cancelación de Cuenta de Ahorro{' '}
 				</h2>
-				<AccountOpening />
+				
 			</Form>
 		</Formik>
 	)
 }
-
-export default SavingAccountOpeningCreate
