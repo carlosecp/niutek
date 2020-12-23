@@ -1,11 +1,15 @@
+// React and Router Stuff
 import React, { useReducer } from 'react'
+// Extra libraries
 import axios from 'axios'
 import * as types from '../types'
+// Context
 import authContext from './authContext'
 import authReducer from './authReducer'
+// Utils
 import setAuthToken from '../../utils/setAuthToken'
 
-function AuthState(props) {
+const AuthState = (props) => {
 	const initialState = {
 		user: true,
 		token: localStorage.getItem('token'),
@@ -17,7 +21,7 @@ function AuthState(props) {
 	const [state, dispatch] = useReducer(authReducer, initialState)
 
 	// &Load User
-	async function loadUser() {
+	const loadUser = async () => {
 		if (localStorage.token) {
 			setAuthToken(localStorage.token)
 		}
@@ -40,7 +44,7 @@ function AuthState(props) {
 	}
 
 	// &Register
-	async function registerUser(formData) {
+	const registerUser = (formData) => {
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
@@ -62,7 +66,7 @@ function AuthState(props) {
 	}
 
 	// &Login
-	async function loginUser(formData) {
+	const loginUser = async (formData) => {
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
