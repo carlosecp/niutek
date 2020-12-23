@@ -3,7 +3,6 @@ import React from 'react'
 import { FaEdit } from 'react-icons/fa'
 
 const Table = ({ rows, headers, togglePopup }) => {
-	console.log(togglePopup)
 	return (
 		<div className='overflow-x-scroll'>
 			<table className='table-auto border-1 border-gray-500'>

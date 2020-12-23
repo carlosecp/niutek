@@ -1,12 +1,9 @@
 // React and Router Stuff
 import React, { useContext } from 'react'
-import popupContext from '../../../../context/popup/popupContext'
 // Other Components
 import Table from '../../utils/tables'
 
-const ChecksTable = () => {
-	const { togglePopup } = useContext(popupContext)
-
+const ChecksTable = ({ togglePopup }) => {
 	const headers = ['No. Cheque', 'Fecha', 'Paguese a', 'Moneda', 'Monto']
 	const rows = [
 		{

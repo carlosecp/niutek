@@ -6,7 +6,6 @@ import PrivateRoute from './components/routing/PrivateRoute'
 import RoutesState from './context/routes/RoutesState'
 import AuthState from './context/auth/AuthState'
 import themeContext from './context/theme/themeContext'
-import PopupState from './context/popup/PopupState'
 // Routes
 import Home from './components/layout/Home'
 import Login from './components/routing/Login'
@@ -29,17 +28,15 @@ function App() {
 		<div className={`${theme && 'dark'}`}>
 			<AuthState>
 				<RoutesState>
-					<PopupState>
-						<Router>
-							<Switch>
-								<Route exact path='/' component={Login} />
-								<Route exact path='/register' component={Register} />
-								<Route exact path='/about' component={About} />
-								<PrivateRoute path='/app' component={Home} />
-								<Route path='*' component={PageNotFound} />
-							</Switch>
-						</Router>
-					</PopupState>
+					<Router>
+						<Switch>
+							<Route exact path='/' component={Login} />
+							<Route exact path='/register' component={Register} />
+							<Route exact path='/about' component={About} />
+							<PrivateRoute path='/app' component={Home} />
+							<Route path='*' component={PageNotFound} />
+						</Switch>
+					</Router>
 				</RoutesState>
 			</AuthState>
 		</div>
