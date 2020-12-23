@@ -1,9 +1,8 @@
+// React and Router Stuff
 import React from 'react'
 
-export default function SavingsAccountOpening() {
-    return (
-        <div>
-            
-        </div>
-    )
+const SavingsAccountOpening = () => {
+	return <div></div>
 }
+
+export default SavingsAccountOpening
