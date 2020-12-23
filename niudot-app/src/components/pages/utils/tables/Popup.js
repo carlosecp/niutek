@@ -1,10 +1,7 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { FaTimes } from 'react-icons/fa'
-import popupContext from '../../../../context/popup/popupContext'
 
-const Popup = ({ children }) => {
-	const { togglePopup } = useContext(popupContext)
-
+const Popup = ({ children, togglePopup }) => {
 	return (
 		<div
 			className='z-20 absolute w-screen h-screen flex justify-center items-center top-0 left-0'

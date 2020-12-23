@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React from 'react'
+import React, { useState } from 'react'
 // Extra libraries
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
@@ -19,8 +19,15 @@ const validationSchema = Yup.object({
 })
 
 const CheckCreate = () => {
+	const [showPopup, setShowPopup] = useState(false)
+
+	const togglePopup = () => {
+		setShowPopup(!showPopup)
+	}
+
 	return (
 		<>
+			{showPopup && <Popup togglePopup={togglePopup} />}
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
@@ -30,7 +37,7 @@ const CheckCreate = () => {
 			>
 				<Form className='table-section content-start'>
 					<SearchCheckForm className='mx-0 p-8' />
-					<CheckTable />
+					<CheckTable togglePopup={togglePopup} />
 				</Form>
 			</Formik>
 		</>
