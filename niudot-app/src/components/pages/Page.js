@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Topbar from '../layout/Topbar'
 import Dashboard from '../dashboard'
@@ -29,11 +29,16 @@ import {
 	EarlyCancellation,
 	AccountOpening
 } from './savings'
+import popupContext from '../../context/popup/popupContext'
+import Popup from './utils/tables/Popup'
 
 const Page = (props) => {
+	const { showPopup, togglePopup } = useContext(popupContext)
+
 	return (
 		<div className='pl-64 cstm:p-0 w-full'>
 			<Topbar {...props} />
+			{showPopup && <Popup togglePopup={togglePopup} />}
 			<div className='px-4 pt-20 bg-white-gray relative min-h-full'>
 				<Switch>
 					<Route exact path='/app/dashboard' component={Dashboard} />

@@ -4,10 +4,11 @@ import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
-import CheckTable from './ChecksToPrintTable'
+import CheckTable from './ChecksTable'
 import SearchCheckForm from '../../utils/search/SearchCheckForm'
 // Data
 import { createValues, createValuesSchema } from './initialValues'
+import Popup from '../../utils/tables/Popup'
 
 const initialValues = {
 	...createValues
@@ -18,13 +19,6 @@ const validationSchema = Yup.object({
 })
 
 const CheckCreate = () => {
-	// We need to keep the table from resetting the pageIndex when we
-	// Update data. So we can keep track of that flag with a ref.
-
-	// When our cell renderer calls updateMyData, we'll use
-	// the rowIndex, columnId and new value to update the
-	// original data
-
 	return (
 		<>
 			<Formik
