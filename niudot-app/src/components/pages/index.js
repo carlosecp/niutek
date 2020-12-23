@@ -100,7 +100,11 @@ const pages = [
 			},
 			{
 				path: 'app/credit/request',
-				name: 'Resolución'
+				name: 'Solicitud'
+			},
+			{
+				path: 'app/credit/formalization',
+				name: 'Formalizacion'
 			}
 		]
 	},

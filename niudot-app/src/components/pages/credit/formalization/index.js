@@ -1,18 +1,25 @@
 // React and Router Stuff
 import React, { useContext, useEffect } from 'react'
+// Context
 import routesContext from '../../../../context/routes/routesContext'
-import CreditRequestCreate from './CreditRequestCreate'
+// Other Components
+import CreditFormalizationCreate from './CreditFormalizationCreate'
 import SearchUserForm from '../../utils/search/SearchUserForm'
-const CreditRequest = () => {
+
+const CreditFormalization = () => {
 	const { changePage } = useContext(routesContext)
 	useEffect(() => {
 		// Esto es para el context de los titulos
-		changePage('Solicitud de Crédito')
-
+		changePage('Formalizacion de Crédito')
 		// eslint-disable-next-line
 	}, [])
 
-	return [<SearchUserForm />, <CreditRequestCreate />, ]
+	return (
+		<>
+			<SearchUserForm />
+			<CreditFormalizationCreate />
+		</>
+	)
 }
 
-export default CreditRequest
+export default CreditFormalization

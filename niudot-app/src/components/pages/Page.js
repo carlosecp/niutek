@@ -12,7 +12,7 @@ import {
 	Voided
 } from './checks'
 import { LegalPerson, NaturalPerson } from './clients'
-import { CreditProducts, CreditRequest, CreditResolution } from './credit'
+import { CreditProducts, CreditRequest, CreditResolution, CreditFormalization } from './credit'
 import Products from './products'
 import {
 	AnticipatedCancellation,
@@ -82,6 +82,7 @@ function Page(props) {
 						component={CreditResolution}
 					/>
 					<Route exact path='/app/credit/request' component={CreditRequest} />
+					<Route exact path='/app/credit/formalization' component={CreditFormalization} />
 					{/* CHEQUES */}
 					<Route exact path='/app/checks/print' component={ToPrint} />
 					<Route exact path='/app/checks/deliver' component={ToDeliver} />
