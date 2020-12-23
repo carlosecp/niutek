@@ -9,6 +9,7 @@ import SearchCheckForm from '../../utils/search/SearchCheckForm'
 // Data
 import { createValues, createValuesSchema } from './initialValues'
 import Popup from '../../utils/tables/Popup'
+import PopupForm from './PopupForm'
 
 const initialValues = {
 	...createValues
@@ -27,7 +28,11 @@ const CheckCreate = () => {
 
 	return (
 		<>
-			{showPopup && <Popup togglePopup={togglePopup} />}
+			{showPopup && (
+				<Popup togglePopup={togglePopup}>
+					<PopupForm />
+				</Popup>
+			)}
 			<Formik
 				initialValues={initialValues}
 				validationSchema={validationSchema}
