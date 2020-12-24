@@ -51,10 +51,10 @@ const CreditResolutionCreate = () => {
 							label='Fecha de Solicitud'
 						/>
 						<Text
-							name='create_promotor'
+							name='create_fecha_de_resolucion'
 							size='md'
-							placeholder='Promotor'
-							label='Promotor'
+							placeholder='dd/mm/yyyy'
+							label='Fecha de Resolucion'
 						/>
 						<Text
 							name='create_monto_solicitado'
@@ -65,6 +65,25 @@ const CreditResolutionCreate = () => {
 							min='0'
 							newLine={true}
 						/>
+						<Text
+							name='create_monto_aprobado'
+							size='md'
+							placeholder='0'
+							label='Monto Aprobado'
+							type='number'
+							min='0'
+							newLine={false}
+						/>
+						<Dropdown
+							size='md'
+							name='create_moneda'
+							label='Moneda'
+							placeholder='Moneda'
+						>
+							<option value='option_2'>Córdobas</option>
+							<option value='option_3'>Dólares</option>
+							<option value='option_3'>Colones</option>
+						</Dropdown>
 						<Dropdown
 							size='md'
 							name='create_moneda'
@@ -77,6 +96,23 @@ const CreditResolutionCreate = () => {
 						</Dropdown>
 
 						<Text
+							name='create_frecuencia_de_pago'
+							size='md'
+							placeholder='Frecuencia de Pago'
+							label='Frecuencia de Pago'
+							type='number'
+							min='0'
+							newLine={true}
+						/>
+						<Text
+							name='create_frecuencia_de_pago'
+							size='md'
+							placeholder='Frecuencia de Pago'
+							label='Frecuencia de Pago'
+							type='number'
+							min='0'
+						/>
+						<Text
 							name='create_tasa_de_interes_mensual'
 							size='md'
 							placeholder='Tasa de Interés Mensual'
@@ -84,6 +120,14 @@ const CreditResolutionCreate = () => {
 							type='number'
 							min='0'
 							newLine={true}
+						/>
+						<Text
+							name='create_tasa_de_interes_mensual'
+							size='md'
+							placeholder='Tasa de Interés Mensual'
+							label='Tasa de Interés Mensual'
+							type='number'
+							min='0'
 						/>
 						<Text
 							name='create_plazo_en_meses'
@@ -95,13 +139,21 @@ const CreditResolutionCreate = () => {
 							newLine={true}
 						/>
 						<Text
-							name='create_frecuencia_de_pago'
+							name='create_plazo_en_meses'
 							size='md'
-							placeholder='Frecuencia de Pago'
-							label='Frecuencia de Pago'
+							placeholder='Plazo en Meses'
+							label='Plazo en Meses'
+							type='number'
+							min='1'
+						/>
+
+						<Text
+							name='create_porcentaje_aportación'
+							size='md'
+							placeholder='Porcentaje de Aportación'
+							label='Porcentaje de Aportación'
 							type='number'
 							min='0'
-							newLine={true}
 						/>
 						<Text
 							name='create_porcentaje_aportación'
@@ -112,10 +164,10 @@ const CreditResolutionCreate = () => {
 							min='0'
 						/>
 						<Text
-							name='create_documentos_requeridos'
+							name='create_calculo_de_interes'
 							size='md'
-							placeholder='Documentos Requeridos'
-							label='Documentos Requeridos'
+							placeholder=''
+							label='Calculo de interes'
 						/>
 						<Text
 							name='create_observaciones'
@@ -124,6 +176,18 @@ const CreditResolutionCreate = () => {
 							placeholder='Observaciones'
 							label='Observaciones'
 							isTextArea={true}
+						/>
+						<Text
+							name='create_promotor'
+							size='md'
+							placeholder='Promotor'
+							label='Promotor'
+						/>
+						<Text
+							name='create_documentos_requeridos'
+							size='md'
+							placeholder='Documentos Requeridos'
+							label='Documentos Requeridos'
 						/>
 					</div>
 					<SubmitBtn />
