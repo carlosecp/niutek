@@ -29,6 +29,7 @@ import {
 	EarlyCancellation,
 	AccountOpening
 } from './savings'
+import Billing from './inventory/billing'
 
 const Page = (props) => {
 	return (
@@ -132,6 +133,11 @@ const Page = (props) => {
 						exact
 						path='/app/ahorros/early-cancellation-fixed-term-deposit'
 						component={EarlyCancellation}
+					/>
+					<Route
+						exact
+						path='/app/inventory/billing'
+						component={Billing}
 					/>
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
