@@ -139,6 +139,11 @@ const Page = (props) => {
 						path='/app/inventory/billing'
 						component={Billing}
 					/>
+					<Route
+						exact
+						path='/app/inventory/items'
+						component={Items}
+					/>
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
 				</Switch>
