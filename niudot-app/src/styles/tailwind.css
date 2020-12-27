@@ -280,4 +280,13 @@ th:last-child {
 
 tr:nth-child(even) {
 	@apply bg-gray-200;
+	@apply dark:bg-gray-cstm-4;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+	-ms-overflow-style: none;
 }

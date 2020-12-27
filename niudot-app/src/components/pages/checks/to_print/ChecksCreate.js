@@ -9,7 +9,7 @@ import SearchCheckForm from '../../utils/search/SearchCheckForm'
 // Data
 import { createValues, createValuesSchema } from './initialValues'
 import Popup from '../../utils/tables/Popup'
-import PopupForm from './PopupForm'
+import EditPopup from './EditPopup'
 
 const initialValues = {
 	...createValues
@@ -21,8 +21,10 @@ const validationSchema = Yup.object({
 
 const CheckCreate = () => {
 	const [showPopup, setShowPopup] = useState(false)
+	const [currentPopup, setCurrentPopup] = useState('')
 
-	const togglePopup = () => {
+	const togglePopup = (popup) => {
+		setCurrentPopup(popup)
 		setShowPopup(!showPopup)
 	}
 
@@ -30,7 +32,8 @@ const CheckCreate = () => {
 		<>
 			{showPopup && (
 				<Popup togglePopup={togglePopup}>
-					<PopupForm />
+					{currentPopup === 'edit' && <EditPopup />}
+					{currentPopup === 'add' && <EditPopup />}
 				</Popup>
 			)}
 			<Formik
@@ -42,7 +45,21 @@ const CheckCreate = () => {
 			>
 				<Form className='table-section content-start'>
 					<SearchCheckForm className='mx-0 p-8' />
-					<CheckTable togglePopup={togglePopup} />
+					<CheckTable popup={EditPopup} togglePopup={togglePopup} />
+					<div className='mt-6 flex gap-2 justify-center flex-wrap'>
+						<div className='btn flex items-center bg-blue-blue btn-border-blue'>
+							Agregar
+						</div>
+						<div className='btn flex items-center bg-blue-blue btn-border-blue'>
+							Borrar
+						</div>
+						<div className='btn flex items-center bg-blue-blue btn-border-blue'>
+							Anular
+						</div>
+						<div className='btn flex items-center bg-blue-blue btn-border-blue'>
+							Imprimir
+						</div>
+					</div>
 				</Form>
 			</Formik>
 		</>
