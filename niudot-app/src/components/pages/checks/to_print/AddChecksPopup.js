@@ -89,7 +89,7 @@ const AddChecksPopup = ({ togglePopup }) => {
 					</div>
 				</Form>
 			</Formik>
-			<div className='flex gap-2 justify-center'>
+			<div className='mb-6 flex gap-2 justify-center'>
 				<button className='btn bg-blue-blue btn-border-blue'>Borrar</button>
 				<button className='btn bg-blue-blue btn-border-blue'>Anular</button>
 				<button className='btn bg-blue-blue btn-border-blue'>Imprimir</button>
