@@ -23,9 +23,10 @@ export const dummyData = {
 			datasets: [
 				{
 					label: 'Grafico Secundario 1',
-					data: [60, 40]
+					data: [60, 40],
 				}
-			]
+			],
+			
 		},
 		{
 			title: 'Credito Promedio',
