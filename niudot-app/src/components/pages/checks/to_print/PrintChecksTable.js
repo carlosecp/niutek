@@ -1,8 +1,7 @@
 // React and Router Stuff
-import React, { useContext } from 'react'
+import React from 'react'
 // Other Components
 import Table from '../../utils/tables'
-import EditPopup from './EditPopup'
 
 const ChecksTable = ({ togglePopup }) => {
 	const headers = ['No. Cheque', 'Fecha', 'Paguese a', 'Moneda', 'Monto']
@@ -46,12 +45,7 @@ const ChecksTable = ({ togglePopup }) => {
 
 	return (
 		<>
-			<Table
-				headers={headers}
-				rows={rows}
-				popup={EditPopup}
-				togglePopup={togglePopup}
-			/>
+			<Table headers={headers} rows={rows} togglePopup={togglePopup} />
 		</>
 	)
 }

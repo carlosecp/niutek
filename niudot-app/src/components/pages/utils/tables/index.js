@@ -21,14 +21,14 @@ const Table = ({ rows, headers, togglePopup }) => {
 										{row[value]}
 									</td>
 								))}
-								<td className='py-3 px-5 text-blue-700 dark:text-blue-500 font-bold hover:text-blue-500'>
-									{togglePopup && (
+								{togglePopup && (
+									<td className='py-3 px-5 text-blue-700 dark:text-blue-500 font-bold hover:text-blue-500'>
 										<FaEdit
 											className='fill-current hover:underline cursor-pointer'
-											onClick={() => togglePopup('edit')}
+											onClick={togglePopup}
 										/>
-									)}
-								</td>
+									</td>
+								)}
 							</tr>
 						)
 					})}
