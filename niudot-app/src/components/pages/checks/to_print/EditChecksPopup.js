@@ -2,14 +2,28 @@
 import React from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
-import { Dropdown, Text } from '../../../utils/forms'
-import Table from '../../../utils/tables'
-import Popup from '../../../utils/tables/Popup'
+import { Dropdown, Text } from '../../utils/forms'
+// Other Components
+import Table from '../../utils/tables'
+import Popup from '../../utils/tables/Popup'
 
-const AddPopup = ({ togglePopup }) => {
-	const headers = []
+const PrintChecksPopup = ({ togglePopup }) => {
+	const headers = ['Cuenta', 'Descripción', 'Débito', 'Crédito']
 
-	const rows = []
+	const rows = [
+		{
+			account: '512389023',
+			description: 'EQUIPO DE TRANSPORTE',
+			debit: 5750.5,
+			credit: 0
+		},
+		{
+			account: '512389023',
+			description: 'BDF CTA. CORRIENTE C$ No. 10232313',
+			debit: 0,
+			credit: 5750.5
+		}
+	]
 
 	return (
 		<Popup togglePopup={togglePopup}>
@@ -68,15 +82,30 @@ const AddPopup = ({ togglePopup }) => {
 							<Table headers={headers} rows={rows} />
 						</div>
 						<div className='form-grid-layout'>
-							<Text name='cantidad' size='md' label='Total Débito' disabled />
-							<Text name='cantidad' size='md' label='Total Crédito' disabled />
+							<Text
+								name='cantidad'
+								size='md'
+								label='Total Débito'
+								value={312434}
+								disabled
+							/>
+							<Text
+								name='cantidad'
+								size='md'
+								label='Total Crédito'
+								value={23423}
+								disabled
+							/>
 						</div>
 						<div className='mt-6 flex gap-2 justify-center'>
 							<button className='btn bg-blue-blue btn-border-blue'>
-								Agregar
+								Borrar
 							</button>
 							<button className='btn bg-blue-blue btn-border-blue'>
-								Borrar
+								Anular
+							</button>
+							<button className='btn bg-blue-blue btn-border-blue'>
+								Imprimir
 							</button>
 						</div>
 					</div>
@@ -86,4 +115,4 @@ const AddPopup = ({ togglePopup }) => {
 	)
 }
 
-export default AddPopup
+export default PrintChecksPopup

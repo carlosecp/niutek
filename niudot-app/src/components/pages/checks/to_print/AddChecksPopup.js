@@ -2,27 +2,15 @@
 import React from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
-import { Dropdown, Text } from '../../../utils/forms'
-import Table from '../../../utils/tables'
-import Popup from '../../../utils/tables/Popup'
+import { Dropdown, Text } from '../../utils/forms'
+// Other Components
+import Table from '../../utils/tables'
+import Popup from '../../utils/tables/Popup'
 
-const EditPopup = ({ togglePopup }) => {
-	const headers = ['Cuenta', 'Déscripcion', 'Débito', 'Crédito']
+const AddChecksPopup = ({ togglePopup }) => {
+	const headers = []
 
-	const rows = [
-		{
-			account: '512389023',
-			description: 'EQUIPO DE TRANSPORTE',
-			debit: 5750.5,
-			credit: 0
-		},
-		{
-			account: '512389023',
-			description: 'BDF CTA. CORRIENTE C$ No. 10232313',
-			debit: 0,
-			credit: 5750.5
-		}
-	]
+	const rows = []
 
 	return (
 		<Popup togglePopup={togglePopup}>
@@ -77,9 +65,11 @@ const EditPopup = ({ togglePopup }) => {
 								<option value='Juan'>Juan se la come</option>
 							</Dropdown>
 						</div>
-						<div className='my-8'>
-							<Table headers={headers} rows={rows} />
-						</div>
+						{headers.length > 0 && rows.length > 0 && (
+							<div className='my-8'>
+								<Table headers={headers} rows={rows} />
+							</div>
+						)}
 						<div className='form-grid-layout'>
 							<Text
 								name='cantidad'
@@ -96,19 +86,16 @@ const EditPopup = ({ togglePopup }) => {
 								disabled
 							/>
 						</div>
-						<div className='mt-6 flex gap-2 justify-center'>
-							<button className='btn bg-blue-blue btn-border-blue'>
-								Agregar
-							</button>
-							<button className='btn bg-blue-blue btn-border-blue'>
-								Borrar
-							</button>
-						</div>
 					</div>
 				</Form>
 			</Formik>
+			<div className='flex gap-2 justify-center'>
+				<button className='btn bg-blue-blue btn-border-blue'>Borrar</button>
+				<button className='btn bg-blue-blue btn-border-blue'>Anular</button>
+				<button className='btn bg-blue-blue btn-border-blue'>Imprimir</button>
+			</div>
 		</Popup>
 	)
 }
 
-export default EditPopup
+export default AddChecksPopup
