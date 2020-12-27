@@ -1,4 +1,3 @@
-
 // React and Router Stuff
 import React, { useState, useContext, useEffect } from 'react'
 // Other Components
@@ -7,6 +6,7 @@ import SearchCheckForm from '../../utils/search/SearchCheckForm'
 import routesContext from '../../../../context/routes/routesContext'
 import NewPopup from './popups/NewPopup'
 import ItemsCatalogue from './ItemsCatalogue'
+import { Formik } from 'formik'
 
 const Items = () => {
 	const { changePage } = useContext(routesContext)
@@ -19,7 +19,7 @@ const Items = () => {
 	})
 
 	useEffect(() => {
-		changePage('Artículos')
+		changePage('Catálogo de Artículos')
 	}, [])
 
 	const togglePopup = (popup) => {
@@ -33,7 +33,9 @@ const Items = () => {
 	return (
 		<div className='section'>
 			<SearchCheckForm />
-            <ItemsCatalogue />
+			<Formik>
+				<ItemsCatalogue />
+			</Formik>
 			{showPopup.void && <NewPopup togglePopup={() => togglePopup('void')} />}
 			<div className='my-4 flex gap-2 justify-center flex-wrap'>
 				<button
