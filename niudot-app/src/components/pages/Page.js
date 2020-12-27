@@ -30,6 +30,7 @@ import {
 	AccountOpening
 } from './savings'
 import Billing from './inventory/billing'
+import Purchase from './inventory/purchase'
 
 const Page = (props) => {
 	return (
@@ -143,6 +144,11 @@ const Page = (props) => {
 						exact
 						path='/app/inventory/items'
 						component={Items}
+					/>
+					<Route
+						exact
+						path='/app/inventory/purchase'
+						component={Purchase}
 					/>
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />

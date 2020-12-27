@@ -75,7 +75,7 @@ const Checkbox = (props) => {
 	const { label, size, name, description, newLine } = props
 
 	return (
-		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
+		<div className={`form-container-${size} ${newLine && 'force-newline'} mt-6`}>
 			<CheckboxInput name={name} label={label} description={description} />
 		</div>
 	)
@@ -92,6 +92,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
 	newLine: false
 }
+
 
 const Dropdown = ({ value, handleChange, size, label, newLine, ...props }) => {
 	const [field] = useField(props)
