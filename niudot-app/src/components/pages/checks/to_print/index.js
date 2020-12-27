@@ -9,7 +9,7 @@ const ChecksToPrint = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
-		changePage('sdasdfasdfasfasdf')
+		changePage('Cheques Por Imprimir')
 	}, [])
 
 	return <ChecksCreate />
