@@ -3,7 +3,7 @@ import React from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
 import { Dropdown, Text } from '../../utils/forms'
-import { FaCheck, FaBan, FaPrint, FaTrash } from 'react-icons/fa'
+import { FaCheck, FaBan, FaPrint, FaTrash, FaTimes } from 'react-icons/fa'
 // Other Components
 import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
@@ -45,6 +45,10 @@ const EditChecksPopup = ({ togglePopup }) => {
 				</Form>
 			</Formik>
 			<div className='mx-4 mb-6 flex gap-2 justify-center flex-wrap'>
+				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
+					Eliminar Anulación
+					<FaTimes />
+				</button>
 				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
 					Imprimir
 					<FaPrint />

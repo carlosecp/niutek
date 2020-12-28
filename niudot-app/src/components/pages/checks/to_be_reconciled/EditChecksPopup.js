@@ -3,11 +3,29 @@ import React from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
 import { Dropdown, Text } from '../../utils/forms'
-import { FaBan, FaCheck, FaPrint, FaTrash } from 'react-icons/fa'
+import { FaCheck, FaBan, FaPrint, FaTrash, FaReceipt } from 'react-icons/fa'
 // Other Components
+import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
 const EditChecksPopup = ({ togglePopup }) => {
+	const headers = ['Cuenta', 'Descripción', 'Débito', 'Crédito']
+
+	const rows = [
+		{
+			account: '512389023',
+			description: 'EQUIPO DE TRANSPORTE',
+			debit: 5750.5,
+			credit: 0
+		},
+		{
+			account: '512389023',
+			description: 'BDF CTA. CORRIENTE C$ No. 10232313',
+			debit: 0,
+			credit: 5750.5
+		}
+	]
+
 	return (
 		<Popup togglePopup={togglePopup}>
 			<Formik
@@ -28,6 +46,8 @@ const EditChecksPopup = ({ togglePopup }) => {
 								size='md'
 								placeholder='No. Cheque'
 								label='No. Cheque'
+								value={10287}
+								disabled
 							/>
 							<Text
 								name='moneda'
@@ -40,48 +60,34 @@ const EditChecksPopup = ({ togglePopup }) => {
 								size='lg'
 								placeholder='Paguese a la orden de'
 								label='A orden de'
-								newLine={true}
+								value={'COGUMESA'}
 								disabled
-								value={'ALCALDÍA MUNICIPAL DE NINDIRÍ'}
 							/>
 							<Text
-								name='deliver_to'
+								name='cantidad'
 								size='md'
 								placeholder='Monto'
 								label='Monto'
 								type='number'
-								value={1600.0}
+								value={46033.54}
 								disabled
 							/>
 							<Text
-								name='deliver_to'
+								name='cantidad'
 								size='md'
 								placeholder='Monto'
 								label='Descripción del Monto'
 							/>
 							<Text
 								isTextArea={true}
-								name='concepto'
+								name='cantidad'
 								size='lg'
 								placeholder='Monto'
-								label='Por concepto de'
+								label='Por concepto de:'
 								value={
-									'Pago de servicio de recolecta de basura. Correspondiente al mes de Septiembre/20. Según orden de pago No.3273 enviada por SOLKA, S.A.'
+									'Compra de saborizante en polvos y liquidos, según orden de pago No. 1667 enviada por SOLKA.'
 								}
 								disabled
-							/>
-							<Text
-								name='deliver_to'
-								size='lg'
-								placeholder='Destinatario'
-								label='Entregar a'
-							/>
-							<Text
-								name='deliver_to'
-								size='md'
-								placeholder='Cédula'
-								label='Cédula'
-								newLine={true}
 							/>
 						</div>
 					</div>
@@ -89,16 +95,8 @@ const EditChecksPopup = ({ togglePopup }) => {
 			</Formik>
 			<div className='mx-4 mb-6 flex gap-2 justify-center flex-wrap'>
 				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
-					Entregar
-					<FaCheck />
-				</button>
-				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
-					Borrar
-					<FaTrash />
-				</button>
-				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
-					Anular
-					<FaBan />
+					Conciliar
+					<FaReceipt />
 				</button>
 				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
 					Imprimir

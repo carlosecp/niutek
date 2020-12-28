@@ -6,7 +6,7 @@ import DeliverChecksTable from './DeliverChecksTable'
 import EditChecksPopup from './EditChecksPopup'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
-import { FaPlus, FaPrint } from 'react-icons/fa'
+import { FaChartLine, FaPrint } from 'react-icons/fa'
 
 const ChecksToPrint = () => {
 	const { changePage } = useContext(routesContext)
@@ -29,6 +29,10 @@ const ChecksToPrint = () => {
 				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
 					Imprimir Listado
 					<FaPrint />
+				</button>
+				<button className='btn flex items-center bg-blue-blue btn-border-blue gap-2'>
+					Reporte de Cheques
+					<FaChartLine />
 				</button>
 			</div>
 		</div>

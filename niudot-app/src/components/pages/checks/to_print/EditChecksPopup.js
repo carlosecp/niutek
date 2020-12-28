@@ -8,7 +8,7 @@ import { FaCheck, FaBan, FaPrint, FaTrash } from 'react-icons/fa'
 import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
-const PrintChecksPopup = ({ togglePopup }) => {
+const EditChecksPopup = ({ togglePopup }) => {
 	const headers = ['Cuenta', 'Descripción', 'Débito', 'Crédito']
 
 	const rows = [
@@ -123,4 +123,4 @@ const PrintChecksPopup = ({ togglePopup }) => {
 	)
 }
 
-export default PrintChecksPopup
+export default EditChecksPopup

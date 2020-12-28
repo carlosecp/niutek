@@ -6,9 +6,9 @@ import ReconciledChecksTable from './ReconciledChecksTable'
 import EditChecksPopup from './EditChecksPopup'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
-import { FaPlus, FaPrint } from 'react-icons/fa'
+import { FaChartLine, FaPlus, FaPrint } from 'react-icons/fa'
 
-const ChecksToPrint = () => {
+const ChecksReconciled = () => {
 	const { changePage } = useContext(routesContext)
 	const [showEditPopup, setShowEditPopup] = useState(false)
 
@@ -30,9 +30,13 @@ const ChecksToPrint = () => {
 					Imprimir Listado
 					<FaPrint />
 				</button>
+				<button className='btn flex items-center bg-blue-blue btn-border-blue gap-2'>
+					Reporte de Cheques
+					<FaChartLine />
+				</button>
 			</div>
 		</div>
 	)
 }
 
-export default ChecksToPrint
+export default ChecksReconciled
