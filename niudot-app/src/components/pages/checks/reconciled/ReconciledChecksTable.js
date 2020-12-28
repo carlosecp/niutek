@@ -3,7 +3,7 @@ import React from 'react'
 // Other Components
 import Table from '../../utils/tables'
 
-const ReconciledChecksTable = ({ togglePopup }) => {
+const ChecksTable = ({ togglePopup }) => {
 	const headers = ['No. Cheque', 'Fecha', 'Paguese a', 'Moneda', 'Monto']
 	const rows = [
 		{
@@ -50,5 +50,4 @@ const ReconciledChecksTable = ({ togglePopup }) => {
 	)
 }
 
-export default ReconciledChecksTable
-
+export default ChecksTable

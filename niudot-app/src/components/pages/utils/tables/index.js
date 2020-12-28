@@ -5,7 +5,7 @@ import { FaEdit } from 'react-icons/fa'
 const Table = ({ rows, headers, togglePopup }) => {
 	return (
 		<div className='overflow-x-scroll sm:hide-scrollbar'>
-			<table className='table-auto border-1 border-gray-500'>
+			<table className='mx-auto table-auto border-1 border-gray-500'>
 				<thead className='bg-blue-700 dark:bg-blue-500 text-white'>
 					{headers.map((header) => (
 						<th className='py-3 px-5 whitespace-nowrap'>{header}</th>

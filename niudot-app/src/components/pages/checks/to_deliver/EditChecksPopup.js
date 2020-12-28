@@ -3,16 +3,11 @@ import React from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
 import { Dropdown, Text } from '../../utils/forms'
-import { FaCheck } from 'react-icons/fa'
+import { FaBan, FaCheck, FaPrint, FaTrash } from 'react-icons/fa'
 // Other Components
-import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
-const AddChecksPopup = ({ togglePopup }) => {
-	const headers = []
-
-	const rows = []
-
+const PrintChecksPopup = ({ togglePopup }) => {
 	return (
 		<Popup togglePopup={togglePopup}>
 			<Formik
@@ -46,45 +41,47 @@ const AddChecksPopup = ({ togglePopup }) => {
 								placeholder='Paguese a la orden de'
 								label='A orden de'
 								newLine={true}
+								disabled
+								value={'ALCALDÍA MUNICIPAL DE NINDIRÍ'}
 							/>
 							<Text
-								name='cantidad'
+								name='deliver_to'
 								size='md'
 								placeholder='Monto'
 								label='Monto'
 								type='number'
+								value={1600.0}
+								disabled
 							/>
 							<Text
-								name='cantidad'
+								name='deliver_to'
 								size='md'
 								placeholder='Monto'
 								label='Descripción del Monto'
 							/>
-							<Dropdown name='account' size='md' label='Cuenta Bancaria'>
-								<option value=''>Defualt Value</option>
-								<option value='Juan'>Juan se la come</option>
-								<option value='Juan'>Juan se la come</option>
-							</Dropdown>
-						</div>
-						{headers.length > 0 && rows.length > 0 && (
-							<div className='my-8'>
-								<Table headers={headers} rows={rows} />
-							</div>
-						)}
-						<div className='form-grid-layout'>
 							<Text
-								name='cantidad'
-								size='md'
-								label='Total Débito'
-								value={312434}
+								isTextArea={true}
+								name='concepto'
+								size='lg'
+								placeholder='Monto'
+								label='Por concepto de'
+								value={
+									'Pago de servicio de recolecta de basura. Correspondiente al mes de Septiembre/20. Según orden de pago No.3273 enviada por SOLKA, S.A.'
+								}
 								disabled
 							/>
 							<Text
-								name='cantidad'
+								name='deliver_to'
+								size='lg'
+								placeholder='Destinatario'
+								label='Entregar a'
+							/>
+							<Text
+								name='deliver_to'
 								size='md'
-								label='Total Crédito'
-								value={23423}
-								disabled
+								placeholder='Cédula'
+								label='Cédula'
+								newLine={true}
 							/>
 						</div>
 					</div>
@@ -92,12 +89,24 @@ const AddChecksPopup = ({ togglePopup }) => {
 			</Formik>
 			<div className='mx-4 mb-6 flex gap-2 justify-center flex-wrap'>
 				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
-					Grabar
+					Entregar
 					<FaCheck />
+				</button>
+				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
+					Borrar
+					<FaTrash />
+				</button>
+				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
+					Anular
+					<FaBan />
+				</button>
+				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
+					Imprimir
+					<FaPrint />
 				</button>
 			</div>
 		</Popup>
 	)
 }
 
-export default AddChecksPopup
+export default PrintChecksPopup
