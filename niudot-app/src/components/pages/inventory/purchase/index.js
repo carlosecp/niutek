@@ -5,34 +5,37 @@ import SearchCheckForm from '../../utils/search/SearchCheckForm'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
 import PurchaseTable from './PurchaseTable'
-import NewPurchasePopup from './popups/NewPurchasePopup'
-import { Text, Dropdown, Checkbox } from '../../utils/forms'
+import { Text, Dropdown } from '../../utils/forms'
 import { Formik } from 'formik'
 import DateInput from '../../utils/forms/DateInput'
+import EditPurchasePopup from './popups/EditPurchasePopup'
 
 
 const Purchase = () => {
+
+	const [showEditPopup, setShowEditPopup] = useState(false)
+    
 	const { changePage } = useContext(routesContext)
 	const [showPopup, setShowPopup] = useState({
-		deliver: false,
-		delete: false,
-		null: false,
-		print: false,
-		print_report: false,
-		print_list: false
+		edit: false,
 	})
 
 	useEffect(() => {
-		changePage('Cheques Por Entregar')
+		changePage('Compras')
 	}, [])
 
 	const togglePopup = (popup) => {
 		switch (popup) {
-			case 'deliver':
-				setShowPopup({ ...showPopup, deliver: !showPopup.deliver })
+			case 'edit':
+				setShowPopup({ ...showPopup, edit: !showPopup.edit })
 				break
-		}
-	}
+        }
+    }
+    
+    const toggleEditPopup = () => {
+		setShowEditPopup(!showEditPopup)
+    }
+
 
 	return (
 		<div className='section'>
@@ -109,33 +112,9 @@ const Purchase = () => {
 				</div>
 			</Formik>
 
-			<PurchaseTable  togglePopup={() => togglePopup('deliver')} />
-			{showPopup.deliver && (
-				<NewPurchasePopup togglePopup={() => togglePopup('deliver')} />
-			)}
-			<div className='my-4 flex gap-2 justify-center flex-wrap'>
-				<button
-					className='btn flex items-center bg-blue-blue btn-border-blue'
-					onClick={() => togglePopup('deliver')}
-				>
-					Entregar
-				</button>
-				<button className='btn flex items-center bg-blue-blue btn-border-blue'>
-					Borrar
-				</button>
-				<button className='btn flex items-center bg-blue-blue btn-border-blue'>
-					Anular
-				</button>
-				<button className='btn flex items-center bg-blue-blue btn-border-blue'>
-					Imprimir
-				</button>
-				<button className='btn flex items-center bg-blue-blue btn-border-blue'>
-					Imprimir Listado de Cheques
-				</button>
-				<button className='btn flex items-center bg-blue-blue btn-border-blue'>
-					Imprimir Reporte de Cheques
-				</button>
-			</div>
+			<PurchaseTable  togglePopup={toggleEditPopup} />
+            {showEditPopup && <EditPurchasePopup togglePopup={toggleEditPopup} />}
+
 		</div>
 	)
 }

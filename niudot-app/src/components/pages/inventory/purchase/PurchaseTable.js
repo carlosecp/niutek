@@ -49,7 +49,7 @@ const PurchaseTable = ({ togglePopup }) => {
 
 	return (
 		<>
-			<Table headers={headers} rows={rows} />
+			<Table headers={headers} rows={rows} togglePopup={togglePopup}/>
 		</>
 	)
 }
