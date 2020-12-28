@@ -3,7 +3,7 @@ import React from 'react'
 // Other Components
 import Table from '../../utils/tables'
 
-const VoidedChecksTable = ({ togglePopup }) => {
+const ChecksTable = ({ togglePopup }) => {
 	const headers = ['No. Cheque', 'Fecha', 'Paguese a', 'Moneda', 'Monto']
 	const rows = [
 		{
@@ -45,9 +45,9 @@ const VoidedChecksTable = ({ togglePopup }) => {
 
 	return (
 		<>
-			<Table headers={headers} rows={rows} />
+			<Table headers={headers} rows={rows} togglePopup={togglePopup} />
 		</>
 	)
 }
 
-export default VoidedChecksTable
+export default ChecksTable

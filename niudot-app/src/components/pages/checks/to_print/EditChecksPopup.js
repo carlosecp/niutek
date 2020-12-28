@@ -3,11 +3,12 @@ import React from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
 import { Dropdown, Text } from '../../utils/forms'
+import { FaCheck, FaBan, FaPrint, FaTrash } from 'react-icons/fa'
 // Other Components
 import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
-const PrintChecksPopup = ({ togglePopup }) => {
+const EditChecksPopup = ({ togglePopup }) => {
 	const headers = ['Cuenta', 'Descripción', 'Débito', 'Crédito']
 
 	const rows = [
@@ -97,22 +98,29 @@ const PrintChecksPopup = ({ togglePopup }) => {
 								disabled
 							/>
 						</div>
-						<div className='mt-6 flex gap-2 justify-center'>
-							<button className='btn bg-blue-blue btn-border-blue'>
-								Borrar
-							</button>
-							<button className='btn bg-blue-blue btn-border-blue'>
-								Anular
-							</button>
-							<button className='btn bg-blue-blue btn-border-blue'>
-								Imprimir
-							</button>
-						</div>
 					</div>
 				</Form>
 			</Formik>
+			<div className='mx-4 mb-6 flex gap-2 justify-center flex-wrap'>
+				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
+					Grabar
+					<FaCheck />
+				</button>
+				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
+					Borrar
+					<FaTrash />
+				</button>
+				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
+					Anular
+					<FaBan />
+				</button>
+				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
+					Imprimir
+					<FaPrint />
+				</button>
+			</div>
 		</Popup>
 	)
 }
 
-export default PrintChecksPopup
+export default EditChecksPopup
