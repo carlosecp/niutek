@@ -1,79 +1,78 @@
 // React and Router Stuff
 import React, { useState, useContext, useEffect } from 'react'
 // Other Components
-import SearchCheckForm from '../../utils/search/SearchCheckForm'
+import SearchProductForm from '../../utils/search/SearchProductForm'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
 import { Formik } from 'formik'
 import ProductsTable from './ProductsTable'
-import { Text, Dropdown, Checkbox } from '../../utils/forms'
-import DateInput from '../../utils/forms/DateInput'
-import SearchProductForm from '../../utils/search/SearchProductForm'
+import { Text} from '../../utils/forms'
+import EditPopup from './popups/EditPopup'
+import AddItemPopup from './popups/AddItemPopup'
 
 const InventoryProducts = () => {
 	const { changePage } = useContext(routesContext)
+	const [showEditPopup, setShowEditPopup] = useState(false)
+	const [showAddPopup, setShowAddPopup] = useState(false)
+
 	const [showPopup, setShowPopup] = useState({
 		add: false,
-		edit: false,
-		delete: false,
-		null: false,
-		print: false
+		edit: false
 	})
 
 	useEffect(() => {
 		changePage('Productos')
 	}, [])
 
-	const togglePopup = (popup) => {
-		switch (popup) {
-			case 'void':
-				setShowPopup({ ...showPopup, void: !showPopup.void })
-				break
-		}
+	const toggleEditPopup = () => {
+		setShowEditPopup(!showEditPopup)
 	}
+
+	const toggleAddPopup = () => {
+		setShowAddPopup(!showAddPopup)
+	}
+
+
 
 	return (
 		<div className='section'>
-			<SearchProductForm/>
+			<SearchProductForm />
 			<Formik>
-			<div className='form-grid-layout pb-8'>
-				<Text
-					name='bodega'
-					size='lg'
-					placeholder='Bodega'
-					label='Bodega'
-				/>
-				<Text
-					name='producto'
-					size='md'
-					placeholder='Producto'
-					label='Producto'
-					newLine={true}
-				/>
-                <Text
-					name='codigo_producto'
-					size='sm'
-					placeholder='Código'
-					label='00221'
-				/>
-				<Text
-					name='Abreviación'
-					size='sm'
-					placeholder='Abreviación'
-                    label='Abreviación'
-                    newLine={true}
-				/>
-			</div>
+				<div className='form-grid-layout pb-8'>
+					<Text name='bodega' size='lg' placeholder='Bodega' label='Bodega' />
+					<Text
+						name='producto'
+						size='md'
+						placeholder='Producto'
+						label='Producto'
+						newLine={true}
+					/>
+					<Text
+						name='codigo_producto'
+						size='sm'
+						placeholder='Código'
+						label='00221'
+					/>
+					<Text
+						name='Abreviación'
+						size='sm'
+						placeholder='Abreviación'
+						label='Abreviación'
+						newLine={true}
+					/>
+				</div>
 			</Formik>
 
-			<ProductsTable />
-			
-			{/*{showPopup.void && <NewPopup togglePopup={() => togglePopup('void')} />} */}
+			<ProductsTable togglePopup={toggleEditPopup} />
+
+			{showEditPopup && <EditPopup togglePopup={toggleEditPopup} />}
+			{showAddPopup && <AddItemPopup togglePopup={toggleAddPopup} />}
+
 
 			<div className='my-4 flex gap-2 justify-center flex-wrap'>
 				<button
 					className='btn flex items-center bg-blue-blue btn-border-blue'
-					onClick={() => togglePopup('add')}
+					onClick={toggleAddPopup}
 				>
 					Agregar Artículo
 				</button>

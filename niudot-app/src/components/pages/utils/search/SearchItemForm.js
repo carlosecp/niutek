@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 // Extra libraries
 import { FaSearch } from 'react-icons/fa'
 
-const SearchForm = () => {
+const SearchItemForm = () => {
 	const [userName, setUserName] = useState('')
 
 	const handleUserNameInput = (event) => {
@@ -19,7 +19,7 @@ const SearchForm = () => {
 		<div className='section'>
 			<h2 className='text-black-white font-bold text-xl'>Buscar En Catalogo</h2>
 			<p className='text-gray-gray'>
-				Buscar segun el nombre del producto o nombre abreviado.
+				Buscar segun el nombre del articulo o nombre abreviado.
 			</p>
 			<form className='mt-2' onSubmit={handleUserNameSubmit}>
 				<div className='flex items-center gap-2'>
@@ -39,4 +39,4 @@ const SearchForm = () => {
 	)
 }
 
-export default SearchForm
+export default SearchItemForm
