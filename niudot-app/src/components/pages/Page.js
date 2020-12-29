@@ -21,7 +21,7 @@ import {
 	SavingsAccountWithdrawal,
 	DepositToSavingsAccount
 } from './register'
-import { Items } from './inventory'
+import { Items, Purchase, InventoryProducts, Billing } from './inventory'
 import {
 	OrderStubs,
 	AccountCancellation,
@@ -29,8 +29,6 @@ import {
 	EarlyCancellation,
 	AccountOpening
 } from './savings'
-import Billing from './inventory/billing'
-import Purchase from './inventory/purchase'
 
 const Page = (props) => {
 	return (
@@ -135,20 +133,13 @@ const Page = (props) => {
 						path='/app/ahorros/early-cancellation-fixed-term-deposit'
 						component={EarlyCancellation}
 					/>
+					<Route exact path='/app/inventory/billing' component={Billing} />
+					<Route exact path='/app/inventory/items' component={Items} />
+					<Route exact path='/app/inventory/purchase' component={Purchase} />
 					<Route
 						exact
-						path='/app/inventory/billing'
-						component={Billing}
-					/>
-					<Route
-						exact
-						path='/app/inventory/items'
-						component={Items}
-					/>
-					<Route
-						exact
-						path='/app/inventory/purchase'
-						component={Purchase}
+						path='/app/inventory/products'
+						component={InventoryProducts}
 					/>
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
