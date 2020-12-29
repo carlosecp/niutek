@@ -21,7 +21,7 @@ import {
 	SavingsAccountWithdrawal,
 	DepositToSavingsAccount
 } from './register'
-import { Items, Purchase, InventoryProducts, Billing } from './inventory'
+import { Items, Purchase, InventoryProducts, Billing, InvoiceCancel} from './inventory'
 import {
 	OrderStubs,
 	AccountCancellation,
@@ -29,6 +29,8 @@ import {
 	EarlyCancellation,
 	AccountOpening
 } from './savings'
+
+import {TableMaintenance} from './table-maintenance'
 
 const Page = (props) => {
 	return (
@@ -136,11 +138,13 @@ const Page = (props) => {
 					<Route exact path='/app/inventory/billing' component={Billing} />
 					<Route exact path='/app/inventory/items' component={Items} />
 					<Route exact path='/app/inventory/purchase' component={Purchase} />
+					<Route exact path='/app/inventory/invoice-cancel' component={InvoiceCancel} />
 					<Route
 						exact
 						path='/app/inventory/products'
 						component={InventoryProducts}
 					/>
+					<Route exact path='/app/table-maintenance' component={TableMaintenance} />
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
 				</Switch>

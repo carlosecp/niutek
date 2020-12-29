@@ -104,7 +104,7 @@ const pages = [
 			},
 			{
 				path: 'app/credit/request',
-				name: 'Resolución'
+				name: 'Solicitud'
 			}
 		]
 	},
@@ -169,6 +169,16 @@ const pages = [
 			{
 				path: 'app/inventory/reports',
 				name: 'Reportes'
+			}
+		]
+	},
+	{
+		name: 'Mantenimiento de tablas',
+		icon: <FaCubes />,
+		dropdownOptions: [
+			{
+				path: 'app/table-maintenance',
+				name: 'Tablas'
 			}
 		]
 	}
