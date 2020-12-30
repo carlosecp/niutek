@@ -21,7 +21,7 @@ function Register(props) {
 
 	useEffect(() => {
 		if (isAuthenticated) {
-			props.history.push('/app/inicio')
+			props.history.push('/app/dashboard')
 			loadUser()
 		}
 		// eslint-disable-next-line

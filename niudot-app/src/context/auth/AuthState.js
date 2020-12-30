@@ -11,9 +11,9 @@ import setAuthToken from '../../utils/setAuthToken'
 
 const AuthState = (props) => {
 	const initialState = {
-		user: true,
+		user: false,
 		token: localStorage.getItem('token'),
-		isAuthenticated: true,
+		isAuthenticated: false,
 		loading: true,
 		error: null
 	}
@@ -92,7 +92,7 @@ const AuthState = (props) => {
 	const logout = () => dispatch({ type: types.LOGOUT })
 
 	// &Clear Errors
-	function clearErrors() {}
+	const clearErrors = () => {}
 
 	return (
 		<authContext.Provider
