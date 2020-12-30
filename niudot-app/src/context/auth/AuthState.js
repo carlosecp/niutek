@@ -5,7 +5,7 @@ import authContext from './authContext'
 import authReducer from './authReducer'
 import setAuthToken from '../../utils/setAuthToken'
 
-function AuthState(props) {
+const AuthState = (props) => {
 	const initialState = {
 		user: false,
 		token: localStorage.getItem('token'),
@@ -17,7 +17,7 @@ function AuthState(props) {
 	const [state, dispatch] = useReducer(authReducer, initialState)
 
 	// &Load User
-	async function loadUser() {
+	const loadUser = async () => {
 		if (localStorage.token) {
 			setAuthToken(localStorage.token)
 		}
@@ -40,7 +40,7 @@ function AuthState(props) {
 	}
 
 	// &Register
-	async function registerUser(formData) {
+	const registerUser = async (formData) => {
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ function AuthState(props) {
 	}
 
 	// &Login
-	async function loginUser(formData) {
+	const loginUser = async (formData) => {
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ function AuthState(props) {
 	const logout = () => dispatch({ type: types.LOGOUT })
 
 	// &Clear Errors
-	function clearErrors() {}
+	const clearErrors = () => {}
 
 	return (
 		<authContext.Provider
