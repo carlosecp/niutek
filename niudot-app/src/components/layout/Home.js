@@ -9,13 +9,6 @@ function Home(props) {
 
 	const { isAuthenticated, loadUser } = useContext(authContext)
 
-	//useEffect(() => {
-	//loadUser()
-	//if (!isAuthenticated) {
-	//props.history.push('/')
-	//}
-	//}, [isAuthenticated])
-
 	if (!isAuthenticated) {
 		return <Redirect to='/' />
 	}

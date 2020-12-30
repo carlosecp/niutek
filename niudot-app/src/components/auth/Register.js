@@ -1,15 +1,14 @@
-// React and Router Stuff
 import React, { useEffect, useContext } from 'react'
-// Extra libraries
-import * as Yup from 'yup'
+import { Link } from 'react-router-dom'
 import { Formik, Form } from 'formik'
-// Context
+import * as Yup from 'yup'
+import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
 import authContext from '../../context/auth/authContext'
-// Other Components
-import { Text } from '../pages/utils/forms'
-import Navbar from './Navbar'
+import themeContext from '../../context/theme/themeContext'
+import { FaMoon, FaSun } from 'react-icons/fa'
+import Alerts from '../pages/alerts/Alerts'
 
-const Register = (props) => {
+function Register(props) {
 	const initialValues = {
 		name: '',
 		email: '',
@@ -17,17 +16,16 @@ const Register = (props) => {
 		password_conf: ''
 	}
 
-	const { user, loadUser, registerUser, isAuthenticated } = useContext(
-		authContext
-	)
+	const { loadUser, registerUser, isAuthenticated } = useContext(authContext)
+	const { theme, toggleTheme } = useContext(themeContext)
 
 	useEffect(() => {
-		if (isAuthenticated && user) {
+		if (isAuthenticated) {
 			props.history.push('/app/inicio')
 			loadUser()
 		}
 		// eslint-disable-next-line
-	}, [isAuthenticated, user])
+	}, [isAuthenticated])
 
 	function handleSubmit({ name, email, password }) {
 		registerUser({ name, email, password })
@@ -35,9 +33,39 @@ const Register = (props) => {
 
 	return (
 		<>
-			<Navbar prompt='¿Ya tienes una cuenta?' tag='Inicia Sesión' path='/' />
+			<div className='fixed w-full bg-white-gray'>
+				<div className='max-w-screen-xl h-24 px-8 flex items-center justify-between mx-auto'>
+					<h1 className='text-black-white text-2xl font-bold'>niudot</h1>
+					<div className='text-black-white flex items-center'>
+						<span className='sm:hidden'>¿Ya tienes una cuenta?</span>
+						<Link to='/'>
+							<span className='ml-2 mr-6 font-bold cursor-pointer hover:underline text-blue-blue'>
+								Inicia Sesión
+							</span>
+						</Link>
+						<div
+							className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition'
+							onClick={toggleTheme}
+						>
+							<div
+								className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-700 transform flex justify-center items-center ${
+									theme && 'translate-x-6'
+								}`}
+							>
+								{theme ? (
+									<FaMoon className='text-white fill-current' />
+								) : (
+									<FaSun className='text-blue-500 fill-current' />
+								)}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-			<div className='bg-white dark:bg-gray-cstm-1 m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
+			<Alerts />
+
+			<div className='bg-white-gray m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
 				<div className='flex flex-col items-center justify-center'>
 					<h1 className='text-black-white font-bold text-3xl select-none'>
 						Registrarse
@@ -59,7 +87,7 @@ const Register = (props) => {
 						<Form>
 							<div className='mt-12 mb-6 w-80 sm:w-64'>
 								<div className='mb-2'>
-									<Text
+									<FormTextInput
 										name='name'
 										placeholder='Nombre'
 										label='Nombre'
@@ -67,7 +95,7 @@ const Register = (props) => {
 									/>
 								</div>
 								<div className='mb-2'>
-									<Text
+									<FormTextInput
 										name='email'
 										placeholder='Correo Electrónico'
 										label='Correo Electrónico'
@@ -75,7 +103,7 @@ const Register = (props) => {
 									/>
 								</div>
 								<div className='mb-2'>
-									<Text
+									<FormTextInput
 										name='password'
 										placeholder='Contraseña'
 										label='Contraseña'
@@ -84,7 +112,7 @@ const Register = (props) => {
 									/>
 								</div>
 								<div className='mb-2'>
-									<Text
+									<FormTextInput
 										name='password_conf'
 										placeholder='Confirmar Contraseña'
 										label='Confirmar Contraseña'
