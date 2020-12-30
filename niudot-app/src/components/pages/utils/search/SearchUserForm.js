@@ -1,14 +1,16 @@
+// React and Router Stuff
 import React, { useState } from 'react'
+// Extra libraries
 import { FaSearch } from 'react-icons/fa'
 
-function SearchForm() {
+const SearchForm = () => {
 	const [userName, setUserName] = useState('')
 
-	function handleUserNameInput(event) {
+	const handleUserNameInput = (event) => {
 		setUserName(event.target.value)
 	}
 
-	function handleUserNameSubmit(event) {
+	const handleUserNameSubmit = (event) => {
 		event.preventDefault()
 		setUserName('')
 	}

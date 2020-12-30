@@ -1,18 +1,42 @@
 // React and Router Stuff
-import React, { useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+// Other Components
+import SearchCheckForm from '../../utils/search/SearchCheckForm'
+import ReconciledChecksTable from './ReconciledChecksTable'
+import EditChecksPopup from './EditChecksPopup'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
-// Other Components
-import ReconciledChecksCreate from './ReconciledChecksCreate'
+import { FaChartLine, FaPlus, FaPrint } from 'react-icons/fa'
 
-const ReconciledChecks = () => {
+const ChecksReconciled = () => {
 	const { changePage } = useContext(routesContext)
+	const [showEditPopup, setShowEditPopup] = useState(false)
 
 	useEffect(() => {
 		changePage('Cheques Conciliados')
 	}, [])
 
-	return <ReconciledChecksCreate />
+	const toggleEditPopup = () => {
+		setShowEditPopup(!showEditPopup)
+	}
+
+	return (
+		<div className='section'>
+			<SearchCheckForm />
+			<ReconciledChecksTable togglePopup={toggleEditPopup} />
+			{showEditPopup && <EditChecksPopup togglePopup={toggleEditPopup} />}
+			<div className='my-4 flex gap-2 justify-center flex-wrap'>
+				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
+					Imprimir Listado
+					<FaPrint />
+				</button>
+				<button className='btn flex items-center bg-blue-blue btn-border-blue gap-2'>
+					Reporte de Cheques
+					<FaChartLine />
+				</button>
+			</div>
+		</div>
+	)
 }
 
-export default ReconciledChecks
+export default ChecksReconciled

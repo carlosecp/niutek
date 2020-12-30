@@ -91,7 +91,7 @@ function SettingsMenu() {
 
 	return (
 		<div className='absolute bottom-14 w-full'>
-			<div className='transition rounded p-2 w-10/12 bg-white-gray mx-auto shadow-md'>
+			<div className='transition rounded p-2 ml-6 bg-white-gray shadow-md'>
 				<div className='flex flex-col items-center justify-center gap-2'>
 					<ThemeSwitch />
 					<strong

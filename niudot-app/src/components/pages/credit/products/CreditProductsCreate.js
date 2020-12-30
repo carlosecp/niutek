@@ -51,7 +51,6 @@ const CreditProductsCreate = () => {
 							placeholder='Nombre del Producto'
 							label='Nombre del Producto'
 						/>
-
 						<Text
 							name='create_descripcion'
 							size='lg'

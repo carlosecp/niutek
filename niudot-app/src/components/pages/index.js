@@ -9,7 +9,8 @@ import {
 	FaReceipt,
 	FaChevronCircleDown,
 	FaCreditCard,
-	FaMoneyCheck
+	FaMoneyCheck,
+	FaCubes
 } from 'react-icons/fa/index'
 
 const pages = [
@@ -61,8 +62,11 @@ const pages = [
 		name: 'Ahorros',
 		icon: <FaPiggyBank />,
 		dropdownOptions: [
-			{ path: 'app/ahorros/ahorros-1', name: 'Ahorros 1' },
-			{ path: 'app/ahorros/ahorros-2', name: 'Ahorros 2' }
+			{ path: 'app/ahorros/savings-account-opening', name: 'Apertura de Cuenta' },
+			{ path: 'app/ahorros/assignment-of-payment-order-stubs', name: 'Asignación de Talonario' },
+			{ path: 'app/ahorros/saving-account-cancellation', name: 'Cancelación de Cuenta' },
+			{ path: 'app/ahorros/fixed-term-deposit-opening', name: 'Apertura Depósito a Plazo Fijo' },
+			{ path: 'app/ahorros/early-cancellation-fixed-term-deposit', name: 'Cancelación Anticipada' },
 		]
 	},
 	{
@@ -101,10 +105,6 @@ const pages = [
 			{
 				path: 'app/credit/request',
 				name: 'Solicitud'
-			},
-			{
-				path: 'app/credit/formalization',
-				name: 'Formalizacion'
 			}
 		]
 	},
@@ -131,6 +131,54 @@ const pages = [
 			{
 				path: 'app/checks/voided',
 				name: 'Anulados'
+			}
+		]
+	},
+	{
+		name: 'Inventario',
+		icon: <FaCubes />,
+		dropdownOptions: [
+			{
+				path: 'app/inventory/items',
+				name: 'Artículos'
+			},
+			{
+				path: 'app/inventory/purchase',
+				name: 'Compras'
+			},
+			{
+				path: 'app/inventory/products',
+				name: 'Productos'
+			},
+			{
+				path: 'app/inventory/requisitions',
+				name: 'Requisas'
+			},
+			{
+				path: 'app/inventory/physical-take',
+				name: 'Toma Física'
+			},
+			{
+				path: 'app/inventory/billing',
+				name: 'Facturación'
+			},
+			{
+				path: 'app/inventory/invoice-cancel',
+				name: 'Anula Factura'
+			},
+			{
+				path: 'app/inventory/reports',
+				name: 'Reportes'
+			}
+		]
+	},
+	{
+		name: 'Mantenimiento de tablas',
+		icon: <FaCubes />,
+		dropdownOptions: [
+			{
+				path: 'app/table-maintenance',
+				name: 'Tablas'
 			}
 		]
 	}

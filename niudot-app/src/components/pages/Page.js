@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Topbar from '../layout/Topbar'
 import Dashboard from '../dashboard'
@@ -18,12 +18,21 @@ import {
 	AnticipatedCancellation,
 	FixedTermCertificateOpening,
 	LoanPayment,
-	SavingsAccountOpening,
 	SavingsAccountWithdrawal,
 	DepositToSavingsAccount
 } from './register'
+import { Items, Purchase, InventoryProducts, Billing, InvoiceCancel} from './inventory'
+import {
+	OrderStubs,
+	AccountCancellation,
+	FixedTermDepositOpening,
+	EarlyCancellation,
+	AccountOpening
+} from './savings'
 
-function Page(props) {
+import {TableMaintenance} from './table-maintenance'
+
+const Page = (props) => {
 	return (
 		<div className='pl-64 cstm:p-0 w-full'>
 			<Topbar {...props} />
@@ -39,7 +48,7 @@ function Page(props) {
 					<Route
 						exact
 						path='/app/register/saving-account'
-						component={SavingsAccountOpening}
+						component={AccountOpening}
 					/>
 					<Route
 						exact
@@ -98,6 +107,45 @@ function Page(props) {
 					/>
 					<Route exact path='/app/checks/reconciled' component={Reconciled} />
 					<Route exact path='/app/checks/voided}' component={Voided} />
+					{/* INVENTORY */}
+					<Route exact path='/app/inventory/items' component={Items} />
+					<Route exact path='/app/checks/voided' component={Voided} />
+					{/* Ahorros */}
+					<Route
+						exact
+						path='/app/ahorros/savings-account-opening'
+						component={AccountOpening}
+					/>
+					<Route
+						exact
+						path='/app/ahorros/assignment-of-payment-order-stubs'
+						component={OrderStubs}
+					/>
+					<Route
+						exact
+						path='/app/ahorros/saving-account-cancellation'
+						component={AccountCancellation}
+					/>
+					<Route
+						exact
+						path='/app/ahorros/fixed-term-deposit-opening'
+						component={FixedTermDepositOpening}
+					/>
+					<Route
+						exact
+						path='/app/ahorros/early-cancellation-fixed-term-deposit'
+						component={EarlyCancellation}
+					/>
+					<Route exact path='/app/inventory/billing' component={Billing} />
+					<Route exact path='/app/inventory/items' component={Items} />
+					<Route exact path='/app/inventory/purchase' component={Purchase} />
+					<Route exact path='/app/inventory/invoice-cancel' component={InvoiceCancel} />
+					<Route
+						exact
+						path='/app/inventory/products'
+						component={InventoryProducts}
+					/>
+					<Route exact path='/app/table-maintenance' component={TableMaintenance} />
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
 				</Switch>
