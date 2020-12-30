@@ -79,8 +79,7 @@ const pages = [
 		name: 'Crédito',
 		icon: <FaCreditCard />,
 		dropdownOptions: [
-			{ path: 'app/credito/creditos-1', name: 'Credito 1' },
-			{ path: 'app/credito/creditos-2', name: 'Credito 2' }
+			{ path: 'app/credito/productos-de-credito', name: 'Productos de Crédito' },
 		]
 	},
 	{
@@ -94,6 +93,18 @@ const pages = [
 			{
 				path: 'app/cheques/cheques-por-entregar',
 				name: 'Cheques por Entregar'
+			},
+			{
+				path: 'app/cheques/cheques-por-conciliar',
+				name: 'Cheques por Conciliar'
+			},
+			{
+				path: 'app/cheques/cheques-conciliados',
+				name: 'Cheques Conciliados'
+			},
+			{
+				path: 'app/cheques/cheques-anulados',
+				name: 'Cheques Anulados'
 			}
 		]
 	}

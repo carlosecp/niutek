@@ -7,7 +7,7 @@ export default function DeliverCheckBtn(props) {
 		<div className='mt-4 flex gap-2 pb-4'>
 			<button
 				type='button'
-				className='btn bg-blue-blue btn-border-blue flex items-center gap-2'
+				className='btn bg-blue-blue btn-border-blue flex items-center gap-2 sm:text-sm'
 			>
 				Entregar Cheque
 				<FaPaperPlane />

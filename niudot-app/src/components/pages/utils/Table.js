@@ -1,7 +1,9 @@
+// React and Rmuter Stuff
 import React from 'react'
+// Extra libraries
 import { useTable, usePagination, useRowSelect } from 'react-table'
 import '../../../styles/tables.css'
-import { FormDropdownInput } from './formikComponentsEndpoint'
+import { Dropdown } from './forms'
 
 const EditableCell = ({
 	value: initialValue,
@@ -27,8 +29,8 @@ const EditableCell = ({
 	}, [initialValue])
 
 	return (
-		<input 
-			readOnly 
+		<input
+			readOnly
 			className={'text-black-white table-field'}
 			value={value}
 			onChange={onChange}
@@ -43,7 +45,6 @@ const defaultColumn = {
 	Cell: EditableCell
 }
 
-
 function Table({ columns, data, updateMyData, skipPageReset }) {
 	const {
 		getTableProps,
@@ -52,7 +53,7 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 		prepareRow,
 		page,
 		selectedFlatRows,
-		state: {selectedRowIds}
+		state: { selectedRowIds }
 	} = useTable(
 		{
 			columns,
@@ -68,14 +69,18 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 			updateMyData
 		},
 		usePagination,
-		useRowSelect,
+		useRowSelect
 	)
 
 	// Render the UI for your table
 	return (
-		<div className='styled-table'>
+		<div className='styled-table '>
 			<div className='tableWrap'>
-				<table className='table table-field'  showPageJump={false} {...getTableProps()}>
+				<table
+					className='table table-field'
+					showPageJump={false}
+					{...getTableProps()}
+				>
 					<thead>
 						{headerGroups.map((headerGroup) => (
 							<tr {...headerGroup.getHeaderGroupProps()}>

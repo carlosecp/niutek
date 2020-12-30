@@ -1,9 +1,13 @@
+// React and Router Stuff
 import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+// Extra libraries
 import { FaSun, FaMoon } from 'react-icons/fa'
+// Context
 import themeContext from '../../context/theme/themeContext'
 
-function Navbar({ prompt, tag, path }) {
+const Navbar = ({ prompt, tag, path }) => {
 	const { theme, toggleTheme } = useContext(themeContext)
 
 	return (
@@ -38,6 +42,12 @@ function Navbar({ prompt, tag, path }) {
 			</div>
 		</div>
 	)
+}
+
+Navbar.propTypes = {
+	prompt: PropTypes.string.isRequired,
+	tag: PropTypes.string.isRequired,
+	path: PropTypes.string.isRequired
 }
 
 export default Navbar
