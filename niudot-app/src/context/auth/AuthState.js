@@ -11,9 +11,9 @@ import setAuthToken from '../../utils/setAuthToken'
 
 const AuthState = (props) => {
 	const initialState = {
-		user: false,
+		user: true,
 		token: localStorage.getItem('token'),
-		isAuthenticated: false,
+		isAuthenticated: true,
 		loading: true,
 		error: null
 	}
