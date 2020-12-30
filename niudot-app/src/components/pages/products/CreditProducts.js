@@ -1,48 +1,47 @@
+// React and Router Stuff
 import React from 'react'
-import {
-	FormTextInput,
-	FormTextArea,
-	FormDropdownInput
-} from '../utils/formikComponentsEndpoint'
-import RetractileForm from '../utils/RetractileForm'
+// Other Components
+import { Text, Dropdown } from '../utils/forms'
+import RetractileForm from '../utils/retractile_sections'
 
-export default function CreditProducts() {
+const CreditProducts = () => {
 	return (
 		<RetractileForm id='CreditProducts' formTitle='Productos de Crédito'>
 			<div className='form-grid-layout'>
-				<FormTextInput
+				<Text
 					name='tipo_de_credito'
 					size='md'
 					placeholder='Tipo de Crédito'
 					label='Tipo de Crédito'
 				/>
-                <FormTextInput
+				<Text
 					name='fuente_de_fondos'
 					size='md'
 					placeholder='Fuente de Fondos'
-                    label='Fuente de Fondos'
-                    newLine={true}
+					label='Fuente de Fondos'
+					newLine={true}
 				/>
-				<FormTextInput
+				<Text
 					name='nombre_del_producto_creditproducts'
 					size='lg'
 					placeholder='Nombre del Producto'
 					label='Nombre del Producto'
 				/>
-				<FormTextArea
+				<Text
 					name='descripcion_de_producto_creditproducts'
 					size='lg'
 					newLine={true}
 					placeholder='Descripción del Producto'
 					label='Descripción'
+					isTextArea={true}
 				/>
-				<FormTextInput
+				<Text
 					name='documentos_requeridos_creditproducts'
 					size='md'
 					placeholder='Documentos Requeridos'
 					label='Documentos Requeridos'
 				/>
-				<FormDropdownInput
+				<Dropdown
 					size='sm'
 					name='moneda_creditproducts'
 					label='Moneda'
@@ -52,40 +51,41 @@ export default function CreditProducts() {
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dolar</option>
 					<option value='option_4'>Colón</option>
-				</FormDropdownInput>
+				</Dropdown>
 
-				<FormTextInput
+				<Text
 					name='tasa_de_interes_creditproducts'
 					size='sm'
 					placeholder='Tasa de Interés'
 					label='Tasa de Interés'
 				/>
-				<FormDropdownInput size='sm' name='plazo_creditproducts' label='Plazo'>
+				<Dropdown size='sm' name='plazo_creditproducts' label='Plazo'>
 					<option value=''>Mensual</option>
 					<option value='option_2'>Anual</option>
-				</FormDropdownInput>
+				</Dropdown>
 
-				<FormTextInput
+				<Text
 					name='monto_minimo_apertura_creditproducts'
 					size='md'
 					placeholder='Monto Mínimo Apertura'
 					label='Monto Mínimo Apertura'
 				/>
 
-				<FormTextInput
+				<Text
 					name='frecuencia_de_pago_creditproducts'
 					size='md'
 					placeholder='Frecuencia de Pago'
 					label='Frecuencia de Pago'
 				/>
-                <FormTextInput
+				<Text
 					name='monto_maximo_retiros_creditproducts'
 					size='md'
 					placeholder='Monto Maximo Retiros'
 					label='Monto Maximo Retiros'
 				/>
-				
 			</div>
 		</RetractileForm>
 	)
 }
+
+export default CreditProducts

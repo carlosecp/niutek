@@ -1,11 +1,15 @@
+// React and Router Stuff
 import React, { useEffect, useContext } from 'react'
-import { Formik, Form } from 'formik'
+// Extra libraries
 import * as Yup from 'yup'
-import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
+import { Formik, Form } from 'formik'
+// Context
 import authContext from '../../context/auth/authContext'
+// Other Components
+import { Text } from '../pages/utils/forms'
 import Navbar from './Navbar'
 
-function Login(props) {
+const Login = (props) => {
 	// Username es realmente el email
 	const initialValues = {
 		username: '',
@@ -16,7 +20,7 @@ function Login(props) {
 
 	useEffect(() => {
 		if (isAuthenticated && user) {
-			props.history.push('/app/inicio')
+			props.history.push('/app/dashboard')
 			loadUser()
 		}
 		// eslint-disable-next-line
@@ -53,7 +57,7 @@ function Login(props) {
 						<Form>
 							<div className='mt-12 mb-6 w-80 sm:w-64'>
 								<div className='mb-2'>
-									<FormTextInput
+									<Text
 										name='username'
 										placeholder='Correo Electrónico'
 										label='Correo Electrónico'
@@ -61,7 +65,7 @@ function Login(props) {
 									/>
 								</div>
 								<div>
-									<FormTextInput
+									<Text
 										name='password'
 										placeholder='Contraseña'
 										label='Contraseña'

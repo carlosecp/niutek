@@ -1,9 +1,13 @@
+// React and Router Stuff
 import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+// Extra libraries
 import { FaSun, FaMoon } from 'react-icons/fa'
+// Context
 import themeContext from '../../context/theme/themeContext'
 
-function Navbar({ prompt, tag, path }) {
+const Navbar = ({ prompt, tag, path }) => {
 	const { theme, toggleTheme } = useContext(themeContext)
 
 	return (
@@ -19,11 +23,11 @@ function Navbar({ prompt, tag, path }) {
 					</Link>
 
 					<div
-						className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-2 transition'
+						className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-3 transition'
 						onClick={toggleTheme}
 					>
 						<div
-							className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-700 transform flex justify-center items-center ${
+							className={`bg-white w-6 h-6 rounded-full shadow-md transition dark:bg-blue-500 transform flex justify-center items-center ${
 								theme && 'translate-x-6'
 							}`}
 						>
@@ -38,6 +42,12 @@ function Navbar({ prompt, tag, path }) {
 			</div>
 		</div>
 	)
+}
+
+Navbar.propTypes = {
+	prompt: PropTypes.string.isRequired,
+	tag: PropTypes.string.isRequired,
+	path: PropTypes.string.isRequired
 }
 
 export default Navbar

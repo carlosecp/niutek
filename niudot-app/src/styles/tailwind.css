@@ -270,41 +270,23 @@ html, body {
 	@apply text-base hover:underline;
 }
 
-.table-field {
-	/*Esta clase es para cada una de las input de texto o numericas o similares. Son todos esos rectangulos que en light theme tienen bordes grises claros, todas, incluidas checkboxes y dropdowns.*/
-
-	/*Global*/
-	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid w-full;
-
-	/*Light Theme Defaults*/
-	@apply text-black bg-white border-gray-200;
-
-	/*Light Theme Pseudo-Classes*/
-	@apply focus:bg-gray-100 focus:border-gray-cstm-14;
-
-	/*Dark Theme Defaults*/
-	@apply dark:text-gray-cstm-15 dark:bg-gray-cstm-1 dark:border-gray-cstm-12 placeholder-gray-cstm-10;
-
-	/*Dark Theme Pseudo-Classes*/
-	@apply dark:focus:bg-gray-cstm-2 dark:focus:border-blue-700;
+th:first-child {
+	@apply rounded-tl;
 }
 
-.table thead th {
-	@apply align-bottom border-b-2;
-
-	@apply border-gray-200;
-
-	@apply dark:border-gray-cstm-12;
+th:last-child {
+	@apply rounded-tr;
 }
 
-.popup-content {
-	@apply bg-transparent border-transparent max-w-min max-h-screen overflow-y-auto min-w-full;
-  }
+tr:nth-child(even) {
+	@apply bg-gray-200;
+	@apply dark:bg-gray-cstm-4;
+}
 
-  [role='tooltip'].popup-content {
-	@apply mx-auto;
-  }
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
-  .modal-body {
-	@apply max-h-screen	overflow-y-auto;
-  }
+.hide-scrollbar {
+	-ms-overflow-style: none;
+}

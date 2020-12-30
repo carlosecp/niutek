@@ -1,15 +1,15 @@
+// React and Router Stuff
 import React, { useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { Formik, Form } from 'formik'
+// Extra libraries
 import * as Yup from 'yup'
-import { FormTextInput } from '../pages/utils/formikComponentsEndpoint'
+import { Formik, Form } from 'formik'
+// Context
 import authContext from '../../context/auth/authContext'
-import themeContext from '../../context/theme/themeContext'
-import { FaMoon, FaSun } from 'react-icons/fa'
-import Alerts from '../pages/alerts/Alerts'
+// Other Components
+import { Text } from '../pages/utils/forms'
 import Navbar from './Navbar'
 
-function Register(props) {
+const Register = (props) => {
 	const initialValues = {
 		name: '',
 		email: '',
@@ -20,7 +20,6 @@ function Register(props) {
 	const { user, loadUser, registerUser, isAuthenticated } = useContext(
 		authContext
 	)
-	const { theme, toggleTheme } = useContext(themeContext)
 
 	useEffect(() => {
 		if (isAuthenticated && user) {
@@ -28,7 +27,7 @@ function Register(props) {
 			loadUser()
 		}
 		// eslint-disable-next-line
-	}, [isAuthenticated])
+	}, [isAuthenticated, user])
 
 	function handleSubmit({ name, email, password }) {
 		registerUser({ name, email, password })
@@ -37,7 +36,6 @@ function Register(props) {
 	return (
 		<>
 			<Navbar prompt='¿Ya tienes una cuenta?' tag='Inicia Sesión' path='/' />
-			<Alerts />
 
 			<div className='bg-white dark:bg-gray-cstm-1 m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
 				<div className='flex flex-col items-center justify-center'>
@@ -61,7 +59,7 @@ function Register(props) {
 						<Form>
 							<div className='mt-12 mb-6 w-80 sm:w-64'>
 								<div className='mb-2'>
-									<FormTextInput
+									<Text
 										name='name'
 										placeholder='Nombre'
 										label='Nombre'
@@ -69,7 +67,7 @@ function Register(props) {
 									/>
 								</div>
 								<div className='mb-2'>
-									<FormTextInput
+									<Text
 										name='email'
 										placeholder='Correo Electrónico'
 										label='Correo Electrónico'
@@ -77,7 +75,7 @@ function Register(props) {
 									/>
 								</div>
 								<div className='mb-2'>
-									<FormTextInput
+									<Text
 										name='password'
 										placeholder='Contraseña'
 										label='Contraseña'
@@ -86,7 +84,7 @@ function Register(props) {
 									/>
 								</div>
 								<div className='mb-2'>
-									<FormTextInput
+									<Text
 										name='password_conf'
 										placeholder='Confirmar Contraseña'
 										label='Confirmar Contraseña'
