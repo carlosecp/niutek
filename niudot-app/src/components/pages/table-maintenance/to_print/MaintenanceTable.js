@@ -3,25 +3,25 @@ import React from 'react'
 // Other Components
 import Table from '../../utils/tables'
 
-const ChecksTable = ({ togglePopup, tableName }) => {
-	const headers = ['Codigo',  'Descripcion' ]
+const MaintenanceTable = ({ togglePopup }) => {
+	const headers = ['Codigo', 'Descripcion']
 	const rows = [
 		{
 			code: 0,
-			description :`${tableName}`
+			description: 'Test 1'
 		},
 		{
 			code: 1,
-			description: "CocaCola"
+			description: 'CocaCola'
 		},
 		{
 			code: 2,
-			description: "CocaCola"
+			description: 'CocaCola'
 		},
 		{
 			code: 3,
-			description: "CocaCola"
-		},
+			description: 'CocaCola'
+		}
 	]
 
 	return (
@@ -31,4 +31,4 @@ const ChecksTable = ({ togglePopup, tableName }) => {
 	)
 }
 
-export default ChecksTable
+export default MaintenanceTable

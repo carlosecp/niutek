@@ -16,7 +16,7 @@ const SearchForm = () => {
 	}
 
 	return (
-		<div className='section'>
+		<div className='section mb-4'>
 			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Cliente Existente
 			</h2>

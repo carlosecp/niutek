@@ -14,7 +14,7 @@ function SearchCheckForm() {
 	}
 
 	return (
-		<div className='pb-8'>
+		<div className='section'>
 			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Cheque Existente
 			</h2>

@@ -5,6 +5,7 @@ import { Form, Formik } from 'formik'
 import Popup from '../../../utils/tables/Popup'
 import { Checkbox, Dropdown, Text } from '../../../utils/forms'
 import DateInput from '../../../utils/forms/DateInput'
+import { FaCheck, FaTimes } from 'react-icons/fa'
 
 const NewItemPopup = ({ togglePopup }) => {
 	return (
@@ -138,12 +139,14 @@ const NewItemPopup = ({ togglePopup }) => {
 							<DateInput size='sm' newLine={true} label='Última venta' />
 							<DateInput size='sm' newLine={true} label='Último Inventario' />
 						</div>
-						<div className='mx-4 mb-6 flex gap-2 justify-center flex-wrap'>
+						<div className='mx-4 flex gap-2 justify-center flex-wrap'>
 							<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
 								Guardar
+								<FaCheck />
 							</button>
 							<button className='btn bg-gray-cstm-10 btn-border-blue flex justify-center items-center gap-2'>
 								Cancelar
+								<FaTimes />
 							</button>
 						</div>
 					</div>

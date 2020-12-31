@@ -16,7 +16,7 @@ const Popup = ({ children, togglePopup }) => {
 						<FaTimes size={20} className='fill-current' />
 					</div>
 				</div>
-				<div className='pt-4'>{children}</div>
+				<div className='pt-2'>{children}</div>
 			</div>
 		</div>
 	)

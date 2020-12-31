@@ -1,16 +1,15 @@
 import React from 'react'
-import { FaRegTimesCircle, FaRegCheckCircle } from 'react-icons/fa/index'
+import { FaTimes, FaCheck } from 'react-icons/fa/index'
 
 function SubmitBtn(props) {
-
 	return (
-		<div className='mt-4 flex gap-2 pb-4'>
+		<div className='mt-4 flex justify-center gap-2'>
 			<button
 				type='button'
 				className='btn bg-blue-blue btn-border-blue flex items-center gap-2'
 			>
 				Guardar
-				<FaRegCheckCircle />
+				<FaCheck />
 			</button>
 			<button
 				type='button'
@@ -18,7 +17,7 @@ function SubmitBtn(props) {
 				{...props}
 			>
 				Cancelar
-				<FaRegTimesCircle />
+				<FaTimes />
 			</button>
 		</div>
 	)

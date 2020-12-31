@@ -1,11 +1,11 @@
 import React from 'react'
-
+import { Formik } from 'formik'
 import { Text, Dropdown, Checkbox } from '../../utils/forms'
 import DateInput from '../../utils/forms/DateInput'
 
 const ItemsCatalogue = () => {
 	return (
-		<>
+		<Formik>
 			<div className='form-grid-layout'>
 				<Text
 					name='create_nombre'
@@ -111,7 +111,7 @@ const ItemsCatalogue = () => {
 				<DateInput size='sm' newLine={true} label='Última venta' />
 				<DateInput size='sm' newLine={true} label='Último Inventario' />
 			</div>
-		</>
+		</Formik>
 	)
 }
 

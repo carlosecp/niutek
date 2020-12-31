@@ -44,7 +44,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 					</div>
 				</Form>
 			</Formik>
-			<div className='mx-4 mb-6 flex gap-2 justify-center flex-wrap'>
+			<div className='mb-4 flex gap-2 justify-center flex-wrap'>
 				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
 					Eliminar Anulación
 					<FaTimes />

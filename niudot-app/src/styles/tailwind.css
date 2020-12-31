@@ -100,19 +100,16 @@ html, body {
 	/*Esta clase es para la seccion mas general de cada formulario, es el fondo blanco que centra todo su contenido, dentro de este contenedor generalmente van los formulario en si, cada uno de ellos, y su contenedor grid respectivo (usando la clase .form-grid-layout).*/
 
 	/*Global*/
-	@apply rounded mx-auto max-w-2xl py-4 px-8 mb-4;
+	@apply rounded mx-auto max-w-2xl p-4;
 
 	/*Light Theme Defaults*/
 	@apply bg-white;
 
 	/*Dark Theme Defaults*/
 	@apply dark:bg-gray-cstm-2;
-
-
 }
 
 .table-section {
-
 	@apply rounded mx-auto max-w-min py-8 px-8 mb-4;
 	/*Light Theme Defaults*/
 	@apply bg-white;

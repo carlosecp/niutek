@@ -5,14 +5,12 @@ import SearchCheckForm from '../../utils/search/SearchCheckForm'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
 import ItemsCatalogue from './ItemsCatalogue'
-import { Formik } from 'formik'
 import NewItemPopup from './popups/NewItemPopup'
-
+import { FaCheck, FaPlus } from 'react-icons/fa'
 
 const Items = () => {
 	const { changePage } = useContext(routesContext)
 	const [showAddPopup, setShowAddPopup] = useState(false)
-
 
 	useEffect(() => {
 		changePage('Catálogo de Artículos')
@@ -23,26 +21,29 @@ const Items = () => {
 	}
 
 	return (
-		<div className='section'>
+		<>
 			<SearchCheckForm />
-			<Formik>
+			<div className='mt-4 section'>
+				<h2 className='text-black-white text-xl font-bold'>
+					Agregar Nuevo Artículo
+				</h2>
 				<ItemsCatalogue />
-			</Formik>
-
-			{showAddPopup && <NewItemPopup togglePopup={toggleAddPopup} />}
-			<div className='my-4 flex gap-2 justify-center flex-wrap'>
-
-				<button className='btn flex items-center bg-blue-blue btn-border-blue'>
-					Guardar
-				</button>
-				<button
-					className='btn flex items-center bg-blue-blue btn-border-blue'
-					onClick={toggleAddPopup}
-				>
-					Nuevo Artículo
-				</button>
+				{showAddPopup && <NewItemPopup togglePopup={toggleAddPopup} />}
+				<div className='flex gap-2 justify-center flex-wrap'>
+					<button className='btn flex gap-2 items-center bg-blue-blue btn-border-blue'>
+						Guardar
+						<FaCheck />
+					</button>
+					<button
+						className='btn flex gap-2 items-center bg-blue-blue btn-border-blue'
+						onClick={toggleAddPopup}
+					>
+						Nuevo Artículo
+						<FaPlus />
+					</button>
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 
