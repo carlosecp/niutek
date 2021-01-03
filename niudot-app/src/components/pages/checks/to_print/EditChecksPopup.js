@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React from 'react'
+import React, { useMemo } from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
 import { Dropdown, Text } from '../../utils/forms'
@@ -9,9 +9,14 @@ import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
 const EditChecksPopup = ({ togglePopup }) => {
-	const headers = ['Cuenta', 'Descripción', 'Débito', 'Crédito']
+	const columns = useMemo(() => [
+		{ Header: 'Cuenta', accessor: 'account' },
+		{ Header: 'Descripción', accessor: 'description' },
+		{ Header: 'Débito', accessor: 'debit' },
+		{ Header: 'Crédito', accessor: 'credit' }
+	])
 
-	const rows = [
+	const data = [
 		{
 			account: '512389023',
 			description: 'EQUIPO DE TRANSPORTE',
@@ -80,7 +85,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 							</Dropdown>
 						</div>
 						<div className='my-8'>
-							<Table headers={headers} rows={rows} />
+							<Table columns={columns} data={data} />
 						</div>
 						<div className='form-grid-layout'>
 							<Text

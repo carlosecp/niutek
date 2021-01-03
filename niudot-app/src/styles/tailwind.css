@@ -275,9 +275,26 @@ th:last-child {
 	@apply rounded-tr;
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) > td {
+	@apply bg-gray-100;
+	@apply dark:bg-gray-cstm-3;
+}
+
+thead > th {
+	@apply bg-blue-700 dark:bg-blue-500 text-white !important; 
+}
+
+tr:nth-child(even) > td {
 	@apply bg-gray-200;
 	@apply dark:bg-gray-cstm-4;
+}
+
+tr:last-child > td:first-child{
+	@apply rounded-bl; 
+}
+
+tr:last-child > td:last-child  {
+	@apply rounded-br;
 }
 
 .hide-scrollbar::-webkit-scrollbar {

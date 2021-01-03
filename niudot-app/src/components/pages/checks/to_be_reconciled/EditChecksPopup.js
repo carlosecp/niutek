@@ -2,30 +2,12 @@
 import React from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
-import { Dropdown, Text } from '../../utils/forms'
-import { FaCheck, FaBan, FaPrint, FaTrash, FaReceipt } from 'react-icons/fa'
+import { Text } from '../../utils/forms'
+import { FaPrint, FaReceipt } from 'react-icons/fa'
 // Other Components
-import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
 const EditChecksPopup = ({ togglePopup }) => {
-	const headers = ['Cuenta', 'Descripción', 'Débito', 'Crédito']
-
-	const rows = [
-		{
-			account: '512389023',
-			description: 'EQUIPO DE TRANSPORTE',
-			debit: 5750.5,
-			credit: 0
-		},
-		{
-			account: '512389023',
-			description: 'BDF CTA. CORRIENTE C$ No. 10232313',
-			debit: 0,
-			credit: 5750.5
-		}
-	]
-
 	return (
 		<Popup togglePopup={togglePopup}>
 			<Formik

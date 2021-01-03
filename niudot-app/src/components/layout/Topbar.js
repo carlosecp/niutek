@@ -13,7 +13,7 @@ function Topbar({ toggled, setToggled }) {
 					{currentPage.charAt(0).toUpperCase() +
 						currentPage.slice(1, currentPage.length)}
 				</h2>
-				<div className='' onClick={() => setToggled(!toggled)}>
+				<div className='cursor-pointer' onClick={() => setToggled(!toggled)}>
 					<FaBars className='w-6 h-6 hidden cstm:block dark:text-white dark:fill-current' />
 				</div>
 			</div>

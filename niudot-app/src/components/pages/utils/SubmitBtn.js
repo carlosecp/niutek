@@ -3,7 +3,7 @@ import { FaTimes, FaCheck } from 'react-icons/fa/index'
 
 function SubmitBtn(props) {
 	return (
-		<div className='mt-4 flex justify-center gap-2'>
+		<div className='mx-auto mt-4 flex justify-center gap-2'>
 			<button
 				type='button'
 				className='btn bg-blue-blue btn-border-blue flex items-center gap-2'

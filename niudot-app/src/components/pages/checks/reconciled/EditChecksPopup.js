@@ -1,17 +1,21 @@
 // React and Router Stuff
-import React from 'react'
+import React, { useMemo } from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
-import { Dropdown, Text } from '../../utils/forms'
-import { FaCheck, FaBan, FaPrint, FaTrash } from 'react-icons/fa'
+import { FaPrint } from 'react-icons/fa'
 // Other Components
 import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
 const EditChecksPopup = ({ togglePopup }) => {
-	const headers = ['Cuenta', 'Descripción', 'Débito', 'Crédito']
+	const columns = useMemo(() => [
+		{ Header: 'Cuenta', accessor: 'account' },
+		{ Header: 'Descripción', accessor: 'description' },
+		{ Header: 'Débito', accessor: 'debit' },
+		{ Header: 'Crédito', accessor: 'credit' }
+	])
 
-	const rows = [
+	const data = [
 		{
 			account: '512389023',
 			description: 'EQUIPO DE TRANSPORTE',
@@ -40,7 +44,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 						<h2 className='mb-4 text-black-white text-xl font-bold'>
 							Datos del Cheque
 						</h2>
-						<Table headers={headers} rows={rows} />
+						<Table columns={columns} data={data} />
 					</div>
 				</Form>
 			</Formik>

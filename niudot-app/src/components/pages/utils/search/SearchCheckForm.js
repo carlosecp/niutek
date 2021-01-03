@@ -28,7 +28,7 @@ function SearchCheckForm() {
 						onChange={handleCheckNameInput}
 						value={checkName}
 					/>
-					<button className='w-10 h-10 bg-blue-blue rounded flex justify-center items-center'>
+					<button className='w-10 h-10 rounded bg-blue-blue btn-border-blue flex justify-center items-center cursor-pointer'>
 						<FaSearch />
 					</button>
 				</div>

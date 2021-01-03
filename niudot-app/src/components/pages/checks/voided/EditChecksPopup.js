@@ -1,17 +1,21 @@
 // React and Router Stuff
-import React from 'react'
+import React, { useState, useMemo, useRef, useCallback } from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
-import { Dropdown, Text } from '../../utils/forms'
-import { FaCheck, FaBan, FaPrint, FaTrash, FaTimes } from 'react-icons/fa'
+import { FaPrint, FaTimes } from 'react-icons/fa'
 // Other Components
 import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
 const EditChecksPopup = ({ togglePopup }) => {
-	const headers = ['Cuenta', 'Descripción', 'Débito', 'Crédito']
+	const columns = useMemo(() => [
+		{ Header: 'Cuenta', accessor: 'account' },
+		{ Header: 'Descripción', accessor: 'description' },
+		{ Header: 'Débito', accessor: 'debit' },
+		{ Header: 'Crédito', accessor: 'credit' }
+	])
 
-	const rows = [
+	const serverData = [
 		{
 			account: '512389023',
 			description: 'EQUIPO DE TRANSPORTE',
@@ -25,6 +29,30 @@ const EditChecksPopup = ({ togglePopup }) => {
 			credit: 5750.5
 		}
 	]
+
+	const [data, setData] = useState([])
+	const [loading, setLoading] = useState(false)
+	const [pageCount, setPageCount] = useState(0)
+	const fetchIdRef = useRef(0)
+
+	const fetchData = useCallback(({ pageSize, pageIndex }) => {
+		// Esta funcion se va correr cada vez que cambiemos de pagina, para que asi no tengamos que traer la informacion de todas las paginas de un solo.
+
+		const fetchId = ++fetchIdRef.current
+		setLoading(true)
+
+		setTimeout(() => {
+			if (fetchId === fetchIdRef.current) {
+				const startRow = pageSize * pageIndex
+				const endRow = startRow + pageSize
+				// Decimos que la cantidad de datos que queremos mostrar pues es solamente la cantidad de final que queremos tener (desde start hasta end)
+				setData(serverData.slice(startRow, endRow))
+
+				setPageCount(Math.ceil(serverData.length / pageSize))
+				setLoading(false)
+			}
+		}, 100)
+	}, [])
 
 	return (
 		<Popup togglePopup={togglePopup}>
@@ -40,7 +68,15 @@ const EditChecksPopup = ({ togglePopup }) => {
 						<h2 className='mb-4 text-black-white text-xl font-bold'>
 							Datos del Cheque
 						</h2>
-						<Table headers={headers} rows={rows} />
+						<Table
+							columns={columns}
+							data={data}
+							fetchData={fetchData}
+							loading={loading}
+							pageCount={pageCount}
+							togglePopup={togglePopup}
+							showEdit={false}
+						/>
 					</div>
 				</Form>
 			</Formik>

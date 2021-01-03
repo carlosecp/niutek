@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 // Extra libraries
 import { FaSearch } from 'react-icons/fa'
 
-const SearchForm = () => {
+const SearchUserForm = () => {
 	const [userName, setUserName] = useState('')
 
 	const handleUserNameInput = (event) => {
@@ -30,8 +30,8 @@ const SearchForm = () => {
 						onChange={handleUserNameInput}
 						value={userName}
 					/>
-					<button className='w-10 h-10 bg-blue-blue rounded flex justify-center items-center'>
-						<FaSearch />
+					<button className='w-10 h-10 rounded bg-blue-blue btn-border-blue flex justify-center items-center cursor-pointer'>
+						<FaSearch size={16} />
 					</button>
 				</div>
 			</form>
@@ -39,4 +39,4 @@ const SearchForm = () => {
 	)
 }
 
-export default SearchForm
+export default SearchUserForm

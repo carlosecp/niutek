@@ -102,8 +102,8 @@ const AccountOpening = ({ value }) => {
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
-				<SubmitBtn />
 			</div>
+			<SubmitBtn />
 		</>
 	)
 }
