@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React from 'react'
+import React, { useMemo, useRef, useState, useCallback } from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
 import { Dropdown, Text } from '../../utils/forms'
@@ -9,9 +9,33 @@ import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
 const AddChecksPopup = ({ togglePopup }) => {
-	const headers = []
+	const columns = useMemo(() => [])
 
-	const rows = []
+	const serverData = []
+
+	const [data, setData] = useState([])
+	const [loading, setLoading] = useState(false)
+	const [pageCount, setPageCount] = useState(0)
+	const fetchIdRef = useRef(0)
+
+	const fetchData = useCallback(({ pageSize, pageIndex }) => {
+		// Esta funcion se va correr cada vez que cambiemos de pagina, para que asi no tengamos que traer la informacion de todas las paginas de un solo.
+
+		const fetchId = ++fetchIdRef.current
+		setLoading(true)
+
+		setTimeout(() => {
+			if (fetchId === fetchIdRef.current) {
+				const startRow = pageSize * pageIndex
+				const endRow = startRow + pageSize
+				// Decimos que la cantidad de datos que queremos mostrar pues es solamente la cantidad de final que queremos tener (desde start hasta end)
+				setData(serverData.slice(startRow, endRow))
+
+				setPageCount(Math.ceil(serverData.length / pageSize))
+				setLoading(false)
+			}
+		}, 1000)
+	}, [])
 
 	return (
 		<Popup togglePopup={togglePopup}>
@@ -66,9 +90,15 @@ const AddChecksPopup = ({ togglePopup }) => {
 								<option value='Juan'>Juan estuvo aqui</option>
 							</Dropdown>
 						</div>
-						{headers.length > 0 && rows.length > 0 && (
-							<div className='my-8'>
-								<Table headers={headers} rows={rows} />
+						{columns.length > 0 && data.length > 0 && (
+							<div className='my-4'>
+								<Table
+									columns={columns}
+									data={data}
+									fetchData={fetchData}
+									loading={loading}
+									pageCount={pageCount}
+								/>
 							</div>
 						)}
 						<div className='form-grid-layout'>

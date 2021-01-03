@@ -32,7 +32,7 @@ const ChecksToPrint = () => {
 			<PrintChecksTable togglePopup={toggleEditPopup} />
 			{showEditPopup && <EditChecksPopup togglePopup={toggleEditPopup} />}
 			{showAddPopup && <AddChecksPopup togglePopup={toggleAddPopup} />}
-			<div className='my-4 flex gap-2 justify-center flex-wrap'>
+			<div className='mt-4 flex gap-2 justify-center flex-wrap'>
 				<button
 					className='btn bg-blue-blue btn-border-blue flex items-center gap-2'
 					onClick={toggleAddPopup}

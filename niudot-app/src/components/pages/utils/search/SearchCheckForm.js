@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 
-function SearchCheckForm() {
+const SearchCheckForm = () => {
 	const [checkName, setCheckName] = useState('')
 
-	function handleCheckNameInput(event) {
+	const handleCheckNameInput = (event) => {
 		setCheckName(event.target.value)
 	}
 
-	function handleCheckNameSubmit(event) {
+	const handleCheckNameSubmit = (event) => {
 		event.preventDefault()
 		setCheckName('')
 	}
 
 	return (
-		<div className='section'>
+		<div className='mb-4'>
 			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Cheque Existente
 			</h2>

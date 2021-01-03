@@ -25,7 +25,7 @@ const ChecksToBeReconciled = () => {
 			<SearchCheckForm />
 			<ToBeReconciledChecksTable togglePopup={toggleEditPopup} />
 			{showEditPopup && <EditChecksPopup togglePopup={toggleEditPopup} />}
-			<div className='my-4 flex gap-2 justify-center flex-wrap'>
+			<div className='mt-4 flex gap-2 justify-center flex-wrap'>
 				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
 					Imprimir Listado
 					<FaPrint />

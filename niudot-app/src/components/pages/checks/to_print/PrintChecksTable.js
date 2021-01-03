@@ -1,6 +1,5 @@
 // React and Router Stuff
-import React, { useMemo } from 'react'
-import { FaEdit } from 'react-icons/fa'
+import React, { useMemo, useRef, useState, useCallback } from 'react'
 // Extra libraries
 // Other Components
 import Table from '../../utils/tables'
@@ -11,11 +10,10 @@ const ChecksTable = ({ togglePopup }) => {
 		{ Header: 'Fecha', accessor: 'date' },
 		{ Header: 'Paguese a', accessor: 'to' },
 		{ Header: 'Moneda', accessor: 'currency' },
-		{ Header: 'Monto', accessor: 'value' },
-		{ Header: '', accessor: 'edit' }
+		{ Header: 'Monto', accessor: 'value' }
 	])
 
-	const data = [
+	const serverData = [
 		{
 			number: 20688,
 			date: '06/10/2020',
@@ -39,20 +37,40 @@ const ChecksTable = ({ togglePopup }) => {
 		}
 	]
 
-	const dataEditBtn = data.map((rowData) => {
-		return {
-			...rowData,
-			edit: (
-				<FaEdit
-					className='text-blue-700 fill-current hover:underline cursor-pointer'
-					onClick={togglePopup}
-				/>
-			)
-		}
-	})
+	const [data, setData] = useState([])
+	const [loading, setLoading] = useState(false)
+	const [pageCount, setPageCount] = useState(0)
+	const fetchIdRef = useRef(0)
+
+	const fetchData = useCallback(({ pageSize, pageIndex }) => {
+		// Esta funcion se va correr cada vez que cambiemos de pagina, para que asi no tengamos que traer la informacion de todas las paginas de un solo.
+
+		const fetchId = ++fetchIdRef.current
+		setLoading(true)
+
+		setTimeout(() => {
+			if (fetchId === fetchIdRef.current) {
+				const startRow = pageSize * pageIndex
+				const endRow = startRow + pageSize
+				// Decimos que la cantidad de datos que queremos mostrar pues es solamente la cantidad de final que queremos tener (desde start hasta end)
+				setData(serverData.slice(startRow, endRow))
+
+				setPageCount(Math.ceil(serverData.length / pageSize))
+				setLoading(false)
+			}
+		}, 1000)
+	}, [])
 
 	return (
-		<Table columns={columns} data={dataEditBtn} togglePopup={togglePopup} />
+		<Table
+			columns={columns}
+			data={data}
+			fetchData={fetchData}
+			loading={loading}
+			pageCount={pageCount}
+			togglePopup={togglePopup}
+			showEdit={true}
+		/>
 	)
 }
 

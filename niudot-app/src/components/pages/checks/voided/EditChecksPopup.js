@@ -51,7 +51,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 				setPageCount(Math.ceil(serverData.length / pageSize))
 				setLoading(false)
 			}
-		}, 100)
+		}, 1000)
 	}, [])
 
 	return (
@@ -80,7 +80,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 					</div>
 				</Form>
 			</Formik>
-			<div className='mb-4 flex gap-2 justify-center flex-wrap'>
+			<div className='px-4 mb-4 flex gap-2 justify-center flex-wrap'>
 				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
 					Eliminar Anulación
 					<FaTimes />

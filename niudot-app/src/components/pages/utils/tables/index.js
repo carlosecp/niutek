@@ -9,6 +9,7 @@ const Table = ({
 	data,
 	fetchData,
 	pageCount: controlledPageCount,
+	loading,
 	showEdit,
 	togglePopup
 }) => {
@@ -38,9 +39,13 @@ const Table = ({
 		fetchData({ pageIndex, pageSize })
 	}, [fetchData, pageIndex, pageSize])
 
-	return (
+	return loading ? (
+		<div className='w-full h-20 bg-yellow-500'>
+			LOADING... ACA VA EL SPINNER JUAN...
+		</div>
+	) : (
 		<>
-			<div className='mx-4 overflow-x-auto sm:hide-scrollbar'>
+			<div className='overflow-x-auto sm:hide-scrollbar'>
 				<table
 					className='flex-1 mx-auto table-auto border-1 border-gray-500'
 					{...getTableProps()}
@@ -74,7 +79,7 @@ const Table = ({
 										</td>
 									))}
 									{showEdit && (
-										<td>
+										<td className='py-3 px-5 whitespace-nowrap dark:text-gray-200'>
 											<FaEdit
 												className='text-blue-blue cursor-pointer'
 												onClick={togglePopup}
@@ -88,7 +93,7 @@ const Table = ({
 				</table>
 			</div>
 			{(canPreviousPage || canNextPage) && (
-				<div className='flex justify-center py-2 gap-2'>
+				<div className='flex justify-center pt-2 gap-2'>
 					<p
 						className={`flex gap-1 items-center px-3 py-2 ${
 							canPreviousPage
@@ -116,10 +121,6 @@ const Table = ({
 			)}
 		</>
 	)
-}
-
-Table.defaultProps = {
-	showEdit: true
 }
 
 export default Table

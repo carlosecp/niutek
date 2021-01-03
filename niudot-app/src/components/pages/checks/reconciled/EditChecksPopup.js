@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef, useState, useCallback } from 'react'
 // Extra libraries
 import { Formik, Form } from 'formik'
 import { FaPrint } from 'react-icons/fa'
@@ -15,7 +15,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 		{ Header: 'Crédito', accessor: 'credit' }
 	])
 
-	const data = [
+	const serverData = [
 		{
 			account: '512389023',
 			description: 'EQUIPO DE TRANSPORTE',
@@ -29,6 +29,30 @@ const EditChecksPopup = ({ togglePopup }) => {
 			credit: 5750.5
 		}
 	]
+
+	const [data, setData] = useState([])
+	const [loading, setLoading] = useState(false)
+	const [pageCount, setPageCount] = useState(0)
+	const fetchIdRef = useRef(0)
+
+	const fetchData = useCallback(({ pageSize, pageIndex }) => {
+		// Esta funcion se va correr cada vez que cambiemos de pagina, para que asi no tengamos que traer la informacion de todas las paginas de un solo.
+
+		const fetchId = ++fetchIdRef.current
+		setLoading(true)
+
+		setTimeout(() => {
+			if (fetchId === fetchIdRef.current) {
+				const startRow = pageSize * pageIndex
+				const endRow = startRow + pageSize
+				// Decimos que la cantidad de datos que queremos mostrar pues es solamente la cantidad de final que queremos tener (desde start hasta end)
+				setData(serverData.slice(startRow, endRow))
+
+				setPageCount(Math.ceil(serverData.length / pageSize))
+				setLoading(false)
+			}
+		}, 1000)
+	}, [])
 
 	return (
 		<Popup togglePopup={togglePopup}>
@@ -44,11 +68,17 @@ const EditChecksPopup = ({ togglePopup }) => {
 						<h2 className='mb-4 text-black-white text-xl font-bold'>
 							Datos del Cheque
 						</h2>
-						<Table columns={columns} data={data} />
+						<Table
+							columns={columns}
+							data={data}
+							fetchData={fetchData}
+							loading={loading}
+							pageCount={pageCount}
+						/>
 					</div>
 				</Form>
 			</Formik>
-			<div className='mx-4 mb-6 flex gap-2 justify-center flex-wrap'>
+			<div className='mx-4 mb-4 flex gap-2 justify-center flex-wrap'>
 				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
 					Imprimir
 					<FaPrint />

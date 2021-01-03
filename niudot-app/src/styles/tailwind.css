@@ -110,7 +110,7 @@ html, body {
 }
 
 .table-section {
-	@apply rounded mx-auto max-w-min py-8 px-8 mb-4;
+	@apply rounded mx-auto max-w-min mb-4;
 	/*Light Theme Defaults*/
 	@apply bg-white;
 

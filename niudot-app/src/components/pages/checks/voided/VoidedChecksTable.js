@@ -1,6 +1,5 @@
 // React and Router Stuff
 import React, { useMemo, useRef, useState, useCallback } from 'react'
-// Extra libraries
 // Other Components
 import Table from '../../utils/tables'
 
@@ -157,7 +156,7 @@ const VoidedChecksTable = ({ togglePopup }) => {
 				setPageCount(Math.ceil(serverData.length / pageSize))
 				setLoading(false)
 			}
-		}, 100)
+		}, 1000)
 	}, [])
 
 	return (
@@ -168,6 +167,7 @@ const VoidedChecksTable = ({ togglePopup }) => {
 			loading={loading}
 			pageCount={pageCount}
 			togglePopup={togglePopup}
+			showEdit={true}
 		/>
 	)
 }
