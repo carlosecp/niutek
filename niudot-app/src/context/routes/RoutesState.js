@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import routesContext from './routesContext'
 
-function RoutesState(props) {
+const RoutesState = (props) => {
 	const [currentPage, setCurrentPage] = useState('inicio')
 
-	function changePage(pageName) {
+	const changePage = (pageName) => {
 		setCurrentPage(pageName)
 	}
 

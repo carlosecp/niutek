@@ -4,7 +4,7 @@ import React from 'react'
 import { ChevronLeft } from 'react-bootstrap-icons'
 import { NavLink } from 'react-router-dom'
 
-function PageNotFound() {
+const PageNotFound = () => {
 	return (
 		<div className='w-full h-full flex justify-center items-center sm:px-8'>
 			<div className='max-w-sm p-4 rounded bg-blue-500 dark:bg-blue-700 text-white'>
@@ -25,7 +25,7 @@ function PageNotFound() {
 	)
 }
 
-function FormNotFound() {
+const FormNotFound = () => {
 	return (
 		<div className='w-full h-full flex justify-center items-center sm:px-4'>
 			<div className='max-w-sm p-4 rounded bg-blue-500 dark:bg-blue-700 text-white'>

@@ -20,23 +20,23 @@ const Login = (props) => {
 
 	useEffect(() => {
 		if (isAuthenticated && user) {
-			props.history.push('/app/dashboard')
+			if (user.type === 'client') {
+				props.history.push('/app/dashboard')
+			} else if (user.type === 'admin') {
+				props.history.push('/admin/register')
+			}
 			loadUser()
 		}
 		// eslint-disable-next-line
 	}, [isAuthenticated, user])
 
-	async function handleSubmit(values) {
+	const handleSubmit = async (values) => {
 		loginUser(values)
 	}
 
 	return (
 		<>
-			<Navbar
-				prompt='¿Aún no tienes una cuenta?'
-				tag='Regístrate'
-				path='/register'
-			/>
+			<Navbar />
 			<div className='bg-white dark:bg-gray-cstm-1 m-auto h-full flex flex-col justify-center items-center sm:block sm:pt-36'>
 				<div className='flex flex-col items-center justify-center'>
 					<h1 className='text-black-white font-bold text-3xl select-none'>

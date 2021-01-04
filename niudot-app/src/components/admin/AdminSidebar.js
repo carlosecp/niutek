@@ -8,9 +8,13 @@ import {
 	MenuItem,
 	SidebarFooter
 } from 'react-pro-sidebar'
-import { FaCog, FaHome, FaMoon, FaSun } from 'react-icons/fa/index'
-import pages from '../pages'
-import SidebarSubMenu from './SidebarSubMenu'
+import {
+	FaAddressBook,
+	FaCog,
+	FaMoon,
+	FaSun,
+	FaUserPlus
+} from 'react-icons/fa/index'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
 import routesContext from '../../context/routes/routesContext'
@@ -38,13 +42,14 @@ const Sidebar = ({ toggled, setToggled }) => {
 			</SidebarHeader>
 			<SidebarContent onClick={() => setOpenSettings(false)}>
 				<Menu>
-					<MenuItem icon={<FaHome />} className='sidebar-item'>
-						Inicio
-						<Link to='/app/dashboard' onClick={() => changePage('inicio')} />
+					<MenuItem icon={<FaUserPlus />} className='sidebar-item'>
+						Registrar Usuario
+						<Link to='/admin/register' />
 					</MenuItem>
-					{pages.map((page) => (
-						<SidebarSubMenu key={page.name} page={page} />
-					))}
+					<MenuItem icon={<FaAddressBook />} className='sidebar-item'>
+						Crear Nuevo Perfil
+						<Link to='/admin/profile' />
+					</MenuItem>
 				</Menu>
 			</SidebarContent>
 			<SidebarFooter className='h-14 p-3 flex items-center justify-end relative'>
@@ -62,7 +67,7 @@ const Sidebar = ({ toggled, setToggled }) => {
 	)
 }
 
-function ThemeSwitch() {
+const ThemeSwitch = () => {
 	const { theme, toggleTheme } = useContext(themeContext)
 
 	return (

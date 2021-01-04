@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { FaBars } from 'react-icons/fa'
 import routesContext from '../../context/routes/routesContext'
 
-function Topbar({ toggled, setToggled }) {
+const Topbar = ({ toggled, setToggled }) => {
 	const { currentPage } = useContext(routesContext)
 
 	return (
