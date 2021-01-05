@@ -71,28 +71,30 @@ Text.defaultProps = {
 	isTextArea: false
 }
 
-const Checkbox = (props) => {
-	const { label, size, name, description, newLine } = props
+const Checkbox = ({ description, size, newLine, ...props }) => {
+	const [field] = useField({ ...props, type: 'checkbox' })
 
 	return (
-		<div className={`form-container-${size} ${newLine && 'force-newline'} mt-6`}>
-			<CheckboxInput name={name} label={label} description={description} />
+		// Si alguin (Juan) se pregunta que porque las inputs estan mas cortas de los normal, es que quite un mt-6 de la clase, no sabia si lo estabamos ocupando, asi que lo quite para que no se viera feo en el admin, pero si si lo estabamos ocupando pues, simplemente agregamos una nueva prop que pregunte si queremos el margin top o no, Juan, hacelo vos si lo necesitas.
+		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
+			<div className='form-field flex items-center'>
+				<input type='checkbox' {...props} {...field} />
+				<div className='mt-1 ml-2'>{description}</div>
+			</div>
 		</div>
 	)
 }
 
 Checkbox.propTypes = {
-	label: PropTypes.string.isRequired,
 	size: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
-	newLine: PropTypes.bool.isRequired
+	newLine: PropTypes.bool
 }
 
 Checkbox.defaultProps = {
 	newLine: false
 }
-
 
 const Dropdown = ({ value, handleChange, size, label, newLine, ...props }) => {
 	const [field] = useField(props)
