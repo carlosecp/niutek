@@ -3,7 +3,7 @@ import React from 'react'
 // Extra libraries
 import { useField } from 'formik'
 
-const CheckboxInput = ({ label, children, ...props }) => {
+const CheckboxInput = ({ description, label, children, ...props }) => {
 	const [field] = useField({ ...props, type: 'checkbox' })
 
 	return (
