@@ -7,22 +7,23 @@ import NaturalPersonCreate from './NaturalPersonCreate'
 import routesContext from '../../../../context/routes/routesContext'
 
 const NaturalPerson = () => {
-	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
+	const [showCreateFormButton, setShowCreateFormButton] = useState(true)
 
 	const { changePage } = useContext(routesContext)
 	useEffect(() => {
 		changePage('Persona Natural')
-
 		// eslint-disable-next-line
 	}, [])
 
 	return (
 		<>
-			<SearchUserForm />
 			{showCreateFormButton ? (
 				<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
 			) : (
-				<NaturalPersonCreate />
+				<>
+					<SearchUserForm />
+					<NaturalPersonCreate />
+				</>
 			)}
 		</>
 	)

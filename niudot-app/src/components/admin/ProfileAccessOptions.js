@@ -7,6 +7,7 @@ const ProfileAccessOptions = () => {
 			<Register />
 			<Clients />
 			<Savings />
+			<Inventory />
 			<Products />
 			<Credit />
 			<Checks />
@@ -17,7 +18,7 @@ const ProfileAccessOptions = () => {
 const Register = () => {
 	return (
 		<div>
-			<h2>Caja</h2>
+			<h2 className='font-bold'>Caja</h2>
 			<div className='form-grid-layout'>
 				<Checkbox
 					name='register_anticipated_cancellation'
@@ -57,7 +58,7 @@ const Register = () => {
 const Clients = () => {
 	return (
 		<div>
-			<h2>Clientes</h2>
+			<h2 className='font-bold'>Clientes</h2>
 			<div className='form-grid-layout'>
 				<Checkbox
 					name='clients_natural_person'
@@ -77,7 +78,7 @@ const Clients = () => {
 const Savings = () => {
 	return (
 		<div>
-			<h2>Ahorros</h2>
+			<h2 className='font-bold'>Ahorros</h2>
 			<div className='form-grid-layout'>
 				<Checkbox
 					name='savings_account_opening'
@@ -112,7 +113,7 @@ const Savings = () => {
 const Products = () => {
 	return (
 		<div>
-			<h2>Productos</h2>
+			<h2 className='font-bold'>Productos</h2>
 			<div className='form-grid-layout'>
 				<Checkbox name='products' description='Productos' size='lg' />
 			</div>
@@ -123,7 +124,7 @@ const Products = () => {
 const Credit = () => {
 	return (
 		<div>
-			<h2>Crédito</h2>
+			<h2 className='font-bold'>Crédito</h2>
 			<div className='form-grid-layout'>
 				<Checkbox name='credit_products' description='Productos' size='lg' />
 				<Checkbox name='credit_resolution' description='Resolución' size='lg' />
@@ -136,7 +137,7 @@ const Credit = () => {
 const Checks = () => {
 	return (
 		<div>
-			<h2>Cheques</h2>
+			<h2 className='font-bold'>Cheques</h2>
 			<div className='form-grid-layout'>
 				<Checkbox name='checks_to_print' description='Por Imprimir' size='lg' />
 				<Checkbox
@@ -163,7 +164,7 @@ const Checks = () => {
 const Inventory = () => {
 	return (
 		<div>
-			<h2>Inventario</h2>
+			<h2 className='font-bold'>Inventario</h2>
 			<div className='form-grid-layout'>
 				<Checkbox name='inventory_items' description='Artículos' size='lg' />
 				<Checkbox name='inventory_purchase' description='Compras' size='lg' />

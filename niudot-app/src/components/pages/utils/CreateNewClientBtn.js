@@ -1,19 +1,22 @@
+// React and Router Stuff
 import React from 'react'
 
-function CreateNewClientBtn({ setShowForm }) {
-	function handleCreateUserSubmit() {
+const CreateNewClientBtn = ({ setShowForm }) => {
+	const handleCreateUserSubmit = () => {
 		setShowForm(false)
 	}
 
 	return (
-		<div className='mx-auto'>
+		<div className='section'>
 			<div className=''>
-				<h2>Crear Un Nuevo Cliente</h2>
+				<h2 className='text-black-white font-bold text-xl'>
+					Crear Un Nuevo Cliente
+				</h2>
 				<p className=''>Registra un nuevo cliente.</p>
 			</div>
-			<form className='' onSubmit={handleCreateUserSubmit}>
-				<button className=''>Registrar un nuevo cliente</button>
-			</form>
+			<button className='' onClick={handleCreateUserSubmit}>
+				Registrar un nuevo cliente
+			</button>
 		</div>
 	)
 }
