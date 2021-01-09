@@ -12,9 +12,12 @@ const CreateNewClientBtn = ({ setShowForm }) => {
 				<h2 className='text-black-white font-bold text-xl'>
 					Crear Un Nuevo Cliente
 				</h2>
-				<p className=''>Registra un nuevo cliente.</p>
+				<p className='text-gray-gray'>Registra un nuevo cliente.</p>
 			</div>
-			<button className='' onClick={handleCreateUserSubmit}>
+			<button
+				className='mt-4 btn bg-blue-blue btn-border-blue'
+				onClick={handleCreateUserSubmit}
+			>
 				Registrar un nuevo cliente
 			</button>
 		</div>

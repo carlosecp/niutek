@@ -20,7 +20,7 @@ const Bancarias = () => {
 					size='md'
 					placeholder='Fecha inicio de la relación'
 					label='Fecha inicio de la relación'
-					newLine={true}
+					newline={true}
 				/>
 
 				<Text

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaTimes, FaCheck } from 'react-icons/fa/index'
 
-function SubmitBtn(props) {
+const SubmitBtn = (props) => {
 	return (
 		<div className='mx-auto mt-4 flex justify-center gap-2'>
 			<button

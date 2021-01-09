@@ -21,21 +21,21 @@ const DepositToSavingsAccount = ({ value }) => {
 					size='lg'
 					placeholder='Tipo de Crédito'
 					label='Tipo de Crédito'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_producto'
 					size='lg'
 					placeholder='Nombre del Producto'
 					label='Nombre del Producto'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_numero_de_identificacion'
 					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
-					newLine={true}
+					newline={true}
 				/>
 				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
@@ -48,14 +48,14 @@ const DepositToSavingsAccount = ({ value }) => {
 					size='md'
 					placeholder='Fecha de Abono'
 					label='Fecha de Abono'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_monto_vencido'
 					size='md'
 					placeholder='Monto Vencido'
 					label='Monto Vencido'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -64,7 +64,7 @@ const DepositToSavingsAccount = ({ value }) => {
 					size='md'
 					placeholder='Monto Corriente'
 					label='Monto Corriente'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -74,7 +74,7 @@ const DepositToSavingsAccount = ({ value }) => {
 					size='md'
 					placeholder='Abono Extraordinario'
 					label='Abono Extraordinario'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -83,7 +83,7 @@ const DepositToSavingsAccount = ({ value }) => {
 					size='md'
 					placeholder='Total a Pagar'
 					label='Total a Pagar'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -100,7 +100,7 @@ const DepositToSavingsAccount = ({ value }) => {
 					size='md'
 					placeholder='Efectivo'
 					label='Efectivo'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -110,7 +110,7 @@ const DepositToSavingsAccount = ({ value }) => {
 					size='md'
 					placeholder='No. Cheque'
 					label='Número de Cheque'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_banco'
@@ -124,7 +124,7 @@ const DepositToSavingsAccount = ({ value }) => {
 					size='md'
 					placeholder='Tarjeta'
 					label='Tarjeta'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_banco1'

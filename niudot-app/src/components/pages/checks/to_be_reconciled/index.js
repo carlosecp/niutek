@@ -14,6 +14,7 @@ const ChecksToBeReconciled = () => {
 
 	useEffect(() => {
 		changePage('Cheques Por Conciliar')
+		// eslint-disable-next-line
 	}, [])
 
 	const toggleEditPopup = () => {

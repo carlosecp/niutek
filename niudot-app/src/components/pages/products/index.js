@@ -13,6 +13,7 @@ const Products = () => {
 	useEffect(() => {
 		// Esto es para el context de los titulos
 		changePage('Productos')
+		// eslint-disable-next-line
 	}, [])
 
 	return <ProductsCreate />

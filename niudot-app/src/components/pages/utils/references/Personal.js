@@ -40,7 +40,7 @@ const Personal = ({ title }) => {
 					size='md'
 					placeholder='No. Identificación'
 					label='No. Identificación'
-					newLine={true}
+					newline={true}
 				/>
 
 				<Text

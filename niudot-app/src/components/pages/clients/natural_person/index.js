@@ -17,13 +17,11 @@ const NaturalPerson = () => {
 
 	return (
 		<>
+			{showCreateFormButton && <SearchUserForm />}
 			{showCreateFormButton ? (
 				<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
 			) : (
-				<>
-					<SearchUserForm />
-					<NaturalPersonCreate />
-				</>
+				<NaturalPersonCreate />
 			)}
 		</>
 	)

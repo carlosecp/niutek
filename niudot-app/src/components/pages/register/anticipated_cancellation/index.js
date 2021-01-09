@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
@@ -11,6 +11,7 @@ const AnticipatedCancellation = () => {
 
 	useEffect(() => {
 		changePage('Cancelación Anticipada')
+		// eslint-disable-next-line
 	}, [])
 
 	return (

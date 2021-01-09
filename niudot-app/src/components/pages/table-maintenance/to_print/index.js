@@ -9,7 +9,7 @@ import AddChecksPopup from './AddChecksPopup'
 import { Dropdown, Text } from '../../utils/forms'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
-import { FaPlus, FaChartLine, FaPrint } from 'react-icons/fa'
+import { FaPlus, FaChartLine } from 'react-icons/fa'
 import { createValues, createValuesSchema } from './initialValues'
 
 const initialValues = {
@@ -27,6 +27,7 @@ const TableMaintenance = () => {
 
 	useEffect(() => {
 		changePage('Mantenimiento de tablas')
+		// eslint-disable-next-line
 	}, [])
 
 	const toggleEditPopup = () => {

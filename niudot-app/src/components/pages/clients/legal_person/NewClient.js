@@ -18,7 +18,7 @@ const NewClient = () => {
 					size='lg'
 					placeholder='Razon Social de la Empresa'
 					label='Razon Social de la Empresa'
-					newLine={true}
+					newline={true}
 				/>
 				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>

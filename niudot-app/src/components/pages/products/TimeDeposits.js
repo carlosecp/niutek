@@ -17,7 +17,7 @@ const TimeDeposits = () => {
 				<Text
 					name='descripcion_de_producto_timedeposits'
 					size='lg'
-					newLine={true}
+					newline={true}
 					placeholder='Descripción del Producto'
 					label='Descripción'
 					isTextArea={true}
@@ -32,7 +32,7 @@ const TimeDeposits = () => {
 					size='sm'
 					name='moneda_timedeposits'
 					label='Moneda'
-					newLine={true}
+					newline={true}
 				>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
@@ -69,7 +69,7 @@ const TimeDeposits = () => {
 					size='md'
 					placeholder='Monto Promedio Mensual'
 					label='Monto Promedio Mensual'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='monto_retiros_mensuales_timedeposits'
@@ -93,7 +93,7 @@ const TimeDeposits = () => {
 					size='md'
 					placeholder='Monto Mínimo Apertura'
 					label='Monto Mínimo Apertura'
-					newLine={true}
+					newline={true}
 				/>
 
 				<Text
@@ -107,7 +107,7 @@ const TimeDeposits = () => {
 					size='md'
 					placeholder='Monto Promedio Mensual'
 					label='Monto Promedio Mensual'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='monto_retiros_mensuales_timedeposits1'

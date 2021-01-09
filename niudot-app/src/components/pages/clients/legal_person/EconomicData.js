@@ -22,7 +22,7 @@ const EconomicData = () => {
 					size='lg'
 					placeholder='Detalles de las actividades a las que se dedica'
 					label='Detalles de las actividades a las que se dedica'
-					newLine={true}
+					newline={true}
 				/>
 			</div>
 		</RetractileForm>

@@ -45,6 +45,7 @@ const RegisterUser = () => {
 
 	useEffect(() => {
 		changePage('Crear Nuevo Perfil')
+		// eslint-disable-next-line
 	}, [])
 
 	return (

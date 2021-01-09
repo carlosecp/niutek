@@ -24,21 +24,21 @@ const AnticipatedCancelation = ({ value }) => {
 					size='lg'
 					placeholder='Tipo de Crédito'
 					label='Tipo de Crédito'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_producto'
 					size='lg'
 					placeholder='Nombre del Producto'
 					label='Nombre del Producto'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_numero_de_identificacion'
 					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
-					newLine={true}
+					newline={true}
 				/>
 				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
@@ -57,13 +57,13 @@ const AnticipatedCancelation = ({ value }) => {
 					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
-					newLine={true}
+					newline={true}
 				/>
 				<Dropdown
 					size='md'
 					name='create_tipo_de_entrega'
 					label='Tipo de Entrega'
-					newLine={true}
+					newline={true}
 				>
 					<option value=''>Tipo de Entrega</option>
 					<option value='option_2'>Córdoba</option>
@@ -76,7 +76,7 @@ const AnticipatedCancelation = ({ value }) => {
 					size='md'
 					placeholder='Número de Cheque'
 					label='Número de Cheque'
-					newLine={true}
+					newline={true}
 				/>
 
 				<Text

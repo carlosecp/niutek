@@ -8,16 +8,17 @@ import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import LegalPersonCreate from './LegalPersonCreate'
 
 const LegalPerson = () => {
-	const [showCreateFormButton, setShowCreateFormButton] = useState(false)
+	const [showCreateFormButton, setShowCreateFormButton] = useState(true)
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
 		changePage('Persona Juridica')
+		// eslint-disable-next-line
 	}, [])
 
 	return (
 		<>
-			<SearchUserForm />
+			{showCreateFormButton && <SearchUserForm />}
 			{showCreateFormButton ? (
 				<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
 			) : (

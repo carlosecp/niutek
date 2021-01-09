@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import { useField } from 'formik'
 // Other Components
 import TextInput from './TextInput'
-import CheckboxInput from './CheckboxInput'
 import TextArea from './TextArea'
 
 const Text = (props) => {
@@ -16,13 +15,13 @@ const Text = (props) => {
 		showLabel,
 		placeholder,
 		type,
-		newLine,
+		newline,
 		boldLabel,
 		isTextArea
 	} = props
 
 	return (
-		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
+		<div className={`form-container-${size} ${newline && 'force-newline'}`}>
 			{showLabel && (
 				<label
 					className={`text-black-white ${boldLabel && 'font-bold'}`}
@@ -57,7 +56,7 @@ Text.propTypes = {
 	placeholder: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
 	showLabel: PropTypes.bool.isRequired,
-	newLine: PropTypes.bool.isRequired,
+	newline: PropTypes.bool.isRequired,
 	boldLabel: PropTypes.bool.isRequired,
 	isTextArea: PropTypes.bool.isRequired
 }
@@ -66,17 +65,17 @@ Text.defaultProps = {
 	label: 'Label',
 	showLabel: true,
 	type: 'text',
-	newLine: false,
+	newline: false,
 	boldLabel: false,
 	isTextArea: false
 }
 
-const Checkbox = ({ description, size, newLine, ...props }) => {
+const Checkbox = ({ description, size, newline, ...props }) => {
 	const [field] = useField({ ...props, type: 'checkbox' })
 
 	return (
 		// Si alguin (Juan) se pregunta que porque las inputs estan mas cortas de los normal, es que quite un mt-6 de la clase, no sabia si lo estabamos ocupando, asi que lo quite para que no se viera feo en el admin, pero si si lo estabamos ocupando pues, simplemente agregamos una nueva prop que pregunte si queremos el margin top o no, Juan, hacelo vos si lo necesitas.
-		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
+		<div className={`form-container-${size} ${newline && 'force-newline'}`}>
 			<div className='form-field flex items-center'>
 				<input type='checkbox' {...props} {...field} />
 				<div className='mt-1 ml-2'>{description}</div>
@@ -89,18 +88,18 @@ Checkbox.propTypes = {
 	size: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
-	newLine: PropTypes.bool
+	newline: PropTypes.bool
 }
 
 Checkbox.defaultProps = {
-	newLine: false
+	newline: false
 }
 
-const Dropdown = ({ value, handleChange, size, label, newLine, ...props }) => {
+const Dropdown = ({ value, handleChange, size, label, newline, ...props }) => {
 	const [field] = useField(props)
 
 	return (
-		<div className={`form-container-${size} ${newLine && 'force-newline'}`}>
+		<div className={`form-container-${size} ${newline && 'force-newline'}`}>
 			<label className='text-black-white'>{label}</label>
 			<div className=''>
 				<select
@@ -122,11 +121,11 @@ Dropdown.propTypes = {
 	handleChange: PropTypes.object.isRequired,
 	size: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	newLine: PropTypes.bool.isRequired
+	newline: PropTypes.bool.isRequired
 }
 
 Dropdown.defaultProps = {
-	newLine: false
+	newline: false
 }
 
 export { Text, Checkbox, Dropdown }

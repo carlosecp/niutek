@@ -6,6 +6,7 @@ const RegisterUser = () => {
 
 	useEffect(() => {
 		changePage('Registrar Usuario')
+		// eslint-disable-next-line
 	}, [])
 
 	return <div className='w-52 h-52 bg-yellow-500'></div>

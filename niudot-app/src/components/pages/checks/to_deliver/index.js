@@ -14,6 +14,7 @@ const ChecksToPrint = () => {
 
 	useEffect(() => {
 		changePage('Cheques Por Entregar')
+		// eslint-disable-next-line
 	}, [])
 
 	const toggleEditPopup = () => {

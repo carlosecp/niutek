@@ -17,10 +17,8 @@ import {
 } from 'react-icons/fa/index'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
-import routesContext from '../../context/routes/routesContext'
 
 const Sidebar = ({ toggled, setToggled }) => {
-	const { changePage } = useContext(routesContext)
 	const { theme } = useContext(themeContext)
 	const [openSettings, setOpenSettings] = useState(false)
 

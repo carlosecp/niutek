@@ -21,21 +21,21 @@ export default function RetiroACuentaDeAhorro({ value }) {
 					size='lg'
 					placeholder='Producto de Certificado'
 					label='Producto de Certificado'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_numero_de_cuenta'
 					size='lg'
 					placeholder='Número de Cuenta'
 					label='Número de Cuenta'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_numero_de_identificacion'
 					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
-					newLine={true}
+					newline={true}
 				/>
 				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
@@ -54,7 +54,7 @@ export default function RetiroACuentaDeAhorro({ value }) {
 					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
-					newLine={true}
+					newline={true}
 				/>
 
 				<Text
@@ -62,7 +62,7 @@ export default function RetiroACuentaDeAhorro({ value }) {
 					size='md'
 					placeholder='Número de Cheque'
 					label='Número de Cheque'
-					newLine={true}
+					newline={true}
 				/>
 
 				<Text
@@ -76,7 +76,7 @@ export default function RetiroACuentaDeAhorro({ value }) {
 					size='md'
 					placeholder='Tarjeta'
 					label='Tarjeta'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_banco1'

@@ -14,6 +14,7 @@ const Items = () => {
 
 	useEffect(() => {
 		changePage('Catálogo de Artículos')
+		// eslint-disable-next-line
 	}, [])
 
 	const toggleAddPopup = () => {

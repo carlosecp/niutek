@@ -9,7 +9,7 @@ import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
 const AddChecksPopup = ({ togglePopup }) => {
-	const columns = useMemo(() => [])
+	const columns = useMemo(() => [], [])
 
 	const serverData = []
 
@@ -35,6 +35,7 @@ const AddChecksPopup = ({ togglePopup }) => {
 				setLoading(false)
 			}
 		}, 1000)
+		// eslint-disable-next-line
 	}, [])
 
 	return (
@@ -69,7 +70,7 @@ const AddChecksPopup = ({ togglePopup }) => {
 								size='lg'
 								placeholder='Paguese a la orden de'
 								label='A orden de'
-								newLine={true}
+								newline={true}
 							/>
 							<Text
 								name='cantidad'

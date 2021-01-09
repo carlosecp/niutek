@@ -4,13 +4,14 @@ import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 
 const SearchUserForm = () => {
-	const [userName, setUserName] = useState('')
+	const [username, setUserName] = useState('')
 
 	const handleUserNameInput = (event) => {
 		setUserName(event.target.value)
 	}
 
 	const handleUserNameSubmit = (event) => {
+		console.log(username)
 		event.preventDefault()
 		setUserName('')
 	}
@@ -28,7 +29,7 @@ const SearchUserForm = () => {
 						className='form-field w-72'
 						placeholder='Nombre del Cliente'
 						onChange={handleUserNameInput}
-						value={userName}
+						value={username}
 					/>
 					<button className='w-10 h-10 rounded bg-blue-blue btn-border-blue flex justify-center items-center cursor-pointer'>
 						<FaSearch size={16} />

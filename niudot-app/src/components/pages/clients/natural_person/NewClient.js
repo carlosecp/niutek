@@ -16,7 +16,7 @@ const NewClient = () => {
 					size='md'
 					placeholder='Nombres'
 					label='Nombres'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_apellidos'

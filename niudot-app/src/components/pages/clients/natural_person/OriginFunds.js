@@ -17,14 +17,14 @@ const OriginFunds = () => {
 				<Text
 					name='origen_fondos_profesion_independiente_profesion'
 					size='lg'
-					newLine={true}
+					newline={true}
 					placeholder='Profesión de ejerce'
 					label='Profesión de ejerce'
 				/>
 				<Text
 					name='origen_fondos_herencia_procedencia'
 					size='lg'
-					newLine={true}
+					newline={true}
 					placeholder='Procedencia'
 					label='Procedencia'
 				/>
@@ -41,28 +41,28 @@ const OriginFunds = () => {
 					size='lg'
 					placeholder='Tipo de Inversiones'
 					label='Tipo de Inversiones'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='origen_fondos_prestamo_institucion'
 					size='md'
 					placeholder='Institucion Financiera'
 					label='Institucion Financiera'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='origen_fondos_ventas_producto'
 					size='md'
 					placeholder='Venta de...'
 					label='Ventas'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='origen_fondos_ahorro_institucion'
 					size='md'
 					placeholder='Institución Financiera'
 					label='Institución Financiera'
-					newLine={true}
+					newline={true}
 				/>
 
 				<Text
@@ -70,7 +70,7 @@ const OriginFunds = () => {
 					size='md'
 					placeholder='Especifique'
 					label='Otros'
-					newLine={true}
+					newline={true}
 				/>
 			</div>
 		</RetractileForm>

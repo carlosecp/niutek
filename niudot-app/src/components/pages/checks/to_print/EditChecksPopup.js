@@ -9,12 +9,15 @@ import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
 const EditChecksPopup = ({ togglePopup }) => {
-	const columns = useMemo(() => [
-		{ Header: 'Cuenta', accessor: 'account' },
-		{ Header: 'Descripción', accessor: 'description' },
-		{ Header: 'Débito', accessor: 'debit' },
-		{ Header: 'Crédito', accessor: 'credit' }
-	])
+	const columns = useMemo(
+		() => [
+			{ Header: 'Cuenta', accessor: 'account' },
+			{ Header: 'Descripción', accessor: 'description' },
+			{ Header: 'Débito', accessor: 'debit' },
+			{ Header: 'Crédito', accessor: 'credit' }
+		],
+		[]
+	)
 
 	const serverData = [
 		{
@@ -87,7 +90,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 								size='lg'
 								placeholder='Paguese a la orden de'
 								label='A orden de'
-								newLine={true}
+								newline={true}
 							/>
 							<Text
 								name='cantidad'

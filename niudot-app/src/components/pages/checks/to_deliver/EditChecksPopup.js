@@ -40,7 +40,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 								size='lg'
 								placeholder='Paguese a la orden de'
 								label='A orden de'
-								newLine={true}
+								newline={true}
 								disabled
 								value={'ALCALDÍA MUNICIPAL DE NINDIRÍ'}
 							/>
@@ -81,7 +81,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 								size='md'
 								placeholder='Cédula'
 								label='Cédula'
-								newLine={true}
+								newline={true}
 							/>
 						</div>
 					</div>

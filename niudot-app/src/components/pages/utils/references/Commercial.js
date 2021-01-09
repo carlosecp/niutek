@@ -25,7 +25,7 @@ const Comerciales = () => {
 					size='lg'
 					placeholder='Dirección'
 					label='Dirección'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='ref_comerciales_tiempo_entidad'
