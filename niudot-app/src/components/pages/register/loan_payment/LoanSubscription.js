@@ -1,10 +1,10 @@
 // React and Router Stuff
-import React, { useState } from 'react'
+import React from 'react'
 // Other Components
 import { Text, Dropdown } from '../../utils/forms'
 import SubmitBtn from '../../utils/SubmitBtn'
 
-const LoanSubscription = ({ value }) => {
+const LoanSubscription = () => {
 	return (
 		<>
 			<div className='form-grid-layout'>
@@ -20,16 +20,16 @@ const LoanSubscription = ({ value }) => {
 					size='lg'
 					placeholder='Nombre del Producto'
 					label='Nombre del Producto'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_numero_de_identificacion'
 					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
-					newLine={true}
+					newline={true}
 				/>
-				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
+				<Dropdown size='md' name='p_tipo_doc' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
@@ -41,14 +41,14 @@ const LoanSubscription = ({ value }) => {
 					size='md'
 					placeholder='Fecha de Abono'
 					label='Fecha de Abono'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_monto_vencido'
 					size='md'
 					placeholder='Monto Vencido'
 					label='Monto Vencido'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -77,7 +77,7 @@ const LoanSubscription = ({ value }) => {
 					min='0'
 				/>
 
-				<Dropdown size='md' name='create_moneda' label='Moneda' newLine={true}>
+				<Dropdown size='md' name='create_moneda' label='Moneda' newline={true}>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
@@ -89,7 +89,7 @@ const LoanSubscription = ({ value }) => {
 					size='md'
 					placeholder='Efectivo'
 					label='Efectivo'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -99,7 +99,7 @@ const LoanSubscription = ({ value }) => {
 					size='md'
 					placeholder='No. Cheque'
 					label='Número de Cheque'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_banco'
@@ -113,7 +113,7 @@ const LoanSubscription = ({ value }) => {
 					size='md'
 					placeholder='Tarjeta'
 					label='Tarjeta'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_banco1'
@@ -121,8 +121,8 @@ const LoanSubscription = ({ value }) => {
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
-				<SubmitBtn />
 			</div>
+			<SubmitBtn />
 		</>
 	)
 }

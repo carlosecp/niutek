@@ -1,59 +1,74 @@
 // React and Router Stuff
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 // Extra libraries
+import axios from 'axios'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
 import ProfessionalData from './ProfessionalData'
-import Referencias from '../../utils/references'
+import References from '../../utils/references'
 import NewClient from './NewClient'
 import SubmitBtn from '../../utils/SubmitBtn'
 import OriginFunds from './OriginFunds'
 // Data
-import {
-	createValues,
-	createValuesSchema,
-	datosValues,
-	origenFondos,
-	refComercialesValues,
-	refBancariasValues,
-	refPersonales1Values,
-	refPersonales2Values
-} from './initialValues'
+import { createValues } from './initialValues'
 
 const initialValues = {
-	...createValues,
-	...datosValues,
-	...origenFondos,
-	...refComercialesValues,
-	...refBancariasValues,
-	...refPersonales1Values,
-	...refPersonales2Values
+	...createValues
 }
 
-const validationSchema = Yup.object({
-	...createValuesSchema
-})
+const handleSubmit = async (formData) => {
+	const config = {
+		headers: {
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Credentials': 'true'
+		}
+	}
 
-const NaturalPersonCreate = () => {
+	const res = await axios.post(
+		'https://backend-dot-nicascriptproject.uc.r.appspot.com/update/cliente_natural',
+		formData,
+		config
+	)
+
+	console.log(res)
+}
+
+const NaturalPersonCreate = ({ type, user }) => {
 	return (
 		<Formik
 			initialValues={initialValues}
-			validationSchema={validationSchema}
+			//validationSchema={validationSchema}
 			onSubmit={(values) => {
-				alert(JSON.stringify(values, null, 2))
+				handleSubmit(values)
 			}}
 		>
 			<Form>
 				<div className='section'>
-					<h2 className='text-black-white text-xl font-bold'>
-						Crear Un Nuevo Cliente{' '}
-					</h2>
-					<p className='text-gray-gray'>Crear un nuevo cliente.</p>
+					{type === 'edit' ? (
+						<>
+							<h2 className='text-black-white text-xl font-bold'>
+								Editar Cliente Existente
+							</h2>
+							<p className='text-gray-gray'>
+								<b>Editando Cliente: </b>
+								{user.username} - {user.name}
+							</p>
+						</>
+					) : (
+						<>
+							<h2 className='text-black-white text-xl font-bold'>
+								Crear Nuevo Cliente
+							</h2>
+							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
+						</>
+					)}
+				</div>
+				<div className='mt-4 section'>
 					<NewClient />
 					<ProfessionalData />
 					<OriginFunds />
-					<Referencias />
+					<References />
 					<SubmitBtn />
 				</div>
 			</Form>

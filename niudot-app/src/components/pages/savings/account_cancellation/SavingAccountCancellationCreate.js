@@ -33,7 +33,7 @@ const validationSchema = Yup.object({
 	...createValuesSchema
 })
 
-export default function SavingAccountCancellationCreate() {
+const SavingAccountCancellationCreate = () => {
 	return (
 		<Formik
 			initialValues={initialValues}
@@ -46,8 +46,9 @@ export default function SavingAccountCancellationCreate() {
 				<h2 className='text-black-white text-xl font-bold'>
 					Cancelación de Cuenta de Ahorro{' '}
 				</h2>
-				
 			</Form>
 		</Formik>
 	)
 }
+
+export default SavingAccountCancellationCreate

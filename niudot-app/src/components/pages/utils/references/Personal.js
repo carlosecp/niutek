@@ -5,96 +5,75 @@ import { Dropdown, Text } from '../forms'
 import RetractileForm from '../retractile_sections'
 
 const Personal = ({ title }) => {
-	const referenceInstance = title.split(' ')[1]
-
 	return (
 		<RetractileForm formTitle={title}>
 			<div className='form-grid-layout grid grid-cols-12 gap-2 max-w-lg'>
 				<Text
-					name={`ref_personales_${referenceInstance}_nombres`}
+					name='prp_nombre'
 					size='md'
-					placeholder='Nombres'
-					label='Nombres'
+					placeholder='prp_nombre'
+					label='prp_nombre'
 				/>
-
 				<Text
-					name={`ref_personales_${referenceInstance}_apellidos`}
+					name='prp_tipo_doc'
 					size='md'
-					placeholder='Apellidos'
-					label='Apellidos'
+					placeholder='prp_tipo_doc'
+					label='prp_tipo_doc'
 				/>
-
-				<Dropdown
-					size='md'
-					name={`ref_personales_${referenceInstance}_tipo_id`}
-					label='Select Option'
-				>
-					<option value='option_1'>Option 1</option>
-					<option value='option_2'>Option 2</option>
-					<option value='option_3'>Option 3</option>
-					<option value='option_4'>Option 4</option>
-				</Dropdown>
-
 				<Text
-					name={`ref_personales_${referenceInstance}_numero_id`}
+					name='prp_num_doc'
 					size='md'
-					placeholder='No. Identificación'
-					label='No. Identificación'
-					newLine={true}
+					placeholder='prp_num_doc'
+					label='prp_num_doc'
 				/>
-
 				<Text
-					name={`ref_personales_${referenceInstance}_nacionalidad`}
+					name='prp_telefono1'
 					size='md'
-					placeholder='Nacionalidad'
-					label='Nacionalidad'
+					placeholder='prp_telefono1'
+					label='prp_telefono1'
 				/>
-
 				<Text
-					name={`ref_personales_${referenceInstance}_fecha_nacimiento`}
+					name='prp_telefono2'
 					size='md'
-					placeholder='Fecha de nacimiento'
-					label='Fecha de nacimiento'
+					placeholder='prp_telefono2'
+					label='prp_telefono2'
 				/>
-
-				<Dropdown
-					size='md'
-					name={`ref_personales_${referenceInstance}_estado_civil`}
-					label='Select Option'
-				>
-					<option value='option_1'>Option 1</option>
-					<option value='option_2'>Option 2</option>
-					<option value='option_3'>Option 3</option>
-					<option value='option_4'>Option 4</option>
-				</Dropdown>
-
 				<Text
-					name={`ref_personales_${referenceInstance}_numero_hijos`}
+					name='prp_direccion'
 					size='md'
-					placeholder='Número de hijos'
-					label='Número de hijos'
+					placeholder='prp_direccion'
+					label='prp_direccion'
 				/>
-
 				<Text
-					name={`ref_personales_${referenceInstance}_direccion`}
-					size='lg'
-					placeholder='Dirección'
-					label='Dirección'
-				/>
-
-				<Text
-					name={`ref_personales_${referenceInstance}_tiempo_relacion`}
+					name='prp_lugar_trabajo'
 					size='md'
-					placeholder='Tiempo de conocer al referido'
-					label='Tiempo de conocer al referido'
+					placeholder='prp_lugar_trabajo'
+					label='prp_lugar_trabajo'
 				/>
-
 				<Text
-					name={`ref_personales_${referenceInstance}_email`}
+					name='prp_telefono_trabajo'
 					size='md'
-					placeholder='Email'
-					label='Email'
-					pattern='^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'
+					placeholder='prp_telefono_trabajo'
+					label='prp_telefono_trabajo'
+				/>
+				<Text
+					name='prp_tiempo_conocer'
+					size='md'
+					placeholder='prp_tiempo_conocer'
+					label='prp_tiempo_conocer'
+				/>
+				<Text
+					name='prp_e_mail'
+					size='md'
+					placeholder='prp_e_mail'
+					label='prp_e_mail'
+				/>
+				<Text
+					name='prp_reg'
+					size='md'
+					placeholder='prp_reg'
+					label='prp_reg'
+					type='number'
 				/>
 			</div>
 		</RetractileForm>

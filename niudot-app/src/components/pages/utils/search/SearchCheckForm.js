@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 
-function SearchCheckForm() {
+const SearchCheckForm = () => {
 	const [checkName, setCheckName] = useState('')
 
-	function handleCheckNameInput(event) {
+	const handleCheckNameInput = (event) => {
 		setCheckName(event.target.value)
 	}
 
-	function handleCheckNameSubmit(event) {
+	const handleCheckNameSubmit = (event) => {
 		event.preventDefault()
 		setCheckName('')
 	}
 
 	return (
-		<div className='section'>
+		<div className='mb-4 section'>
 			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Cheque Existente
 			</h2>
@@ -28,7 +28,7 @@ function SearchCheckForm() {
 						onChange={handleCheckNameInput}
 						value={checkName}
 					/>
-					<button className='w-10 h-10 bg-blue-blue rounded flex justify-center items-center'>
+					<button className='w-10 h-10 rounded bg-blue-blue btn-border-blue flex justify-center items-center cursor-pointer'>
 						<FaSearch />
 					</button>
 				</div>

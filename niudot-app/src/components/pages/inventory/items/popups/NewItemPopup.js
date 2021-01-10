@@ -32,7 +32,7 @@ const NewItemPopup = ({ togglePopup }) => {
 								size='md'
 								placeholder='Nombre Abreviado'
 								label='Nombre Abreviado'
-								newLine={true}
+								newline={true}
 							/>
 							<Text
 								name='create_costo'
@@ -53,7 +53,7 @@ const NewItemPopup = ({ togglePopup }) => {
 								size='md'
 								name='create_proveedor'
 								label='Proveedor'
-								newLine={true}
+								newline={true}
 							>
 								<option value=''>Elige Proveedor</option>
 								<option value='option_3'>Option 3</option>
@@ -78,7 +78,7 @@ const NewItemPopup = ({ togglePopup }) => {
 								size='md'
 								name='create_grupo'
 								label='Grupo'
-								newLine={true}
+								newline={true}
 							>
 								<option value=''>Elige Grupo</option>
 								<option value='option_3'>Option 3</option>
@@ -97,7 +97,7 @@ const NewItemPopup = ({ togglePopup }) => {
 								size='md'
 								name='create_presentacion'
 								label='Presentación'
-								newLine={true}
+								newline={true}
 							>
 								<option value=''>Elige Presentación</option>
 								<option value='option_3'>Option 3</option>
@@ -113,7 +113,7 @@ const NewItemPopup = ({ togglePopup }) => {
 								size='md'
 								name='create_marca'
 								label='Marca'
-								newLine={true}
+								newline={true}
 							>
 								<option value=''>Elige Marca</option>
 								<option value='option_3'>Option 3</option>
@@ -125,7 +125,7 @@ const NewItemPopup = ({ togglePopup }) => {
 								placeholder='0'
 								label='Cantidad Mínima'
 								type='number'
-								newLine={true}
+								newline={true}
 							/>
 							<Text
 								name='create_cantidad_maxima'
@@ -135,9 +135,9 @@ const NewItemPopup = ({ togglePopup }) => {
 								type='number'
 							/>
 
-							<DateInput size='sm' newLine={true} label='Última compra' />
-							<DateInput size='sm' newLine={true} label='Última venta' />
-							<DateInput size='sm' newLine={true} label='Último Inventario' />
+							<DateInput size='sm' newline={true} label='Última compra' />
+							<DateInput size='sm' newline={true} label='Última venta' />
+							<DateInput size='sm' newline={true} label='Último Inventario' />
 						</div>
 						<div className='mx-4 flex gap-2 justify-center flex-wrap'>
 							<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>

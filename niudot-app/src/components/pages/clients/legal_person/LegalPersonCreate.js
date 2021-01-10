@@ -39,7 +39,7 @@ const validationSchema = Yup.object({
 	...createValuesSchema
 })
 
-function LegalPersonCreate() {
+const LegalPersonCreate = () => {
 	return (
 		<Formik
 			initialValues={initialValues}

@@ -15,12 +15,16 @@ const Navbar = ({ prompt, tag, path }) => {
 			<div className='max-w-screen-xl h-24 sm:h-20 px-8 flex items-center justify-between mx-auto'>
 				<h1 className='text-black-white text-2xl font-bold'>niudot</h1>
 				<div className='text-black-white flex items-center'>
-					<span className='sm:hidden'>{prompt}</span>
-					<Link to={path}>
-						<span className='ml-2 mr-6 font-bold cursor-pointer hover:underline text-blue-blue'>
-							{tag}
-						</span>
-					</Link>
+					{prompt && (
+						<>
+							<span className='sm:hidden'>{prompt}</span>
+							<Link to={path}>
+								<span className='ml-2 mr-6 font-bold cursor-pointer hover:underline text-blue-blue'>
+									{tag}
+								</span>
+							</Link>
+						</>
+					)}
 
 					<div
 						className='w-14 h-8 bg-gray-200 rounded-full flex-shrink-0 p-1 dark:bg-gray-cstm-3 transition'

@@ -14,6 +14,7 @@ const Items = () => {
 
 	useEffect(() => {
 		changePage('Catálogo de Artículos')
+		// eslint-disable-next-line
 	}, [])
 
 	const toggleAddPopup = () => {
@@ -22,8 +23,8 @@ const Items = () => {
 
 	return (
 		<>
-			<SearchCheckForm />
 			<div className='mt-4 section'>
+				<SearchCheckForm />
 				<h2 className='text-black-white text-xl font-bold'>
 					Agregar Nuevo Artículo
 				</h2>
