@@ -13,6 +13,7 @@ const SavingAccountCancellation = () => {
 
 	useEffect(() => {
 		changePage('Cancelación de Cuenta de Ahorro')
+		// eslint-disable-next-line
 	}, [])
 
 	return (

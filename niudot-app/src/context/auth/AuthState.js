@@ -11,9 +11,9 @@ import setAuthToken from '../../utils/setAuthToken'
 
 const AuthState = (props) => {
 	const initialState = {
-		user: false,
+		user: { type: 'client' },
 		token: localStorage.getItem('token'),
-		isAuthenticated: false,
+		isAuthenticated: true,
 		loading: true,
 		error: null
 	}
@@ -29,8 +29,7 @@ const AuthState = (props) => {
 		try {
 			const user = {
 				username: 'CarlosECP01',
-				favoriteLanguage: 'Java',
-				secondaFavoriteLanguage: 'C#'
+				type: 'admin'
 			}
 
 			if (localStorage.token) {

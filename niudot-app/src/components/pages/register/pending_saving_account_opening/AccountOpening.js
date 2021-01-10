@@ -20,23 +20,23 @@ const AccountOpening = ({ value }) => {
 					size='lg'
 					placeholder='Producto de Ahorro'
 					label='Producto de Ahorro'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_numero_de_cuenta_de_ahorro'
 					size='md'
 					placeholder='Número de Cuenta de Ahorro'
 					label='Número de Cuenta de Ahorro'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_numero_de_identificacion'
 					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
-					newLine={true}
+					newline={true}
 				/>
-				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
+				<Dropdown size='md' name='p_tipo_doc' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
@@ -53,14 +53,14 @@ const AccountOpening = ({ value }) => {
 					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_monto_a_apertura'
 					size='md'
 					placeholder='Monto a Apertura'
 					label='Monto a Apertura'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -70,7 +70,7 @@ const AccountOpening = ({ value }) => {
 					size='md'
 					placeholder='Efectivo'
 					label='Efectivo'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -80,7 +80,7 @@ const AccountOpening = ({ value }) => {
 					size='md'
 					placeholder='No. Cheque'
 					label='Número de Cheque'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_banco'
@@ -94,7 +94,7 @@ const AccountOpening = ({ value }) => {
 					size='md'
 					placeholder='Tarjeta'
 					label='Tarjeta'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_banco1'
@@ -102,8 +102,8 @@ const AccountOpening = ({ value }) => {
 					placeholder='Nombre del Banco'
 					label='Nombre del Banco'
 				/>
-				<SubmitBtn />
 			</div>
+			<SubmitBtn />
 		</>
 	)
 }

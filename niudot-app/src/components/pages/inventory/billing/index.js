@@ -30,6 +30,7 @@ const Billing = () => {
 
 	useEffect(() => {
 		changePage('Facturación')
+		// eslint-disable-next-line
 	}, [])
 	
 	const [total, setTotal] = useState(0)

@@ -12,7 +12,6 @@ const Referencias = () => {
 			<Commercial />
 			<Banking />
 			<Personal title='Personales 1' />
-			<Personal title='Personales 2' />
 		</RetractileForm>
 	)
 }

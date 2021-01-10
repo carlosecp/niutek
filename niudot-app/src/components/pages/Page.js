@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Topbar from '../layout/Topbar'
 import Dashboard from '../dashboard'
@@ -12,7 +12,12 @@ import {
 	Voided
 } from './checks'
 import { LegalPerson, NaturalPerson } from './clients'
-import { CreditProducts, CreditRequest, CreditResolution, CreditFormalization } from './credit'
+import {
+	CreditProducts,
+	CreditRequest,
+	CreditResolution,
+	CreditFormalization
+} from './credit'
 import Products from './products'
 import {
 	AnticipatedCancellation,
@@ -21,7 +26,13 @@ import {
 	SavingsAccountWithdrawal,
 	DepositToSavingsAccount
 } from './register'
-import { Items, Purchase, InventoryProducts, Billing, InvoiceCancel} from './inventory'
+import {
+	Items,
+	Purchase,
+	InventoryProducts,
+	Billing,
+	InvoiceCancel
+} from './inventory'
 import {
 	OrderStubs,
 	AccountCancellation,
@@ -30,13 +41,13 @@ import {
 	AccountOpening
 } from './savings'
 
-import {TableMaintenance} from './table-maintenance'
+import { TableMaintenance } from './table-maintenance'
 
 const Page = (props) => {
 	return (
 		<div className='pl-64 cstm:p-0 w-full'>
 			<Topbar {...props} />
-			<div className='px-4 pt-20 bg-white-gray relative min-h-full'>
+			<div className='px-4 pt-20 bg-gray-gray relative min-h-full pb-4'>
 				<Switch>
 					<Route exact path='/app/dashboard' component={Dashboard} />
 					{/* CAJA */}
@@ -91,7 +102,11 @@ const Page = (props) => {
 						component={CreditResolution}
 					/>
 					<Route exact path='/app/credit/request' component={CreditRequest} />
-					<Route exact path='/app/credit/formalization' component={CreditFormalization} />
+					<Route
+						exact
+						path='/app/credit/formalization'
+						component={CreditFormalization}
+					/>
 					{/* CHEQUES */}
 					<Route exact path='/app/checks/print' component={ToPrint} />
 					<Route exact path='/app/checks/deliver' component={ToDeliver} />
@@ -139,13 +154,21 @@ const Page = (props) => {
 					<Route exact path='/app/inventory/billing' component={Billing} />
 					<Route exact path='/app/inventory/items' component={Items} />
 					<Route exact path='/app/inventory/purchase' component={Purchase} />
-					<Route exact path='/app/inventory/invoice-cancel' component={InvoiceCancel} />
+					<Route
+						exact
+						path='/app/inventory/invoice-cancel'
+						component={InvoiceCancel}
+					/>
 					<Route
 						exact
 						path='/app/inventory/products'
 						component={InventoryProducts}
 					/>
-					<Route exact path='/app/table-maintenance' component={TableMaintenance} />
+					<Route
+						exact
+						path='/app/table-maintenance'
+						component={TableMaintenance}
+					/>
 					{/* NOT FOUND */}
 					<Route path='*' component={FormNotFound} />
 				</Switch>

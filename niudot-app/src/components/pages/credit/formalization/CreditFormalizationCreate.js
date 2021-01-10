@@ -52,7 +52,7 @@ const CreditFormalizationCreate = () => {
 								label='Monto'
 								type='number'
 								min='0'
-								newLine={true}
+								newline={true}
 							/>
 							<Dropdown
 								size='md'
@@ -80,7 +80,7 @@ const CreditFormalizationCreate = () => {
 								label='Tasa de Interés Mensual'
 								type='number'
 								min='0'
-								newLine={true}
+								newline={true}
 							/>
 							<Text
 								name='create_desembolso_neto'
@@ -144,7 +144,7 @@ const CreditFormalizationCreate = () => {
 							<Text
 								name='create_observaciones'
 								size='lg'
-								newLine={true}
+								newline={true}
 								placeholder='Observaciones'
 								label='Observaciones'
 								isTextArea={true}

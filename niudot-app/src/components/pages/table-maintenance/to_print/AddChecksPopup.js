@@ -45,7 +45,7 @@ const AddChecksPopup = ({ togglePopup }) => {
 								size='lg'
 								placeholder='Paguese a la orden de'
 								label='A orden de'
-								newLine={true}
+								newline={true}
 							/>
 							<Text
 								name='cantidad'
@@ -62,8 +62,8 @@ const AddChecksPopup = ({ togglePopup }) => {
 							/>
 							<Dropdown name='account' size='md' label='Cuenta Bancaria'>
 								<option value=''>Defualt Value</option>
-								<option value='Juan'>Juan se la come</option>
-								<option value='Juan'>Juan se la come</option>
+								<option value='Juan'>Juan estuvo aqui</option>
+								<option value='Juan'>Juan estuvo aqui</option>
 							</Dropdown>
 						</div>
 						{headers.length > 0 && rows.length > 0 && (

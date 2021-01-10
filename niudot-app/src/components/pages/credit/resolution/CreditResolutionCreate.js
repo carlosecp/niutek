@@ -63,7 +63,7 @@ const CreditResolutionCreate = () => {
 							label='Monto Solicitado'
 							type='number'
 							min='0'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_monto_aprobado'
@@ -72,7 +72,7 @@ const CreditResolutionCreate = () => {
 							label='Monto Aprobado'
 							type='number'
 							min='0'
-							newLine={false}
+							newline={false}
 						/>
 						<Dropdown
 							size='md'
@@ -102,7 +102,7 @@ const CreditResolutionCreate = () => {
 							label='Frecuencia de Pago'
 							type='number'
 							min='0'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_frecuencia_de_pago'
@@ -119,7 +119,7 @@ const CreditResolutionCreate = () => {
 							label='Tasa de Interés Mensual'
 							type='number'
 							min='0'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_tasa_de_interes_mensual'
@@ -136,7 +136,7 @@ const CreditResolutionCreate = () => {
 							label='Plazo en Meses'
 							type='number'
 							min='1'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_plazo_en_meses'
@@ -172,7 +172,7 @@ const CreditResolutionCreate = () => {
 						<Text
 							name='create_observaciones'
 							size='lg'
-							newLine={true}
+							newline={true}
 							placeholder='Observaciones'
 							label='Observaciones'
 							isTextArea={true}
