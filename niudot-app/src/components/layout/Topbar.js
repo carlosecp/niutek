@@ -8,7 +8,7 @@ const Topbar = ({ toggled, setToggled }) => {
 
 	return (
 		<div className='z-10 fixed w-full'>
-			<div className='h-16 flex items-center justify-between px-4 bg-white-gray'>
+			<div className='h-16 flex items-center justify-between px-4 bg-white-gray shadow-md'>
 				<h2 className='text-black-white font-bold text-2xl'>
 					{currentPage.charAt(0).toUpperCase() +
 						currentPage.slice(1, currentPage.length)}
@@ -17,10 +17,6 @@ const Topbar = ({ toggled, setToggled }) => {
 					<FaBars className='w-6 h-6 hidden cstm:block dark:text-white dark:fill-current' />
 				</div>
 			</div>
-			<div
-				className='w-full bg-gray-200 dark:bg-gray-cstm-2'
-				style={{ height: '2px' }}
-			></div>
 		</div>
 	)
 }

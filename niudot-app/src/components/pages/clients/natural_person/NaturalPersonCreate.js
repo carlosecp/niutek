@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 // Extra libraries
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
@@ -35,7 +35,7 @@ const validationSchema = Yup.object({
 	...createValuesSchema
 })
 
-const NaturalPersonCreate = () => {
+const NaturalPersonCreate = ({ type }) => {
 	return (
 		<Formik
 			initialValues={initialValues}
@@ -46,10 +46,21 @@ const NaturalPersonCreate = () => {
 		>
 			<Form>
 				<div className='section'>
-					<h2 className='text-black-white text-xl font-bold'>
-						Crear Un Nuevo Cliente{' '}
-					</h2>
-					<p className='text-gray-gray'>Crear un nuevo cliente.</p>
+					{type === 'edit' ? (
+						<>
+							<h2 className='text-black-white text-xl font-bold'>
+								Editar Cliente Existente
+							</h2>
+							<p className='text-gray-gray'>Editando Cliente ID #123</p>
+						</>
+					) : (
+						<>
+							<h2 className='text-black-white text-xl font-bold'>
+								Crear Nuevo Cliente
+							</h2>
+							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
+						</>
+					)}
 					<NewClient />
 					<ProfessionalData />
 					<OriginFunds />

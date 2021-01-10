@@ -1,9 +1,9 @@
 // React and Router Stuff
 import React from 'react'
 
-const CreateNewClientBtn = ({ setShowForm }) => {
+const CreateNewClientBtn = ({ setCreateClient }) => {
 	const handleCreateUserSubmit = () => {
-		setShowForm(false)
+		setCreateClient(true)
 	}
 
 	return (
