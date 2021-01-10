@@ -34,7 +34,7 @@ const handleSubmit = async (formData) => {
 	console.log(res)
 }
 
-const NaturalPersonCreate = ({ type }) => {
+const NaturalPersonCreate = ({ type, user }) => {
 	return (
 		<Formik
 			initialValues={initialValues}
@@ -50,7 +50,10 @@ const NaturalPersonCreate = ({ type }) => {
 							<h2 className='text-black-white text-xl font-bold'>
 								Editar Cliente Existente
 							</h2>
-							<p className='text-gray-gray'>Editando Cliente ID #123</p>
+							<p className='text-gray-gray'>
+								<b>Editando Cliente: </b>
+								{user.username} - {user.name}
+							</p>
 						</>
 					) : (
 						<>

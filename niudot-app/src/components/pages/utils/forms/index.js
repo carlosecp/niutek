@@ -100,23 +100,15 @@ Checkbox.defaultProps = {
 	newline: false
 }
 
-const Dropdown = ({ value, handleChange, size, label, newline, ...props }) => {
+const Dropdown = ({ size, label, newline, ...props }) => {
 	const [field] = useField(props)
 
 	return (
 		<div className={`form-container-${size} ${newline && 'force-newline'}`}>
 			<label className='text-black-white'>{label}</label>
-			<div className=''>
-				<select
-					onChange={handleChange}
-					value={value}
-					className='form-field w-full'
-					{...field}
-					{...props}
-				>
-					{props.children}
-				</select>
-			</div>
+			<select className='form-field w-full' {...field} {...props}>
+				{props.children}
+			</select>
 		</div>
 	)
 }

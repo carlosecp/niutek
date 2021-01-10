@@ -11,9 +11,9 @@ import { Dropdown } from '../../utils/forms'
 
 const SearchUserForm = ({ setSearchUser }) => {
 	const [loading, setLoading] = useState(false)
-	const [error, setError] = useState(null)
 	const [username, setUserName] = useState('')
 	const [users, setUsers] = useState([])
+	const [activeUserId, setActiveUserId] = useState(null)
 
 	const handleUserNameInput = (event) => {
 		setUserName(event.target.value)
@@ -41,20 +41,14 @@ const SearchUserForm = ({ setSearchUser }) => {
 
 		// Checkeamos a ver si el usuario ha sido encontrado o no.
 		if (res.data.length > 0) {
-			// Si el usuario ha sido encontrado, entonces no hay errorres, por lo tanto:
-			setError(null)
 			// Hemos encontrado este usuario, por lo tanto, es el usuario que queremos editar. Se lo tenemos que mandar al formulario.
 			setUsers(res.data)
 			setUserName('')
 		} else {
-			// Deberiamos mostrar un mensaje que diga que el usuario no ha sido encontrado.
-			setError('Usuario no encontrado')
+			setUsers([])
+			setActiveUserId(null)
 		}
 	}
-
-	useEffect(() => {
-		console.log(users)
-	}, [users])
 
 	return (
 		<div className='section mb-4'>
@@ -90,23 +84,27 @@ const SearchUserForm = ({ setSearchUser }) => {
 					</div>
 				</div>
 			</form>
-			{error && (
-				<small className='font-bold text-red-500'>Usuario no Encontrado</small>
-			)}
 			<Formik
-				initialValues={{ users: '' }}
+				initialValues={{ userId: '' }}
 				onSubmit={(values) => {
-					alert(JSON.stringify(values, null, 2))
+					values.userId = activeUserId
+					setSearchUser(users.filter((user) => user.id === +values.userId)[0])
 				}}
 			>
 				<Form>
 					<div className='form-grid-layout'>
-						<Dropdown size='md' name='users' label='Usuarios'>
+						<Dropdown
+							size='md'
+							name='userId'
+							label='Usuarios'
+							onChange={(e) => setActiveUserId(e.target.value)}
+							value={activeUserId}
+						>
 							<option
-								selected='true'
+								selected={!activeUserId}
 								disabled
 								value=''
-								label='Seleccione un Usuario'
+								label='Seleccione Cliente'
 							/>
 							{users
 								.sort((a, b) =>
@@ -115,12 +113,23 @@ const SearchUserForm = ({ setSearchUser }) => {
 								.map((user) => (
 									<option
 										key={user.id}
-										value={user.username}
-										label={user.name || user.username}
+										value={user.id}
+										label={`${user.username} - ${user.name}`}
 									/>
 								))}
 						</Dropdown>
 					</div>
+					<button
+						type='submit'
+						className={`mt-2 btn ${
+							activeUserId
+								? 'bg-blue-blue btn-border-blue'
+								: 'bg-gray-cstm-15 text-gray-gray'
+						}`}
+						disabled={!activeUserId}
+					>
+						{activeUserId > 0 ? 'Editar Cliente' : 'Buscar Cliente'}
+					</button>
 				</Form>
 			</Formik>
 		</div>

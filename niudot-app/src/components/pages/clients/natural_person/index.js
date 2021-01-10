@@ -45,7 +45,7 @@ const NaturalPerson = () => {
 	}, [user, createClient])
 
 	return showForm.show ? (
-		<NaturalPersonCreate type={showForm.type} />
+		<NaturalPersonCreate type={showForm.type} user={user} />
 	) : (
 		<>
 			<SearchUserForm setSearchUser={setSearchUser} />
