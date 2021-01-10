@@ -9,35 +9,34 @@ const Comerciales = () => {
 		<RetractileForm formTitle='Comerciales'>
 			<div className='form-grid-layout'>
 				<Text
-					name='ref_comerciales_nombre_entidad'
+					name='prc_nombre_entidad'
 					size='md'
-					placeholder='Nombre de la entidad'
-					label='Nombre de la entidad'
+					placeholder='prc_nombre_entidad'
+					label='prc_nombre_entidad'
 				/>
 				<Text
-					name='ref_comerciales_persona_contacto'
+					name='prc_persona_contacto'
 					size='md'
-					placeholder='Persona de contacto'
-					label='Persona de contacto'
+					placeholder='prc_persona_contacto'
+					label='prc_persona_contacto'
 				/>
 				<Text
-					name='ref_comerciales_direccion'
+					name='prc_direccion'
 					size='lg'
-					placeholder='Dirección'
-					label='Dirección'
-					newline={true}
+					placeholder='prc_direccion'
+					label='prc_direccion'
 				/>
 				<Text
-					name='ref_comerciales_tiempo_entidad'
+					name='prc_annios_con_entidad'
 					size='md'
-					placeholder='Años con la entidad'
-					label='Años con la entidad'
+					placeholder='prc_annios_con_entidad'
+					label='prc_annios_con_entidad'
 				/>
 				<Text
-					name='ref_comerciales_telefono'
+					name='prc_telefono'
 					size='md'
-					placeholder='Teléfono'
-					label='Teléfono'
+					placeholder='prc_telefono'
+					label='prc_telefono'
 				/>
 			</div>
 		</RetractileForm>

@@ -8,7 +8,7 @@ const NewClient = () => {
 		<>
 			<div className='form-grid-layout'>
 				<Text
-					name='create_codigo_cliente'
+					name='p_cod_sucursal'
 					size='md'
 					placeholder='Código de Cliente'
 					label='Código de Cliente'
@@ -20,20 +20,20 @@ const NewClient = () => {
 					label='Razon Social de la Empresa'
 					newline={true}
 				/>
-				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
+				<Dropdown size='md' name='p_tipo_doc' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
 				</Dropdown>
 				<Text
-					name='create_numero_id'
+					name='p_num_doc'
 					size='md'
 					placeholder='No. Identificación'
 					label='No. Identificación'
 				/>
 				<Text
-					name='create_nacionalidad'
+					name='p_cod_nac'
 					size='md'
 					placeholder='Nacionalidad'
 					label='Nacionalidad'

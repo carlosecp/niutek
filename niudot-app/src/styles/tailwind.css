@@ -153,13 +153,26 @@ html, body {
 	@apply text-black bg-gray-100 border-gray-200;
 
 	/*Light Theme Pseudo-Classes*/
-	@apply focus:bg-gray-200 focus:border-gray-cstm-13;
+	@apply focus:bg-gray-200 focus:border-gray-cstm-13 placeholder-gray-cstm-9;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-2 dark:border-gray-cstm-4 placeholder-gray-cstm-10;
+	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-2 dark:border-gray-cstm-4 dark:placeholder-gray-cstm-10;
 
 	/*Dark Theme Pseudo-Classes*/
 	@apply dark:focus:bg-gray-cstm-3 dark:focus:border-gray-cstm-5;
+}
+
+.form-field-disabled {
+	/*Esta clase es para cada una de las input de texto o numericas o similares. Son todos esos rectangulos que en light theme tienen bordes grises claros, todas, incluidas checkboxes y dropdowns.*/
+
+	/*Global*/
+	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid italic;
+
+	/*Light Theme Defaults*/
+	@apply text-gray-cstm-9 bg-gray-100 border-gray-200;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-gray-cstm-10 dark:bg-gray-cstm-2 dark:border-gray-cstm-4;
 }
 
 .form-field-error {
@@ -219,7 +232,7 @@ html, body {
 	@apply bg-blue-700;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-500;
+	@apply dark:bg-blue-600;
 }
 
 .pro-sidebar-header {
@@ -254,7 +267,7 @@ html, body {
 	@apply bg-blue-600;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-700;
+	@apply dark:bg-blue-600;
 
 }
 
@@ -263,7 +276,7 @@ html, body {
 	@apply bg-blue-600;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-700;
+	@apply dark:bg-blue-600;
 }
 
 .pro-menu-item > .pro-inner-item > .pro-item-content {

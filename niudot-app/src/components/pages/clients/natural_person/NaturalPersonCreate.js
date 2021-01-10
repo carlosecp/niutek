@@ -1,47 +1,46 @@
 // React and Router Stuff
 import React, { useState, useEffect } from 'react'
 // Extra libraries
+import axios from 'axios'
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
 import ProfessionalData from './ProfessionalData'
-import Referencias from '../../utils/references'
+import References from '../../utils/references'
 import NewClient from './NewClient'
 import SubmitBtn from '../../utils/SubmitBtn'
 import OriginFunds from './OriginFunds'
 // Data
-import {
-	createValues,
-	createValuesSchema,
-	datosValues,
-	origenFondos,
-	refComercialesValues,
-	refBancariasValues,
-	refPersonales1Values,
-	refPersonales2Values
-} from './initialValues'
+import { createValues } from './initialValues'
 
 const initialValues = {
-	...createValues,
-	...datosValues,
-	...origenFondos,
-	...refComercialesValues,
-	...refBancariasValues,
-	...refPersonales1Values,
-	...refPersonales2Values
+	...createValues
 }
 
-const validationSchema = Yup.object({
-	...createValuesSchema
-})
+const handleSubmit = async (formData) => {
+	const config = {
+		headers: {
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Credentials': 'true'
+		}
+	}
+
+	const res = await axios.post(
+		'https://backend-dot-nicascriptproject.uc.r.appspot.com/update/cliente_natural',
+		formData,
+		config
+	)
+
+	console.log(res)
+}
 
 const NaturalPersonCreate = ({ type }) => {
 	return (
 		<Formik
 			initialValues={initialValues}
-			validationSchema={validationSchema}
+			//validationSchema={validationSchema}
 			onSubmit={(values) => {
-				alert(JSON.stringify(values, null, 2))
+				handleSubmit(values)
 			}}
 		>
 			<Form>
@@ -61,10 +60,12 @@ const NaturalPersonCreate = ({ type }) => {
 							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
 						</>
 					)}
+				</div>
+				<div className='mt-4 section'>
 					<NewClient />
 					<ProfessionalData />
 					<OriginFunds />
-					<Referencias />
+					<References />
 					<SubmitBtn />
 				</div>
 			</Form>
