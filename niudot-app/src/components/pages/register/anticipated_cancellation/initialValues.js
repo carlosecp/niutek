@@ -5,7 +5,7 @@ export const createValues = {
 	create_tipo_de_credito: '',
 	create_nombre_del_producto: '',
 	create_numero_de_identificacion: '',
-	create_tipo_id: '',
+	p_tipo_doc: '',
 	create_moneda: '',
 	create_fecha_de_entrega: '',
 	create_tipo_de_entrega: '',

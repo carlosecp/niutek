@@ -9,13 +9,13 @@ import themeContext from './context/theme/themeContext'
 // Routes
 import Home from './components/layout/Home'
 import Login from './components/routing/Login'
-import Register from './components/routing/Register'
 import About from './components/pages/about'
 // Others
 import setAuthToken from './utils/setAuthToken'
 import { PageNotFound } from './components/routing/NotFound'
+import Admin from './components/admin'
 
-function App() {
+const App = () => {
 	const { theme } = useContext(themeContext)
 
 	useEffect(() => {
@@ -31,9 +31,9 @@ function App() {
 					<Router>
 						<Switch>
 							<Route exact path='/' component={Login} />
-							<Route exact path='/register' component={Register} />
 							<Route exact path='/about' component={About} />
-							<PrivateRoute path='/app' component={Home} />
+							<PrivateRoute path='/app' component={Home} userType='client' />
+							<PrivateRoute path='/admin' component={Admin} userType='admin' />
 							<Route path='*' component={PageNotFound} />
 						</Switch>
 					</Router>

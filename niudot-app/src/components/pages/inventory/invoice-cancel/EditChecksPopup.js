@@ -58,7 +58,7 @@ const EditChecksPopup = ({ togglePopup }) => {
 								size='lg'
 								placeholder='Paguese a la orden de'
 								label='A orden de'
-								newLine={true}
+								newline={true}
 							/>
 							<Text
 								name='cantidad'

@@ -1,10 +1,11 @@
 // React and Router Stuff
 import React, { useMemo, useRef, useState, useCallback } from 'react'
 // Extra libraries
+import { v4 as uuidv4 } from 'uuid'
 // Other Components
 import Table from '../../utils/tables'
 
-const ChecksTable = ({ togglePopup }) => {
+const ChecksTable = ({ loading, setLoading, togglePopup }) => {
 	const columns = useMemo(() => [
 		{ Header: 'No. Cheque', accessor: 'number' },
 		{ Header: 'Fecha', accessor: 'date' },
@@ -15,6 +16,7 @@ const ChecksTable = ({ togglePopup }) => {
 
 	const serverData = [
 		{
+			id: uuidv4(),
 			number: 20688,
 			date: '06/10/2020',
 			to: 'ANA JULIA MENDIETA SEVILLA',
@@ -22,6 +24,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 7800.0
 		},
 		{
+			id: uuidv4(),
 			number: 20689,
 			date: '06/10/2020',
 			to: 'ANA JULIA MENDIETE SEVILLA',
@@ -29,6 +32,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 6280.0
 		},
 		{
+			id: uuidv4(),
 			number: 20690,
 			date: '06/10/200',
 			to: 'SILVIA CAROLINA HERNANDEZ PEREZ',
@@ -38,7 +42,6 @@ const ChecksTable = ({ togglePopup }) => {
 	]
 
 	const [data, setData] = useState([])
-	const [loading, setLoading] = useState(false)
 	const [pageCount, setPageCount] = useState(0)
 	const fetchIdRef = useRef(0)
 
@@ -46,7 +49,6 @@ const ChecksTable = ({ togglePopup }) => {
 		// Esta funcion se va correr cada vez que cambiemos de pagina, para que asi no tengamos que traer la informacion de todas las paginas de un solo.
 
 		const fetchId = ++fetchIdRef.current
-		setLoading(true)
 
 		setTimeout(() => {
 			if (fetchId === fetchIdRef.current) {
@@ -62,15 +64,17 @@ const ChecksTable = ({ togglePopup }) => {
 	}, [])
 
 	return (
-		<Table
-			columns={columns}
-			data={data}
-			fetchData={fetchData}
-			loading={loading}
-			pageCount={pageCount}
-			togglePopup={togglePopup}
-			showEdit={true}
-		/>
+		<div className='relative'>
+			<Table
+				columns={columns}
+				data={data}
+				fetchData={fetchData}
+				pageCount={pageCount}
+				togglePopup={togglePopup}
+				showEdit={true}
+				loading={loading}
+			/>
+		</div>
 	)
 }
 

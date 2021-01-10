@@ -6,7 +6,7 @@ import SearchProductForm from '../../utils/search/SearchProductForm'
 import routesContext from '../../../../context/routes/routesContext'
 import { Formik } from 'formik'
 import ProductsTable from './ProductsTable'
-import { Text} from '../../utils/forms'
+import { Text } from '../../utils/forms'
 import EditPopup from './popups/EditPopup'
 import AddItemPopup from './popups/AddItemPopup'
 
@@ -15,13 +15,9 @@ const InventoryProducts = () => {
 	const [showEditPopup, setShowEditPopup] = useState(false)
 	const [showAddPopup, setShowAddPopup] = useState(false)
 
-	const [showPopup, setShowPopup] = useState({
-		add: false,
-		edit: false
-	})
-
 	useEffect(() => {
 		changePage('Productos')
+		// eslint-disable-next-line
 	}, [])
 
 	const toggleEditPopup = () => {
@@ -31,8 +27,6 @@ const InventoryProducts = () => {
 	const toggleAddPopup = () => {
 		setShowAddPopup(!showAddPopup)
 	}
-
-
 
 	return (
 		<div className='section'>
@@ -45,7 +39,7 @@ const InventoryProducts = () => {
 						size='md'
 						placeholder='Producto'
 						label='Producto'
-						newLine={true}
+						newline={true}
 					/>
 					<Text
 						name='codigo_producto'
@@ -58,7 +52,7 @@ const InventoryProducts = () => {
 						size='sm'
 						placeholder='Abreviación'
 						label='Abreviación'
-						newLine={true}
+						newline={true}
 					/>
 				</div>
 			</Formik>
@@ -67,7 +61,6 @@ const InventoryProducts = () => {
 
 			{showEditPopup && <EditPopup togglePopup={toggleEditPopup} />}
 			{showAddPopup && <AddItemPopup togglePopup={toggleAddPopup} />}
-
 
 			<div className='my-4 flex gap-2 justify-center flex-wrap'>
 				<button

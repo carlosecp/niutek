@@ -10,32 +10,18 @@ import { Formik } from 'formik'
 import DateInput from '../../utils/forms/DateInput'
 import EditPurchasePopup from './popups/EditPurchasePopup'
 
-
 const Purchase = () => {
-
 	const [showEditPopup, setShowEditPopup] = useState(false)
-    
 	const { changePage } = useContext(routesContext)
-	const [showPopup, setShowPopup] = useState({
-		edit: false,
-	})
 
 	useEffect(() => {
 		changePage('Compras')
+		// eslint-disable-next-line
 	}, [])
 
-	const togglePopup = (popup) => {
-		switch (popup) {
-			case 'edit':
-				setShowPopup({ ...showPopup, edit: !showPopup.edit })
-				break
-        }
-    }
-    
-    const toggleEditPopup = () => {
+	const toggleEditPopup = () => {
 		setShowEditPopup(!showEditPopup)
-    }
-
+	}
 
 	return (
 		<div className='section'>
@@ -53,33 +39,18 @@ const Purchase = () => {
 						size='md'
 						placeholder='Número de Factura'
 						label='Número de Factura'
-						newLine={true}
+						newline={true}
 					/>
-                    <DateInput size='sm' newLine={true} label='Fecha' />
-                    
-					
-					<Text
-						name='hora'
-						size='sm'
-						placeholder='16:32:17'
-						label='Hora'
-					/>
+					<DateInput size='sm' newline={true} label='Fecha' />
 
-					<Dropdown
-						size='md'
-						name='proveedor'
-						label='Proveedor'
-						newLine={true}
-					>
+					<Text name='hora' size='sm' placeholder='16:32:17' label='Hora' />
+
+					<Dropdown size='md' name='proveedor' label='Proveedor' newline={true}>
 						<option value=''>Elige Proveedor</option>
 						<option value='option_3'>Option 3</option>
 						<option value='option_4'>Option 4</option>
 					</Dropdown>
-                    <Dropdown
-						size='md'
-						name='bodega'
-						label='Bodega'
-					>
+					<Dropdown size='md' name='bodega' label='Bodega'>
 						<option value=''>Elige Bodega</option>
 						<option value='option_3'>Option 3</option>
 						<option value='option_4'>Option 4</option>
@@ -89,13 +60,13 @@ const Purchase = () => {
 						size='md'
 						placeholder='Observaciones'
 						label='Observaciones'
-                        isTextArea
+						isTextArea
 					/>
-                    <Dropdown
+					<Dropdown
 						size='md'
 						name='tipo_de_pago'
 						label='Tipo de pago'
-						newLine={true}
+						newline={true}
 					>
 						<option value=''>Crédito</option>
 						<option value='option_3'>Option 3</option>
@@ -108,13 +79,11 @@ const Purchase = () => {
 						label='Días'
 						type='number'
 					/>
-					
 				</div>
 			</Formik>
 
-			<PurchaseTable  togglePopup={toggleEditPopup} />
-            {showEditPopup && <EditPurchasePopup togglePopup={toggleEditPopup} />}
-
+			<PurchaseTable togglePopup={toggleEditPopup} />
+			{showEditPopup && <EditPurchasePopup togglePopup={toggleEditPopup} />}
 		</div>
 	)
 }

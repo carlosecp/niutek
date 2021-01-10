@@ -1,7 +1,7 @@
 // React and Router Stuff
 import React from 'react'
 // Other Components
-import { Text } from '../../utils/forms'
+import { Text, Dropdown } from '../../utils/forms'
 import RetractileForm from '../../utils/retractile_sections'
 
 const OriginFunds = () => {
@@ -9,68 +9,100 @@ const OriginFunds = () => {
 		<RetractileForm id='Muere Juan' formTitle='Origen Fondos'>
 			<div className='form-grid-layout'>
 				<Text
-					name='origen_fondos_negocio_propio_nombre'
+					name='p_of_negocio_propio'
 					size='lg'
-					placeholder='Nombre del Negocio'
-					label='Nombre del Negocio'
+					placeholder='p_of_negocio_propio'
+					label='p_of_negocio_propio'
+				/>
+				<Dropdown
+					size='md'
+					name='p_of_prof_independiente'
+					label='p_of_prof_independiente'
+				>
+					<option value=''>Seleccione</option>
+					<option value={0}>Si</option>
+					<option value={1}>No</option>
+				</Dropdown>
+				<Text
+					name='p_of_prof_ejerce'
+					size='lg'
+					placeholder='p_of_prof_ejerce'
+					label='p_of_prof_ejerce'
+				/>
+				<Dropdown size='md' name='p_of_herencia' label='p_of_herencia'>
+					<option value=''>Seleccione</option>
+					<option value={0}>Si</option>
+					<option value={1}>No</option>
+				</Dropdown>
+				<Text
+					name='p_of_de_quien'
+					size='lg'
+					placeholder='p_of_de_quien'
+					label='p_of_de_quien'
+				/>
+				<Dropdown size='md' name='p_of_inversiones' label='p_of_inversiones'>
+					<option value=''>Seleccione</option>
+					<option value={0}>Si</option>
+					<option value={1}>No</option>
+				</Dropdown>
+				<Text
+					name='p_of_tipos_inversiones'
+					size='md'
+					placeholder='p_of_tipos_inversiones'
+					label='p_of_tipos_inversiones'
+				/>
+				<Dropdown size='md' name='p_of_prestamo' label='p_of_prestamo'>
+					<option value=''>Seleccione</option>
+					<option value={0}>Si</option>
+					<option value={1}>No</option>
+				</Dropdown>
+				<Text
+					name='p_of_inst_financiera'
+					size='md'
+					placeholder='p_of_inst_financiera'
+					label='p_of_inst_financiera'
+				/>
+				<Dropdown size='md' name='p_of_venta_de' label='p_of_venta_de'>
+					<option value=''>Seleccione</option>
+					<option value={0}>Opcion 1</option>
+					<option value={1}>Opcion 2</option>
+				</Dropdown>
+				<Text
+					name='p_of_descrip_venta_de'
+					size='md'
+					placeholder='p_of_descrip_venta_de'
+					label='p_of_descrip_venta_de'
 				/>
 				<Text
-					name='origen_fondos_profesion_independiente_profesion'
-					size='lg'
-					newLine={true}
-					placeholder='Profesión de ejerce'
-					label='Profesión de ejerce'
-				/>
-				<Text
-					name='origen_fondos_herencia_procedencia'
-					size='lg'
-					newLine={true}
-					placeholder='Procedencia'
-					label='Procedencia'
-				/>
-				<Text
-					name='origen_fondos_herencia_monto'
-					size='lg'
-					placeholder='Monto'
-					label='Monto'
+					name='p_of_salario'
+					size='md'
+					placeholder='p_of_salario'
+					label='p_of_salario'
 					type='number'
-					min='0'
 				/>
 				<Text
-					name='origen_fondos_inversiones_tipo'
-					size='lg'
-					placeholder='Tipo de Inversiones'
-					label='Tipo de Inversiones'
-					newLine={true}
-				/>
-				<Text
-					name='origen_fondos_prestamo_institucion'
+					name='p_of_ahorro'
 					size='md'
-					placeholder='Institucion Financiera'
-					label='Institucion Financiera'
-					newLine={true}
+					placeholder='p_of_ahorro'
+					label='p_of_ahorro'
+					type='number'
 				/>
 				<Text
-					name='origen_fondos_ventas_producto'
+					name='p_of_aho_inst_financiera'
 					size='md'
-					placeholder='Venta de...'
-					label='Ventas'
-					newLine={true}
+					placeholder='p_of_aho_inst_financiera'
+					label='p_of_aho_inst_financiera'
 				/>
+				<Dropdown size='md' name='p_of_otros' label='p_of_otros'>
+					<option value=''>Seleccione</option>
+					<option value={0}>Si</option>
+					<option value={1}>No</option>
+				</Dropdown>
 				<Text
-					name='origen_fondos_ahorro_institucion'
+					name='p_of_des_otros'
 					size='md'
-					placeholder='Institución Financiera'
-					label='Institución Financiera'
-					newLine={true}
-				/>
-
-				<Text
-					name='origen_fondos_otros_descripcion'
-					size='md'
-					placeholder='Especifique'
-					label='Otros'
-					newLine={true}
+					placeholder='p_of_des_otros'
+					label='p_of_des_otros'
 				/>
 			</div>
 		</RetractileForm>

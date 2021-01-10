@@ -14,14 +14,10 @@ import Checks from './Checks'
 import Appointments from './Appointments'
 import Pendings from './Pendings'
 
-function About() {
+const About = () => {
 	return (
 		<>
-			<Navbar
-				prompt='¿Aún no tienes una cuenta?'
-				tag='Regístrate'
-				link='/register'
-			/>
+			<Navbar prompt='¿Ya tienes una cuenta?' tag='Inicia Sesión' path='/' />
 			<div className='pt-20'>
 				<AboutIntro />
 				<Clients />

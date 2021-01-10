@@ -6,21 +6,21 @@ import ReactDatePicker from 'react-datepicker'
 
 const DateInput = ({
 	size,
-	newLine,
+	newline,
 	type,
 	placeholder,
 	boldLabel,
 	label,
 	...props
 }) => {
-	const [field, meta] = useField(props)
+	const [field] = useField(props)
 	const [startDate, setStartDate] = useState(new Date())
 
 	return (
 		<>
 			<div
 				className={`form-container-${size} ${
-					newLine && 'force-newline'
+					newline && 'force-newline'
 				} flex flex-col mb-4`}
 			>
 				<label className={`text-black-white ${boldLabel && 'font-bold'}`}>

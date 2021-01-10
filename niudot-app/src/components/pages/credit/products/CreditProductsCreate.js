@@ -43,7 +43,7 @@ const CreditProductsCreate = () => {
 							size='md'
 							placeholder='Fuente de Fondos'
 							label='Fuente de Fondos'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_nombre_del_producto'
@@ -54,7 +54,7 @@ const CreditProductsCreate = () => {
 						<Text
 							name='create_descripcion'
 							size='lg'
-							newLine={true}
+							newline={true}
 							placeholder='Descripción'
 							label='Descripción'
 							isTextArea={true}
@@ -84,7 +84,7 @@ const CreditProductsCreate = () => {
 							name='create_moneda'
 							label='Moneda'
 							placeholder='Moneda'
-							newLine={true}
+							newline={true}
 						>
 							<option value='option_2'>Córdobas</option>
 							<option value='option_3'>Dólares</option>
@@ -97,7 +97,7 @@ const CreditProductsCreate = () => {
 							label='Tasa de Interés Mensual'
 							type='number'
 							min='0'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_monto_minimo'
@@ -106,7 +106,7 @@ const CreditProductsCreate = () => {
 							label='Monto Mínimo'
 							type='number'
 							min='0'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_monto_maximo'
@@ -123,7 +123,7 @@ const CreditProductsCreate = () => {
 							label='Plazo en Meses'
 							type='number'
 							min='1'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_frecuencia_de_pago'
@@ -132,7 +132,7 @@ const CreditProductsCreate = () => {
 							label='Frecuencia de Pago'
 							type='number'
 							min='0'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_porcentaje_aportación'

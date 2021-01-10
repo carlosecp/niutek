@@ -18,7 +18,7 @@ const ItemsCatalogue = () => {
 					size='md'
 					placeholder='Nombre Abreviado'
 					label='Nombre Abreviado'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_costo'
@@ -39,7 +39,7 @@ const ItemsCatalogue = () => {
 					size='md'
 					name='create_proveedor'
 					label='Proveedor'
-					newLine={true}
+					newline={true}
 				>
 					<option value=''>Elige Proveedor</option>
 					<option value='option_3'>Option 3</option>
@@ -60,7 +60,7 @@ const ItemsCatalogue = () => {
 					type='number'
 				/>
 
-				<Dropdown size='md' name='create_grupo' label='Grupo' newLine={true}>
+				<Dropdown size='md' name='create_grupo' label='Grupo' newline={true}>
 					<option value=''>Elige Grupo</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
@@ -78,7 +78,7 @@ const ItemsCatalogue = () => {
 					size='md'
 					name='create_presentacion'
 					label='Presentación'
-					newLine={true}
+					newline={true}
 				>
 					<option value=''>Elige Presentación</option>
 					<option value='option_3'>Option 3</option>
@@ -86,7 +86,7 @@ const ItemsCatalogue = () => {
 				</Dropdown>
 
 				<Checkbox description='No mostrar en Toma Física' size='md' label='' />
-				<Dropdown size='md' name='create_marca' label='Marca' newLine={true}>
+				<Dropdown size='md' name='create_marca' label='Marca' newline={true}>
 					<option value=''>Elige Marca</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
@@ -97,7 +97,7 @@ const ItemsCatalogue = () => {
 					placeholder='0'
 					label='Cantidad Mínima'
 					type='number'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_cantidad_maxima'
@@ -107,9 +107,9 @@ const ItemsCatalogue = () => {
 					type='number'
 				/>
 
-				<DateInput size='sm' newLine={true} label='Última compra' />
-				<DateInput size='sm' newLine={true} label='Última venta' />
-				<DateInput size='sm' newLine={true} label='Último Inventario' />
+				<DateInput size='sm' newline={true} label='Última compra' />
+				<DateInput size='sm' newline={true} label='Última venta' />
+				<DateInput size='sm' newline={true} label='Último Inventario' />
 			</div>
 		</Formik>
 	)

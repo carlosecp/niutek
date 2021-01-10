@@ -4,69 +4,68 @@ import React from 'react'
 import { Dropdown, Text } from '../forms'
 import RetractileForm from '../retractile_sections'
 
-const Bancarias = () => {
+const Banking = () => {
 	return (
-		<RetractileForm formTitle='Bancarias'>
+		<RetractileForm formTitle='Banking'>
 			<div className='form-grid-layout'>
 				<Text
-					name='ref_bancarias_nombre_entidad'
+					name='prb_nombre_entidad'
 					size='md'
-					placeholder='Nombre de la entidad'
-					label='Nombre de la entidad'
-				/>
-
-				<Text
-					name='ref_bancarias_fecha_relacion'
-					size='md'
-					placeholder='Fecha inicio de la relación'
-					label='Fecha inicio de la relación'
-					newLine={true}
-				/>
-
-				<Text
-					name='ref_bancarias_tipo_servicio'
-					size='md'
-					placeholder='Tipo de servicio recibido'
-					label='Tipo de servicio recibido'
-				/>
-
-				<Text
-					name='ref_bancarias_tiempo_entidad'
-					size='md'
-					placeholder='Años con la entidad'
-					label='Años con la entidad'
-					type='number'
-					min='0'
-				/>
-
-				<Text
-					name='ref_bancarias_telefono'
-					size='md'
-					placeholder='Teléfono'
-					label='Teléfono'
+					placeholder='prb_nombre_entidad'
+					label='prb_nombre_entidad'
 				/>
 				<Text
-					name='ref_bancarias_numero_cuenta'
-					size='sm'
-					placeholder='Número de cuenta'
-					label='Número de cuenta'
+					name='prb_tipo_servicio_recibido'
+					size='md'
+					placeholder='prb_tipo_servicio_recibido'
+					label='prb_tipo_servicio_recibido'
 				/>
-				<Dropdown size='sm' name='ref_bancarias_moneda' label='Moneda'>
-					<option value='option_1'>Option 1</option>
-					<option value='option_2'>Option 2</option>
-					<option value='option_3'>Option 3</option>
-					<option value='option_4'>Option 4</option>
+				<Text
+					name='prb_fecha_inicio_relacion'
+					size='md'
+					placeholder='prb_fecha_inicio_relacion'
+					label='prb_fecha_inicio_relacion'
+				/>
+				<Text
+					name='prb_annios_con_entidad'
+					size='md'
+					placeholder='prb_annios_con_entidad'
+					label='prb_annios_con_entidad'
+				/>
+				<Text
+					name='prb_telefono'
+					size='md'
+					placeholder='prb_telefono'
+					label='prb_telefono'
+				/>
+				<Text name='prb_reg' size='sm' placeholder='prb_reg' label='prb_reg' />
+				<Text
+					name='pct_num_cuenta'
+					size='md'
+					placeholder='prb_telefono'
+					label='prb_telefono'
+				/>
+				<Dropdown size='md' name='pct_cod_moneda' label='pct_cod_moneda'>
+					<option value=''>Seleccione</option>
+					<option value={0}>Cordobas</option>
+					<option value={1}>Dolares</option>
 				</Dropdown>
-
 				<Text
-					name='ref_bancarias_nombre_banco'
+					name='pct_cod_banco'
 					size='md'
-					placeholder='Nombre del banco'
-					label='Nombre del banco'
+					placeholder='pct_cod_banco'
+					label='pct_cod_banco'
+				/>
+				<Text
+					name='pct_reg'
+					size='md'
+					placeholder='pct_reg'
+					label='pct_reg'
+					type='number'
 				/>
 			</div>
 		</RetractileForm>
 	)
 }
 
-export default Bancarias
+export default Banking

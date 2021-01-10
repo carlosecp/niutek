@@ -1,11 +1,11 @@
 import * as Yup from 'yup'
 
 export const createValues = {
-	create_codigo_cliente: '',
+	p_cod_sucursal: '',
 	create_razon_social_empresa: '',
-	create_tipo_id: '',
-	create_numero_id: '',
-	create_nacionalidad: '',
+	p_tipo_doc: '',
+	p_num_doc: '',
+	p_cod_nac: '',
 	create_numero_empleados: 0,
 	create_telefono_1: '',
 	create_telefono_2: '',
@@ -15,13 +15,13 @@ export const createValues = {
 }
 
 export const createValuesSchema = {
-	create_nombres: Yup.string().max(5, 'Hola Juan').required('Nombres'),
-	create_apellidos: Yup.string()
+	p_nombres: Yup.string().max(5, 'Hola Juan').required('Nombres'),
+	p_apellidos: Yup.string()
 		.max(5, 'Apellidos Length')
 		.required('Apellidos'),
-	create_numero_id: Yup.string().max(5, 'Hola Juan').required('Nombres'),
-	create_tipo_id: Yup.string().required('id is required'),
-	create_nacionalidad: Yup.string().required('Nacionalidad'),
+	p_num_doc: Yup.string().max(5, 'Hola Juan').required('Nombres'),
+	p_tipo_doc: Yup.string().required('id is required'),
+	p_cod_nac: Yup.string().required('Nacionalidad'),
 	create_numero_empleados: Yup.number().min(1).required('Numero de Empleados'),
 	create_telefono_1: Yup.string().min(8).required('Teléfono 1'),
 	create_direccion: Yup.string().min(10).required('Dirección'),

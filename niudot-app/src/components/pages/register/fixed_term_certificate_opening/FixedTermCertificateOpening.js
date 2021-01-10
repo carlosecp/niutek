@@ -21,30 +21,30 @@ const TermCertificateOpening = ({ value }) => {
 					size='lg'
 					placeholder='Producto de Certificado'
 					label='Producto de Certificado'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_numero_de_cuenta'
 					size='md'
 					placeholder='Número de Cuenta'
 					label='Número de Cuenta'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_numero_de_identificacion'
 					size='md'
 					placeholder='Número de Identificación'
 					label='Número de Identificación'
-					newLine={true}
+					newline={true}
 				/>
-				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
+				<Dropdown size='md' name='p_tipo_doc' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>
 					<option value='option_4'>Option 4</option>
 				</Dropdown>
 
-				<Dropdown size='md' name='create_moneda' label='Moneda' newLine={true}>
+				<Dropdown size='md' name='create_moneda' label='Moneda' newline={true}>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>
 					<option value='option_3'>Dólares</option>
@@ -55,14 +55,14 @@ const TermCertificateOpening = ({ value }) => {
 					size='md'
 					placeholder='Fecha de Entrega'
 					label='Fecha de Entrega'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_monto_a_apertura'
 					size='md'
 					placeholder='Monto a Apertura'
 					label='Monto a Apertura'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -72,7 +72,7 @@ const TermCertificateOpening = ({ value }) => {
 					size='md'
 					placeholder='Efectivo'
 					label='Efectivo'
-					newLine={true}
+					newline={true}
 					type='number'
 					min='0'
 				/>
@@ -82,7 +82,7 @@ const TermCertificateOpening = ({ value }) => {
 					size='md'
 					placeholder='No. Cheque'
 					label='Número de Cheque'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_banco'
@@ -96,7 +96,7 @@ const TermCertificateOpening = ({ value }) => {
 					size='md'
 					placeholder='Tarjeta'
 					label='Tarjeta'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='create_nombre_del_banco1'
