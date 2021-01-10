@@ -5,7 +5,7 @@ export const createValues = {
 	create_producto_de_certificado: '',
 	create_numero_de_cuenta: '',
 	create_numero_de_identificacion: '',
-	create_tipo_id: '',
+	p_tipo_doc: '',
 	create_moneda: '',
 	create_fecha_de_entrega: '',
 	create_monto_a_apertura: 0,

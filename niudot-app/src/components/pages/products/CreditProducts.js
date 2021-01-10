@@ -19,7 +19,7 @@ const CreditProducts = () => {
 					size='md'
 					placeholder='Fuente de Fondos'
 					label='Fuente de Fondos'
-					newLine={true}
+					newline={true}
 				/>
 				<Text
 					name='nombre_del_producto_creditproducts'
@@ -30,7 +30,7 @@ const CreditProducts = () => {
 				<Text
 					name='descripcion_de_producto_creditproducts'
 					size='lg'
-					newLine={true}
+					newline={true}
 					placeholder='Descripción del Producto'
 					label='Descripción'
 					isTextArea={true}
@@ -45,7 +45,7 @@ const CreditProducts = () => {
 					size='sm'
 					name='moneda_creditproducts'
 					label='Moneda'
-					newLine={true}
+					newline={true}
 				>
 					<option value=''>Moneda</option>
 					<option value='option_2'>Córdoba</option>

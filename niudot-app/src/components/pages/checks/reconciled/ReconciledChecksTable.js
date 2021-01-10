@@ -1,5 +1,7 @@
 // React and Router Stuff
 import React, { useMemo, useRef, useState, useCallback } from 'react'
+// Extra libraries
+import { v4 as uuidv4 } from 'uuid'
 // Other Components
 import Table from '../../utils/tables'
 
@@ -14,6 +16,7 @@ const ChecksTable = ({ togglePopup }) => {
 
 	const serverData = [
 		{
+			id: uuidv4(),
 			number: 20688,
 			date: '06/10/2020',
 			to: 'ANA JULIA MENDIETA SEVILLA',
@@ -21,6 +24,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 7800.0
 		},
 		{
+			id: uuidv4(),
 			number: 20689,
 			date: '06/10/2020',
 			to: 'ANA JULIA MENDIETE SEVILLA',

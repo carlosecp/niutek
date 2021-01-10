@@ -15,6 +15,7 @@ const VoidedChecks = () => {
 
 	useEffect(() => {
 		changePage('Cheques Anulados')
+		// eslint-disable-next-line
 	}, [])
 
 	const togglePopup = () => {

@@ -8,7 +8,6 @@ import {
 	MenuItem,
 	SidebarFooter
 } from 'react-pro-sidebar'
-
 import { FaCog, FaHome, FaMoon, FaSun } from 'react-icons/fa/index'
 import pages from '../pages'
 import SidebarSubMenu from './SidebarSubMenu'
@@ -16,7 +15,7 @@ import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
 import routesContext from '../../context/routes/routesContext'
 
-function Sidebar({ toggled, setToggled }) {
+const Sidebar = ({ toggled, setToggled }) => {
 	const { changePage } = useContext(routesContext)
 	const { theme } = useContext(themeContext)
 	const [openSettings, setOpenSettings] = useState(false)
@@ -86,7 +85,7 @@ function ThemeSwitch() {
 	)
 }
 
-function SettingsMenu() {
+const SettingsMenu = () => {
 	const { logout } = useContext(authContext)
 
 	return (

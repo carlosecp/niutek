@@ -63,7 +63,7 @@ const CreditRequestCreate = () => {
 							label='Monto Solicitado'
 							type='number'
 							min='0'
-							newLine={true}
+							newline={true}
 						/>
 						<Dropdown
 							size='md'
@@ -83,7 +83,7 @@ const CreditRequestCreate = () => {
 							label='Tasa de Interés Mensual'
 							type='number'
 							min='0'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_plazo_en_meses'
@@ -92,7 +92,7 @@ const CreditRequestCreate = () => {
 							label='Plazo en Meses'
 							type='number'
 							min='1'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_frecuencia_de_pago'
@@ -101,7 +101,7 @@ const CreditRequestCreate = () => {
 							label='Frecuencia de Pago'
 							type='number'
 							min='0'
-							newLine={true}
+							newline={true}
 						/>
 						<Text
 							name='create_porcentaje_aportación'
@@ -120,7 +120,7 @@ const CreditRequestCreate = () => {
 						<Text
 							name='create_observaciones'
 							size='lg'
-							newLine={true}
+							newline={true}
 							placeholder='Observaciones'
 							isTextArea={true}
 							label='Observaciones'

@@ -32,7 +32,7 @@ const EditPurchasePopup = ({ togglePopup }) => {
 							size='md'
 							placeholder='Utilidad'
 							label='Utilidad'
-							newLine={true}
+							newline={true}
 							type='number'
 						/>
 						<Text
@@ -40,7 +40,7 @@ const EditPurchasePopup = ({ togglePopup }) => {
 							size='md'
 							placeholder='Costo + Utilidad'
 							label='Costo + Utilidad'
-							newLine={true}
+							newline={true}
 							type='number'
 						/>
 						<Text
@@ -48,7 +48,7 @@ const EditPurchasePopup = ({ togglePopup }) => {
 							size='md'
 							placeholder='Impuesto'
 							label='Impuesto'
-							newLine={true}
+							newline={true}
 							type='number'
 						/>
 						<Text
@@ -56,7 +56,7 @@ const EditPurchasePopup = ({ togglePopup }) => {
 							size='md'
 							placeholder='Precio'
 							label='Precio'
-							newLine={true}
+							newline={true}
 							type='number'
 						/>
 					</div>

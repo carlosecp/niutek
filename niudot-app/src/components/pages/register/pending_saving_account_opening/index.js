@@ -11,6 +11,7 @@ function PendingSavingAccountOpening() {
 
 	useEffect(() => {
 		changePage('Apertura de Cuenta de Ahorro Pendiente')
+		// eslint-disable-next-line
 	}, [])
 
 	return (

@@ -14,7 +14,7 @@ const SearchCheckForm = () => {
 	}
 
 	return (
-		<div className='mb-4'>
+		<div className='mb-4 section'>
 			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Cheque Existente
 			</h2>
