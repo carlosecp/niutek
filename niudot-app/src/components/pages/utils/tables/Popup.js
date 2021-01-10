@@ -4,7 +4,7 @@ import { FaTimes } from 'react-icons/fa'
 const Popup = ({ children, togglePopup }) => {
 	return (
 		<div
-			className='py-16 z-20 fixed w-screen h-screen top-0 left-0 pl-64 cstm:pl-0'
+			className='p-4 pr-0 z-20 fixed w-screen h-screen top-0 left-0 pl-64 cstm:pl-4 cstm:pr-4'
 			style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
 		>
 			<div className='mx-auto px-4 max-h-full relative p-4 overflow-y-scroll bg-white dark:bg-gray-cstm-1 hide-scrollbar rounded shadow-md max-w-2xl'>

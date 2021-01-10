@@ -1,4 +1,5 @@
-export const createValues = {
+export const persona_natural = {
+	// Persona Natural
 	p_cod_empresa: 0,
 	p_cod_sucursal: 0,
 	p_clase_persona: 0,
@@ -17,7 +18,10 @@ export const createValues = {
 	p_lugar_nacimiento: '',
 	p_fecha_nacimiento: '2001-09-10',
 	p_cargo_publico: 0, // El valor deberia ser numerico
-	p_num_hijos: 0,
+	p_num_hijos: 0
+}
+
+export const datos_profesionales = {
 	// Datos Profesionales
 	p_profesion_oficio: '',
 	p_ocupacion_puesto: '',
@@ -25,8 +29,11 @@ export const createValues = {
 	p_actividad_empresa: '',
 	p_tel_empresa: '',
 	p_email_empresa: '',
-	p_ingreso_anual: 0.0,
-	// Origin Fondos
+	p_ingreso_anual: 0.0
+}
+
+export const origen_fondos = {
+	// Origen Fondos
 	p_of_negocio_propio: 0, // El valor deberia ser numerico
 	p_of_nombre_negocio: '',
 	p_of_prof_independiente: 0, // El valor deberia ser numerico
@@ -43,26 +50,38 @@ export const createValues = {
 	p_of_ahorro: 0,
 	p_of_aho_inst_financiera: '',
 	p_of_otros: 0, // El valor deberia ser numerico
-	p_of_des_otros: '',
+	p_of_des_otros: ''
+}
+
+export const referencias_comerciales = {
 	// Referencias Comerciales
 	prc_nombre_entidad: '',
 	prc_persona_contacto: '',
 	prc_direccion: '',
 	prc_annios_con_entidad: '',
 	prc_telefono: '',
-	prc_reg: 0,
+	prc_reg: 0
+}
+
+export const referencias_bancarias = {
 	// Referencias Bancarias
 	prb_nombre_entidad: '',
 	prb_tipo_servicio_recibido: '',
 	prb_fecha_inicio_relacion: '',
 	prb_annios_con_entidad: 0,
 	prb_telefono: '',
-	prb_reg: 0,
+	prb_reg: 0
+}
+
+export const cuentas_depositos = {
 	// Cuentas para depositos
 	pct_num_cuenta: '',
 	pct_cod_moneda: 0, // El valor deberia ser numerico
 	pct_cod_banco: 0,
-	pct_reg: 0,
+	pct_reg: 0
+}
+
+export const referencias_personales = {
 	// Referencias Personales
 	prp_nombre: '',
 	prp_tipo_doc: '',

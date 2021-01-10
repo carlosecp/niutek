@@ -23,21 +23,24 @@ const VoidedChecks = () => {
 	}
 
 	return (
-		<div className='section'>
+		<>
 			{showPopup && <EditChecksPopup togglePopup={togglePopup} />}
 			<SearchCheckForm />
-			<VoidedChecksTable togglePopup={togglePopup} />
-			<div className='mt-4 flex gap-2 justify-center flex-wrap'>
-				<button className='btn flex items-center bg-blue-blue btn-border-blue gap-2'>
-					Imprimir Listado
-					<FaPrint />
-				</button>
-				<button className='btn flex items-center bg-blue-blue btn-border-blue gap-2'>
-					Reporte de Cheques
-					<FaChartLine />
-				</button>
+			<div className='section'>
+				<h2 className='text-black-white font-bold text-xl mb-2'>Cheques</h2>
+				<VoidedChecksTable togglePopup={togglePopup} />
+				<div className='mt-4 flex gap-2 justify-center flex-wrap'>
+					<button className='btn flex items-center bg-blue-blue btn-border-blue gap-2'>
+						Imprimir Listado
+						<FaPrint />
+					</button>
+					<button className='btn flex items-center bg-blue-blue btn-border-blue gap-2'>
+						Reporte de Cheques
+						<FaChartLine />
+					</button>
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

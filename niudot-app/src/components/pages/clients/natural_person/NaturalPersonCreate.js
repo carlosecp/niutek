@@ -11,10 +11,10 @@ import NewClient from './NewClient'
 import SubmitBtn from '../../utils/SubmitBtn'
 import OriginFunds from './OriginFunds'
 // Data
-import { createValues } from './initialValues'
+import * as values from './initialValues'
 
 const initialValues = {
-	...createValues
+	...values
 }
 
 const handleSubmit = async (formData) => {

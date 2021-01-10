@@ -1,40 +1,89 @@
+// React and Router Stuff
 import React, { useState } from 'react'
+// Extra libraries
 import { FaSearch } from 'react-icons/fa'
+import axios from 'axios'
+import { Form, Formik } from 'formik'
+// Images
+import spinner from '../../../../assets/images/spinner.png'
 
-const SearchCheckForm = () => {
-	const [checkName, setCheckName] = useState('')
+const SearchUserForm = ({ setSearchUser }) => {
+	const [loading, setLoading] = useState(false)
+	const [username, setUserName] = useState('')
 
-	const handleCheckNameInput = (event) => {
-		setCheckName(event.target.value)
+	const handleUserNameInput = (event) => {
+		setUserName(event.target.value)
 	}
 
-	const handleCheckNameSubmit = (event) => {
+	const handleUserNameSubmit = async (event) => {
 		event.preventDefault()
-		setCheckName('')
+
+		// Hacemos una request al backend para que nos busque el usuario, esto va a retornarnos o el usuario, o un error.
+		// Para simular la respuesta (usuario o error), por ahora vamos a utilizar un booleano. True si el usuario ha sido encontrado, false si no.
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Credentials': 'true'
+			}
+		}
+
+		setLoading(true)
+		const res = await axios.post(
+			'https://backend-dot-nicascriptproject.uc.r.appspot.com/search/user',
+			JSON.stringify({ name: username }),
+			config
+		)
+		setLoading(false)
+
+		// Checkeamos a ver si el usuario ha sido encontrado o no.
+		if (res.data.length > 0) {
+			// Hemos encontrado este usuario, por lo tanto, es el usuario que queremos editar. Se lo tenemos que mandar al formulario.
+			//setUsers(res.data)
+			//setUserName('')
+		} else {
+			//setUsers([])
+			//setActiveUserId(null)
+		}
 	}
 
 	return (
-		<div className='mb-4 section'>
+		<div className='section mb-4'>
 			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Cheque Existente
 			</h2>
 			<p className='text-gray-gray'>Buscar entre los cheques registrados.</p>
-			<form className='mt-2' onSubmit={handleCheckNameSubmit}>
-				<div className='flex items-center gap-2'>
-					<input
-						type='text'
-						className='form-field w-72'
-						placeholder='Número de Cheque'
-						onChange={handleCheckNameInput}
-						value={checkName}
-					/>
-					<button className='w-10 h-10 rounded bg-blue-blue btn-border-blue flex justify-center items-center cursor-pointer'>
-						<FaSearch />
-					</button>
+			<form className='mt-2 mb-1' onSubmit={handleUserNameSubmit}>
+				<div className='form-grid-layout'>
+					<div className='form-container-md flex gap-2'>
+						<input
+							type='text'
+							className='form-field block flex-1'
+							placeholder='Datos del Cheque'
+							onChange={handleUserNameInput}
+							value={username}
+						/>
+						<button
+							className={`w-10 h-10 rounded flex justify-center items-center cursor-pointer ${
+								loading
+									? 'btn-disabled btn-border-disabled cursor-wait'
+									: 'bg-blue-blue btn-border-blue'
+							}`}
+						>
+							{loading ? (
+								<img
+									src={spinner}
+									alt='Loading...'
+									className='w-6 h-6 animate-spin'
+								/>
+							) : (
+								<FaSearch size={16} />
+							)}
+						</button>
+					</div>
 				</div>
 			</form>
 		</div>
 	)
 }
 
-export default SearchCheckForm
+export default SearchUserForm
