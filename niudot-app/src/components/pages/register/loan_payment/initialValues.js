@@ -4,7 +4,7 @@ export const createValues = {
 	create_nombre_del_cliente: '',
 	create_nombre_del_producto: '',
 	create_numero_de_identificacion: '',
-	create_tipo_id: '',
+	p_tipo_doc: '',
 	create_fecha_de_abono: '',
 	create_monto_vencido: 0,
 	create_monto_corriente: 0,

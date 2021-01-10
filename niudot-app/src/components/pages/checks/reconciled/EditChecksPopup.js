@@ -7,7 +7,7 @@ import { FaPrint } from 'react-icons/fa'
 import Table from '../../utils/tables'
 import Popup from '../../utils/tables/Popup'
 
-const EditChecksPopup = ({ togglePopup }) => {
+const EditChecksPopup = ({ checkId, togglePopup }) => {
 	const columns = useMemo(
 		() => [
 			{ Header: 'Cuenta', accessor: 'account' },
@@ -67,21 +67,19 @@ const EditChecksPopup = ({ togglePopup }) => {
 				}}
 			>
 				<Form>
-					<div className='section'>
-						<h2 className='mb-4 text-black-white text-xl font-bold'>
-							Datos del Cheque
-						</h2>
-						<Table
-							columns={columns}
-							data={data}
-							fetchData={fetchData}
-							loading={loading}
-							pageCount={pageCount}
-						/>
-					</div>
+					<h2 className='mb-4 text-black-white text-xl font-bold'>
+						Datos del Cheque
+					</h2>
+					<Table
+						columns={columns}
+						data={data}
+						fetchData={fetchData}
+						loading={loading}
+						pageCount={pageCount}
+					/>
 				</Form>
 			</Formik>
-			<div className='mx-4 mb-4 flex gap-2 justify-center flex-wrap'>
+			<div className='mx-4 mt-4 flex gap-2 justify-center flex-wrap'>
 				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
 					Imprimir
 					<FaPrint />

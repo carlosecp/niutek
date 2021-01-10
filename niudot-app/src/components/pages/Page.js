@@ -47,7 +47,7 @@ const Page = (props) => {
 	return (
 		<div className='pl-64 cstm:p-0 w-full'>
 			<Topbar {...props} />
-			<div className='px-4 pt-20 bg-white-gray relative min-h-full pb-4'>
+			<div className='px-4 pt-20 bg-gray-gray relative min-h-full pb-4'>
 				<Switch>
 					<Route exact path='/app/dashboard' component={Dashboard} />
 					{/* CAJA */}

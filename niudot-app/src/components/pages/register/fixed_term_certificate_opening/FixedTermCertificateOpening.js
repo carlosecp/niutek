@@ -37,7 +37,7 @@ const TermCertificateOpening = ({ value }) => {
 					label='Número de Identificación'
 					newline={true}
 				/>
-				<Dropdown size='md' name='create_tipo_id' label='Tipo Identificación'>
+				<Dropdown size='md' name='p_tipo_doc' label='Tipo Identificación'>
 					<option value=''>Tipo Identificación</option>
 					<option value='option_2'>Option 2</option>
 					<option value='option_3'>Option 3</option>

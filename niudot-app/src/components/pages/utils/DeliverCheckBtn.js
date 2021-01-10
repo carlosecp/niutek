@@ -1,8 +1,7 @@
 import React from 'react'
-import { FaRegTimesCircle, FaRegCheckCircle, FaPlane, FaPaperPlane } from 'react-icons/fa/index'
+import { FaRegTimesCircle, FaPaperPlane } from 'react-icons/fa/index'
 
-export default function DeliverCheckBtn(props) {
-
+const DeliverCheckBtn = (props) => {
 	return (
 		<div className='mt-4 flex gap-2 pb-4'>
 			<button
@@ -24,3 +23,4 @@ export default function DeliverCheckBtn(props) {
 	)
 }
 
+export default DeliverCheckBtn

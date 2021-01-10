@@ -1,9 +1,11 @@
 // React and Router Stuff
 import React, { useMemo, useRef, useState, useCallback } from 'react'
+// Extra libraries
+import { v4 as uuidv4 } from 'uuid'
 // Other Components
 import Table from '../../utils/tables'
 
-const ChecksTable = ({ togglePopup }) => {
+const ChecksTable = ({ loading, setLoading, togglePopup }) => {
 	const columns = useMemo(() => [
 		{ Header: 'No. Cheque', accessor: 'number' },
 		{ Header: 'Fecha', accessor: 'date' },
@@ -14,6 +16,7 @@ const ChecksTable = ({ togglePopup }) => {
 
 	const serverData = [
 		{
+			id: uuidv4(),
 			number: 20686,
 			date: '06/10/2020',
 			to: 'OSCAR DANILO MEDINA ORTEGA',
@@ -21,6 +24,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 4084.95
 		},
 		{
+			id: uuidv4(),
 			number: 20687,
 			date: '06/10/2020',
 			to: 'ALVIA COMERCIAL, S.A',
@@ -28,6 +32,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 3683.5
 		},
 		{
+			id: uuidv4(),
 			number: 20688,
 			date: '06/10/2020',
 			to: 'DIRECCIÓN GENERAL DE INGRESOS',
@@ -35,6 +40,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 89649.38
 		},
 		{
+			id: uuidv4(),
 			number: 20690,
 			date: '06/10/2020',
 			to: 'SILVIA CAROLINA HERNANDEZ PEREZ',
@@ -42,6 +48,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 11711.69
 		},
 		{
+			id: uuidv4(),
 			number: 20691,
 			date: '06/10/2020',
 			to: 'ALCALDIA MUNICIPAL DE NINDIRI',
@@ -49,6 +56,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 1600.0
 		},
 		{
+			id: uuidv4(),
 			number: 20691,
 			date: '06/10/2020',
 			to: 'ALCALDIA MUNICIPAL DE NINDIRI',
@@ -56,6 +64,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 1600.0
 		},
 		{
+			id: uuidv4(),
 			number: 20690,
 			date: '06/10/2020',
 			to: 'SILVIA CAROLINA HERNANDEZ PEREZ',
@@ -63,6 +72,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 11711.69
 		},
 		{
+			id: uuidv4(),
 			number: 20688,
 			date: '06/10/2020',
 			to: 'DIRECCIÓN GENERAL DE INGRESOS',
@@ -70,6 +80,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 89649.38
 		},
 		{
+			id: uuidv4(),
 			number: 20687,
 			date: '06/10/2020',
 			to: 'ALVIA COMERCIAL, S.A',
@@ -77,6 +88,8 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 3683.5
 		},
 		{
+			id: uuidv4(),
+			number: 20687,
 			number: 20686,
 			date: '06/10/2020',
 			to: 'OSCAR DANILO MEDINA ORTEGA',
@@ -84,6 +97,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 4084.95
 		},
 		{
+			id: uuidv4(),
 			number: 20686,
 			date: '06/10/2020',
 			to: 'OSCAR DANILO MEDINA ORTEGA',
@@ -91,6 +105,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 4084.95
 		},
 		{
+			id: uuidv4(),
 			number: 20687,
 			date: '06/10/2020',
 			to: 'ALVIA COMERCIAL, S.A',
@@ -98,6 +113,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 3683.5
 		},
 		{
+			id: uuidv4(),
 			number: 20688,
 			date: '06/10/2020',
 			to: 'DIRECCIÓN GENERAL DE INGRESOS',
@@ -105,6 +121,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 89649.38
 		},
 		{
+			id: uuidv4(),
 			number: 20690,
 			date: '06/10/2020',
 			to: 'SILVIA CAROLINA HERNANDEZ PEREZ',
@@ -112,6 +129,7 @@ const ChecksTable = ({ togglePopup }) => {
 			value: 11711.69
 		},
 		{
+			id: uuidv4(),
 			number: 20691,
 			date: '06/10/2020',
 			to: 'ALCALDIA MUNICIPAL DE NINDIRI',
@@ -121,7 +139,6 @@ const ChecksTable = ({ togglePopup }) => {
 	]
 
 	const [data, setData] = useState([])
-	const [loading, setLoading] = useState(false)
 	const [pageCount, setPageCount] = useState(0)
 	const fetchIdRef = useRef(0)
 

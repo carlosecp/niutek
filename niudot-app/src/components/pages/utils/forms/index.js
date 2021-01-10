@@ -17,7 +17,8 @@ const Text = (props) => {
 		type,
 		newline,
 		boldLabel,
-		isTextArea
+		isTextArea,
+		disabled
 	} = props
 
 	return (
@@ -33,6 +34,7 @@ const Text = (props) => {
 			{!isTextArea ? (
 				<TextInput
 					name={name}
+					disabled={disabled}
 					type={type}
 					placeholder={placeholder}
 					{...props}
@@ -40,6 +42,7 @@ const Text = (props) => {
 			) : (
 				<TextArea
 					name={name}
+					disabled={disabled}
 					type={type}
 					placeholder={placeholder}
 					{...props}
@@ -52,13 +55,14 @@ const Text = (props) => {
 Text.propTypes = {
 	size: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
+	label: PropTypes.string,
 	placeholder: PropTypes.string.isRequired,
-	type: PropTypes.string.isRequired,
-	showLabel: PropTypes.bool.isRequired,
-	newline: PropTypes.bool.isRequired,
-	boldLabel: PropTypes.bool.isRequired,
-	isTextArea: PropTypes.bool.isRequired
+	type: PropTypes.string,
+	showLabel: PropTypes.bool,
+	newline: PropTypes.bool,
+	boldLabel: PropTypes.bool,
+	isTextArea: PropTypes.bool,
+	disabled: PropTypes.bool
 }
 
 Text.defaultProps = {
@@ -67,7 +71,8 @@ Text.defaultProps = {
 	type: 'text',
 	newline: false,
 	boldLabel: false,
-	isTextArea: false
+	isTextArea: false,
+	disabled: false
 }
 
 const Checkbox = ({ description, size, newline, ...props }) => {
@@ -95,23 +100,15 @@ Checkbox.defaultProps = {
 	newline: false
 }
 
-const Dropdown = ({ value, handleChange, size, label, newline, ...props }) => {
+const Dropdown = ({ size, label, newline, ...props }) => {
 	const [field] = useField(props)
 
 	return (
 		<div className={`form-container-${size} ${newline && 'force-newline'}`}>
 			<label className='text-black-white'>{label}</label>
-			<div className=''>
-				<select
-					onChange={handleChange}
-					value={value}
-					className='form-field w-full'
-					{...field}
-					{...props}
-				>
-					{props.children}
-				</select>
-			</div>
+			<select className='form-field w-full' {...field} {...props}>
+				{props.children}
+			</select>
 		</div>
 	)
 }

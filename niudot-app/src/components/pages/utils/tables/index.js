@@ -1,17 +1,19 @@
 // React and Router Stuff
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 // Extra libraries
 import { useTable, usePagination } from 'react-table'
 import { FaChevronLeft, FaChevronRight, FaEdit } from 'react-icons/fa'
+// Images
+import spinner from '../../../../assets/images/spinner.png'
 
 const Table = ({
 	columns,
 	data,
 	fetchData,
 	pageCount: controlledPageCount,
-	loading,
 	showEdit,
-	togglePopup
+	togglePopup,
+	loading
 }) => {
 	const {
 		getTableProps,
@@ -35,15 +37,13 @@ const Table = ({
 		usePagination
 	)
 
+	const [loadingPos, setLoadingPos] = useState('right')
+
 	useEffect(() => {
 		fetchData({ pageIndex, pageSize })
 	}, [fetchData, pageIndex, pageSize])
 
-	return loading ? (
-		<div className='w-full h-20 bg-yellow-500'>
-			LOADING... ACA VA EL SPINNER JUAN...
-		</div>
-	) : (
+	return (
 		<>
 			<div className='overflow-x-auto sm:hide-scrollbar'>
 				<table
@@ -67,6 +67,7 @@ const Table = ({
 					</thead>
 					<tbody {...getTableBodyProps()}>
 						{page.map((row) => {
+							const rowId = row.original.id
 							prepareRow(row)
 							return (
 								<tr {...row.getRowProps()}>
@@ -82,7 +83,9 @@ const Table = ({
 										<td className='py-3 px-5 whitespace-nowrap dark:text-gray-200'>
 											<FaEdit
 												className='text-blue-blue cursor-pointer'
-												onClick={togglePopup}
+												onClick={() => {
+													togglePopup(rowId)
+												}}
 											/>
 										</td>
 									)}
@@ -93,29 +96,51 @@ const Table = ({
 				</table>
 			</div>
 			{(canPreviousPage || canNextPage) && (
-				<div className='flex justify-center pt-2 gap-2'>
+				<div className='flex justify-center items-center pt-2 gap-2'>
 					<p
 						className={`flex gap-1 items-center px-3 py-2 ${
-							canPreviousPage
+							canPreviousPage || loading
 								? 'text-blue-blue cursor-pointer'
 								: 'text-gray-cstm-12'
 						} hover:undeline font-bold select-none`}
-						onClick={() => previousPage()}
+						onClick={() => {
+							previousPage()
+							setLoadingPos('left')
+						}}
 						disabled={!canPreviousPage}
 					>
-						<FaChevronLeft />
+						{loading && loadingPos === 'left' ? (
+							<img
+								src={spinner}
+								alt='Loading...'
+								className='w-6 h-6 animate-spin'
+							/>
+						) : (
+							<FaChevronLeft />
+						)}
 						Anterior
 					</p>
 					<p
 						className={`flex gap-1 items-center px-3 py-2 ${
-							canNextPage
+							canNextPage || loading
 								? 'text-blue-blue cursor-pointer'
 								: 'text-gray-cstm-12'
 						} hover:undeline font-bold select-none`}
-						onClick={() => nextPage()}
+						onClick={() => {
+							nextPage()
+							setLoadingPos('right')
+						}}
 					>
 						Siguiente
-						<FaChevronRight />
+						{loading && loadingPos === 'right' ? (
+							<img
+								src={spinner}
+								alt='Loading...'
+								className='w-6 h-6 animate-spin'
+							/>
+						) : (
+							<FaChevronRight />
+						)}
 					</p>
 				</div>
 			)}

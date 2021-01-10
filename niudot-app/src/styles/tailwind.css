@@ -27,10 +27,16 @@ html, body {
 	/*Esta clase se utiliza exclusivamente para el fondo de la pagina.*/
 
 	/*Light Theme Defaults*/
-	@apply bg-gray-100;
+	@apply bg-white;
 
 	/*Dark Theme Defaults*/
 	@apply dark:bg-gray-cstm-1;
+}
+
+.bg-gray-gray {
+	@apply bg-gray-100;
+
+	@apply dark:bg-gray-cstm-2;
 }
 
 .bg-blue-blue {
@@ -100,13 +106,13 @@ html, body {
 	/*Esta clase es para la seccion mas general de cada formulario, es el fondo blanco que centra todo su contenido, dentro de este contenedor generalmente van los formulario en si, cada uno de ellos, y su contenedor grid respectivo (usando la clase .form-grid-layout).*/
 
 	/*Global*/
-	@apply rounded mx-auto max-w-2xl p-4;
+	@apply rounded mx-auto max-w-2xl p-4 shadow-md;
 
 	/*Light Theme Defaults*/
 	@apply bg-white;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-gray-cstm-2;
+	@apply dark:bg-gray-cstm-1;
 }
 
 .table-section {
@@ -144,16 +150,29 @@ html, body {
 	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid;
 
 	/*Light Theme Defaults*/
-	@apply text-black bg-white border-gray-200;
+	@apply text-black bg-gray-100 border-gray-200;
 
 	/*Light Theme Pseudo-Classes*/
-	@apply focus:bg-gray-100 focus:border-gray-cstm-14;
+	@apply focus:bg-gray-200 focus:border-gray-cstm-13 placeholder-gray-cstm-9;
 
 	/*Dark Theme Defaults*/
-	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-2 dark:border-gray-cstm-4 placeholder-gray-cstm-10;
+	@apply dark:text-gray-cstm-14 dark:bg-gray-cstm-2 dark:border-gray-cstm-4 dark:placeholder-gray-cstm-10;
 
 	/*Dark Theme Pseudo-Classes*/
 	@apply dark:focus:bg-gray-cstm-3 dark:focus:border-gray-cstm-5;
+}
+
+.form-field-disabled {
+	/*Esta clase es para cada una de las input de texto o numericas o similares. Son todos esos rectangulos que en light theme tienen bordes grises claros, todas, incluidas checkboxes y dropdowns.*/
+
+	/*Global*/
+	@apply text-sm h-std p-2 rounded outline-none border-2 border-solid italic;
+
+	/*Light Theme Defaults*/
+	@apply text-gray-cstm-9 bg-gray-100 border-gray-200;
+
+	/*Dark Theme Defaults*/
+	@apply dark:text-gray-cstm-10 dark:bg-gray-cstm-2 dark:border-gray-cstm-4;
 }
 
 .form-field-error {
@@ -213,7 +232,7 @@ html, body {
 	@apply bg-blue-700;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-500;
+	@apply dark:bg-blue-600;
 }
 
 .pro-sidebar-header {
@@ -248,7 +267,7 @@ html, body {
 	@apply bg-blue-600;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-700;
+	@apply dark:bg-blue-600;
 
 }
 
@@ -257,7 +276,7 @@ html, body {
 	@apply bg-blue-600;
 
 	/*Dark Theme Defaults*/
-	@apply dark:bg-blue-700;
+	@apply dark:bg-blue-600;
 }
 
 .pro-menu-item > .pro-inner-item > .pro-item-content {
