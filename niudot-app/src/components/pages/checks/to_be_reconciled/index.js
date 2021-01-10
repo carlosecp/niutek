@@ -28,6 +28,7 @@ const ChecksToBeReconciled = () => {
 		<>
 			<SearchCheckForm />
 			<div className='section'>
+				<h2 className='text-black-white font-bold text-xl mb-2'>Cheques</h2>
 				<ToBeReconciledChecksTable
 					togglePopup={toggleEditPopup}
 					setLoading={setLoading}

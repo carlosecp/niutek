@@ -102,6 +102,14 @@ html, body {
 	@apply text-white focus:outline-none focus:ring focus:text-white hover:text-white dark:focus:ring-blue-400;
 }
 
+.btn-disabled {
+	@apply transition text-gray-cstm-10 dark:text-gray-cstm-8 bg-gray-cstm-15 focus:outline-none dark:bg-gray-cstm-3;
+}
+
+.btn-border-disabled {
+	@apply ring ring-gray-cstm-13 dark:ring-gray-cstm-5;
+}
+
 .section {
 	/*Esta clase es para la seccion mas general de cada formulario, es el fondo blanco que centra todo su contenido, dentro de este contenedor generalmente van los formulario en si, cada uno de ellos, y su contenedor grid respectivo (usando la clase .form-grid-layout).*/
 

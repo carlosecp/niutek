@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 // Extra libraries
 import { FaSearch } from 'react-icons/fa'
 import axios from 'axios'
@@ -67,15 +67,17 @@ const SearchUserForm = ({ setSearchUser }) => {
 							value={username}
 						/>
 						<button
-							className={`w-10 h-10 rounded bg-blue-blue btn-border-blue flex justify-center items-center cursor-pointer ${
-								loading && 'disabled'
+							className={`w-10 h-10 rounded flex justify-center items-center cursor-pointer ${
+								loading
+									? 'btn-disabled btn-border-disabled cursor-wait'
+									: 'bg-blue-blue btn-border-blue'
 							}`}
 						>
 							{loading ? (
 								<img
 									src={spinner}
 									alt='Loading...'
-									className='w-10 h-10 animate-spin'
+									className='w-6 h-6 animate-spin'
 								/>
 							) : (
 								<FaSearch size={16} />
@@ -124,7 +126,7 @@ const SearchUserForm = ({ setSearchUser }) => {
 						className={`mt-2 btn ${
 							activeUserId
 								? 'bg-blue-blue btn-border-blue'
-								: 'bg-gray-cstm-15 text-gray-gray'
+								: 'btn-disabled cursor-not-allowed'
 						}`}
 						disabled={!activeUserId}
 					>

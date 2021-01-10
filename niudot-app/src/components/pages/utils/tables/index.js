@@ -43,6 +43,14 @@ const Table = ({
 		fetchData({ pageIndex, pageSize })
 	}, [fetchData, pageIndex, pageSize])
 
+	if (loading) {
+		return (
+			<div className='w-full flex justify-center p-4 animate-spin'>
+				<img src={spinner} alt='Loading...' className='w-12 h-12' />
+			</div>
+		)
+	}
+
 	return (
 		<>
 			<div className='overflow-x-auto sm:hide-scrollbar'>
@@ -101,8 +109,8 @@ const Table = ({
 						className={`flex gap-1 items-center px-3 py-2 ${
 							canPreviousPage || loading
 								? 'text-blue-blue cursor-pointer'
-								: 'text-gray-cstm-12'
-						} hover:undeline font-bold select-none`}
+								: 'text-gray-cstm-12 cursor-not-allowed'
+						} hover:undeline font-bold select-none ${loading && 'cursor-wait'}`}
 						onClick={() => {
 							previousPage()
 							setLoadingPos('left')
@@ -113,7 +121,7 @@ const Table = ({
 							<img
 								src={spinner}
 								alt='Loading...'
-								className='w-6 h-6 animate-spin'
+								className='w-4 h-4 animate-spin'
 							/>
 						) : (
 							<FaChevronLeft />
@@ -124,8 +132,8 @@ const Table = ({
 						className={`flex gap-1 items-center px-3 py-2 ${
 							canNextPage || loading
 								? 'text-blue-blue cursor-pointer'
-								: 'text-gray-cstm-12'
-						} hover:undeline font-bold select-none`}
+								: 'text-gray-cstm-12 cursor-not-allowed'
+						} hover:undeline font-bold select-none ${loading && 'cursor-wait'}`}
 						onClick={() => {
 							nextPage()
 							setLoadingPos('right')
@@ -136,7 +144,7 @@ const Table = ({
 							<img
 								src={spinner}
 								alt='Loading...'
-								className='w-6 h-6 animate-spin'
+								className='w-4 h-4 animate-spin'
 							/>
 						) : (
 							<FaChevronRight />
