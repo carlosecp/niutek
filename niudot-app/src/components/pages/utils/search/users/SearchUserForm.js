@@ -37,14 +37,12 @@ const SearchUserForm = ({ setSearchUser }) => {
 			JSON.stringify({ searchValue: searchValue }),
 			config
 		)
-		console.log(res)
 		setLoading(false)
 
 		// Checkeamos a ver si el usuario ha sido encontrado o no.
 		if (res.data.length > 0) {
 			// Hemos encontrado este usuario, por lo tanto, es el usuario que queremos editar. Se lo tenemos que mandar al formulario.
 			setUsers(res.data)
-			setSearchValue('')
 		} else {
 			setUsers([])
 			setActiveUserId(null)
@@ -99,7 +97,7 @@ const SearchUserForm = ({ setSearchUser }) => {
 						<Dropdown
 							size='md'
 							name='userId'
-							label='Usuarios'
+							label='Clientes'
 							onChange={(e) => setActiveUserId(e.target.value)}
 							value={activeUserId}
 						>

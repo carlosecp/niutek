@@ -12,13 +12,13 @@ const Text = (props) => {
 		size,
 		name,
 		label,
+		placeholder = label,
 		showLabel,
-		placeholder,
 		type,
 		newline,
 		boldLabel,
 		isTextArea,
-		disabled
+		disabled,
 	} = props
 
 	return (
@@ -62,17 +62,16 @@ Text.propTypes = {
 	newline: PropTypes.bool,
 	boldLabel: PropTypes.bool,
 	isTextArea: PropTypes.bool,
-	disabled: PropTypes.bool
+	disabled: PropTypes.bool,
 }
 
 Text.defaultProps = {
-	label: 'Label',
 	showLabel: true,
 	type: 'text',
 	newline: false,
 	boldLabel: false,
 	isTextArea: false,
-	disabled: false
+	disabled: false,
 }
 
 const Checkbox = ({ description, size, newline, ...props }) => {
@@ -93,11 +92,11 @@ Checkbox.propTypes = {
 	size: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
-	newline: PropTypes.bool
+	newline: PropTypes.bool,
 }
 
 Checkbox.defaultProps = {
-	newline: false
+	newline: false,
 }
 
 const Dropdown = ({ size, label, newline, ...props }) => {
@@ -118,11 +117,11 @@ Dropdown.propTypes = {
 	handleChange: PropTypes.object.isRequired,
 	size: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	newline: PropTypes.bool.isRequired
+	newline: PropTypes.bool.isRequired,
 }
 
 Dropdown.defaultProps = {
-	newline: false
+	newline: false,
 }
 
 export { Text, Checkbox, Dropdown }

@@ -10,7 +10,7 @@
 html, body {
 	width: 100%;
 	height: 100%;
-	font-family: 'Nunito Sans', sans-serif;	
+	font-family: 'Nunito Sans', sans-serif;
 }
 
 #root, #root > div {
@@ -21,7 +21,7 @@ html, body {
 /* === COLORING === */
 /* ================ */
 
-/* La forma en la que funcionan estas clases es que tienen dos colores principales en el nombre, el primero indica el color que se va a tener en light theme y el segundo pues el color del dark theme. Adicionalmente se indican otras flags de las clases, como por ejemplo, si esta cambia el color del background o del texto. */ 
+/* La forma en la que funcionan estas clases es que tienen dos colores principales en el nombre, el primero indica el color que se va a tener en light theme y el segundo pues el color del dark theme. Adicionalmente se indican otras flags de las clases, como por ejemplo, si esta cambia el color del background o del texto. */
 
 .bg-white-gray {
 	/*Esta clase se utiliza exclusivamente para el fondo de la pagina.*/
@@ -92,9 +92,9 @@ html, body {
 /* == COMPONENTS == */
 /* ================ */
 
-.btn { 
+.btn {
 	/*Global*/
-	@apply h-std rounded font-bold select-none px-4;
+	@apply h-std rounded font-bold select-none px-6;
 }
 
 .btn-border-blue {
@@ -308,7 +308,7 @@ tr:nth-child(odd) > td {
 }
 
 thead > th {
-	@apply bg-blue-700 dark:bg-blue-500 text-white !important; 
+	@apply bg-blue-700 dark:bg-blue-500 text-white !important;
 }
 
 tr:nth-child(even) > td {
@@ -317,7 +317,7 @@ tr:nth-child(even) > td {
 }
 
 tr:last-child > td:first-child{
-	@apply rounded-bl; 
+	@apply rounded-bl;
 }
 
 tr:last-child > td:last-child  {
@@ -325,7 +325,7 @@ tr:last-child > td:last-child  {
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 .hide-scrollbar {

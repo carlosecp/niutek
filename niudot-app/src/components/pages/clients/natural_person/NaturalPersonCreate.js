@@ -14,15 +14,15 @@ import OriginFunds from './OriginFunds'
 import * as values from './initialValues'
 
 const initialValues = {
-	...values
+	...values,
 }
 
 const handleSubmit = async (formData) => {
 	const config = {
 		headers: {
 			'Content-Type': 'application/json',
-			'Access-Control-Allow-Credentials': 'true'
-		}
+			'Access-Control-Allow-Credentials': 'true',
+		},
 	}
 
 	const res = await axios.post(
@@ -52,7 +52,7 @@ const NaturalPersonCreate = ({ type, user }) => {
 							</h2>
 							<p className='text-gray-gray'>
 								<b>Editando Cliente: </b>
-								{user.username} - {user.name}
+								{user.id} - {`${user.name} ${user.last_name}`}
 							</p>
 						</>
 					) : (
