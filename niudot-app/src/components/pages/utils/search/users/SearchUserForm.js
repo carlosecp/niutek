@@ -5,18 +5,18 @@ import { FaSearch } from 'react-icons/fa'
 import axios from 'axios'
 import { Form, Formik } from 'formik'
 // Images
-import spinner from '../../../../assets/images/spinner.png'
+import spinner from '../../../../../assets/images/spinner.png'
 // Other Components
-import { Dropdown } from '../../utils/forms'
+import { Dropdown } from '../../../utils/forms'
 
 const SearchUserForm = ({ setSearchUser }) => {
 	const [loading, setLoading] = useState(false)
-	const [username, setUserName] = useState('')
+	const [searchValue, setSearchValue] = useState('')
 	const [users, setUsers] = useState([])
 	const [activeUserId, setActiveUserId] = useState(null)
 
 	const handleUserNameInput = (event) => {
-		setUserName(event.target.value)
+		setSearchValue(event.target.value)
 	}
 
 	const handleUserNameSubmit = async (event) => {
@@ -27,23 +27,24 @@ const SearchUserForm = ({ setSearchUser }) => {
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
-				'Access-Control-Allow-Credentials': 'true'
-			}
+				'Access-Control-Allow-Credentials': 'true',
+			},
 		}
 
 		setLoading(true)
 		const res = await axios.post(
 			'https://backend-dot-nicascriptproject.uc.r.appspot.com/search/user',
-			JSON.stringify({ name: username }),
+			JSON.stringify({ searchValue: searchValue }),
 			config
 		)
+		console.log(res)
 		setLoading(false)
 
 		// Checkeamos a ver si el usuario ha sido encontrado o no.
 		if (res.data.length > 0) {
 			// Hemos encontrado este usuario, por lo tanto, es el usuario que queremos editar. Se lo tenemos que mandar al formulario.
 			setUsers(res.data)
-			setUserName('')
+			setSearchValue('')
 		} else {
 			setUsers([])
 			setActiveUserId(null)
@@ -64,7 +65,7 @@ const SearchUserForm = ({ setSearchUser }) => {
 							className='form-field block flex-1'
 							placeholder='Nombre del Cliente'
 							onChange={handleUserNameInput}
-							value={username}
+							value={searchValue}
 						/>
 						<button
 							className={`w-10 h-10 rounded flex justify-center items-center cursor-pointer ${
@@ -109,21 +110,30 @@ const SearchUserForm = ({ setSearchUser }) => {
 								label='Seleccione Cliente'
 							/>
 							{users
-								.sort((a, b) =>
-									a.username > b.username ? 1 : b.username > a.username ? -1 : 0
-								)
-								.map((user) => (
-									<option
-										key={user.id}
-										value={user.id}
-										label={`${user.username} - ${user.name}`}
-									/>
-								))}
+								.sort((a, b) => {
+									const a_listname = `${a.name} ${a.last_name}`
+									const b_listname = `${b.name} ${b.last_name}`
+									return a_listname > b_listname
+										? 1
+										: b_listname > a_listname
+										? -1
+										: 0
+								})
+								.map((user) => {
+									const user_name = `${user.name} ${user.last_name}`
+									return (
+										<option
+											key={user.id}
+											value={user.id}
+											label={`${user.id} - ${user_name}`}
+										/>
+									)
+								})}
 						</Dropdown>
 					</div>
 					<button
 						type='submit'
-						className={`mt-2 btn ${
+						className={`mt-2 btn transition ${
 							activeUserId
 								? 'bg-blue-blue btn-border-blue'
 								: 'btn-disabled cursor-not-allowed'

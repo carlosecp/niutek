@@ -4,7 +4,7 @@ import React, { useContext, useEffect } from 'react'
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
 import CreditFormalizationCreate from './CreditFormalizationCreate'
-import SearchUserForm from '../../utils/search/SearchUserForm'
+import SearchUserForm from '../../utils/search/users/SearchUserForm'
 
 const CreditFormalization = () => {
 	const { changePage } = useContext(routesContext)

@@ -2,7 +2,7 @@
 import React, { useContext, useEffect } from 'react'
 import routesContext from '../../../../context/routes/routesContext'
 import CreditRequestCreate from './CreditRequestCreate'
-import SearchUserForm from '../../utils/search/SearchUserForm'
+import SearchUserForm from '../../utils/search/users/SearchUserForm'
 const CreditRequest = () => {
 	const { changePage } = useContext(routesContext)
 	useEffect(() => {
