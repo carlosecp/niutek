@@ -5,7 +5,7 @@ import { FaSearch } from 'react-icons/fa'
 import axios from 'axios'
 import { Form, Formik } from 'formik'
 // Images
-import spinner from '../../../../../assets/images/spinner.png'
+import spinner from '../../../../../assets/images/spinner-white.png'
 // Other Components
 import { Dropdown } from '../../../utils/forms'
 
@@ -66,17 +66,15 @@ const SearchUserForm = ({ setSearchUser }) => {
 							value={searchValue}
 						/>
 						<button
-							className={`w-10 h-10 rounded flex justify-center items-center cursor-pointer ${
-								loading
-									? 'btn-disabled btn-border-disabled cursor-wait'
-									: 'bg-blue-blue btn-border-blue'
+							className={`w-10 h-10 rounded flex justify-center items-center cursor-pointer bg-blue-blue btn-border-blue ${
+								loading && 'cursor-wait'
 							}`}
 						>
 							{loading ? (
 								<img
 									src={spinner}
 									alt='Loading...'
-									className='w-6 h-6 animate-spin'
+									className='w-4 h-4 animate-spin'
 								/>
 							) : (
 								<FaSearch size={16} />

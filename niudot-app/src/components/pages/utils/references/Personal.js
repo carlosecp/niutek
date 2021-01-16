@@ -7,7 +7,7 @@ import RetractileForm from '../retractile_sections'
 const Personal = ({ title }) => {
 	return (
 		<RetractileForm formTitle={title}>
-			<div className='form-grid-layout grid grid-cols-12 gap-2 max-w-lg'>
+			<div className='form-grid-layout grid grid-cols-12 gap-2'>
 				<Text
 					name='prp_nombre'
 					size='md'

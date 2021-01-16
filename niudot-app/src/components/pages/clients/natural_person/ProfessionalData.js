@@ -8,41 +8,21 @@ const ProfessionalData = () => {
 	return (
 		<RetractileForm formTitle='Datos Profesionales y Económicos'>
 			<div className='form-grid-layout'>
+				<Text name='p_profesion_oficio' size='md' label='Profesión u Oficio' />
+				<Text name='p_ocupacion_puesto' size='md' label='Ocupación/Puesto' />
+				<Text name='p_nombre_empresa' size='md' label='Nombre Empresa' />
 				<Text
-					name='p_profesion_oficio'
+					name='p_actividad_empresa'
 					size='lg'
-					placeholder='p_profesion_oficio'
-					label='p_profesion_oficio'
+					label='Descripción Actividad Empresa'
+					isTextArea={true}
 				/>
-				<Text
-					name='p_ocupacion_puesto'
-					size='lg'
-					placeholder='p_ocupacion_puesto'
-					label='p_ocupacion_puesto'
-				/>
-				<Text
-					name='p_nombre_empresa'
-					size='lg'
-					placeholder='p_nombre_empresa'
-					label='p_nombre_empresa'
-				/>
-				<Text
-					name='p_tel_empresa'
-					size='md'
-					placeholder='p_tel_empresa'
-					label='p_tel_empresa'
-				/>
-				<Text
-					name='p_email_empresa'
-					size='md'
-					placeholder='p_email_empresa'
-					label='p_email_empresa'
-				/>
+				<Text name='p_tel_empresa' size='md' label='Teléfono Empresa' />
+				<Text name='p_email_empresa' size='md' label='E-mail Empresa' />
 				<Text
 					name='p_ingreso_anual'
-					size='lg'
-					placeholder='p_ingreso_anual'
-					label='p_ingreso_anual'
+					size='md'
+					label='Ingreso Anual Aproximado $US'
 					type='number'
 				/>
 			</div>

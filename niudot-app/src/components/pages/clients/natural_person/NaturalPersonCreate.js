@@ -1,8 +1,7 @@
 // React and Router Stuff
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 // Extra libraries
 import axios from 'axios'
-import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
 // Other Components
 import ProfessionalData from './ProfessionalData'
@@ -11,30 +10,48 @@ import NewClient from './NewClient'
 import SubmitBtn from '../../utils/SubmitBtn'
 import OriginFunds from './OriginFunds'
 // Data
-import * as values from './initialValues'
+import {
+	persona_natural,
+	datos_profesionales,
+	origen_fondos,
+	referencias_comerciales,
+	referencias_bancarias,
+	cuentas_depositos,
+	referencias_personales,
+} from './initialValues'
 
 const initialValues = {
-	...values,
-}
-
-const handleSubmit = async (formData) => {
-	const config = {
-		headers: {
-			'Content-Type': 'application/json',
-			'Access-Control-Allow-Credentials': 'true',
-		},
-	}
-
-	const res = await axios.post(
-		'https://backend-dot-nicascriptproject.uc.r.appspot.com/update/cliente_natural',
-		formData,
-		config
-	)
-
-	console.log(res)
+	...persona_natural,
+	...datos_profesionales,
+	...origen_fondos,
+	...referencias_comerciales,
+	...referencias_bancarias,
+	...cuentas_depositos,
+	...referencias_personales,
 }
 
 const NaturalPersonCreate = ({ type, user }) => {
+	const [loading, setLoading] = useState(false)
+
+	const handleSubmit = async (formData) => {
+		setLoading(true)
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Credentials': 'true',
+			},
+		}
+
+		const res = await axios.post(
+			'https://backend-dot-nicascriptproject.uc.r.appspot.com/update/cliente_natural',
+			formData,
+			config
+		)
+
+		console.log(res)
+		setLoading(false)
+	}
+
 	return (
 		<Formik
 			initialValues={initialValues}
@@ -69,7 +86,7 @@ const NaturalPersonCreate = ({ type, user }) => {
 					<ProfessionalData />
 					<OriginFunds />
 					<References />
-					<SubmitBtn />
+					<SubmitBtn loading={loading} />
 				</div>
 			</Form>
 		</Formik>

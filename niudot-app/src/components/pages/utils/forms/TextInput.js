@@ -3,7 +3,13 @@ import React from 'react'
 // Extra libraries
 import { useField } from 'formik'
 
-const TextInput = ({ disabled, type, placeholder, ...props }) => {
+const TextInput = ({
+	disabled,
+	type,
+	placeholder,
+	handleValueChange,
+	...props
+}) => {
 	const [field, meta] = useField(props)
 
 	return (
