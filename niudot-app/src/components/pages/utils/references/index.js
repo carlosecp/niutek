@@ -6,12 +6,12 @@ import Commercial from './Commercial'
 import Banking from './Banking'
 import Personal from './Personal'
 
-const Referencias = () => {
+const Referencias = ({ values }) => {
 	return (
 		<RetractileForm formTitle='Referencias'>
-			<Commercial />
-			<Banking />
-			<Personal title='Personales 1' />
+			<Commercial values={values} />
+			<Banking values={values} />
+			<Personal values={values} />
 		</RetractileForm>
 	)
 }

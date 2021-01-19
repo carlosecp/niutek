@@ -16,7 +16,6 @@ import {
 	origen_fondos,
 	referencias_comerciales,
 	referencias_bancarias,
-	cuentas_depositos,
 	referencias_personales,
 } from './initialValues'
 
@@ -24,10 +23,9 @@ const initialValues = {
 	...persona_natural,
 	...datos_profesionales,
 	...origen_fondos,
-	...referencias_comerciales,
-	...referencias_bancarias,
-	...cuentas_depositos,
-	...referencias_personales,
+	referencias_comerciales,
+	referencias_bancarias,
+	referencias_personales,
 }
 
 const NaturalPersonCreate = ({ type, user }) => {
@@ -35,21 +33,36 @@ const NaturalPersonCreate = ({ type, user }) => {
 
 	const handleSubmit = async (formData) => {
 		setLoading(true)
-		const config = {
-			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Credentials': 'true',
-			},
+
+		const data = {
+			p_cod_empresa: 1,
+			p_cod_sucursal: 0,
+			p_clase_persona: 1,
+			...formData,
 		}
 
-		const res = await axios.post(
-			'https://backend-dot-nicascriptproject.uc.r.appspot.com/update/cliente_natural',
-			formData,
-			config
-		)
+		console.log(data)
 
-		console.log(res)
-		setLoading(false)
+		try {
+			const config = {
+				headers: {
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Credentials': 'true',
+				},
+			}
+
+			const res = await axios.post(
+				'https://backend-dot-nicascriptproject.uc.r.appspot.com/update/cliente_natural',
+				data,
+				config
+			)
+
+			console.log(res)
+		} catch (err) {
+			console.log(err)
+		} finally {
+			setLoading(false)
+		}
 	}
 
 	return (
@@ -57,38 +70,47 @@ const NaturalPersonCreate = ({ type, user }) => {
 			initialValues={initialValues}
 			//validationSchema={validationSchema}
 			onSubmit={(values) => {
-				handleSubmit(values)
+				const tempValues = {
+					...values,
+					prc_reg: values.referencias_bancarias.length,
+					prb_reg: values.referencias_bancarias.length,
+					pct_reg: values.referencias_bancarias.length,
+					prp_reg: values.referencias_personales.length,
+				}
+				handleSubmit(tempValues)
 			}}
 		>
-			<Form>
-				<div className='section'>
-					{type === 'edit' ? (
-						<>
-							<h2 className='text-black-white text-xl font-bold'>
-								Editar Cliente Existente
-							</h2>
-							<p className='text-gray-gray'>
-								<b>Editando Cliente: </b>
-								{user.id} - {`${user.name} ${user.last_name}`}
-							</p>
-						</>
-					) : (
-						<>
-							<h2 className='text-black-white text-xl font-bold'>
-								Crear Nuevo Cliente
-							</h2>
-							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
-						</>
-					)}
-				</div>
-				<div className='mt-4 section'>
-					<NewClient />
-					<ProfessionalData />
-					<OriginFunds />
-					<References />
-					<SubmitBtn loading={loading} />
-				</div>
-			</Form>
+			{({ values }) => (
+				<Form>
+					<div className='section'>
+						{type === 'edit' ? (
+							<>
+								<h2 className='text-black-white text-xl font-bold'>
+									Editar Cliente Existente
+								</h2>
+								<p className='text-gray-gray'>
+									<b>Editando Cliente: </b>
+									{user.cod_cliente} - {`${user.nombres} ${user.apellidos}`}
+								</p>
+							</>
+						) : (
+							<>
+								<h2 className='text-black-white text-xl font-bold'>
+									Crear Nuevo Cliente
+								</h2>
+								<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
+							</>
+						)}
+					</div>
+					<div className='mt-4 section'>
+						<NewClient />
+						<ProfessionalData />
+						<OriginFunds />
+						<References values={values} />
+						<SubmitBtn loading={loading} />
+					</div>
+				</Form>
+			)}
 		</Formik>
 	)
 }

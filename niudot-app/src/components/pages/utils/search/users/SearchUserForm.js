@@ -32,20 +32,26 @@ const SearchUserForm = ({ setSearchUser }) => {
 		}
 
 		setLoading(true)
-		const res = await axios.post(
-			'https://backend-dot-nicascriptproject.uc.r.appspot.com/search/user',
-			JSON.stringify({ searchValue: searchValue }),
-			config
-		)
-		setLoading(false)
 
-		// Checkeamos a ver si el usuario ha sido encontrado o no.
-		if (res.data.length > 0) {
-			// Hemos encontrado este usuario, por lo tanto, es el usuario que queremos editar. Se lo tenemos que mandar al formulario.
-			setUsers(res.data)
-		} else {
-			setUsers([])
-			setActiveUserId(null)
+		try {
+			const res = await axios.post(
+				'https://backend-dot-nicascriptproject.uc.r.appspot.com/search/user',
+				JSON.stringify({ searchValue }),
+				config
+			)
+
+			// Checkeamos a ver si el usuario ha sido encontrado o no.
+			if (res.data.length > 0) {
+				// Hemos encontrado este usuario, por lo tanto, es el usuario que queremos editar. Se lo tenemos que mandar al formulario.
+				setUsers(res.data)
+			} else {
+				setUsers([])
+				setActiveUserId(null)
+			}
+		} catch (err) {
+			console.log(err)
+		} finally {
+			setLoading(false)
 		}
 	}
 
@@ -87,7 +93,9 @@ const SearchUserForm = ({ setSearchUser }) => {
 				initialValues={{ userId: '' }}
 				onSubmit={(values) => {
 					values.userId = activeUserId
-					setSearchUser(users.filter((user) => user.id === +values.userId)[0])
+					setSearchUser(
+						users.filter((user) => user.cod_cliente === +values.userId)[0]
+					)
 				}}
 			>
 				<Form>
@@ -107,8 +115,8 @@ const SearchUserForm = ({ setSearchUser }) => {
 							/>
 							{users
 								.sort((a, b) => {
-									const a_listname = `${a.name} ${a.last_name}`
-									const b_listname = `${b.name} ${b.last_name}`
+									const a_listname = `${a.nombres} ${a.apellidos}`
+									const b_listname = `${b.nombres} ${b.apellidos}`
 									return a_listname > b_listname
 										? 1
 										: b_listname > a_listname
@@ -116,12 +124,12 @@ const SearchUserForm = ({ setSearchUser }) => {
 										: 0
 								})
 								.map((user) => {
-									const user_name = `${user.name} ${user.last_name}`
+									const user_name = `${user.nombres} ${user.apellidos}`
 									return (
 										<option
-											key={user.id}
-											value={user.id}
-											label={`${user.id} - ${user_name}`}
+											key={user.cod_cliente}
+											value={user.cod_cliente}
+											label={`${user.cod_cliente} - ${user_name}`}
 										/>
 									)
 								})}
