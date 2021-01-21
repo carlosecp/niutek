@@ -1,9 +1,8 @@
-// React and Router Stuff
-import React, { useContext, useEffect } from 'react'
-// Context
-import routesContext from '../../../context/routes/routesContext'
-// Other Components
-import ProductsCreate from './ProductsCreate'
+import React, { useContext, useEffect } from "react"
+
+import routesContext from "../../../context/routes/routesContext"
+
+import ProductsCreate from "./ProductsCreate"
 
 const Products = () => {
 	/* Hook a correr  con la creacion del componente. Para inicializar
@@ -12,7 +11,7 @@ const Products = () => {
 	const { changePage } = useContext(routesContext)
 	useEffect(() => {
 		// Esto es para el context de los titulos
-		changePage('Productos')
+		changePage("Productos")
 		// eslint-disable-next-line
 	}, [])
 

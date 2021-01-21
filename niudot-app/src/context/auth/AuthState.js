@@ -1,21 +1,20 @@
-// React and Router Stuff
-import React, { useReducer } from 'react'
-// Extra libraries
-import axios from 'axios'
-import * as types from '../types'
-// Context
-import authContext from './authContext'
-import authReducer from './authReducer'
+import React, { useReducer } from "react"
+
+import axios from "axios"
+import * as types from "../types"
+
+import authContext from "./authContext"
+import authReducer from "./authReducer"
 // Utils
-import setAuthToken from '../../utils/setAuthToken'
+import setAuthToken from "../../utils/setAuthToken"
 
 const AuthState = (props) => {
 	const initialState = {
-		user: { type: 'client' },
-		token: localStorage.getItem('token'),
+		user: { type: "client" },
+		token: localStorage.getItem("token"),
 		isAuthenticated: true,
 		loading: true,
-		error: null
+		error: null,
 	}
 
 	const [state, dispatch] = useReducer(authReducer, initialState)
@@ -28,14 +27,14 @@ const AuthState = (props) => {
 
 		try {
 			const user = {
-				username: 'CarlosECP01',
-				type: 'admin'
+				username: "CarlosECP01",
+				type: "admin",
 			}
 
 			if (localStorage.token) {
 				dispatch({ type: types.USER_LOADED, payload: user })
 			} else {
-				throw Error('No tenemos token, no estamos logueados')
+				throw Error("No tenemos token, no estamos logueados")
 			}
 		} catch (err) {
 			dispatch({ type: types.AUTH_ERROR, payload: err })
@@ -46,14 +45,14 @@ const AuthState = (props) => {
 	const registerUser = async (formData) => {
 		const config = {
 			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Credentials': 'true'
-			}
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Credentials": "true",
+			},
 		}
 
 		try {
 			const res = await axios.post(
-				'https://backend-dot-nicascriptproject.uc.r.appspot.com/register',
+				"https://backend-dot-nicascriptproject.uc.r.appspot.com/register",
 				formData,
 				config
 			)
@@ -68,14 +67,14 @@ const AuthState = (props) => {
 	const loginUser = async (formData) => {
 		const config = {
 			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Credentials': 'true'
-			}
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Credentials": "true",
+			},
 		}
 
 		try {
 			const res = await axios.post(
-				'https://backend-dot-nicascriptproject.uc.r.appspot.com/auth',
+				"https://backend-dot-nicascriptproject.uc.r.appspot.com/auth",
 				formData,
 				config
 			)
@@ -101,7 +100,7 @@ const AuthState = (props) => {
 				registerUser,
 				loginUser,
 				logout,
-				clearErrors
+				clearErrors,
 			}}
 		>
 			{props.children}

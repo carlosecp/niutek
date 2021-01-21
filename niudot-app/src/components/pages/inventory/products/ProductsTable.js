@@ -1,58 +1,57 @@
-// React and Router Stuff
-import React, { useMemo, useRef, useState, useCallback } from 'react'
-// Other Components
-import Table from '../../utils/tables'
+import React, { useMemo, useRef, useState, useCallback } from "react"
+
+import Table from "../../utils/tables"
 
 const ProductsTable = ({ togglePopup }) => {
 	const columns = useMemo(() => [
-		{ Header: 'Artículo', accessor: 'item' },
-		{ Header: 'Descripción', accessor: 'description' },
-		{ Header: 'Presentación', accessor: 'presentation' },
-		{ Header: 'Cantidad', accessor: 'quantity' },
-		{ Header: 'Costo', accessor: 'cost' },
-		{ Header: 'Total', accessor: 'total' }
+		{ Header: "Artículo", accessor: "item" },
+		{ Header: "Descripción", accessor: "description" },
+		{ Header: "Presentación", accessor: "presentation" },
+		{ Header: "Cantidad", accessor: "quantity" },
+		{ Header: "Costo", accessor: "cost" },
+		{ Header: "Total", accessor: "total" },
 	])
 	const serverData = [
 		{
-			item: '29102',
-			description: 'Salchichas para Hot Dog',
-			presentation: 'UNIDAD',
-			quantity: '1',
-			cost: '12.76',
-			total: '12.76'
+			item: "29102",
+			description: "Salchichas para Hot Dog",
+			presentation: "UNIDAD",
+			quantity: "1",
+			cost: "12.76",
+			total: "12.76",
 		},
 		{
-			item: '29102',
-			description: 'Salchichas para Hot Dog',
-			presentation: 'UNIDAD',
-			quantity: '1',
-			cost: '12.76',
-			total: '12.76'
+			item: "29102",
+			description: "Salchichas para Hot Dog",
+			presentation: "UNIDAD",
+			quantity: "1",
+			cost: "12.76",
+			total: "12.76",
 		},
 		{
-			item: '29102',
-			description: 'Salchichas para Hot Dog',
-			presentation: 'UNIDAD',
-			quantity: '1',
-			cost: '12.76',
-			total: '12.76'
+			item: "29102",
+			description: "Salchichas para Hot Dog",
+			presentation: "UNIDAD",
+			quantity: "1",
+			cost: "12.76",
+			total: "12.76",
 		},
 		{
-			item: '29102',
-			description: 'Salchichas para Hot Dog',
-			presentation: 'UNIDAD',
-			quantity: '1',
-			cost: '12.76',
-			total: '12.76'
+			item: "29102",
+			description: "Salchichas para Hot Dog",
+			presentation: "UNIDAD",
+			quantity: "1",
+			cost: "12.76",
+			total: "12.76",
 		},
 		{
-			item: '29102',
-			description: 'Salchichas para Hot Dog',
-			presentation: 'UNIDAD',
-			quantity: '1',
-			cost: '12.76',
-			total: '12.76'
-		}
+			item: "29102",
+			description: "Salchichas para Hot Dog",
+			presentation: "UNIDAD",
+			quantity: "1",
+			cost: "12.76",
+			total: "12.76",
+		},
 	]
 
 	const [data, setData] = useState([])

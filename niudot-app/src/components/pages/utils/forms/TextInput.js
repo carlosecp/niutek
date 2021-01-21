@@ -1,7 +1,6 @@
-// React and Router Stuff
-import React from 'react'
-// Extra libraries
-import { useField } from 'formik'
+import React from "react"
+
+import { useField } from "formik"
 
 const TextInput = ({
 	disabled,
@@ -18,7 +17,7 @@ const TextInput = ({
 				<input
 					type={type}
 					className={`form-field w-full ${
-						meta.touched && meta.error && 'form-field-error'
+						meta.touched && meta.error && "form-field-error"
 					}`}
 					placeholder={placeholder}
 					{...field}
@@ -28,7 +27,7 @@ const TextInput = ({
 				<input
 					type={type}
 					className={`form-field-disabled w-full ${
-						meta.touched && meta.error && 'form-field-error'
+						meta.touched && meta.error && "form-field-error"
 					}`}
 					placeholder={placeholder}
 					{...field}
@@ -37,7 +36,7 @@ const TextInput = ({
 				/>
 			)}
 			{meta.touched && meta.error && (
-				<small className='font-bold text-red-500'>{meta.error}</small>
+				<small className="font-bold text-red-500">{meta.error}</small>
 			)}
 		</>
 	)

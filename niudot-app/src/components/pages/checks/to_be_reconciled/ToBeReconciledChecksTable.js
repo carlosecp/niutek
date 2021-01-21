@@ -1,140 +1,139 @@
-// React and Router Stuff
-import React, { useMemo, useRef, useState, useCallback } from 'react'
-// Extra libraries
-import { v4 as uuidv4 } from 'uuid'
-// Other Components
-import Table from '../../utils/tables'
+import React, { useMemo, useRef, useState, useCallback } from "react"
+
+import { v4 as uuidv4 } from "uuid"
+
+import Table from "../../utils/tables"
 
 const ChecksTable = ({ togglePopup }) => {
 	const columns = useMemo(() => [
-		{ Header: 'No. Cheque', accessor: 'number' },
-		{ Header: 'Fecha', accessor: 'date' },
-		{ Header: 'Paguese a', accessor: 'to' },
-		{ Header: 'Moneda', accessor: 'currency' },
-		{ Header: 'Monto', accessor: 'value' }
+		{ Header: "No. Cheque", accessor: "number" },
+		{ Header: "Fecha", accessor: "date" },
+		{ Header: "Paguese a", accessor: "to" },
+		{ Header: "Moneda", accessor: "currency" },
+		{ Header: "Monto", accessor: "value" },
 	])
 
 	const serverData = [
 		{
 			id: uuidv4(),
 			number: 10298,
-			date: '30/01/2016',
-			to: 'CSU DE NICARAGUA, S.A',
-			currency: 'CÓRDOBAS',
-			value: 126000.0
+			date: "30/01/2016",
+			to: "CSU DE NICARAGUA, S.A",
+			currency: "CÓRDOBAS",
+			value: 126000.0,
 		},
 		{
 			id: uuidv4(),
 			number: 10299,
-			date: '30/01/2016',
-			to: 'CSU DE NICARAGUA, S.A',
-			currency: 'CÓRDOBAS',
-			value: 27000.0
+			date: "30/01/2016",
+			to: "CSU DE NICARAGUA, S.A",
+			currency: "CÓRDOBAS",
+			value: 27000.0,
 		},
 		{
 			id: uuidv4(),
 			number: 10300,
-			date: '30/01/2016',
-			to: 'SILVIA CAROLINA HERNANDEZ PEREZ',
-			currency: 'CÓRDOBAS',
-			value: 4000.0
+			date: "30/01/2016",
+			to: "SILVIA CAROLINA HERNANDEZ PEREZ",
+			currency: "CÓRDOBAS",
+			value: 4000.0,
 		},
 		{
 			id: uuidv4(),
 			number: 10301,
-			date: '29/01/2016',
-			to: 'COGUMESA',
-			currency: 'CÓRDOBAS',
-			value: 46033.54
+			date: "29/01/2016",
+			to: "COGUMESA",
+			currency: "CÓRDOBAS",
+			value: 46033.54,
 		},
 		{
 			id: uuidv4(),
 			number: 10302,
-			date: '29/01/2016',
-			to: 'ANA JULIA MENDIETA SEVILLA',
-			currency: 'CÓRDOBAS',
-			value: 6694.84
+			date: "29/01/2016",
+			to: "ANA JULIA MENDIETA SEVILLA",
+			currency: "CÓRDOBAS",
+			value: 6694.84,
 		},
 		{
 			id: uuidv4(),
 			number: 10300,
-			date: '30/01/2016',
-			to: 'SILVIA CAROLINA HERNANDEZ PEREZ',
-			currency: 'CÓRDOBAS',
-			value: 4000.0
+			date: "30/01/2016",
+			to: "SILVIA CAROLINA HERNANDEZ PEREZ",
+			currency: "CÓRDOBAS",
+			value: 4000.0,
 		},
 		{
 			id: uuidv4(),
 			number: 10301,
-			date: '29/01/2016',
-			to: 'COGUMESA',
-			currency: 'CÓRDOBAS',
-			value: 46033.54
+			date: "29/01/2016",
+			to: "COGUMESA",
+			currency: "CÓRDOBAS",
+			value: 46033.54,
 		},
 		{
 			id: uuidv4(),
 			number: 10302,
-			date: '29/01/2016',
-			to: 'ANA JULIA MENDIETA SEVILLA',
-			currency: 'CÓRDOBAS',
-			value: 6694.84
+			date: "29/01/2016",
+			to: "ANA JULIA MENDIETA SEVILLA",
+			currency: "CÓRDOBAS",
+			value: 6694.84,
 		},
 		{
 			id: uuidv4(),
 			number: 10298,
-			date: '30/01/2016',
-			to: 'CSU DE NICARAGUA, S.A',
-			currency: 'CÓRDOBAS',
-			value: 126000.0
+			date: "30/01/2016",
+			to: "CSU DE NICARAGUA, S.A",
+			currency: "CÓRDOBAS",
+			value: 126000.0,
 		},
 		{
 			id: uuidv4(),
 			number: 10299,
-			date: '30/01/2016',
-			to: 'CSU DE NICARAGUA, S.A',
-			currency: 'CÓRDOBAS',
-			value: 27000.0
+			date: "30/01/2016",
+			to: "CSU DE NICARAGUA, S.A",
+			currency: "CÓRDOBAS",
+			value: 27000.0,
 		},
 		{
 			id: uuidv4(),
 			number: 10298,
-			date: '30/01/2016',
-			to: 'CSU DE NICARAGUA, S.A',
-			currency: 'CÓRDOBAS',
-			value: 126000.0
+			date: "30/01/2016",
+			to: "CSU DE NICARAGUA, S.A",
+			currency: "CÓRDOBAS",
+			value: 126000.0,
 		},
 		{
 			id: uuidv4(),
 			number: 10299,
-			date: '30/01/2016',
-			to: 'CSU DE NICARAGUA, S.A',
-			currency: 'CÓRDOBAS',
-			value: 27000.0
+			date: "30/01/2016",
+			to: "CSU DE NICARAGUA, S.A",
+			currency: "CÓRDOBAS",
+			value: 27000.0,
 		},
 		{
 			id: uuidv4(),
 			number: 10300,
-			date: '30/01/2016',
-			to: 'SILVIA CAROLINA HERNANDEZ PEREZ',
-			currency: 'CÓRDOBAS',
-			value: 4000.0
+			date: "30/01/2016",
+			to: "SILVIA CAROLINA HERNANDEZ PEREZ",
+			currency: "CÓRDOBAS",
+			value: 4000.0,
 		},
 		{
 			id: uuidv4(),
 			number: 10301,
-			date: '29/01/2016',
-			to: 'COGUMESA',
-			currency: 'CÓRDOBAS',
-			value: 46033.54
+			date: "29/01/2016",
+			to: "COGUMESA",
+			currency: "CÓRDOBAS",
+			value: 46033.54,
 		},
 		{
 			id: uuidv4(),
 			number: 10302,
-			date: '29/01/2016',
-			to: 'ANA JULIA MENDIETA SEVILLA',
-			currency: 'CÓRDOBAS',
-			value: 6694.84
-		}
+			date: "29/01/2016",
+			to: "ANA JULIA MENDIETA SEVILLA",
+			currency: "CÓRDOBAS",
+			value: 6694.84,
+		},
 	]
 
 	const [data, setData] = useState([])

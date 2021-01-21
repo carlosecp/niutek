@@ -1,19 +1,18 @@
-// React and Router Stuff
-import React, { useContext, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import PrivateRoute from './components/routing/PrivateRoute'
-// Context
-import RoutesState from './context/routes/RoutesState'
-import AuthState from './context/auth/AuthState'
-import themeContext from './context/theme/themeContext'
-// Routes
-import Home from './components/layout/Home'
-import Login from './components/routing/Login'
-import About from './components/pages/about'
-// Others
-import setAuthToken from './utils/setAuthToken'
-import { PageNotFound } from './components/routing/NotFound'
-import Admin from './components/admin'
+import React, { useContext, useEffect } from "react"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import PrivateRoute from "./components/routing/PrivateRoute"
+
+import RoutesState from "./context/routes/RoutesState"
+import AuthState from "./context/auth/AuthState"
+import themeContext from "./context/theme/themeContext"
+
+import Home from "./components/layout/Home"
+import Login from "./components/routing/Login"
+import About from "./components/pages/about"
+
+import setAuthToken from "./utils/setAuthToken"
+import { PageNotFound } from "./components/routing/NotFound"
+import Admin from "./components/admin"
 
 const App = () => {
 	const { theme } = useContext(themeContext)
@@ -25,16 +24,24 @@ const App = () => {
 	}, [])
 
 	return (
-		<div className={`${theme && 'dark'}`}>
+		<div className={`${theme && "dark"}`}>
 			<AuthState>
 				<RoutesState>
 					<Router>
 						<Switch>
-							<Route exact path='/' component={Login} />
-							<Route exact path='/about' component={About} />
-							<PrivateRoute path='/app' component={Home} userType='client' />
-							<PrivateRoute path='/admin' component={Admin} userType='admin' />
-							<Route path='*' component={PageNotFound} />
+							<Route exact path="/" component={Login} />
+							<Route exact path="/about" component={About} />
+							<PrivateRoute
+								path="/app"
+								component={Home}
+								userType="client"
+							/>
+							<PrivateRoute
+								path="/admin"
+								component={Admin}
+								userType="admin"
+							/>
+							<Route path="*" component={PageNotFound} />
 						</Switch>
 					</Router>
 				</RoutesState>

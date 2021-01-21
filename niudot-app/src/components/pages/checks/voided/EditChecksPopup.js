@@ -1,36 +1,35 @@
-// React and Router Stuff
-import React, { useState, useMemo, useRef, useCallback } from 'react'
-// Extra libraries
-import { Formik, Form } from 'formik'
-import { FaPrint, FaTimes } from 'react-icons/fa'
-// Other Components
-import Table from '../../utils/tables'
-import Popup from '../../utils/tables/Popup'
+import React, { useState, useMemo, useRef, useCallback } from "react"
+
+import { Formik, Form } from "formik"
+import { FaPrint, FaTimes } from "react-icons/fa"
+
+import Table from "../../utils/tables"
+import Popup from "../../utils/tables/Popup"
 
 const EditChecksPopup = ({ togglePopup }) => {
 	const columns = useMemo(
 		() => [
-			{ Header: 'Cuenta', accessor: 'account' },
-			{ Header: 'Descripción', accessor: 'description' },
-			{ Header: 'Débito', accessor: 'debit' },
-			{ Header: 'Crédito', accessor: 'credit' }
+			{ Header: "Cuenta", accessor: "account" },
+			{ Header: "Descripción", accessor: "description" },
+			{ Header: "Débito", accessor: "debit" },
+			{ Header: "Crédito", accessor: "credit" },
 		],
 		[]
 	)
 
 	const serverData = [
 		{
-			account: '512389023',
-			description: 'EQUIPO DE TRANSPORTE',
+			account: "512389023",
+			description: "EQUIPO DE TRANSPORTE",
 			debit: 5750.5,
-			credit: 0
+			credit: 0,
 		},
 		{
-			account: '512389023',
-			description: 'BDF CTA. CORRIENTE C$ No. 10232313',
+			account: "512389023",
+			description: "BDF CTA. CORRIENTE C$ No. 10232313",
 			debit: 0,
-			credit: 5750.5
-		}
+			credit: 5750.5,
+		},
 	]
 
 	const [data, setData] = useState([])
@@ -67,8 +66,8 @@ const EditChecksPopup = ({ togglePopup }) => {
 				}}
 			>
 				<Form>
-					<div className='section'>
-						<h2 className='mb-4 text-black-white text-xl font-bold'>
+					<div className="section">
+						<h2 className="mb-4 text-black-white text-xl font-bold">
 							Datos del Cheque
 						</h2>
 						<Table
@@ -83,12 +82,12 @@ const EditChecksPopup = ({ togglePopup }) => {
 					</div>
 				</Form>
 			</Formik>
-			<div className='px-4 mb-4 flex gap-2 justify-center flex-wrap'>
-				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
+			<div className="px-4 mb-4 flex gap-2 justify-center flex-wrap">
+				<button className="btn bg-blue-blue btn-border-blue flex items-center gap-2">
 					Eliminar Anulación
 					<FaTimes />
 				</button>
-				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
+				<button className="btn bg-blue-blue btn-border-blue flex items-center gap-2">
 					Imprimir
 					<FaPrint />
 				</button>

@@ -66,7 +66,7 @@ html, body {
 	/*Es la clase que se utiliza para los headers por ejemplos o titulos pues, ya que son los textos con mayor jerarquia, y por lo tanto van en negro en light mode, y en blanco puro en dark mode. Ademas se suelen poner en bold, pero para hacer esta clase lo mas reutilizable posible se tienen que indicar explicitamente que va a ser bold cada texto.*/
 
 	/*Global*/
-	@apply transition select-none;
+	@apply transition;
 
 	/*Light Theme Defaults*/
 	@apply text-black;
@@ -79,7 +79,7 @@ html, body {
 	/*Esta clase es para texto que es secundario, como por ejemplo, descripciones de secciones o algo asi. Es bastante similar a un titulo por ejemplo, pero claro, de menor importancia.*/
 
 	/*Global*/
-	@apply transition select-none;
+	@apply transition;
 
 	/*Light Theme Defaults*/
 	@apply text-gray-cstm-6;
@@ -94,7 +94,7 @@ html, body {
 
 .btn {
 	/*Global*/
-	@apply h-std rounded font-bold select-none px-6;
+	@apply h-std rounded font-bold px-6;
 }
 
 .btn-border-blue {

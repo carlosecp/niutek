@@ -1,13 +1,12 @@
-// React and Router Stuff
-import React, { useState, useContext, useEffect } from 'react'
-// Other Components
-import SearchCheckForm from '../../utils/search/SearchCheckForm'
-import PrintChecksTable from './PrintChecksTable'
-import EditChecksPopup from './EditChecksPopup'
-import AddChecksPopup from './AddChecksPopup'
-// Context
-import routesContext from '../../../../context/routes/routesContext'
-import { FaPlus, FaChartLine, FaPrint } from 'react-icons/fa'
+import React, { useState, useContext, useEffect } from "react"
+
+import SearchCheckForm from "../../utils/search/SearchCheckForm"
+import PrintChecksTable from "./PrintChecksTable"
+import EditChecksPopup from "./EditChecksPopup"
+import AddChecksPopup from "./AddChecksPopup"
+
+import routesContext from "../../../../context/routes/routesContext"
+import { FaPlus, FaChartLine, FaPrint } from "react-icons/fa"
 
 const ChecksToPrint = () => {
 	const { changePage } = useContext(routesContext)
@@ -17,7 +16,7 @@ const ChecksToPrint = () => {
 	const [activeCheck, setActiveCheck] = useState(null)
 
 	useEffect(() => {
-		changePage('Cheques Por Imprimir')
+		changePage("Cheques Por Imprimir")
 		// eslint-disable-next-line
 	}, [])
 
@@ -33,8 +32,10 @@ const ChecksToPrint = () => {
 	return (
 		<>
 			<SearchCheckForm />
-			<div className='section'>
-				<h2 className='text-black-white font-bold text-xl mb-2'>Cheques</h2>
+			<div className="section">
+				<h2 className="text-black-white font-bold text-xl mb-2">
+					Cheques
+				</h2>
 				<PrintChecksTable
 					togglePopup={toggleEditPopup}
 					setLoading={setLoading}
@@ -47,21 +48,24 @@ const ChecksToPrint = () => {
 					/>
 				)}
 				{showAddPopup && (
-					<AddChecksPopup togglePopup={toggleAddPopup} checkId={activeCheck} />
+					<AddChecksPopup
+						togglePopup={toggleAddPopup}
+						checkId={activeCheck}
+					/>
 				)}
-				<div className='mt-4 flex gap-2 justify-center flex-wrap'>
+				<div className="mt-4 flex gap-2 justify-center flex-wrap">
 					<button
-						className='btn bg-blue-blue btn-border-blue flex items-center gap-2'
+						className="btn bg-blue-blue btn-border-blue flex items-center gap-2"
 						onClick={toggleAddPopup}
 					>
 						Agregar
 						<FaPlus />
 					</button>
-					<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
+					<button className="btn bg-blue-blue btn-border-blue flex items-center gap-2">
 						Imprimir Listado
 						<FaPrint />
 					</button>
-					<button className='btn flex items-center bg-blue-blue btn-border-blue gap-2'>
+					<button className="btn flex items-center bg-blue-blue btn-border-blue gap-2">
 						Reporte de Cheques
 						<FaChartLine />
 					</button>

@@ -1,18 +1,17 @@
-// React and Router Stuff
-import React from 'react'
-// Extra libraries
-import * as Yup from 'yup'
-import { Formik, Form } from 'formik'
-// Other Components
-import DepositToSavingsAccount from './DepositToSavingsAccount'
+import React from "react"
+
+import * as Yup from "yup"
+import { Formik, Form } from "formik"
+
+import DepositToSavingsAccount from "./DepositToSavingsAccount"
 // Data
-import { createValues, createValuesSchema } from './initialValues'
+import { createValues, createValuesSchema } from "./initialValues"
 
 const initialValues = {
-	...createValues
+	...createValues,
 }
 const validationSchema = Yup.object({
-	...createValuesSchema
+	...createValuesSchema,
 })
 
 const DepositToSavingsAccountCreate = () => {
@@ -24,9 +23,9 @@ const DepositToSavingsAccountCreate = () => {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='section'>
-				<h2 className='text-black-white text-xl font-bold'>
-					Depósito a Cuenta de Ahorro{' '}
+			<Form className="section">
+				<h2 className="text-black-white text-xl font-bold">
+					Depósito a Cuenta de Ahorro{" "}
 				</h2>
 				<DepositToSavingsAccount />
 			</Form>

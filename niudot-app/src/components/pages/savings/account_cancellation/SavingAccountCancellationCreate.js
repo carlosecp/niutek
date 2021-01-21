@@ -1,9 +1,7 @@
-// React and Router Stuff
-import React from 'react'
-// Extra libraries
-import * as Yup from 'yup'
-import { Formik, Form } from 'formik'
-// Other Components
+import React from "react"
+
+import * as Yup from "yup"
+import { Formik, Form } from "formik"
 
 // Data
 import {
@@ -15,8 +13,8 @@ import {
 	refBancariasValues,
 	refPersonales1Values,
 	refPersonales2Values,
-	accionistasMayoritarios
-} from './initialValues'
+	accionistasMayoritarios,
+} from "./initialValues"
 
 const initialValues = {
 	...createValues,
@@ -26,11 +24,11 @@ const initialValues = {
 	...refBancariasValues,
 	...refPersonales1Values,
 	...refPersonales2Values,
-	...accionistasMayoritarios
+	...accionistasMayoritarios,
 }
 
 const validationSchema = Yup.object({
-	...createValuesSchema
+	...createValuesSchema,
 })
 
 const SavingAccountCancellationCreate = () => {
@@ -42,9 +40,9 @@ const SavingAccountCancellationCreate = () => {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='section'>
-				<h2 className='text-black-white text-xl font-bold'>
-					Cancelación de Cuenta de Ahorro{' '}
+			<Form className="section">
+				<h2 className="text-black-white text-xl font-bold">
+					Cancelación de Cuenta de Ahorro{" "}
 				</h2>
 			</Form>
 		</Formik>

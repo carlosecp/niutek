@@ -1,14 +1,13 @@
-// React and Router Stuff
-import React, { useState, useContext, useEffect } from 'react'
-// Other Components
-import SearchProductForm from '../../utils/search/SearchProductForm'
-// Context
-import routesContext from '../../../../context/routes/routesContext'
-import { Formik } from 'formik'
-import ProductsTable from './ProductsTable'
-import { Text } from '../../utils/forms'
-import EditPopup from './popups/EditPopup'
-import AddItemPopup from './popups/AddItemPopup'
+import React, { useState, useContext, useEffect } from "react"
+
+import SearchProductForm from "../../utils/search/SearchProductForm"
+
+import routesContext from "../../../../context/routes/routesContext"
+import { Formik } from "formik"
+import ProductsTable from "./ProductsTable"
+import { Text } from "../../utils/forms"
+import EditPopup from "./popups/EditPopup"
+import AddItemPopup from "./popups/AddItemPopup"
 
 const InventoryProducts = () => {
 	const { changePage } = useContext(routesContext)
@@ -16,7 +15,7 @@ const InventoryProducts = () => {
 	const [showAddPopup, setShowAddPopup] = useState(false)
 
 	useEffect(() => {
-		changePage('Productos')
+		changePage("Productos")
 		// eslint-disable-next-line
 	}, [])
 
@@ -29,29 +28,34 @@ const InventoryProducts = () => {
 	}
 
 	return (
-		<div className='section'>
+		<div className="section">
 			<SearchProductForm />
 			<Formik>
-				<div className='form-grid-layout pb-8'>
-					<Text name='bodega' size='lg' placeholder='Bodega' label='Bodega' />
+				<div className="form-grid-layout pb-8">
 					<Text
-						name='producto'
-						size='md'
-						placeholder='Producto'
-						label='Producto'
+						name="bodega"
+						size="lg"
+						placeholder="Bodega"
+						label="Bodega"
+					/>
+					<Text
+						name="producto"
+						size="md"
+						placeholder="Producto"
+						label="Producto"
 						newline={true}
 					/>
 					<Text
-						name='codigo_producto'
-						size='sm'
-						placeholder='Código'
-						label='00221'
+						name="codigo_producto"
+						size="sm"
+						placeholder="Código"
+						label="00221"
 					/>
 					<Text
-						name='Abreviación'
-						size='sm'
-						placeholder='Abreviación'
-						label='Abreviación'
+						name="Abreviación"
+						size="sm"
+						placeholder="Abreviación"
+						label="Abreviación"
 						newline={true}
 					/>
 				</div>
@@ -62,17 +66,17 @@ const InventoryProducts = () => {
 			{showEditPopup && <EditPopup togglePopup={toggleEditPopup} />}
 			{showAddPopup && <AddItemPopup togglePopup={toggleAddPopup} />}
 
-			<div className='my-4 flex gap-2 justify-center flex-wrap'>
+			<div className="my-4 flex gap-2 justify-center flex-wrap">
 				<button
-					className='btn flex items-center bg-blue-blue btn-border-blue'
+					className="btn flex items-center bg-blue-blue btn-border-blue"
 					onClick={toggleAddPopup}
 				>
 					Agregar Artículo
 				</button>
-				<button className='btn flex items-center bg-blue-blue btn-border-blue'>
+				<button className="btn flex items-center bg-blue-blue btn-border-blue">
 					Guardar
 				</button>
-				<button className='btn flex items-center bg-gray-cstm-10 btn-border-blue'>
+				<button className="btn flex items-center bg-gray-cstm-10 btn-border-blue">
 					Cancelar
 				</button>
 			</div>

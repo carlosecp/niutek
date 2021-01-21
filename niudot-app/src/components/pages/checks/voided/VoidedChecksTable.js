@@ -1,138 +1,137 @@
-// React and Router Stuff
-import React, { useMemo, useRef, useState, useCallback } from 'react'
-// Other Components
-import Table from '../../utils/tables'
+import React, { useMemo, useRef, useState, useCallback } from "react"
+
+import Table from "../../utils/tables"
 
 const VoidedChecksTable = ({ togglePopup }) => {
 	const columns = useMemo(() => [
-		{ Header: 'No. Cheque', accessor: 'number' },
-		{ Header: 'Fecha', accessor: 'date' },
-		{ Header: 'Paguese a', accessor: 'to' },
-		{ Header: 'Moneda', accessor: 'currency' },
-		{ Header: 'Monto', accessor: 'value' }
+		{ Header: "No. Cheque", accessor: "number" },
+		{ Header: "Fecha", accessor: "date" },
+		{ Header: "Paguese a", accessor: "to" },
+		{ Header: "Moneda", accessor: "currency" },
+		{ Header: "Monto", accessor: "value" },
 	])
 
 	const serverData = [
 		{
 			id: 1,
 			number: 20683,
-			date: '05/10/2020',
-			to: 'DANFFER SEBASTIAN SEQUEIRA DUARTE',
-			currency: 'CÓRDOBAS',
-			value: 7499.47
+			date: "05/10/2020",
+			to: "DANFFER SEBASTIAN SEQUEIRA DUARTE",
+			currency: "CÓRDOBAS",
+			value: 7499.47,
 		},
 		{
 			id: 2,
 			number: 20673,
-			date: '05/10/2020',
-			to: 'ANA JULIA MENDIETA SEVILLA',
-			currency: 'CÓRDOBAS',
-			value: 12004.46
+			date: "05/10/2020",
+			to: "ANA JULIA MENDIETA SEVILLA",
+			currency: "CÓRDOBAS",
+			value: 12004.46,
 		},
 		{
 			id: 3,
 			number: 15,
-			date: '05/10/2020',
-			to: 'CHEQUE ANULADO',
-			currency: 'DÓLARES',
-			value: 562.74
+			date: "05/10/2020",
+			to: "CHEQUE ANULADO",
+			currency: "DÓLARES",
+			value: 562.74,
 		},
 		{
 			id: 4,
 			number: 20606,
-			date: '25/09/2020',
-			to: 'PLASTICOS MODERNOS, S.A',
-			currency: 'CÓRDOBAS',
-			value: 25489.8
+			date: "25/09/2020",
+			to: "PLASTICOS MODERNOS, S.A",
+			currency: "CÓRDOBAS",
+			value: 25489.8,
 		},
 		{
 			id: 5,
 			number: 20537,
-			date: '21/09/2020',
-			to: 'ANA JULIA MENDIETA SEVILLA',
-			currency: 'CÓRDOBAS',
-			value: 2116.8
+			date: "21/09/2020",
+			to: "ANA JULIA MENDIETA SEVILLA",
+			currency: "CÓRDOBAS",
+			value: 2116.8,
 		},
 		{
 			id: 6,
 			number: 15,
-			date: '05/10/2020',
-			to: 'CHEQUE ANULADO',
-			currency: 'DÓLARES',
-			value: 562.74
+			date: "05/10/2020",
+			to: "CHEQUE ANULADO",
+			currency: "DÓLARES",
+			value: 562.74,
 		},
 		{
 			id: 7,
 			number: 20606,
-			date: '25/09/2020',
-			to: 'PLASTICOS MODERNOS, S.A',
-			currency: 'CÓRDOBAS',
-			value: 25489.8
+			date: "25/09/2020",
+			to: "PLASTICOS MODERNOS, S.A",
+			currency: "CÓRDOBAS",
+			value: 25489.8,
 		},
 		{
 			id: 8,
 			number: 20537,
-			date: '21/09/2020',
-			to: 'ANA JULIA MENDIETA SEVILLA',
-			currency: 'CÓRDOBAS',
-			value: 2116.8
+			date: "21/09/2020",
+			to: "ANA JULIA MENDIETA SEVILLA",
+			currency: "CÓRDOBAS",
+			value: 2116.8,
 		},
 		{
 			id: 9,
 			number: 20683,
-			date: '05/10/2020',
-			to: 'DANFFER SEBASTIAN SEQUEIRA DUARTE',
-			currency: 'CÓRDOBAS',
-			value: 7499.47
+			date: "05/10/2020",
+			to: "DANFFER SEBASTIAN SEQUEIRA DUARTE",
+			currency: "CÓRDOBAS",
+			value: 7499.47,
 		},
 		{
 			id: 10,
 			number: 20673,
-			date: '05/10/2020',
-			to: 'ANA JULIA MENDIETA SEVILLA',
-			currency: 'CÓRDOBAS',
-			value: 12004.46
+			date: "05/10/2020",
+			to: "ANA JULIA MENDIETA SEVILLA",
+			currency: "CÓRDOBAS",
+			value: 12004.46,
 		},
 		{
 			id: 11,
 			number: 20683,
-			date: '05/10/2020',
-			to: 'DANFFER SEBASTIAN SEQUEIRA DUARTE',
-			currency: 'CÓRDOBAS',
-			value: 7499.47
+			date: "05/10/2020",
+			to: "DANFFER SEBASTIAN SEQUEIRA DUARTE",
+			currency: "CÓRDOBAS",
+			value: 7499.47,
 		},
 		{
 			id: 12,
 			number: 20673,
-			date: '05/10/2020',
-			to: 'ANA JULIA MENDIETA SEVILLA',
-			currency: 'CÓRDOBAS',
-			value: 12004.46
+			date: "05/10/2020",
+			to: "ANA JULIA MENDIETA SEVILLA",
+			currency: "CÓRDOBAS",
+			value: 12004.46,
 		},
 		{
 			id: 13,
 			number: 20576,
-			date: '05/10/2020',
-			to: 'CHEQUE ANULADO',
-			currency: 'DÓLARES',
-			value: 562.74
+			date: "05/10/2020",
+			to: "CHEQUE ANULADO",
+			currency: "DÓLARES",
+			value: 562.74,
 		},
 		{
 			id: 14,
 			number: 20606,
-			date: '25/09/2020',
-			to: 'PLASTICOS MODERNOS, S.A',
-			currency: 'CÓRDOBAS',
-			value: 25489.8
+			date: "25/09/2020",
+			to: "PLASTICOS MODERNOS, S.A",
+			currency: "CÓRDOBAS",
+			value: 25489.8,
 		},
 		{
 			id: 15,
 			number: 20537,
-			date: '21/09/2020',
-			to: 'ANA JULIA MENDIETA SEVILLA',
-			currency: 'CÓRDOBAS',
-			value: 2116.8
-		}
+			date: "21/09/2020",
+			to: "ANA JULIA MENDIETA SEVILLA",
+			currency: "CÓRDOBAS",
+			value: 2116.8,
+		},
 	]
 
 	const [data, setData] = useState([])

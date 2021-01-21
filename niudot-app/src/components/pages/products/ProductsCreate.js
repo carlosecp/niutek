@@ -1,29 +1,28 @@
-// React and Router Stuff
-import React from 'react'
-// Extra libraries
-import { Formik, Form } from 'formik'
-import * as Yup from 'yup'
-// Other Components
-import SavingAccounts from './SavingAccounts'
-import TimeDeposits from './TimeDeposits'
-import SubmitBtn from '../utils/SubmitBtn'
-import CreditProducts from './CreditProducts'
+import React from "react"
+
+import { Formik, Form } from "formik"
+import * as Yup from "yup"
+
+import SavingAccounts from "./SavingAccounts"
+import TimeDeposits from "./TimeDeposits"
+import SubmitBtn from "../utils/SubmitBtn"
+import CreditProducts from "./CreditProducts"
 // Data
 import {
 	createSavingAccountsSchema,
 	savingAccounts,
 	timeDeposits,
-	creditProducts
-} from './initialValues'
+	creditProducts,
+} from "./initialValues"
 
 const initialValues = {
 	...savingAccounts,
 	...timeDeposits,
-	...creditProducts
+	...creditProducts,
 }
 
 const validationSchema = Yup.object({
-	...createSavingAccountsSchema
+	...createSavingAccountsSchema,
 })
 
 const ProductsCreate = () => {
@@ -35,7 +34,7 @@ const ProductsCreate = () => {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='section'>
+			<Form className="section">
 				<SavingAccounts />
 				<TimeDeposits />
 				<CreditProducts />

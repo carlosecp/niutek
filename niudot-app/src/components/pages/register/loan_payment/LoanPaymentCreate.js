@@ -1,18 +1,17 @@
-// React and Router Stuff
-import React from 'react'
-// Extra libraries
-import * as Yup from 'yup'
-import { Formik, Form } from 'formik'
-// Other Components
-import LoanSubscription from './LoanSubscription'
+import React from "react"
+
+import * as Yup from "yup"
+import { Formik, Form } from "formik"
+
+import LoanSubscription from "./LoanSubscription"
 // Data
-import { createValues, createValuesSchema } from './initialValues'
+import { createValues, createValuesSchema } from "./initialValues"
 
 const initialValues = {
-	...createValues
+	...createValues,
 }
 const validationSchema = Yup.object({
-	...createValuesSchema
+	...createValuesSchema,
 })
 
 const LoanPaymentCreate = () => {
@@ -24,9 +23,9 @@ const LoanPaymentCreate = () => {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='section'>
-				<h2 className='text-black-white text-xl font-bold'>
-					Abono a Préstamo{' '}
+			<Form className="section">
+				<h2 className="text-black-white text-xl font-bold">
+					Abono a Préstamo{" "}
 				</h2>
 				<LoanSubscription />
 			</Form>

@@ -50,7 +50,7 @@ const NaturalPerson = () => {
 	}, [])
 
 	return form ? (
-		<NaturalPersonCreate client={client} />
+		<NaturalPersonCreate client={client} clientId={selected} />
 	) : (
 		<>
 			<SearchClient

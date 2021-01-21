@@ -1,5 +1,4 @@
-// React and Router Stuff
-import React from 'react'
+import React from "react"
 
 const SavingsAccountOpening = () => {
 	return <div></div>

@@ -1,12 +1,12 @@
 // React
-import React, { useContext, useEffect } from 'react'
-// Extra libraries
-import * as Yup from 'yup'
-import { Formik, Form } from 'formik'
-// Context
-import routesContext from '../../context/routes/routesContext'
-// Other Components
-import ProfileAccessOptions from './ProfileAccessOptions'
+import React, { useContext, useEffect } from "react"
+
+import * as Yup from "yup"
+import { Formik, Form } from "formik"
+
+import routesContext from "../../context/routes/routesContext"
+
+import ProfileAccessOptions from "./ProfileAccessOptions"
 
 const initialValues = {
 	register_anticipated_cancellation: false,
@@ -35,7 +35,7 @@ const initialValues = {
 	checks_to_deliver: false,
 	checks_to_be_reconciled: false,
 	checks_reconciled: false,
-	checks_voided: false
+	checks_voided: false,
 }
 
 const validationSchema = Yup.object({})
@@ -44,7 +44,7 @@ const RegisterUser = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
-		changePage('Crear Nuevo Perfil')
+		changePage("Crear Nuevo Perfil")
 		// eslint-disable-next-line
 	}, [])
 
@@ -55,9 +55,12 @@ const RegisterUser = () => {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='section'>
+			<Form className="section">
 				<ProfileAccessOptions />
-				<button type='submit' className='bg-blue-blue btn btn-border-blue'>
+				<button
+					type="submit"
+					className="bg-blue-blue btn btn-border-blue"
+				>
 					Guardar
 				</button>
 			</Form>
