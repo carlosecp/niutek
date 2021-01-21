@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Topbar from '../layout/Topbar'
 import Dashboard from '../dashboard'
@@ -9,14 +9,14 @@ import {
 	ToBeRecondiled,
 	ToDeliver,
 	ToPrint,
-	Voided
+	Voided,
 } from './checks'
 import { LegalPerson, NaturalPerson } from './clients'
 import {
 	CreditProducts,
 	CreditRequest,
 	CreditResolution,
-	CreditFormalization
+	CreditFormalization,
 } from './credit'
 import Products from './products'
 import {
@@ -24,26 +24,29 @@ import {
 	FixedTermCertificateOpening,
 	LoanPayment,
 	SavingsAccountWithdrawal,
-	DepositToSavingsAccount
+	DepositToSavingsAccount,
 } from './register'
 import {
 	Items,
 	Purchase,
 	InventoryProducts,
 	Billing,
-	InvoiceCancel
+	InvoiceCancel,
 } from './inventory'
 import {
 	OrderStubs,
 	AccountCancellation,
 	FixedTermDepositOpening,
 	EarlyCancellation,
-	AccountOpening
+	AccountOpening,
 } from './savings'
 
 import { TableMaintenance } from './table-maintenance'
+import alertsContext from '../../context/alerts/alertsContext'
 
 const Page = (props) => {
+	const { alerts } = useContext(alertsContext)
+
 	return (
 		<div className='pl-64 cstm:p-0 w-full'>
 			<Topbar {...props} />
