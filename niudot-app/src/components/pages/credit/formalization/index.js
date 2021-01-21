@@ -4,7 +4,7 @@ import React, { useContext, useEffect } from 'react'
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
 import CreditFormalizationCreate from './CreditFormalizationCreate'
-import SearchUserForm from '../../utils/search/SearchUserForm'
+import SearchClient from '../../utils/search/users/SearchClient'
 
 const CreditFormalization = () => {
 	const { changePage } = useContext(routesContext)
@@ -16,7 +16,7 @@ const CreditFormalization = () => {
 
 	return (
 		<>
-			<SearchUserForm />
+			<SearchClient />
 			<CreditFormalizationCreate />
 		</>
 	)

@@ -7,7 +7,7 @@ import { Form, Formik } from 'formik'
 // Images
 import spinner from '../../../../assets/images/spinner.png'
 
-const SearchUserForm = ({ setSearchUser }) => {
+const SearchClient = ({ setSearchUser }) => {
 	const [loading, setLoading] = useState(false)
 	const [username, setUserName] = useState('')
 
@@ -86,4 +86,4 @@ const SearchUserForm = ({ setSearchUser }) => {
 	)
 }
 
-export default SearchUserForm
+export default SearchClient

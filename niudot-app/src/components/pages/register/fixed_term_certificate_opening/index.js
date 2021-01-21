@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from 'react'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
-import SearchUserForm from '../../utils/search/SearchUserForm'
+import SearchClient from '../../utils/search/users/SearchClient'
 import FixedTermCertificateOpeningCreate from './FixedTermCertificateOpeningCreate'
 
 const FixedTermCertificateOpening = () => {
@@ -16,7 +16,7 @@ const FixedTermCertificateOpening = () => {
 
 	return (
 		<>
-			<SearchUserForm />
+			<SearchClient />
 			<FixedTermCertificateOpeningCreate />
 		</>
 	)

@@ -13,7 +13,7 @@ const Login = (props) => {
 	// Username es realmente el email
 	const initialValues = {
 		username: '',
-		password: ''
+		password: '',
 	}
 
 	const { user, loadUser, loginUser, isAuthenticated } = useContext(authContext)
@@ -50,7 +50,7 @@ const Login = (props) => {
 								.required('Correo Electrónico Requerido'),
 							password: Yup.string()
 								.required('Contraseña Requerida')
-								.min(6, 'Minimo 6 caracteres')
+								.min(6, 'Minimo 6 caracteres'),
 						})}
 						onSubmit={(values) => handleSubmit(values)}
 					>

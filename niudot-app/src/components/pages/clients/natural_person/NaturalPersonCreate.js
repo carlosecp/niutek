@@ -1,77 +1,77 @@
-// React and Router Stuff
-import React, { useState, useEffect } from 'react'
-// Extra libraries
-import axios from 'axios'
-import * as Yup from 'yup'
+import React, { useEffect } from 'react'
 import { Formik, Form } from 'formik'
-// Other Components
-import ProfessionalData from './ProfessionalData'
-import References from '../../utils/references'
 import NewClient from './NewClient'
-import SubmitBtn from '../../utils/SubmitBtn'
+import ProfessionalData from './ProfessionalData'
 import OriginFunds from './OriginFunds'
-// Data
-import * as values from './initialValues'
+import References from '../../utils/references'
+import SubmitBtn from '../../utils/SubmitBtn'
+import {
+	persona_natural,
+	datos_profesionales,
+	origen_fondos,
+	referencias_comerciales,
+	referencias_bancarias,
+	referencias_personales,
+} from './initialValues'
 
 const initialValues = {
-	...values
+	...persona_natural,
+	...datos_profesionales,
+	...origen_fondos,
+	referencias_comerciales,
+	referencias_bancarias,
+	referencias_personales,
 }
 
-const handleSubmit = async (formData) => {
-	const config = {
-		headers: {
-			'Content-Type': 'application/json',
-			'Access-Control-Allow-Credentials': 'true'
-		}
-	}
+const NaturalPersonCreate = ({ client }) => {
+	useEffect(() => {
+		console.log(client)
+	}, [])
 
-	const res = await axios.post(
-		'https://backend-dot-nicascriptproject.uc.r.appspot.com/update/cliente_natural',
-		formData,
-		config
-	)
-
-	console.log(res)
-}
-
-const NaturalPersonCreate = ({ type, user }) => {
 	return (
 		<Formik
-			initialValues={initialValues}
-			//validationSchema={validationSchema}
+			initialValues={client || initialValues}
 			onSubmit={(values) => {
-				handleSubmit(values)
+				const tempValues = {
+					...values,
+					prc_reg: values.referencias_bancarias.length,
+					prb_reg: values.referencias_bancarias.length,
+					pct_reg: values.referencias_bancarias.length,
+					prp_reg: values.referencias_personales.length,
+				}
 			}}
 		>
-			<Form>
-				<div className='section'>
-					{type === 'edit' ? (
-						<>
-							<h2 className='text-black-white text-xl font-bold'>
-								Editar Cliente Existente
-							</h2>
-							<p className='text-gray-gray'>
-								<b>Editando Cliente: </b>
-								{user.username} - {user.name}
-							</p>
-						</>
-					) : (
-						<>
-							<h2 className='text-black-white text-xl font-bold'>
-								Crear Nuevo Cliente
-							</h2>
-							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
-						</>
-					)}
-				</div>
-				<div className='mt-4 section'>
-					<NewClient />
-					<ProfessionalData />
-					<OriginFunds />
-					<References />
-					<SubmitBtn />
-				</div>
-			</Form>
+			{({ values }) => (
+				<Form>
+					<div className='section'>
+						{client ? (
+							<>
+								<h2 className='text-black-white text-xl font-bold'>
+									Editar Cliente Existente
+								</h2>
+								<p className='text-gray-gray'>
+									<b>Editando Cliente: </b>
+									{client.cod_cliente} - {client.name} {client.apellidos}
+								</p>
+							</>
+						) : (
+							<>
+								<h2 className='text-black-white text-xl font-bold'>
+									Crear Nuevo Cliente
+								</h2>
+								<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
+							</>
+						)}
+					</div>
+					<div className='mt-4 section'>
+						<NewClient />
+						<ProfessionalData />
+						<OriginFunds />
+						<References values={values} />
+						<SubmitBtn />
+					</div>
+				</Form>
+			)}
 		</Formik>
 	)
 }
