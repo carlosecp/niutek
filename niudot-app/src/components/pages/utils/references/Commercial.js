@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 // Extra libraries
 import { FieldArray } from 'formik'
 import { FaPlus, FaTimes } from 'react-icons/fa'
@@ -26,7 +26,7 @@ const Comerciales = ({ values }) => {
 			render={(arrayHelpers) => (
 				<RetractileForm formTitle='Comerciales'>
 					{values.referencias_comerciales.map((_, index) => (
-						<>
+						<Fragment key={index}>
 							<div className='flex justify-between items-center text-gray-gray'>
 								<h3 className='font-bold text-lg mt-3'>
 									Rerefencia {index + 1}
@@ -65,7 +65,7 @@ const Comerciales = ({ values }) => {
 									label='Teléfono'
 								/>
 							</div>
-						</>
+						</Fragment>
 					))}
 					{values.referencias_comerciales.length < 2 && (
 						<button

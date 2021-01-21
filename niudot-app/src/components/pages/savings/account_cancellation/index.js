@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
-import SearchUserForm from '../../utils/search/users/SearchUserForm'
+import SearchClient from '../../utils/search/users/SearchClient'
 import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
 import SavingAccountCancellationCreate from './SavingAccountCancellationCreate'
 
@@ -18,7 +18,7 @@ const SavingAccountCancellation = () => {
 
 	return (
 		<>
-			<SearchUserForm />
+			<SearchClient />
 			{showCreateFormButton ? (
 				<CreateNewClientBtn setShowForm={setShowCreateFormButton} />
 			) : (

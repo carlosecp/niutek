@@ -6,7 +6,7 @@ import {
 	SidebarContent,
 	Menu,
 	MenuItem,
-	SidebarFooter
+	SidebarFooter,
 } from 'react-pro-sidebar'
 import { FaCog, FaHome, FaMoon, FaSun } from 'react-icons/fa/index'
 import pages from '../pages'

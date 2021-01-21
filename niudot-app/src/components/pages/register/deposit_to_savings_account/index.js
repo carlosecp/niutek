@@ -3,7 +3,7 @@ import React, { useContext, useEffect } from 'react'
 // Context
 import routesContext from '../../../../context/routes/routesContext'
 // Other Components
-import SearchUserForm from '../../utils/search/users/SearchUserForm'
+import SearchClient from '../../utils/search/users/SearchClient'
 import DepositToSavingsAccountCreate from './DepositToSavingsAccountCreate'
 
 const DepositToSavingsAccount = () => {
@@ -16,7 +16,7 @@ const DepositToSavingsAccount = () => {
 
 	return (
 		<>
-			<SearchUserForm />
+			<SearchClient />
 			<DepositToSavingsAccountCreate />
 		</>
 	)

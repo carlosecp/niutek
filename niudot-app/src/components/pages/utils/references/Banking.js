@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React from 'react'
+import React, { Fragment } from 'react'
 // Extra libraries
 import { FieldArray } from 'formik'
 import { FaPlus, FaTimes } from 'react-icons/fa'
@@ -25,7 +25,7 @@ const Banking = ({ values }) => {
 			render={(arrayHelpers) => (
 				<RetractileForm formTitle='Banking'>
 					{values.referencias_bancarias.map((_, index) => (
-						<>
+						<Fragment key={index}>
 							<div className='flex justify-between items-center text-gray-gray'>
 								<h3 className='font-bold text-lg mt-3'>
 									Rerefencia {index + 1}
@@ -87,7 +87,7 @@ const Banking = ({ values }) => {
 									<option value={1}>Dolares</option>
 								</Dropdown>
 							</div>
-						</>
+						</Fragment>
 					))}
 					{values.referencias_bancarias.length < 2 && (
 						<button

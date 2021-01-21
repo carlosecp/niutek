@@ -234,7 +234,7 @@ html, body {
 
 .pro-sidebar {
 	/*Global*/
-	@apply font-bold text-white;
+	@apply font-bold text-white shadow-md;
 
 	/*Light Theme Defaults*/
 	@apply bg-blue-700;
@@ -292,6 +292,10 @@ html, body {
 
 	/*Global*/
 	@apply text-base hover:underline;
+}
+
+.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-footer {
+	@apply border-0;
 }
 
 th:first-child {

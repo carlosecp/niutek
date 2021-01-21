@@ -1,5 +1,5 @@
 // React and Router Stuff
-import React from 'react'
+import React, { Fragment } from 'react'
 // Extra libraries
 import { FieldArray } from 'formik'
 import { FaPlus, FaTimes } from 'react-icons/fa'
@@ -27,7 +27,7 @@ const Personal = ({ values }) => {
 			render={(arrayHelpers) => (
 				<RetractileForm formTitle='Personales'>
 					{values.referencias_personales.map((_, index) => (
-						<>
+						<Fragment key={index}>
 							<div className='flex justify-between items-center text-gray-gray'>
 								<h3 className='font-bold text-lg mt-3'>
 									Rerefencia {index + 1}
@@ -95,7 +95,7 @@ const Personal = ({ values }) => {
 									label='E-mail'
 								/>
 							</div>
-						</>
+						</Fragment>
 					))}
 					{values.referencias_personales.length < 2 && (
 						<button

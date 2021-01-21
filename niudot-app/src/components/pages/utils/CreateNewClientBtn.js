@@ -1,11 +1,7 @@
 // React and Router Stuff
 import React from 'react'
 
-const CreateNewClientBtn = ({ setCreateClient }) => {
-	const handleCreateUserSubmit = () => {
-		setCreateClient(true)
-	}
-
+const CreateNewClientBtn = ({ toggleForm }) => {
 	return (
 		<div className='section'>
 			<div className=''>
@@ -16,7 +12,7 @@ const CreateNewClientBtn = ({ setCreateClient }) => {
 			</div>
 			<button
 				className='mt-4 btn bg-blue-blue btn-border-blue'
-				onClick={handleCreateUserSubmit}
+				onClick={toggleForm}
 			>
 				Registrar un nuevo cliente
 			</button>

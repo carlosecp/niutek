@@ -1,15 +1,10 @@
-// React and Router Stuff
-import React, { useState } from 'react'
-// Extra libraries
-import axios from 'axios'
+import React, { useEffect } from 'react'
 import { Formik, Form } from 'formik'
-// Other Components
-import ProfessionalData from './ProfessionalData'
-import References from '../../utils/references'
 import NewClient from './NewClient'
-import SubmitBtn from '../../utils/SubmitBtn'
+import ProfessionalData from './ProfessionalData'
 import OriginFunds from './OriginFunds'
-// Data
+import References from '../../utils/references'
+import SubmitBtn from '../../utils/SubmitBtn'
 import {
 	persona_natural,
 	datos_profesionales,
@@ -28,47 +23,14 @@ const initialValues = {
 	referencias_personales,
 }
 
-const NaturalPersonCreate = ({ type, user }) => {
-	const [loading, setLoading] = useState(false)
-
-	const handleSubmit = async (formData) => {
-		setLoading(true)
-
-		const data = {
-			p_cod_empresa: 1,
-			p_cod_sucursal: 0,
-			p_clase_persona: 1,
-			...formData,
-		}
-
-		console.log(data)
-
-		try {
-			const config = {
-				headers: {
-					'Content-Type': 'application/json',
-					'Access-Control-Allow-Credentials': 'true',
-				},
-			}
-
-			const res = await axios.post(
-				'https://backend-dot-nicascriptproject.uc.r.appspot.com/update/cliente_natural',
-				data,
-				config
-			)
-
-			console.log(res)
-		} catch (err) {
-			console.log(err)
-		} finally {
-			setLoading(false)
-		}
-	}
+const NaturalPersonCreate = ({ client }) => {
+	useEffect(() => {
+		console.log(client)
+	}, [])
 
 	return (
 		<Formik
-			initialValues={initialValues}
-			//validationSchema={validationSchema}
+			initialValues={client || initialValues}
 			onSubmit={(values) => {
 				const tempValues = {
 					...values,
@@ -77,20 +39,19 @@ const NaturalPersonCreate = ({ type, user }) => {
 					pct_reg: values.referencias_bancarias.length,
 					prp_reg: values.referencias_personales.length,
 				}
-				handleSubmit(tempValues)
 			}}
 		>
 			{({ values }) => (
 				<Form>
 					<div className='section'>
-						{type === 'edit' ? (
+						{client ? (
 							<>
 								<h2 className='text-black-white text-xl font-bold'>
 									Editar Cliente Existente
 								</h2>
 								<p className='text-gray-gray'>
 									<b>Editando Cliente: </b>
-									{user.cod_cliente} - {`${user.nombres} ${user.apellidos}`}
+									{client.cod_cliente} - {client.name} {client.apellidos}
 								</p>
 							</>
 						) : (
@@ -107,7 +68,7 @@ const NaturalPersonCreate = ({ type, user }) => {
 						<ProfessionalData />
 						<OriginFunds />
 						<References values={values} />
-						<SubmitBtn loading={loading} />
+						<SubmitBtn />
 					</div>
 				</Form>
 			)}

@@ -1,6 +1,5 @@
 // React and Router Stuff
 import React from 'react'
-import PropTypes from 'prop-types'
 // Extra libraries
 import { useField } from 'formik'
 // Other Components
@@ -52,19 +51,6 @@ const Text = (props) => {
 	)
 }
 
-Text.propTypes = {
-	size: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	label: PropTypes.string,
-	placeholder: PropTypes.string.isRequired,
-	type: PropTypes.string,
-	showLabel: PropTypes.bool,
-	newline: PropTypes.bool,
-	boldLabel: PropTypes.bool,
-	isTextArea: PropTypes.bool,
-	disabled: PropTypes.bool,
-}
-
 Text.defaultProps = {
 	showLabel: true,
 	type: 'text',
@@ -88,13 +74,6 @@ const Checkbox = ({ description, size, newline, ...props }) => {
 	)
 }
 
-Checkbox.propTypes = {
-	size: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	description: PropTypes.string.isRequired,
-	newline: PropTypes.bool,
-}
-
 Checkbox.defaultProps = {
 	newline: false,
 }
@@ -110,14 +89,6 @@ const Dropdown = ({ size, label, newline, ...props }) => {
 			</select>
 		</div>
 	)
-}
-
-Dropdown.propTypes = {
-	value: PropTypes.string.isRequired,
-	handleChange: PropTypes.object.isRequired,
-	size: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
-	newline: PropTypes.bool.isRequired,
 }
 
 Dropdown.defaultProps = {

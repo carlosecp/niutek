@@ -2,7 +2,7 @@
 import React, { useContext, useEffect } from 'react'
 import routesContext from '../../../../context/routes/routesContext'
 import CreditRequestCreate from './CreditRequestCreate'
-import SearchUserForm from '../../utils/search/users/SearchUserForm'
+import SearchClient from '../../utils/search/users/SearchClient'
 const CreditRequest = () => {
 	const { changePage } = useContext(routesContext)
 	useEffect(() => {
@@ -12,7 +12,7 @@ const CreditRequest = () => {
 		// eslint-disable-next-line
 	}, [])
 
-	return [<SearchUserForm />, <CreditRequestCreate />, ]
+	return [<SearchClient />, <CreditRequestCreate />, ]
 }
 
 export default CreditRequest
