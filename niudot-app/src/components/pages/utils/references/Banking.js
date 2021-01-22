@@ -1,12 +1,11 @@
-import React, { Fragment } from "react"
-
-import { FieldArray } from "formik"
+import React, { useState, useEffect, Fragment } from "react"
+import axios from "axios"
+import { useFormikContext, FieldArray } from "formik"
 import { FaPlus, FaTimes } from "react-icons/fa"
-
 import { Dropdown, Text } from "../forms"
 import RetractileForm from "../retractile_sections"
 
-const Banking = ({ values }) => {
+const Banking = ({ options }) => {
 	const initialValues = {
 		prb_nombre_entidad: "BDF",
 		prb_tipo_servicio_recibido: "Cuenta de Ahorro",
@@ -18,12 +17,29 @@ const Banking = ({ values }) => {
 		pct_cod_banco: 3,
 	}
 
+	const {
+		values,
+		handleChange,
+		setFieldValue,
+		handleSubmit,
+		isSubmitting,
+		isValid,
+	} = useFormikContext()
+
+	const handleIdTypeChange = (e) => {
+		const selectedId = e.target.value
+		console.log("Tipo de Id Seleccionado", selectedId)
+		handleChange(e)
+	}
+
+	const { referencias_bancarias } = values
+
 	return (
 		<FieldArray
 			name="referencias_bancarias"
 			render={(arrayHelpers) => (
 				<RetractileForm formTitle="Banking">
-					{values.referencias_bancarias.map((_, index) => (
+					{referencias_bancarias.map((_, index) => (
 						<Fragment key={index}>
 							<div className="flex justify-between items-center text-gray-gray">
 								<h3 className="font-bold text-lg mt-3">
@@ -72,23 +88,43 @@ const Banking = ({ values }) => {
 									name={`referencias_bancarias.${index}.pct_cod_moneda`}
 									label="Moneda"
 								>
-									<option value="">Seleccione</option>
-									<option value={0}>Cordobas</option>
-									<option value={1}>Dolares</option>
+									<option
+										value=""
+										selected={true}
+										disabled
+										label="Seleccione"
+									/>
+									{options.moneda.map((option) => (
+										<option
+											key={option.codigo}
+											value={option.descripcion}
+											label={option.descripcion}
+										/>
+									))}
 								</Dropdown>
 								<Dropdown
 									size="md"
 									name={`referencias_bancarias.${index}.pct_cod_banco`}
 									label="Código del Banco"
 								>
-									<option value="">Seleccione</option>
-									<option value={0}>Cordobas</option>
-									<option value={1}>Dolares</option>
+									<option
+										value=""
+										selected={true}
+										disabled
+										label="Seleccione"
+									/>
+									{options.cod_banco.map((option) => (
+										<option
+											key={option.codigo}
+											value={option.descripcion}
+											label={option.descripcion}
+										/>
+									))}
 								</Dropdown>
 							</div>
 						</Fragment>
 					))}
-					{values.referencias_bancarias.length < 2 && (
+					{referencias_bancarias.length < 2 && (
 						<button
 							type="button"
 							onClick={() =>

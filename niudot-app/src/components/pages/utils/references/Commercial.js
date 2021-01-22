@@ -1,12 +1,10 @@
 import React, { Fragment, useEffect } from "react"
-
-import { FieldArray } from "formik"
+import { useFormikContext, FieldArray } from "formik"
 import { FaPlus, FaTimes } from "react-icons/fa"
-
 import { Text } from "../forms"
 import RetractileForm from "../retractile_sections"
 
-const Comerciales = ({ values }) => {
+const Comerciales = () => {
 	const initialValues = {
 		prc_nombre_entidad: "El Gallo Mas Gallo",
 		prc_persona_contacto: "Persona 1",
@@ -15,9 +13,7 @@ const Comerciales = ({ values }) => {
 		prc_telefono: "99225500",
 	}
 
-	useEffect(() => {
-		console.log(values)
-	}, [values])
+	const { values } = useFormikContext()
 
 	return (
 		<FieldArray

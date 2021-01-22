@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react'
-import axios from 'axios'
-import SearchClient from '../../utils/search/users/SearchClient'
-import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
-import NaturalPersonCreate from './NaturalPersonCreate'
-import routesContext from '../../../../context/routes/routesContext'
-import requestConfig from '../../../../utils/requestConfig'
+import React, { useState, useContext, useEffect } from "react"
+import axios from "axios"
+import SearchClient from "../../utils/search/users/SearchClient"
+import CreateNewClientBtn from "../../utils/CreateNewClientBtn"
+import NaturalPersonCreate from "./NaturalPersonCreate"
+import routesContext from "../../../../context/routes/routesContext"
+import requestConfig from "../../../../utils/requestConfig"
 
 const NaturalPerson = () => {
 	const { changePage } = useContext(routesContext)
@@ -16,7 +16,7 @@ const NaturalPerson = () => {
 	// Este es solo el id del cliente seleccionado, no el cliente en si
 	const [selected, setSelected] = useState(null)
 
-	// Este es el usuario, si es nulo, pues vamos a crear un nuevo usuario, si no, entonces vamos a editarlo
+	// Esta es el usuario, si es nulo, pues vamos a crear un nuevo usuario, si no, entonces vamos a editarlo
 	const [client, setClient] = useState(null)
 
 	// Este es la funcion que se encarga de traer la informacion de Persona Natural para el cliente seleccionado
@@ -24,7 +24,7 @@ const NaturalPerson = () => {
 		setLoading(true)
 		try {
 			const res = await axios.post(
-				'https://backend-dot-nicascriptproject.uc.r.appspot.com/read/client',
+				"https://backend-dot-nicascriptproject.uc.r.appspot.com/read/client",
 				{ p_cod_cliente: selected },
 				requestConfig
 			)
@@ -33,6 +33,21 @@ const NaturalPerson = () => {
 			console.error(err)
 		} finally {
 			setLoading(false)
+		}
+	}
+
+	// Esta es la funcion que se encarga de escribir un nuevo usuario o actualizar uno existente, basicamente guarda lo que esta en el formulario en la base de datos.
+	const writeClient = async (type, data) => {
+		console.log("LO QUE ESTOY MANDANDO", data)
+		try {
+			const res = await axios.post(
+				`https://backend-dot-nicascriptproject.uc.r.appspot.com/update/cliente_natural`,
+				data,
+				requestConfig
+			)
+			console.log("LO QUE ESTOY RECIBIENDO", res.data)
+		} catch (err) {
+			console.error(err)
 		}
 	}
 
@@ -45,12 +60,16 @@ const NaturalPerson = () => {
 
 	// Y pues, esto solo cambia el titulo de la pagina
 	useEffect(() => {
-		changePage('Persona Natural')
+		changePage("Persona Natural")
 		// eslint-disable-next-line
 	}, [])
 
 	return form ? (
-		<NaturalPersonCreate client={client} clientId={selected} />
+		<NaturalPersonCreate
+			client={client}
+			clientId={selected}
+			writeClient={writeClient}
+		/>
 	) : (
 		<>
 			<SearchClient

@@ -1,12 +1,10 @@
 import React, { Fragment } from "react"
-
-import { FieldArray } from "formik"
+import { useFormikContext, FieldArray } from "formik"
 import { FaPlus, FaTimes } from "react-icons/fa"
-
 import { Dropdown, Text } from "../forms"
 import RetractileForm from "../retractile_sections"
 
-const Personal = ({ values }) => {
+const Personal = () => {
 	const initialValues = {
 		prp_nombre: "Superman",
 		prp_tipo_doc: 1,
@@ -20,12 +18,29 @@ const Personal = ({ values }) => {
 		prp_e_mail: "carlos@gmail.com",
 	}
 
+	const {
+		values,
+		handleChange,
+		setFieldValue,
+		handleSubmit,
+		isSubmitting,
+		isValid,
+	} = useFormikContext()
+
+	const handleIdTypeChange = (e) => {
+		const selectedId = e.target.value
+		console.log("Tipo de Id Seleccionado", selectedId)
+		handleChange(e)
+	}
+
+	const { referencias_personales } = values
+
 	return (
 		<FieldArray
 			name="referencias_personales"
 			render={(arrayHelpers) => (
 				<RetractileForm formTitle="Personales">
-					{values.referencias_personales.map((_, index) => (
+					{referencias_personales.map((_, index) => (
 						<Fragment key={index}>
 							<div className="flex justify-between items-center text-gray-gray">
 								<h3 className="font-bold text-lg mt-3">
@@ -96,7 +111,7 @@ const Personal = ({ values }) => {
 							</div>
 						</Fragment>
 					))}
-					{values.referencias_personales.length < 2 && (
+					{referencias_personales.length < 2 && (
 						<button
 							type="button"
 							onClick={() =>

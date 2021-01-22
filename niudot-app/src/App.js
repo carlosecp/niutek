@@ -1,15 +1,12 @@
 import React, { useContext, useEffect } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import PrivateRoute from "./components/routing/PrivateRoute"
-
 import RoutesState from "./context/routes/RoutesState"
 import AuthState from "./context/auth/AuthState"
 import themeContext from "./context/theme/themeContext"
-
 import Home from "./components/layout/Home"
 import Login from "./components/routing/Login"
 import About from "./components/pages/about"
-
 import setAuthToken from "./utils/setAuthToken"
 import { PageNotFound } from "./components/routing/NotFound"
 import Admin from "./components/admin"

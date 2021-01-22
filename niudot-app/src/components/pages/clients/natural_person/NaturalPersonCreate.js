@@ -1,4 +1,5 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 import { Formik, Form } from "formik"
 import NewClient from "./NewClient"
 import ProfessionalData from "./ProfessionalData"
@@ -13,6 +14,7 @@ import {
 	referencias_bancarias,
 	referencias_personales,
 } from "./initialValues"
+import requestConfig from "../../../../utils/requestConfig"
 
 const initialValues = {
 	...persona_natural,
@@ -23,22 +25,48 @@ const initialValues = {
 	referencias_personales,
 }
 
-const NaturalPersonCreate = ({ client, clientId }) => {
+const NaturalPersonCreate = ({ client, clientId, writeClient }) => {
+	const [options, setOptions] = useState({
+		tipo_doc: [],
+		sexo: [],
+		nacionalidad: [],
+		moneda: [],
+		cod_banco: [],
+	})
+
+	const getOptions = async () => {
+		const res = await axios.post(
+			"https://backend-dot-nicascriptproject.uc.r.appspot.com/read/table",
+			{ p_tipo: "*" },
+			requestConfig
+		)
+		const [tipo_doc, moneda, sexo, nacionalidad, cod_banco] = res.data
+
+		setOptions({
+			tipo_doc,
+			sexo,
+			nacionalidad,
+			moneda,
+			cod_banco,
+		})
+	}
+
 	useEffect(() => {
-		console.log(client)
+		getOptions()
 	}, [])
 
 	return (
 		<Formik
 			initialValues={client || initialValues}
+			handle
 			onSubmit={(values) => {
 				const tempValues = {
+					p_cod_empresa: 1,
+					p_cod_sucursal: 0,
+					p_clase_persona: 1,
 					...values,
-					prc_reg: values.referencias_bancarias.length,
-					prb_reg: values.referencias_bancarias.length,
-					pct_reg: values.referencias_bancarias.length,
-					prp_reg: values.referencias_personales.length,
 				}
+				writeClient("create", tempValues)
 			}}
 		>
 			{({ values }) => (
@@ -67,10 +95,10 @@ const NaturalPersonCreate = ({ client, clientId }) => {
 						)}
 					</div>
 					<div className="mt-4 section">
-						<NewClient />
+						<NewClient options={options} />
 						<ProfessionalData />
 						<OriginFunds />
-						<References values={values} />
+						<References options={options} />
 						<SubmitBtn />
 					</div>
 				</Form>
