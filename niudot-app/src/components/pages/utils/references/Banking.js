@@ -1,5 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react"
-import axios from "axios"
+import React, { Fragment } from "react"
 import { useFormikContext, FieldArray } from "formik"
 import { FaPlus, FaTimes } from "react-icons/fa"
 import { Dropdown, Text } from "../forms"
@@ -17,20 +16,7 @@ const Banking = ({ options }) => {
 		pct_cod_banco: 3,
 	}
 
-	const {
-		values,
-		handleChange,
-		setFieldValue,
-		handleSubmit,
-		isSubmitting,
-		isValid,
-	} = useFormikContext()
-
-	const handleIdTypeChange = (e) => {
-		const selectedId = e.target.value
-		console.log("Tipo de Id Seleccionado", selectedId)
-		handleChange(e)
-	}
+	const { values } = useFormikContext()
 
 	const { referencias_bancarias } = values
 
@@ -108,7 +94,7 @@ const Banking = ({ options }) => {
 									label="Código del Banco"
 								>
 									<option
-										value=""
+										value="0"
 										selected={true}
 										disabled
 										label="Seleccione"

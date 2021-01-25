@@ -7,6 +7,7 @@ import authContext from "./authContext"
 import authReducer from "./authReducer"
 // Utils
 import setAuthToken from "../../utils/setAuthToken"
+import requestConfig from "../../utils/requestConfig"
 
 const AuthState = (props) => {
 	const initialState = {
@@ -43,18 +44,11 @@ const AuthState = (props) => {
 
 	// &Register
 	const registerUser = async (formData) => {
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Credentials": "true",
-			},
-		}
-
 		try {
 			const res = await axios.post(
 				"https://backend-dot-nicascriptproject.uc.r.appspot.com/register",
 				formData,
-				config
+				requestConfig
 			)
 			loadUser()
 			dispatch({ type: types.REGISTER_SUCCESS, payload: res.data })
@@ -65,18 +59,11 @@ const AuthState = (props) => {
 
 	// &Login
 	const loginUser = async (formData) => {
-		const config = {
-			headers: {
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Credentials": "true",
-			},
-		}
-
 		try {
 			const res = await axios.post(
-				"https://backend-dot-nicascriptproject.uc.r.appspot.com/auth",
+				`${process.env.REACT_APP_URL}/auth`,
 				formData,
-				config
+				requestConfig
 			)
 			loadUser()
 			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })

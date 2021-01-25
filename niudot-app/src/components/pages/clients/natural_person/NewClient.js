@@ -1,17 +1,52 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 import { useFormikContext } from "formik"
 import { Text, Dropdown } from "../../utils/forms"
+import requestConfig from "../../../../utils/requestConfig"
 
 const NewClient = ({ options, loading }) => {
-	const { values, handleChange } = useFormikContext()
+	const { values } = useFormikContext()
 
-	const handleIdTypeChange = (e) => {
-		const selectedId = e.target.value
-		console.log("Tipo de Id Seleccionado", selectedId)
-		handleChange(e)
+	const { p_cod_nac, p_tipo_doc, p_cod_depto } = values
+
+	const [depto, setDetpo] = useState([])
+	const [muni, setMuni] = useState([])
+	const [loadingMuni, setLoadingMuni] = useState(true)
+
+	const getDepto = async () => {
+		const res = await axios.post(
+			`${process.env.REACT_APP_URL}/read/dep`,
+			{
+				codigo: 0,
+			},
+			requestConfig
+		)
+		setDetpo(res.data)
 	}
 
-	const { p_tipo_doc } = values
+	const getMuni = async (cod_depto) => {
+		const res = await axios.post(
+			`${process.env.REACT_APP_URL}/read/dep`,
+			{
+				codigo: cod_depto,
+			},
+			requestConfig
+		)
+		setMuni(res.data)
+		setLoadingMuni(false)
+	}
+
+	useEffect(() => {
+		getDepto()
+	}, [])
+
+	useEffect(() => {
+		if (depto.length > 0) {
+			getMuni(p_cod_depto)
+		} else {
+			setMuni([])
+		}
+	}, [p_cod_depto])
 
 	return (
 		<>
@@ -25,7 +60,7 @@ const NewClient = ({ options, loading }) => {
 					loading={loading}
 				>
 					<option
-						value=""
+						value="0"
 						selected={true}
 						disabled
 						label="Seleccione"
@@ -43,11 +78,10 @@ const NewClient = ({ options, loading }) => {
 					name="p_tipo_doc"
 					label="Tipo Documento"
 					value={p_tipo_doc}
-					onChange={handleIdTypeChange}
 					loading={loading}
 				>
 					<option
-						value=""
+						value="0"
 						selected="true"
 						disabled
 						label="Seleccione"
@@ -65,12 +99,11 @@ const NewClient = ({ options, loading }) => {
 					size="md"
 					name="p_cod_nac"
 					label="Nacionalidad"
-					value={p_tipo_doc}
-					onChange={handleIdTypeChange}
+					value={p_cod_nac}
 					loading={loading}
 				>
 					<option
-						value=""
+						value="0"
 						selected="true"
 						disabled
 						label="Seleccione"
@@ -90,33 +123,38 @@ const NewClient = ({ options, loading }) => {
 					loading={loading}
 				>
 					<option
-						value=""
+						value="0"
 						selected="true"
 						disabled
 						label="Seleccione"
 					/>
-					<option value={0} label="Managua" />
-					<option value={1} label="Leon" />
-					<option value={2} label="Granada" />
-					<option value={3} label="Chinandega" />
-					<option value={4} label="Esteli" />
-					<option value={5} label="Rivas" />
+					{depto.map((option) => (
+						<option
+							key={option.cod_depto}
+							value={option.cod_depto}
+							label={option.nom_depto}
+						/>
+					))}
 				</Dropdown>
 				<Dropdown
 					size="md"
 					name="p_cod_muni"
 					label="Municipio"
-					loading={loading}
+					disabled={muni.length === 0 || loadingMuni}
 				>
 					<option
-						value=""
+						value="0"
 						selected="true"
 						disabled
 						label="Seleccione"
 					/>
-					<option value={0} label="Municipio 1" />
-					<option value={1} label="Municipio 2" />
-					<option value={2} label="Municipio 3" />
+					{muni.map((option) => (
+						<option
+							key={option.cod_muni}
+							value={option.cod_muni}
+							label={option.nom_municipio}
+						/>
+					))}
 				</Dropdown>
 				<Text name="p_direccion" size="lg" label="Dirección" />
 				<Text
@@ -144,7 +182,7 @@ const NewClient = ({ options, loading }) => {
 					loading={loading}
 				>
 					<option
-						value=""
+						value="0"
 						selected="true"
 						disabled
 						label="Seleccione"

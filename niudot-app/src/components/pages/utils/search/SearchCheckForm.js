@@ -28,7 +28,7 @@ const SearchClient = ({ setSearchUser }) => {
 
 		setLoading(true)
 		const res = await axios.post(
-			"https://backend-dot-nicascriptproject.uc.r.appspot.com/search/user",
+			`${process.env.REACT_APP_URL}/search/user`,
 			JSON.stringify({ name: username }),
 			config
 		)

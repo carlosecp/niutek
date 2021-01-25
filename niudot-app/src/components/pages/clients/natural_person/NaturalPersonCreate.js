@@ -27,9 +27,9 @@ const initialValues = {
 const NaturalPersonCreate = ({ client, clientId, writeClient }) => {
 	const dropdownFields = {
 		tipo_doc: [],
+		moneda: [],
 		sexo: [],
 		nacionalidad: [],
-		moneda: [],
 		cod_banco: [],
 	}
 
