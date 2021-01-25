@@ -81,14 +81,10 @@ const Dropdown = ({ size, label, newline, loading, ...props }) => {
 	const [field] = useField(props)
 
 	return (
-		<div
-			className={`form-container-${size} ${loading && "cursor-wait"} ${
-				newline && "force-newline"
-			}`}
-		>
+		<div className={`form-container-${size} ${newline && "force-newline"}`}>
 			<label className="text-black-white">{label}</label>
 			<select
-				className="form-field w-full"
+				className={`form-field w-full  ${loading && "cursor-wait"}`}
 				{...field}
 				{...props}
 				disabled={loading}

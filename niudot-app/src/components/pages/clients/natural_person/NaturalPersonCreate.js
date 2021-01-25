@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
+import React from "react"
 import { Formik, Form } from "formik"
 import NewClient from "./NewClient"
 import ProfessionalData from "./ProfessionalData"
@@ -14,7 +13,7 @@ import {
 	referencias_bancarias,
 	referencias_personales,
 } from "./initialValues"
-import requestConfig from "../../../../utils/requestConfig"
+import useDropdownOptions from "../../../../hooks/useOptions"
 
 const initialValues = {
 	...persona_natural,
@@ -26,38 +25,25 @@ const initialValues = {
 }
 
 const NaturalPersonCreate = ({ client, clientId, writeClient }) => {
-	const [loading, setLoading] = useState(true)
-
-	const [options, setOptions] = useState({
+	const dropdownFields = {
 		tipo_doc: [],
 		sexo: [],
 		nacionalidad: [],
 		moneda: [],
 		cod_banco: [],
-	})
-
-	const getOptions = async () => {
-		const res = await axios.post(
-			"https://backend-dot-nicascriptproject.uc.r.appspot.com/read/table",
-			{ p_tipo: "*" },
-			requestConfig
-		)
-		const [tipo_doc, moneda, sexo, nacionalidad, cod_banco] = res.data
-
-		setOptions({
-			tipo_doc,
-			sexo,
-			nacionalidad,
-			moneda,
-			cod_banco,
-		})
-
-		setLoading(false)
 	}
 
-	useEffect(() => {
-		getOptions()
-	}, [])
+	const dropdownRequest = {
+		endpoint: "read/table",
+		body: {
+			p_tipo: "*",
+		},
+	}
+
+	const { options, loading } = useDropdownOptions(
+		dropdownFields,
+		dropdownRequest
+	)
 
 	return (
 		<Formik
