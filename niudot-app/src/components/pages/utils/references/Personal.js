@@ -1,21 +1,21 @@
-import React, { Fragment } from "react"
-import { useFormikContext, FieldArray } from "formik"
-import { FaPlus, FaTimes } from "react-icons/fa"
-import { Dropdown, Text } from "../forms"
-import RetractileForm from "../retractile_sections"
+import React, { Fragment } from 'react'
+import { useFormikContext, FieldArray } from 'formik'
+import { FaPlus, FaTimes } from 'react-icons/fa'
+import { Dropdown, Text } from '../forms'
+import RetractileForm from '../retractile_sections'
 
 const Personal = () => {
 	const initialValues = {
-		prp_nombre: "Superman",
+		prp_nombre: 'Superman',
 		prp_tipo_doc: 1,
-		prp_num_doc: "001-100901-1037U",
-		prp_telefono1: "12345678",
-		prp_telefono2: "12346423",
-		prp_direccion: "Direccion persona1",
-		prp_lugar_trabajo: "Las estrellas",
-		prp_telefono_trabajo: "45671234",
+		prp_num_doc: '001-100901-1037U',
+		prp_telefono1: '12345678',
+		prp_telefono2: '12346423',
+		prp_direccion: 'Direccion persona1',
+		prp_lugar_trabajo: 'Las estrellas',
+		prp_telefono_trabajo: '45671234',
 		prp_tiempo_conocer: 10,
-		prp_e_mail: "carlos@gmail.com",
+		prp_e_mail: 'carlos@gmail.com',
 	}
 
 	const {
@@ -29,7 +29,7 @@ const Personal = () => {
 
 	const handleIdTypeChange = (e) => {
 		const selectedId = e.target.value
-		console.log("Tipo de Id Seleccionado", selectedId)
+		console.log('Tipo de Id Seleccionado', selectedId)
 		handleChange(e)
 	}
 
@@ -37,87 +37,85 @@ const Personal = () => {
 
 	return (
 		<FieldArray
-			name="referencias_personales"
+			name='referencias_personales'
 			render={(arrayHelpers) => (
-				<RetractileForm formTitle="Personales">
+				<RetractileForm formTitle='Personales'>
 					{referencias_personales.map((_, index) => (
 						<Fragment key={index}>
-							<div className="flex justify-between items-center text-gray-gray">
-								<h3 className="font-bold text-lg mt-3">
+							<div className='flex justify-between items-center text-gray-gray'>
+								<h3 className='font-bold text-lg mt-3'>
 									Rerefencia {index + 1}
 								</h3>
-								<div className="mr-4"></div>
+								<div className='mr-4'></div>
 								<FaTimes
-									className="cursor-pointer transform transition hover:rotate-90"
+									className='cursor-pointer transform transition hover:rotate-90'
 									onClick={() => arrayHelpers.remove(index)}
 								/>
 							</div>
-							<div className="form-grid-layout grid grid-cols-12 gap-2">
+							<div className='form-grid-layout grid grid-cols-12 gap-2'>
 								<Text
 									name={`referencias_personales.${index}.prp_nombre`}
-									size="md"
-									label="Nombre"
+									size='md'
+									label='Nombre'
 								/>
 								<Dropdown
-									size="md"
+									size='md'
 									name={`referencias_personales.${index}.prp_tipo_doc`}
-									label="Moneda"
+									label='Moneda'
 								>
-									<option value="">Seleccione</option>
+									<option value=''>Seleccione</option>
 									<option value={0}>Cordobas</option>
 									<option value={1}>Dolares</option>
 								</Dropdown>
 								<Text
 									name={`referencias_personales.${index}.prp_num_doc`}
-									size="md"
-									label="No. Documento"
+									size='md'
+									label='No. Documento'
 								/>
 								<Text
 									name={`referencias_personales.${index}.prp_telefono1`}
-									size="md"
-									label="Teléfono 1"
+									size='md'
+									label='Teléfono 1'
 								/>
 								<Text
 									name={`referencias_personales.${index}.prp_telefono2`}
-									size="md"
-									label="Teléfono 2"
+									size='md'
+									label='Teléfono 2'
 								/>
 								<Text
 									name={`referencias_personales.${index}.prp_direccion`}
-									size="md"
-									label="Dirección"
+									size='md'
+									label='Dirección'
 								/>
 								<Text
 									name={`referencias_personales.${index}.prp_lugar_trabajo`}
-									size="md"
-									label="Lugar de Trabajo"
+									size='md'
+									label='Lugar de Trabajo'
 								/>
 								<Text
 									name={`referencias_personales.${index}.prp_telefono_trabajo`}
-									size="md"
-									label="Teléfono Trabajo"
+									size='md'
+									label='Teléfono Trabajo'
 								/>
 								<Text
 									name={`referencias_personales.${index}.prp_tiempo_conocer`}
-									size="md"
-									label="Tiempo de Conocer"
-									type="number"
+									size='md'
+									label='Tiempo de Conocer'
+									type='number'
 								/>
 								<Text
 									name={`referencias_personales.${index}.prp_e_mail`}
-									size="md"
-									label="E-mail"
+									size='md'
+									label='E-mail'
 								/>
 							</div>
 						</Fragment>
 					))}
 					{referencias_personales.length < 2 && (
 						<button
-							type="button"
-							onClick={() =>
-								arrayHelpers.push({ ...initialValues })
-							}
-							className="mt-3 btn bg-blue-blue btn-border-blue flex gap-2 items-center"
+							type='button'
+							onClick={() => arrayHelpers.push({ ...initialValues })}
+							className='mt-3 btn bg-blue-blue btn-border-blue flex gap-2 items-center'
 						>
 							Agregar <FaPlus />
 						</button>

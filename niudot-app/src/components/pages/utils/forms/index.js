@@ -77,13 +77,22 @@ Checkbox.defaultProps = {
 	newline: false,
 }
 
-const Dropdown = ({ size, label, newline, ...props }) => {
+const Dropdown = ({ size, label, newline, loading, ...props }) => {
 	const [field] = useField(props)
 
 	return (
-		<div className={`form-container-${size} ${newline && "force-newline"}`}>
+		<div
+			className={`form-container-${size} ${loading && "cursor-wait"} ${
+				newline && "force-newline"
+			}`}
+		>
 			<label className="text-black-white">{label}</label>
-			<select className="form-field w-full" {...field} {...props}>
+			<select
+				className="form-field w-full"
+				{...field}
+				{...props}
+				disabled={loading}
+			>
 				{props.children}
 			</select>
 		</div>
@@ -92,6 +101,7 @@ const Dropdown = ({ size, label, newline, ...props }) => {
 
 Dropdown.defaultProps = {
 	newline: false,
+	loading: false,
 }
 
 export { Text, Checkbox, Dropdown }

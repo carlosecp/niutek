@@ -26,6 +26,8 @@ const initialValues = {
 }
 
 const NaturalPersonCreate = ({ client, clientId, writeClient }) => {
+	const [loading, setLoading] = useState(true)
+
 	const [options, setOptions] = useState({
 		tipo_doc: [],
 		sexo: [],
@@ -49,6 +51,8 @@ const NaturalPersonCreate = ({ client, clientId, writeClient }) => {
 			moneda,
 			cod_banco,
 		})
+
+		setLoading(false)
 	}
 
 	useEffect(() => {
@@ -95,10 +99,10 @@ const NaturalPersonCreate = ({ client, clientId, writeClient }) => {
 						)}
 					</div>
 					<div className="mt-4 section">
-						<NewClient options={options} />
+						<NewClient options={options} loading={loading} />
 						<ProfessionalData />
 						<OriginFunds />
-						<References options={options} />
+						<References options={options} loading={loading} />
 						<SubmitBtn />
 					</div>
 				</Form>

@@ -1,8 +1,6 @@
 import React from "react"
-
 import * as Yup from "yup"
 import { Formik, Form } from "formik"
-
 import EconomicData from "./EconomicData"
 import MainSupliers from "./MainSuppliers"
 import Referencias from "../../utils/references"

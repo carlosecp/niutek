@@ -2,15 +2,8 @@ import React from "react"
 import { useFormikContext } from "formik"
 import { Text, Dropdown } from "../../utils/forms"
 
-const NewClient = ({ options }) => {
-	const {
-		values,
-		handleChange,
-		setFieldValue,
-		handleSubmit,
-		isSubmitting,
-		isValid,
-	} = useFormikContext()
+const NewClient = ({ options, loading }) => {
+	const { values, handleChange } = useFormikContext()
 
 	const handleIdTypeChange = (e) => {
 		const selectedId = e.target.value
@@ -25,7 +18,12 @@ const NewClient = ({ options }) => {
 			<div className="form-grid-layout">
 				<Text name="p_nombres" size="md" label="Nombres" />
 				<Text name="p_apellidos" size="md" label="Apellidos" />
-				<Dropdown size="md" name="p_sexo" label="Sexo">
+				<Dropdown
+					size="md"
+					name="p_sexo"
+					label="Sexo"
+					loading={loading}
+				>
 					<option
 						value=""
 						selected={true}
@@ -46,6 +44,7 @@ const NewClient = ({ options }) => {
 					label="Tipo Documento"
 					value={p_tipo_doc}
 					onChange={handleIdTypeChange}
+					loading={loading}
 				>
 					<option
 						value=""
@@ -68,6 +67,7 @@ const NewClient = ({ options }) => {
 					label="Nacionalidad"
 					value={p_tipo_doc}
 					onChange={handleIdTypeChange}
+					loading={loading}
 				>
 					<option
 						value=""
@@ -83,7 +83,12 @@ const NewClient = ({ options }) => {
 						/>
 					))}
 				</Dropdown>
-				<Dropdown size="md" name="p_cod_depto" label="Departamento">
+				<Dropdown
+					size="md"
+					name="p_cod_depto"
+					label="Departamento"
+					loading={loading}
+				>
 					<option
 						value=""
 						selected="true"
@@ -97,7 +102,12 @@ const NewClient = ({ options }) => {
 					<option value={4} label="Esteli" />
 					<option value={5} label="Rivas" />
 				</Dropdown>
-				<Dropdown size="md" name="p_cod_muni" label="Municipio">
+				<Dropdown
+					size="md"
+					name="p_cod_muni"
+					label="Municipio"
+					loading={loading}
+				>
 					<option
 						value=""
 						selected="true"
@@ -131,6 +141,7 @@ const NewClient = ({ options }) => {
 					size="md"
 					name="p_cargo_publico"
 					label="Cargo Público"
+					loading={loading}
 				>
 					<option
 						value=""
