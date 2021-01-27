@@ -2,9 +2,20 @@ import React, { useEffect } from "react";
 import { useFormikContext } from "formik";
 import { Text, Dropdown } from "../../utils/forms";
 
-const NewClient = ({ options }) => {
+const NewClient = ({ options, loading }) => {
 	const { values } = useFormikContext();
 	const { p_sexo, p_tipo_doc, p_cod_nac, p_cod_depto, p_cod_muni } = values;
+
+	useEffect(() => {
+		console.log({
+			p_sexo,
+			p_tipo_doc,
+			p_cod_nac,
+			p_cod_depto,
+			p_cod_muni,
+		});
+		// eslint-disable-next-line
+	}, [loading]);
 
 	return (
 		<>
@@ -17,20 +28,23 @@ const NewClient = ({ options }) => {
 						selected={true}
 						disabled
 						label="Seleccione"
+						loading={loading}
 					/>
-					{options.p_sexo.map((option) => (
-						<option
-							key={option.codigo}
-							value={option.descripcion}
-							label={option.descripcion}
-						/>
-					))}
+					{loading ||
+						options.p_sexo.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
 				</Dropdown>
 				<Dropdown
 					size="md"
 					name="p_tipo_doc"
 					label="Tipo Documento"
 					value={p_tipo_doc}
+					loading={loading}
 				>
 					<option
 						value="0"
@@ -38,13 +52,14 @@ const NewClient = ({ options }) => {
 						disabled
 						label="Seleccione"
 					/>
-					{options.p_tipo_doc.map((option) => (
-						<option
-							key={option.codigo}
-							value={option.descripcion}
-							label={option.descripcion}
-						/>
-					))}
+					{loading ||
+						options.p_tipo_doc.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
 				</Dropdown>
 				<Text name="p_num_doc" size="md" label="No. Documento" />
 				<Dropdown
@@ -52,6 +67,7 @@ const NewClient = ({ options }) => {
 					name="p_cod_nac"
 					label="Nacionalidad"
 					value={p_cod_nac}
+					loading={loading}
 				>
 					<option
 						value="0"
@@ -59,19 +75,21 @@ const NewClient = ({ options }) => {
 						disabled
 						label="Seleccione"
 					/>
-					{options.p_cod_nac.map((option) => (
-						<option
-							key={option.codigo}
-							value={option.descripcion}
-							label={option.descripcion}
-						/>
-					))}
+					{loading ||
+						options.p_cod_nac.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
 				</Dropdown>
 				<Dropdown
 					size="md"
 					name="p_cod_depto"
 					label="Departamento"
 					value={p_cod_depto}
+					loading={loading}
 				>
 					<option
 						value="0"
@@ -92,6 +110,7 @@ const NewClient = ({ options }) => {
 					name="p_cod_muni"
 					label="Municipio"
 					value={p_cod_muni}
+					loading={loading}
 				>
 					<option
 						value="0"

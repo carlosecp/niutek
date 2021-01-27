@@ -76,10 +76,10 @@ const NaturalPersonCreate = ({ clientData }) => {
 					)}
 				</div>
 				<div className="mt-4 section">
-					<NewClient options={options} />
+					<NewClient options={options} loading={loading} />
 					<ProfessionalData />
 					<OriginFunds />
-					<References options={options} />
+					<References options={options} loading={loading} />
 					<SubmitBtn />
 				</div>
 			</Form>
