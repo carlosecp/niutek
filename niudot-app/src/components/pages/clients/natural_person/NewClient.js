@@ -1,21 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormikContext } from "formik";
 import { Text, Dropdown } from "../../utils/forms";
+import axios from "axios";
+import requestConfig from "../../../../utils/requestConfig";
 
 const NewClient = ({ options, loading }) => {
 	const { values } = useFormikContext();
 	const { p_sexo, p_tipo_doc, p_cod_nac, p_cod_depto, p_cod_muni } = values;
 
+	const [muni, setMuni] = useState([]);
+
+	const getMuni = async (codMuni) => {
+		const res = await axios.post(
+			`${process.env.REACT_APP_URL}/read/dep`,
+			{
+				codigo: codMuni,
+			},
+			requestConfig
+		);
+		console.log(res.data);
+		setMuni(res.data);
+	};
+
 	useEffect(() => {
-		console.log({
-			p_sexo,
-			p_tipo_doc,
-			p_cod_nac,
-			p_cod_depto,
-			p_cod_muni,
-		});
-		// eslint-disable-next-line
-	}, [loading]);
+		getMuni(p_cod_depto);
+	}, [p_cod_depto]);
 
 	return (
 		<>
@@ -97,13 +106,14 @@ const NewClient = ({ options, loading }) => {
 						disabled
 						label="Seleccione"
 					/>
-					{/*depto.map((option) => (
-						<option
-							key={option.cod_depto}
-							value={option.cod_depto}
-							label={option.nom_depto}
-						/>
-					))*/}
+					{loading ||
+						options.deptos.map((option) => (
+							<option
+								key={option.cod_depto}
+								value={option.cod_depto}
+								label={option.nom_depto}
+							/>
+						))}
 				</Dropdown>
 				<Dropdown
 					size="md"
@@ -118,13 +128,13 @@ const NewClient = ({ options, loading }) => {
 						disabled
 						label="Seleccione"
 					/>
-					{/*muni.map((option) => (
+					{muni.map((option) => (
 						<option
 							key={option.cod_muni}
 							value={option.cod_muni}
 							label={option.nom_municipio}
 						/>
-					))*/}
+					))}
 				</Dropdown>
 				<Text name="p_direccion" size="lg" label="Dirección" />
 				<Text

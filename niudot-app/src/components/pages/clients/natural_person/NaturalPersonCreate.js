@@ -35,7 +35,8 @@ const NaturalPersonCreate = ({ clientData }) => {
 		{
 			endpoint: "read/table",
 			body: { p_tipo: "*" },
-		}
+		},
+		true
 	);
 
 	return (
