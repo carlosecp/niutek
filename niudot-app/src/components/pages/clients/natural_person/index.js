@@ -40,6 +40,7 @@ const NaturalPerson = () => {
 	}
 
 	const writeForm = async (type, data) => {
+		console.log("Esto es lo que estoy enviando: ", data)
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/${type}/cliente_natural`,

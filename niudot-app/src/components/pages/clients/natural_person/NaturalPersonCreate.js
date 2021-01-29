@@ -51,7 +51,7 @@ const NaturalPersonCreate = ({ clientData, writeForm }) => {
 					...values,
 				}
 				const writeType = clientData ? "update" : "create"
-				writeForm(writeType)
+				writeForm(writeType, tempValues)
 			}}
 		>
 			<Form>
