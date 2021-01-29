@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Field, Form, Formik, useFormikContext } from "formik";
-import * as Yup from "yup";
-import requestConfig from "../../../../../utils/requestConfig";
-import spinner from "../../../../../assets/images/spinner.png";
-import { Dropdown } from "../../forms";
-import { FaSearch } from "react-icons/fa";
+import React from "react"
+import axios from "axios"
+import { Field, Form, Formik, useFormikContext } from "formik"
+import * as Yup from "yup"
+import requestConfig from "../../../../../utils/requestConfig"
+import spinner from "../../../../../assets/images/spinner.png"
+import { Dropdown } from "../../forms"
+import { FaSearch } from "react-icons/fa"
 
 const SearchUser = ({
 	loading,
@@ -16,20 +16,20 @@ const SearchUser = ({
 	fetchingClient,
 }) => {
 	const getClients = async (data) => {
-		setLoading(true);
+		setLoading(true)
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/search/user`,
 				{ search: data },
 				requestConfig
-			);
-			setMatches(res.data);
+			)
+			setMatches(res.data)
 		} catch (err) {
-			console.error(err);
+			console.error(err)
 		} finally {
-			setLoading(false);
+			setLoading(false)
 		}
-	};
+	}
 
 	return (
 		<div className="section mb-4">
@@ -45,8 +45,8 @@ const SearchUser = ({
 					search: Yup.mixed().required(),
 				})}
 				onSubmit={(values) => {
-					getClients(values.search);
-					values.clientId = 0;
+					getClients(values.search)
+					values.clientId = 0
 				}}
 			>
 				<Form>
@@ -59,19 +59,19 @@ const SearchUser = ({
 				</Form>
 			</Formik>
 		</div>
-	);
-};
+	)
+}
 
 const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 	const {
 		values: { clientId },
-	} = useFormikContext();
+	} = useFormikContext()
 
 	const handleSubmit = () => {
 		if (clientId) {
-			fetchClient(clientId);
+			fetchClient(clientId)
 		}
-	};
+	}
 
 	return (
 		<>
@@ -143,7 +143,7 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 					: "Editar Cliente"}
 			</button>
 		</>
-	);
-};
+	)
+}
 
-export default SearchUser;
+export default SearchUser

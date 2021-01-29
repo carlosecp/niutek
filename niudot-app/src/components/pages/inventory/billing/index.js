@@ -1,24 +1,9 @@
 import React, { useState, useContext, useEffect } from "react"
-
-import * as Yup from "yup"
-import { Formik, Form } from "formik"
-
 import SearchCheckForm from "../../utils/search/SearchCheckForm"
 import InvoiceTable from "./InvoiceTable"
-
 import routesContext from "../../../../context/routes/routesContext"
-import NewPopup from "./popups/NewPopup"
 import Articles from "./popups/Articles"
 import Confirm from "./popups/Confirm"
-
-import { createValues, createValuesSchema } from "./initialValues"
-const initialValues = {
-	...createValues,
-}
-
-const validationSchema = Yup.object({
-	...createValuesSchema,
-})
 
 const Billing = () => {
 	const { changePage } = useContext(routesContext)
@@ -44,6 +29,8 @@ const Billing = () => {
 					...showPopup,
 					confirmation: !showPopup.confirmation,
 				})
+				break
+			default:
 				break
 		}
 	}

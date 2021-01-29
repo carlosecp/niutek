@@ -1,12 +1,9 @@
 import React, { useState } from "react"
-
 import { FaSearch } from "react-icons/fa"
 import axios from "axios"
-import { Form, Formik } from "formik"
-// Images
 import spinner from "../../../../assets/images/spinner.png"
 
-const SearchClient = ({ setSearchUser }) => {
+const SearchClient = () => {
 	const [loading, setLoading] = useState(false)
 	const [username, setUserName] = useState("")
 

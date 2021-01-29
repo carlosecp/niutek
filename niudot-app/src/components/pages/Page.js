@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Switch, Route } from "react-router-dom"
 import Topbar from "../layout/Topbar"
 import Dashboard from "../dashboard"
@@ -42,11 +42,8 @@ import {
 } from "./savings"
 
 import { TableMaintenance } from "./table-maintenance"
-import alertsContext from "../../context/alerts/alertsContext"
 
 const Page = (props) => {
-	const { alerts } = useContext(alertsContext)
-
 	return (
 		<div className="pl-64 cstm:p-0 w-full">
 			<Topbar {...props} />

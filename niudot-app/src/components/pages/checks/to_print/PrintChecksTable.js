@@ -1,17 +1,18 @@
 import React, { useMemo, useRef, useState, useCallback } from "react"
-
 import { v4 as uuidv4 } from "uuid"
-
 import Table from "../../utils/tables"
 
 const ChecksTable = ({ loading, setLoading, togglePopup }) => {
-	const columns = useMemo(() => [
-		{ Header: "No. Cheque", accessor: "number" },
-		{ Header: "Fecha", accessor: "date" },
-		{ Header: "Paguese a", accessor: "to" },
-		{ Header: "Moneda", accessor: "currency" },
-		{ Header: "Monto", accessor: "value" },
-	])
+	const columns = useMemo(
+		() => [
+			{ Header: "No. Cheque", accessor: "number" },
+			{ Header: "Fecha", accessor: "date" },
+			{ Header: "Paguese a", accessor: "to" },
+			{ Header: "Moneda", accessor: "currency" },
+			{ Header: "Monto", accessor: "value" },
+		],
+		[]
+	)
 
 	const serverData = [
 		{
@@ -60,6 +61,7 @@ const ChecksTable = ({ loading, setLoading, togglePopup }) => {
 				setLoading(false)
 			}
 		}, 1000)
+		// eslint-disable-next-line
 	}, [])
 
 	return (

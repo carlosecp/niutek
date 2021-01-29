@@ -1,15 +1,17 @@
 import React, { useMemo, useRef, useState, useCallback } from "react"
-
 import Table from "../../utils/tables"
 
 const VoidedChecksTable = ({ togglePopup }) => {
-	const columns = useMemo(() => [
-		{ Header: "No. Cheque", accessor: "number" },
-		{ Header: "Fecha", accessor: "date" },
-		{ Header: "Paguese a", accessor: "to" },
-		{ Header: "Moneda", accessor: "currency" },
-		{ Header: "Monto", accessor: "value" },
-	])
+	const columns = useMemo(
+		() => [
+			{ Header: "No. Cheque", accessor: "number" },
+			{ Header: "Fecha", accessor: "date" },
+			{ Header: "Paguese a", accessor: "to" },
+			{ Header: "Moneda", accessor: "currency" },
+			{ Header: "Monto", accessor: "value" },
+		],
+		[]
+	)
 
 	const serverData = [
 		{
@@ -156,6 +158,7 @@ const VoidedChecksTable = ({ togglePopup }) => {
 				setLoading(false)
 			}
 		}, 1000)
+		// eslint-disable-next-line
 	}, [])
 
 	return (

@@ -1,10 +1,10 @@
-import React from "react";
-import { Formik, Form } from "formik";
-import NewClient from "./NewClient";
-import ProfessionalData from "./ProfessionalData";
-import OriginFunds from "./OriginFunds";
-import References from "../../utils/references";
-import SubmitBtn from "../../utils/SubmitBtn";
+import React from "react"
+import { Formik, Form } from "formik"
+import NewClient from "./NewClient"
+import ProfessionalData from "./ProfessionalData"
+import OriginFunds from "./OriginFunds"
+import References from "../../utils/references"
+import SubmitBtn from "../../utils/SubmitBtn"
 import {
 	persona_natural,
 	datos_profesionales,
@@ -12,8 +12,8 @@ import {
 	referencias_comerciales,
 	referencias_bancarias,
 	referencias_personales,
-} from "./initialValues";
-import useOptions from "../../../../hooks/useOptions";
+} from "./initialValues"
+import useOptions from "../../../../hooks/useOptions"
 
 const initialValues = {
 	...persona_natural,
@@ -22,9 +22,9 @@ const initialValues = {
 	referencias_comerciales,
 	referencias_bancarias,
 	referencias_personales,
-};
+}
 
-const NaturalPersonCreate = ({ clientData }) => {
+const NaturalPersonCreate = ({ clientData, writeForm }) => {
 	const { loading, options } = useOptions(
 		{
 			p_tipo_doc: [],
@@ -37,7 +37,7 @@ const NaturalPersonCreate = ({ clientData }) => {
 			body: { p_tipo: "*" },
 		},
 		true
-	);
+	)
 
 	return (
 		<Formik
@@ -49,7 +49,9 @@ const NaturalPersonCreate = ({ clientData }) => {
 					p_cod_sucursal: 0,
 					p_clase_persona: 1,
 					...values,
-				};
+				}
+				const writeType = clientData ? "update" : "create"
+				writeForm(writeType)
 			}}
 		>
 			<Form>
@@ -85,7 +87,7 @@ const NaturalPersonCreate = ({ clientData }) => {
 				</div>
 			</Form>
 		</Formik>
-	);
-};
+	)
+}
 
-export default NaturalPersonCreate;
+export default NaturalPersonCreate

@@ -1,7 +1,6 @@
 import React from "react"
-
 import { Formik, Form } from "formik"
-import { Dropdown, Text } from "../../../utils/forms"
+import { Text } from "../../../utils/forms"
 import Table from "../../../utils/tables"
 import Popup from "../../../utils/tables/Popup"
 

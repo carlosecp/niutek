@@ -1,11 +1,8 @@
 import React from "react"
-
 import * as Yup from "yup"
 import { Formik, Form } from "formik"
-
 import { Dropdown, Text } from "../../utils/forms"
 import SubmitBtn from "../../utils/SubmitBtn"
-// Data
 import { createValues, createValuesSchema } from "./initialValues"
 
 const initialValues = {

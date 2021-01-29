@@ -54,6 +54,7 @@ const EditChecksPopup = ({ checkId, togglePopup }) => {
 				setLoading(false)
 			}
 		}, 1000)
+		// eslint-disable-next-line
 	}, [])
 
 	return (

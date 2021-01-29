@@ -1,11 +1,8 @@
 import React from "react"
-
 import * as Yup from "yup"
 import { Formik, Form } from "formik"
-import { Dropdown, Text } from "../../../utils/forms"
-import Table from "../../../utils/tables"
+import { Text } from "../../../utils/forms"
 import Popup from "../../../utils/tables/Popup"
-//import {initialValues, validationSchema} from '../initialValues'
 import { createValues, createValuesSchema } from "../initialValues"
 const initialValues = {
 	...createValues,
@@ -15,10 +12,6 @@ const validationSchema = Yup.object({
 	...createValuesSchema,
 })
 const Articles = ({ togglePopup, total }) => {
-	const headers = []
-
-	const rows = [{}]
-
 	return (
 		<Popup togglePopup={togglePopup}>
 			<Formik

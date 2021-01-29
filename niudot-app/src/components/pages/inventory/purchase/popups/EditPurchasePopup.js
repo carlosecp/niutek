@@ -1,16 +1,9 @@
 import React from "react"
-
-import { Formik, Form } from "formik"
-import { Dropdown, Text } from "../../../utils/forms"
-import Table from "../../../utils/tables"
+import { Formik } from "formik"
+import { Text } from "../../../utils/forms"
 import Popup from "../../../utils/tables/Popup"
-import DateInput from "../../../utils/forms/DateInput"
 
 const EditPurchasePopup = ({ togglePopup }) => {
-	const headers = []
-
-	const rows = [{}]
-
 	return (
 		<Popup togglePopup={togglePopup}>
 			<Formik>

@@ -1,11 +1,7 @@
 // React
 import React, { useContext, useEffect } from "react"
-
-import * as Yup from "yup"
 import { Formik, Form } from "formik"
-
 import routesContext from "../../context/routes/routesContext"
-
 import ProfileAccessOptions from "./ProfileAccessOptions"
 
 const initialValues = {
@@ -37,8 +33,6 @@ const initialValues = {
 	checks_reconciled: false,
 	checks_voided: false,
 }
-
-const validationSchema = Yup.object({})
 
 const RegisterUser = () => {
 	const { changePage } = useContext(routesContext)
