@@ -16,7 +16,7 @@ export const persona_natural = {
 	p_fecha_nacimiento: "2001-09-10",
 	p_cargo_publico: 0, // El valor deberia ser numerico
 	p_num_hijos: 3,
-};
+}
 
 export const datos_profesionales = {
 	// Datos Profesionales
@@ -27,7 +27,7 @@ export const datos_profesionales = {
 	p_tel_empresa: "77889955",
 	p_email_empresa: "xxx@labsolka.com.ni",
 	p_ingreso_anual: 3.14159,
-};
+}
 
 export const origen_fondos = {
 	// Origen Fondos
@@ -48,13 +48,13 @@ export const origen_fondos = {
 	p_of_aho_inst_financiera: "",
 	p_of_otros: 0, // El valor deberia ser numerico
 	p_of_des_otros: "",
-};
+}
 
 // Referencias Comerciales
-export const referencias_comerciales = [];
+export const referencias_comerciales = []
 
 // Referencias Bancarias
-export const referencias_bancarias = [];
+export const referencias_bancarias = []
 
 // Referencias Personales
-export const referencias_personales = [];
+export const referencias_personales = []

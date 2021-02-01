@@ -1,62 +1,98 @@
 import React from "react"
-import * as Yup from "yup"
 import { Formik, Form } from "formik"
-import EconomicData from "./EconomicData"
-import MainSupliers from "./MainSuppliers"
-import Referencias from "../../utils/references"
-import ControllingShareholders from "./ControllingShareholders"
-import OriginFunds from "./OriginFunds"
 import NewClient from "./NewClient"
+import OriginFunds from "./OriginFunds"
+import References from "./references"
 import SubmitBtn from "../../utils/SubmitBtn"
-// Data
 import {
-	createValues,
-	createValuesSchema,
-	principalesProveedores,
-	origenFondos,
-	refComercialesValues,
-	refBancariasValues,
-	refPersonales1Values,
-	refPersonales2Values,
-	accionistasMayoritarios,
+	persona_juridica,
+	origen_fondos,
+	referencias_comerciales,
+	referencias_bancarias,
+	proveedores,
+	accionistas,
 } from "./initialValues"
+import useOptions from "../../../../hooks/useOptions"
+import Providers from "./Providers"
+import Accionists from "./Accionists"
 
 const initialValues = {
-	...createValues,
-	...principalesProveedores,
-	...origenFondos,
-	...refComercialesValues,
-	...refBancariasValues,
-	...refPersonales1Values,
-	...refPersonales2Values,
-	...accionistasMayoritarios,
+	...persona_juridica,
+	...origen_fondos,
+	referencias_comerciales,
+	referencias_bancarias,
+	proveedores,
+	accionistas,
 }
 
-const validationSchema = Yup.object({
-	...createValuesSchema,
-})
+const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
+	const { loading, options } = useOptions(
+		{
+			p_tipo_doc: [],
+			p_moneda: [],
+			p_sexo: [],
+			p_cod_nac: [],
+			p_cod_banco: [],
+		},
+		{
+			endpoint: "read/table",
+			body: { p_tipo: "*" },
+		},
+		true
+	)
 
-const LegalPersonCreate = () => {
 	return (
 		<Formik
-			initialValues={initialValues}
-			validationSchema={validationSchema}
+			initialValues={clientData || initialValues}
+			handle
 			onSubmit={(values) => {
-				alert(JSON.stringify(values, null, 2))
+				const tempValues = {
+					p_cod_empresa: 1,
+					p_cod_sucursal: 0,
+					p_clase_persona: 1,
+					...values,
+				}
+				const writeType = clientData ? "update" : "create"
+				writeForm(writeType, tempValues)
 			}}
 		>
-			<Form className="section">
-				<h2 className="text-black-white text-xl font-bold">
-					Crear Un Nuevo Cliente{" "}
-				</h2>
-				<p className="text-gray-gray">Crear un nuevo cliente.</p>
-				<NewClient />
-				<EconomicData />
-				<MainSupliers />
-				<Referencias />
-				<ControllingShareholders />
-				<OriginFunds />
-				<SubmitBtn />
+			<Form>
+				<div className="mx-auto max-w-2xl pb-4">
+					<button className="btn bg-blue-blue" onClick={goBack}>
+						Regresar
+					</button>
+				</div>
+				<div className="section">
+					{clientData ? (
+						<>
+							<h2 className="text-black-white text-xl font-bold">
+								Editar Cliente Existente
+							</h2>
+							<p className="text-gray-gray">
+								<b>Editando Cliente:</b>{" "}
+								{clientData.p_cod_cliente} -{" "}
+								{clientData.p_nombres} {clientData.p_apellidos}
+							</p>
+						</>
+					) : (
+						<>
+							<h2 className="text-black-white text-xl font-bold">
+								Crear Nuevo Cliente
+							</h2>
+							<p className="text-gray-gray">
+								Registrar un nuevo cliente.
+							</p>
+						</>
+					)}
+				</div>
+				<div className="mt-4 section">
+					<NewClient options={options} loading={loading} />
+					<OriginFunds />
+					<References options={options} loading={loading} />
+					<Providers />
+					<Accionists options={options} loading={loading} />
+					<SubmitBtn />
+				</div>
 			</Form>
 		</Formik>
 	)

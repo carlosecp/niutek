@@ -21,6 +21,8 @@ const NaturalPerson = () => {
 	const [client, setClient] = useState(null)
 	const [form, setForm] = useState(false)
 
+	const [savingClient, setSavingClient] = useState(false)
+
 	const fetchClient = async (clientId) => {
 		setFetchingClient(true)
 
@@ -40,21 +42,27 @@ const NaturalPerson = () => {
 	}
 
 	const writeForm = async (type, data) => {
-		console.log("Esto es lo que estoy enviando: ", data)
+		setSavingClient(true)
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/${type}/cliente_natural`,
 				data,
 				requestConfig
 			)
-			console.log("Esto es lo que estoy recibiendo: ", res)
 		} catch (err) {
 			console.error(err)
+		} finally {
+			setSavingClient(false)
 		}
 	}
 
 	return form ? (
-		<NaturalPersonCreate clientData={client} writeForm={writeForm} />
+		<NaturalPersonCreate
+			clientData={client}
+			writeForm={writeForm}
+			savingClient={savingClient}
+			goBack={() => setForm(false)}
+		/>
 	) : (
 		<>
 			<SearchClient

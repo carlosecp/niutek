@@ -1,83 +1,156 @@
-import React from "react"
-
+import React, { useState, useEffect } from "react"
+import { useFormikContext } from "formik"
 import { Text, Dropdown } from "../../utils/forms"
+import axios from "axios"
+import requestConfig from "../../../../utils/requestConfig"
 
-const NewClient = () => {
+const NewClient = ({ options, loading }) => {
+	const { values } = useFormikContext()
+	const { p_sexo, p_tipo_doc, p_cod_nac, p_cod_depto, p_cod_muni } = values
+
+	const [muni, setMuni] = useState([])
+
+	const getMuni = async (codMuni) => {
+		const res = await axios.post(
+			`${process.env.REACT_APP_URL}/read/dep`,
+			{
+				codigo: codMuni,
+			},
+			requestConfig
+		)
+		console.log(res.data)
+		setMuni(res.data)
+	}
+
+	useEffect(() => {
+		getMuni(p_cod_depto)
+	}, [p_cod_depto])
+
 	return (
 		<>
 			<div className="form-grid-layout">
-				<Text
-					name="p_cod_sucursal"
-					size="md"
-					placeholder="Código de Cliente"
-					label="Código de Cliente"
-				/>
-				<Text
-					name="create_razon_social_empresa"
-					size="lg"
-					placeholder="Razon Social de la Empresa"
-					label="Razon Social de la Empresa"
-					newline={true}
-				/>
+				<Text name="p_nombre" size="md" label="Nombres" />
 				<Dropdown
 					size="md"
 					name="p_tipo_doc"
-					label="Tipo Identificación"
+					label="Tipo Documento"
+					value={p_tipo_doc}
+					loading={loading}
 				>
-					<option value="">Tipo Identificación</option>
-					<option value="option_2">Option 2</option>
-					<option value="option_3">Option 3</option>
-					<option value="option_4">Option 4</option>
+					<option
+						value="0"
+						selected="true"
+						disabled
+						label="Seleccione"
+					/>
+					{loading ||
+						options.p_tipo_doc.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
+				</Dropdown>
+				<Text name="p_num_doc" size="md" label="No. Documento" />
+				<Dropdown
+					size="md"
+					name="p_cod_nac"
+					label="Nacionalidad"
+					value={p_cod_nac}
+					loading={loading}
+				>
+					<option
+						value="0"
+						selected="true"
+						disabled
+						label="Seleccione"
+					/>
+					{loading ||
+						options.p_cod_nac.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
+				</Dropdown>
+				<Dropdown
+					size="md"
+					name="p_cod_depto"
+					label="Departamento"
+					value={p_cod_depto}
+					loading={loading}
+				>
+					<option
+						value="0"
+						selected="true"
+						disabled
+						label="Seleccione"
+					/>
+					{loading ||
+						options.deptos.map((option) => (
+							<option
+								key={option.cod_depto}
+								value={option.cod_depto}
+								label={option.nom_depto}
+							/>
+						))}
+				</Dropdown>
+				<Dropdown
+					size="md"
+					name="p_cod_muni"
+					label="Municipio"
+					value={p_cod_muni}
+					loading={loading}
+				>
+					<option
+						value="0"
+						selected="true"
+						disabled
+						label="Seleccione"
+					/>
+					{muni.map((option) => (
+						<option
+							key={option.cod_muni}
+							value={option.cod_muni}
+							label={option.nom_municipio}
+						/>
+					))}
 				</Dropdown>
 				<Text
-					name="p_num_doc"
+					name="p_num_empleados"
 					size="md"
-					placeholder="No. Identificación"
-					label="No. Identificación"
-				/>
-				<Text
-					name="p_cod_nac"
-					size="md"
-					placeholder="Nacionalidad"
-					label="Nacionalidad"
-				/>
-				<Text
-					name="create_numero_empleados"
-					size="md"
-					placeholder="Número de Empleados"
-					label="Número de Empleados"
+					label="No. Empleados"
 					type="number"
-					min="0"
+				/>
+				<Text name="p_sitio_web" size="md" label="Sitio Web" />
+				<Text name="p_e_mail" size="md" label="Email" />
+				<Text name="p_telefono1" size="md" label="Telefono 1" />
+				<Text name="p_telefono2" size="md" label="Telefono 2" />
+				<Text name="p_direccion" size="lg" label="Dirección" />
+				<Text
+					name="p_fecha_constitucion"
+					size="md"
+					label="Fecha de Constitucion"
 				/>
 				<Text
-					name="create_telefono_1"
-					size="sm"
-					placeholder="Teléfono 1"
-					label="Teléfono 1"
+					name="p_fecha_personeria"
+					size="md"
+					label="Fecha de Personeria"
 				/>
 				<Text
-					name="create_telefono_2"
-					size="sm"
-					placeholder="Teléfono 2"
-					label="Teléfono 2"
+					name="p_ingreso_anual"
+					size="md"
+					label="Ingreso Anual"
+					type="number"
 				/>
 				<Text
-					name="create_direccion"
+					name="p_actividad_empresa"
 					size="lg"
-					placeholder="Dirección"
-					label="Dirección"
-				/>
-				<Text
-					name="create_fecha_constitucion"
-					size="md"
-					placeholder="Fecha de Constitución"
-					label="Fecha de Constitución"
-				/>
-				<Text
-					name="create_fecha_personería"
-					size="md"
-					placeholder="Fecha de Personería"
-					label="Fecha de Personería"
+					label="Actividad de la Empresa"
+					newLine={true}
+					isTextArea={true}
 				/>
 			</div>
 		</>

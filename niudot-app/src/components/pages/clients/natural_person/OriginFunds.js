@@ -1,5 +1,4 @@
 import React from "react"
-
 import { Text, Dropdown } from "../../utils/forms"
 import RetractileForm from "../../utils/retractile_sections"
 

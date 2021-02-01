@@ -3,7 +3,7 @@ import { Formik, Form } from "formik"
 import NewClient from "./NewClient"
 import ProfessionalData from "./ProfessionalData"
 import OriginFunds from "./OriginFunds"
-import References from "../../utils/references"
+import References from "./references"
 import SubmitBtn from "../../utils/SubmitBtn"
 import {
 	persona_natural,
@@ -24,13 +24,19 @@ const initialValues = {
 	referencias_personales,
 }
 
-const NaturalPersonCreate = ({ clientData, writeForm }) => {
+const NaturalPersonCreate = ({
+	clientData,
+	writeForm,
+	savingClient,
+	goBack,
+}) => {
 	const { loading, options } = useOptions(
 		{
 			p_tipo_doc: [],
 			p_moneda: [],
 			p_sexo: [],
 			p_cod_nac: [],
+			pct_cod_banco: [],
 		},
 		{
 			endpoint: "read/table",
@@ -55,6 +61,11 @@ const NaturalPersonCreate = ({ clientData, writeForm }) => {
 			}}
 		>
 			<Form>
+				<div className="mx-auto max-w-2xl pb-4">
+					<button className="btn bg-blue-blue" onClick={goBack}>
+						Regresar
+					</button>
+				</div>
 				<div className="section">
 					{clientData ? (
 						<>
@@ -83,7 +94,7 @@ const NaturalPersonCreate = ({ clientData, writeForm }) => {
 					<ProfessionalData />
 					<OriginFunds />
 					<References options={options} loading={loading} />
-					<SubmitBtn />
+					<SubmitBtn loading={savingClient} />
 				</div>
 			</Form>
 		</Formik>

@@ -79,7 +79,7 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 				<label className="text-black-white font-bold">
 					Nombre o ID del Cliente
 				</label>
-				<div className="flex gap-2 w-72">
+				<div className="flex gap-2 w-72 sm:w-56">
 					<Field
 						name="search"
 						type="text"
