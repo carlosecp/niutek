@@ -1,13 +1,4 @@
-import AccountCancellation from './account_cancellation'
-import AccountOpening from './account_opening'
-import FixedTermDepositOpening from './fixed_term'
-import OrderStubs from './order_stubs'
-import EarlyCancellation from './early_cancellation'
+import Account from "./account"
+import Deposits from "./deposits"
 
-export {
-	AccountCancellation,
-	AccountOpening,
-	FixedTermDepositOpening,
-	OrderStubs,
-	EarlyCancellation
-}
+export { Account, Deposits }

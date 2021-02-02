@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react"
 import SearchClient from "../../utils/search/users/SearchClient"
-import CreateNewClientBtn from "../../utils/CreateNewClientBtn"
+import NewFormBtn from "../../utils/NewFormBtn"
 import LegalPersonCreate from "./LegalPersonCreate"
 import routesContext from "../../../../context/routes/routesContext"
 import axios from "axios"
@@ -72,7 +72,14 @@ const LegalPerson = () => {
 				fetchClient={fetchClient}
 				fetchingClient={fetchingClient}
 			/>
-			<CreateNewClientBtn toggleForm={() => setForm(true)} />
+			<NewFormBtn
+				text={{
+					title: "Crear Un Nuevo Cliente",
+					description: "Registra Un Nuevo Cliente",
+					proceed: "Registra Un Nuevo Cliente",
+				}}
+				toggleForm={() => setForm(true)}
+			/>
 		</>
 	)
 }

@@ -26,7 +26,7 @@ const initialValues = {
 }
 
 const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
-	const { loading, options } = useOptions(
+	const { options, loading } = useOptions(
 		{
 			p_tipo_doc: [],
 			p_moneda: [],

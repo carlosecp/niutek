@@ -33,13 +33,7 @@ import {
 	Billing,
 	InvoiceCancel,
 } from "./inventory"
-import {
-	OrderStubs,
-	AccountCancellation,
-	FixedTermDepositOpening,
-	EarlyCancellation,
-	AccountOpening,
-} from "./savings"
+import { Account, Deposits } from "./savings"
 
 import { TableMaintenance } from "./table-maintenance"
 
@@ -55,11 +49,6 @@ const Page = (props) => {
 						exact
 						path="/app/register/anticipated-cancellation"
 						component={AnticipatedCancellation}
-					/>
-					<Route
-						exact
-						path="/app/register/saving-account"
-						component={AccountOpening}
 					/>
 					<Route
 						exact
@@ -152,29 +141,15 @@ const Page = (props) => {
 					{/* Ahorros */}
 					<Route
 						exact
-						path="/app/ahorros/savings-account-opening"
-						component={AccountOpening}
+						path="/app/savings/account"
+						component={Account}
 					/>
 					<Route
 						exact
-						path="/app/ahorros/assignment-of-payment-order-stubs"
-						component={OrderStubs}
+						path="/app/savings/deposits"
+						component={Deposits}
 					/>
-					<Route
-						exact
-						path="/app/ahorros/saving-account-cancellation"
-						component={AccountCancellation}
-					/>
-					<Route
-						exact
-						path="/app/ahorros/fixed-term-deposit-opening"
-						component={FixedTermDepositOpening}
-					/>
-					<Route
-						exact
-						path="/app/ahorros/early-cancellation-fixed-term-deposit"
-						component={EarlyCancellation}
-					/>
+					{/* Inventario */}
 					<Route
 						exact
 						path="/app/inventory/billing"

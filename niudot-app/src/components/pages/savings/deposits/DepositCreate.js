@@ -1,9 +1,6 @@
 import React from "react"
 import { Formik, Form } from "formik"
-import NewClient from "./NewClient"
-import ProfessionalData from "./ProfessionalData"
-import OriginFunds from "./OriginFunds"
-import References from "./references"
+import NewDeposit from "./NewDeposit"
 import SubmitBtn from "../../utils/SubmitBtn"
 import {
 	persona_natural,
@@ -24,30 +21,21 @@ const initialValues = {
 	referencias_personales,
 }
 
-const NaturalPersonCreate = ({
-	clientData,
-	writeForm,
-	savingClient,
-	goBack,
-}) => {
+const DepositCreate = ({ depositData, writeForm, savingClient, goBack }) => {
 	const { options, loading } = useOptions(
 		{
-			p_tipo_doc: [],
 			p_moneda: [],
-			p_sexo: [],
-			p_cod_nac: [],
-			pct_cod_banco: [],
 		},
 		{
 			endpoint: "read/table",
-			body: { p_tipo: "*" },
+			body: { p_tipo: "2" },
 		},
 		true
 	)
 
 	return (
 		<Formik
-			initialValues={clientData || initialValues}
+			initialValues={depositData || initialValues}
 			handle
 			onSubmit={(values) => {
 				const tempValues = {
@@ -56,7 +44,7 @@ const NaturalPersonCreate = ({
 					p_clase_persona: 1,
 					...values,
 				}
-				const writeType = clientData ? "update" : "create"
+				const writeType = depositData ? "update" : "create"
 				writeForm(writeType, tempValues)
 			}}
 		>
@@ -67,33 +55,32 @@ const NaturalPersonCreate = ({
 					</button>
 				</div>
 				<div className="section">
-					{clientData ? (
+					{depositData ? (
 						<>
 							<h2 className="text-black-white text-xl font-bold">
-								Editar Cliente Existente
+								Editar Producto Existente
 							</h2>
 							<p className="text-gray-gray">
 								<b>Editando Cliente:</b>{" "}
-								{clientData.p_cod_cliente} -{" "}
-								{clientData.p_nombres} {clientData.p_apellidos}
+								{depositData.p_cod_cliente} -{" "}
+								{depositData.p_nombres}{" "}
+								{depositData.p_apellidos}
 							</p>
 						</>
 					) : (
 						<>
 							<h2 className="text-black-white text-xl font-bold">
-								Crear Nuevo Cliente
+								Crear Nuevo Producto
 							</h2>
 							<p className="text-gray-gray">
-								Registrar un nuevo cliente.
+								Registrar un nuevo producto depósitos a plazo
+								fijo.
 							</p>
 						</>
 					)}
 				</div>
 				<div className="mt-4 section">
-					<NewClient options={options} loading={loading} />
-					<ProfessionalData />
-					<OriginFunds />
-					<References options={options} loading={loading} />
+					<NewDeposit options={options} loading={loading} />
 					<SubmitBtn loading={savingClient} />
 				</div>
 			</Form>
@@ -101,4 +88,4 @@ const NaturalPersonCreate = ({
 	)
 }
 
-export default NaturalPersonCreate
+export default DepositCreate

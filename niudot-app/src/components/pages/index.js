@@ -1,5 +1,5 @@
 // React to render the icons and components
-import React from 'react'
+import React from "react"
 // Icons
 import {
 	FaCashRegister,
@@ -10,11 +10,11 @@ import {
 	FaChevronCircleDown,
 	FaCreditCard,
 	FaMoneyCheck,
-	FaCubes
-} from 'react-icons/fa/index'
+	FaCubes,
+} from "react-icons/fa/index"
 
 const pages = [
-	{
+	/* 	{
 		name: 'Caja',
 		icon: <FaCashRegister />,
 		dropdownOptions: [
@@ -43,33 +43,36 @@ const pages = [
 				name: 'Retiro a Cuenta de Ahorro'
 			}
 		]
-	},
+	}, */
 	{
-		name: 'Clientes',
+		name: "Clientes",
 		icon: <FaUsers />,
 		dropdownOptions: [
 			{
-				path: 'app/clients/natural-person',
-				name: 'Persona Natural'
+				path: "app/clients/natural-person",
+				name: "Persona Natural",
 			},
 			{
-				path: 'app/clients/legal-person',
-				name: 'Persona Jurídica'
-			}
-		]
+				path: "app/clients/legal-person",
+				name: "Persona Jurídica",
+			},
+		],
 	},
 	{
-		name: 'Ahorros',
+		name: "Ahorros",
 		icon: <FaPiggyBank />,
 		dropdownOptions: [
-			{ path: 'app/ahorros/savings-account-opening', name: 'Apertura de Cuenta' },
-			{ path: 'app/ahorros/assignment-of-payment-order-stubs', name: 'Asignación de Talonario' },
-			{ path: 'app/ahorros/saving-account-cancellation', name: 'Cancelación de Cuenta' },
-			{ path: 'app/ahorros/fixed-term-deposit-opening', name: 'Apertura Depósito a Plazo Fijo' },
-			{ path: 'app/ahorros/early-cancellation-fixed-term-deposit', name: 'Cancelación Anticipada' },
-		]
+			{
+				path: "app/savings/account",
+				name: "Cuentas de Ahorro",
+			},
+			{
+				path: "app/savings/deposits",
+				name: "Depósitos a Plazo Fijo",
+			},
+		],
 	},
-	{
+	/* 	{
 		name: 'Reportes',
 		icon: <FaChartBar />,
 		dropdownOptions: [
@@ -181,7 +184,7 @@ const pages = [
 				name: 'Tablas'
 			}
 		]
-	}
+	} */
 ]
 
 export default pages
