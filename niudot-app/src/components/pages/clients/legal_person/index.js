@@ -57,7 +57,10 @@ const LegalPerson = () => {
 		<LegalPersonCreate
 			clientData={client}
 			writeForm={writeForm}
-			goBack={() => setForm(false)}
+			goBack={() => {
+				setForm(false)
+				setClient(null)
+			}}
 		/>
 	) : (
 		<>

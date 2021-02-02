@@ -61,7 +61,10 @@ const NaturalPerson = () => {
 			clientData={client}
 			writeForm={writeForm}
 			savingClient={savingClient}
-			goBack={() => setForm(false)}
+			goBack={() => {
+				setForm(false)
+				setClient(null)
+			}}
 		/>
 	) : (
 		<>
