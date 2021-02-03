@@ -1,16 +1,16 @@
-import React, { useState, useContext, useEffect } from "react"
-import NewFormBtn from "../../utils/NewFormBtn"
-import routesContext from "../../../../context/routes/routesContext"
-import axios from "axios"
-import requestConfig from "../../../../utils/requestConfig"
-import SearchDeposit from "../../utils/search/products/SearchProducts"
-import DepositCreate from "./DepositCreate"
+import React, { useState, useContext, useEffect } from 'react'
+import NewFormBtn from '../../utils/NewFormBtn'
+import routesContext from '../../../../context/routes/routesContext'
+import axios from 'axios'
+import requestConfig from '../../../../utils/requestConfig'
+import SearchDeposit from '../../utils/search/products/SearchProducts'
+import CertificateCreate from './CertificateCreate'
 
 const Deposit = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
-		changePage("Depósitos a Plazo Fijo")
+		changePage('Productos de Certificados a Plazo Fijo')
 		// eslint-disable-next-line
 	}, [])
 
@@ -40,21 +40,21 @@ const Deposit = () => {
 	}
 
 	const writeForm = async (type, data) => {
-		console.log("Esto es lo que estoy enviando: ", data)
+		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/${type}/`,
 				data,
 				requestConfig
 			)
-			console.log("Esto es lo que estoy recibiendo: ", res)
+			console.log('Esto es lo que estoy recibiendo: ', res)
 		} catch (err) {
 			console.error(err)
 		}
 	}
 
 	return form ? (
-		<DepositCreate
+		<CertificateCreate
 			depositData={deposit}
 			writeForm={writeForm}
 			goBack={() => {
@@ -74,10 +74,10 @@ const Deposit = () => {
 			/>
 			<NewFormBtn
 				text={{
-					title: "Crear Un Nuevo Deposito",
+					title: 'Crear Un Nuevo Producto',
 					description:
-						"Registra un nuevo deposito depósito a plazo fijo.",
-					proceed: "Registra Nuevo Deposito",
+						'Registra un nuevo producto de certificado a plazo fijo.',
+					proceed: 'Registra Nuevo Producto',
 				}}
 				toggleForm={() => setForm(true)}
 			/>

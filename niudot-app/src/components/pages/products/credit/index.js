@@ -1,16 +1,16 @@
-import React, { useState, useContext, useEffect } from "react"
-import NewFormBtn from "../../utils/NewFormBtn"
-import routesContext from "../../../../context/routes/routesContext"
-import axios from "axios"
-import requestConfig from "../../../../utils/requestConfig"
-import SearchCredit from "../../utils/search/products/SearchProducts"
-import CreditCreate from "./CreditCreate"
+import React, { useState, useContext, useEffect } from 'react'
+import NewFormBtn from '../../utils/NewFormBtn'
+import routesContext from '../../../../context/routes/routesContext'
+import axios from 'axios'
+import requestConfig from '../../../../utils/requestConfig'
+import SearchCredit from '../../utils/search/products/SearchProducts'
+import CreditCreate from './CreditCreate'
 
 const Credit = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
-		changePage("Crédito")
+		changePage('Productos de Crédito')
 		// eslint-disable-next-line
 	}, [])
 
@@ -40,14 +40,14 @@ const Credit = () => {
 	}
 
 	const writeForm = async (type, data) => {
-		console.log("Esto es lo que estoy enviando: ", data)
+		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/${type}/`,
 				data,
 				requestConfig
 			)
-			console.log("Esto es lo que estoy recibiendo: ", res)
+			console.log('Esto es lo que estoy recibiendo: ', res)
 		} catch (err) {
 			console.error(err)
 		}
@@ -74,10 +74,9 @@ const Credit = () => {
 			/>
 			<NewFormBtn
 				text={{
-					title: "Crear Un Nuevo Credito",
-					description:
-						"Registra un nuevo credito depósito a plazo fijo.",
-					proceed: "Registra Nuevo Credito",
+					title: 'Crear Un Nuevo Producto',
+					description: 'Registra un nuevo producto de crédito.',
+					proceed: 'Registra Nuevo Producto',
 				}}
 				toggleForm={() => setForm(true)}
 			/>

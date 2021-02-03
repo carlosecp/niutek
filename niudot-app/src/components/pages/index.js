@@ -1,5 +1,5 @@
 // React to render the icons and components
-import React from "react"
+import React from 'react'
 // Icons
 import {
 	FaCashRegister,
@@ -11,10 +11,10 @@ import {
 	FaCreditCard,
 	FaMoneyCheck,
 	FaCubes,
-} from "react-icons/fa/index"
+} from 'react-icons/fa/index'
 
 const pages = [
-	/* 	{
+	/*	{
 		name: 'Caja',
 		icon: <FaCashRegister />,
 		dropdownOptions: [
@@ -45,39 +45,39 @@ const pages = [
 		]
 	}, */
 	{
-		name: "Clientes",
+		name: 'Clientes',
 		icon: <FaUsers />,
 		dropdownOptions: [
 			{
-				path: "app/clients/natural-person",
-				name: "Persona Natural",
+				path: 'app/clients/natural-person',
+				name: 'Persona Natural',
 			},
 			{
-				path: "app/clients/legal-person",
-				name: "Persona Jurídica",
+				path: 'app/clients/legal-person',
+				name: 'Persona Jurídica',
 			},
 		],
 	},
 	{
-		name: "Ahorros",
+		name: 'Productos',
 		icon: <FaPiggyBank />,
 		dropdownOptions: [
 			{
-				path: "app/savings/account",
-				name: "Cuentas de Ahorro",
+				path: 'app/products/savings',
+				name: 'Productos de Ahorro',
 			},
 			{
-				path: "app/savings/deposits",
-				name: "Depósitos a Plazo Fijo",
+				path: 'app/products/certificates',
+				name: 'Productos de Certificados a Plazo Fijo',
 			},
 			{
-				path: "app/savings/credit",
-				name: "Crédito",
+				path: 'app/products/credit',
+				name: 'Productos de Crédito',
 			},
 		],
 	},
-	
-	/* 	{
+
+	/*	{
 		name: 'Reportes',
 		icon: <FaChartBar />,
 		dropdownOptions: [

@@ -1,16 +1,16 @@
-import React, { useState, useContext, useEffect } from "react"
-import NewFormBtn from "../../utils/NewFormBtn"
-import routesContext from "../../../../context/routes/routesContext"
-import axios from "axios"
-import requestConfig from "../../../../utils/requestConfig"
-import SearchProduct from "../../utils/search/products/SearchProducts"
-import AccountCreate from "./AccountCreate"
+import React, { useState, useContext, useEffect } from 'react'
+import NewFormBtn from '../../utils/NewFormBtn'
+import routesContext from '../../../../context/routes/routesContext'
+import axios from 'axios'
+import requestConfig from '../../../../utils/requestConfig'
+import SearchProduct from '../../utils/search/products/SearchProducts'
+import ProductCreate from './ProductCreate'
 
-const Account = () => {
+const Savings = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
-		changePage("Cuentas de Ahorro")
+		changePage('Productos de Ahorro')
 		// eslint-disable-next-line
 	}, [])
 
@@ -25,7 +25,7 @@ const Account = () => {
 		setFetchingProduct(true)
 
 		const res = await axios.post(
-			`${process.env.REACT_APP_URL}/read/products`,
+			`${process.env.REACT_APP_URL}/read/producto`,
 			{ p_cod_producto: productId, p_cod_sucursal: 0, p_cod_empresa: 1 },
 			requestConfig
 		)
@@ -33,28 +33,28 @@ const Account = () => {
 		console.log(res.data)
 
 		setFetchingProduct(false)
-		setProduct({ p_cod_producto: productId })
+		setProduct({ p_cod_producto: productId, ...res.data })
 		setMatches([])
 		setLoading(false)
 		setForm(true)
 	}
 
 	const writeForm = async (type, data) => {
-		console.log("Esto es lo que estoy enviando: ", data)
+		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/${type}/`,
 				data,
 				requestConfig
 			)
-			console.log("Esto es lo que estoy recibiendo: ", res)
+			console.log('Esto es lo que estoy recibiendo: ', res)
 		} catch (err) {
 			console.error(err)
 		}
 	}
 
 	return form ? (
-		<AccountCreate
+		<ProductCreate
 			productData={product}
 			writeForm={writeForm}
 			goBack={() => {
@@ -74,10 +74,9 @@ const Account = () => {
 			/>
 			<NewFormBtn
 				text={{
-					title: "Crear Un Nuevo Producto",
-					description:
-						"Registra un nuevo producto cuentas de ahorro.",
-					proceed: "Registra Nuevo Producto",
+					title: 'Crear Un Nuevo Producto',
+					description: 'Registra un nuevo producto de ahorro.',
+					proceed: 'Registra Nuevo Producto',
 				}}
 				toggleForm={() => setForm(true)}
 			/>
@@ -85,4 +84,4 @@ const Account = () => {
 	)
 }
 
-export default Account
+export default Savings
