@@ -36,6 +36,7 @@ import {
 import { Account, Deposits } from "./savings"
 
 import { TableMaintenance } from "./table-maintenance"
+import Credit from "./savings/credit"
 
 const Page = (props) => {
 	return (
@@ -148,6 +149,11 @@ const Page = (props) => {
 						exact
 						path="/app/savings/deposits"
 						component={Deposits}
+					/>
+					<Route
+						exact
+						path="/app/savings/credit"
+						component={Credit}
 					/>
 					{/* Inventario */}
 					<Route

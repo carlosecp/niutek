@@ -70,8 +70,13 @@ const pages = [
 				path: "app/savings/deposits",
 				name: "Depósitos a Plazo Fijo",
 			},
+			{
+				path: "app/savings/credit",
+				name: "Crédito",
+			},
 		],
 	},
+	
 	/* 	{
 		name: 'Reportes',
 		icon: <FaChartBar />,
