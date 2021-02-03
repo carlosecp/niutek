@@ -25,13 +25,15 @@ const Account = () => {
 		setFetchingProduct(true)
 
 		const res = await axios.post(
-			`${process.env.REACT_APP_URL}/read/product`,
-			{ p_cod_producte: productId },
+			`${process.env.REACT_APP_URL}/read/products`,
+			{ p_cod_producto: productId, p_cod_sucursal: 0, p_cod_empresa: 1 },
 			requestConfig
 		)
 
+		console.log(res.data)
+
 		setFetchingProduct(false)
-		setProduct({ p_cod_producte: productId, ...res.data })
+		setProduct({ p_cod_producto: productId })
 		setMatches([])
 		setLoading(false)
 		setForm(true)
