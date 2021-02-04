@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFormikContext } from 'formik'
 import { Text, Dropdown } from '../../utils/forms'
-import Products from './Products'
+import CreditTable from './CreditTable'
 
 const NewCredit = ({ options, loading }) => {
 	const { values } = useFormikContext()
@@ -9,7 +9,7 @@ const NewCredit = ({ options, loading }) => {
 
 	return (
 		<>
-			<div className='form-grid-layout'>
+			<div className='mb-4 form-grid-layout'>
 				<Text name='p_nombres' size='lg' label='Tipo de Crédito' />
 				<Dropdown
 					size='md'
@@ -83,8 +83,7 @@ const NewCredit = ({ options, loading }) => {
 					type='number'
 				/>
 			</div>
-
-			<Products options={options} />
+			<CreditTable />
 		</>
 	)
 }

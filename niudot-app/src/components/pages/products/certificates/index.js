@@ -43,11 +43,11 @@ const Deposit = () => {
 		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
-				`${process.env.REACT_APP_URL}/${type}/`,
+				`${process.env.REACT_APP_URL}/${type}/producto_certificado`,
 				data,
 				requestConfig
 			)
-			console.log('Esto es lo que estoy recibiendo: ', res)
+			console.log('Esto es lo que estoy recibiendo: ', res.data)
 		} catch (err) {
 			console.error(err)
 		}
@@ -71,6 +71,7 @@ const Deposit = () => {
 				setMatches={setMatches}
 				fetchDeposit={fetchDeposit}
 				fetchingDeposit={fetchingDeposit}
+				path='certificado'
 			/>
 			<NewFormBtn
 				text={{

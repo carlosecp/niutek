@@ -1,7 +1,5 @@
 export const persona_juridica = {
 	// Persona Juridica
-	p_cod_empresa: 0,
-	p_cod_sucursal: 0,
 	p_nombre: "",
 	p_tipo_doc: "0",
 	p_num_doc: "",

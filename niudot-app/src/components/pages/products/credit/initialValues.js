@@ -1,1 +1,1 @@
-export const productos = [];
+export const productos = []

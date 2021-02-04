@@ -1,16 +1,16 @@
-import React, { useState, useContext, useEffect } from "react"
-import SearchClient from "../../utils/search/users/SearchClient"
-import NewFormBtn from "../../utils/NewFormBtn"
-import LegalPersonCreate from "./LegalPersonCreate"
-import routesContext from "../../../../context/routes/routesContext"
-import axios from "axios"
-import requestConfig from "../../../../utils/requestConfig"
+import React, { useState, useContext, useEffect } from 'react'
+import SearchClient from '../../utils/search/users/SearchClient'
+import NewFormBtn from '../../utils/NewFormBtn'
+import LegalPersonCreate from './LegalPersonCreate'
+import routesContext from '../../../../context/routes/routesContext'
+import axios from 'axios'
+import requestConfig from '../../../../utils/requestConfig'
 
 const LegalPerson = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
-		changePage("Persona Jurídica")
+		changePage('Persona Jurídica')
 		// eslint-disable-next-line
 	}, [])
 
@@ -40,14 +40,14 @@ const LegalPerson = () => {
 	}
 
 	const writeForm = async (type, data) => {
-		console.log("Esto es lo que estoy enviando: ", data)
+		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/${type}/cliente_juridico`,
 				data,
 				requestConfig
 			)
-			console.log("Esto es lo que estoy recibiendo: ", res)
+			console.log('Esto es lo que estoy recibiendo: ', res)
 		} catch (err) {
 			console.error(err)
 		}
@@ -71,12 +71,13 @@ const LegalPerson = () => {
 				setMatches={setMatches}
 				fetchClient={fetchClient}
 				fetchingClient={fetchingClient}
+				path='cliente_juridico'
 			/>
 			<NewFormBtn
 				text={{
-					title: "Crear Un Nuevo Cliente",
-					description: "Registra Un Nuevo Cliente",
-					proceed: "Registra Un Nuevo Cliente",
+					title: 'Crear Un Nuevo Cliente',
+					description: 'Registra Un Nuevo Cliente',
+					proceed: 'Registra Un Nuevo Cliente',
 				}}
 				toggleForm={() => setForm(true)}
 			/>

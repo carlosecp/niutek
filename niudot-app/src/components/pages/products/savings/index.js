@@ -43,7 +43,7 @@ const Savings = () => {
 		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
-				`${process.env.REACT_APP_URL}/${type}/`,
+				`${process.env.REACT_APP_URL}/${type}/productos_ahorro`,
 				data,
 				requestConfig
 			)
@@ -71,6 +71,7 @@ const Savings = () => {
 				setMatches={setMatches}
 				fetchProduct={fetchProduct}
 				fetchingProduct={fetchingProduct}
+				path='ahorro'
 			/>
 			<NewFormBtn
 				text={{

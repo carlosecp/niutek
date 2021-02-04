@@ -1,10 +1,10 @@
-import React from "react"
-import { Formik, Form } from "formik"
-import NewClient from "./NewClient"
-import ProfessionalData from "./ProfessionalData"
-import OriginFunds from "./OriginFunds"
-import References from "./references"
-import SubmitBtn from "../../utils/SubmitBtn"
+import React from 'react'
+import { Formik, Form } from 'formik'
+import NewClient from './NewClient'
+import ProfessionalData from './ProfessionalData'
+import OriginFunds from './OriginFunds'
+import References from './references'
+import SubmitBtn from '../../utils/SubmitBtn'
 import {
 	persona_natural,
 	datos_profesionales,
@@ -12,8 +12,8 @@ import {
 	referencias_comerciales,
 	referencias_bancarias,
 	referencias_personales,
-} from "./initialValues"
-import useOptions from "../../../../hooks/useOptions"
+} from './initialValues'
+import useOptions from '../../../../hooks/useOptions'
 
 const initialValues = {
 	...persona_natural,
@@ -39,8 +39,8 @@ const NaturalPersonCreate = ({
 			pct_cod_banco: [],
 		},
 		{
-			endpoint: "read/table",
-			body: { p_tipo: "*" },
+			endpoint: 'read/table',
+			body: { p_tipo: '*' },
 		},
 		true
 	)
@@ -56,40 +56,41 @@ const NaturalPersonCreate = ({
 					p_clase_persona: 1,
 					...values,
 				}
-				const writeType = clientData ? "update" : "create"
+				const writeType = clientData ? 'update' : 'create'
 				writeForm(writeType, tempValues)
 			}}
 		>
 			<Form>
-				<div className="mx-auto max-w-2xl pb-4">
-					<button className="btn bg-blue-blue" onClick={goBack}>
+				<div className='mx-auto max-w-2xl pb-4'>
+					<button
+						type='button'
+						className='btn bg-blue-blue'
+						onClick={() => goBack()}
+					>
 						Regresar
 					</button>
 				</div>
-				<div className="section">
+				<div className='section'>
 					{clientData ? (
 						<>
-							<h2 className="text-black-white text-xl font-bold">
+							<h2 className='text-black-white text-xl font-bold'>
 								Editar Cliente Existente
 							</h2>
-							<p className="text-gray-gray">
-								<b>Editando Cliente:</b>{" "}
-								{clientData.p_cod_cliente} -{" "}
+							<p className='text-gray-gray'>
+								<b>Editando Cliente:</b> {clientData.p_cod_cliente} -{' '}
 								{clientData.p_nombres} {clientData.p_apellidos}
 							</p>
 						</>
 					) : (
 						<>
-							<h2 className="text-black-white text-xl font-bold">
+							<h2 className='text-black-white text-xl font-bold'>
 								Crear Nuevo Cliente
 							</h2>
-							<p className="text-gray-gray">
-								Registrar un nuevo cliente.
-							</p>
+							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
 						</>
 					)}
 				</div>
-				<div className="mt-4 section">
+				<div className='mt-4 section'>
 					<NewClient options={options} loading={loading} />
 					<ProfessionalData />
 					<OriginFunds />

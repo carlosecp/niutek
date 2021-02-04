@@ -1,16 +1,16 @@
-import React, { useState, useContext, useEffect } from "react"
-import SearchClient from "../../utils/search/users/SearchClient"
-import NewFormBtn from "../../utils/NewFormBtn"
-import NaturalPersonCreate from "./NaturalPersonCreate"
-import routesContext from "../../../../context/routes/routesContext"
-import axios from "axios"
-import requestConfig from "../../../../utils/requestConfig"
+import React, { useState, useContext, useEffect } from 'react'
+import SearchClient from '../../utils/search/users/SearchClient'
+import NewFormBtn from '../../utils/NewFormBtn'
+import NaturalPersonCreate from './NaturalPersonCreate'
+import routesContext from '../../../../context/routes/routesContext'
+import axios from 'axios'
+import requestConfig from '../../../../utils/requestConfig'
 
 const NaturalPerson = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
-		changePage("Persona Natural")
+		changePage('Persona Natural')
 		// eslint-disable-next-line
 	}, [])
 
@@ -75,12 +75,13 @@ const NaturalPerson = () => {
 				setMatches={setMatches}
 				fetchClient={fetchClient}
 				fetchingClient={fetchingClient}
+				path='cliente_natural'
 			/>
 			<NewFormBtn
 				text={{
-					title: "Crear Un Nuevo Cliente",
-					description: "Registra Un Nuevo Cliente",
-					proceed: "Registra Un Nuevo Cliente",
+					title: 'Crear Un Nuevo Cliente',
+					description: 'Registra Un Nuevo Cliente',
+					proceed: 'Registra Un Nuevo Cliente',
 				}}
 				toggleForm={() => setForm(true)}
 			/>

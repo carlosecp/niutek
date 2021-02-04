@@ -27,15 +27,19 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 			handle
 			onSubmit={(values) => {
 				const tempValues = {
+					p_cod_empresa: 1,
+					p_cod_sucursal: 0,
+					pcd_cod_documento: '1         2         ',
+					pcd_reg: 2,
 					...values,
 				}
-				const writeType = productData ? 'update' : 'create'
+				const writeType = productData ? 'update' : 'register'
 				writeForm(writeType, tempValues)
 			}}
 		>
 			<Form>
 				<div className='mx-auto max-w-2xl pb-4'>
-					<button className='btn bg-blue-blue' onClick={goBack}>
+					<button type='button' className='btn bg-blue-blue' onClick={goBack}>
 						Regresar
 					</button>
 				</div>

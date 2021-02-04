@@ -2,24 +2,8 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import NewCertificate from './NewCertificate'
 import SubmitBtn from '../../utils/SubmitBtn'
-import {
-	persona_natural,
-	datos_profesionales,
-	origen_fondos,
-	referencias_comerciales,
-	referencias_bancarias,
-	referencias_personales,
-} from './initialValues'
+import { initialValues } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
-
-const initialValues = {
-	...persona_natural,
-	...datos_profesionales,
-	...origen_fondos,
-	referencias_comerciales,
-	referencias_bancarias,
-	referencias_personales,
-}
 
 const CertificateCreate = ({
 	depositData,
@@ -47,15 +31,17 @@ const CertificateCreate = ({
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
 					p_clase_persona: 1,
+					pdc_cod_documento: '1         2         ',
+					pdc_reg: 2,
 					...values,
 				}
-				const writeType = depositData ? 'update' : 'create'
+				const writeType = depositData ? 'update' : 'register'
 				writeForm(writeType, tempValues)
 			}}
 		>
 			<Form>
 				<div className='mx-auto max-w-2xl pb-4'>
-					<button className='btn bg-blue-blue' onClick={goBack}>
+					<button type='button' className='btn bg-blue-blue' onClick={goBack}>
 						Regresar
 					</button>
 				</div>

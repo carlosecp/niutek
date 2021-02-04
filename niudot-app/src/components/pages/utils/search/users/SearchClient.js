@@ -1,11 +1,11 @@
-import React from "react"
-import axios from "axios"
-import { Field, Form, Formik, useFormikContext } from "formik"
-import * as Yup from "yup"
-import requestConfig from "../../../../../utils/requestConfig"
-import spinner from "../../../../../assets/images/spinner.png"
-import { Dropdown } from "../../forms"
-import { FaSearch } from "react-icons/fa"
+import React from 'react'
+import axios from 'axios'
+import { Field, Form, Formik, useFormikContext } from 'formik'
+import * as Yup from 'yup'
+import requestConfig from '../../../../../utils/requestConfig'
+import spinner from '../../../../../assets/images/spinner.png'
+import { Dropdown } from '../../forms'
+import { FaSearch } from 'react-icons/fa'
 
 const SearchUser = ({
 	loading,
@@ -14,6 +14,7 @@ const SearchUser = ({
 	setMatches,
 	fetchClient,
 	fetchingClient,
+	path,
 }) => {
 	const getClients = async (data) => {
 		setLoading(true)
@@ -32,15 +33,13 @@ const SearchUser = ({
 	}
 
 	return (
-		<div className="section mb-4">
-			<h2 className="text-black-white font-bold text-xl">
+		<div className='section mb-4'>
+			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Cliente Existente
 			</h2>
-			<p className="text-gray-gray">
-				Buscar entre los clientes registrados.
-			</p>
+			<p className='text-gray-gray'>Buscar entre los clientes registrados.</p>
 			<Formik
-				initialValues={{ search: "", clientId: null }}
+				initialValues={{ search: '', clientId: null }}
 				validationSchema={Yup.object({
 					search: Yup.mixed().required(),
 				})}
@@ -75,30 +74,30 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 
 	return (
 		<>
-			<div className="mt-2">
-				<label className="text-black-white font-bold">
+			<div className='mt-2'>
+				<label className='text-black-white font-bold'>
 					Nombre o ID del Cliente
 				</label>
-				<div className="flex gap-2 w-72 sm:w-56">
+				<div className='flex gap-2 w-72 sm:w-56'>
 					<Field
-						name="search"
-						type="text"
-						className="form-field flex-1"
-						placeholder="Nombre o ID del Cliente"
+						name='search'
+						type='text'
+						className='form-field flex-1'
+						placeholder='Nombre o ID del Cliente'
 					/>
 					<button
-						type="submit"
+						type='submit'
 						className={`w-std h-std rounded flex justify-center items-center cursor-pointer ${
 							loading
-								? "btn-disabled btn-border-disabled cursor-wait"
-								: "bg-blue-blue btn-border-blue"
+								? 'btn-disabled btn-border-disabled cursor-wait'
+								: 'bg-blue-blue btn-border-blue'
 						}`}
 					>
 						{loading ? (
 							<img
 								src={spinner}
-								alt="Loading..."
-								className="w-6 h-6 animate-spin"
+								alt='Loading...'
+								className='w-6 h-6 animate-spin'
 							/>
 						) : (
 							<FaSearch />
@@ -106,41 +105,32 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 					</button>
 				</div>
 			</div>
-			<div className="mt-2 form-grid-layout">
-				<Dropdown label="Clientes" size="md" name="clientId">
-					<option
-						value="0"
-						selected={true}
-						disabled
-						label="Seleccione"
-					/>
+			<div className='mt-2 form-grid-layout'>
+				<Dropdown label='Clientes' size='md' name='clientId'>
+					<option value='0' selected={true} disabled label='Seleccione' />
 					{matches.map((client) => (
-						<option
-							key={client.cod_cliente}
-							value={client.cod_cliente}
-						>
-							{client.cod_cliente} - {client.nombres}{" "}
-							{client.apellidos}
+						<option key={client.cod_cliente} value={client.cod_cliente}>
+							{client.cod_cliente} - {client.nombres} {client.apellidos}
 						</option>
 					))}
 				</Dropdown>
 			</div>
 			<button
-				type="button"
+				type='button'
 				className={`mt-3 btn flex items-center gap-2 ${
 					fetchingClient || !clientId
 						? fetchingClient
-							? "btn-disabled cursor-wait"
-							: "btn-disabled cursor-not-allowed"
-						: "bg-blue-blue btn-border-blue"
+							? 'btn-disabled cursor-wait'
+							: 'btn-disabled cursor-not-allowed'
+						: 'bg-blue-blue btn-border-blue'
 				}`}
 				onClick={handleSubmit}
 			>
 				{fetchingClient || !clientId
 					? fetchingClient
-						? "Leyendo Cliente"
-						: "Seleccione Cliente"
-					: "Editar Cliente"}
+						? 'Leyendo Cliente'
+						: 'Seleccione Cliente'
+					: 'Editar Cliente'}
 			</button>
 		</>
 	)
