@@ -1,8 +1,7 @@
-// React and Router Stuff
-import React, { useState } from 'react'
-// Extra libraries
-import { useField } from 'formik'
-import ReactDatePicker from 'react-datepicker'
+import React, { useState } from "react"
+
+import { useField } from "formik"
+import ReactDatePicker from "react-datepicker"
 
 const DateInput = ({
 	size,
@@ -20,17 +19,19 @@ const DateInput = ({
 		<>
 			<div
 				className={`form-container-${size} ${
-					newline && 'force-newline'
+					newline && "force-newline"
 				} flex flex-col mb-4`}
 			>
-				<label className={`text-black-white ${boldLabel && 'font-bold'}`}>
+				<label
+					className={`text-black-white ${boldLabel && "font-bold"}`}
+				>
 					{label}
 				</label>
 
 				<ReactDatePicker
-					dateFormat='dd/MM/yyyy'
+					dateFormat="dd/MM/yyyy"
 					className={`form-field w-full `}
-					placeholderText='dd/mm/aaaa'
+					placeholderText="dd/mm/aaaa"
 					{...field}
 					{...props}
 					selected={startDate}

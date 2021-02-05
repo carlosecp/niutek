@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Topbar from '../layout/Topbar'
 import Dashboard from '../dashboard'
 import { FormNotFound } from '../routing/NotFound'
-// Other Components
+
 import {
 	Reconciled,
 	ToBeRecondiled,
@@ -18,7 +18,6 @@ import {
 	CreditResolution,
 	CreditFormalization,
 } from './credit'
-import Products from './products'
 import {
 	AnticipatedCancellation,
 	FixedTermCertificateOpening,
@@ -33,20 +32,11 @@ import {
 	Billing,
 	InvoiceCancel,
 } from './inventory'
-import {
-	OrderStubs,
-	AccountCancellation,
-	FixedTermDepositOpening,
-	EarlyCancellation,
-	AccountOpening,
-} from './savings'
+import { Savings, Certificates, Credit } from './products'
 
 import { TableMaintenance } from './table-maintenance'
-import alertsContext from '../../context/alerts/alertsContext'
 
 const Page = (props) => {
-	const { alerts } = useContext(alertsContext)
-
 	return (
 		<div className='pl-64 cstm:p-0 w-full'>
 			<Topbar {...props} />
@@ -58,11 +48,6 @@ const Page = (props) => {
 						exact
 						path='/app/register/anticipated-cancellation'
 						component={AnticipatedCancellation}
-					/>
-					<Route
-						exact
-						path='/app/register/saving-account'
-						component={AccountOpening}
 					/>
 					<Route
 						exact
@@ -95,8 +80,6 @@ const Page = (props) => {
 						path='/app/clients/legal-person'
 						component={LegalPerson}
 					/>
-					{/* PRODUCTS */}
-					<Route exact path='/app/products' component={Products} />
 					{/* CREDITO */}
 					<Route exact path='/app/credit/products' component={CreditProducts} />
 					<Route
@@ -128,32 +111,15 @@ const Page = (props) => {
 					{/* INVENTORY */}
 					<Route exact path='/app/inventory/items' component={Items} />
 					<Route exact path='/app/checks/voided' component={Voided} />
-					{/* Ahorros */}
+					{/* Productos */}
+					<Route exact path='/app/products/savings' component={Savings} />
 					<Route
 						exact
-						path='/app/ahorros/savings-account-opening'
-						component={AccountOpening}
+						path='/app/products/certificates'
+						component={Certificates}
 					/>
-					<Route
-						exact
-						path='/app/ahorros/assignment-of-payment-order-stubs'
-						component={OrderStubs}
-					/>
-					<Route
-						exact
-						path='/app/ahorros/saving-account-cancellation'
-						component={AccountCancellation}
-					/>
-					<Route
-						exact
-						path='/app/ahorros/fixed-term-deposit-opening'
-						component={FixedTermDepositOpening}
-					/>
-					<Route
-						exact
-						path='/app/ahorros/early-cancellation-fixed-term-deposit'
-						component={EarlyCancellation}
-					/>
+					<Route exact path='/app/products/credit' component={Credit} />
+					{/* Inventario */}
 					<Route exact path='/app/inventory/billing' component={Billing} />
 					<Route exact path='/app/inventory/items' component={Items} />
 					<Route exact path='/app/inventory/purchase' component={Purchase} />

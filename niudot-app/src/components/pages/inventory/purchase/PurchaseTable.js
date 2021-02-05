@@ -1,114 +1,116 @@
-// React and Router Stuff
-import React, { useMemo, useRef, useState, useCallback } from 'react'
-// Other Components
-import Table from '../../utils/tables'
+import React, { useMemo, useRef, useState, useCallback } from "react"
+import Table from "../../utils/tables"
 
 const PurchaseTable = ({ togglePopup }) => {
-	const columns = useMemo(() => [
-		{ Header: 'Artículo', accessor: 'item' },
-		{ Header: 'Descripción', accessor: 'description' },
-		{ Header: 'Presentación', accessor: 'presentation' },
-		{ Header: 'Cantidad', accessor: 'quantity' },
-		{ Header: 'Monto', accessor: 'value' },
-		{ Header: 'Total', accessor: 'total' }
-	])
+	const columns = useMemo(
+		() => [
+			{ Header: "Artículo", accessor: "item" },
+			{ Header: "Descripción", accessor: "description" },
+			{ Header: "Presentación", accessor: "presentation" },
+			{ Header: "Cantidad", accessor: "quantity" },
+			{ Header: "Monto", accessor: "value" },
+			{ Header: "Total", accessor: "total" },
+		],
+		[]
+	)
+
 	const serverData = [
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
+			total: 680,
 		},
 		{
-			item: 'Coca Cola',
-			description: '10/09/2001',
-			presentation: 'Juan Matus',
+			item: "Coca Cola",
+			description: "10/09/2001",
+			presentation: "Juan Matus",
 			quantity: 20,
 			value: 34,
-			total: 680
-		}
+			total: 680,
+		},
 	]
 
 	const [data, setData] = useState([])
@@ -133,6 +135,7 @@ const PurchaseTable = ({ togglePopup }) => {
 				setLoading(false)
 			}
 		}, 1000)
+		// eslint-disable-next-line
 	}, [])
 
 	return (

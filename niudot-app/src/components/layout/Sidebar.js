@@ -1,22 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import {
 	ProSidebar,
 	SidebarHeader,
 	SidebarContent,
 	Menu,
-	MenuItem,
 	SidebarFooter,
 } from 'react-pro-sidebar'
-import { FaCog, FaHome, FaMoon, FaSun } from 'react-icons/fa/index'
+import { FaCog, FaMoon, FaSun } from 'react-icons/fa/index'
 import pages from '../pages'
 import SidebarSubMenu from './SidebarSubMenu'
 import authContext from '../../context/auth/authContext'
 import themeContext from '../../context/theme/themeContext'
-import routesContext from '../../context/routes/routesContext'
 
 const Sidebar = ({ toggled, setToggled }) => {
-	const { changePage } = useContext(routesContext)
 	const { theme } = useContext(themeContext)
 	const [openSettings, setOpenSettings] = useState(false)
 
@@ -38,10 +34,10 @@ const Sidebar = ({ toggled, setToggled }) => {
 			</SidebarHeader>
 			<SidebarContent onClick={() => setOpenSettings(false)}>
 				<Menu>
-					<MenuItem icon={<FaHome />} className='sidebar-item'>
+					{/* <MenuItem icon={<FaHome />} className='sidebar-item'>
 						Inicio
 						<Link to='/app/dashboard' onClick={() => changePage('inicio')} />
-					</MenuItem>
+					</MenuItem> */}
 					{pages.map((page) => (
 						<SidebarSubMenu key={page.name} page={page} />
 					))}
@@ -62,7 +58,7 @@ const Sidebar = ({ toggled, setToggled }) => {
 	)
 }
 
-function ThemeSwitch() {
+const ThemeSwitch = () => {
 	const { theme, toggleTheme } = useContext(themeContext)
 
 	return (

@@ -1,18 +1,17 @@
-// React and Router Stuff
-import React from 'react'
-// Extra libraries
-import * as Yup from 'yup'
-import { Formik, Form } from 'formik'
-// Other Components
-import AnticipatedCancellation from './AnticipatedCancellation'
+import React from "react"
+
+import * as Yup from "yup"
+import { Formik, Form } from "formik"
+
+import AnticipatedCancellation from "./AnticipatedCancellation"
 // Data
-import { createValues, createValuesSchema } from './initialValues'
+import { createValues, createValuesSchema } from "./initialValues"
 
 const initialValues = {
-	...createValues
+	...createValues,
 }
 const validationSchema = Yup.object({
-	...createValuesSchema
+	...createValuesSchema,
 })
 
 const AnticipatedCancellationCreate = () => {
@@ -24,7 +23,7 @@ const AnticipatedCancellationCreate = () => {
 				alert(JSON.stringify(values, null, 2))
 			}}
 		>
-			<Form className='section'>
+			<Form className="section">
 				<AnticipatedCancellation />
 			</Form>
 		</Formik>

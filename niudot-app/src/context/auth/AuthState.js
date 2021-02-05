@@ -1,21 +1,21 @@
-// React and Router Stuff
 import React, { useReducer } from 'react'
-// Extra libraries
+
 import axios from 'axios'
 import * as types from '../types'
-// Context
+
 import authContext from './authContext'
 import authReducer from './authReducer'
 // Utils
 import setAuthToken from '../../utils/setAuthToken'
+import requestConfig from '../../utils/requestConfig'
 
 const AuthState = (props) => {
 	const initialState = {
-		user: { type: 'client' },
+		user: true,
 		token: localStorage.getItem('token'),
 		isAuthenticated: true,
 		loading: true,
-		error: null
+		error: null,
 	}
 
 	const [state, dispatch] = useReducer(authReducer, initialState)
@@ -29,7 +29,6 @@ const AuthState = (props) => {
 		try {
 			const user = {
 				username: 'CarlosECP01',
-				type: 'admin'
 			}
 
 			if (localStorage.token) {
@@ -44,18 +43,11 @@ const AuthState = (props) => {
 
 	// &Register
 	const registerUser = async (formData) => {
-		const config = {
-			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Credentials': 'true'
-			}
-		}
-
 		try {
 			const res = await axios.post(
 				'https://backend-dot-nicascriptproject.uc.r.appspot.com/register',
 				formData,
-				config
+				requestConfig
 			)
 			loadUser()
 			dispatch({ type: types.REGISTER_SUCCESS, payload: res.data })
@@ -66,18 +58,11 @@ const AuthState = (props) => {
 
 	// &Login
 	const loginUser = async (formData) => {
-		const config = {
-			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Credentials': 'true'
-			}
-		}
-
 		try {
 			const res = await axios.post(
-				'https://backend-dot-nicascriptproject.uc.r.appspot.com/auth',
+				`${process.env.REACT_APP_URL}/auth`,
 				formData,
-				config
+				requestConfig
 			)
 			loadUser()
 			dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
@@ -101,7 +86,7 @@ const AuthState = (props) => {
 				registerUser,
 				loginUser,
 				logout,
-				clearErrors
+				clearErrors,
 			}}
 		>
 			{props.children}

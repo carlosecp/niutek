@@ -1,6 +1,5 @@
-// React and Router Stuff
-import React from 'react'
-// Extra libraries
+import React, { useEffect } from 'react'
+
 import { useField } from 'formik'
 
 const TextInput = ({
@@ -11,6 +10,12 @@ const TextInput = ({
 	...props
 }) => {
 	const [field, meta] = useField(props)
+
+	useEffect(() => {
+		if (disabled) {
+			field.value = ''
+		}
+	}, [disabled])
 
 	return (
 		<>

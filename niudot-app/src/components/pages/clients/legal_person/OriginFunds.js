@@ -1,76 +1,79 @@
-// React and Router Stuff
 import React from 'react'
-// Other Components
-import { Text } from '../../utils/forms'
+import { useFormikContext } from 'formik'
+import { Text, Checkbox } from '../../utils/forms'
 import RetractileForm from '../../utils/retractile_sections'
 
 const OriginFunds = () => {
+	const { values } = useFormikContext()
+
 	return (
-		<RetractileForm id='Origen Fondos' formTitle='Origen Fondos'>
+		<RetractileForm id='Muere Juan' formTitle='Origen de Fondos'>
 			<div className='form-grid-layout'>
+				<Checkbox size='md' name='p_of_donacion' label='Donación' />
 				<Text
-					name='origen_fondos_negocio_propio_nombre'
+					name='p_of_nombre_donante'
 					size='md'
-					placeholder='Nombre del Negocio'
-					label='Nombre del Negocio'
+					label='Nombre del Donante'
+					forLabel={true}
+					disabled={!values.p_of_donacion}
 				/>
+
+				<Checkbox size='md' name='p_of_herencia' label='Herencia' />
 				<Text
-					name='origen_fondos_profesion_independiente_profesion'
+					name='p_of_de_quien'
 					size='md'
-					newline={true}
-					placeholder='Profesión de ejerce'
-					label='Profesión de ejerce'
+					label='De quién'
+					forLabel={true}
+					disabled={!values.p_of_herencia}
 				/>
+
+				<Checkbox size='md' name='p_of_inversiones' label='Inversiones' />
 				<Text
-					name='origen_fondos_herencia_procedencia'
+					name='p_of_tipos_inversiones'
 					size='md'
-					newline={true}
-					placeholder='Procedencia'
-					label='Procedencia'
-				/>
-				<Text
-					name='origen_fondos_herencia_monto'
-					size='md'
-					placeholder='Monto'
-					label='Monto'
-					type='number'
-					min='0'
-				/>
-				<Text
-					name='origen_fondos_inversiones_tipo'
-					size='md'
-					placeholder='Tipo de Inversiones'
 					label='Tipo de Inversiones'
-					newline={true}
+					forLabel={true}
+					disabled={!values.p_of_inversiones}
 				/>
+
+				<Checkbox size='md' name='p_of_prestamo' label='Préstamo' />
 				<Text
-					name='origen_fondos_prestamo_institucion'
+					name='p_of_inst_financiera'
 					size='md'
-					placeholder='Institucion Financiera'
-					label='Institucion Financiera'
-					newline={true}
-				/>
-				<Text
-					name='origen_fondos_ventas_producto'
-					size='md'
-					placeholder='Venta de...'
-					label='Ventas'
-					newline={true}
-				/>
-				<Text
-					name='origen_fondos_ahorro_institucion'
-					size='md'
-					placeholder='Institución Financiera'
 					label='Institución Financiera'
+					forLabel={true}
+					disabled={!values.p_of_prestamo}
+				/>
+
+				<Checkbox size='md' name='p_of_venta_de' label='Venta de' />
+				<Text
+					name='p_of_descrip_venta_de'
+					size='md'
+					label='Descripcion Venta'
+					forLabel={true}
+					disabled={!values.p_of_venta_de}
+				/>
+
+				<Checkbox
+					size='md'
+					name='p_of_ing_gir_emp'
+					label='Ingresos por giro comercial de la empresa'
+				/>
+
+				<Checkbox
+					size='md'
+					name='p_of_aport_socios'
+					label='Aporte de Socios'
 					newline={true}
 				/>
 
+				<Checkbox size='md' name='p_of_otros' label='Otros' newline={true} />
 				<Text
-					name='origen_fondos_otros_descripcion'
+					name='p_of_des_otros'
 					size='md'
-					placeholder='Especifique'
-					label='Otros'
-					newline={true}
+					label='Descripción Otros'
+					forLabel={true}
+					disabled={!values.p_of_otros}
 				/>
 			</div>
 		</RetractileForm>

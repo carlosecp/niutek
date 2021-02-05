@@ -1,11 +1,7 @@
-// React and Router Stuff
 import React, { useEffect, useContext } from 'react'
-// Extra libraries
 import * as Yup from 'yup'
 import { Formik, Form } from 'formik'
-// Context
 import authContext from '../../context/auth/authContext'
-// Other Components
 import { Text } from '../pages/utils/forms'
 import Navbar from './Navbar'
 
@@ -20,12 +16,9 @@ const Login = (props) => {
 
 	useEffect(() => {
 		if (isAuthenticated && user) {
-			if (user.type === 'client') {
-				props.history.push('/app/dashboard')
-			} else if (user.type === 'admin') {
-				props.history.push('/admin/register')
-			}
-			loadUser()
+			console.log('Hello World')
+			props.history.push('/app/dashboard')
+			//loadUser()
 		}
 		// eslint-disable-next-line
 	}, [isAuthenticated, user])

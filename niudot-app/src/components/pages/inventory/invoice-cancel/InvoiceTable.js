@@ -1,62 +1,61 @@
-// React and Router Stuff
-import React, { useMemo, useRef, useState, useCallback } from 'react'
-// Other Components
-import Table from '../../utils/tables'
+import React, { useMemo, useRef, useState, useCallback } from "react"
+import Table from "../../utils/tables"
 
 const InvoiceTable = ({ togglePopup }) => {
-	const headers = ['Id', 'Nombre abreviado', 'Precio', 'Cantidad', 'Total']
-
-	const columns = useMemo(() => [
-		{ Header: 'Id', accessor: 'id' },
-		{ Header: 'Nombre Abreviado', accessor: 'name' },
-		{ Header: 'Precio', accessor: 'price' },
-		{ Header: 'Cantidad', accessor: 'quantity' },
-		{ Header: 'Total', accessor: 'total' }
-	])
+	const columns = useMemo(
+		() => [
+			{ Header: "Id", accessor: "id" },
+			{ Header: "Nombre Abreviado", accessor: "name" },
+			{ Header: "Precio", accessor: "price" },
+			{ Header: "Cantidad", accessor: "quantity" },
+			{ Header: "Total", accessor: "total" },
+		],
+		[]
+	)
 
 	const serverData = [
 		{
 			id: 69,
-			name: 'Album 2010',
+			name: "Album 2010",
 			price: 69.69,
 			quantity: 1,
-			total: 69.69
+			total: 69.69,
 		},
 		{
 			id: 69,
-			name: 'Album 2010',
+			name: "Album 2010",
 			price: 69.69,
 			quantity: 1,
-			total: 69.69
+			total: 69.69,
 		},
 		{
 			id: 69,
-			name: 'Album 2010',
+			name: "Album 2010",
 			price: 69.69,
 			quantity: 1,
-			total: 69.69
+			total: 69.69,
 		},
 		{
 			id: 69,
-			name: 'Album 2010',
+			name: "Album 2010",
 			price: 69.69,
 			quantity: 1,
-			total: 69.69
+			total: 69.69,
 		},
 		{
 			id: 69,
-			name: 'Album 2010',
+			name: "Album 2010",
 			price: 69.69,
 			quantity: 1,
-			total: 69.69
+			total: 69.69,
 		},
 		{
 			id: 69,
-			name: 'Album 2010',
+			name: "Album 2010",
 			price: 69.69,
 			quantity: 1,
-			total: 69.69
-		}
+			total: 69.69,
+		},
 	]
 
 	const [data, setData] = useState([])
@@ -81,6 +80,7 @@ const InvoiceTable = ({ togglePopup }) => {
 				setLoading(false)
 			}
 		}, 1000)
+		// eslint-disable-next-line
 	}, [])
 
 	return (

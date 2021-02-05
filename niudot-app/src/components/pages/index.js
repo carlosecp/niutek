@@ -10,11 +10,11 @@ import {
 	FaChevronCircleDown,
 	FaCreditCard,
 	FaMoneyCheck,
-	FaCubes
+	FaCubes,
 } from 'react-icons/fa/index'
 
 const pages = [
-	{
+	/*	{
 		name: 'Caja',
 		icon: <FaCashRegister />,
 		dropdownOptions: [
@@ -43,33 +43,41 @@ const pages = [
 				name: 'Retiro a Cuenta de Ahorro'
 			}
 		]
-	},
+	}, */
 	{
 		name: 'Clientes',
 		icon: <FaUsers />,
 		dropdownOptions: [
 			{
 				path: 'app/clients/natural-person',
-				name: 'Persona Natural'
+				name: 'Persona Natural',
 			},
 			{
 				path: 'app/clients/legal-person',
-				name: 'Persona Jurídica'
-			}
-		]
+				name: 'Persona Jurídica',
+			},
+		],
 	},
 	{
-		name: 'Ahorros',
+		name: 'Productos',
 		icon: <FaPiggyBank />,
 		dropdownOptions: [
-			{ path: 'app/ahorros/savings-account-opening', name: 'Apertura de Cuenta' },
-			{ path: 'app/ahorros/assignment-of-payment-order-stubs', name: 'Asignación de Talonario' },
-			{ path: 'app/ahorros/saving-account-cancellation', name: 'Cancelación de Cuenta' },
-			{ path: 'app/ahorros/fixed-term-deposit-opening', name: 'Apertura Depósito a Plazo Fijo' },
-			{ path: 'app/ahorros/early-cancellation-fixed-term-deposit', name: 'Cancelación Anticipada' },
-		]
+			{
+				path: 'app/products/savings',
+				name: 'Productos de Ahorro',
+			},
+			{
+				path: 'app/products/certificates',
+				name: 'Productos de Certificados a Plazo Fijo',
+			},
+			{
+				path: 'app/products/credit',
+				name: 'Productos de Crédito',
+			},
+		],
 	},
-	{
+
+	/*	{
 		name: 'Reportes',
 		icon: <FaChartBar />,
 		dropdownOptions: [
@@ -181,7 +189,7 @@ const pages = [
 				name: 'Tablas'
 			}
 		]
-	}
+	} */
 ]
 
 export default pages

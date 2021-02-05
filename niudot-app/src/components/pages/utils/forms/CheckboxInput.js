@@ -1,16 +1,18 @@
-// React and Router Stuff
 import React from 'react'
-// Extra libraries
-import { useField } from 'formik'
 
-const CheckboxInput = ({ description, label, children, ...props }) => {
-	const [field] = useField({ ...props, type: 'checkbox' })
+import { Field } from 'formik'
 
+const CheckboxInput = ({ name, showLabel = true, label }) => {
 	return (
-		<div className='form-field flex items-center'>
-			<input type='checkbox' className='mr-2' {...field} {...props} />
-			<div className=''>{description}</div>
-		</div>
+		<>
+			{showLabel && (
+				<label className='font-bold hidden sm:block'>{label}</label>
+			)}
+			<div className='form-field flex items-center self-end'>
+				<Field type='checkbox' className='mr-2' name={name} />
+				{label}
+			</div>
+		</>
 	)
 }
 

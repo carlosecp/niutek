@@ -1,65 +1,91 @@
 import React, { useState, useContext, useEffect } from 'react'
-import axios from 'axios'
 import SearchClient from '../../utils/search/users/SearchClient'
-import CreateNewClientBtn from '../../utils/CreateNewClientBtn'
+import NewFormBtn from '../../utils/NewFormBtn'
 import NaturalPersonCreate from './NaturalPersonCreate'
 import routesContext from '../../../../context/routes/routesContext'
+import axios from 'axios'
 import requestConfig from '../../../../utils/requestConfig'
 
 const NaturalPerson = () => {
 	const { changePage } = useContext(routesContext)
-	// Show form or not, and determine the type of the form to show (new cliente or previous client)
-	const [form, setForm] = useState(false)
-	const [loading, setLoading] = useState(false)
 
-	// Esta variale controla al usuario seleccionado tras la busqueda
-	// Este es solo el id del cliente seleccionado, no el cliente en si
-	const [selected, setSelected] = useState(null)
-
-	// Este es el usuario, si es nulo, pues vamos a crear un nuevo usuario, si no, entonces vamos a editarlo
-	const [client, setClient] = useState(null)
-
-	// Este es la funcion que se encarga de traer la informacion de Persona Natural para el cliente seleccionado
-	const getClientData = async () => {
-		setLoading(true)
-		try {
-			const res = await axios.post(
-				'https://backend-dot-nicascriptproject.uc.r.appspot.com/read/client',
-				{ p_cod_cliente: selected },
-				requestConfig
-			)
-			setClient(res.data)
-		} catch (err) {
-			console.error(err)
-		} finally {
-			setLoading(false)
-		}
-	}
-
-	// Esto lo que hace es que si hay un cliente seleccionado, mandamos a pedir la informacion especifica de ese cliente
-	useEffect(() => {
-		if (selected) {
-			getClientData()
-		}
-	}, [selected])
-
-	// Y pues, esto solo cambia el titulo de la pagina
 	useEffect(() => {
 		changePage('Persona Natural')
 		// eslint-disable-next-line
 	}, [])
 
+	const [loading, setLoading] = useState(false)
+	const [fetchingClient, setFetchingClient] = useState(false)
+
+	const [matches, setMatches] = useState([])
+	const [client, setClient] = useState(null)
+	const [form, setForm] = useState(false)
+
+	const [savingClient, setSavingClient] = useState(false)
+
+	const fetchClient = async (clientId) => {
+		setFetchingClient(true)
+
+		const res = await axios.post(
+			`${process.env.REACT_APP_URL}/read/client`,
+			{ p_cod_cliente: clientId },
+			requestConfig
+		)
+
+		console.log(res.data)
+
+		setFetchingClient(false)
+		setClient({ p_cod_cliente: clientId, ...res.data })
+		setMatches([])
+		setLoading(false)
+		setForm(true)
+	}
+
+	const writeForm = async (type, data) => {
+		setSavingClient(true)
+		try {
+			const res = await axios.post(
+				`${process.env.REACT_APP_URL}/${type}/cliente_natural`,
+				data,
+				requestConfig
+			)
+			console.log(res.data.result[0])
+		} catch (err) {
+			console.error(err)
+		} finally {
+			setSavingClient(false)
+		}
+	}
+
 	return form ? (
-		<NaturalPersonCreate client={client} />
+		<NaturalPersonCreate
+			clientData={client}
+			writeForm={writeForm}
+			savingClient={savingClient}
+			goBack={() => {
+				setForm(false)
+				setClient(null)
+			}}
+		/>
 	) : (
 		<>
 			<SearchClient
-				selected={selected}
-				setSelected={setSelected}
-				allowed={client ? true : false}
+				loading={loading}
+				setLoading={setLoading}
+				matches={matches}
+				setMatches={setMatches}
+				fetchClient={fetchClient}
+				fetchingClient={fetchingClient}
+				path='natural'
+			/>
+			<NewFormBtn
+				text={{
+					title: 'Crear Un Nuevo Cliente Persona Natural',
+					description: 'Registra un nuevo cliente persona natural.',
+					proceed: 'Registra Un Nuevo Cliente',
+				}}
 				toggleForm={() => setForm(true)}
 			/>
-			<CreateNewClientBtn toggleForm={() => setForm(true)} />
 		</>
 	)
 }

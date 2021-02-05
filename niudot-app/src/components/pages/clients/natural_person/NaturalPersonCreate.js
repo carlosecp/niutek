@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Formik, Form } from 'formik'
 import NewClient from './NewClient'
 import ProfessionalData from './ProfessionalData'
 import OriginFunds from './OriginFunds'
-import References from '../../utils/references'
+import References from './references'
 import SubmitBtn from '../../utils/SubmitBtn'
 import {
 	persona_natural,
@@ -13,6 +13,7 @@ import {
 	referencias_bancarias,
 	referencias_personales,
 } from './initialValues'
+import useOptions from '../../../../hooks/useOptions'
 
 const initialValues = {
 	...persona_natural,
@@ -23,55 +24,80 @@ const initialValues = {
 	referencias_personales,
 }
 
-const NaturalPersonCreate = ({ client }) => {
-	useEffect(() => {
-		console.log(client)
-	}, [])
+const NaturalPersonCreate = ({
+	clientData,
+	writeForm,
+	savingClient,
+	goBack,
+}) => {
+	const { options, loading } = useOptions(
+		{
+			p_tipo_doc: [],
+			p_moneda: [],
+			p_sexo: [],
+			p_cod_nac: [],
+			pct_cod_banco: [],
+		},
+		{
+			endpoint: 'read/table',
+			body: { p_tipo: '*' },
+		},
+		true
+	)
 
 	return (
 		<Formik
-			initialValues={client || initialValues}
+			initialValues={clientData || initialValues}
+			handle
 			onSubmit={(values) => {
 				const tempValues = {
+					p_cod_empresa: 1,
+					p_cod_sucursal: 0,
+					p_clase_persona: 1,
 					...values,
-					prc_reg: values.referencias_bancarias.length,
-					prb_reg: values.referencias_bancarias.length,
-					pct_reg: values.referencias_bancarias.length,
-					prp_reg: values.referencias_personales.length,
 				}
+				const writeType = clientData ? 'modify' : 'update'
+				writeForm(writeType, tempValues)
 			}}
 		>
-			{({ values }) => (
-				<Form>
-					<div className='section'>
-						{client ? (
-							<>
-								<h2 className='text-black-white text-xl font-bold'>
-									Editar Cliente Existente
-								</h2>
-								<p className='text-gray-gray'>
-									<b>Editando Cliente: </b>
-									{client.cod_cliente} - {client.name} {client.apellidos}
-								</p>
-							</>
-						) : (
-							<>
-								<h2 className='text-black-white text-xl font-bold'>
-									Crear Nuevo Cliente
-								</h2>
-								<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
-							</>
-						)}
-					</div>
-					<div className='mt-4 section'>
-						<NewClient />
-						<ProfessionalData />
-						<OriginFunds />
-						<References values={values} />
-						<SubmitBtn />
-					</div>
-				</Form>
-			)}
+			<Form>
+				<div className='mx-auto max-w-2xl pb-4'>
+					<button
+						type='button'
+						className='btn bg-blue-blue'
+						onClick={() => goBack()}
+					>
+						Regresar
+					</button>
+				</div>
+				<div className='section'>
+					{clientData ? (
+						<>
+							<h2 className='text-black-white text-xl font-bold'>
+								Editar Cliente Existente
+							</h2>
+							<p className='text-gray-gray'>
+								<b>Editando Cliente:</b> {clientData.p_cod_cliente} -{' '}
+								{clientData.p_nombres} {clientData.p_apellidos}
+							</p>
+						</>
+					) : (
+						<>
+							<h2 className='text-black-white text-xl font-bold'>
+								Crear Nuevo Cliente
+							</h2>
+							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
+						</>
+					)}
+				</div>
+				<div className='mt-4 section'>
+					<NewClient options={options} loading={loading} />
+					<ProfessionalData />
+					<OriginFunds />
+					<References options={options} loading={loading} />
+					<SubmitBtn loading={savingClient} />
+				</div>
+			</Form>
 		</Formik>
 	)
 }

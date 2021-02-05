@@ -1,11 +1,10 @@
-// React and Router Stuff
-import React from 'react'
-// Extra libraries
-import { Formik, Form } from 'formik'
-import { Text } from '../../utils/forms'
-import { FaBan, FaCheck, FaPrint, FaTrash } from 'react-icons/fa'
-// Other Components
-import Popup from '../../utils/tables/Popup'
+import React from "react"
+
+import { Formik, Form } from "formik"
+import { Text } from "../../utils/forms"
+import { FaBan, FaCheck, FaPrint, FaTrash } from "react-icons/fa"
+
+import Popup from "../../utils/tables/Popup"
 
 const EditChecksPopup = ({ checkId, togglePopup }) => {
 	return (
@@ -18,84 +17,89 @@ const EditChecksPopup = ({ checkId, togglePopup }) => {
 				}}
 			>
 				<Form>
-					<h2 className='text-black-white text-xl font-bold'>
+					<h2 className="text-black-white text-xl font-bold">
 						Datos del Cheque
 					</h2>
-					<div className='form-grid-layout'>
+					<div className="form-grid-layout">
 						<Text
-							name='numero_cheque'
-							size='md'
-							placeholder='No. Cheque'
-							label='No. Cheque'
+							name="numero_cheque"
+							size="md"
+							placeholder="No. Cheque"
+							label="No. Cheque"
 							value={checkId}
 							disabled
 						/>
-						<Text name='moneda' size='md' placeholder='Moneda' label='Moneda' />
 						<Text
-							name='paguese'
-							size='lg'
-							placeholder='Paguese a la orden de'
-							label='A orden de'
-							newline={true}
-							disabled
-							value={'ALCALDÍA MUNICIPAL DE NINDIRÍ'}
+							name="moneda"
+							size="md"
+							placeholder="Moneda"
+							label="Moneda"
 						/>
 						<Text
-							name='deliver_to'
-							size='md'
-							placeholder='Monto'
-							label='Monto'
-							type='number'
+							name="paguese"
+							size="lg"
+							placeholder="Paguese a la orden de"
+							label="A orden de"
+							newline={true}
+							disabled
+							value={"ALCALDÍA MUNICIPAL DE NINDIRÍ"}
+						/>
+						<Text
+							name="deliver_to"
+							size="md"
+							placeholder="Monto"
+							label="Monto"
+							type="number"
 							value={1600.0}
 							disabled
 						/>
 						<Text
-							name='deliver_to'
-							size='md'
-							placeholder='Monto'
-							label='Descripción del Monto'
+							name="deliver_to"
+							size="md"
+							placeholder="Monto"
+							label="Descripción del Monto"
 						/>
 						<Text
 							isTextArea={true}
-							name='concepto'
-							size='lg'
-							placeholder='Monto'
-							label='Por concepto de'
+							name="concepto"
+							size="lg"
+							placeholder="Monto"
+							label="Por concepto de"
 							value={
-								'Pago de servicio de recolecta de basura. Correspondiente al mes de Septiembre/20. Según orden de pago No.3273 enviada por SOLKA, S.A.'
+								"Pago de servicio de recolecta de basura. Correspondiente al mes de Septiembre/20. Según orden de pago No.3273 enviada por SOLKA, S.A."
 							}
 							disabled
 						/>
 						<Text
-							name='deliver_to'
-							size='lg'
-							placeholder='Destinatario'
-							label='Entregar a'
+							name="deliver_to"
+							size="lg"
+							placeholder="Destinatario"
+							label="Entregar a"
 						/>
 						<Text
-							name='deliver_to'
-							size='md'
-							placeholder='Cédula'
-							label='Cédula'
+							name="deliver_to"
+							size="md"
+							placeholder="Cédula"
+							label="Cédula"
 							newline={true}
 						/>
 					</div>
 				</Form>
 			</Formik>
-			<div className='mt-4 flex gap-2 justify-center flex-wrap'>
-				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
+			<div className="mt-4 flex gap-2 justify-center flex-wrap">
+				<button className="btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2">
 					Entregar
 					<FaCheck />
 				</button>
-				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
+				<button className="btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2">
 					Borrar
 					<FaTrash />
 				</button>
-				<button className='btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2'>
+				<button className="btn bg-blue-blue btn-border-blue flex justify-center items-center gap-2">
 					Anular
 					<FaBan />
 				</button>
-				<button className='btn bg-blue-blue btn-border-blue flex items-center gap-2'>
+				<button className="btn bg-blue-blue btn-border-blue flex items-center gap-2">
 					Imprimir
 					<FaPrint />
 				</button>
