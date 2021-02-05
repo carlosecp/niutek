@@ -106,8 +106,8 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 				</div>
 			</div>
 			<div className='mt-2 form-grid-layout'>
-				<Dropdown label='Clientes' size='md' name='clientId'>
-					<option value='0' selected={true} disabled label='Seleccione' />
+				<Dropdown label='Clientes' size='md' name='clientId' value='0'>
+					<option value='0' disabled label='Seleccione' />
 					{matches.map((client) => (
 						<option key={client.cod_cliente} value={client.cod_cliente}>
 							{client.cod_cliente} - {client.nombres} {client.apellidos}

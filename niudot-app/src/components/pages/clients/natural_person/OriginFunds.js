@@ -1,152 +1,118 @@
-import React from "react"
-import { Text, Dropdown } from "../../utils/forms"
-import RetractileForm from "../../utils/retractile_sections"
+import React from 'react'
+import { useFormikContext } from 'formik'
+import { Text, Dropdown, Checkbox } from '../../utils/forms'
+import RetractileForm from '../../utils/retractile_sections'
 
 const OriginFunds = () => {
+	const { values } = useFormikContext()
+
 	return (
-		<RetractileForm id="Muere Juan" formTitle="Origen Fondos">
-			<div className="form-grid-layout">
-				<Dropdown
-					size="md"
-					name="p_of_negocio_propio"
-					label="Negocio Propio"
-				>
-					<option
-						value=""
-						selected="true"
-						disabled
-						label="Seleccione"
-					/>
-					<option value={0}>Si</option>
-					<option value={1}>No</option>
-				</Dropdown>
+		<RetractileForm formTitle='Origen Fondos'>
+			<div className='form-grid-layout'>
+				<Checkbox size='md' name='p_of_negocio_propio' label='Negocio Propio' />
 				<Text
-					name="p_of_nombre_negocio"
-					size="md"
-					label="Nombre del Negocio"
+					name='p_of_nombre_negocio'
+					size='md'
+					label='Nombre del Negocio'
+					forLabel={true}
+					disabled={!values.p_of_negocio_propio}
 				/>
-				<Dropdown
-					size="md"
-					name="p_of_prof_independiente"
-					label="Profesión Independiente"
-				>
-					<option
-						value=""
-						selected="true"
-						disabled
-						label="Seleccione"
-					/>
-					<option value={0}>Si</option>
-					<option value={1}>No</option>
-				</Dropdown>
+
+				<Checkbox
+					size='md'
+					name='p_of_prof_independiente'
+					label='Profesión Independiente'
+				/>
 				<Text
-					name="p_of_prof_ejerce"
-					size="md"
-					label="Profesión que Ejerce"
+					name='p_of_prof_ejerce'
+					size='md'
+					label='Profesión que Ejerce'
+					forLabel={true}
+					disabled={!values.p_of_prof_independiente}
 				/>
-				<Dropdown size="md" name="p_of_herencia" label="Herencia">
-					<option
-						value=""
-						selected="true"
-						disabled
-						label="Seleccione"
-					/>
-					<option value={0}>Si</option>
-					<option value={1}>No</option>
-				</Dropdown>
-				<Text name="p_of_de_quien" size="md" label="De quién" />
+
+				<Checkbox size='md' name='p_of_herencia' label='Herencia' />
 				<Text
-					name="p_of_de_quien"
-					size="md"
-					label="Cantidad $US"
-					type="number"
+					name='p_of_de_quien'
+					size='md'
+					label='De quién'
+					forLabel={true}
+					disabled={!values.p_of_herencia}
 				/>
-				<Dropdown
-					size="md"
-					name="p_of_inversiones"
-					label="Inversiones"
+				<Text
+					name='p_of_de_quien'
+					size='md'
+					label='Cantidad $US'
+					type='number'
+					forLabel={true}
+					disabled={!values.p_of_herencia}
+				/>
+
+				<Checkbox
+					size='md'
+					name='p_of_inversiones'
+					label='Inversiones'
 					newline={true}
-				>
-					<option
-						value=""
-						selected="true"
-						disabled
-						label="Seleccione"
-					/>
-					<option value={0}>Si</option>
-					<option value={1}>No</option>
-				</Dropdown>
-				<Text
-					name="p_of_tipos_inversiones"
-					size="md"
-					label="Tipo de Inversiones"
-				/>
-				<Dropdown size="md" name="p_of_prestamo" label="Préstamo">
-					<option
-						value=""
-						selected="true"
-						disabled
-						label="Seleccione"
-					/>
-					<option value={0}>Si</option>
-					<option value={1}>No</option>
-				</Dropdown>
-				<Text
-					name="p_of_inst_financiera"
-					size="md"
-					label="Institución Financiera"
-				/>
-				<Dropdown size="md" name="p_of_venta_de" label="Venta de">
-					<option
-						value=""
-						selected="true"
-						disabled
-						label="Seleccione"
-					/>
-					<option value={0}>Opcion 1</option>
-					<option value={1}>Opcion 2</option>
-				</Dropdown>
-				<Text
-					name="p_of_descrip_venta_de"
-					size="md"
-					placeholder="p_of_descrip_venta_de"
-					label="p_of_descrip_venta_de"
 				/>
 				<Text
-					name="p_of_salario"
-					size="md"
-					placeholder="p_of_salario"
-					label="p_of_salario"
-					type="number"
+					name='p_of_tipos_inversiones'
+					size='md'
+					label='Tipo de Inversiones'
+					forLabel={true}
+					disabled={!values.p_of_inversiones}
+				/>
+
+				<Checkbox
+					size='md'
+					name='p_of_prestamo'
+					label='Préstamo'
+					newline={true}
 				/>
 				<Text
-					name="p_of_ahorro"
-					size="md"
-					placeholder="p_of_ahorro"
-					label="p_of_ahorro"
-					type="number"
+					name='p_of_inst_financiera'
+					size='md'
+					label='Institución Financiera'
+					forLabel={true}
+					disabled={!values.p_of_prestamo}
+				/>
+
+				<Checkbox
+					size='md'
+					name='p_of_venta_de'
+					label='Venta de'
+					newline={true}
 				/>
 				<Text
-					name="p_of_aho_inst_financiera"
-					size="md"
-					placeholder="p_of_aho_inst_financiera"
-					label="p_of_aho_inst_financiera"
+					name='p_of_descrip_venta_de'
+					size='md'
+					label='Descripción de Venta'
+					forLabel={true}
+					disabled={!values.p_of_venta_de}
 				/>
-				<Dropdown size="md" name="p_of_otros" label="p_of_otros">
-					<option
-						value=""
-						selected="true"
-						disabled
-						label="Seleccione"
-					/>
-					<option value={0}>Si</option>
-					<option value={1}>No</option>
-				</Dropdown>
+
+				<Checkbox
+					size='md'
+					name='p_of_salario'
+					label='Salario'
+					newline={true}
+				/>
+
+				<Checkbox size='md' name='p_of_ahorro' label='Ahorro' newline={true} />
 				<Text
-					name="p_of_des_otros"
-					size="md"
-					placeholder="p_of_des_otros"
-					label="p_of_des_otros"
+					name='p_of_aho_inst_financiera'
+					size='md'
+					label='Institución Financiera'
+					forLabel={true}
+					disabled={!values.p_of_ahorro}
+				/>
+
+				<Checkbox size='md' name='p_of_otros' label='Otros' newline={true} />
+				<Text
+					name='p_of_des_otros'
+					size='md'
+					label='Descripción'
+					forLabel={true}
+					disabled={!values.p_of_otros}
 				/>
 			</div>
 		</RetractileForm>

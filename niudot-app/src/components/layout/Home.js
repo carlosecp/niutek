@@ -13,18 +13,14 @@ const Home = () => {
 	if (!isAuthenticated || !user) {
 		return <Redirect to='/' />
 	} else {
-		if (user.type === 'admin') {
-			return <Redirect to='/admin/register' />
-		} else if (user.type === 'client') {
-			return (
-				<div className='h-full flex'>
-					<Sidebar toggled={toggled} setToggled={setToggled} />
-					<AlertsState>
-						<Page toggled={toggled} setToggled={setToggled} />
-					</AlertsState>
-				</div>
-			)
-		}
+		return (
+			<div className='h-full flex'>
+				<Sidebar toggled={toggled} setToggled={setToggled} />
+				<AlertsState>
+					<Page toggled={toggled} setToggled={setToggled} />
+				</AlertsState>
+			</div>
+		)
 	}
 }
 
