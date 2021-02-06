@@ -4,7 +4,7 @@ import { Field } from 'formik'
 const Documents = () => {
 	return (
 		<div className='mt-4'>
-			<label className='font-bold' id='checkbox-group'>
+			<label className='font-bold text-black-white' id='checkbox-group'>
 				Documentos Requeridos
 			</label>
 			<div

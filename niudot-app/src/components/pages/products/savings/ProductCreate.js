@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Formik, Form } from 'formik'
 import NewProduct from './NewProduct'
 import SubmitBtn from '../../utils/SubmitBtn'

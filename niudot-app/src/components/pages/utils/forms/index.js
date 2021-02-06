@@ -61,12 +61,12 @@ Text.defaultProps = {
 	disabled: false,
 }
 
-const Checkbox = ({ name, size, newline, showLabel, label }) => {
+const Checkbox = ({ name, size, newline, showLabel = true, label }) => {
 	return (
 		<div
 			className={`form-container-${size} ${showLabel && 'mt-6'} ${
 				newline && 'force-newline'
-			} ${showLabel && 'cstm:mt-4'}`}
+			} cstm:mt-4`}
 		>
 			<CheckboxInput name={name} label={label} showLabel={showLabel} />
 		</div>

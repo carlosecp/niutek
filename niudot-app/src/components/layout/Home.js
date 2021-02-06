@@ -9,7 +9,6 @@ const Home = () => {
 	const [toggled, setToggled] = useState(false)
 
 	const { isAuthenticated, user } = useContext(authContext)
-	console.log(isAuthenticated, user)
 
 	if (!isAuthenticated || !user) {
 		return <Redirect to='/' />

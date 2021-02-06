@@ -14,6 +14,7 @@ import {
 	referencias_personales,
 } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
+import parseValues from './parseValues'
 
 const initialValues = {
 	...persona_natural,
@@ -50,13 +51,17 @@ const NaturalPersonCreate = ({
 			initialValues={clientData || initialValues}
 			handle
 			onSubmit={(values) => {
+				const parsedValues = parseValues(values)
+
 				const tempValues = {
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
 					p_clase_persona: 1,
-					...values,
+					...parsedValues,
 				}
-				const writeType = clientData ? 'modify' : 'update'
+
+				console.log(tempValues)
+				const writeType = clientData ? 'modify' : 'create'
 				writeForm(writeType, tempValues)
 			}}
 		>

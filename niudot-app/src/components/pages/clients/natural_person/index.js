@@ -42,6 +42,8 @@ const NaturalPerson = () => {
 	}
 
 	const writeForm = async (type, data) => {
+		console.log('Lo que estoy enviando en persona natural: ', data)
+
 		setSavingClient(true)
 		try {
 			const res = await axios.post(

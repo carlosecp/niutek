@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Field } from 'formik'
 
-const CheckboxInput = ({ name, showLabel = true, label }) => {
+const CheckboxInput = ({ name, showLabel, label }) => {
 	return (
 		<>
 			{showLabel && (

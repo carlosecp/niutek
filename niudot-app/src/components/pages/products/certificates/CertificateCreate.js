@@ -6,7 +6,7 @@ import { initialValues } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
 
 const CertificateCreate = ({
-	depositData,
+	certificateData,
 	writeForm,
 	savingClient,
 	goBack,
@@ -24,7 +24,7 @@ const CertificateCreate = ({
 
 	return (
 		<Formik
-			initialValues={depositData || initialValues}
+			initialValues={certificateData || initialValues}
 			handle
 			onSubmit={(values) => {
 				const tempValues = {
@@ -35,7 +35,7 @@ const CertificateCreate = ({
 					pdc_reg: 2,
 					...values,
 				}
-				const writeType = depositData ? 'update' : 'register'
+				const writeType = certificateData ? 'update' : 'register'
 				writeForm(writeType, tempValues)
 			}}
 		>
@@ -46,14 +46,14 @@ const CertificateCreate = ({
 					</button>
 				</div>
 				<div className='section'>
-					{depositData ? (
+					{certificateData ? (
 						<>
 							<h2 className='text-black-white text-xl font-bold'>
 								Editar Producto Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b> {depositData.p_cod_cliente} -{' '}
-								{depositData.p_nombres} {depositData.p_apellidos}
+								<b>Editando Cliente:</b> {certificateData.p_cod_producto} -{' '}
+								{certificateData.p_nombre}
 							</p>
 						</>
 					) : (

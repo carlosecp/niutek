@@ -3,10 +3,10 @@ import NewFormBtn from '../../utils/NewFormBtn'
 import routesContext from '../../../../context/routes/routesContext'
 import axios from 'axios'
 import requestConfig from '../../../../utils/requestConfig'
-import SearchDeposit from '../../utils/search/products/SearchProducts'
+import SearchCertificate from '../../utils/search/products/SearchProducts'
 import CertificateCreate from './CertificateCreate'
 
-const Deposit = () => {
+const Certificate = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
@@ -15,25 +15,25 @@ const Deposit = () => {
 	}, [])
 
 	const [loading, setLoading] = useState(false)
-	const [fetchingDeposit, setFetchingDeposit] = useState(false)
+	const [fetchingCertificate, setFetchingCertificate] = useState(false)
 
 	const [matches, setMatches] = useState([])
-	const [deposit, setDeposit] = useState(null)
+	const [certificate, setCertificate] = useState(null)
 	const [form, setForm] = useState(false)
 
-	const fetchDeposit = async (depositId) => {
-		setFetchingDeposit(true)
+	const fetchCertificate = async (certificateId) => {
+		setFetchingCertificate(true)
 
 		const res = await axios.post(
-			`${process.env.REACT_APP_URL}/read/deposit`,
-			{ p_cod_deposite: depositId },
+			`${process.env.REACT_APP_URL}/read/datos_producto_certificado`,
+			{ p_cod_producto: certificateId, p_cod_empresa: 1, p_cod_sucursal: 0 },
 			requestConfig
 		)
 
 		console.log(res.data)
 
-		setFetchingDeposit(false)
-		setDeposit({ p_cod_deposite: depositId, ...res.data })
+		setFetchingCertificate(false)
+		setCertificate({ p_cod_producto: certificateId, ...res.data })
 		setMatches([])
 		setLoading(false)
 		setForm(true)
@@ -55,22 +55,22 @@ const Deposit = () => {
 
 	return form ? (
 		<CertificateCreate
-			depositData={deposit}
+			certificateData={certificate}
 			writeForm={writeForm}
 			goBack={() => {
 				setForm(false)
-				setDeposit(null)
+				setCertificate(null)
 			}}
 		/>
 	) : (
 		<>
-			<SearchDeposit
+			<SearchCertificate
 				loading={loading}
 				setLoading={setLoading}
 				matches={matches}
 				setMatches={setMatches}
-				fetchDeposit={fetchDeposit}
-				fetchingDeposit={fetchingDeposit}
+				fetchProduct={fetchCertificate}
+				fetchingProduct={fetchingCertificate}
 				path='certificado'
 			/>
 			<NewFormBtn
@@ -86,4 +86,4 @@ const Deposit = () => {
 	)
 }
 
-export default Deposit
+export default Certificate
