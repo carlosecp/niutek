@@ -52,7 +52,7 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
 					p_clase_persona: 1,
 					...values,
 				}
-				const writeType = clientData ? 'update' : 'update'
+				const writeType = clientData ? 'modify' : 'update'
 				console.log(tempValues)
 				writeForm(writeType, tempValues)
 			}}

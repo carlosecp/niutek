@@ -7,7 +7,7 @@ import spinner from '../../../../../assets/images/spinner.png'
 import { Dropdown } from '../../forms'
 import { FaSearch } from 'react-icons/fa'
 
-const SearchUser = ({
+const SearchClient = ({
 	loading,
 	setLoading,
 	matches,
@@ -16,14 +16,15 @@ const SearchUser = ({
 	fetchingClient,
 	path,
 }) => {
-	const getClients = async (data) => {
+	const getUsers = async (data) => {
 		setLoading(true)
 		try {
 			const res = await axios.post(
-				`${process.env.REACT_APP_URL}/search/user`,
-				{ search: data },
+				`${process.env.REACT_APP_URL}/search/clientes_${path}`,
+				{ search: data, p_cod_empresa: 1 },
 				requestConfig
 			)
+			console.log(res.data)
 			setMatches(res.data)
 		} catch (err) {
 			console.error(err)
@@ -44,7 +45,7 @@ const SearchUser = ({
 					search: Yup.mixed().required(),
 				})}
 				onSubmit={(values) => {
-					getClients(values.search)
+					getUsers(values.search)
 					values.clientId = 0
 				}}
 			>
@@ -75,15 +76,13 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 	return (
 		<>
 			<div className='mt-2'>
-				<label className='text-black-white font-bold'>
-					Nombre o ID del Cliente
-				</label>
+				<label className='text-black-white font-bold'>Nombre del Cliente</label>
 				<div className='flex gap-2 w-72 sm:w-56'>
 					<Field
 						name='search'
 						type='text'
 						className='form-field flex-1'
-						placeholder='Nombre o ID del Cliente'
+						placeholder='Nombre del Cliente'
 					/>
 					<button
 						type='submit'
@@ -106,17 +105,19 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 				</div>
 			</div>
 			<div className='mt-2 form-grid-layout'>
-				<Dropdown label='Clientes' size='md' name='clientId' value='0'>
-					<option value='0' disabled label='Seleccione' />
+				<Dropdown label='Clientes' size='md' name='clientId'>
+					<option value='0' selected={true} disabled label='Seleccione' />
 					{matches.map((client) => (
 						<option key={client.cod_cliente} value={client.cod_cliente}>
-							{client.cod_cliente} - {client.nombres} {client.apellidos}
+							{client.cod_cliente} - {client.nombres} {client.apellidos}{' '}
+							{client.nombre}
 						</option>
 					))}
 				</Dropdown>
 			</div>
 			<button
 				type='button'
+				disabled={fetchingClient || !clientId}
 				className={`mt-3 btn flex items-center gap-2 ${
 					fetchingClient || !clientId
 						? fetchingClient
@@ -136,4 +137,4 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 	)
 }
 
-export default SearchUser
+export default SearchClient

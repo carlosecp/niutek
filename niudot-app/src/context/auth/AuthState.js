@@ -1,18 +1,18 @@
-import React, { useReducer } from "react"
+import React, { useReducer } from 'react'
 
-import axios from "axios"
-import * as types from "../types"
+import axios from 'axios'
+import * as types from '../types'
 
-import authContext from "./authContext"
-import authReducer from "./authReducer"
+import authContext from './authContext'
+import authReducer from './authReducer'
 // Utils
-import setAuthToken from "../../utils/setAuthToken"
-import requestConfig from "../../utils/requestConfig"
+import setAuthToken from '../../utils/setAuthToken'
+import requestConfig from '../../utils/requestConfig'
 
 const AuthState = (props) => {
 	const initialState = {
-		user: { type: "client" },
-		token: localStorage.getItem("token"),
+		user: true,
+		token: localStorage.getItem('token'),
 		isAuthenticated: true,
 		loading: true,
 		error: null,
@@ -28,14 +28,13 @@ const AuthState = (props) => {
 
 		try {
 			const user = {
-				username: "CarlosECP01",
-				type: "admin",
+				username: 'CarlosECP01',
 			}
 
 			if (localStorage.token) {
 				dispatch({ type: types.USER_LOADED, payload: user })
 			} else {
-				throw Error("No tenemos token, no estamos logueados")
+				throw Error('No tenemos token, no estamos logueados')
 			}
 		} catch (err) {
 			dispatch({ type: types.AUTH_ERROR, payload: err })
@@ -46,7 +45,7 @@ const AuthState = (props) => {
 	const registerUser = async (formData) => {
 		try {
 			const res = await axios.post(
-				"https://backend-dot-nicascriptproject.uc.r.appspot.com/register",
+				'https://backend-dot-nicascriptproject.uc.r.appspot.com/register',
 				formData,
 				requestConfig
 			)

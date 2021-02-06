@@ -43,7 +43,7 @@ const LegalPerson = () => {
 		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
-				`${process.env.REACT_APP_URL}/${type}/cliente_juridico`,
+				`${process.env.REACT_APP_URL}/${type}/clientes_juridico`,
 				data,
 				requestConfig
 			)
@@ -71,12 +71,12 @@ const LegalPerson = () => {
 				setMatches={setMatches}
 				fetchClient={fetchClient}
 				fetchingClient={fetchingClient}
-				path='cliente_juridico'
+				path='juridico'
 			/>
 			<NewFormBtn
 				text={{
-					title: 'Crear Un Nuevo Cliente',
-					description: 'Registra Un Nuevo Cliente',
+					title: 'Crear Un Nuevo Cliente Persona Jurídica',
+					description: 'Registra un nuevo cliente persona jurídica.',
 					proceed: 'Registra Un Nuevo Cliente',
 				}}
 				toggleForm={() => setForm(true)}

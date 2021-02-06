@@ -17,10 +17,6 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 		true
 	)
 
-	useEffect(() => {
-		console.log('PRODUCT DATA', productData)
-	}, [productData])
-
 	return (
 		<Formik
 			initialValues={productData || initialValues}
@@ -29,11 +25,10 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 				const tempValues = {
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
-					pcd_cod_documento: '1         2         ',
-					pcd_reg: 2,
+					pdc_reg: 2,
 					...values,
 				}
-				const writeType = productData ? 'update' : 'register'
+				const writeType = productData ? 'modify' : 'register'
 				writeForm(writeType, tempValues)
 			}}
 		>

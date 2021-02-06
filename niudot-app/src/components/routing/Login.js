@@ -16,8 +16,9 @@ const Login = (props) => {
 
 	useEffect(() => {
 		if (isAuthenticated && user) {
+			console.log('Hello World')
 			props.history.push('/app/dashboard')
-			loadUser()
+			//loadUser()
 		}
 		// eslint-disable-next-line
 	}, [isAuthenticated, user])

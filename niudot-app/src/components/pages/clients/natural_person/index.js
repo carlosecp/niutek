@@ -49,6 +49,7 @@ const NaturalPerson = () => {
 				data,
 				requestConfig
 			)
+			console.log(res.data.result[0])
 		} catch (err) {
 			console.error(err)
 		} finally {
@@ -75,12 +76,12 @@ const NaturalPerson = () => {
 				setMatches={setMatches}
 				fetchClient={fetchClient}
 				fetchingClient={fetchingClient}
-				path='cliente_natural'
+				path='natural'
 			/>
 			<NewFormBtn
 				text={{
-					title: 'Crear Un Nuevo Cliente',
-					description: 'Registra Un Nuevo Cliente',
+					title: 'Crear Un Nuevo Cliente Persona Natural',
+					description: 'Registra un nuevo cliente persona natural.',
 					proceed: 'Registra Un Nuevo Cliente',
 				}}
 				toggleForm={() => setForm(true)}

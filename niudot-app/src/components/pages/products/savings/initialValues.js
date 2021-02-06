@@ -7,4 +7,5 @@ export const initialValues = {
 	p_monto_promedio_mensual: '',
 	p_nombre: '',
 	p_tasa_interes: '',
+	pdc_cod_documento: [],
 }

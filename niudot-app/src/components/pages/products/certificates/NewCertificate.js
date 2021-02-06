@@ -1,6 +1,7 @@
 import React from 'react'
 import { useFormikContext } from 'formik'
 import { Text, Dropdown } from '../../utils/forms'
+import Documents from '../Documents'
 
 const NewDeposit = ({ options, loading }) => {
 	const { values } = useFormikContext()
@@ -66,6 +67,7 @@ const NewDeposit = ({ options, loading }) => {
 					type='number'
 				/>
 			</div>
+			<Documents />
 		</>
 	)
 }

@@ -25,7 +25,7 @@ const Savings = () => {
 		setFetchingProduct(true)
 
 		const res = await axios.post(
-			`${process.env.REACT_APP_URL}/read/producto`,
+			`${process.env.REACT_APP_URL}/read/datos_producto_ahorro`,
 			{ p_cod_producto: productId, p_cod_sucursal: 0, p_cod_empresa: 1 },
 			requestConfig
 		)
@@ -43,7 +43,7 @@ const Savings = () => {
 		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
-				`${process.env.REACT_APP_URL}/${type}/productos_ahorro`,
+				`${process.env.REACT_APP_URL}/${type}/producto_ahorro`,
 				data,
 				requestConfig
 			)

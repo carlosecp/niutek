@@ -56,7 +56,7 @@ const NaturalPersonCreate = ({
 					p_clase_persona: 1,
 					...values,
 				}
-				const writeType = clientData ? 'update' : 'create'
+				const writeType = clientData ? 'modify' : 'update'
 				writeForm(writeType, tempValues)
 			}}
 		>

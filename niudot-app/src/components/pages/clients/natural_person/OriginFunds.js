@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useFormikContext } from 'formik'
-import { Text, Dropdown, Checkbox } from '../../utils/forms'
+import { Text, Checkbox } from '../../utils/forms'
 import RetractileForm from '../../utils/retractile_sections'
 
 const OriginFunds = () => {
 	const { values } = useFormikContext()
 
+	useEffect(() => {
+		console.log(values.p_of_nombre_negocio)
+	}, [values])
+
 	return (
-		<RetractileForm formTitle='Origen Fondos'>
+		<RetractileForm formTitle='Origen de Fondos'>
 			<div className='form-grid-layout'>
 				<Checkbox size='md' name='p_of_negocio_propio' label='Negocio Propio' />
 				<Text
