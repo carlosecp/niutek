@@ -31,24 +31,17 @@ const NaturalPersonCreate = ({
 	savingClient,
 	goBack,
 }) => {
-	const { options, loading } = useOptions(
-		{
-			p_tipo_doc: [],
-			p_moneda: [],
-			p_sexo: [],
-			p_cod_nac: [],
-			pct_cod_banco: [],
-		},
-		{
-			endpoint: 'read/table',
-			body: { p_tipo: '*' },
-		},
-		true
-	)
+	const optionsReqConfig = {
+		dep: { codigo: '0' },
+		table: { p_tipo: '*' },
+	}
 
-	useEffect(() => {
-		console.log(options)
-	}, [])
+	const optionsFormat = [
+		'dep',
+		['p_tipo_doc', 'p_moneda', 'p_sexo', 'p_cod_nac', 'pct_cod_banco'],
+	]
+
+	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
 
 	return (
 		<Formik
