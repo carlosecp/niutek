@@ -1,10 +1,10 @@
 import React from 'react'
-import { Field, useFormikContext } from 'formik'
+import { useFormikContext } from 'formik'
 import { Text, Dropdown, Checkbox } from '../../utils/forms'
 import CreditTable from './CreditTable'
 import Documents from '../Documents'
 
-const NewCredit = ({ options, loading }) => {
+const NewCredit = ({ options, loading, togglePopup }) => {
 	const { values } = useFormikContext()
 	const {
 		p_moneda,
@@ -169,7 +169,9 @@ const NewCredit = ({ options, loading }) => {
 				/>
 			</div>
 			<Documents />
-			<CreditTable options={options} />
+			<div className='mt-4'>
+				<CreditTable options={options} togglePopup={togglePopup} />
+			</div>
 		</>
 	)
 }

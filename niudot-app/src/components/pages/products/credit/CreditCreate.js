@@ -1,25 +1,39 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { Formik, Form } from 'formik'
 import NewCredit from './NewCredit'
 import SubmitBtn from '../../utils/SubmitBtn'
-import { initialValues } from './initialValues'
+import { credit, cargos } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
 
+const initialValues = {
+	...credit,
+	cargos,
+}
+
 const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
-	const { options, loading } = useOptions(
-		{
-			p_cod_tipo_credito: [],
-			p_cod_fuente_fondo: [],
-			plazo_interes: [],
-			frecuencia_pago: [],
-			tipo_cargo: [],
-		},
-		{
-			endpoint: 'read/tablas_cre',
-			body: { p_tipo: '*' },
-		},
-		true
-	)
+	const [showCreditPopup, setShowCreditPopup] = useState(false)
+	const [activeCredit, setActiveCredit] = useState(null)
+
+	const optionsReqConfig = {
+		tablas_cre: { p_tipo: '*' },
+	}
+
+	const optionsFormat = [
+		[
+			'p_cod_tipo_credito',
+			'p_cod_fuente_fondo',
+			'plazo_interes',
+			'frecuencia_pago',
+			'tipo_cargo',
+		],
+	]
+
+	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
+
+	const toggleEditPopup = (creditId) => {
+		setActiveCredit(creditId)
+		setShowCreditPopup(!showCreditPopup)
+	}
 
 	return (
 		<Formik
@@ -32,7 +46,7 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 					p_clase_persona: 1,
 					...values,
 				}
-				const writeType = creditData ? 'update' : 'create'
+				const writeType = creditData ? 'update' : 'register'
 				writeForm(writeType, tempValues)
 			}}
 		>
@@ -67,7 +81,11 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 					)}
 				</div>
 				<div className='mt-4 section'>
-					<NewCredit options={options} loading={loading} />
+					<NewCredit
+						options={options}
+						loading={loading}
+						togglePopup={toggleEditPopup}
+					/>
 					<SubmitBtn loading={savingClient} />
 				</div>
 			</Form>

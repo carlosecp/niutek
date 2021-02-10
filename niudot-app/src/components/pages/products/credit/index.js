@@ -42,12 +42,12 @@ const Credit = () => {
 	const writeForm = async (type, data) => {
 		console.log('Esto es lo que estoy enviando: ', data)
 		try {
-			//const res = await axios.post(
-			//`${process.env.REACT_APP_URL}/${type}/`,
-			//data,
-			//requestConfig
-			//)
-			//console.log('Esto es lo que estoy recibiendo: ', res)
+			const res = await axios.post(
+				`${process.env.REACT_APP_URL}/${type}/producto_credito`,
+				data,
+				requestConfig
+			)
+			console.log('Esto es lo que estoy recibiendo: ', res)
 		} catch (err) {
 			console.error(err)
 		}
@@ -71,6 +71,7 @@ const Credit = () => {
 				setMatches={setMatches}
 				fetchCredit={fetchCredit}
 				fetchingCredit={fetchingCredit}
+				path='credito'
 			/>
 			<NewFormBtn
 				text={{

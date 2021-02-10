@@ -27,7 +27,6 @@ const useDropdownOptions = (optionsReqConfig, optionsFormat) => {
 			}
 		})
 
-		console.log(data)
 		setOptions(data)
 		setLoading(false)
 	}
