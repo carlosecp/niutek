@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState, useCallback } from 'react'
 import Table from '../../utils/tables'
 
-const CreditTable = ({ togglePopup }) => {
+const ChargesTable = ({ togglePopup }) => {
 	const columns = useMemo(
 		() => [
 			{ Header: 'Cargos', accessor: 'cargos' },
@@ -70,8 +70,9 @@ const CreditTable = ({ togglePopup }) => {
 			pageCount={pageCount}
 			togglePopup={togglePopup}
 			showEdit={true}
+			fullRow={true}
 		/>
 	)
 }
 
-export default CreditTable
+export default ChargesTable

@@ -17,9 +17,7 @@ const Banking = ({ options, loading }) => {
 		pct_reg: 1,
 	}
 
-	const { values } = useFormikContext()
-
-	const { referencias_bancarias } = values
+	const { referencias_bancarias } = useFormikContext()
 
 	return (
 		<FieldArray

@@ -27,7 +27,11 @@ const App = () => {
 						<Switch>
 							<Route exact path='/' component={Login} />
 							<Route exact path='/about' component={About} />
-							<PrivateRoute path='/app' component={Home} userType='client' />
+							<PrivateRoute
+								path='/app'
+								component={Home}
+								userType='client'
+							/>
 							<Route path='*' component={PageNotFound} />
 						</Switch>
 					</Router>

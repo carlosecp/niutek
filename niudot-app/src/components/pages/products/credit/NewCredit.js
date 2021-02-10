@@ -1,10 +1,17 @@
 import React from 'react'
-import { useFormikContext } from 'formik'
+import { FieldArray, useFormikContext } from 'formik'
 import { Text, Dropdown, Checkbox } from '../../utils/forms'
-import CreditTable from './CreditTable'
+import ChargesTable from './ChargesTable'
 import Documents from '../Documents'
+import EditChargesPopup from './EditChargesPopup'
 
-const NewCredit = ({ options, loading, togglePopup }) => {
+const NewCredit = ({
+	options,
+	loading,
+	showChargesPopup,
+	togglePopup,
+	activeCharge,
+}) => {
 	const { values } = useFormikContext()
 	const {
 		p_moneda,
@@ -14,8 +21,22 @@ const NewCredit = ({ options, loading, togglePopup }) => {
 		p_cod_frecuencia_pago,
 	} = values
 
+	const initialValues = {
+		pcr_descripcion_cargo: '',
+		pcr_cod_moneda: 1,
+		pcr_valor: 123,
+		pcr_cod_tipo: 1,
+	}
+
 	return (
 		<>
+			{showChargesPopup && (
+				<EditChargesPopup
+					togglePopup={togglePopup}
+					options={options}
+					activeCharge={activeCharge}
+				/>
+			)}
 			<div className='mb-4 form-grid-layout'>
 				<Dropdown
 					size='md'
@@ -24,12 +45,7 @@ const NewCredit = ({ options, loading, togglePopup }) => {
 					value={p_cod_tipo_credito}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected='true' disabled label='Seleccione' />
 					{loading ||
 						options.p_cod_tipo_credito.map((option) => (
 							<option
@@ -46,12 +62,7 @@ const NewCredit = ({ options, loading, togglePopup }) => {
 					value={p_cod_fuente_fondo}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected='true' disabled label='Seleccione' />
 					{loading ||
 						options.p_cod_fuente_fondo.map((option) => (
 							<option
@@ -75,14 +86,15 @@ const NewCredit = ({ options, loading, togglePopup }) => {
 					value={p_moneda}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
-					<option value='1'>Córdobas</option>
-					<option value='2'>Dólares</option>
+					<option value='0' selected='true' disabled label='Seleccione' />
+					{loading ||
+						options.p_moneda.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
 				</Dropdown>
 
 				<Text
@@ -91,18 +103,8 @@ const NewCredit = ({ options, loading, togglePopup }) => {
 					label='Tasa de interés mensual'
 					type='number'
 				/>
-				<Text
-					name='p_num_doc'
-					size='md'
-					label='Monto mínimo'
-					type='number'
-				/>
-				<Text
-					name='p_num_doc'
-					size='md'
-					label='Monto máximo'
-					type='number'
-				/>
+				<Text name='p_num_doc' size='md' label='Monto mínimo' type='number' />
+				<Text name='p_num_doc' size='md' label='Monto máximo' type='number' />
 				<Dropdown
 					size='md'
 					name='p_plazo'
@@ -110,12 +112,7 @@ const NewCredit = ({ options, loading, togglePopup }) => {
 					value={p_plazo}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected='true' disabled label='Seleccione' />
 					{loading ||
 						options.plazo_interes.map((option) => (
 							<option
@@ -132,12 +129,7 @@ const NewCredit = ({ options, loading, togglePopup }) => {
 					value={p_cod_frecuencia_pago}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected='true' disabled label='Seleccione' />
 					{loading ||
 						options.frecuencia_pago.map((option) => (
 							<option
@@ -170,7 +162,10 @@ const NewCredit = ({ options, loading, togglePopup }) => {
 			</div>
 			<Documents />
 			<div className='mt-4'>
-				<CreditTable options={options} togglePopup={togglePopup} />
+				<FieldArray
+					name='cargos'
+					render={(arrayHelpers) => <ChargesTable togglePopup={togglePopup} />}
+				></FieldArray>
 			</div>
 		</>
 	)

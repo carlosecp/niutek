@@ -11,14 +11,16 @@ const initialValues = {
 }
 
 const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
-	const [showCreditPopup, setShowCreditPopup] = useState(false)
-	const [activeCredit, setActiveCredit] = useState(null)
+	const [showChargesPopup, setShowChargesPopup] = useState(false)
+	const [activeCharge, setActiveCharge] = useState(null)
 
 	const optionsReqConfig = {
+		table: { p_tipo: '2' },
 		tablas_cre: { p_tipo: '*' },
 	}
 
 	const optionsFormat = [
+		['p_moneda'],
 		[
 			'p_cod_tipo_credito',
 			'p_cod_fuente_fondo',
@@ -30,9 +32,9 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 
 	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
 
-	const toggleEditPopup = (creditId) => {
-		setActiveCredit(creditId)
-		setShowCreditPopup(!showCreditPopup)
+	const toggleEditPopup = (charge) => {
+		setActiveCharge(charge || null)
+		setShowChargesPopup(!showChargesPopup)
 	}
 
 	return (
@@ -63,8 +65,7 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 								Editar Producto Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b>{' '}
-								{creditData.p_cod_cliente} -{' '}
+								<b>Editando Cliente:</b> {creditData.p_cod_cliente} -{' '}
 								{creditData.p_nombres} {creditData.p_apellidos}
 							</p>
 						</>
@@ -74,8 +75,7 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 								Crear Nuevo Producto
 							</h2>
 							<p className='text-gray-gray'>
-								Registrar un nuevo producto depósitos a plazo
-								fijo.
+								Registrar un nuevo producto depósitos a plazo fijo.
 							</p>
 						</>
 					)}
@@ -84,7 +84,9 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 					<NewCredit
 						options={options}
 						loading={loading}
+						showChargesPopup={showChargesPopup}
 						togglePopup={toggleEditPopup}
+						activeCharge={activeCharge}
 					/>
 					<SubmitBtn loading={savingClient} />
 				</div>
