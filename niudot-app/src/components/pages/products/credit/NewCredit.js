@@ -1,26 +1,59 @@
 import React from 'react'
-import { useFormikContext } from 'formik'
-import { Text, Dropdown } from '../../utils/forms'
+import { Field, useFormikContext } from 'formik'
+import { Text, Dropdown, Checkbox } from '../../utils/forms'
 import CreditTable from './CreditTable'
+import Documents from '../Documents'
 
 const NewCredit = ({ options, loading }) => {
 	const { values } = useFormikContext()
-	const { p_moneda } = values
+	const {
+		p_moneda,
+		p_cod_tipo_credito,
+		p_cod_fuente_fondo,
+		p_plazo,
+		p_cod_frecuencia_pago,
+	} = values
 
 	return (
 		<>
 			<div className='mb-4 form-grid-layout'>
-				<Text name='p_nombres' size='lg' label='Tipo de Crédito' />
 				<Dropdown
 					size='md'
-					name='p_tipo_doc'
-					label='Fuente de Fondos'
-					value={p_moneda}
+					name='p_cod_tipo_credito'
+					label='Tipo de Crédito'
+					value={p_cod_tipo_credito}
 					loading={loading}
 				>
-					<option value='0' selected='true' disabled label='Seleccione' />
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
-						options.p_moneda.map((option) => (
+						options.p_cod_tipo_credito.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
+				</Dropdown>
+				<Dropdown
+					size='md'
+					name='p_cod_fuente_fondo'
+					label='Fuente de Fondos'
+					value={p_cod_fuente_fondo}
+					loading={loading}
+				>
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
+					{loading ||
+						options.p_cod_fuente_fondo.map((option) => (
 							<option
 								key={option.codigo}
 								value={option.codigo}
@@ -30,7 +63,7 @@ const NewCredit = ({ options, loading }) => {
 				</Dropdown>
 				<Text name='p_nombres' size='lg' label='Nombre del Producto' />
 				<Text
-					name='p_descripción'
+					name='p_descripcion'
 					size='lg'
 					isTextArea={true}
 					label='Descripción'
@@ -42,15 +75,14 @@ const NewCredit = ({ options, loading }) => {
 					value={p_moneda}
 					loading={loading}
 				>
-					<option value='0' selected='true' disabled label='Seleccione' />
-					{loading ||
-						options.p_moneda.map((option) => (
-							<option
-								key={option.codigo}
-								value={option.codigo}
-								label={option.descripcion}
-							/>
-						))}
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
+					<option value='1'>Córdobas</option>
+					<option value='2'>Dólares</option>
 				</Dropdown>
 
 				<Text
@@ -59,22 +91,62 @@ const NewCredit = ({ options, loading }) => {
 					label='Tasa de interés mensual'
 					type='number'
 				/>
-				<Text name='p_num_doc' size='md' label='Monto mínimo' type='number' />
-				<Text name='p_num_doc' size='md' label='Monto máximo' type='number' />
 				<Text
 					name='p_num_doc'
 					size='md'
+					label='Monto mínimo'
+					type='number'
+				/>
+				<Text
+					name='p_num_doc'
+					size='md'
+					label='Monto máximo'
+					type='number'
+				/>
+				<Dropdown
+					size='md'
+					name='p_plazo'
 					label='Plazo hasta:'
-					placeholder='Meses'
-					type='number'
-				/>
-				<Text
-					name='p_num_doc'
+					value={p_plazo}
+					loading={loading}
+				>
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
+					{loading ||
+						options.plazo_interes.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
+				</Dropdown>
+				<Dropdown
 					size='md'
+					name='p_cod_frecuencia_pago'
 					label='Frecuencia de pago'
-					placeholder='Frecuencia de Pago'
-					type='number'
-				/>
+					value={p_cod_frecuencia_pago}
+					loading={loading}
+				>
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
+					{loading ||
+						options.frecuencia_pago.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
+				</Dropdown>
 				<Text
 					name='p_num_doc'
 					size='md'
@@ -82,8 +154,22 @@ const NewCredit = ({ options, loading }) => {
 					placeholder='Aportación'
 					type='number'
 				/>
+				<Checkbox
+					size='md'
+					name='p_aplica_grupo_solidario'
+					label='Aplica a grupo solidario'
+					newline={true}
+				/>
+				<Checkbox
+					size='md'
+					name='p_aplica_individual'
+					label='Aplica individual'
+					newline={true}
+					showLabel={false}
+				/>
 			</div>
-			<CreditTable />
+			<Documents />
+			<CreditTable options={options} />
 		</>
 	)
 }

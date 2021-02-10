@@ -41,7 +41,11 @@ const CertificateCreate = ({
 		>
 			<Form>
 				<div className='mx-auto max-w-2xl pb-4'>
-					<button type='button' className='btn bg-blue-blue' onClick={goBack}>
+					<button
+						type='button'
+						className='btn bg-blue-blue'
+						onClick={goBack}
+					>
 						Regresar
 					</button>
 				</div>
@@ -52,7 +56,8 @@ const CertificateCreate = ({
 								Editar Producto Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b> {certificateData.p_cod_producto} -{' '}
+								<b>Editando Cliente:</b>{' '}
+								{certificateData.p_cod_producto} -{' '}
 								{certificateData.p_nombre}
 							</p>
 						</>
@@ -62,7 +67,8 @@ const CertificateCreate = ({
 								Crear Nuevo Producto
 							</h2>
 							<p className='text-gray-gray'>
-								Registrar un nuevo producto depósitos a plazo fijo.
+								Registrar un nuevo producto depósitos a plazo
+								fijo.
 							</p>
 						</>
 					)}

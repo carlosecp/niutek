@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Form } from 'formik'
 import NewClient from './NewClient'
 import ProfessionalData from './ProfessionalData'
@@ -46,6 +46,10 @@ const NaturalPersonCreate = ({
 		true
 	)
 
+	useEffect(() => {
+		console.log(options)
+	}, [])
+
 	return (
 		<Formik
 			initialValues={clientData || initialValues}
@@ -82,7 +86,8 @@ const NaturalPersonCreate = ({
 								Editar Cliente Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b> {clientData.p_cod_cliente} -{' '}
+								<b>Editando Cliente:</b>{' '}
+								{clientData.p_cod_cliente} -{' '}
 								{clientData.p_nombres} {clientData.p_apellidos}
 							</p>
 						</>
@@ -91,7 +96,9 @@ const NaturalPersonCreate = ({
 							<h2 className='text-black-white text-xl font-bold'>
 								Crear Nuevo Cliente
 							</h2>
-							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
+							<p className='text-gray-gray'>
+								Registrar un nuevo cliente.
+							</p>
 						</>
 					)}
 				</div>

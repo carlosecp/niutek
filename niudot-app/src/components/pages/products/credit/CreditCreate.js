@@ -1,22 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Form } from 'formik'
 import NewCredit from './NewCredit'
 import SubmitBtn from '../../utils/SubmitBtn'
-import { productos } from './initialValues'
+import { initialValues } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
-
-const initialValues = {
-	productos,
-}
 
 const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 	const { options, loading } = useOptions(
 		{
-			p_moneda: [],
+			p_cod_tipo_credito: [],
+			p_cod_fuente_fondo: [],
+			plazo_interes: [],
+			frecuencia_pago: [],
+			tipo_cargo: [],
 		},
 		{
-			endpoint: 'read/table',
-			body: { p_tipo: '2' },
+			endpoint: 'read/tablas_cre',
+			body: { p_tipo: '*' },
 		},
 		true
 	)
@@ -49,7 +49,8 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 								Editar Producto Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b> {creditData.p_cod_cliente} -{' '}
+								<b>Editando Cliente:</b>{' '}
+								{creditData.p_cod_cliente} -{' '}
 								{creditData.p_nombres} {creditData.p_apellidos}
 							</p>
 						</>
@@ -59,7 +60,8 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 								Crear Nuevo Producto
 							</h2>
 							<p className='text-gray-gray'>
-								Registrar un nuevo producto depósitos a plazo fijo.
+								Registrar un nuevo producto depósitos a plazo
+								fijo.
 							</p>
 						</>
 					)}

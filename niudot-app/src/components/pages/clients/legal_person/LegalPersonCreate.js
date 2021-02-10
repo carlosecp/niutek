@@ -59,7 +59,11 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
 		>
 			<Form>
 				<div className='mx-auto max-w-2xl pb-4'>
-					<button type='button' className='btn bg-blue-blue' onClick={goBack}>
+					<button
+						type='button'
+						className='btn bg-blue-blue'
+						onClick={goBack}
+					>
 						Regresar
 					</button>
 				</div>
@@ -70,7 +74,8 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
 								Editar Cliente Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b> {clientData.p_cod_cliente} -{' '}
+								<b>Editando Cliente:</b>{' '}
+								{clientData.p_cod_cliente} -{' '}
 								{clientData.p_nombres} {clientData.p_apellidos}
 							</p>
 						</>
@@ -79,7 +84,9 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
 							<h2 className='text-black-white text-xl font-bold'>
 								Crear Nuevo Cliente
 							</h2>
-							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
+							<p className='text-gray-gray'>
+								Registrar un nuevo cliente.
+							</p>
 						</>
 					)}
 				</div>

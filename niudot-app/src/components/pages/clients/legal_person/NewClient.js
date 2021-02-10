@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react"
-import { useFormikContext } from "formik"
-import { Text, Dropdown } from "../../utils/forms"
-import axios from "axios"
-import requestConfig from "../../../../utils/requestConfig"
+import React, { useState, useEffect } from 'react'
+import { useFormikContext } from 'formik'
+import { Text, Dropdown } from '../../utils/forms'
+import axios from 'axios'
+import requestConfig from '../../../../utils/requestConfig'
 
 const NewClient = ({ options, loading }) => {
 	const { values } = useFormikContext()
-	const { p_sexo, p_tipo_doc, p_cod_nac, p_cod_depto, p_cod_muni } = values
+	const { p_tipo_doc, p_cod_nac, p_cod_depto, p_cod_muni } = values
 
 	const [muni, setMuni] = useState([])
 
@@ -28,20 +28,20 @@ const NewClient = ({ options, loading }) => {
 
 	return (
 		<>
-			<div className="form-grid-layout">
-				<Text name="p_nombre" size="md" label="Nombres" />
+			<div className='form-grid-layout'>
+				<Text name='p_nombre' size='md' label='Nombres' />
 				<Dropdown
-					size="md"
-					name="p_tipo_doc"
-					label="Tipo Documento"
+					size='md'
+					name='p_tipo_doc'
+					label='Tipo Documento'
 					value={p_tipo_doc}
 					loading={loading}
 				>
 					<option
-						value="0"
-						selected="true"
+						value='0'
+						selected='true'
 						disabled
-						label="Seleccione"
+						label='Seleccione'
 					/>
 					{loading ||
 						options.p_tipo_doc.map((option) => (
@@ -52,19 +52,19 @@ const NewClient = ({ options, loading }) => {
 							/>
 						))}
 				</Dropdown>
-				<Text name="p_num_doc" size="md" label="No. Documento" />
+				<Text name='p_num_doc' size='md' label='No. Documento' />
 				<Dropdown
-					size="md"
-					name="p_cod_nac"
-					label="Nacionalidad"
+					size='md'
+					name='p_cod_nac'
+					label='Nacionalidad'
 					value={p_cod_nac}
 					loading={loading}
 				>
 					<option
-						value="0"
-						selected="true"
+						value='0'
+						selected='true'
 						disabled
-						label="Seleccione"
+						label='Seleccione'
 					/>
 					{loading ||
 						options.p_cod_nac.map((option) => (
@@ -76,17 +76,17 @@ const NewClient = ({ options, loading }) => {
 						))}
 				</Dropdown>
 				<Dropdown
-					size="md"
-					name="p_cod_depto"
-					label="Departamento"
+					size='md'
+					name='p_cod_depto'
+					label='Departamento'
 					value={p_cod_depto}
 					loading={loading}
 				>
 					<option
-						value="0"
-						selected="true"
+						value='0'
+						selected='true'
 						disabled
-						label="Seleccione"
+						label='Seleccione'
 					/>
 					{loading ||
 						options.deptos.map((option) => (
@@ -98,17 +98,17 @@ const NewClient = ({ options, loading }) => {
 						))}
 				</Dropdown>
 				<Dropdown
-					size="md"
-					name="p_cod_muni"
-					label="Municipio"
+					size='md'
+					name='p_cod_muni'
+					label='Municipio'
 					value={p_cod_muni}
 					loading={loading}
 				>
 					<option
-						value="0"
-						selected="true"
+						value='0'
+						selected='true'
 						disabled
-						label="Seleccione"
+						label='Seleccione'
 					/>
 					{muni.map((option) => (
 						<option
@@ -119,36 +119,36 @@ const NewClient = ({ options, loading }) => {
 					))}
 				</Dropdown>
 				<Text
-					name="p_num_empleados"
-					size="md"
-					label="No. Empleados"
-					type="number"
+					name='p_num_empleados'
+					size='md'
+					label='No. Empleados'
+					type='number'
 				/>
-				<Text name="p_sitio_web" size="md" label="Sitio Web" />
-				<Text name="p_e_mail" size="md" label="Email" />
-				<Text name="p_telefono1" size="md" label="Telefono 1" />
-				<Text name="p_telefono2" size="md" label="Telefono 2" />
-				<Text name="p_direccion" size="lg" label="Dirección" />
+				<Text name='p_sitio_web' size='md' label='Sitio Web' />
+				<Text name='p_e_mail' size='md' label='Email' />
+				<Text name='p_telefono1' size='md' label='Telefono 1' />
+				<Text name='p_telefono2' size='md' label='Telefono 2' />
+				<Text name='p_direccion' size='lg' label='Dirección' />
 				<Text
-					name="p_fecha_constitucion"
-					size="md"
-					label="Fecha de Constitucion"
-				/>
-				<Text
-					name="p_fecha_personeria"
-					size="md"
-					label="Fecha de Personeria"
+					name='p_fecha_constitucion'
+					size='md'
+					label='Fecha de Constitucion'
 				/>
 				<Text
-					name="p_ingreso_anual"
-					size="md"
-					label="Ingreso Anual"
-					type="number"
+					name='p_fecha_personeria'
+					size='md'
+					label='Fecha de Personeria'
 				/>
 				<Text
-					name="p_actividad_empresa"
-					size="lg"
-					label="Actividad de la Empresa"
+					name='p_ingreso_anual'
+					size='md'
+					label='Ingreso Anual'
+					type='number'
+				/>
+				<Text
+					name='p_actividad_empresa'
+					size='lg'
+					label='Actividad de la Empresa'
 					newLine={true}
 					isTextArea={true}
 				/>

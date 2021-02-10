@@ -34,7 +34,11 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 		>
 			<Form>
 				<div className='mx-auto max-w-2xl pb-4'>
-					<button type='button' className='btn bg-blue-blue' onClick={goBack}>
+					<button
+						type='button'
+						className='btn bg-blue-blue'
+						onClick={goBack}
+					>
 						Regresar
 					</button>
 				</div>
@@ -45,7 +49,8 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 								Editar Producto de Ahorro Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Producto:</b> {productData.p_cod_producto}
+								<b>Editando Producto:</b>{' '}
+								{productData.p_cod_producto}
 							</p>
 						</>
 					) : (
