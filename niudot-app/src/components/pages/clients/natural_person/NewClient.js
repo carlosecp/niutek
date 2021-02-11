@@ -129,9 +129,9 @@ const NewClient = ({ options, loading }) => {
 				<Text name='p_lugar_nacimiento' size='md' label='Lugar de Nacimiento' />
 				<Text name='p_fecha_nacimiento' size='md' label='Fecha de Nacimiento' />
 				<Dropdown size='md' name='p_cargo_publico' label='Cargo Público'>
-					<option value='0' selected='true' disabled label='Seleccione' />
-					<option value={0} label='Si' />
-					<option value={1} label='No' />
+					<option value={0} selected='true' disabled label='Seleccione' />
+					<option value={1} label='Si' />
+					<option value={2} label='No' />
 				</Dropdown>
 				<Text name='p_num_hijos' size='md' label='No. Hijos' type='number' />
 			</div>

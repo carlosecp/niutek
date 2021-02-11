@@ -104,10 +104,11 @@ const NewClient = ({ options, loading }) => {
 					size='md'
 					label='No. Empleados'
 					type='number'
+					step='1'
 				/>
 				<Text name='p_sitio_web' size='md' label='Sitio Web' />
 				<Text name='p_e_mail' size='md' label='Email' />
-				<Text name='p_telefono1' size='md' label='Telefono 1' />
+				<Text name='p_telefono1' size='md' label='Telefono 1' newline={true} />
 				<Text name='p_telefono2' size='md' label='Telefono 2' />
 				<Text name='p_direccion' size='lg' label='Dirección' />
 				<Text
@@ -121,6 +122,7 @@ const NewClient = ({ options, loading }) => {
 					size='md'
 					label='Ingreso Anual'
 					type='number'
+					step='0.5'
 				/>
 				<Text
 					name='p_actividad_empresa'

@@ -14,9 +14,9 @@ export const persona_juridica = {
 	p_telefono1: '',
 	p_telefono2: '',
 	p_direccion: '',
-	p_fecha_constitucion: '2021-01-31',
-	p_fecha_personeria: '2021-01-31',
-	p_ingreso_anual: 3.14,
+	p_fecha_constitucion: '',
+	p_fecha_personeria: '',
+	p_ingreso_anual: 0,
 	p_actividad_empresa: '',
 }
 
@@ -59,14 +59,12 @@ export const validationSchema = Yup.object({
 		.integer('Valor Entero')
 		.min(0, 'Valor Mínimo 0')
 		.required('Requerido'),
-	p_nombre: Yup.string()
-		.length(50, 'Caracteres Máximos 50')
-		.required('Requerido'),
+	p_nombre: Yup.string().max(50, 'Caracteres Máximos 50').required('Requerido'),
 	p_tipo_doc: Yup.mixed()
 		.notOneOf([0], 'Seleccione un valor')
 		.required('Requerido'),
 	p_num_doc: Yup.string()
-		.length(30, 'Caracteres Máximos 30')
+		.max(30, 'Caracteres Máximos 30')
 		.required('Requerido'),
 	p_cod_nac: Yup.mixed()
 		.notOneOf([0], 'Seleccione un valor')
@@ -82,20 +80,20 @@ export const validationSchema = Yup.object({
 		.min(0, 'Valor Mínimo 0')
 		.required('Requerido'),
 	p_sitio_web: Yup.string()
-		.length(50, 'Caracteres Máximos 50')
+		.max(50, 'Caracteres Máximos 50')
 		.required('Requerido'),
 	p_e_mail: Yup.string()
 		.email('Corre Electrónico Inválido')
-		.length(50, 'Caracteres Máximos 50')
+		.max(50, 'Caracteres Máximos 50')
 		.required('Requerido'),
 	p_telefono1: Yup.string()
-		.length(30, 'Caracteres Máximos 30')
+		.max(30, 'Caracteres Máximos 30')
 		.required('Requerido'),
 	p_telefono2: Yup.string()
-		.length(30, 'Caracteres Máximos 30')
+		.max(30, 'Caracteres Máximos 30')
 		.required('Requerido'),
 	p_direccion: Yup.string()
-		.length(100, 'Caracteres Máximos 100')
+		.max(100, 'Caracteres Máximos 100')
 		.required('Requerido'),
 	p_fecha_constitucion: Yup.date().required('Requerido'),
 	p_fecha_personeria: Yup.date().required('Requerido'),
@@ -103,75 +101,63 @@ export const validationSchema = Yup.object({
 		.min(0, 'Valor Mínimo 0')
 		.required('Requerido'),
 	p_actividad_empresa: Yup.string()
-		.length(50, 'Caracteres Máximos 50')
+		.max(50, 'Caracteres Máximos 50')
 		.required('Requerido'),
-	p_of_donacion: Yup.number('Valor Numérico')
-		.integer('Valor Entero')
-		.min(0, 'Valor Mínimo 0')
-		.required('Requerido'),
-	p_of_nombre_donante: Yup.string()
-		.length(50, 'Caracteres Máximos 50')
-		.required('Requerido'),
-	p_of_herencia: Yup.number('Valor Numérico')
-		.integer('Valor Entero')
-		.min(0, 'Valor Mínimo 0')
-		.required('Requerido'),
-	p_of_de_quien: Yup.string()
-		.length(50, 'Caracteres Máximos 50')
-		.required('Requerido'),
-	p_of_inversiones: Yup.number('Valor Numérico')
-		.integer('Valor Entero')
-		.min(0, 'Valor Mínimo 0')
-		.required('Requerido'),
-	p_of_tipos_inversiones: Yup.string()
-		.length(50, 'Caracteres Máximos 50')
-		.required('Requerido'),
-	p_of_prestamo: Yup.number('Valor Numérico')
-		.integer('Valor Entero')
-		.min(0, 'Valor Mínimo 0')
-		.required('Requerido'),
-	p_of_inst_financiera: Yup.string()
-		.length(50, 'Caracteres Máximos 50')
-		.required('Requerido'),
-	p_of_venta_de: Yup.number('Valor Numérico')
-		.integer('Valor Entero')
-		.min(0, 'Valor Mínimo 0')
-		.required('Requerido'),
-	p_of_descrip_venta_de: Yup.string()
-		.length(50, 'Caracteres Máximos 50')
-		.required('Requerido'),
-	p_of_ing_giro_emp: Yup.number('Valor Numérico')
-		.integer('Valor Entero')
-		.min(0, 'Valor Mínimo 0')
-		.required('Requerido'),
-	p_of_aporte_socios: Yup.number('Valor Numérico')
-		.integer('Valor Entero')
-		.min(0, 'Valor Mínimo 0')
-		.required('Requerido'),
-	p_of_otros: Yup.number('Valor Numérico')
-		.integer('Valor Entero')
-		.min(0, 'Valor Mínimo 0')
-		.required('Requerido'),
-	p_of_des_otros: Yup.string()
-		.length(50, 'Caracteres Máximos 50')
-		.required('Requerido'),
+	p_of_donacion: Yup.boolean(),
+	p_of_nombre_donante: Yup.string().when('p_of_donacion', {
+		is: true,
+		then: Yup.string().max(50, 'Caracteres Máximos 50').required('Requerido'),
+		otherwise: Yup.string(),
+	}),
+	p_of_herencia: Yup.boolean(),
+	p_of_de_quien: Yup.string().when('p_of_herencia', {
+		is: true,
+		then: Yup.string().max(50, 'Caracteres Máximos 50').required('Requerido'),
+		otherwise: Yup.string(),
+	}),
+	p_of_inversiones: Yup.boolean(),
+	p_of_tipos_inversiones: Yup.string().when('p_of_inversiones', {
+		is: true,
+		then: Yup.string().max(50, 'Caracteres Máximos 50').required('Requerido'),
+		otherwise: Yup.string(),
+	}),
+	p_of_prestamo: Yup.boolean(),
+	p_of_inst_financiera: Yup.string().when('p_of_prestamo', {
+		is: true,
+		then: Yup.string().max(50, 'Caracteres Máximos 50').required('Requerido'),
+		otherwise: Yup.string(),
+	}),
+	p_of_venta_de: Yup.boolean(),
+	p_of_descrip_venta_de: Yup.string().when('p_of_venta_de', {
+		is: true,
+		then: Yup.string().max(50, 'Caracteres Máximos 50').required('Requerido'),
+		otherwise: Yup.string(),
+	}),
+	p_of_ing_giro_emp: Yup.boolean(),
+	p_of_aporte_socios: Yup.boolean(),
+	p_of_otros: Yup.boolean(),
+	p_of_des_otros: Yup.string().when('p_of_otros', {
+		is: true,
+		then: Yup.string().max(50, 'Caracteres Máximos 50').required('Requerido'),
+		otherwise: Yup.string(),
+	}),
 	referencias_comerciales: Yup.array().of(
 		Yup.object().shape({
 			prc_nombre_entidad: Yup.string()
-				.length(50, 'Caracteres Máximos 50')
+				.max(50, 'Caracteres Máximos 50')
 				.required('Requerido'),
 			prc_persona_contacto: Yup.string()
-				.length(50, 'Caracteres Máximos 50')
+				.max(50, 'Caracteres Máximos 50')
 				.required('Requerido'),
 			prc_direccion: Yup.string()
-				.length(100, 'Caracteres Máximos 100')
+				.max(100, 'Caracteres Máximos 100')
 				.required('Requerido'),
 			prc_annios_con_entidad: Yup.number('Valor Numérico')
 				.integer('Valor Entero')
 				.min(0, 'Valor Mínimo 0')
 				.required('Requerido'),
 			prc_telefono: Yup.string()
-				.length(30, 'Caracteres Máximos 30')
+				.max(30, 'Caracteres Máximos 30')
 				.required('Requerido'),
 		})
 	),
@@ -207,13 +193,13 @@ export const validationSchema = Yup.object({
 	accionistas: Yup.array().of(
 		Yup.object().shape({
 			pac_nombre_accionista: Yup.string()
-				.length(50, 'Caracteres Máximos 50')
+				.max(50, 'Caracteres Máximos 50')
 				.required('Requerido'),
 			pac_tipo_doc: Yup.string()
-				.length(10, 'Caracteres Máximos 10')
+				.max(10, 'Caracteres Máximos 10')
 				.required('Requerido'),
 			pac_num_doc: Yup.string()
-				.length(30, 'Caracteres Máximos 30')
+				.max(30, 'Caracteres Máximos 30')
 				.required('Requerido'),
 			pac_porcentaje: Yup.number('Valor Numérico')
 				.integer('Valor Entero')

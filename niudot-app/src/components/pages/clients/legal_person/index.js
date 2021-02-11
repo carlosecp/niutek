@@ -16,6 +16,7 @@ const LegalPerson = () => {
 
 	const [loading, setLoading] = useState(false)
 	const [fetchingClient, setFetchingClient] = useState(false)
+	const [sendingForm, setSendingForm] = useState(false)
 
 	const [matches, setMatches] = useState([])
 	const [client, setClient] = useState(null)
@@ -40,6 +41,7 @@ const LegalPerson = () => {
 	}
 
 	const writeForm = async (type, data) => {
+		setSendingForm(true)
 		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
@@ -50,6 +52,8 @@ const LegalPerson = () => {
 			console.log('Esto es lo que estoy recibiendo: ', res)
 		} catch (err) {
 			console.error(err)
+		} finally {
+			setSendingForm(false)
 		}
 	}
 
@@ -57,6 +61,7 @@ const LegalPerson = () => {
 		<LegalPersonCreate
 			clientData={client}
 			writeForm={writeForm}
+			sendingForm={sendingForm}
 			goBack={() => {
 				setForm(false)
 				setClient(null)

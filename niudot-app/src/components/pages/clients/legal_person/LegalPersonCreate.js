@@ -26,7 +26,7 @@ const initialValues = {
 	accionistas,
 }
 
-const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
+const LegalPersonCreate = ({ clientData, writeForm, goBack, sendingForm }) => {
 	const optionsReqConfig = {
 		dep: { codigo: '0' },
 		table: { p_tipo: '*' },
@@ -44,6 +44,7 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
 			initialValues={clientData || initialValues}
 			validationSchema={validationSchema}
 			onSubmit={(values) => {
+				console.log(values)
 				const tempValues = {
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
@@ -51,7 +52,6 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
 					...values,
 				}
 				const writeType = clientData ? 'modify' : 'update'
-				console.log(tempValues)
 				writeForm(writeType, tempValues)
 			}}
 		>
@@ -68,8 +68,7 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
 								Editar Cliente Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b> {clientData.p_cod_cliente} -{' '}
-								{clientData.p_nombres} {clientData.p_apellidos}
+								<b>Editando Cliente:</b> {clientData.p_cod_cliente}
 							</p>
 						</>
 					) : (
@@ -87,7 +86,7 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack }) => {
 					<References options={options} loading={loading} />
 					<Providers />
 					{/* <Accionists options={options} loading={loading} /> */}
-					<SubmitBtn />
+					<SubmitBtn loading={sendingForm} />
 				</div>
 			</Form>
 		</Formik>
