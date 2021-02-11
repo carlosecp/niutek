@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useFormikContext } from 'formik'
 import { Text, Checkbox } from '../../utils/forms'
 import RetractileForm from '../../utils/retractile_sections'
@@ -6,14 +6,14 @@ import RetractileForm from '../../utils/retractile_sections'
 const OriginFunds = () => {
 	const { values } = useFormikContext()
 
-	useEffect(() => {
-		console.log(values.p_of_nombre_negocio)
-	}, [values])
-
 	return (
 		<RetractileForm formTitle='Origen de Fondos'>
 			<div className='form-grid-layout'>
-				<Checkbox size='md' name='p_of_negocio_propio' label='Negocio Propio' />
+				<Checkbox
+					size='md'
+					name='p_of_negocio_propio'
+					label='Negocio Propio'
+				/>
 				<Text
 					name='p_of_nombre_negocio'
 					size='md'
@@ -101,7 +101,12 @@ const OriginFunds = () => {
 					newline={true}
 				/>
 
-				<Checkbox size='md' name='p_of_ahorro' label='Ahorro' newline={true} />
+				<Checkbox
+					size='md'
+					name='p_of_ahorro'
+					label='Ahorro'
+					newline={true}
+				/>
 				<Text
 					name='p_of_aho_inst_financiera'
 					size='md'
@@ -110,7 +115,12 @@ const OriginFunds = () => {
 					disabled={!values.p_of_ahorro}
 				/>
 
-				<Checkbox size='md' name='p_of_otros' label='Otros' newline={true} />
+				<Checkbox
+					size='md'
+					name='p_of_otros'
+					label='Otros'
+					newline={true}
+				/>
 				<Text
 					name='p_of_des_otros'
 					size='md'

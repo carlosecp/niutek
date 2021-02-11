@@ -1,7 +1,7 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "./sidebar.css";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './sidebar.css';
 
 /* ================ */
 /* ==== GLOBAL ==== */
@@ -11,7 +11,7 @@ html,
 body {
 	width: 100%;
 	height: 100%;
-	font-family: "Nunito Sans", sans-serif;
+	font-family: 'Nunito Sans', sans-serif;
 }
 
 #root,
@@ -215,11 +215,18 @@ body {
 	@apply fixed top-20 right-4 z-10 flex flex-col items-end gap-4;
 }
 
-.alert {
+.alert-error {
 	/*Estas son las alertas que van a aparecer como toast. Las genera Formik, yo solo las muestro.*/
 
 	/*Global*/
 	@apply px-4 py-3 bg-red-500 border-2 border-solid rounded  text-white font-bold border-red-700 shadow-md;
+}
+
+.alert-success {
+	/*Estas son las alertas que van a aparecer como toast. Las genera Formik, yo solo las muestro.*/
+
+	/*Global*/
+	@apply px-4 py-3 bg-green-500 border-2 border-solid rounded  text-white font-bold border-green-600 shadow-md;
 }
 
 .table {

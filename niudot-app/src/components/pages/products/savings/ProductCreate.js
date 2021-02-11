@@ -1,27 +1,25 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Formik, Form } from 'formik'
 import NewProduct from './NewProduct'
 import SubmitBtn from '../../utils/SubmitBtn'
-import { initialValues } from './initialValues'
+import { initialValues, validationSchema } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
 
 const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
-	const { options, loading } = useOptions(
-		{
-			p_moneda: [],
-		},
-		{
-			endpoint: 'read/table',
-			body: { p_tipo: '2' },
-		},
-		true
-	)
+	const optionsReqConfig = {
+		table: { p_tipo: '2' },
+	}
+
+	const optionsFormat = [['p_moneda']]
+
+	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
 
 	return (
 		<Formik
 			initialValues={productData || initialValues}
-			handle
+			validationSchema={validationSchema}
 			onSubmit={(values) => {
+				console.log(values)
 				const tempValues = {
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
@@ -34,7 +32,11 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 		>
 			<Form>
 				<div className='mx-auto max-w-2xl pb-4'>
-					<button type='button' className='btn bg-blue-blue' onClick={goBack}>
+					<button
+						type='button'
+						className='btn bg-blue-blue'
+						onClick={goBack}
+					>
 						Regresar
 					</button>
 				</div>
@@ -45,7 +47,8 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 								Editar Producto de Ahorro Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Producto:</b> {productData.p_cod_producto}
+								<b>Editando Producto:</b>{' '}
+								{productData.p_cod_producto}
 							</p>
 						</>
 					) : (

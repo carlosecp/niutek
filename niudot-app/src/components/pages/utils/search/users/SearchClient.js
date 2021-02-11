@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios'
 import { Field, Form, Formik, useFormikContext } from 'formik'
 import * as Yup from 'yup'
@@ -6,6 +6,7 @@ import requestConfig from '../../../../../utils/requestConfig'
 import spinner from '../../../../../assets/images/spinner.png'
 import { Dropdown } from '../../forms'
 import { FaSearch } from 'react-icons/fa'
+import alertsContext from '../../../../../context/alerts/alertsContext'
 
 const SearchClient = ({
 	loading,
@@ -16,6 +17,8 @@ const SearchClient = ({
 	fetchingClient,
 	path,
 }) => {
+	const { addAlert } = useContext(alertsContext)
+
 	const getUsers = async (data) => {
 		setLoading(true)
 		try {
@@ -27,7 +30,7 @@ const SearchClient = ({
 			console.log(res.data)
 			setMatches(res.data)
 		} catch (err) {
-			console.error(err)
+			addAlert(err.message)
 		} finally {
 			setLoading(false)
 		}

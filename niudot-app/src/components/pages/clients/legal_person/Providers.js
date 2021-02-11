@@ -4,11 +4,11 @@ import { FaPlus, FaTimes } from 'react-icons/fa'
 import { Text } from '../../utils/forms'
 import RetractileForm from '../../utils/retractile_sections'
 
-const Providers = ({ options }) => {
+const Providers = () => {
 	const initialValues = {
-		ppv_nombre_proveedor: 'BDF',
-		ppv_nombre_contacto: 'Cuenta de Ahorro',
-		ppv_telefono: '45789612',
+		ppv_nombre_proveedor: '',
+		ppv_nombre_contacto: '',
+		ppv_telefono: '',
 	}
 
 	const { values } = useFormikContext()

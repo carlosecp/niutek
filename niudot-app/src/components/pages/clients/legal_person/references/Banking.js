@@ -6,19 +6,17 @@ import RetractileForm from '../../../utils/retractile_sections'
 
 const Banking = ({ options, loading }) => {
 	const initialValues = {
-		prb_nombre_entidad: 'BDF',
-		prb_tipo_servicio_recibido: 'Cuenta de Ahorro',
-		prb_fecha_inicio_relacion: '2017-07-28',
-		prb_annios_con_entidad: 3,
-		prb_telefono: '45789612',
-		pct_num_cuenta: '9875567',
-		pct_cod_moneda: 1,
-		pct_cod_banco: 3,
-		pct_reg: 1,
+		prb_nombre_entidad: '',
+		prb_tipo_servicio_recibido: '',
+		prb_fecha_inicio_relacion: '',
+		prb_annios_con_entidad: 0,
+		prb_telefono: '',
+		pct_num_cuenta: '',
+		pct_cod_moneda: 0,
+		pct_cod_banco: 0,
 	}
 
 	const { values } = useFormikContext()
-
 	const { referencias_bancarias } = values
 
 	return (
@@ -59,6 +57,7 @@ const Banking = ({ options, loading }) => {
 									size='md'
 									label='Años con Entidad'
 									type='number'
+									step='1'
 								/>
 								<Text
 									name={`referencias_bancarias.${index}.prb_telefono`}
@@ -76,7 +75,7 @@ const Banking = ({ options, loading }) => {
 									label='Moneda'
 								>
 									<option
-										value=''
+										value={0}
 										selected={true}
 										disabled
 										label='Seleccione'
@@ -102,7 +101,7 @@ const Banking = ({ options, loading }) => {
 										label='Seleccione'
 									/>
 									{loading ||
-										options.p_cod_banco.map((option) => (
+										options.pct_cod_banco.map((option) => (
 											<option
 												key={option.codigo}
 												value={option.descripcion}
@@ -116,7 +115,9 @@ const Banking = ({ options, loading }) => {
 					{referencias_bancarias.length < 2 && (
 						<button
 							type='button'
-							onClick={() => arrayHelpers.push({ ...initialValues })}
+							onClick={() =>
+								arrayHelpers.push({ ...initialValues })
+							}
 							className='mt-3 btn bg-blue-blue btn-border-blue flex gap-2 items-center'
 						>
 							Agregar <FaPlus />

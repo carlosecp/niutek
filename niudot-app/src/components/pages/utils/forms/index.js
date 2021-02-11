@@ -61,12 +61,12 @@ Text.defaultProps = {
 	disabled: false,
 }
 
-const Checkbox = ({ name, size, newline, showLabel, label }) => {
+const Checkbox = ({ name, size, newline, showLabel = true, label }) => {
 	return (
 		<div
 			className={`form-container-${size} ${showLabel && 'mt-6'} ${
 				newline && 'force-newline'
-			} ${showLabel && 'cstm:mt-4'}`}
+			} cstm:mt-4`}
 		>
 			<CheckboxInput name={name} label={label} showLabel={showLabel} />
 		</div>
@@ -78,19 +78,24 @@ Checkbox.defaultProps = {
 }
 
 const Dropdown = ({ size, label, newline, loading, ...props }) => {
-	const [field] = useField(props)
+	const [field, meta] = useField(props)
 
 	return (
 		<div className={`form-container-${size} ${newline && 'force-newline'}`}>
 			<label className='font-bold text-black-white'>{label}</label>
 			<select
-				className={`form-field w-full  ${loading && 'cursor-wait'}`}
+				className={`form-field w-full ${
+					meta.touched && meta.error && 'form-field-error'
+				} ${loading && 'cursor-wait'}`}
 				{...field}
 				{...props}
 				disabled={loading}
 			>
 				{props.children}
 			</select>
+			{meta.touched && meta.error && (
+				<small className='font-bold text-red-500'>{meta.error}</small>
+			)}
 		</div>
 	)
 }

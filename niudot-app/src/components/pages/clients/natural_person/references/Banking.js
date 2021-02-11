@@ -6,14 +6,14 @@ import RetractileForm from '../../../utils/retractile_sections'
 
 const Banking = ({ options }) => {
 	const initialValues = {
-		prb_nombre_entidad: 'BDF',
-		prb_tipo_servicio_recibido: 'Cuenta de Ahorro',
-		prb_fecha_inicio_relacion: '2017-07-28',
-		prb_annios_con_entidad: 3,
-		prb_telefono: '45789612',
-		pct_num_cuenta: '9875567',
-		pct_cod_moneda: 1,
-		pct_cod_banco: 3,
+		prb_nombre_entidad: '',
+		prb_tipo_servicio_recibido: '',
+		prb_fecha_inicio_relacion: '',
+		prb_annios_con_entidad: 0,
+		prb_telefono: '',
+		pct_num_cuenta: '',
+		pct_cod_moneda: 0,
+		pct_cod_banco: 0,
 	}
 
 	const { values } = useFormikContext()
@@ -113,7 +113,9 @@ const Banking = ({ options }) => {
 					{referencias_bancarias.length < 2 && (
 						<button
 							type='button'
-							onClick={() => arrayHelpers.push({ ...initialValues })}
+							onClick={() =>
+								arrayHelpers.push({ ...initialValues })
+							}
 							className='mt-3 btn bg-blue-blue btn-border-blue flex gap-2 items-center'
 						>
 							Agregar <FaPlus />

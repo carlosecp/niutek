@@ -123,6 +123,7 @@ const ControlledForms = ({
 			</div>
 			<button
 				type='button'
+				disabled={fetchingProduct || !productId}
 				className={`mt-3 btn flex items-center gap-2 ${
 					fetchingProduct || !productId
 						? fetchingProduct

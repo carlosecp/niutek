@@ -1,39 +1,33 @@
-import { useState, useEffect, useDebugValue } from "react"
-import axios from "axios"
-import requestConfig from "../utils/requestConfig"
+import { useState, useEffect, useDebugValue } from 'react'
+import axios from 'axios'
+import requestConfig from '../utils/requestConfig'
 
-const useDropdownOptions = (keys, req, getDeptos = false) => {
+const useDropdownOptions = (optionsReqConfig, optionsFormat) => {
+	const [options, setOptions] = useState([])
 	const [loading, setLoading] = useState(true)
-	const [options, setOptions] = useState(keys)
-
-	const { endpoint, body } = req
 
 	const getOptions = async () => {
+		setLoading(true)
+
 		const res = await axios.post(
-			`${process.env.REACT_APP_URL}/${endpoint}`,
-			body,
+			`${process.env.REACT_APP_URL}/read`,
+			optionsReqConfig,
 			requestConfig
 		)
 
-		const indexedKeys = Object.keys(keys)
 		const data = {}
 
-		res.data.forEach((dropdown, index) => {
-			data[indexedKeys[index]] = dropdown
+		res.data.forEach((table, index) => {
+			if (!Array.isArray(optionsFormat[index])) {
+				data[optionsFormat[index]] = table
+			} else if (Array.isArray(optionsFormat[index])) {
+				table.forEach((subTable, subIndex) => {
+					data[optionsFormat[index][subIndex]] = subTable
+				})
+			}
 		})
 
-		// Esto es lo si queremos traer los departamentos
-		if (getDeptos) {
-			const deptos = await axios.post(
-				`${process.env.REACT_APP_URL}/read/dep`,
-				{ codigo: 0 },
-				requestConfig
-			)
-			setOptions({ deptos: deptos.data, ...data })
-		} else {
-			setOptions(data)
-		}
-
+		setOptions(data)
 		setLoading(false)
 	}
 

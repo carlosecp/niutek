@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Form } from 'formik'
 import NewClient from './NewClient'
 import ProfessionalData from './ProfessionalData'
@@ -12,8 +12,10 @@ import {
 	referencias_comerciales,
 	referencias_bancarias,
 	referencias_personales,
+	validationSchema,
 } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
+import parseValues from './parseValues'
 
 const initialValues = {
 	...persona_natural,
@@ -30,33 +32,32 @@ const NaturalPersonCreate = ({
 	savingClient,
 	goBack,
 }) => {
-	const { options, loading } = useOptions(
-		{
-			p_tipo_doc: [],
-			p_moneda: [],
-			p_sexo: [],
-			p_cod_nac: [],
-			pct_cod_banco: [],
-		},
-		{
-			endpoint: 'read/table',
-			body: { p_tipo: '*' },
-		},
-		true
-	)
+	const optionsReqConfig = {
+		dep: { codigo: '0' },
+		table: { p_tipo: '*' },
+	}
+
+	const optionsFormat = [
+		'dep',
+		['p_tipo_doc', 'p_moneda', 'p_sexo', 'p_cod_nac', 'pct_cod_banco'],
+	]
+
+	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
 
 	return (
 		<Formik
 			initialValues={clientData || initialValues}
-			handle
+			validationSchema={validationSchema}
 			onSubmit={(values) => {
+				const parsedValues = parseValues(values)
+
 				const tempValues = {
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
 					p_clase_persona: 1,
-					...values,
+					...parsedValues,
 				}
-				const writeType = clientData ? 'modify' : 'update'
+				const writeType = clientData ? 'modify' : 'create'
 				writeForm(writeType, tempValues)
 			}}
 		>
@@ -77,7 +78,8 @@ const NaturalPersonCreate = ({
 								Editar Cliente Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b> {clientData.p_cod_cliente} -{' '}
+								<b>Editando Cliente:</b>{' '}
+								{clientData.p_cod_cliente} -{' '}
 								{clientData.p_nombres} {clientData.p_apellidos}
 							</p>
 						</>
@@ -86,7 +88,9 @@ const NaturalPersonCreate = ({
 							<h2 className='text-black-white text-xl font-bold'>
 								Crear Nuevo Cliente
 							</h2>
-							<p className='text-gray-gray'>Registrar un nuevo cliente.</p>
+							<p className='text-gray-gray'>
+								Registrar un nuevo cliente.
+							</p>
 						</>
 					)}
 				</div>

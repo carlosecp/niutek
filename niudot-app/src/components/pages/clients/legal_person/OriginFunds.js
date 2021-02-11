@@ -27,7 +27,11 @@ const OriginFunds = () => {
 					disabled={!values.p_of_herencia}
 				/>
 
-				<Checkbox size='md' name='p_of_inversiones' label='Inversiones' />
+				<Checkbox
+					size='md'
+					name='p_of_inversiones'
+					label='Inversiones'
+				/>
 				<Text
 					name='p_of_tipos_inversiones'
 					size='md'
@@ -67,7 +71,12 @@ const OriginFunds = () => {
 					newline={true}
 				/>
 
-				<Checkbox size='md' name='p_of_otros' label='Otros' newline={true} />
+				<Checkbox
+					size='md'
+					name='p_of_otros'
+					label='Otros'
+					newline={true}
+				/>
 				<Text
 					name='p_of_des_otros'
 					size='md'
