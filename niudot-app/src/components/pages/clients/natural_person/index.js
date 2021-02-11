@@ -5,6 +5,7 @@ import NaturalPersonCreate from './NaturalPersonCreate'
 import routesContext from '../../../../context/routes/routesContext'
 import axios from 'axios'
 import requestConfig from '../../../../utils/requestConfig'
+import alertsContext from '../../../../context/alerts/alertsContext'
 
 const NaturalPerson = () => {
 	const { changePage } = useContext(routesContext)
@@ -23,6 +24,8 @@ const NaturalPerson = () => {
 
 	const [savingClient, setSavingClient] = useState(false)
 
+	const { addAlert } = useContext(alertsContext)
+
 	const fetchClient = async (clientId) => {
 		setFetchingClient(true)
 
@@ -32,8 +35,6 @@ const NaturalPerson = () => {
 			requestConfig
 		)
 
-		console.log(res)
-
 		setFetchingClient(false)
 		setClient({ p_cod_cliente: clientId, ...res.data })
 		setMatches([])
@@ -42,21 +43,21 @@ const NaturalPerson = () => {
 	}
 
 	const writeForm = async (type, data) => {
-		console.log('Lo que estoy enviando en persona natural: ', data)
 		setFetchingClient(true)
-
 		setSavingClient(true)
+
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/${type}/cliente_natural`,
 				data,
 				requestConfig
 			)
-			console.log(res)
+			addAlert(res.data)
 		} catch (err) {
-			console.error(err)
+			addAlert(err, 'error')
 		} finally {
 			setSavingClient(false)
+			setFetchingClient(false)
 		}
 	}
 

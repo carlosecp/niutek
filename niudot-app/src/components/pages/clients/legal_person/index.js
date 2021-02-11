@@ -52,9 +52,9 @@ const LegalPerson = () => {
 				data,
 				requestConfig
 			)
-			addAlert(res)
+			addAlert(res.data.message, 'success')
 		} catch (err) {
-			addAlert(err)
+			addAlert(err.message, 'error')
 		} finally {
 			setSendingForm(false)
 		}

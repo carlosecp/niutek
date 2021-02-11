@@ -5,6 +5,7 @@ import axios from 'axios'
 import requestConfig from '../../../../utils/requestConfig'
 import SearchProduct from '../../utils/search/products/SearchProducts'
 import ProductCreate from './ProductCreate'
+import alertsContext from '../../../../context/alerts/alertsContext'
 
 const Savings = () => {
 	const { changePage } = useContext(routesContext)
@@ -21,6 +22,8 @@ const Savings = () => {
 	const [product, setProduct] = useState(null)
 	const [form, setForm] = useState(false)
 
+	const { addAlert } = useContext(alertsContext)
+
 	const fetchProduct = async (productId) => {
 		setFetchingProduct(true)
 
@@ -29,8 +32,6 @@ const Savings = () => {
 			{ p_cod_producto: productId, p_cod_sucursal: 0, p_cod_empresa: 1 },
 			requestConfig
 		)
-
-		console.log(res.data)
 
 		setFetchingProduct(false)
 		setProduct({ p_cod_producto: productId, ...res.data })
@@ -47,9 +48,10 @@ const Savings = () => {
 				data,
 				requestConfig
 			)
-			console.log('Esto es lo que estoy recibiendo: ', res)
+			addAlert(res.data)
 		} catch (err) {
-			console.error(err)
+			console.error('savings/index.js', err)
+			addAlert(err, 'error')
 		}
 	}
 

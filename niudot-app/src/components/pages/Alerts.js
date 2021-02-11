@@ -16,7 +16,9 @@ const Alerts = () => {
 						classNames='fade'
 						timeout={300}
 					>
-						<div className='alert'>{alert.msg}</div>
+						<div className={`alert-${alert.type}`}>
+							{alert.message}
+						</div>
 					</CSSTransition>
 				))}
 			</TransitionGroup>
