@@ -44,11 +44,11 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack, sendingForm }) => {
 			initialValues={clientData || initialValues}
 			validationSchema={validationSchema}
 			onSubmit={(values) => {
-				console.log(values)
 				const tempValues = {
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
 					p_clase_persona: 1,
+					p_cod_cliente: 1,
 					...values,
 				}
 				const writeType = clientData ? 'modify' : 'update'
@@ -85,7 +85,7 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack, sendingForm }) => {
 					<OriginFunds />
 					<References options={options} loading={loading} />
 					<Providers />
-					{/* <Accionists options={options} loading={loading} /> */}
+					<Accionists options={options} loading={loading} />
 					<SubmitBtn loading={sendingForm} />
 				</div>
 			</Form>

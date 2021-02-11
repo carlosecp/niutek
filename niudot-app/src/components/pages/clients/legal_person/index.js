@@ -5,6 +5,7 @@ import LegalPersonCreate from './LegalPersonCreate'
 import routesContext from '../../../../context/routes/routesContext'
 import axios from 'axios'
 import requestConfig from '../../../../utils/requestConfig'
+import alertsContext from '../../../../context/alerts/alertsContext'
 
 const LegalPerson = () => {
 	const { changePage } = useContext(routesContext)
@@ -21,6 +22,8 @@ const LegalPerson = () => {
 	const [matches, setMatches] = useState([])
 	const [client, setClient] = useState(null)
 	const [form, setForm] = useState(false)
+
+	const { addAlert } = useContext(alertsContext)
 
 	const fetchClient = async (clientId) => {
 		setFetchingClient(true)
@@ -49,9 +52,9 @@ const LegalPerson = () => {
 				data,
 				requestConfig
 			)
-			console.log('Esto es lo que estoy recibiendo: ', res)
+			addAlert(res)
 		} catch (err) {
-			console.error(err)
+			addAlert(err)
 		} finally {
 			setSendingForm(false)
 		}
