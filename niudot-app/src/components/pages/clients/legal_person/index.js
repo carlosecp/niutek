@@ -25,8 +25,8 @@ const LegalPerson = () => {
 		setFetchingClient(true)
 
 		const res = await axios.post(
-			`${process.env.REACT_APP_URL}/read/client`,
-			{ p_cod_cliente: clientId },
+			`${process.env.REACT_APP_URL}/read/datos_cliente_juridico`,
+			{ p_cod_cliente: clientId, p_cod_empresa: 1, p_cod_sucursal: 0 },
 			requestConfig
 		)
 

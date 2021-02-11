@@ -11,15 +11,16 @@ const NewClient = ({ options, loading }) => {
 	const [muni, setMuni] = useState([])
 
 	const getMuni = async (codMuni) => {
-		const res = await axios.post(
-			`${process.env.REACT_APP_URL}/read/dep`,
-			{
-				codigo: codMuni,
-			},
-			requestConfig
-		)
-		console.log(res.data)
-		setMuni(res.data)
+		if (codMuni !== 0) {
+			const res = await axios.post(
+				`${process.env.REACT_APP_URL}/read/dep`,
+				{
+					codigo: codMuni,
+				},
+				requestConfig
+			)
+			setMuni(res.data)
+		}
 	}
 
 	useEffect(() => {
@@ -37,12 +38,7 @@ const NewClient = ({ options, loading }) => {
 					value={p_tipo_doc}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected={true} disabled label='Seleccione' />
 					{loading ||
 						options.p_tipo_doc.map((option) => (
 							<option
@@ -60,12 +56,7 @@ const NewClient = ({ options, loading }) => {
 					value={p_cod_nac}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected={true} disabled label='Seleccione' />
 					{loading ||
 						options.p_cod_nac.map((option) => (
 							<option
@@ -82,14 +73,9 @@ const NewClient = ({ options, loading }) => {
 					value={p_cod_depto}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected={true} disabled label='Seleccione' />
 					{loading ||
-						options.deptos.map((option) => (
+						options.dep.map((option) => (
 							<option
 								key={option.cod_depto}
 								value={option.cod_depto}
@@ -104,12 +90,7 @@ const NewClient = ({ options, loading }) => {
 					value={p_cod_muni}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected={true} disabled label='Seleccione' />
 					{muni.map((option) => (
 						<option
 							key={option.cod_muni}
@@ -134,11 +115,7 @@ const NewClient = ({ options, loading }) => {
 					size='md'
 					label='Fecha de Constitucion'
 				/>
-				<Text
-					name='p_fecha_personeria'
-					size='md'
-					label='Fecha de Personeria'
-				/>
+				<Text name='p_fecha_personeria' size='md' label='Fecha de Personeria' />
 				<Text
 					name='p_ingreso_anual'
 					size='md'

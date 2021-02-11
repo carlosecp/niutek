@@ -1,17 +1,9 @@
 import React from 'react'
-import { FieldArray, useFormikContext } from 'formik'
+import { useFormikContext } from 'formik'
 import { Text, Dropdown, Checkbox } from '../../utils/forms'
-import ChargesTable from './ChargesTable'
 import Documents from '../Documents'
-import EditChargesPopup from './EditChargesPopup'
 
-const NewCredit = ({
-	options,
-	loading,
-	showChargesPopup,
-	togglePopup,
-	activeCharge,
-}) => {
+const NewCredit = ({ options, loading }) => {
 	const { values } = useFormikContext()
 	const {
 		p_moneda,
@@ -21,22 +13,8 @@ const NewCredit = ({
 		p_cod_frecuencia_pago,
 	} = values
 
-	const initialValues = {
-		pcr_descripcion_cargo: '',
-		pcr_cod_moneda: 1,
-		pcr_valor: 123,
-		pcr_cod_tipo: 1,
-	}
-
 	return (
 		<>
-			{showChargesPopup && (
-				<EditChargesPopup
-					togglePopup={togglePopup}
-					options={options}
-					activeCharge={activeCharge}
-				/>
-			)}
 			<div className='mb-4 form-grid-layout'>
 				<Dropdown
 					size='md'
@@ -161,12 +139,7 @@ const NewCredit = ({
 				/>
 			</div>
 			<Documents />
-			<div className='mt-4'>
-				<FieldArray
-					name='cargos'
-					render={(arrayHelpers) => <ChargesTable togglePopup={togglePopup} />}
-				></FieldArray>
-			</div>
+			<div className='mt-4'></div>
 		</>
 	)
 }

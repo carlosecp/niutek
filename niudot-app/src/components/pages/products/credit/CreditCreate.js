@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Formik, Form } from 'formik'
 import NewCredit from './NewCredit'
 import SubmitBtn from '../../utils/SubmitBtn'
 import { credit, cargos } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
+import Charges from './Charges'
 
 const initialValues = {
 	...credit,
@@ -11,9 +12,6 @@ const initialValues = {
 }
 
 const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
-	const [showChargesPopup, setShowChargesPopup] = useState(false)
-	const [activeCharge, setActiveCharge] = useState(null)
-
 	const optionsReqConfig = {
 		table: { p_tipo: '2' },
 		tablas_cre: { p_tipo: '*' },
@@ -31,11 +29,6 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 	]
 
 	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
-
-	const toggleEditPopup = (charge) => {
-		setActiveCharge(charge || null)
-		setShowChargesPopup(!showChargesPopup)
-	}
 
 	return (
 		<Formik
@@ -81,13 +74,8 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 					)}
 				</div>
 				<div className='mt-4 section'>
-					<NewCredit
-						options={options}
-						loading={loading}
-						showChargesPopup={showChargesPopup}
-						togglePopup={toggleEditPopup}
-						activeCharge={activeCharge}
-					/>
+					<NewCredit options={options} loading={loading} />
+					<Charges options={options} loading={loading} />
 					<SubmitBtn loading={savingClient} />
 				</div>
 			</Form>

@@ -4,27 +4,27 @@ import { FaPlus, FaTimes } from 'react-icons/fa'
 import { Dropdown, Text } from '../../utils/forms'
 import RetractileForm from '../../utils/retractile_sections'
 
-const Accionists = ({ options, loading }) => {
+const Charges = ({ options, loading }) => {
 	const initialValues = {
-		pac_nombre_accionista: 'BDF',
-		pac_tipo_doc: 1,
-		pac_num_doc: '45789612',
-		pac_porcentaje: '100',
+		pcr_descripcion_cargo: '',
+		pcr_cod_moneda: 0,
+		pcr_valor: 0,
+		pcr_cod_tipo: 0,
 	}
 
 	const { values } = useFormikContext()
-	const { accionistas } = values
+	const { cargos } = values
 
 	return (
 		<FieldArray
-			name='accionistas'
+			name='cargos'
 			render={(arrayHelpers) => (
-				<RetractileForm formTitle='Accionistas'>
-					{accionistas.map((_, index) => (
+				<RetractileForm formTitle='Cargos'>
+					{cargos.map((_, index) => (
 						<Fragment key={index}>
 							<div className='flex justify-between items-center text-gray-gray'>
 								<h3 className='font-bold text-lg mt-3'>
-									Accionista {index + 1}
+									Rerefencia {index + 1}
 								</h3>
 								<div className='mr-4'></div>
 								<FaTimes
@@ -32,26 +32,20 @@ const Accionists = ({ options, loading }) => {
 									onClick={() => arrayHelpers.remove(index)}
 								/>
 							</div>
-							<div className='form-grid-layout'>
+							<div className='form-grid-layout grid grid-cols-12 gap-2'>
 								<Text
-									name={`accionistas.${index}.pac_nombre_accionista`}
+									name={`cargos.${index}.pcr_descripcion_cargo`}
 									size='md'
-									label='Nombre Accionista'
+									label='Descripción del Cargo'
 								/>
 								<Dropdown
 									size='md'
-									name='pac_tipo_doc'
-									label='Tipo Documento'
-									loading={loading}
+									name={`cargos.${index}.pcr_cod_moneda`}
+									label='Moneda'
 								>
-									<option
-										value='0'
-										selected='true'
-										disabled
-										label='Seleccione'
-									/>
+									<option value=''>Seleccione</option>
 									{loading ||
-										options.p_tipo_doc.map((option) => (
+										options.p_moneda.map((option) => (
 											<option
 												key={option.codigo}
 												value={option.codigo}
@@ -60,19 +54,30 @@ const Accionists = ({ options, loading }) => {
 										))}
 								</Dropdown>
 								<Text
-									name={`accionistas.${index}.pac_num_doc`}
+									name={`cargos.${index}.pcr_valor`}
 									size='md'
-									label='No. Identificación'
+									label='Valor'
+									type='number'
 								/>
-								<Text
-									name={`accionistas.${index}.pac_porcentaje`}
+								<Dropdown
 									size='md'
-									label='Porcentaje'
-								/>
+									name={`cargos.${index}.pcr_cod_tipo`}
+									label='Tipo (%/Monto)'
+								>
+									<option value=''>Seleccione</option>
+									{loading ||
+										options.tipo_cargo.map((option) => (
+											<option
+												key={option.codigo}
+												value={option.codigo}
+												label={option.descripcion}
+											/>
+										))}
+								</Dropdown>
 							</div>
 						</Fragment>
 					))}
-					{accionistas.length < 2 && (
+					{cargos.length < 10 && (
 						<button
 							type='button'
 							onClick={() => arrayHelpers.push({ ...initialValues })}
@@ -87,4 +92,4 @@ const Accionists = ({ options, loading }) => {
 	)
 }
 
-export default Accionists
+export default Charges

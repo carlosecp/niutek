@@ -16,24 +16,24 @@ export const credit = {
 	pdc_cod_documento: ['1', '2'],
 	pdc_reg: 2,
 	pcr_reg: 1,
-	pcr_descripcion_cargo: 'Descripcion Cargo                                 ',
-	pcr_cod_moneda: '1         ',
-	pcr_valor: '123            ',
-	pcr_cod_tipo: '1         ',
+	pcr_descripcion_cargo: 'Descripcion Cargo',
+	pcr_cod_moneda: '1',
+	pcr_valor: '123',
+	pcr_cod_tipo: '1',
 }
 
 // Cargos
 export const cargos = [
 	{
-		pcr_descripcion_cargo: 'Descripcion Cargo                                 ',
-		pcr_cod_moneda: '1         ',
-		pcr_valor: '123            ',
-		pcr_cod_tipo: '1         ',
+		pcr_descripcion_cargo: 'Descripcion Cargo',
+		pcr_cod_moneda: '1',
+		pcr_valor: '123',
+		pcr_cod_tipo: '1',
 	},
 	{
-		pcr_descripcion_cargo: 'Descripcion Cargo 2                               ',
-		pcr_cod_moneda: '1         ',
-		pcr_valor: '123            ',
-		pcr_cod_tipo: '1         ',
+		pcr_descripcion_cargo: 'Descripcion Cargo 2',
+		pcr_cod_moneda: '1',
+		pcr_valor: '123',
+		pcr_cod_tipo: '1',
 	},
 ]
