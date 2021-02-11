@@ -6,10 +6,10 @@ import RetractileForm from '../../utils/retractile_sections'
 
 const Accionists = ({ options, loading }) => {
 	const initialValues = {
-		pac_nombre_accionista: 'BDF',
-		pac_tipo_doc: 1,
-		pac_num_doc: '45789612',
-		pac_porcentaje: '100',
+		pac_nombre_accionista: '',
+		pac_tipo_doc: 0,
+		pac_num_doc: '',
+		pac_porcentaje: 0,
 	}
 
 	const { values } = useFormikContext()
@@ -68,6 +68,8 @@ const Accionists = ({ options, loading }) => {
 									name={`accionistas.${index}.pac_porcentaje`}
 									size='md'
 									label='Porcentaje'
+									type='number'
+									step='0.5'
 								/>
 							</div>
 						</Fragment>
@@ -75,7 +77,9 @@ const Accionists = ({ options, loading }) => {
 					{accionistas.length < 2 && (
 						<button
 							type='button'
-							onClick={() => arrayHelpers.push({ ...initialValues })}
+							onClick={() =>
+								arrayHelpers.push({ ...initialValues })
+							}
 							className='mt-3 btn bg-blue-blue btn-border-blue flex gap-2 items-center'
 						>
 							Agregar <FaPlus />

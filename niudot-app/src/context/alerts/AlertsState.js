@@ -6,11 +6,7 @@ const AlertsState = (props) => {
 	const [alerts, setAlerts] = useState([])
 
 	const addAlert = (response) => {
-		console.log(response)
-		const id = uuidv4()
-		const newAlert = { id, msg: response.data.message, status: response.status }
-
-		setAlerts([...alerts, newAlert])
+		console.log(typeof response, response)
 	}
 
 	return (

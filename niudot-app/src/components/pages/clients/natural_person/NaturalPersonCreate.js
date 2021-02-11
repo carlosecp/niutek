@@ -12,6 +12,7 @@ import {
 	referencias_comerciales,
 	referencias_bancarias,
 	referencias_personales,
+	validationSchema,
 } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
 import parseValues from './parseValues'
@@ -46,7 +47,7 @@ const NaturalPersonCreate = ({
 	return (
 		<Formik
 			initialValues={clientData || initialValues}
-			handle
+			validationSchema={validationSchema}
 			onSubmit={(values) => {
 				const parsedValues = parseValues(values)
 
@@ -56,8 +57,6 @@ const NaturalPersonCreate = ({
 					p_clase_persona: 1,
 					...parsedValues,
 				}
-
-				console.log(tempValues)
 				const writeType = clientData ? 'modify' : 'create'
 				writeForm(writeType, tempValues)
 			}}

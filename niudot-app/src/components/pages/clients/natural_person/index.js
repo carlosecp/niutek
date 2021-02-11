@@ -32,7 +32,7 @@ const NaturalPerson = () => {
 			requestConfig
 		)
 
-		console.log(res.data)
+		console.log(res)
 
 		setFetchingClient(false)
 		setClient({ p_cod_cliente: clientId, ...res.data })
@@ -43,6 +43,7 @@ const NaturalPerson = () => {
 
 	const writeForm = async (type, data) => {
 		console.log('Lo que estoy enviando en persona natural: ', data)
+		setFetchingClient(true)
 
 		setSavingClient(true)
 		try {
@@ -51,7 +52,7 @@ const NaturalPerson = () => {
 				data,
 				requestConfig
 			)
-			console.log(res.data.result[0])
+			console.log(res)
 		} catch (err) {
 			console.error(err)
 		} finally {

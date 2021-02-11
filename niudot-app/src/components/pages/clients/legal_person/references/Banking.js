@@ -16,9 +16,8 @@ const Banking = ({ options, loading }) => {
 		pct_cod_banco: 0,
 	}
 
-	const {
-		values: { referencias_bancarias },
-	} = useFormikContext()
+	const { values } = useFormikContext()
+	const { referencias_bancarias } = values
 
 	return (
 		<FieldArray
@@ -116,7 +115,9 @@ const Banking = ({ options, loading }) => {
 					{referencias_bancarias.length < 2 && (
 						<button
 							type='button'
-							onClick={() => arrayHelpers.push({ ...initialValues })}
+							onClick={() =>
+								arrayHelpers.push({ ...initialValues })
+							}
 							className='mt-3 btn bg-blue-blue btn-border-blue flex gap-2 items-center'
 						>
 							Agregar <FaPlus />

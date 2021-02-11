@@ -6,16 +6,16 @@ import RetractileForm from '../../../utils/retractile_sections'
 
 const Personal = ({ options, loading }) => {
 	const initialValues = {
-		prp_nombre: 'Superman',
-		prp_tipo_doc: 1,
-		prp_num_doc: '001-100901-1037U',
-		prp_telefono1: '12345678',
-		prp_telefono2: '12346423',
-		prp_direccion: 'Direccion persona1',
-		prp_lugar_trabajo: 'Las estrellas',
-		prp_telefono_trabajo: '45671234',
-		prp_tiempo_conocer: 10,
-		prp_e_mail: 'carlos@gmail.com',
+		prp_nombre: '',
+		prp_tipo_doc: 0,
+		prp_num_doc: '',
+		prp_telefono1: '',
+		prp_telefono2: '',
+		prp_direccion: '',
+		prp_lugar_trabajo: '',
+		prp_telefono_trabajo: '',
+		prp_tiempo_conocer: 0,
+		prp_e_mail: '',
 	}
 
 	const { values } = useFormikContext()
