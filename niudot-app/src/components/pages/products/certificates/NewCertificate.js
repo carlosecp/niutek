@@ -5,7 +5,7 @@ import Documents from '../Documents'
 
 const NewDeposit = ({ options, loading }) => {
 	const { values } = useFormikContext()
-	const { p_moneda } = values
+	const { p_cod_moneda } = values
 
 	return (
 		<>
@@ -21,10 +21,15 @@ const NewDeposit = ({ options, loading }) => {
 					size='md'
 					name='p_cod_moneda'
 					label='Moneda'
-					value={p_moneda}
+					value={p_cod_moneda}
 					loading={loading}
 				>
-					<option value='0' selected='true' disabled label='Seleccione' />
+					<option
+						value={0}
+						selected={true}
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.p_moneda.map((option) => (
 							<option

@@ -12,7 +12,6 @@ const Providers = () => {
 	}
 
 	const { values } = useFormikContext()
-
 	const { proveedores } = values
 
 	return (
@@ -54,7 +53,9 @@ const Providers = () => {
 					{proveedores.length < 2 && (
 						<button
 							type='button'
-							onClick={() => arrayHelpers.push({ ...initialValues })}
+							onClick={() =>
+								arrayHelpers.push({ ...initialValues })
+							}
 							className='mt-3 btn bg-blue-blue btn-border-blue flex gap-2 items-center'
 						>
 							Agregar <FaPlus />

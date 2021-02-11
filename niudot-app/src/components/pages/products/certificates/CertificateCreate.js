@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import NewCertificate from './NewCertificate'
 import SubmitBtn from '../../utils/SubmitBtn'
-import { initialValues } from './initialValues'
+import { initialValues, validationSchema } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
 
 const CertificateCreate = ({
@@ -22,17 +22,16 @@ const CertificateCreate = ({
 	return (
 		<Formik
 			initialValues={certificateData || initialValues}
-			handle
+			validationSchema={validationSchema}
 			onSubmit={(values) => {
 				const tempValues = {
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
 					p_clase_persona: 1,
-					pdc_cod_documento: '1         2         ',
 					pdc_reg: 2,
 					...values,
 				}
-				const writeType = certificateData ? 'update' : 'register'
+				const writeType = certificateData ? 'modify' : 'register'
 				writeForm(writeType, tempValues)
 			}}
 		>

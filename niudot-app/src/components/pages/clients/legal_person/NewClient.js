@@ -15,7 +15,7 @@ const NewClient = ({ options, loading }) => {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/read/dep`,
 				{
-					codigo: codMuni,
+					codigo: 0,
 				},
 				requestConfig
 			)
@@ -38,7 +38,12 @@ const NewClient = ({ options, loading }) => {
 					value={p_tipo_doc}
 					loading={loading}
 				>
-					<option value='0' selected={true} disabled label='Seleccione' />
+					<option
+						value='0'
+						selected={true}
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.p_tipo_doc.map((option) => (
 							<option
@@ -56,7 +61,12 @@ const NewClient = ({ options, loading }) => {
 					value={p_cod_nac}
 					loading={loading}
 				>
-					<option value='0' selected={true} disabled label='Seleccione' />
+					<option
+						value='0'
+						selected={true}
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.p_cod_nac.map((option) => (
 							<option
@@ -73,7 +83,12 @@ const NewClient = ({ options, loading }) => {
 					value={p_cod_depto}
 					loading={loading}
 				>
-					<option value='0' selected={true} disabled label='Seleccione' />
+					<option
+						value='0'
+						selected={true}
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.dep.map((option) => (
 							<option
@@ -90,7 +105,12 @@ const NewClient = ({ options, loading }) => {
 					value={p_cod_muni}
 					loading={loading}
 				>
-					<option value='0' selected={true} disabled label='Seleccione' />
+					<option
+						value='0'
+						selected={true}
+						disabled
+						label='Seleccione'
+					/>
 					{muni.map((option) => (
 						<option
 							key={option.cod_muni}
@@ -108,7 +128,12 @@ const NewClient = ({ options, loading }) => {
 				/>
 				<Text name='p_sitio_web' size='md' label='Sitio Web' />
 				<Text name='p_e_mail' size='md' label='Email' />
-				<Text name='p_telefono1' size='md' label='Telefono 1' newline={true} />
+				<Text
+					name='p_telefono1'
+					size='md'
+					label='Telefono 1'
+					newline={true}
+				/>
 				<Text name='p_telefono2' size='md' label='Telefono 2' />
 				<Text name='p_direccion' size='lg' label='Dirección' />
 				<Text
@@ -116,7 +141,11 @@ const NewClient = ({ options, loading }) => {
 					size='md'
 					label='Fecha de Constitucion'
 				/>
-				<Text name='p_fecha_personeria' size='md' label='Fecha de Personeria' />
+				<Text
+					name='p_fecha_personeria'
+					size='md'
+					label='Fecha de Personeria'
+				/>
 				<Text
 					name='p_ingreso_anual'
 					size='md'
