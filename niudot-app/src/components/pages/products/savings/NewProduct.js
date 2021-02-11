@@ -24,7 +24,12 @@ const NewProduct = ({ options, loading }) => {
 					value={p_cod_moneda}
 					loading={loading}
 				>
-					<option value='0' selected='true' disabled label='Seleccione' />
+					<option
+						value={0}
+						selected={true}
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.p_moneda.map((option) => (
 							<option

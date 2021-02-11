@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik, Form } from 'formik'
 import NewProduct from './NewProduct'
 import SubmitBtn from '../../utils/SubmitBtn'
-import { initialValues } from './initialValues'
+import { initialValues, validationSchema } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
 
 const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
@@ -17,8 +17,9 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 	return (
 		<Formik
 			initialValues={productData || initialValues}
-			handle
+			validationSchema={validationSchema}
 			onSubmit={(values) => {
+				console.log(values)
 				const tempValues = {
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
