@@ -5,12 +5,12 @@ import alertsContext from './alertsContext'
 const AlertsState = (props) => {
 	const [alerts, setAlerts] = useState([])
 
-	const addAlert = ({ msg }) => {
+	const addAlert = (response) => {
+		console.log(response)
 		const id = uuidv4()
-		setAlerts([...alerts, { id, msg }])
-		setTimeout(() => {
-			setAlerts(alerts.filter((alert) => alert.id !== id))
-		}, 3000)
+		const newAlert = { id, msg: response.data.message, status: response.status }
+
+		setAlerts([...alerts, newAlert])
 	}
 
 	return (

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Field, useFormikContext } from 'formik'
+import { useFormikContext } from 'formik'
 import { Text, Dropdown, Checkbox } from '../../utils/forms'
-import CreditTable from './CreditTable'
 import Documents from '../Documents'
 
 const NewCredit = ({ options, loading }) => {
@@ -24,12 +23,7 @@ const NewCredit = ({ options, loading }) => {
 					value={p_cod_tipo_credito}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected='true' disabled label='Seleccione' />
 					{loading ||
 						options.p_cod_tipo_credito.map((option) => (
 							<option
@@ -46,12 +40,7 @@ const NewCredit = ({ options, loading }) => {
 					value={p_cod_fuente_fondo}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected='true' disabled label='Seleccione' />
 					{loading ||
 						options.p_cod_fuente_fondo.map((option) => (
 							<option
@@ -75,14 +64,15 @@ const NewCredit = ({ options, loading }) => {
 					value={p_moneda}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
-					<option value='1'>Córdobas</option>
-					<option value='2'>Dólares</option>
+					<option value='0' selected='true' disabled label='Seleccione' />
+					{loading ||
+						options.p_moneda.map((option) => (
+							<option
+								key={option.codigo}
+								value={option.codigo}
+								label={option.descripcion}
+							/>
+						))}
 				</Dropdown>
 
 				<Text
@@ -91,18 +81,8 @@ const NewCredit = ({ options, loading }) => {
 					label='Tasa de interés mensual'
 					type='number'
 				/>
-				<Text
-					name='p_num_doc'
-					size='md'
-					label='Monto mínimo'
-					type='number'
-				/>
-				<Text
-					name='p_num_doc'
-					size='md'
-					label='Monto máximo'
-					type='number'
-				/>
+				<Text name='p_num_doc' size='md' label='Monto mínimo' type='number' />
+				<Text name='p_num_doc' size='md' label='Monto máximo' type='number' />
 				<Dropdown
 					size='md'
 					name='p_plazo'
@@ -110,12 +90,7 @@ const NewCredit = ({ options, loading }) => {
 					value={p_plazo}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected='true' disabled label='Seleccione' />
 					{loading ||
 						options.plazo_interes.map((option) => (
 							<option
@@ -132,12 +107,7 @@ const NewCredit = ({ options, loading }) => {
 					value={p_cod_frecuencia_pago}
 					loading={loading}
 				>
-					<option
-						value='0'
-						selected='true'
-						disabled
-						label='Seleccione'
-					/>
+					<option value='0' selected='true' disabled label='Seleccione' />
 					{loading ||
 						options.frecuencia_pago.map((option) => (
 							<option
@@ -169,7 +139,7 @@ const NewCredit = ({ options, loading }) => {
 				/>
 			</div>
 			<Documents />
-			<CreditTable options={options} />
+			<div className='mt-4'></div>
 		</>
 	)
 }

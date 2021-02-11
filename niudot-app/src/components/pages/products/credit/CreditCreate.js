@@ -1,25 +1,34 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Formik, Form } from 'formik'
 import NewCredit from './NewCredit'
 import SubmitBtn from '../../utils/SubmitBtn'
-import { initialValues } from './initialValues'
+import { credit, cargos } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
+import Charges from './Charges'
+
+const initialValues = {
+	...credit,
+	cargos,
+}
 
 const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
-	const { options, loading } = useOptions(
-		{
-			p_cod_tipo_credito: [],
-			p_cod_fuente_fondo: [],
-			plazo_interes: [],
-			frecuencia_pago: [],
-			tipo_cargo: [],
-		},
-		{
-			endpoint: 'read/tablas_cre',
-			body: { p_tipo: '*' },
-		},
-		true
-	)
+	const optionsReqConfig = {
+		table: { p_tipo: '2' },
+		tablas_cre: { p_tipo: '*' },
+	}
+
+	const optionsFormat = [
+		['p_moneda'],
+		[
+			'p_cod_tipo_credito',
+			'p_cod_fuente_fondo',
+			'plazo_interes',
+			'frecuencia_pago',
+			'tipo_cargo',
+		],
+	]
+
+	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
 
 	return (
 		<Formik
@@ -32,7 +41,7 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 					p_clase_persona: 1,
 					...values,
 				}
-				const writeType = creditData ? 'update' : 'create'
+				const writeType = creditData ? 'update' : 'register'
 				writeForm(writeType, tempValues)
 			}}
 		>
@@ -49,8 +58,7 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 								Editar Producto Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b>{' '}
-								{creditData.p_cod_cliente} -{' '}
+								<b>Editando Cliente:</b> {creditData.p_cod_cliente} -{' '}
 								{creditData.p_nombres} {creditData.p_apellidos}
 							</p>
 						</>
@@ -60,14 +68,14 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 								Crear Nuevo Producto
 							</h2>
 							<p className='text-gray-gray'>
-								Registrar un nuevo producto depósitos a plazo
-								fijo.
+								Registrar un nuevo producto depósitos a plazo fijo.
 							</p>
 						</>
 					)}
 				</div>
 				<div className='mt-4 section'>
 					<NewCredit options={options} loading={loading} />
+					<Charges options={options} loading={loading} />
 					<SubmitBtn loading={savingClient} />
 				</div>
 			</Form>

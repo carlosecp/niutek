@@ -5,6 +5,7 @@ import LegalPersonCreate from './LegalPersonCreate'
 import routesContext from '../../../../context/routes/routesContext'
 import axios from 'axios'
 import requestConfig from '../../../../utils/requestConfig'
+import alertsContext from '../../../../context/alerts/alertsContext'
 
 const LegalPerson = () => {
 	const { changePage } = useContext(routesContext)
@@ -16,17 +17,20 @@ const LegalPerson = () => {
 
 	const [loading, setLoading] = useState(false)
 	const [fetchingClient, setFetchingClient] = useState(false)
+	const [sendingForm, setSendingForm] = useState(false)
 
 	const [matches, setMatches] = useState([])
 	const [client, setClient] = useState(null)
 	const [form, setForm] = useState(false)
 
+	const { addAlert } = useContext(alertsContext)
+
 	const fetchClient = async (clientId) => {
 		setFetchingClient(true)
 
 		const res = await axios.post(
-			`${process.env.REACT_APP_URL}/read/client`,
-			{ p_cod_cliente: clientId },
+			`${process.env.REACT_APP_URL}/read/datos_cliente_juridico`,
+			{ p_cod_cliente: clientId, p_cod_empresa: 1, p_cod_sucursal: 0 },
 			requestConfig
 		)
 
@@ -40,6 +44,7 @@ const LegalPerson = () => {
 	}
 
 	const writeForm = async (type, data) => {
+		setSendingForm(true)
 		console.log('Esto es lo que estoy enviando: ', data)
 		try {
 			const res = await axios.post(
@@ -47,9 +52,11 @@ const LegalPerson = () => {
 				data,
 				requestConfig
 			)
-			console.log('Esto es lo que estoy recibiendo: ', res)
+			addAlert(res)
 		} catch (err) {
-			console.error(err)
+			addAlert(err)
+		} finally {
+			setSendingForm(false)
 		}
 	}
 
@@ -57,6 +64,7 @@ const LegalPerson = () => {
 		<LegalPersonCreate
 			clientData={client}
 			writeForm={writeForm}
+			sendingForm={sendingForm}
 			goBack={() => {
 				setForm(false)
 				setClient(null)
