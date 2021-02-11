@@ -156,7 +156,7 @@ export const validationSchema = Yup.object({
 	p_lugar_nacimiento: Yup.string()
 		.max(30, 'Caracteres Máximos 30')
 		.required('Requerido'),
-	p_fecha_nacimiento: Yup.date("Fecha invalida").required('Requerido'),
+	p_fecha_nacimiento: Yup.date('Fecha invalida').required('Requerido'),
 	p_cargo_publico: Yup.mixed()
 		.notOneOf([0], 'Seleccione un valor')
 		.required('Requerido'),
@@ -283,8 +283,9 @@ export const validationSchema = Yup.object({
 			prb_tipo_servicio_recibido: Yup.string()
 				.max(50, 'Caracteres Máximos 50')
 				.required('Requerido'),
-			prb_fecha_inicio_relacion: Yup.date("Fecha invalida")
-				.required('Requerido'),
+			prb_fecha_inicio_relacion: Yup.date('Fecha invalida').required(
+				'Requerido'
+			),
 			prb_annios_con_entidad: Yup.number('Valor Numérico')
 				.min(0, 'Valor Mínimo 0')
 				.required('Requerido'),
@@ -300,37 +301,40 @@ export const validationSchema = Yup.object({
 			pct_cod_banco: Yup.number('Valor Numérico')
 				.min(0, 'Valor Mínimo 0')
 				.required('Requerido'),
-		})),
-		referencias_personales: Yup.array().of(
-			Yup.object().shape({
-				prp_nombre: Yup.string()
+		})
+	),
+	referencias_personales: Yup.array().of(
+		Yup.object().shape({
+			prp_nombre: Yup.string()
 				.max(50, 'Caracteres Máximos 50')
 				.required('Requerido'),
-				prp_tipo_doc:  Yup.notOneOf([0], 'Seleccione un valor')
-					.required('Requerido'),
-				prp_num_doc: Yup.string()
-					.max(30, 'Caracteres Máximos 30')
-					.required('Requerido'),
-				prp_telefono1: Yup.string()
-					.max(30, 'Caracteres Máximos 30')
-					.required('Requerido'),
-				prp_telefono2:Yup.string()
-					.max(30, 'Caracteres Máximos 30')
-					.required('Requerido'),
-				prp_direccion:Yup.string()
-					.max(100, 'Caracteres Máximos 100')
-					.required('Requerido'),
-				prp_lugar_trabajo:Yup.string()
-					.max(50, 'Caracteres Máximos 50')
-					.required('Requerido'),
-				prp_telefono_trabajo:Yup.string()
-					.max(30, 'Caracteres Máximos 30')
-					.required('Requerido'),
-				prp_tiempo_conocer:Yup.string()
-					.max(30, 'Caracteres Máximos 30')
-					.required('Requerido'),
-				prp_e_mail:Yup.string()
-					.max(50, 'Caracteres Máximos 50')
-					.required('Requerido'),
-			}))
+			prp_tipo_doc: Yup.mixed()
+				.notOneOf([0], 'Seleccione un valor')
+				.required('Requerido'),
+			prp_num_doc: Yup.string()
+				.max(30, 'Caracteres Máximos 30')
+				.required('Requerido'),
+			prp_telefono1: Yup.string()
+				.max(30, 'Caracteres Máximos 30')
+				.required('Requerido'),
+			prp_telefono2: Yup.string()
+				.max(30, 'Caracteres Máximos 30')
+				.required('Requerido'),
+			prp_direccion: Yup.string()
+				.max(100, 'Caracteres Máximos 100')
+				.required('Requerido'),
+			prp_lugar_trabajo: Yup.string()
+				.max(50, 'Caracteres Máximos 50')
+				.required('Requerido'),
+			prp_telefono_trabajo: Yup.string()
+				.max(30, 'Caracteres Máximos 30')
+				.required('Requerido'),
+			prp_tiempo_conocer: Yup.string()
+				.max(30, 'Caracteres Máximos 30')
+				.required('Requerido'),
+			prp_e_mail: Yup.string()
+				.max(50, 'Caracteres Máximos 50')
+				.required('Requerido'),
+		})
+	),
 })

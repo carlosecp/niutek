@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import NewFormBtn from '../../utils/NewFormBtn'
 import routesContext from '../../../../context/routes/routesContext'
+import alertsContext from '../../../../context/alerts/alertsContext'
 import axios from 'axios'
 import requestConfig from '../../../../utils/requestConfig'
 import SearchCertificate from '../../utils/search/products/SearchProducts'
@@ -21,16 +22,20 @@ const Certificate = () => {
 	const [certificate, setCertificate] = useState(null)
 	const [form, setForm] = useState(false)
 
+	const { addAlert } = useContext(alertsContext)
+
 	const fetchCertificate = async (certificateId) => {
 		setFetchingCertificate(true)
 
 		const res = await axios.post(
 			`${process.env.REACT_APP_URL}/read/datos_producto_certificado`,
-			{ p_cod_producto: certificateId, p_cod_empresa: 1, p_cod_sucursal: 0 },
+			{
+				p_cod_producto: certificateId,
+				p_cod_empresa: 1,
+				p_cod_sucursal: 0,
+			},
 			requestConfig
 		)
-
-		console.log(res.data)
 
 		setFetchingCertificate(false)
 		setCertificate({ p_cod_producto: certificateId, ...res.data })
@@ -47,9 +52,9 @@ const Certificate = () => {
 				data,
 				requestConfig
 			)
-			console.log('Esto es lo que estoy recibiendo: ', res.data)
+			addAlert(res.data)
 		} catch (err) {
-			console.error(err)
+			addAlert(err, 'error')
 		}
 	}
 

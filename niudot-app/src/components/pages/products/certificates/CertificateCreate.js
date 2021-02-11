@@ -11,16 +11,13 @@ const CertificateCreate = ({
 	savingClient,
 	goBack,
 }) => {
-	const { options, loading } = useOptions(
-		{
-			p_moneda: [],
-		},
-		{
-			endpoint: 'read/table',
-			body: { p_tipo: '2' },
-		},
-		true
-	)
+	const optionsReqConfig = {
+		table: { p_tipo: '2' },
+	}
+
+	const optionsFormat = [['p_moneda']]
+
+	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
 
 	return (
 		<Formik
