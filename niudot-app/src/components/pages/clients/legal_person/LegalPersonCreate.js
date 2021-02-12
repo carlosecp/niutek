@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Formik, Form } from 'formik'
 import NewClient from './NewClient'
@@ -17,6 +17,7 @@ import {
 import useOptions from '../../../../hooks/useOptions'
 import Providers from './Providers'
 import Accionists from './Accionists'
+import authContext from '../../../../context/auth/authContext'
 
 const initialValues = {
 	...persona_juridica,
@@ -40,15 +41,15 @@ const LegalPersonCreate = ({ clientData, writeForm, goBack, sendingForm }) => {
 
 	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
 
+	const { user } = useContext(authContext)
+
 	return (
 		<Formik
 			initialValues={clientData || initialValues}
 			validationSchema={validationSchema}
 			onSubmit={(values) => {
 				const tempValues = {
-					p_cod_empresa: 1,
-					p_cod_sucursal: 0,
-					p_clase_persona: 1,
+					...user.params,
 					...values,
 				}
 				const writeType = clientData ? 'modify' : 'update'

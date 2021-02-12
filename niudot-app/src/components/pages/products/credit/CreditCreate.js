@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Formik, Form } from 'formik'
 import NewCredit from './NewCredit'
 import SubmitBtn from '../../utils/SubmitBtn'
-import { credit, cargos } from './initialValues'
+import { credit, cargos, validationSchema } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
 import Charges from './Charges'
+import authContext from '../../../../context/auth/authContext'
 
 const initialValues = {
 	...credit,
@@ -30,15 +31,15 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 
 	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
 
+	const { user } = useContext(authContext)
+
 	return (
 		<Formik
 			initialValues={creditData || initialValues}
-			handle
+			validationSchema={validationSchema}
 			onSubmit={(values) => {
 				const tempValues = {
-					p_cod_empresa: 1,
-					p_cod_sucursal: 0,
-					p_clase_persona: 1,
+					...user.params,
 					...values,
 				}
 				const writeType = creditData ? 'update' : 'register'
@@ -58,7 +59,8 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 								Editar Producto Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b> {creditData.p_cod_cliente} -{' '}
+								<b>Editando Cliente:</b>{' '}
+								{creditData.p_cod_cliente} -{' '}
 								{creditData.p_nombres} {creditData.p_apellidos}
 							</p>
 						</>
@@ -68,7 +70,8 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 								Crear Nuevo Producto
 							</h2>
 							<p className='text-gray-gray'>
-								Registrar un nuevo producto depósitos a plazo fijo.
+								Registrar un nuevo producto depósitos a plazo
+								fijo.
 							</p>
 						</>
 					)}

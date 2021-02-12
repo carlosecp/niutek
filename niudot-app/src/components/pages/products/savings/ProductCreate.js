@@ -23,7 +23,6 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 				const tempValues = {
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
-					pdc_reg: 2,
 					...values,
 				}
 				const writeType = productData ? 'modify' : 'register'

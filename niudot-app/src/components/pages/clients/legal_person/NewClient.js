@@ -15,7 +15,7 @@ const NewClient = ({ options, loading }) => {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/read/dep`,
 				{
-					codigo: 0,
+					codigo: codMuni,
 				},
 				requestConfig
 			)

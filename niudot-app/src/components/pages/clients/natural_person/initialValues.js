@@ -156,7 +156,7 @@ export const validationSchema = Yup.object({
 	p_lugar_nacimiento: Yup.string()
 		.max(30, 'Caracteres Máximos 30')
 		.required('Requerido'),
-	p_fecha_nacimiento: Yup.date('Fecha invalida').required('Requerido'),
+	p_fecha_nacimiento: Yup.date('Fecha Inválida').required('Requerido'),
 	p_cargo_publico: Yup.mixed()
 		.notOneOf([0], 'Seleccione un valor')
 		.required('Requerido'),
@@ -283,7 +283,7 @@ export const validationSchema = Yup.object({
 			prb_tipo_servicio_recibido: Yup.string()
 				.max(50, 'Caracteres Máximos 50')
 				.required('Requerido'),
-			prb_fecha_inicio_relacion: Yup.date('Fecha invalida').required(
+			prb_fecha_inicio_relacion: Yup.date('Fecha Inválida').required(
 				'Requerido'
 			),
 			prb_annios_con_entidad: Yup.number('Valor Numérico')

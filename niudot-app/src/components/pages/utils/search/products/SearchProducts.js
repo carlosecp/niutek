@@ -12,7 +12,7 @@ const SearchProduct = ({
 	setLoading,
 	matches,
 	setMatches,
-	fetchProduct,
+	fetchCredit,
 	fetchingProduct,
 	path,
 }) => {
@@ -38,7 +38,9 @@ const SearchProduct = ({
 			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Producto Existente
 			</h2>
-			<p className='text-gray-gray'>Buscar entre los productos registrados.</p>
+			<p className='text-gray-gray'>
+				Buscar entre los productos registrados.
+			</p>
 			<Formik
 				initialValues={{ search: '', productId: null }}
 				validationSchema={Yup.object({
@@ -53,7 +55,7 @@ const SearchProduct = ({
 					<ControlledForms
 						loading={loading}
 						matches={matches}
-						fetchProduct={fetchProduct}
+						fetchCredit={fetchCredit}
 						fetchingProduct={fetchingProduct}
 					/>
 				</Form>
@@ -65,7 +67,7 @@ const SearchProduct = ({
 const ControlledForms = ({
 	loading,
 	matches,
-	fetchProduct,
+	fetchCredit,
 	fetchingProduct,
 }) => {
 	const {
@@ -74,7 +76,7 @@ const ControlledForms = ({
 
 	const handleSubmit = () => {
 		if (productId) {
-			fetchProduct(productId)
+			fetchCredit(productId)
 		}
 	}
 
@@ -113,9 +115,17 @@ const ControlledForms = ({
 			</div>
 			<div className='mt-2 form-grid-layout'>
 				<Dropdown label='Productos' size='md' name='productId'>
-					<option value='0' selected={true} disabled label='Seleccione' />
+					<option
+						value='0'
+						selected={true}
+						disabled
+						label='Seleccione'
+					/>
 					{matches.map((product) => (
-						<option key={product.cod_producto} value={product.cod_producto}>
+						<option
+							key={product.cod_producto}
+							value={product.cod_producto}
+						>
 							{product.cod_producto} - {product.nombre}
 						</option>
 					))}

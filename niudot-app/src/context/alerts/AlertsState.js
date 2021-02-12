@@ -7,6 +7,7 @@ const AlertsState = (props) => {
 
 	const addAlert = (res, resType = 'success') => {
 		const id = uuidv4()
+		console.log(res)
 
 		let message = ''
 		let type = ''

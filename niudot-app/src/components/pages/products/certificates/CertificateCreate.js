@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Formik, Form } from 'formik'
 import NewCertificate from './NewCertificate'
 import SubmitBtn from '../../utils/SubmitBtn'
 import { initialValues, validationSchema } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
+import authContext from '../../../../context/auth/authContext'
 
 const CertificateCreate = ({
 	certificateData,
@@ -19,16 +20,15 @@ const CertificateCreate = ({
 
 	const { options, loading } = useOptions(optionsReqConfig, optionsFormat)
 
+	const { user } = useContext(authContext)
+
 	return (
 		<Formik
 			initialValues={certificateData || initialValues}
 			validationSchema={validationSchema}
 			onSubmit={(values) => {
 				const tempValues = {
-					p_cod_empresa: 1,
-					p_cod_sucursal: 0,
-					p_clase_persona: 1,
-					pdc_reg: 2,
+					...user.params,
 					...values,
 				}
 				const writeType = certificateData ? 'modify' : 'register'

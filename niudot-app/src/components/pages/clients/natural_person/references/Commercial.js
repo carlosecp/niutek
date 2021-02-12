@@ -24,7 +24,7 @@ const Comerciales = () => {
 						<Fragment key={index}>
 							<div className='flex justify-between items-center text-gray-gray'>
 								<h3 className='font-bold text-lg mt-3'>
-									Rerefencia {index + 1}
+									Referencia {index + 1}
 								</h3>
 								<div className='mr-4'></div>
 								<FaTimes

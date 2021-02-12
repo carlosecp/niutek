@@ -23,7 +23,12 @@ const NewCredit = ({ options, loading }) => {
 					value={p_cod_tipo_credito}
 					loading={loading}
 				>
-					<option value='0' selected='true' disabled label='Seleccione' />
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.p_cod_tipo_credito.map((option) => (
 							<option
@@ -40,7 +45,12 @@ const NewCredit = ({ options, loading }) => {
 					value={p_cod_fuente_fondo}
 					loading={loading}
 				>
-					<option value='0' selected='true' disabled label='Seleccione' />
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.p_cod_fuente_fondo.map((option) => (
 							<option
@@ -50,7 +60,7 @@ const NewCredit = ({ options, loading }) => {
 							/>
 						))}
 				</Dropdown>
-				<Text name='p_nombres' size='lg' label='Nombre del Producto' />
+				<Text name='p_nombre' size='lg' label='Nombre del Producto' />
 				<Text
 					name='p_descripcion'
 					size='lg'
@@ -59,12 +69,17 @@ const NewCredit = ({ options, loading }) => {
 				/>
 				<Dropdown
 					size='md'
-					name='p_tipo_doc'
+					name='p_cod_moneda'
 					label='Moneda'
 					value={p_moneda}
 					loading={loading}
 				>
-					<option value='0' selected='true' disabled label='Seleccione' />
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.p_moneda.map((option) => (
 							<option
@@ -81,8 +96,18 @@ const NewCredit = ({ options, loading }) => {
 					label='Tasa de interés mensual'
 					type='number'
 				/>
-				<Text name='p_monto_minimo' size='md' label='Monto mínimo' type='number' />
-				<Text name='p_monto_maximo' size='md' label='Monto máximo' type='number' />
+				<Text
+					name='p_monto_minimo'
+					size='md'
+					label='Monto mínimo'
+					type='number'
+				/>
+				<Text
+					name='p_monto_maximo'
+					size='md'
+					label='Monto máximo'
+					type='number'
+				/>
 				<Dropdown
 					size='md'
 					name='p_plazo'
@@ -90,7 +115,12 @@ const NewCredit = ({ options, loading }) => {
 					value={p_plazo}
 					loading={loading}
 				>
-					<option value='0' selected='true' disabled label='Seleccione' />
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.plazo_interes.map((option) => (
 							<option
@@ -107,7 +137,12 @@ const NewCredit = ({ options, loading }) => {
 					value={p_cod_frecuencia_pago}
 					loading={loading}
 				>
-					<option value='0' selected='true' disabled label='Seleccione' />
+					<option
+						value='0'
+						selected='true'
+						disabled
+						label='Seleccione'
+					/>
 					{loading ||
 						options.frecuencia_pago.map((option) => (
 							<option

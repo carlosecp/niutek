@@ -1,13 +1,12 @@
 import * as Yup from 'yup'
 
 export const persona_juridica = {
-	// Persona Juridica
 	p_nombre: 'Test Nombre',
-	p_tipo_doc: 1,
+	p_tipo_doc: 0,
 	p_num_doc: '001-100901-1037U',
-	p_cod_nac: 1,
-	p_cod_depto: 1,
-	p_cod_muni: 1,
+	p_cod_nac: 0,
+	p_cod_depto: 0,
+	p_cod_muni: 0,
 	p_num_empleados: 10,
 	p_sitio_web: 'test.com',
 	p_e_mail: 'test@gmail.com',
@@ -16,12 +15,11 @@ export const persona_juridica = {
 	p_direccion: 'Test Direccion',
 	p_fecha_constitucion: '10-10-10',
 	p_fecha_personeria: '10-12-11',
-	p_ingreso_anual: 1,
+	p_ingreso_anual: 0,
 	p_actividad_empresa: 'Test Actividad Empresa',
 }
 
 export const origen_fondos = {
-	// Origen Fondos
 	p_of_donacion: true,
 	p_of_nombre_donante: 'Test Nombre Donante',
 	p_of_herencia: false,
@@ -38,7 +36,6 @@ export const origen_fondos = {
 	p_of_des_otros: '',
 }
 
-// Referencias Comerciales
 export const referencias_comerciales = [
 	{
 		prc_nombre_entidad: 'Test Nombre Entidad 1',
@@ -56,7 +53,6 @@ export const referencias_comerciales = [
 	},
 ]
 
-// Referencias Bancarias
 export const referencias_bancarias = [
 	{
 		prb_nombre_entidad: 'Test Nombre Entidad 1',
@@ -149,8 +145,8 @@ export const validationSchema = Yup.object({
 	p_direccion: Yup.string()
 		.max(100, 'Caracteres Máximos 100')
 		.required('Requerido'),
-	p_fecha_constitucion: Yup.date().required('Requerido'),
-	p_fecha_personeria: Yup.date().required('Requerido'),
+	p_fecha_constitucion: Yup.date('Fecha Inválida').required('Requerido'),
+	p_fecha_personeria: Yup.date('Fecha invalida').required('Requerido'),
 	p_ingreso_anual: Yup.number('Valor Numérico')
 		.min(0, 'Valor Mínimo 0')
 		.required('Requerido'),
@@ -238,7 +234,7 @@ export const validationSchema = Yup.object({
 		Yup.object().shape({
 			prb_nombre_entidad: Yup.string().required('Requerido'),
 			prb_tipo_servicio_recibido: Yup.string().required('Requerido'),
-			prb_fecha_inicio_relacion: Yup.string().required('Requerido'),
+			prb_fecha_inicio_relacion: Yup.date('Fecha invalida').required(),
 			prb_annios_con_entidad: Yup.number('Valor Numérico')
 				.integer('Valor Entero')
 				.min(0, 'Valor Mínimo 0')
@@ -261,8 +257,8 @@ export const validationSchema = Yup.object({
 			pac_nombre_accionista: Yup.string()
 				.max(50, 'Caracteres Máximos 50')
 				.required('Requerido'),
-			pac_tipo_doc: Yup.string()
-				.max(10, 'Caracteres Máximos 10')
+			pac_tipo_doc: Yup.mixed()
+				.notOneOf([0], 'Seleccione un valor')
 				.required('Requerido'),
 			pac_num_doc: Yup.string()
 				.max(30, 'Caracteres Máximos 30')

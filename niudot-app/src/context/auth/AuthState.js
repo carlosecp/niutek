@@ -11,7 +11,9 @@ import requestConfig from '../../utils/requestConfig'
 
 const AuthState = (props) => {
 	const initialState = {
-		user: true,
+		user: {
+			params: { p_cod_empresa: 1, p_cod_sucursal: 0, p_clase_persona: 1 },
+		},
 		token: localStorage.getItem('token'),
 		isAuthenticated: true,
 		loading: true,

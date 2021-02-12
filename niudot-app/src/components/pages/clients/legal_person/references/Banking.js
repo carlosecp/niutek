@@ -28,7 +28,7 @@ const Banking = ({ options, loading }) => {
 						<Fragment key={index}>
 							<div className='flex justify-between items-center text-gray-gray'>
 								<h3 className='font-bold text-lg mt-3'>
-									Rerefencia {index + 1}
+									Referencia {index + 1}
 								</h3>
 								<div className='mr-4'></div>
 								<FaTimes
@@ -84,7 +84,7 @@ const Banking = ({ options, loading }) => {
 										options.p_moneda.map((option) => (
 											<option
 												key={option.codigo}
-												value={option.descripcion}
+												value={option.codigo}
 												label={option.descripcion}
 											/>
 										))}

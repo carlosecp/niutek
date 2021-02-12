@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import NewFormBtn from '../../utils/NewFormBtn'
 import routesContext from '../../../../context/routes/routesContext'
+import alertsContext from '../../../../context/alerts/alertsContext'
 import axios from 'axios'
 import requestConfig from '../../../../utils/requestConfig'
 import SearchCredit from '../../utils/search/products/SearchProducts'
@@ -21,22 +22,29 @@ const Credit = () => {
 	const [credit, setCredit] = useState(null)
 	const [form, setForm] = useState(false)
 
+	const { addAlert } = useContext(alertsContext)
+
 	const fetchCredit = async (creditId) => {
 		setFetchingCredit(true)
 
-		const res = await axios.post(
-			`${process.env.REACT_APP_URL}/read/credit`,
-			{ p_cod_credite: creditId },
-			requestConfig
-		)
-
-		console.log(res.data)
-
-		setFetchingCredit(false)
-		setCredit({ p_cod_credite: creditId, ...res.data })
-		setMatches([])
-		setLoading(false)
-		setForm(true)
+		try {
+			const res = await axios.post(
+				`${process.env.REACT_APP_URL}/read/datos_producto_credito`,
+				{ p_cod_credite: creditId },
+				requestConfig
+			)
+			console.log(res.data)
+			setCredit({ p_cod_credite: creditId, ...res.data })
+			addAlert(res.data)
+			setForm(true)
+		} catch (err) {
+			console.log(err)
+			addAlert(err, 'error')
+		} finally {
+			setFetchingCredit(false)
+			setMatches([])
+			setLoading(false)
+		}
 	}
 
 	const writeForm = async (type, data) => {
@@ -48,8 +56,10 @@ const Credit = () => {
 				requestConfig
 			)
 			console.log('Esto es lo que estoy recibiendo: ', res)
+			addAlert(res.data)
 		} catch (err) {
 			console.error(err)
+			addAlert(err, 'error')
 		}
 	}
 
