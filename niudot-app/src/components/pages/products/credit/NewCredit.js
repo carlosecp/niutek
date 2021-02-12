@@ -76,13 +76,13 @@ const NewCredit = ({ options, loading }) => {
 				</Dropdown>
 
 				<Text
-					name='p_num_doc'
+					name='p_tasa_interes'
 					size='md'
 					label='Tasa de interés mensual'
 					type='number'
 				/>
-				<Text name='p_num_doc' size='md' label='Monto mínimo' type='number' />
-				<Text name='p_num_doc' size='md' label='Monto máximo' type='number' />
+				<Text name='p_monto_minimo' size='md' label='Monto mínimo' type='number' />
+				<Text name='p_monto_maximo' size='md' label='Monto máximo' type='number' />
 				<Dropdown
 					size='md'
 					name='p_plazo'
@@ -118,7 +118,7 @@ const NewCredit = ({ options, loading }) => {
 						))}
 				</Dropdown>
 				<Text
-					name='p_num_doc'
+					name='p_porc_aportacion'
 					size='md'
 					label='% aportación'
 					placeholder='Aportación'
