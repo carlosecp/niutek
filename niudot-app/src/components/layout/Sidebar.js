@@ -34,10 +34,6 @@ const Sidebar = ({ toggled, setToggled }) => {
 			</SidebarHeader>
 			<SidebarContent onClick={() => setOpenSettings(false)}>
 				<Menu>
-					{/* <MenuItem icon={<FaHome />} className='sidebar-item'>
-						Inicio
-						<Link to='/app/dashboard' onClick={() => changePage('inicio')} />
-					</MenuItem> */}
 					{pages.map((page) => (
 						<SidebarSubMenu key={page.name} page={page} />
 					))}

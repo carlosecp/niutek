@@ -90,7 +90,7 @@ const ControlledForms = ({
 					<Field
 						name='search'
 						type='text'
-						className='form-field flex-1'
+						className='w-56 sm:w-44 form-field'
 						placeholder='Nombre del Producto'
 					/>
 					<button

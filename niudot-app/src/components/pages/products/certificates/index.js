@@ -11,7 +11,7 @@ const Certificate = () => {
 	const { changePage } = useContext(routesContext)
 
 	useEffect(() => {
-		changePage('Productos de Certificados a Plazo Fijo')
+		changePage('Certificados a Plazo Fijo')
 		// eslint-disable-next-line
 	}, [])
 

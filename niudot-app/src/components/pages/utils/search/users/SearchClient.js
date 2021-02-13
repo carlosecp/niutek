@@ -41,7 +41,9 @@ const SearchClient = ({
 			<h2 className='text-black-white font-bold text-xl'>
 				Buscar Cliente Existente
 			</h2>
-			<p className='text-gray-gray'>Buscar entre los clientes registrados.</p>
+			<p className='text-gray-gray'>
+				Buscar entre los clientes registrados.
+			</p>
 			<Formik
 				initialValues={{ search: '', clientId: null }}
 				validationSchema={Yup.object({
@@ -79,12 +81,14 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 	return (
 		<>
 			<div className='mt-2'>
-				<label className='text-black-white font-bold'>Nombre del Cliente</label>
+				<label className='text-black-white font-bold'>
+					Nombre del Cliente
+				</label>
 				<div className='flex gap-2 w-72 sm:w-56'>
 					<Field
 						name='search'
 						type='text'
-						className='form-field flex-1'
+						className='w-56 sm:w-44 form-field'
 						placeholder='Nombre del Cliente'
 					/>
 					<button
@@ -109,11 +113,19 @@ const ControlledForms = ({ loading, matches, fetchClient, fetchingClient }) => {
 			</div>
 			<div className='mt-2 form-grid-layout'>
 				<Dropdown label='Clientes' size='md' name='clientId'>
-					<option value='0' selected={true} disabled label='Seleccione' />
+					<option
+						value='0'
+						selected={true}
+						disabled
+						label='Seleccione'
+					/>
 					{matches.map((client) => (
-						<option key={client.cod_cliente} value={client.cod_cliente}>
-							{client.cod_cliente} - {client.nombres} {client.apellidos}{' '}
-							{client.nombre}
+						<option
+							key={client.cod_cliente}
+							value={client.cod_cliente}
+						>
+							{client.cod_cliente} - {client.nombres}{' '}
+							{client.apellidos} {client.nombre}
 						</option>
 					))}
 				</Dropdown>

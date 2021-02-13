@@ -96,7 +96,7 @@ body {
 
 .btn {
 	/*Global*/
-	@apply h-std rounded font-bold px-6;
+	@apply h-std rounded font-bold px-6 overflow-hidden;
 }
 
 .btn-border-blue {
