@@ -30,7 +30,9 @@ const Credit = () => {
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/read/datos_producto_credito`,
-				{ p_cod_credite: creditId },
+				{ p_cod_empresa: 1,
+					p_cod_sucursal: 0,
+					p_cod_producto: creditId },
 				requestConfig
 			)
 			console.log(res.data)
