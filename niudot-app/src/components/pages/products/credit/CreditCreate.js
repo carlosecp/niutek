@@ -42,6 +42,7 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 					...user.params,
 					...values,
 				}
+				console.write('button was clicked')
 				const writeType = creditData ? 'update' : 'register'
 				writeForm(writeType, tempValues)
 			}}

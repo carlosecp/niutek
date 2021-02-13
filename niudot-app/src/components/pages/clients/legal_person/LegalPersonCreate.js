@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-
 import { Formik, Form } from 'formik'
 import NewClient from './NewClient'
 import OriginFunds from './OriginFunds'
