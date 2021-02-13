@@ -22,6 +22,8 @@ const Certificate = () => {
 	const [certificate, setCertificate] = useState(null)
 	const [form, setForm] = useState(false)
 
+	const [savingCertificate, setSavingCertificate] = useState(false)
+
 	const { addAlert } = useContext(alertsContext)
 
 	const fetchCertificate = async (certificateId) => {
@@ -37,6 +39,8 @@ const Certificate = () => {
 			requestConfig
 		)
 
+		console.log(res.data)
+
 		setFetchingCertificate(false)
 		setCertificate({ p_cod_producto: certificateId, ...res.data })
 		setMatches([])
@@ -45,7 +49,7 @@ const Certificate = () => {
 	}
 
 	const writeForm = async (type, data) => {
-		console.log(data)
+		setSavingCertificate(true)
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/${type}/producto_certificado`,
@@ -56,6 +60,8 @@ const Certificate = () => {
 			addAlert(res.data)
 		} catch (err) {
 			addAlert(err, 'error')
+		} finally {
+			setSavingCertificate(false)
 		}
 	}
 
@@ -63,6 +69,7 @@ const Certificate = () => {
 		<CertificateCreate
 			certificateData={certificate}
 			writeForm={writeForm}
+			savingCertificate={savingCertificate}
 			goBack={() => {
 				setForm(false)
 				setCertificate(null)

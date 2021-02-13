@@ -9,7 +9,7 @@ import authContext from '../../../../context/auth/authContext'
 const CertificateCreate = ({
 	certificateData,
 	writeForm,
-	savingClient,
+	savingCertificate,
 	goBack,
 }) => {
 	const optionsReqConfig = {
@@ -27,6 +27,7 @@ const CertificateCreate = ({
 			initialValues={certificateData || initialValues}
 			validationSchema={validationSchema}
 			onSubmit={(values) => {
+				console.log(values)
 				const tempValues = {
 					...user.params,
 					...values,
@@ -52,7 +53,7 @@ const CertificateCreate = ({
 								Editar Producto Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b>{' '}
+								<b>Editando Certificado:</b>{' '}
 								{certificateData.p_cod_producto} -{' '}
 								{certificateData.p_nombre}
 							</p>
@@ -71,7 +72,7 @@ const CertificateCreate = ({
 				</div>
 				<div className='mt-4 section'>
 					<NewCertificate options={options} loading={loading} />
-					<SubmitBtn loading={savingClient} />
+					<SubmitBtn loading={savingCertificate} />
 				</div>
 			</Form>
 		</Formik>

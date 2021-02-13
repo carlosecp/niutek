@@ -5,7 +5,7 @@ import SubmitBtn from '../../utils/SubmitBtn'
 import { initialValues, validationSchema } from './initialValues'
 import useOptions from '../../../../hooks/useOptions'
 
-const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
+const ProductCreate = ({ productData, writeForm, savingProduct, goBack }) => {
 	const optionsReqConfig = {
 		table: { p_tipo: '2' },
 	}
@@ -63,7 +63,7 @@ const ProductCreate = ({ productData, writeForm, savingClient, goBack }) => {
 				</div>
 				<div className='mt-4 section'>
 					<NewProduct options={options} loading={loading} />
-					<SubmitBtn loading={savingClient} />
+					<SubmitBtn loading={savingProduct} />
 				</div>
 			</Form>
 		</Formik>

@@ -36,14 +36,13 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 	return (
 		<Formik
 			initialValues={creditData || initialValues}
-			validationSchema={validationSchema}
 			onSubmit={(values) => {
+				console.log(values)
 				const tempValues = {
 					...user.params,
 					...values,
 				}
-				console.write('button was clicked')
-				const writeType = creditData ? 'update' : 'register'
+				const writeType = creditData ? 'modify' : 'register'
 				writeForm(writeType, tempValues)
 			}}
 		>
@@ -60,9 +59,8 @@ const CreditCreate = ({ creditData, writeForm, savingClient, goBack }) => {
 								Editar Producto Existente
 							</h2>
 							<p className='text-gray-gray'>
-								<b>Editando Cliente:</b>{' '}
-								{creditData.p_cod_cliente} -{' '}
-								{creditData.p_nombres} {creditData.p_apellidos}
+								<b>Editando Producto:</b>{' '}
+								{creditData.p_cod_producto}
 							</p>
 						</>
 					) : (

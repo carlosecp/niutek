@@ -12,7 +12,7 @@ const SearchProduct = ({
 	setLoading,
 	matches,
 	setMatches,
-	fetchCredit,
+	fetchProduct,
 	fetchingProduct,
 	path,
 }) => {
@@ -55,7 +55,7 @@ const SearchProduct = ({
 					<ControlledForms
 						loading={loading}
 						matches={matches}
-						fetchCredit={fetchCredit}
+						fetchCredit={fetchProduct}
 						fetchingProduct={fetchingProduct}
 					/>
 				</Form>

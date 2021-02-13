@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useFormikContext } from 'formik'
 import { Text, Dropdown, Checkbox } from '../../utils/forms'
 import Documents from '../Documents'
@@ -6,12 +6,16 @@ import Documents from '../Documents'
 const NewCredit = ({ options, loading }) => {
 	const { values } = useFormikContext()
 	const {
-		p_moneda,
+		p_cod_moneda,
 		p_cod_tipo_credito,
 		p_cod_fuente_fondo,
 		p_plazo,
 		p_cod_frecuencia_pago,
 	} = values
+
+	useEffect(() => {
+		console.log(values)
+	}, [values])
 
 	return (
 		<>
@@ -71,7 +75,7 @@ const NewCredit = ({ options, loading }) => {
 					size='md'
 					name='p_cod_moneda'
 					label='Moneda'
-					value={p_moneda}
+					value={p_cod_moneda}
 					loading={loading}
 				>
 					<option

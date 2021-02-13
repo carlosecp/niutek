@@ -4,7 +4,7 @@ import routesContext from '../../../../context/routes/routesContext'
 import alertsContext from '../../../../context/alerts/alertsContext'
 import axios from 'axios'
 import requestConfig from '../../../../utils/requestConfig'
-import SearchCredit from '../../utils/search/products/SearchProducts'
+import SearchProducts from '../../utils/search/products/SearchProducts'
 import CreditCreate from './CreditCreate'
 
 const Credit = () => {
@@ -29,11 +29,11 @@ const Credit = () => {
 
 		try {
 			const res = await axios.post(
-				`${process.env.REACT_APP_URL}/read/datos_producto_credito`, 
+				`${process.env.REACT_APP_URL}/read/datos_producto_credito`,
 				{
 					p_cod_empresa: 1,
 					p_cod_sucursal: 0,
-					p_cod_producto: creditId
+					p_cod_producto: creditId,
 				},
 				requestConfig
 			)
@@ -78,13 +78,13 @@ const Credit = () => {
 		/>
 	) : (
 		<>
-			<SearchCredit
+			<SearchProducts
 				loading={loading}
 				setLoading={setLoading}
 				matches={matches}
 				setMatches={setMatches}
-				fetchCredit={fetchCredit}
-				fetchingCredit={fetchingCredit}
+				fetchProduct={fetchCredit}
+				fetchingProduct={fetchingCredit}
 				path='credito'
 			/>
 			<NewFormBtn

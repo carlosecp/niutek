@@ -22,6 +22,8 @@ const Savings = () => {
 	const [product, setProduct] = useState(null)
 	const [form, setForm] = useState(false)
 
+	const [savingProduct, setSavingProduct] = useState(false)
+
 	const { addAlert } = useContext(alertsContext)
 
 	const fetchProduct = async (productId) => {
@@ -41,7 +43,11 @@ const Savings = () => {
 	}
 
 	const writeForm = async (type, data) => {
-		console.log('Esto es lo que estoy enviando: ', data)
+		setSavingProduct(true)
+		console.log(
+			'Esto es lo que estoy enviando (writeForm, savings/index.js): ',
+			data
+		)
 		try {
 			const res = await axios.post(
 				`${process.env.REACT_APP_URL}/${type}/producto_ahorro`,
@@ -52,6 +58,8 @@ const Savings = () => {
 		} catch (err) {
 			console.error('savings/index.js', err)
 			addAlert(err, 'error')
+		} finally {
+			setSavingProduct(false)
 		}
 	}
 
@@ -59,6 +67,7 @@ const Savings = () => {
 		<ProductCreate
 			productData={product}
 			writeForm={writeForm}
+			savingProduct={savingProduct}
 			goBack={() => {
 				setForm(false)
 				setProduct(null)

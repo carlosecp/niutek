@@ -14,6 +14,7 @@ const TextInput = ({
 		if (disabled) {
 			field.value = ''
 		}
+		// eslint-disable-next-line
 	}, [disabled])
 
 	return (
