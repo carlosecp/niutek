@@ -40,7 +40,7 @@ const Accionists = ({ options, loading }) => {
 								/>
 								<Dropdown
 									size='md'
-									name='pac_tipo_doc'
+									name={`accionistas.${index}.pac_tipo_doc`}
 									label='Tipo Documento'
 									loading={loading}
 								>
