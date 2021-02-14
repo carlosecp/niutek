@@ -10,8 +10,7 @@ const searchConfig: SearchType = {
 		searchbox: 'Nombre del cliente',
 		button: 'Cliente',
 	},
-	// url: 'busca/persona_natural',
-	url: 'search/clientes_natural',
+	url: 'busca/clientes_natural',
 }
 
 const index = () => {

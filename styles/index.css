@@ -18,7 +18,7 @@ body {
 }
 
 .form-input {
-	@apply px-2 py-1 rounded border border-gray-200 transition;
+	@apply px-2 py-1 rounded shadow-sm border border-gray-200 transition;
 	@apply outline-none;
 	@apply focus:placeholder-gray-200;
 }
