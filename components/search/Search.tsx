@@ -2,6 +2,7 @@ import * as React from 'react'
 import axios from 'axios'
 import { SearchType } from '../../interfaces/layout'
 import { Formik, Form, Field, useFormikContext } from 'formik'
+import { FaSearch } from 'react-icons/fa'
 import { Text } from '../forms'
 
 interface Props {
@@ -37,22 +38,49 @@ const getSearch = async ({ url, body }: SearchRequest) => {
 }
 
 const Search = ({ searchConfig }: Props) => {
+	const [value, setValue] = React.useState<boolean>(false)
+
 	return (
 		<Formik
 			initialValues={{ search: '' }}
 			onSubmit={(values, { setSubmitting }) => {
 				setSubmitting(true)
 				getSearch({ url: searchConfig.url, body: values })
-				setSubmitting(false)
+				setTimeout(() => {
+					setSubmitting(false)
+				}, 5000)
 			}}
 		>
-			<Form className='max-w-md mx-auto flex'>
-				<Text
-					name='search'
-					type='input'
-					label={searchConfig.labels.searchbox}
-				/>
-			</Form>
+			{({
+				values,
+				isSubmitting,
+				handleChange,
+				handleBlur,
+				handleSubmit,
+			}) => (
+				<form className='max-w-md mx-auto flex' onSubmit={handleSubmit}>
+					<Text
+						name='search'
+						type='input'
+						label={searchConfig.labels.searchbox}
+						value={values.search}
+						onChange={handleChange}
+						onBlur={handleBlur}
+					/>
+					<button
+						type='submit'
+						className={`w-12 flex-center
+						${
+							isSubmitting
+								? 'cursor-wait text-gray-200'
+								: 'cursor-pointer text-gray-500'
+						} outline-none`}
+						disabled={isSubmitting}
+					>
+						<FaSearch className={`transition text-current`} />
+					</button>
+				</form>
+			)}
 		</Formik>
 	)
 }

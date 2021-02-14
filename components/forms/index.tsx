@@ -2,32 +2,25 @@ import { useField, useFormikContext } from 'formik'
 
 interface TextProps {
 	name: string
-	label: string
-	newLine?: boolean
-	showLabel?: boolean
 	[x: string]: any
 }
 
-const Text = ({
-	name,
-	label,
-	newLine = false,
-	showLabel = false,
-	...props
-}: TextProps) => {
+const Text = ({ name, ...props }: TextProps) => {
 	const [field, meta, helpers] = useField({ name, ...props })
 	const { isSubmitting } = useFormikContext()
 
 	return (
 		<div className='w-full flex flex-col'>
-			{showLabel && (
+			{props.showLabel && (
 				<label htmlFor={name} className='font-medium'>
-					{label}
+					{props.label}
 				</label>
 			)}
 			<input
-				className='form-input text-center'
-				placeholder={label}
+				className={`form-input text-center ${
+					isSubmitting && 'cursor-wait'
+				}`}
+				placeholder={props.label}
 				disabled={isSubmitting}
 				{...field}
 				{...props}

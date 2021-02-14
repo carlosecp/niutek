@@ -13,10 +13,16 @@ module.exports = {
 			current: 'currentColor',
 			black: colors.black,
 			white: colors.white,
-			gray: colors.trueGray,
+			gray: colors.gray,
 			indigo: colors.indigo,
 			red: colors.rose,
 			yellow: colors.amber,
+			blue: colors.blue,
+			green: colors.green,
+		},
+		container: {
+			center: true,
+			padding: '1rem',
 		},
 	},
 	variants: {
