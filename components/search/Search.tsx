@@ -1,20 +1,17 @@
 import axios from 'axios'
-import { SearchConfig, SearchPersonaNatural } from '../../interfaces'
+import { SearchConfig, searchResults } from '../../interfaces'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 import { Text } from '../forms'
 
-type Results = SearchPersonaNatural
 interface SearchRequest<T> {
 	url: string
 	body: { search: string }
-	updateSearch: (x: T[]) => void
 }
 
-const getSearch = async <T extends Results>({
+const getSearch = async <T extends searchResults>({
 	url,
 	body,
-	updateSearch,
 }: SearchRequest<T>) => {
 	const req = {
 		path: `https://backend-dot-nicascriptproject.uc.r.appspot.com/${url}`,
@@ -30,16 +27,16 @@ const getSearch = async <T extends Results>({
 			headers: req.headers,
 		})
 
-		updateSearch(res.data as T[])
+		return res.data as T[]
 	} catch (err) {}
 }
 
 interface Props<T> {
 	searchConfig: SearchConfig
-	updateResults: (a: [T]) => void
+	updateResults: (x: T[]) => void
 }
 
-const Search = <T extends Results>({
+const Search = <T extends searchResults>({
 	searchConfig,
 	updateResults,
 }: Props<T>) => {
@@ -48,10 +45,11 @@ const Search = <T extends Results>({
 			initialValues={{ search: '' }}
 			onSubmit={async (values, { setSubmitting }) => {
 				setSubmitting(true)
-				await getSearch<T>({
+				const results = await getSearch<T>({
 					url: searchConfig.url,
 					body: values,
 				})
+				updateResults(results)
 				setSubmitting(false)
 			}}
 		>
@@ -62,27 +60,33 @@ const Search = <T extends Results>({
 				handleBlur,
 				handleSubmit,
 			}) => (
-				<form className='mx-auto flex' onSubmit={handleSubmit}>
-					<Text
-						name='search'
-						type='input'
-						label={searchConfig.labels.searchbox}
-						value={values.search}
-						onChange={handleChange}
-						onBlur={handleBlur}
-					/>
-					<button
-						type='submit'
-						className={`w-12 flex-center
+				<form className='wrapper mx-auto' onSubmit={handleSubmit}>
+					<div
+						className={`w-full flex border-b border-gray-200 ${
+							isSubmitting && 'disabled'
+						}`}
+					>
+						<Text
+							name='search'
+							type='input'
+							label={searchConfig.labels.searchbox}
+							value={values.search}
+							onChange={handleChange}
+							onBlur={handleBlur}
+						/>
+						<button
+							type='submit'
+							className={`w-12 flex-center transition
 						${
 							isSubmitting
-								? 'cursor-wait text-gray-200'
+								? 'cursor-wait disabled bg-transparent'
 								: 'cursor-pointer text-gray-500'
 						} outline-none`}
-						disabled={isSubmitting}
-					>
-						<FaSearch className={`transition text-current`} />
-					</button>
+							disabled={isSubmitting}
+						>
+							<FaSearch className={`transition text-current`} />
+						</button>
+					</div>
 				</form>
 			)}
 		</Formik>

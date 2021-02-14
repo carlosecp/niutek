@@ -24,6 +24,9 @@ module.exports = {
 			center: true,
 			padding: '1rem',
 		},
+		scale: {
+			102: '1.02',
+		},
 	},
 	variants: {
 		extend: {},

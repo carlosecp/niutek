@@ -13,4 +13,13 @@ export interface SearchPersonaNatural {
 	cod_cliente: number
 	nombres: string
 	apellidos: string
+	description: string
 }
+
+export interface SearchPersonaJuridica {
+	cod_cliente: number
+	nombre: string
+	description: string
+}
+
+export type searchResults = SearchPersonaNatural | SearchPersonaJuridica

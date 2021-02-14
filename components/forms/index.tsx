@@ -17,8 +17,8 @@ const Text = ({ name, ...props }: TextProps) => {
 				</label>
 			)}
 			<input
-				className={`form-input text-center ${
-					isSubmitting && 'cursor-wait'
+				className={`form-input ${
+					isSubmitting && 'cursor-wait disabled'
 				}`}
 				placeholder={props.label}
 				disabled={isSubmitting}

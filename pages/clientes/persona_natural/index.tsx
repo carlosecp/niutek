@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import { SearchConfig, SearchPersonaNatural } from '../../../interfaces'
 import Meta from '../../../components/Meta'
 import PageIndex from '../../../components/PageIndex'
 import Search from '../../../components/search/Search'
-import SearchResult from '../../../components/search/SearchResult'
-import { SearchConfig, SearchPersonaNatural } from '../../../interfaces'
+import SearchResults from '../../../components/search/SearchResults'
 
 const searchConfig: SearchConfig = {
 	title: 'Persona Natural',
@@ -16,13 +16,16 @@ const searchConfig: SearchConfig = {
 	url: 'busca/clientes_natural',
 }
 
+const getDescription = (result: SearchPersonaNatural) => ({
+	idKey: result.cod_cliente,
+	description: `${result.cod_cliente} - ${result.nombres} ${result.apellidos}`,
+})
+
 const index = () => {
-	const [searchResults, setSearchResults] = useState<SearchPersonaNatural[]>(
-		[]
-	)
+	const [results, setResults] = useState<SearchPersonaNatural[]>([])
 
 	const updateResults = (results: SearchPersonaNatural[]) => {
-		setSearchResults(results)
+		setResults(results)
 	}
 
 	return (
@@ -43,15 +46,10 @@ const index = () => {
 						updateResults={updateResults}
 					/>
 				</section>
-				<section>
-					{searchResults.map((result) => (
-						<SearchResult
-							key={result.cod_cliente}
-							id={result.cod_cliente}
-							title={`${result.nombres} ${result.apellidos}`}
-						/>
-					))}
-				</section>
+				<SearchResults<SearchPersonaNatural>
+					results={results}
+					getDescription={getDescription}
+				/>
 			</PageIndex>
 		</>
 	)

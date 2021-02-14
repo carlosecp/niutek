@@ -14,10 +14,14 @@ body {
 }
 
 .wrapper {
-	@apply p-6 bg-white rounded shadow;
+	@apply p-4 bg-white rounded shadow-sm;
 }
 
 .form-input {
-	@apply p-2 rounded shadow-sm transition outline-none;
-	@apply text-gray-200 focus:text-gray-500 focus:placeholder-gray-200;
+	@apply p-2 rounded transition outline-none;
+	@apply bg-transparent text-gray-200 focus:text-gray-500 focus:placeholder-gray-200;
+}
+
+.disabled {
+	@apply bg-gray-100 text-gray-300;
 }
