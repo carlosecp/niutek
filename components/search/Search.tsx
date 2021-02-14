@@ -1,20 +1,21 @@
-import * as React from 'react'
 import axios from 'axios'
-import { SearchType } from '../../interfaces/layout'
-import { Formik, Form, Field, useFormikContext } from 'formik'
+import { SearchConfig, SearchPersonaNatural } from '../../interfaces'
+import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 import { Text } from '../forms'
 
-interface Props {
-	searchConfig: SearchType
-}
-
-interface SearchRequest {
+type Results = SearchPersonaNatural
+interface SearchRequest<T> {
 	url: string
 	body: { search: string }
+	updateSearch: (x: T[]) => void
 }
 
-const getSearch = async ({ url, body }: SearchRequest) => {
+const getSearch = async <T extends Results>({
+	url,
+	body,
+	updateSearch,
+}: SearchRequest<T>) => {
 	const req = {
 		path: `https://backend-dot-nicascriptproject.uc.r.appspot.com/${url}`,
 		body,
@@ -24,31 +25,34 @@ const getSearch = async ({ url, body }: SearchRequest) => {
 		},
 	}
 
-	console.log('Req from components/search/Search.tsx: ', req)
-
 	try {
 		const res = await axios.post(req.path, req.body, {
 			headers: req.headers,
 		})
 
-		console.log('Res from components/search/Search.tsx: ', res)
-	} catch (err) {
-		console.error('Error from components/search/Search.tsx: ', err)
-	}
+		updateSearch(res.data as T[])
+	} catch (err) {}
 }
 
-const Search = ({ searchConfig }: Props) => {
-	const [value, setValue] = React.useState<boolean>(false)
+interface Props<T> {
+	searchConfig: SearchConfig
+	updateResults: (a: [T]) => void
+}
 
+const Search = <T extends Results>({
+	searchConfig,
+	updateResults,
+}: Props<T>) => {
 	return (
 		<Formik
 			initialValues={{ search: '' }}
-			onSubmit={(values, { setSubmitting }) => {
+			onSubmit={async (values, { setSubmitting }) => {
 				setSubmitting(true)
-				getSearch({ url: searchConfig.url, body: values })
-				setTimeout(() => {
-					setSubmitting(false)
-				}, 5000)
+				await getSearch<T>({
+					url: searchConfig.url,
+					body: values,
+				})
+				setSubmitting(false)
 			}}
 		>
 			{({
@@ -58,7 +62,7 @@ const Search = ({ searchConfig }: Props) => {
 				handleBlur,
 				handleSubmit,
 			}) => (
-				<form className='max-w-md mx-auto flex' onSubmit={handleSubmit}>
+				<form className='mx-auto flex' onSubmit={handleSubmit}>
 					<Text
 						name='search'
 						type='input'
