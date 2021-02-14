@@ -1,3 +1,4 @@
+import type { validationsPersonaNatural } from './data/clientes/persona_natural'
 export interface SearchConfig {
 	title: string
 	heading: string
@@ -22,4 +23,14 @@ export interface SearchPersonaJuridica {
 	description: string
 }
 
-export type searchResults = SearchPersonaNatural | SearchPersonaJuridica
+export interface SearchProducto {
+	cod_producto: number
+	nombre: string
+}
+
+export type searchResults =
+	| SearchPersonaNatural
+	| SearchPersonaJuridica
+	| SearchProducto
+
+export type validationSchemas = validationsPersonaNatural

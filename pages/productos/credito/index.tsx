@@ -1,33 +1,32 @@
 import { useState } from 'react'
-import { SearchConfig, SearchPersonaNatural } from '../../../interfaces'
+import { SearchConfig, SearchProducto } from '../../../interfaces'
 import Meta from '../../../components/Meta'
 import IndexPage from '../../../components/IndexPage'
 import Search from '../../../components/templates/search/Search'
 import SearchResults from '../../../components/templates/search/SearchResults'
 
 const searchConfig: SearchConfig = {
-	title: 'Persona Natural',
-	heading: 'Buscar Cliente Persona Natural',
-	description: 'Busca entre los clientes persona natural registrados.',
+	title: 'Productos de Crédito',
+	heading: 'Buscar Productos de Crédito',
+	description: 'Busca entre los productos de crédito registrados.',
 	labels: {
-		searchbox: 'Nombre del cliente',
-		button: 'Cliente',
+		searchbox: 'Nombre del producto',
+		button: 'Producto',
 	},
-	url: 'busca/clientes_natural',
+	url: 'busca/productos_credito',
 }
 
-const getDescription = (result: SearchPersonaNatural) => ({
-	idKey: result.cod_cliente,
-	description: `${result.cod_cliente} - ${result.nombres} ${result.apellidos}`,
+const getDescription = (result: SearchProducto) => ({
+	idKey: result.cod_producto,
+	description: `${result.cod_producto} - ${result.nombre}`,
 })
 
-const index = () => {
-	const [results, setResults] = useState<SearchPersonaNatural[]>([])
+const Index = () => {
+	const [results, setResults] = useState<SearchProducto[]>([])
 
-	const updateResults = (results: SearchPersonaNatural[]) => {
+	const updateResults = (results: SearchProducto[]) => {
 		setResults(results)
 	}
-
 	return (
 		<>
 			<Meta title={searchConfig.title} />
@@ -41,12 +40,12 @@ const index = () => {
 							{searchConfig.description}
 						</p>
 					</article>
-					<Search<SearchPersonaNatural>
+					<Search<SearchProducto>
 						searchConfig={searchConfig}
 						updateResults={updateResults}
 					/>
 				</section>
-				<SearchResults<SearchPersonaNatural>
+				<SearchResults<SearchProducto>
 					results={results}
 					getDescription={getDescription}
 				/>
@@ -55,4 +54,4 @@ const index = () => {
 	)
 }
 
-export default index
+export default Index

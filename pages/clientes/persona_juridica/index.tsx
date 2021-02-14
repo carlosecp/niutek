@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { SearchConfig, SearchPersonaJuridica } from '../../../interfaces'
 import Meta from '../../../components/Meta'
-import PageIndex from '../../../components/PageIndex'
-import { SearchConfig } from '../../../interfaces'
+import IndexPage from '../../../components/IndexPage'
+import Search from '../../../components/templates/search/Search'
+import SearchResults from '../../../components/templates/search/SearchResults'
 
 const searchConfig: SearchConfig = {
 	title: 'Persona Jurídica',
@@ -11,25 +13,24 @@ const searchConfig: SearchConfig = {
 		searchbox: 'Nombre del cliente',
 		button: 'Cliente',
 	},
-	url: 'busca/persona_juridica',
+	url: 'busca/clientes_juridico',
 }
-interface SearchResults {
-	cod_cliente: number
-	nombres: string
-	apellidos: string
-}
+const getDescription = (result: SearchPersonaJuridica) => ({
+	idKey: result.cod_cliente,
+	description: `${result.cod_cliente} - ${result.nombre}`,
+})
 
 const index = () => {
-	const [searchResults, setSearchResults] = useState<SearchResults[]>([])
+	const [results, setResults] = useState<SearchPersonaJuridica[]>([])
 
-	const updateResults = (results: SearchResults[]) => {
-		setSearchResults(results)
+	const updateResults = (results: SearchPersonaJuridica[]) => {
+		setResults(results)
 	}
 
 	return (
 		<>
 			<Meta title={searchConfig.title} />
-			<PageIndex>
+			<IndexPage>
 				<section className='text-center'>
 					<article className='mb-4'>
 						<h1 className='font-semibold text-2xl'>
@@ -44,16 +45,11 @@ const index = () => {
 						updateResults={updateResults}
 					/>
 				</section>
-				<section>
-					{searchResults.map((result) => (
-						<SearchResult
-							key={result.cod_cliente}
-							id={result.cod_cliente}
-							title={`${result.nombres} ${result.apellidos}`}
-						/>
-					))}
-				</section>
-			</PageIndex>
+				<SearchResults<SearchPersonaJuridica>
+					results={results}
+					getDescription={getDescription}
+				/>
+			</IndexPage>
 		</>
 	)
 }

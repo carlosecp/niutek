@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { SearchConfig, searchResults } from '../../interfaces'
+import { SearchConfig, searchResults } from '../../../interfaces'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
-import { Text } from '../forms'
+import { Text } from '../forms/Fields'
 
 interface SearchRequest<T> {
 	url: string
@@ -27,8 +27,11 @@ const getSearch = async <T extends searchResults>({
 			headers: req.headers,
 		})
 
+		console.log(res.data)
 		return res.data as T[]
-	} catch (err) {}
+	} catch (err) {
+		return [] as T[]
+	}
 }
 
 interface Props<T> {
@@ -62,21 +65,20 @@ const Search = <T extends searchResults>({
 			}) => (
 				<form className='wrapper mx-auto' onSubmit={handleSubmit}>
 					<div
-						className={`w-full flex border-b border-gray-200 ${
-							isSubmitting && 'disabled'
-						}`}
+						className={`w-full flex ${isSubmitting && 'disabled'}`}
 					>
 						<Text
 							name='search'
+							classes='w-full'
 							type='input'
-							label={searchConfig.labels.searchbox}
+							placeholder={searchConfig.labels.searchbox}
 							value={values.search}
 							onChange={handleChange}
 							onBlur={handleBlur}
 						/>
 						<button
 							type='submit'
-							className={`w-12 flex-center transition
+							className={`w-12 flex-center rounded transition
 						${
 							isSubmitting
 								? 'cursor-wait disabled bg-transparent'
