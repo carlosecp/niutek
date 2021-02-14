@@ -16,7 +16,7 @@ const SearchResults = <T extends searchResults>({
 				return (
 					<div
 						key={idKey}
-						className='p-2 rounded bg-blue-400 shadow-sm text-white cursor-pointer transition transform hover:scale-102 hover:shadow'
+						className='p-2 rounded bg-blue-400 shadow-sm text-white cursor-pointer transition transform hover:scale-102 hover:shadow-md'
 					>
 						{description}
 					</div>
