@@ -1,4 +1,4 @@
-import type { valuesPersonaNatural } from '../../../../data/clientes/persona_natural/index'
+import type { valuesPersonaNatural } from '../../../../data/clientes/persona_natural/data'
 import { useFormikContext } from 'formik'
 import { Text, Checkbox } from '../../../templates/forms/Fields'
 
