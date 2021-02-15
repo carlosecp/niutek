@@ -1,7 +1,7 @@
-import type { globalValidationSchemas } from '../../../interfaces'
+import type { globalValidationSchemas } from '../../../types'
 import { ReactNode } from 'react'
 import { Formik, Form } from 'formik'
-import IndexPage from '../../IndexPage'
+import IndexPage from '../../layout/IndexPage'
 
 interface Props<T> {
 	initialValues: {

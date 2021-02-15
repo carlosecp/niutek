@@ -39,7 +39,7 @@ export type searchResults =
 	| searchProducto
 
 // initialValues y validations por menu (conjuncion de submenus)
-// Cada menu y submenu tiene sus directorios y subdirectorios en /data/[subdir], que a su vez continenen un archivo principal: data.tsx (no llamado index.ts para mantener la condura). De ahi se exportan todas los tipos correspondientes a cada submenu (no a cada menu principal)
+// Cada menu y submenu tiene sus directorios y subdirectorios en /data/[subdir], que a su vez continenen un archivo principal: index.tsx. De ahi se exportan todas los tipos correspondientes a cada submenu (no a cada menu principal)
 type valuesClientes = valuesPersonaNatural
 type validationsClientes = validationsPersonaNatural
 

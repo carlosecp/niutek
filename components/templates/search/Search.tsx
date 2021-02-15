@@ -1,4 +1,4 @@
-import type { searchConfig, searchResults } from '../../../interfaces'
+import type { searchConfig, searchResults } from '../../../types'
 import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'

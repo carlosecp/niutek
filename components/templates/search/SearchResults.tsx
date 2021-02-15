@@ -1,4 +1,4 @@
-import { searchResults } from '../../../interfaces'
+import { searchResults } from '../../../types'
 
 interface Props<T> {
 	results: T[]

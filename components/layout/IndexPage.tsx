@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import Topbar from './layout/Topbar'
+import Topbar from '../layout/Topbar'
 
 interface Props {
 	width?: string

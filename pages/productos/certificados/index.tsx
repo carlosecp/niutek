@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { searchConfig, searchProducto } from '../../../interfaces'
+import { searchConfig, searchProducto } from '../../../types'
 import Meta from '../../../components/Meta'
-import IndexPage from '../../../components/IndexPage'
+import IndexPage from '../../../components/layout/IndexPage'
 import Search from '../../../components/templates/search/Search'
 import SearchResults from '../../../components/templates/search/SearchResults'
 
