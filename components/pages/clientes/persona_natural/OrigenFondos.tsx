@@ -7,7 +7,9 @@ const OrigenFondos = () => {
 
 	return (
 		<section id='origen_fondos'>
-			<h1 className='font-semibold text-2xl'>Origen de Fondos</h1>
+			<h1 className='font-medium text-xl text-gray-900'>
+				Origen de Fondos
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<fieldset className='fc-lg flex grid grid-cols-12'>
 					<Checkbox
