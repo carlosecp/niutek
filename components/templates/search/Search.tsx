@@ -16,7 +16,7 @@ const getSearch = async <T extends searchResults>({
 	body,
 }: searchRequest<T>) => {
 	const req = {
-		path: `https://backend-dot-nicascriptproject.uc.r.appspot.com/${url}`,
+		path: `${process.env.backend}/${url}`,
 		body,
 		headers: {
 			'Content-Type': 'application/json',
@@ -75,7 +75,6 @@ const Search = <T extends searchResults>({
 					>
 						<Text
 							name='search'
-							classes='w-full'
 							overrideClasses='p-2 rounded-l outline-none border'
 							placeholder={searchConfig.labels.searchbox}
 							value={values.search}

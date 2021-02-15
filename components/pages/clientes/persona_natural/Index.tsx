@@ -5,7 +5,7 @@ import IndexPage from '../../../layout/IndexPage'
 import Search from '../../../templates/search/Search'
 import SearchResults from '../../../templates/search/SearchResults'
 
-const searchConfig: searchConfig = {
+const config: searchConfig = {
 	title: 'Persona Jurídica',
 	heading: 'Buscar Cliente Persona Jurídica',
 	description: 'Busca entre los clientes persona jurídica registrados.',
@@ -29,19 +29,17 @@ const Index = () => {
 
 	return (
 		<>
-			<Meta title={searchConfig.title} />
+			<Meta title={config.title} />
 			<IndexPage>
 				<section className='text-center'>
 					<article className='mb-4'>
 						<h1 className='font-semibold text-2xl'>
-							{searchConfig.title}
+							{config.title}
 						</h1>
-						<p className='text-gray-700'>
-							{searchConfig.description}
-						</p>
+						<p className='text-gray-700'>{config.description}</p>
 					</article>
 					<Search
-						searchConfig={searchConfig}
+						searchConfig={config}
 						updateResults={updateResults}
 					/>
 				</section>
