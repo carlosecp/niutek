@@ -10,7 +10,7 @@ const config: searchConfig = {
 	heading: 'Buscar Cliente Persona Natural',
 	description: 'Busca entre los clientes persona natural registrados.',
 	labels: {
-		searchbox: 'Nombre del cliente',
+		searchbox: 'Nombre o número de ID del cliente',
 		button: 'Cliente',
 	},
 	url: 'busca/clientes_natural',

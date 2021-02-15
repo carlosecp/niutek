@@ -10,10 +10,11 @@ module.exports = {
 	theme: {
 		extend: {
 			spacing: {
-				input: '40px',
+				input: '38px',
 			},
 		},
 		colors: {
+			bgl0: '#f3f4f6',
 			transparent: 'transparent',
 			current: 'currentColor',
 			black: colors.black,
@@ -24,6 +25,7 @@ module.exports = {
 			yellow: colors.amber,
 			blue: colors.blue,
 			green: colors.green,
+			cyan: colors.cyan,
 		},
 		container: {
 			center: true,
@@ -36,5 +38,5 @@ module.exports = {
 	variants: {
 		extend: {},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/forms')],
 }

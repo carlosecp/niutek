@@ -69,14 +69,14 @@ const Search = <T extends searchResults>({
 				handleBlur,
 				handleSubmit,
 			}) => (
-				<form className='wrapper mx-auto' onSubmit={handleSubmit}>
+				<form className='mx-auto' onSubmit={handleSubmit}>
 					<div
 						className={`w-full flex ${isSubmitting && 'disabled'}`}
 					>
 						<Text
 							name='search'
 							classes='w-full'
-							type='input'
+							overrideClasses='p-2 rounded-l outline-none border'
 							placeholder={searchConfig.labels.searchbox}
 							value={values.search}
 							onChange={handleChange}
@@ -84,12 +84,7 @@ const Search = <T extends searchResults>({
 						/>
 						<button
 							type='submit'
-							className={`w-12 flex-center rounded transition
-						${
-							isSubmitting
-								? 'cursor-wait disabled bg-transparent'
-								: 'cursor-pointer text-gray-500'
-						} outline-none`}
+							className='w-12 flex-center bg-blue-500 rounded-r transition cursor-pointer text-white disabled:disabled outline-none'
 							disabled={isSubmitting}
 						>
 							<FaSearch className={`transition text-current`} />

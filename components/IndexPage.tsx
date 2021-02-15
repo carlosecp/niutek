@@ -8,7 +8,7 @@ interface Props {
 
 const IndexPage = ({ width = 'max-w-2xl', children }: Props) => {
 	return (
-		<div className='bg-gray-100'>
+		<div className='min-h-full bg-bgl0'>
 			<Topbar />
 			<main className={`${width} container`}>{children}</main>
 		</div>
