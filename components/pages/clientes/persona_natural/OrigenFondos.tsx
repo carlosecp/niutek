@@ -11,7 +11,7 @@ const OrigenFondos = () => {
 				Origen de Fondos
 			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<fieldset className='fc-lg flex grid grid-cols-12'>
+				<fieldset className='fc-lg grid grid-cols-12'>
 					<Checkbox
 						name='p_of_negocio_propio'
 						label='Negocio Propio'
@@ -27,7 +27,7 @@ const OrigenFondos = () => {
 						disabled={!values.p_of_negocio_propio}
 					/>
 				</fieldset>
-				<fieldset className='fc-lg flex grid grid-cols-12'>
+				<fieldset className='fc-lg grid grid-cols-12'>
 					<Checkbox
 						name='p_of_prof_independiente'
 						classes={{
