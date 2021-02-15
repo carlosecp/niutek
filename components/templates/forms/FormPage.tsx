@@ -1,6 +1,6 @@
+import type { globalValidationSchemas } from '../../../interfaces'
 import { ReactNode } from 'react'
 import { Formik, Form } from 'formik'
-import { validationSchemas } from '../../../interfaces'
 import IndexPage from '../../IndexPage'
 
 interface Props<T> {
@@ -11,7 +11,7 @@ interface Props<T> {
 	children: ReactNode
 }
 
-const FormPage = <T extends validationSchemas>({
+const FormPage = <T extends globalValidationSchemas>({
 	initialValues,
 	validationSchema,
 	children,

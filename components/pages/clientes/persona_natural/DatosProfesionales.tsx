@@ -1,4 +1,4 @@
-import { Text, Select, TextArea } from '../../../templates/forms/Fields'
+import { Text } from '../../../templates/forms/Fields'
 
 const DatosProfesionales = () => {
 	return (

@@ -1,12 +1,14 @@
-import PersonaNatural from '../../../components/pages/clientes/persona_natural/PersonaNatural'
-import DatosProfesionales from '../../../components/pages/clientes/persona_natural/DatosProfesionales'
-import FormPage from '../../../components/templates/forms/FormPage'
+import type { validationsPersonaNatural } from '../../../data/clientes/persona_natural/data'
 import {
 	initialValues,
 	validationSchema,
-	validationsPersonaNatural,
-} from '../../../data/clientes/persona_natural'
-import OrigenFondos from '../../../components/pages/clientes/persona_natural/OrigenFondos'
+} from '../../../data/clientes/persona_natural/data'
+import {
+	PersonaNatural,
+	DatosProfesionales,
+	OrigenFondos,
+} from '../../../components/pages/clientes/persona_natural/Components'
+import FormPage from '../../../components/templates/forms/FormPage'
 
 const crear = () => {
 	return (

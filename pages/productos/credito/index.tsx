@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { SearchConfig, SearchProducto } from '../../../interfaces'
+import { searchConfig, searchProducto } from '../../../interfaces'
 import Meta from '../../../components/Meta'
 import IndexPage from '../../../components/IndexPage'
 import Search from '../../../components/templates/search/Search'
 import SearchResults from '../../../components/templates/search/SearchResults'
 
-const searchConfig: SearchConfig = {
+const searchConfig: searchConfig = {
 	title: 'Productos de Crédito',
 	heading: 'Buscar Productos de Crédito',
 	description: 'Busca entre los productos de crédito registrados.',
@@ -16,15 +16,15 @@ const searchConfig: SearchConfig = {
 	url: 'busca/productos_credito',
 }
 
-const getDescription = (result: SearchProducto) => ({
+const getDescription = (result: searchProducto) => ({
 	idKey: result.cod_producto,
 	description: `${result.cod_producto} - ${result.nombre}`,
 })
 
 const Index = () => {
-	const [results, setResults] = useState<SearchProducto[]>([])
+	const [results, setResults] = useState<searchProducto[]>([])
 
-	const updateResults = (results: SearchProducto[]) => {
+	const updateResults = (results: searchProducto[]) => {
 		setResults(results)
 	}
 	return (
@@ -40,12 +40,12 @@ const Index = () => {
 							{searchConfig.description}
 						</p>
 					</article>
-					<Search<SearchProducto>
+					<Search<searchProducto>
 						searchConfig={searchConfig}
 						updateResults={updateResults}
 					/>
 				</section>
-				<SearchResults<SearchProducto>
+				<SearchResults<searchProducto>
 					results={results}
 					getDescription={getDescription}
 				/>

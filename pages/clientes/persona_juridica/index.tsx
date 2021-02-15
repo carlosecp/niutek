@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { SearchConfig, SearchPersonaJuridica } from '../../../interfaces'
+import { searchConfig, searchPersonaJuridica } from '../../../interfaces'
 import Meta from '../../../components/Meta'
 import IndexPage from '../../../components/IndexPage'
 import Search from '../../../components/templates/search/Search'
 import SearchResults from '../../../components/templates/search/SearchResults'
 
-const searchConfig: SearchConfig = {
+const searchConfig: searchConfig = {
 	title: 'Persona Jurídica',
 	heading: 'Buscar Cliente Persona Jurídica',
 	description: 'Busca entre los clientes persona jurídica registrados.',
@@ -15,15 +15,15 @@ const searchConfig: SearchConfig = {
 	},
 	url: 'busca/clientes_juridico',
 }
-const getDescription = (result: SearchPersonaJuridica) => ({
+const getDescription = (result: searchPersonaJuridica) => ({
 	idKey: result.cod_cliente,
 	description: `${result.cod_cliente} - ${result.nombre}`,
 })
 
 const index = () => {
-	const [results, setResults] = useState<SearchPersonaJuridica[]>([])
+	const [results, setResults] = useState<searchPersonaJuridica[]>([])
 
-	const updateResults = (results: SearchPersonaJuridica[]) => {
+	const updateResults = (results: searchPersonaJuridica[]) => {
 		setResults(results)
 	}
 
@@ -45,7 +45,7 @@ const index = () => {
 						updateResults={updateResults}
 					/>
 				</section>
-				<SearchResults<SearchPersonaJuridica>
+				<SearchResults<searchPersonaJuridica>
 					results={results}
 					getDescription={getDescription}
 				/>

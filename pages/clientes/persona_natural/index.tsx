@@ -1,11 +1,11 @@
+import type { searchConfig, searchPersonaNatural } from '../../../interfaces'
 import { useState } from 'react'
-import { SearchConfig, SearchPersonaNatural } from '../../../interfaces'
 import Meta from '../../../components/Meta'
 import IndexPage from '../../../components/IndexPage'
 import Search from '../../../components/templates/search/Search'
 import SearchResults from '../../../components/templates/search/SearchResults'
 
-const searchConfig: SearchConfig = {
+const config: searchConfig = {
 	title: 'Persona Natural',
 	heading: 'Buscar Cliente Persona Natural',
 	description: 'Busca entre los clientes persona natural registrados.',
@@ -16,37 +16,35 @@ const searchConfig: SearchConfig = {
 	url: 'busca/clientes_natural',
 }
 
-const getDescription = (result: SearchPersonaNatural) => ({
+const getDescription = (result: searchPersonaNatural) => ({
 	idKey: result.cod_cliente,
 	description: `${result.cod_cliente} - ${result.nombres} ${result.apellidos}`,
 })
 
 const index = () => {
-	const [results, setResults] = useState<SearchPersonaNatural[]>([])
+	const [results, setResults] = useState<searchPersonaNatural[]>([])
 
-	const updateResults = (results: SearchPersonaNatural[]) => {
+	const updateResults = (results: searchPersonaNatural[]) => {
 		setResults(results)
 	}
 
 	return (
 		<>
-			<Meta title={searchConfig.title} />
+			<Meta title={config.title} />
 			<IndexPage>
 				<section className='text-center'>
 					<article className='mb-4'>
 						<h1 className='font-semibold text-2xl'>
-							{searchConfig.title}
+							{config.title}
 						</h1>
-						<p className='text-gray-700'>
-							{searchConfig.description}
-						</p>
+						<p className='text-gray-700'>{config.description}</p>
 					</article>
-					<Search<SearchPersonaNatural>
-						searchConfig={searchConfig}
+					<Search<searchPersonaNatural>
+						searchConfig={config}
 						updateResults={updateResults}
 					/>
 				</section>
-				<SearchResults<SearchPersonaNatural>
+				<SearchResults<searchPersonaNatural>
 					results={results}
 					getDescription={getDescription}
 				/>
