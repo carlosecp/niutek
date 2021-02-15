@@ -16,8 +16,6 @@ const FormPage = <T extends validationSchemas>({
 	validationSchema,
 	children,
 }: Props<T>) => {
-	console.log(validationSchema)
-
 	return (
 		<IndexPage>
 			<Formik

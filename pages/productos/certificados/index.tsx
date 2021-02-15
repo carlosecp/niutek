@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { SearchConfig, SearchProducto } from '../../../interfaces'
 import Meta from '../../../components/Meta'
 import IndexPage from '../../../components/IndexPage'
-import Search from '../../../components/search/Search'
-import SearchResults from '../../../components/search/SearchResults'
+import Search from '../../../components/templates/search/Search'
+import SearchResults from '../../../components/templates/search/SearchResults'
 
 const searchConfig: SearchConfig = {
 	title: 'Productos de Certificado a plazo fijo',

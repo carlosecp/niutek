@@ -6,6 +6,7 @@ import {
 	validationSchema,
 	validationsPersonaNatural,
 } from '../../../data/clientes/persona_natural'
+import OrigenFondos from '../../../components/pages/clientes/persona_natural/OrigenFondos'
 
 const crear = () => {
 	return (
@@ -15,6 +16,7 @@ const crear = () => {
 		>
 			<PersonaNatural />
 			<DatosProfesionales />
+			<OrigenFondos />
 			<button type='submit'>Submit</button>
 		</FormPage>
 	)

@@ -168,23 +168,130 @@ const datos_profesionales = {
 }
 
 const origen_fondos = {
-	p_of_negocio_propio: false,
-	p_of_nombre_negocio: '',
-	p_of_prof_independiente: true,
-	p_of_prof_ejerce: 'Test Profesion Ejerce',
-	p_of_herencia: false,
-	p_of_de_quien: '',
-	p_of_inversiones: true,
-	p_of_tipos_inversiones: 'Test Tipo Inversiones',
-	p_of_prestamo: false,
-	p_of_inst_financiera: '',
-	p_of_venta_de: false,
-	p_of_descrip_venta_de: '',
-	p_of_salario: false,
-	p_of_ahorro: true,
-	p_of_aho_inst_financiera: 'Test Institucion Financiera',
-	p_of_otros: false,
-	p_of_des_otros: '',
+	p_of_negocio_propio: {
+		value: true,
+		validation: yup.boolean(),
+	},
+	p_of_nombre_negocio: {
+		value: 'Nombre Negocio Propio Prueba',
+		validation: yup.string().when('p_of_negocio_propio', {
+			is: true,
+			then: yup
+				.string()
+				.required('Requerido')
+				.max(50, 'Caracteres máximos 50'),
+			otherwise: yup.string().max(0, 'Valor inválido'),
+		}),
+	},
+	p_of_prof_independiente: {
+		value: true,
+		validation: yup.boolean(),
+	},
+	p_of_prof_ejerce: {
+		value: 'Profesion Ejerce Prueba',
+		validation: yup.string().when('p_of_prof_independiente', {
+			is: true,
+			then: yup
+				.string()
+				.required('Requerido')
+				.max(50, 'Caracteres máximos 50'),
+			otherwise: yup.string().max(0, 'Valor inválido'),
+		}),
+	},
+	p_of_herencia: {
+		value: true,
+		validation: yup.boolean(),
+	},
+	p_of_de_quien: {
+		value: 'Herencia de quien Prueba',
+		validation: yup.string().when('p_of_prof_independiente', {
+			is: true,
+			then: yup
+				.string()
+				.required('Requerido')
+				.max(50, 'Caracteres máximos 50'),
+			otherwise: yup.string().max(0, 'Valor inválido'),
+		}),
+	},
+	p_of_inversiones: {
+		value: true,
+		validation: yup.boolean(),
+	},
+	p_of_tipos_inversiones: {
+		value: 'Tipo Inversiones Prueba',
+		validation: yup.string().when('p_of_inversiones', {
+			is: true,
+			then: yup
+				.string()
+				.required('Requerido')
+				.max(50, 'Caracteres máximos 50'),
+			otherwise: yup.string().max(0, 'Valor inválido'),
+		}),
+	},
+	p_of_prestamo: {
+		value: true,
+		validation: yup.boolean(),
+	},
+	p_of_inst_financiera: {
+		value: 'Institucion Financiera Prueba',
+		validation: yup.string().when('p_of_prestamo', {
+			is: true,
+			then: yup
+				.string()
+				.required('Requerido')
+				.max(50, 'Caracteres máximos 50'),
+			otherwise: yup.string().max(0, 'Valor inválido'),
+		}),
+	},
+	p_of_venta_de: {
+		value: true,
+		validation: yup.boolean(),
+	},
+	p_of_descrip_venta_de: {
+		value: 'Descripcion de Venta Prueba',
+		validation: yup.string().when('p_of_venta_de', {
+			is: true,
+			then: yup
+				.string()
+				.required('Requerido')
+				.max(50, 'Caracteres máximos 50'),
+			otherwise: yup.string().max(0, 'Valor inválido'),
+		}),
+	},
+	p_of_salario: {
+		value: true,
+		validation: yup.boolean(),
+	},
+	p_of_ahorro: {
+		value: true,
+		validation: yup.boolean(),
+	},
+	p_of_aho_inst_financiera: {
+		value: 'Institucion de ahorro financiera Prueba',
+		validation: yup.string().when('p_of_ahorro', {
+			is: true,
+			then: yup
+				.string()
+				.required('Requerido')
+				.max(50, 'Caracteres máximos 50'),
+			otherwise: yup.string().max(0, 'Valor inválido'),
+		}),
+	},
+	p_of_otros: {
+		value: true,
+		validation: yup.boolean(),
+	},
+	p_of_des_otros: {
+		value: 'Descripcion Otros',
+		validation: yup.string().when('p_of_otros', {
+			is: true,
+			then: yup
+				.string()
+				.required('Requerido')
+				.max(50, 'Caracteres máximos 50'),
+			otherwise: yup.string().max(0, 'Valor inválido'),
+		}),
+	},
 }
 
 const referencias_comerciales = [
@@ -257,6 +364,7 @@ const referencias_personales = [
 const schemas = {
 	...persona_natural,
 	...datos_profesionales,
+	...origen_fondos,
 }
 
 const initialValues = {}
@@ -270,4 +378,6 @@ for (const [key, schema] of Object.entries(schemas)) {
 const validationSchema = yup.object({ ...validations })
 
 export { initialValues, validationSchema }
+
+export type valuesPersonaNatural = typeof initialValues
 export type validationsPersonaNatural = yup.Asserts<typeof validationSchema>

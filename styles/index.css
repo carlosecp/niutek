@@ -19,6 +19,10 @@ body {
 	@apply p-4 bg-white rounded shadow-sm;
 }
 
+.no-label {
+	@apply flex flex-col justify-end;
+}
+
 .disabled {
 	@apply bg-gray-100 text-gray-300;
 }

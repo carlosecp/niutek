@@ -8,7 +8,11 @@ module.exports = {
 	],
 	darkMode: 'class',
 	theme: {
-		extend: {},
+		extend: {
+			spacing: {
+				input: '40px',
+			},
+		},
 		colors: {
 			transparent: 'transparent',
 			current: 'currentColor',

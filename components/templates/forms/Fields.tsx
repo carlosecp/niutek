@@ -1,5 +1,5 @@
 import { ReactNode, useEffect } from 'react'
-import { useField, useFormikContext } from 'formik'
+import { Field, useField, useFormikContext } from 'formik'
 
 interface TextProps {
 	name: string
@@ -7,6 +7,7 @@ interface TextProps {
 	label?: string
 	placeholder?: string
 	type?: string
+	disabled?: boolean
 	[x: string]: any
 }
 
@@ -15,11 +16,7 @@ const Text = ({ name, ...props }: TextProps) => {
 	const { isSubmitting } = useFormikContext()
 
 	return (
-		<div
-			className={`flex flex-col ${props?.classes} ${
-				props?.label || 'pt-6'
-			}`}
-		>
+		<div className={`flex flex-col ${props?.classes}`}>
 			{props?.label && (
 				<label
 					htmlFor={name}
@@ -33,7 +30,7 @@ const Text = ({ name, ...props }: TextProps) => {
 					isSubmitting && 'cursor-wait'
 				}`}
 				placeholder={props?.label || props?.placeholder}
-				disabled={isSubmitting}
+				disabled={isSubmitting || props?.disabled}
 				type={props?.type}
 				{...field}
 			/>
@@ -110,9 +107,30 @@ const Select = ({ name, children, ...props }: SelectProps) => {
 		</div>
 	)
 }
+interface CheckboxProps {
+	name: string
+	label: string
+	classes?: string
+	[x: string]: any
+}
 
-const Checkbox = () => {
-	return <div></div>
+const Checkbox = ({ name, label, ...props }: CheckboxProps) => {
+	const { isSubmitting } = useFormikContext()
+
+	return (
+		<div className={`${props?.classes}`}>
+			<div
+				className={`h-input flex items-center gap-2 form-input border border-gray-200 disabled:disabled${
+					isSubmitting && 'cursor-wait'
+				} `}
+			>
+				<Field name={name} type='checkbox' />
+				<label htmlFor={name} className='font-medium text-gray-700'>
+					{label}
+				</label>
+			</div>
+		</div>
+	)
 }
 
 export { Text, TextArea, Select, Checkbox }
