@@ -1,27 +1,25 @@
-import type { GlobalValidationSchemas } from '../../../interfaces/formValues'
 import { ReactNode } from 'react'
 import { Formik, Form } from 'formik'
 import IndexPage from '../../layout/IndexPage'
 
-interface Props<T> {
-	initialValues: {
-		[x: string]: any
+interface Props<Values, Validations> {
+	data: {
+		values: Values
+		validations: Validations
 	}
-	validationSchema: T
 	children: ReactNode
 }
 
-// A este component se le debe pasar alguno de los validation schemas de todos los disponibles entre todas las paginas, de ahi el Global.
-const FormPage = <T extends GlobalValidationSchemas>({
-	initialValues,
-	validationSchema,
+// T: InitialValues del formulario a mostrar.
+const FormPage = <Values, Validations>({
+	data,
 	children,
-}: Props<T>) => {
+}: Props<Values, Validations>) => {
 	return (
 		<IndexPage>
 			<Formik
-				initialValues={initialValues}
-				validationSchema={validationSchema}
+				initialValues={data.values}
+				validationSchema={data.validations}
 				onSubmit={(values, { setSubmitting }) => {
 					setSubmitting(true)
 					console.log(values)

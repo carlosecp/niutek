@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 import moment from 'moment'
 
-export const personaNaturalValues = {
+const values = {
 	p_nombres: 'Nombre Prueba 1',
 	p_apellidos: 'Apellido Prueba 1',
 	p_sexo: 1,
@@ -20,7 +20,7 @@ export const personaNaturalValues = {
 	p_num_hijos: 1,
 }
 
-export const personaNaturalValidations = {
+const validations = {
 	p_nombres: yup
 		.string()
 		.required('Requerido')
@@ -89,7 +89,4 @@ export const personaNaturalValidations = {
 		.required('Requerido'),
 }
 
-export type valuesPersonaNatural<T extends typeof initialValues> = {
-	[key in keyof T]: string | number | boolean
-}
-export type validationsPersonaNatural = yup.Asserts<typeof validationSchema>
+export default { values, validations }

@@ -15,7 +15,7 @@ interface CheckboxProps {
 
 const defaultClasses = {
 	container: 'fc-lg md:fc-sm',
-	input: 'h-input md:mt-6 flex form-input',
+	input: 'h-input md:mt-6 flex form-input relative',
 	checkbox:
 		'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
 }
@@ -41,7 +41,7 @@ const Checkbox = ({
 				/>
 				<label
 					htmlFor={name}
-					className='text-sm font-medium text-gray-700'
+					className='text-sm font-medium text-gray-700 relative bottom-1'
 				>
 					{label}
 				</label>

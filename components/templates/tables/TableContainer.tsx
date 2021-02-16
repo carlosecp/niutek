@@ -1,38 +1,26 @@
-import { useMemo, useCallback } from 'react'
-import { FieldArray, useFormikContext, getIn } from 'formik'
-import { Text } from '../../../templates/forms/_fields'
-import Table from '../../../templates/Table'
-import { ValuesPersonaNatural } from '../../../../data/clientes/persona_natural/_data'
+import { useCallback, useMemo } from 'react'
+import { useFormikContext, getIn, validateYupSchema } from 'formik'
+import { Text } from '../forms/_fields'
+import Table from './Table'
 
-const ReferenciasComerciales = () => {
-	return (
-		<section id='referencias_comerciales'>
-			<h1 className='font-medium text-xl text-gray-900'>
-				Referencias Comerciales
-			</h1>
-			<article className='flex flex-col'>
-				<FieldArray name='referenciasComerciales'>
-					{(arrayHelpers) => (
-						<Referencias
-							name='referenciasComerciales'
-							handleAdd={arrayHelpers.push}
-							handleRemove={arrayHelpers.remove}
-							limit={2}
-						/>
-					)}
-				</FieldArray>
-			</article>
-		</section>
-	)
+interface Props<T> {
+	name: string
+	handleAdd: (obj: T) => void
+	handleRemove: (index: number) => void
+	limit: number
 }
 
-const Referencias = ({ name, handleAdd, handleRemove, limit }) => {
-	const { values } = useFormikContext<ValuesPersonaNatural>()
-
+const TableContainer = <T,>({
+	name,
+	handleAdd,
+	handleRemove,
+	limit,
+}: Props<T>) => {
+	const { values } = useFormikContext<T>()
 	const formikSlice = getIn(values, name) || []
 
 	const onAdd = useCallback(() => {
-		const newItem = {
+		const item = {
 			prc_nombre_entidad: '',
 			prc_persona_contacto: '',
 			prc_direccion: '',
@@ -40,7 +28,7 @@ const Referencias = ({ name, handleAdd, handleRemove, limit }) => {
 			prc_telefono: '',
 		}
 
-		handleAdd(newItem)
+		handleAdd(item)
 	}, [handleAdd])
 
 	const onRemove = useCallback(
@@ -137,4 +125,4 @@ const Referencias = ({ name, handleAdd, handleRemove, limit }) => {
 	)
 }
 
-export default ReferenciasComerciales
+export default TableContainer

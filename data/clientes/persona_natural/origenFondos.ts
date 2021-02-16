@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-export const origenFondosValues = {
+const values = {
 	p_of_negocio_propio: true,
 	p_of_nombre_negocio: 'Nombre Negocio Propio Prueba',
 	p_of_prof_independiente: true,
@@ -20,7 +20,7 @@ export const origenFondosValues = {
 	p_of_des_otros: 'Descripcion Otros',
 }
 
-export const origenFondosValidations = {
+const validations = {
 	p_of_negocio_propio: yup.boolean(),
 	p_of_nombre_negocio: yup.string().when('p_of_negocio_propio', {
 		is: true,
@@ -95,3 +95,5 @@ export const origenFondosValidations = {
 		otherwise: yup.string(),
 	}),
 }
+
+export default { values, validations }

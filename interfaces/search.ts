@@ -8,26 +8,3 @@ export interface SearchConfig {
 	}
 	url: string
 }
-
-export interface SearchResPersonaNatural {
-	cod_cliente: number
-	nombres: string
-	apellidos: string
-	description: string
-}
-
-export interface SearchResPersonaJuridica {
-	cod_cliente: number
-	nombre: string
-	description: string
-}
-
-export interface SearchResProducto {
-	cod_producto: number
-	nombre: string
-}
-
-export type GlobalSearchResults =
-	| SearchResPersonaNatural
-	| SearchResPersonaJuridica
-	| SearchResProducto

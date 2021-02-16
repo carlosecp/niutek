@@ -1,7 +1,4 @@
-import type {
-	SearchConfig,
-	SearchResPersonaNatural,
-} from '../../../../interfaces/search'
+import type { SearchConfig } from '../../../../interfaces/search'
 import { useState } from 'react'
 import Meta from '../../../Meta'
 import IndexPage from '../../../layout/IndexPage'
@@ -18,15 +15,23 @@ const searchConfig: SearchConfig = {
 	},
 	url: 'busca/clientes_natural',
 }
-const getDescription = (result: SearchResPersonaNatural) => ({
+
+interface Response {
+	cod_cliente: number
+	nombres: string
+	apellidos: string
+	description: string
+}
+
+const getDescription = (result: Response) => ({
 	idKey: result.cod_cliente,
 	description: `${result.cod_cliente} - ${result.nombres} ${result.apellidos}`,
 })
 
-const PersonaNaturalIndex = () => {
-	const [results, setResults] = useState<SearchResPersonaNatural[]>([])
+const Index = () => {
+	const [results, setResults] = useState<Response[]>([])
 
-	const updateResults = (results: SearchResPersonaNatural[]) => {
+	const updateResults = (results: Response[]) => {
 		setResults(results)
 	}
 
@@ -48,7 +53,7 @@ const PersonaNaturalIndex = () => {
 						updateResults={updateResults}
 					/>
 				</section>
-				<SearchResults<SearchResPersonaNatural>
+				<SearchResults<Response>
 					results={results}
 					getDescription={getDescription}
 				/>
@@ -57,4 +62,4 @@ const PersonaNaturalIndex = () => {
 	)
 }
 
-export default PersonaNaturalIndex
+export default Index

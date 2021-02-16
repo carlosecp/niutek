@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-export const datosProfesionalesValues = {
+const values = {
 	p_profesion_oficio: 'Profesion Prueba',
 	p_ocupacion_puesto: 'Puesto Prueba',
 	p_nombre_empresa: 'Nombre Empresa Prueba',
@@ -10,7 +10,7 @@ export const datosProfesionalesValues = {
 	p_ingreso_anual: (69).toFixed(2),
 }
 
-export const datosProfesionalesValidations = {
+const validations = {
 	p_profesion_oficio: yup
 		.string()
 		.required('Requerido')
@@ -41,3 +41,5 @@ export const datosProfesionalesValidations = {
 		.min(0, 'Valor Mínimo 0')
 		.required('Requerido'),
 }
+
+export default { values, validations }

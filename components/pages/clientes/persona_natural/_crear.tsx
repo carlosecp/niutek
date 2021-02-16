@@ -1,20 +1,16 @@
-import {
-	initialValues,
-	validationSchema,
-	ValidationsPersonaNatural,
-} from '../../../../data/clientes/persona_natural/_data'
+import data from '../../../../data/clientes/persona_natural/_data'
 import PersonaNatural from './PersonaNatural'
 import DatosProfesionales from './DatosProfesionales'
 import OrigenFondos from './OrigenFondos'
 import FormPage from '../../../templates/forms/FormPage'
-import ReferenciasComerciales from './ReferenciasComerciales'
+import ReferenciasComerciales from './RefComerciales'
+
+export type Values = typeof data.values
+export type Validations = typeof data.validations
 
 const crear = () => {
 	return (
-		<FormPage<ValidationsPersonaNatural>
-			initialValues={initialValues}
-			validationSchema={validationSchema}
-		>
+		<FormPage<Values, Validations> data={data}>
 			<PersonaNatural />
 			<DatosProfesionales />
 			<OrigenFondos />

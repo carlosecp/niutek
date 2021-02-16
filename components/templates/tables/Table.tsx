@@ -1,7 +1,6 @@
 import { memo } from 'react'
 import { useTable } from 'react-table'
 
-// A el componente general Table se le pasa un tipo de dato de cualquiera de las tables disponibles en toda la aplicacion
 const Table = ({ columns, data }) => {
 	const {
 		getTableProps,
@@ -15,7 +14,7 @@ const Table = ({ columns, data }) => {
 	})
 
 	return (
-		<div className='overflow-x-auto'>
+		<div className='overflow-x-auto no-scrollbar'>
 			<div className='my-2 align-middle inline-block min-w-full sm:px-1'>
 				<div className='shadow overflow-hidden border-b border-gray-200 rounded-lg'>
 					<table

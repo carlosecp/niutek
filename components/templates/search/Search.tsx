@@ -1,4 +1,4 @@
-import type { SearchConfig, GlobalSearchResults } from '../../../interfaces/search'
+import type { SearchConfig } from '../../../interfaces/search'
 import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
@@ -11,10 +11,7 @@ interface SearchRequest<T> {
 }
 
 // Esta es solo la funcion que se ejecuta cuando mandamos a buscar algun cliente. Nos devuelve un arreglo de tipo T[], generico que recibe el componente Search para determinar el tipo de valores que regresa la busqueda.
-const getSearch = async <T extends GlobalSearchResults>({
-	url,
-	body,
-}: SearchRequest<T>) => {
+const getSearch = async <T,>({ url, body }: SearchRequest<T>) => {
 	const req = {
 		path: `${process.env.backend}/${url}`,
 		body,

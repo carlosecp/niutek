@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-export const refComercialesValues = [
+const values = [
 	{
 		prc_nombre_entidad: 'Test Nombre Entidad 1',
 		prc_persona_contacto: 'Test Persona Contacto 1',
@@ -17,8 +17,7 @@ export const refComercialesValues = [
 	},
 ]
 
-// Esta es la estructura de la tabla que va a contener las referencias comerciales. En este caso va a ser enviada a la tabla renderizada en components/pages/clientes/persona_natural/ReferenciasComerciales.tsx
-export const refComercialesTableColumns = [
+const validations = [
 	{
 		Header: 'Nombre Entidad',
 		accessor: 'prc_nombre_entidad',
@@ -90,3 +89,5 @@ const referencias_personales = [
 		prp_e_mail: 'test2@gmail.com',
 	},
 ]
+
+export default { values, validations }
