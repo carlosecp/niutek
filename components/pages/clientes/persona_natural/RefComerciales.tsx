@@ -5,6 +5,8 @@ import TableContainer from '../../../templates/tables/TableContainer'
 const ReferenciasComerciales = () => {
 	const { values } = useFormikContext<Values>()
 
+	type Schema = typeof values.referencias_comerciales
+
 	return (
 		<section id='referencias_comerciales'>
 			<h1 className='font-medium text-xl text-gray-900'>
@@ -13,7 +15,7 @@ const ReferenciasComerciales = () => {
 			<article className='flex flex-col'>
 				<FieldArray name='referenciasComerciales'>
 					{(arrayHelpers) => (
-						<TableContainer<Values>
+						<TableContainer<Schema>
 							name='referenciasComerciales'
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
