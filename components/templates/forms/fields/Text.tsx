@@ -17,7 +17,7 @@ interface TextProps {
 
 const defaultClasses = {
 	container: 'fc-lg md:fc',
-	input: 'form-input form-input-border disabled:disabled',
+	input: 'w-full block form-input form-input-border disabled:disabled',
 }
 
 const Text = ({ name, classes = defaultClasses, ...props }: TextProps) => {

@@ -14,8 +14,8 @@ interface TextAreaProps {
 }
 
 const defaultClasses = {
-	container: 'fc-lg md:fc',
-	input: 'form-input form-input-border disabled:disabled',
+	container: 'fc-lg',
+	input: 'w-full block form-input form-input-border disabled:disabled',
 }
 
 const TextArea = ({

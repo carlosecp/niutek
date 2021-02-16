@@ -21,7 +21,7 @@ const OrigenFondos = () => {
 						classes={{
 							container: 'fc-lg md:fc-md',
 							input:
-								'form-input form-input-border disabled:disabled',
+								'w-full block form-input form-input-border disabled:disabled',
 						}}
 						label='Nombre empresa'
 						disabled={!values.p_of_negocio_propio}
@@ -44,7 +44,7 @@ const OrigenFondos = () => {
 						classes={{
 							container: 'fc-lg md:fc',
 							input:
-								'form-input form-input-border disabled:disabled',
+								'w-full block form-input form-input-border disabled:disabled',
 						}}
 						label='Profesión'
 						disabled={!values.p_of_prof_independiente}
@@ -67,7 +67,7 @@ const OrigenFondos = () => {
 						classes={{
 							container: 'fc-lg md:fc-md',
 							input:
-								'form-input form-input-border disabled:disabled',
+								'w-full block form-input form-input-border disabled:disabled',
 						}}
 						label='Origen'
 						disabled={!values.p_of_herencia}
@@ -90,7 +90,7 @@ const OrigenFondos = () => {
 						classes={{
 							container: 'fc-lg md:fc-md',
 							input:
-								'form-input form-input-border disabled:disabled',
+								'w-full block form-input form-input-border disabled:disabled',
 						}}
 						label='Tipos de Inversiones'
 						disabled={!values.p_of_inversiones}
@@ -113,7 +113,7 @@ const OrigenFondos = () => {
 						classes={{
 							container: 'fc-lg md:fc-md',
 							input:
-								'form-input form-input-border disabled:disabled',
+								'w-full block form-input form-input-border disabled:disabled',
 						}}
 						label='Tipos de Inversiones'
 						disabled={!values.p_of_prestamo}
@@ -136,7 +136,7 @@ const OrigenFondos = () => {
 						classes={{
 							container: 'fc-lg md:fc-md',
 							input:
-								'form-input form-input-border disabled:disabled',
+								'w-full block form-input form-input-border disabled:disabled',
 						}}
 						label='Descripción'
 						disabled={!values.p_of_venta_de}
@@ -172,7 +172,7 @@ const OrigenFondos = () => {
 						classes={{
 							container: 'fc-lg md:fc-md',
 							input:
-								'form-input form-input-border disabled:disabled',
+								'w-full block form-input form-input-border disabled:disabled',
 						}}
 						label='Institución Financiera'
 						disabled={!values.p_of_ahorro}
@@ -196,7 +196,7 @@ const OrigenFondos = () => {
 						classes={{
 							container: 'fc-lg md:fc-md',
 							input:
-								'form-input form-input-border disabled:disabled',
+								'w-full block form-input form-input-border disabled:disabled',
 						}}
 						label='Descripción'
 						disabled={!values.p_of_otros}

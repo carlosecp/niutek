@@ -30,14 +30,7 @@ const PersonaNatural = () => {
 					<option value={1}>Primera Opcion</option>
 					<option value={2}>Segunda Opcion</option>
 				</Select>
-				<TextArea
-					name='p_direccion'
-					classes={{
-						container: 'fc-lg',
-						input: 'form-input form-input-border disabled:disabled',
-					}}
-					label='Dirección'
-				/>
+				<TextArea name='p_direccion' label='Dirección' />
 				<Text name='p_notas' label='Observaciones' />
 				<Text name='p_telefono1' label='Teléfono 1' />
 				<Text name='p_telefono2' label='Teléfono 2' />

@@ -20,7 +20,7 @@ const searchConfig: SearchConfig = {
 }
 const getDescription = (result: SearchResPersonaNatural) => ({
 	idKey: result.cod_cliente,
-	description: `${result.cod_cliente} - ${result.nombres} ${result.appelidos}`,
+	description: `${result.cod_cliente} - ${result.nombres} ${result.apellidos}`,
 })
 
 const PersonaNaturalIndex = () => {

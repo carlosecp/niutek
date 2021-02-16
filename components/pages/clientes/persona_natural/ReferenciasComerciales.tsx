@@ -1,7 +1,8 @@
 import { useState, useMemo, useEffect, useCallback } from 'react'
-import { FieldArray, useFormikContext, getIn } from 'formik'
+import { Field, FieldArray, useFormikContext, getIn } from 'formik'
 import { Text } from '../../../templates/forms/_fields'
 import Table from '../../../templates/Table'
+import { ValuesPersonaNatural } from '../../../../data/clientes/persona_natural/_data'
 
 const ReferenciasComerciales = () => {
 	return (
@@ -16,6 +17,7 @@ const ReferenciasComerciales = () => {
 							name='referenciasComerciales'
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
+							limit={2}
 						/>
 					)}
 				</FieldArray>
@@ -24,36 +26,36 @@ const ReferenciasComerciales = () => {
 	)
 }
 
-const Referencias = ({ name, handleAdd, handleRemove }) => {
-	const { values } = useFormikContext()
+const Referencias = ({ name, handleAdd, handleRemove, limit }) => {
+	const { values } = useFormikContext<ValuesPersonaNatural>()
 
 	const formikSlice = getIn(values, name) || []
-	const [tableRows, setTableRows] = useState<typeof formikSlice>(formikSlice)
 
-	useEffect(() => {
-		setTableRows(formikSlice)
-	}, [formikSlice])
+	const onAdd = useCallback(() => {
+		const newItem = {
+			prc_nombre_entidad: '',
+			prc_persona_contacto: '',
+			prc_direccion: '',
+			prc_annios_con_entidad: 0,
+			prc_telefono: '',
+		}
 
-	const onAdd = useCallback(
-		(index) => {
-			const newState = [...tableRows]
-
-			newState.splice(index, 1)
-			setTableRows(newState)
-			handleRemove(index)
-		},
-		[handleRemove, tableRows]
-	)
+		handleAdd(newItem)
+	}, [handleAdd])
 
 	const onRemove = useCallback(
 		(index) => {
-			const newState = [...tableRows]
-
-			newState.splice(index, 1)
-			setTableRows(newState)
 			handleRemove(index)
 		},
-		[handleRemove, tableRows]
+		[handleRemove]
+	)
+
+	const defaultInputStyles = useMemo(
+		() => ({
+			container: '',
+			input: 'form-input',
+		}),
+		[]
 	)
 
 	const columns = useMemo(
@@ -63,11 +65,8 @@ const Referencias = ({ name, handleAdd, handleRemove }) => {
 				id: 'prc_nombre_entidad',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_persona_contacto`}
-						classes={{
-							container: '',
-							input: '',
-						}}
+						name={`${name}[${index}].prc_nombre_entidad`}
+						classes={defaultInputStyles}
 					/>
 				),
 			},
@@ -75,28 +74,40 @@ const Referencias = ({ name, handleAdd, handleRemove }) => {
 				Header: 'Persona de Contacto',
 				id: 'prc_persona_contacto',
 				Cell: ({ row: { index } }) => (
-					<Text name={`${name}[${index}].prc_persona_contacto`} />
+					<Text
+						name={`${name}[${index}].prc_persona_contacto`}
+						classes={defaultInputStyles}
+					/>
 				),
 			},
 			{
 				Header: 'Dirección',
 				id: 'prc_direccion',
 				Cell: ({ row: { index } }) => (
-					<Text name={`${name}[${index}].prc_direccion`} />
+					<Text
+						name={`${name}[${index}].prc_direccion`}
+						classes={defaultInputStyles}
+					/>
 				),
 			},
 			{
 				Header: 'Años con entidad',
 				id: 'prc_annios_con_entidad',
 				Cell: ({ row: { index } }) => (
-					<Text name={`${name}[${index}].prc_annios_con_entidad`} />
+					<Text
+						name={`${name}[${index}].prc_annios_con_entidad`}
+						classes={defaultInputStyles}
+					/>
 				),
 			},
 			{
 				Header: 'Teléfono',
 				id: 'prc_telefono',
 				Cell: ({ row: { index } }) => (
-					<Text name={`${name}[${index}].prc_telefono`} />
+					<Text
+						name={`${name}[${index}].prc_telefono`}
+						classes={defaultInputStyles}
+					/>
 				),
 			},
 			{
@@ -114,10 +125,14 @@ const Referencias = ({ name, handleAdd, handleRemove }) => {
 
 	return (
 		<div>
-			<button type='button' onClick={onAdd}>
+			<button
+				type='button'
+				onClick={onAdd}
+				disabled={formikSlice.length >= limit}
+			>
 				Agregar
 			</button>
-			<Table data={tableRows} columns={columns} rowKey='id' />
+			<Table data={formikSlice} columns={columns} />
 		</div>
 	)
 }

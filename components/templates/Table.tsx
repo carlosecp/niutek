@@ -1,8 +1,8 @@
-import { memo, useCallback } from 'react'
+import { memo } from 'react'
 import { useTable } from 'react-table'
 
 // A el componente general Table se le pasa un tipo de dato de cualquiera de las tables disponibles en toda la aplicacion
-const Table = ({ columns, data, rowKey }) => {
+const Table = ({ columns, data }) => {
 	const {
 		getTableProps,
 		getTableBodyProps,
@@ -12,7 +12,6 @@ const Table = ({ columns, data, rowKey }) => {
 	} = useTable({
 		columns,
 		data,
-		getRowId: useCallback((row) => row[rowKey], [rowKey]),
 	})
 
 	return (
@@ -49,7 +48,7 @@ const Table = ({ columns, data, rowKey }) => {
 											return (
 												<td
 													{...cell.getCellProps()}
-													className='px-6 py-4 whitespace-nowrap'
+													className='pl-4 py-2 whitespace-nowrap'
 												>
 													{cell.render('Cell')}
 												</td>
