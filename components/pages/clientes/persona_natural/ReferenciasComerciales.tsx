@@ -1,5 +1,5 @@
-import { useState, useMemo, useEffect, useCallback } from 'react'
-import { Field, FieldArray, useFormikContext, getIn } from 'formik'
+import { useMemo, useCallback } from 'react'
+import { FieldArray, useFormikContext, getIn } from 'formik'
 import { Text } from '../../../templates/forms/_fields'
 import Table from '../../../templates/Table'
 import { ValuesPersonaNatural } from '../../../../data/clientes/persona_natural/_data'
