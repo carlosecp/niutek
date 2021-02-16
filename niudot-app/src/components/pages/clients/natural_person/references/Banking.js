@@ -83,7 +83,7 @@ const Banking = ({ options }) => {
 									{options.p_moneda.map((option) => (
 										<option
 											key={option.codigo}
-											value={option.descripcion}
+											value={option.codigo}
 											label={option.descripcion}
 										/>
 									))}
@@ -102,7 +102,7 @@ const Banking = ({ options }) => {
 									{options.pct_cod_banco.map((option) => (
 										<option
 											key={option.codigo}
-											value={option.descripcion}
+											value={option.codigo}
 											label={option.descripcion}
 										/>
 									))}

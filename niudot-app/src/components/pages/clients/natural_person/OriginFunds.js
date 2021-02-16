@@ -43,14 +43,6 @@ const OriginFunds = () => {
 					forLabel={true}
 					disabled={!values.p_of_herencia}
 				/>
-				<Text
-					name='p_of_de_quien'
-					size='md'
-					label='Cantidad $US'
-					type='number'
-					forLabel={true}
-					disabled={!values.p_of_herencia}
-				/>
 
 				<Checkbox
 					size='md'
