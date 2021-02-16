@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react'
 import { useFormikContext, getIn } from 'formik'
-import { Text } from '../forms/_fields'
-import Table from './Table'
+import { Text } from '../../../templates/forms/_fields'
+import Table from '../../../templates/tables/Table'
 
 interface Props<Schema> {
 	name: string
@@ -11,7 +11,7 @@ interface Props<Schema> {
 	limit: number
 }
 
-const TableContainer = <Values, Schema>({
+const ComercialesTable = <Values, Schema>({
 	name,
 	schema,
 	handleAdd,
@@ -32,7 +32,7 @@ const TableContainer = <Values, Schema>({
 		[handleRemove]
 	)
 
-	const defaultInputStyles = useMemo(
+	const styles = useMemo(
 		() => ({
 			container: '',
 			input: 'form-input',
@@ -48,7 +48,7 @@ const TableContainer = <Values, Schema>({
 				Cell: ({ row: { index } }) => (
 					<Text
 						name={`${name}[${index}].prc_nombre_entidad`}
-						classes={defaultInputStyles}
+						classes={styles}
 					/>
 				),
 			},
@@ -58,7 +58,7 @@ const TableContainer = <Values, Schema>({
 				Cell: ({ row: { index } }) => (
 					<Text
 						name={`${name}[${index}].prc_persona_contacto`}
-						classes={defaultInputStyles}
+						classes={styles}
 					/>
 				),
 			},
@@ -68,7 +68,7 @@ const TableContainer = <Values, Schema>({
 				Cell: ({ row: { index } }) => (
 					<Text
 						name={`${name}[${index}].prc_direccion`}
-						classes={defaultInputStyles}
+						classes={styles}
 					/>
 				),
 			},
@@ -78,7 +78,7 @@ const TableContainer = <Values, Schema>({
 				Cell: ({ row: { index } }) => (
 					<Text
 						name={`${name}[${index}].prc_annios_con_entidad`}
-						classes={defaultInputStyles}
+						classes={styles}
 					/>
 				),
 			},
@@ -88,7 +88,7 @@ const TableContainer = <Values, Schema>({
 				Cell: ({ row: { index } }) => (
 					<Text
 						name={`${name}[${index}].prc_telefono`}
-						classes={defaultInputStyles}
+						classes={styles}
 					/>
 				),
 			},
@@ -119,4 +119,4 @@ const TableContainer = <Values, Schema>({
 	)
 }
 
-export default TableContainer
+export default ComercialesTable

@@ -25,7 +25,7 @@ const validations = [
 	},
 ]
 
-export const refBancariasValues = [
+export const referencias_bancarias = [
 	{
 		prb_nombre_entidad: 'Test Nombre Entidad 1',
 		prb_tipo_servicio_recibido: 'Test Tipo Servicio 1',

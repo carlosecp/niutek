@@ -1,6 +1,6 @@
 import type { Values } from './_crear'
-import { useFormikContext, FieldArray } from 'formik'
-import TableContainer from '../../../templates/tables/TableContainer'
+import { FieldArray } from 'formik'
+import ComercialesTable from './ComercialesTable'
 
 const RefComerciales = () => {
 	const schema = {
@@ -11,7 +11,6 @@ const RefComerciales = () => {
 		prc_telefono: '',
 	}
 
-	const { values } = useFormikContext<Values>()
 	type Schema = typeof schema
 
 	return (
@@ -22,7 +21,7 @@ const RefComerciales = () => {
 			<article className='flex flex-col'>
 				<FieldArray name='referencias_comerciales'>
 					{(arrayHelpers) => (
-						<TableContainer<Values, Schema>
+						<ComercialesTable<Values, Schema>
 							name='referencias_comerciales'
 							schema={schema}
 							handleAdd={arrayHelpers.push}
