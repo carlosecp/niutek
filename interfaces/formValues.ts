@@ -1,7 +1,7 @@
 import type {
 	ValuesPersonaNatural,
 	ValidationsPersonaNatural,
-} from '../data/clientes/persona_natural/data'
+} from '../data/clientes/persona_natural/_data'
 
 // & NOTA
 // Aca va la conjuncion de todos los valores de clientes
@@ -12,5 +12,5 @@ type ValidationsClientes = ValidationsPersonaNatural
 // ... y asi
 
 // Aca va la conjuncion de todas las conjunciones anteriores, que finalmente se exporta al component FormPage, que pues, recibe estas validaciones para luego ser leidas dentro de cada formulario.
-export type GlobalInitialValues = ValuesClientes
-export type GlobalValidationSchemas = ValidationsClientes
+export type InitialValues = ValuesClientes
+export type ValidationSchemas = ValidationsClientes

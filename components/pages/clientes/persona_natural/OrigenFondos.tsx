@@ -1,6 +1,6 @@
-import type { valuesPersonaNatural } from '../../../../data/clientes/persona_natural/data'
+import type { valuesPersonaNatural } from '../../../../data/clientes/persona_natural/_data'
 import { useFormikContext } from 'formik'
-import { Text, Checkbox } from '../../../templates/forms/Fields'
+import { Text, Checkbox } from '../../../templates/forms/_fields'
 
 const OrigenFondos = () => {
 	const { values } = useFormikContext<valuesPersonaNatural>()

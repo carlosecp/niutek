@@ -1,7 +1,4 @@
-import type {
-	SearchConfig,
-	SearchResPersonaJuridica,
-} from '../../../../types/search'
+import type { SearchConfig, SearchResProducto } from '../../../../interfaces/search'
 import { useState } from 'react'
 import Meta from '../../../Meta'
 import IndexPage from '../../../layout/IndexPage'
@@ -9,24 +6,26 @@ import Search from '../../../templates/search/Search'
 import SearchResults from '../../../templates/search/SearchResults'
 
 const searchConfig: SearchConfig = {
-	title: 'Persona Jurídica',
-	heading: 'Buscar Cliente Persona Jurídica',
-	description: 'Busca entre los clientes persona jurídica registrados.',
+	title: 'Productos de Certificado a plazo fijo',
+	heading: 'Buscar Productos de Certificados a plazo fijo',
+	description:
+		'Busca entre los productos de certificados a plazo fijo registrados.',
 	labels: {
-		searchbox: 'Nombre del cliente',
-		button: 'Cliente',
+		searchbox: 'Nombre del producto',
+		button: 'Producto',
 	},
-	url: 'busca/clientes_juridico',
+	url: 'busca/productos_certificado',
 }
-const getDescription = (result: SearchResPersonaJuridica) => ({
-	idKey: result.cod_cliente,
-	description: `${result.cod_cliente} - ${result.nombre}`,
+
+const getDescription = (result: SearchResProducto) => ({
+	idKey: result.cod_producto,
+	description: `${result.cod_producto} - ${result.nombre}`,
 })
 
-const PersonaNaturalIndex = () => {
-	const [results, setResults] = useState<SearchResPersonaJuridica[]>([])
+const ProductosCertificadosIndex = () => {
+	const [results, setResults] = useState<SearchResProducto[]>([])
 
-	const updateResults = (results: SearchResPersonaJuridica[]) => {
+	const updateResults = (results: SearchResProducto[]) => {
 		setResults(results)
 	}
 
@@ -43,12 +42,12 @@ const PersonaNaturalIndex = () => {
 							{searchConfig.description}
 						</p>
 					</article>
-					<Search
+					<Search<SearchResProducto>
 						searchConfig={searchConfig}
 						updateResults={updateResults}
 					/>
 				</section>
-				<SearchResults<SearchResPersonaJuridica>
+				<SearchResults<SearchResProducto>
 					results={results}
 					getDescription={getDescription}
 				/>
@@ -57,4 +56,4 @@ const PersonaNaturalIndex = () => {
 	)
 }
 
-export default PersonaNaturalIndex
+export default ProductosCertificadosIndex

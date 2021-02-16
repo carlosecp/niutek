@@ -1,4 +1,4 @@
-import ProductosAhorroIndex from '../../../components/pages/productos/ahorro/ProductosAhorroIndex'
+import ProductosAhorroIndex from '../../../components/pages/productos/ahorro/_index'
 
 const index = () => {
 	return <ProductosAhorroIndex />

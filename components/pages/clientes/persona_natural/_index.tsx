@@ -1,4 +1,7 @@
-import type { SearchConfig, SearchResProducto } from '../../../../types/search'
+import type {
+	SearchConfig,
+	SearchResPersonaNatural,
+} from '../../../../interfaces/search'
 import { useState } from 'react'
 import Meta from '../../../Meta'
 import IndexPage from '../../../layout/IndexPage'
@@ -6,27 +9,27 @@ import Search from '../../../templates/search/Search'
 import SearchResults from '../../../templates/search/SearchResults'
 
 const searchConfig: SearchConfig = {
-	title: 'Productos de Crédito',
-	heading: 'Buscar Productos de Crédito',
-	description: 'Busca entre los productos de crédito registrados.',
+	title: 'Persona Natural',
+	heading: 'Buscar Cliente Persona Natural',
+	description: 'Busca entre los clientes persona natural registrados.',
 	labels: {
-		searchbox: 'Nombre del producto',
-		button: 'Producto',
+		searchbox: 'Nombre del cliente',
+		button: 'Cliente',
 	},
-	url: 'busca/productos_credito',
+	url: 'busca/clientes_natural',
 }
-
-const getDescription = (result: SearchResProducto) => ({
-	idKey: result.cod_producto,
-	description: `${result.cod_producto} - ${result.nombre}`,
+const getDescription = (result: SearchResPersonaNatural) => ({
+	idKey: result.cod_cliente,
+	description: `${result.cod_cliente} - ${result.nombres} ${result.appelidos}`,
 })
 
-const ProductosCreditoIndex = () => {
-	const [results, setResults] = useState<SearchResProducto[]>([])
+const PersonaNaturalIndex = () => {
+	const [results, setResults] = useState<SearchResPersonaNatural[]>([])
 
-	const updateResults = (results: SearchResProducto[]) => {
+	const updateResults = (results: SearchResPersonaNatural[]) => {
 		setResults(results)
 	}
+
 	return (
 		<>
 			<Meta title={searchConfig.title} />
@@ -40,13 +43,12 @@ const ProductosCreditoIndex = () => {
 							{searchConfig.description}
 						</p>
 					</article>
-					<Search<SearchResProducto>
+					<Search
 						searchConfig={searchConfig}
 						updateResults={updateResults}
 					/>
-					hCsear
 				</section>
-				<SearchResults<SearchResProducto>
+				<SearchResults<SearchResPersonaNatural>
 					results={results}
 					getDescription={getDescription}
 				/>
@@ -55,4 +57,4 @@ const ProductosCreditoIndex = () => {
 	)
 }
 
-export default ProductosCreditoIndex
+export default PersonaNaturalIndex

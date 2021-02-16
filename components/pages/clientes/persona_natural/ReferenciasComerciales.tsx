@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useCallback } from 'react'
 import { FieldArray, useFormikContext, getIn } from 'formik'
-import { Text } from '../../../templates/forms/Fields'
+import { Text } from '../../../templates/forms/_fields'
 import Table from '../../../templates/Table'
 
 const ReferenciasComerciales = () => {

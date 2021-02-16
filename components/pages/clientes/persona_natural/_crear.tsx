@@ -2,7 +2,7 @@ import {
 	initialValues,
 	validationSchema,
 	ValidationsPersonaNatural,
-} from '../../../../data/clientes/persona_natural/data'
+} from '../../../../data/clientes/persona_natural/_data'
 import PersonaNatural from './PersonaNatural'
 import DatosProfesionales from './DatosProfesionales'
 import OrigenFondos from './OrigenFondos'

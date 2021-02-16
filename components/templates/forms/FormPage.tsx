@@ -1,4 +1,4 @@
-import type { GlobalValidationSchemas } from '../../../types/formValues'
+import type { GlobalValidationSchemas } from '../../../interfaces/formValues'
 import { ReactNode } from 'react'
 import { Formik, Form } from 'formik'
 import IndexPage from '../../layout/IndexPage'

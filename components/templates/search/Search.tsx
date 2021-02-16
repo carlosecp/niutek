@@ -1,8 +1,8 @@
-import type { SearchConfig, GlobalSearchResults } from '../../../types/search'
+import type { SearchConfig, GlobalSearchResults } from '../../../interfaces/search'
 import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
-import { Text } from '../forms/Fields'
+import { Text } from '../forms/_fields'
 
 // Determina el tipo de configuracion de la request que se va a realizar. Recordemos que al componente principal de este archivo: Search, se le pasa un generico que determina el tipo de respuesta que se espera recibir.
 interface SearchRequest<T> {

@@ -1,4 +1,4 @@
-import type { SearchConfig, SearchResProducto } from '../../../../types/search'
+import type { SearchConfig, SearchResProducto } from '../../../../interfaces/search'
 import { useState } from 'react'
 import Meta from '../../../Meta'
 import IndexPage from '../../../layout/IndexPage'

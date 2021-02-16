@@ -1,4 +1,4 @@
-import { GlobalSearchResults } from '../../../types/search'
+import { GlobalSearchResults } from '../../../interfaces/search'
 interface Props<T> {
 	results: T[]
 	getDescription: (x: T) => { idKey: number; description: string }

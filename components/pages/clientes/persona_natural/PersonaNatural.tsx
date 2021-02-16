@@ -1,4 +1,4 @@
-import { Text, Select, TextArea } from '../../../templates/forms/Fields'
+import { Text, Select, TextArea } from '../../../templates/forms/_fields'
 
 const PersonaNatural = () => {
 	return (
