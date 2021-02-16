@@ -1,24 +1,21 @@
 import { useCallback, useMemo } from 'react'
-import { useFormikContext, getIn, validateYupSchema } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 import { Text } from '../forms/_fields'
 import Table from './Table'
 
 interface Props<T> {
-	name: string
+	values: T[]
 	handleAdd: (obj: T) => void
 	handleRemove: (index: number) => void
 	limit: number
 }
 
 const TableContainer = <T,>({
-	name,
+	values,
 	handleAdd,
 	handleRemove,
 	limit,
 }: Props<T>) => {
-	const { values } = useFormikContext<T>()
-	const formikSlice = getIn(values, name) || []
-
 	const onAdd = useCallback(() => {
 		const item = {
 			prc_nombre_entidad: '',
@@ -116,11 +113,11 @@ const TableContainer = <T,>({
 			<button
 				type='button'
 				onClick={onAdd}
-				disabled={formikSlice.length >= limit}
+				disabled={values.length >= limit}
 			>
 				Agregar
 			</button>
-			<Table data={formikSlice} columns={columns} />
+			<Table data={values} columns={columns} />
 		</div>
 	)
 }

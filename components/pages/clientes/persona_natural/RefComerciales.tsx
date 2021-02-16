@@ -2,7 +2,7 @@ import type { Values } from './_crear'
 import { useFormikContext, FieldArray } from 'formik'
 import TableContainer from '../../../templates/tables/TableContainer'
 
-const ReferenciasComerciales = () => {
+const RefComerciales = () => {
 	const { values } = useFormikContext<Values>()
 
 	type Schema = typeof values.referencias_comerciales
@@ -28,4 +28,4 @@ const ReferenciasComerciales = () => {
 	)
 }
 
-export default ReferenciasComerciales
+export default RefComerciales
