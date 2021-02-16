@@ -1,8 +1,8 @@
-import { useState, useMemo, useEffect, useCallback } from 'react'
-import { Field, FieldArray, useFormikContext, getIn } from 'formik'
+import type { ValuesPersonaNatural } from '../../../../data/clientes/persona_natural/_data'
+import { useState, useMemo, useRef, useCallback } from 'react'
+import { FieldArray, useFormikContext, getIn } from 'formik'
 import { Text } from '../../../templates/forms/_fields'
 import Table from '../../../templates/Table'
-import { ValuesPersonaNatural } from '../../../../data/clientes/persona_natural/_data'
 
 const ReferenciasComerciales = () => {
 	return (
@@ -30,6 +30,31 @@ const Referencias = ({ name, handleAdd, handleRemove, limit }) => {
 	const { values } = useFormikContext<ValuesPersonaNatural>()
 
 	const formikSlice = getIn(values, name) || []
+
+	const [data, setData] = useState([])
+	const [loading, setLoading] = useState(false)
+	const [pageCount, setPageCount] = useState(0)
+	const fetchIdRef = useRef(0)
+
+	const fetchData = useCallback(({ pageSize, pageIndex }) => {
+		const fetchId = ++fetchIdRef.current
+		setLoading(true)
+
+		// Simulando el timeout de la request
+		setTimeout(() => {
+			setTimeout(() => {
+				if (fetchId === fetchIdRef.current) {
+					const startRow = pageSize * pageIndex
+					const endRow = startRow + pageSize
+					setData(formikSlice.slice(startRow, endRow))
+
+					setPageCount(Math.ceil(formikSlice.length / pageSize))
+
+					setLoading(false)
+				}
+			}, 1000)
+		})
+	}, [])
 
 	const onAdd = useCallback(() => {
 		const newItem = {
@@ -132,7 +157,13 @@ const Referencias = ({ name, handleAdd, handleRemove, limit }) => {
 			>
 				Agregar
 			</button>
-			<Table data={formikSlice} columns={columns} />
+			<Table
+				columns={columns}
+				data={data}
+				fetchData={fetchData}
+				loading={loading}
+				pageCount={pageCount}
+			/>
 		</div>
 	)
 }
