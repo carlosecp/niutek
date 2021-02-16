@@ -1,13 +1,7 @@
 import { useEffect, memo } from 'react'
 import { useTable, usePagination } from 'react-table'
 
-const Table = ({
-	columns,
-	data,
-	fetchData,
-	loading,
-	pageCount: controlledPageCount,
-}) => {
+const Table = ({ columns, data, fetchData, loading }) => {
 	const {
 		getTableProps,
 		getTableBodyProps,
@@ -16,25 +10,22 @@ const Table = ({
 		page,
 		canPreviousPage,
 		canNextPage,
+		pageOptions,
+		pageCount,
 		nextPage,
 		previousPage,
+		setPageSize,
 		state: { pageIndex, pageSize },
 	} = useTable(
 		{
 			columns,
 			data,
 			initialState: { pageIndex: 0 },
-			manualPagination: true,
-			pageCount: controlledPageCount,
 		},
 		usePagination
 	)
 
 	console.log(data)
-
-	useEffect(() => {
-		fetchData({ pageIndex, pageSize })
-	}, [fetchData, pageIndex, pageSize])
 
 	return (
 		<div className='my-2 rounded-lg shadow'>
@@ -91,7 +82,6 @@ const Table = ({
 						type='button'
 						className='relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500'
 						onClick={() => previousPage()}
-						disabled={!canPreviousPage}
 					>
 						Anterior
 					</button>
@@ -99,7 +89,6 @@ const Table = ({
 						type='button'
 						className='ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500'
 						onClick={() => nextPage()}
-						disabled={!canNextPage}
 					>
 						Siguiente
 					</button>

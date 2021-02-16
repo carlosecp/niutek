@@ -49,7 +49,6 @@ const Referencias = ({ name, handleAdd, handleRemove, limit }) => {
 					setData(formikSlice.slice(startRow, endRow))
 
 					setPageCount(Math.ceil(formikSlice.length / pageSize))
-
 					setLoading(false)
 				}
 			}, 1000)
