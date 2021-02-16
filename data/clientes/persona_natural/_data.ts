@@ -7,7 +7,7 @@ import refComerciales from './refComerciales'
 const values = {
 	...personaNatural.values,
 	...datosProfesionales.values,
-	...origenFondos,
+	...origenFondos.values,
 	referencias_comerciales: refComerciales.values,
 }
 

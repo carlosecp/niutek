@@ -1,21 +1,6 @@
 import * as yup from 'yup'
 
-const values = [
-	{
-		prc_nombre_entidad: 'Test Nombre Entidad 1',
-		prc_persona_contacto: 'Test Persona Contacto 1',
-		prc_direccion: 'Test Direccion 1',
-		prc_annios_con_entidad: 4,
-		prc_telefono: '99225500',
-	},
-	{
-		prc_nombre_entidad: 'Test Nombre Entidad 2',
-		prc_persona_contacto: 'Test Persona Contacto 2',
-		prc_direccion: 'Test Direccion 2',
-		prc_annios_con_entidad: 8,
-		prc_telefono: '99225566',
-	},
-]
+const values = []
 
 const validations = [
 	{

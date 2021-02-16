@@ -3,29 +3,26 @@ import { useFormikContext, getIn } from 'formik'
 import { Text } from '../forms/_fields'
 import Table from './Table'
 
-interface Props<T> {
-	values: T[]
-	handleAdd: (obj: T) => void
+interface Props<Schema> {
+	name: string
+	schema: Schema
+	handleAdd: (obj: Schema) => void
 	handleRemove: (index: number) => void
 	limit: number
 }
 
-const TableContainer = <T,>({
-	values,
+const TableContainer = <Values, Schema>({
+	name,
+	schema,
 	handleAdd,
 	handleRemove,
 	limit,
-}: Props<T>) => {
-	const onAdd = useCallback(() => {
-		const item = {
-			prc_nombre_entidad: '',
-			prc_persona_contacto: '',
-			prc_direccion: '',
-			prc_annios_con_entidad: 0,
-			prc_telefono: '',
-		}
+}: Props<Schema>) => {
+	const { values } = useFormikContext<Values>()
+	const formikSlice = getIn(values, name) || []
 
-		handleAdd(item)
+	const onAdd = useCallback(() => {
+		handleAdd(schema)
 	}, [handleAdd])
 
 	const onRemove = useCallback(
@@ -113,11 +110,11 @@ const TableContainer = <T,>({
 			<button
 				type='button'
 				onClick={onAdd}
-				disabled={values.length >= limit}
+				disabled={formikSlice.length >= limit}
 			>
 				Agregar
 			</button>
-			<Table data={values} columns={columns} />
+			<Table data={formikSlice} columns={columns} />
 		</div>
 	)
 }

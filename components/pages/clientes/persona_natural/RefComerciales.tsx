@@ -3,9 +3,16 @@ import { useFormikContext, FieldArray } from 'formik'
 import TableContainer from '../../../templates/tables/TableContainer'
 
 const RefComerciales = () => {
-	const { values } = useFormikContext<Values>()
+	const schema = {
+		prc_nombre_entidad: '',
+		prc_persona_contacto: '',
+		prc_direccion: '',
+		prc_annios_con_entidad: 0,
+		prc_telefono: '',
+	}
 
-	type Schema = typeof values.referencias_comerciales
+	const { values } = useFormikContext<Values>()
+	type Schema = typeof schema
 
 	return (
 		<section id='referencias_comerciales'>
@@ -13,10 +20,11 @@ const RefComerciales = () => {
 				Referencias Comerciales
 			</h1>
 			<article className='flex flex-col'>
-				<FieldArray name='referenciasComerciales'>
+				<FieldArray name='referencias_comerciales'>
 					{(arrayHelpers) => (
-						<TableContainer<Schema>
-							name='referenciasComerciales'
+						<TableContainer<Values, Schema>
+							name='referencias_comerciales'
+							schema={schema}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
 							limit={2}
