@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html,
+body {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
+	width: 100%;
+	height: 100%;
+}
+
+#__next {
+	width: 100%;
+	height: 100%;
+}
+
+.flex-center {
+	@apply flex justify-center items-center;
+}
+
+.form-section {
+	@apply p-4 bg-white rounded-md shadow;
+}
+
+/* Classes encargadas de determinar el posicionamiento de los contenedores de cada input, independientemente del tipo de esta. Anteriormente teniamos clases que se encargaban directamente de lo responsive. Ahora simplemente utilizamos las queries de Tailwind para determinar nosotros mismos el comportamiento responsive. */
+@layer utilities {
+	@variants responsive {
+		.fc-xs {
+			@apply col-span-3;
+		}
+
+		.fc-sm {
+			@apply col-span-4;
+		}
+
+		.fc {
+			@apply col-span-6;
+		}
+
+		.fc-md {
+			@apply col-span-8;
+		}
+
+		.fc-lg {
+			@apply col-span-12;
+		}
+	}
+}
+
+/* Classes tambien encargas de los estilos de las inputs en si. La mayoria estan aplicadas por defecto en los componentes de cada uno de los tipos de input, pero pueden ser utilizadas de manera modular e independiente. */
+@layer utilities {
+	.form-input {
+		@apply p-2 text-sm rounded-md outline-none;
+	}
+
+	.form-input-border {
+		@apply border border-gray-300 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm;
+	}
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
