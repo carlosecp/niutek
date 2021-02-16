@@ -28,7 +28,7 @@ export const origenFondosValidations = {
 			.string()
 			.required('Requerido')
 			.max(50, 'Caracteres máximos 50'),
-		otherwise: yup.string().max(0, 'Valor inválido'),
+		otherwise: yup.string(),
 	}),
 	p_of_prof_independiente: yup.boolean(),
 	p_of_prof_ejerce: yup.string().when('p_of_prof_independiente', {
@@ -37,7 +37,7 @@ export const origenFondosValidations = {
 			.string()
 			.required('Requerido')
 			.max(50, 'Caracteres máximos 50'),
-		otherwise: yup.string().max(0, 'Valor inválido'),
+		otherwise: yup.string(),
 	}),
 	p_of_herencia: yup.boolean(),
 	p_of_de_quien: yup.string().when('p_of_prof_independiente', {
@@ -46,7 +46,7 @@ export const origenFondosValidations = {
 			.string()
 			.required('Requerido')
 			.max(50, 'Caracteres máximos 50'),
-		otherwise: yup.string().max(0, 'Valor inválido'),
+		otherwise: yup.string(),
 	}),
 	p_of_inversiones: yup.boolean(),
 	p_of_tipos_inversiones: yup.string().when('p_of_inversiones', {
@@ -55,7 +55,7 @@ export const origenFondosValidations = {
 			.string()
 			.required('Requerido')
 			.max(50, 'Caracteres máximos 50'),
-		otherwise: yup.string().max(0, 'Valor inválido'),
+		otherwise: yup.string(),
 	}),
 	p_of_prestamo: yup.boolean(),
 	p_of_inst_financiera: yup.string().when('p_of_prestamo', {
@@ -64,7 +64,7 @@ export const origenFondosValidations = {
 			.string()
 			.required('Requerido')
 			.max(50, 'Caracteres máximos 50'),
-		otherwise: yup.string().max(0, 'Valor inválido'),
+		otherwise: yup.string(),
 	}),
 	p_of_venta_de: yup.boolean(),
 	p_of_descrip_venta_de: yup.string().when('p_of_venta_de', {
@@ -73,7 +73,7 @@ export const origenFondosValidations = {
 			.string()
 			.required('Requerido')
 			.max(50, 'Caracteres máximos 50'),
-		otherwise: yup.string().max(0, 'Valor inválido'),
+		otherwise: yup.string(),
 	}),
 	p_of_salario: yup.boolean(),
 	p_of_ahorro: yup.boolean(),
@@ -83,7 +83,7 @@ export const origenFondosValidations = {
 			.string()
 			.required('Requerido')
 			.max(50, 'Caracteres máximos 50'),
-		otherwise: yup.string().max(0, 'Valor inválido'),
+		otherwise: yup.string(),
 	}),
 	p_of_otros: yup.boolean(),
 	p_of_des_otros: yup.string().when('p_of_otros', {
@@ -92,6 +92,6 @@ export const origenFondosValidations = {
 			.string()
 			.required('Requerido')
 			.max(50, 'Caracteres máximos 50'),
-		otherwise: yup.string().max(0, 'Valor inválido'),
+		otherwise: yup.string(),
 	}),
 }

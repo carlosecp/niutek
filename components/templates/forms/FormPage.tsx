@@ -1,4 +1,4 @@
-import type { globalValidationSchemas } from '../../../types'
+import type { GlobalValidationSchemas } from '../../../types/formValues'
 import { ReactNode } from 'react'
 import { Formik, Form } from 'formik'
 import IndexPage from '../../layout/IndexPage'
@@ -11,7 +11,8 @@ interface Props<T> {
 	children: ReactNode
 }
 
-const FormPage = <T extends globalValidationSchemas>({
+// A este component se le debe pasar alguno de los validation schemas de todos los disponibles entre todas las paginas, de ahi el Global.
+const FormPage = <T extends GlobalValidationSchemas>({
 	initialValues,
 	validationSchema,
 	children,

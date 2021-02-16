@@ -1,4 +1,5 @@
 import { useField, useFormikContext } from 'formik'
+import { useEffect } from 'react'
 
 interface TextProps {
 	name: string
@@ -10,6 +11,7 @@ interface TextProps {
 	placeholder?: string
 	type?: string
 	disabled?: boolean
+	reset?: boolean
 	[x: string]: any
 }
 
@@ -21,6 +23,12 @@ const defaultClasses = {
 const Text = ({ name, classes = defaultClasses, ...props }: TextProps) => {
 	const [field, meta, helpers] = useField({ name, ...props })
 	const { isSubmitting } = useFormikContext()
+
+	useEffect(() => {
+		if (props?.reset) {
+			helpers.setValue('')
+		}
+	}, [props?.reset])
 
 	return (
 		<div className={classes.container}>

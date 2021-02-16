@@ -1,4 +1,4 @@
-import PersonaNatural from '../../../components/pages/clientes/persona_natural/Index'
+import PersonaNatural from '../../../components/pages/clientes/persona_natural/PersonaNaturalIndex'
 
 const index = () => {
 	return <PersonaNatural />

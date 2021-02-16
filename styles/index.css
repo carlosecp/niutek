@@ -23,7 +23,7 @@ body {
 }
 
 .form-section {
-	@apply p-4 bg-white rounded shadow;
+	@apply p-4 bg-white rounded-md shadow;
 }
 
 /* Classes encargadas de determinar el posicionamiento de los contenedores de cada input, independientemente del tipo de esta. Anteriormente teniamos clases que se encargaban directamente de lo responsive. Ahora simplemente utilizamos las queries de Tailwind para determinar nosotros mismos el comportamiento responsive. */

@@ -1,4 +1,4 @@
-import type { searchConfig, searchResults } from '../../../types'
+import type { SearchConfig, SearchResults } from '../../../types/search'
 import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
@@ -11,7 +11,7 @@ type searchRequest<T> = {
 }
 
 // Esta es solo la funcion que se ejecuta cuando mandamos a buscar algun cliente. Nos devuelve un arreglo de tipo T[], generico que recibe el componente Search para determinar el tipo de valores que regresa la busqueda.
-const getSearch = async <T extends searchResults>({
+const getSearch = async <T extends SearchResults>({
 	url,
 	body,
 }: searchRequest<T>) => {
@@ -40,12 +40,12 @@ const getSearch = async <T extends searchResults>({
 
 // Tambien se le esta pasando la funcion que se encarga de actualizar el state que luego se utiliza para mostrar los resultados en SearchResults.tsx, esta funcion toma el mismo generico, ya que espera un arreglo de ese tipo de dato.
 type Props<T> = {
-	searchConfig: searchConfig
+	searchConfig: SearchConfig
 	updateResults: (x: T[]) => void
 }
 
 // Componente en si
-const Search = <T extends searchResults>({
+const Search = <T extends SearchResults>({
 	searchConfig,
 	updateResults,
 }: Props<T>) => {

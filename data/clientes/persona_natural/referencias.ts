@@ -17,6 +17,30 @@ const referencias_comerciales = [
 	},
 ]
 
+// Esta es la estructura de la tabla que va a contener las referencias comerciales. En este caso va a ser enviada a la tabla renderizada en components/pages/clientes/persona_natural/ReferenciasComerciales.tsx
+export const refComercialesTableColumns = [
+	{
+		Header: 'Nombre Entidad',
+		accessor: 'prc_nombre_entidad',
+	},
+	{
+		Header: 'Persona de Contacto',
+		accessor: 'prc_persona_contacto',
+	},
+	{
+		Header: 'Dirección',
+		accessor: 'prc_direccion',
+	},
+	{
+		Header: 'Años con entidad',
+		accessor: 'prc_annios_con_entidad',
+	},
+	{
+		Header: 'Teléfono',
+		accessor: 'prc_telefono',
+	},
+]
+
 const referencias_bancarias = [
 	{
 		prb_nombre_entidad: 'Test Nombre Entidad 1',

@@ -1,7 +1,7 @@
-import PersonaNatural from '../../../components/pages/clientes/persona_natural/Index'
+import PersonaNaturalIndex from '../../../components/pages/clientes/persona_natural/PersonaNaturalIndex'
 
 const index = () => {
-	return <PersonaNatural />
+	return <PersonaNaturalIndex />
 }
 
 export default index
