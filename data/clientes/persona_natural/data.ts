@@ -8,11 +8,13 @@ import {
 	datosProfesionalesValues,
 } from './datosProfesionales'
 import { origenFondosValidations, origenFondosValues } from './origenFondos'
+import { refComercialesValues } from './referenciasComerciales'
 
 export const initialValues = {
 	...personaNaturalValues,
 	...datosProfesionalesValues,
 	...origenFondosValues,
+	referenciasComerciales: refComercialesValues,
 }
 
 export const validationSchema = yup.object({
@@ -21,6 +23,6 @@ export const validationSchema = yup.object({
 	...origenFondosValidations,
 })
 
-// Utilizado en /interfaces.ts, para luego ser utilizado en FormPage.tsx o componente que consuman sus context con useFormikContext()
-export type valuesPersonaNatural = typeof initialValues
-export type validationsPersonaNatural = typeof validationSchema
+// Utilizado en /types/, para luego ser utilizado en FormPage.tsx o componente que consuman sus context con useFormikContext()
+export type ValuesPersonaNatural = typeof initialValues
+export type ValidationsPersonaNatural = typeof validationSchema

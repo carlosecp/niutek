@@ -27,7 +27,7 @@ export interface SearchResProducto {
 	nombre: string
 }
 
-export type SearchResults =
+export type GlobalSearchResults =
 	| SearchResPersonaNatural
 	| SearchResPersonaJuridica
 	| SearchResProducto

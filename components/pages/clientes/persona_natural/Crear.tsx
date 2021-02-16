@@ -1,22 +1,24 @@
 import {
 	initialValues,
 	validationSchema,
-	validationsPersonaNatural,
+	ValidationsPersonaNatural,
 } from '../../../../data/clientes/persona_natural/data'
 import PersonaNatural from './PersonaNatural'
 import DatosProfesionales from './DatosProfesionales'
 import OrigenFondos from './OrigenFondos'
 import FormPage from '../../../templates/forms/FormPage'
+import ReferenciasComerciales from './ReferenciasComerciales'
 
 const crear = () => {
 	return (
-		<FormPage<validationsPersonaNatural>
+		<FormPage<ValidationsPersonaNatural>
 			initialValues={initialValues}
 			validationSchema={validationSchema}
 		>
 			<PersonaNatural />
 			<DatosProfesionales />
 			<OrigenFondos />
+			<ReferenciasComerciales />
 			<button type='submit'>Submit</button>
 		</FormPage>
 	)

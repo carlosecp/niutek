@@ -1,10 +1,10 @@
-import { SearchResults } from '../../../types/search'
+import { GlobalSearchResults } from '../../../types/search'
 interface Props<T> {
 	results: T[]
 	getDescription: (x: T) => { idKey: number; description: string }
 }
 
-const SearchResults = <T extends SearchResults>({
+const SearchResults = <T extends GlobalSearchResults>({
 	results,
 	getDescription,
 }: Props<T>) => {

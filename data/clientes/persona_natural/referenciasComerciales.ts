@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-const referencias_comerciales = [
+export const refComercialesValues = [
 	{
 		prc_nombre_entidad: 'Test Nombre Entidad 1',
 		prc_persona_contacto: 'Test Persona Contacto 1',
@@ -41,7 +41,7 @@ export const refComercialesTableColumns = [
 	},
 ]
 
-const referencias_bancarias = [
+export const refBancariasValues = [
 	{
 		prb_nombre_entidad: 'Test Nombre Entidad 1',
 		prb_tipo_servicio_recibido: 'Test Tipo Servicio 1',

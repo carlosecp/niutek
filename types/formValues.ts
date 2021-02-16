@@ -1,12 +1,12 @@
 import type {
-	valuesPersonaNatural,
-	validationsPersonaNatural,
+	ValuesPersonaNatural,
+	ValidationsPersonaNatural,
 } from '../data/clientes/persona_natural/data'
 
 // & NOTA
 // Aca va la conjuncion de todos los valores de clientes
-type ValuesClientes = valuesPersonaNatural
-type ValidationsClientes = validationsPersonaNatural
+type ValuesClientes = ValuesPersonaNatural
+type ValidationsClientes = ValidationsPersonaNatural
 
 // Aca debiera ir la conjuncion de todos los valores de productos
 // ... y asi

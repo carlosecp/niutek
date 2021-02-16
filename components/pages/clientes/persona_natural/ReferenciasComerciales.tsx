@@ -1,28 +1,124 @@
-import { useMemo } from 'react'
-import { refComercialesTableColumns } from '../../../../data/clientes/persona_natural/referencias'
+import { useState, useMemo, useEffect, useCallback } from 'react'
+import { FieldArray, useFormikContext, getIn } from 'formik'
 import { Text } from '../../../templates/forms/Fields'
+import Table from '../../../templates/Table'
 
 const ReferenciasComerciales = () => {
-	const columns = useMemo(() => [...refComercialesTableColumns], [])
-
 	return (
 		<section id='referencias_comerciales'>
 			<h1 className='font-medium text-xl text-gray-900'>
-				Datos Profesionales
+				Referencias Comerciales
 			</h1>
-			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<Text name='p_profesion_oficio' label='Profesión' />
-				<Text name='p_nombre_empresa' label='Nombre empresa' />
-				<Text name='p_actividad_empresa' label='Puesto' />
-				<Text name='p_tel_empresa' label='Teléfono de la empresa' />
-				<Text name='p_email_empresa' label='Email de la empresa' />
-				<Text
-					name='p_ingreso_anual'
-					label='Ingreso anual'
-					type='number'
-				/>
+			<article className='flex flex-col'>
+				<FieldArray name='referenciasComerciales'>
+					{(arrayHelpers) => (
+						<Referencias
+							name='referenciasComerciales'
+							handleAdd={arrayHelpers.push}
+							handleRemove={arrayHelpers.remove}
+						/>
+					)}
+				</FieldArray>
 			</article>
 		</section>
+	)
+}
+
+const Referencias = ({ name, handleAdd, handleRemove }) => {
+	const { values } = useFormikContext()
+
+	const formikSlice = getIn(values, name) || []
+	const [tableRows, setTableRows] = useState<typeof formikSlice>(formikSlice)
+
+	useEffect(() => {
+		setTableRows(formikSlice)
+	}, [formikSlice])
+
+	const onAdd = useCallback(
+		(index) => {
+			const newState = [...tableRows]
+
+			newState.splice(index, 1)
+			setTableRows(newState)
+			handleRemove(index)
+		},
+		[handleRemove, tableRows]
+	)
+
+	const onRemove = useCallback(
+		(index) => {
+			const newState = [...tableRows]
+
+			newState.splice(index, 1)
+			setTableRows(newState)
+			handleRemove(index)
+		},
+		[handleRemove, tableRows]
+	)
+
+	const columns = useMemo(
+		() => [
+			{
+				Header: 'Nombre Entidad',
+				id: 'prc_nombre_entidad',
+				Cell: ({ row: { index } }) => (
+					<Text
+						name={`${name}[${index}].prc_persona_contacto`}
+						classes={{
+							container: '',
+							input: '',
+						}}
+					/>
+				),
+			},
+			{
+				Header: 'Persona de Contacto',
+				id: 'prc_persona_contacto',
+				Cell: ({ row: { index } }) => (
+					<Text name={`${name}[${index}].prc_persona_contacto`} />
+				),
+			},
+			{
+				Header: 'Dirección',
+				id: 'prc_direccion',
+				Cell: ({ row: { index } }) => (
+					<Text name={`${name}[${index}].prc_direccion`} />
+				),
+			},
+			{
+				Header: 'Años con entidad',
+				id: 'prc_annios_con_entidad',
+				Cell: ({ row: { index } }) => (
+					<Text name={`${name}[${index}].prc_annios_con_entidad`} />
+				),
+			},
+			{
+				Header: 'Teléfono',
+				id: 'prc_telefono',
+				Cell: ({ row: { index } }) => (
+					<Text name={`${name}[${index}].prc_telefono`} />
+				),
+			},
+			{
+				Header: 'Eliminar',
+				id: 'eliminar',
+				Cell: ({ row: { index } }) => (
+					<button type='button' onClick={() => onRemove(index)}>
+						Eliminar
+					</button>
+				),
+			},
+		],
+		[name, onRemove]
+	)
+
+	return (
+		<div>
+			<button type='button' onClick={onAdd}>
+				Agregar
+			</button>
+			<Table data={tableRows} columns={columns} rowKey='id' />
+		</div>
 	)
 }
 
