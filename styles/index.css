@@ -61,12 +61,3 @@ body {
 		@apply border border-gray-300 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm;
 	}
 }
-
-.no-scrollbar::-webkit-scrollbar {
-	display: none;
-}
-
-.no-scrollbar {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-}
