@@ -1,9 +1,12 @@
-interface Props<T> {
-	results: T[]
-	getDescription: (x: T) => { accessor: string; description: string }
+interface Props<Response> {
+	results: Response[]
+	getDescription: (x: Response) => { accessor: string; description: string }
 }
 
-const SearchResults = <T,>({ results, getDescription }: Props<T>) => {
+const SearchResults = <Response,>({
+	results,
+	getDescription,
+}: Props<Response>) => {
 	return (
 		<div className='w-full flex flex-col px-4'>
 			{results.map((result) => {

@@ -4,12 +4,12 @@ import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 import { Text } from '../forms/_fields'
 
-interface SearchRequest<T> {
+interface SearchRequest {
 	url: string
 	body: { search: string }
 }
 
-const getSearch = async <T,>({ url, body }: SearchRequest<T>) => {
+const getSearch = async <Response,>({ url, body }: SearchRequest) => {
 	const req = {
 		path: `${process.env.backend}/${url}`,
 		body,
@@ -25,24 +25,27 @@ const getSearch = async <T,>({ url, body }: SearchRequest<T>) => {
 		})
 
 		console.log(res.data)
-		return res.data as T[]
+		return res.data as Response[]
 	} catch (err) {
-		return [] as T[]
+		return [] as Response[]
 	}
 }
 
-interface Props<T> {
+interface Props<Response> {
 	searchConfig: SearchConfig
-	updateResults: (x: T[]) => void
+	updateResults: (x: Response[]) => void
 }
 
-const Search = <T,>({ searchConfig, updateResults }: Props<T>) => {
+const Search = <Response,>({
+	searchConfig,
+	updateResults,
+}: Props<Response>) => {
 	return (
 		<Formik
 			initialValues={{ search: '' }}
 			onSubmit={async (values, { setSubmitting }) => {
 				setSubmitting(true)
-				const results = await getSearch<T>({
+				const results = await getSearch<Response>({
 					url: searchConfig.url,
 					body: values,
 				})

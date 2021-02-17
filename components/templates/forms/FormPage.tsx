@@ -23,9 +23,7 @@ const FormPage = <Values, Validations>({
 				onSubmit={(values, { setSubmitting }) => {
 					setSubmitting(true)
 					console.log(values)
-					setTimeout(() => {
-						setSubmitting(false)
-					}, 5000)
+					setSubmitting(false)
 				}}
 			>
 				<Form className='flex flex-col gap-6'>{children}</Form>

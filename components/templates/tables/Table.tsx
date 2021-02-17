@@ -2,7 +2,16 @@ import { memo } from 'react'
 import { useTable, usePagination } from 'react-table'
 import Pagination from './Pagination'
 
-const Table = ({ columns, data }) => {
+interface Props {
+	columns: {
+		Header: string
+		id: string
+		Cell: ({ row: { index } }: { row: { index: any } }) => JSX.Element
+	}[]
+	data: any[]
+}
+
+const Table = ({ columns, data }: Props) => {
 	const {
 		getTableProps,
 		getTableBodyProps,
@@ -22,6 +31,8 @@ const Table = ({ columns, data }) => {
 		},
 		usePagination
 	)
+
+	console.log(data)
 
 	return (
 		<section className='my-3 rounded-lg shadow'>
