@@ -13,8 +13,6 @@ const Table = ({ columns, data }) => {
 		data,
 	})
 
-	console.log(data)
-
 	return (
 		<div className='overflow-x-auto no-scrollbar'>
 			<div className='my-4 align-middle inline-block min-w-full sm:px-1'>

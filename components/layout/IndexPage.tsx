@@ -10,7 +10,7 @@ const IndexPage = ({ width = 'max-w-2xl', children }: Props) => {
 	return (
 		<div className='min-h-full bg-bgl0'>
 			<Topbar />
-			<main className={`${width} container`}>{children}</main>
+			<main className={`${width} container w-full `}>{children}</main>
 		</div>
 	)
 }

@@ -36,11 +36,7 @@ interface Props<T> {
 	updateResults: (x: T[]) => void
 }
 
-// Componente en si
-const Search = <T extends GlobalSearchResults>({
-	searchConfig,
-	updateResults,
-}: Props<T>) => {
+const Search = <T,>({ searchConfig, updateResults }: Props<T>) => {
 	return (
 		<Formik
 			initialValues={{ search: '' }}
@@ -61,28 +57,31 @@ const Search = <T extends GlobalSearchResults>({
 				handleBlur,
 				handleSubmit,
 			}) => (
-				<form className='mx-auto' onSubmit={handleSubmit}>
-					<div
-						className={`w-full flex ${isSubmitting && 'disabled'}`}
-					>
+				<form
+					className='mt-4 w-full mx-auto flex justify-center'
+					onSubmit={handleSubmit}
+				>
+					<div className='w-full flex'>
+						<button
+							type='submit'
+							className='px-4 bg-transparent text-gray-500 disabled:disabled'
+							disabled={isSubmitting}
+						>
+							<FaSearch className={`transition text-current`} />
+						</button>
 						<Text
 							name='search'
 							classes={{
-								container: 'w-64',
-								input: '',
+								container: 'w-full rounded-r-lg flex',
+								input:
+									'pr-2 flex-1 outline-none text-sm rounded-r-lg bg-transparent disabled:disabled',
 							}}
 							placeholder={searchConfig.labels.searchbox}
 							value={values.search}
 							onChange={handleChange}
 							onBlur={handleBlur}
-						/>
-						<button
-							type='submit'
-							className='w-12 flex-center bg-blue-500 rounded-r transition cursor-pointer text-white disabled:disabled outline-none'
 							disabled={isSubmitting}
-						>
-							<FaSearch className={`transition text-current`} />
-						</button>
+						/>
 					</div>
 				</form>
 			)}

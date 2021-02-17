@@ -39,6 +39,7 @@ module.exports = {
 		extend: {
 			opacity: ['disabled'],
 			cursor: ['disabled'],
+			padding: ['last'],
 		},
 	},
 	plugins: [require('@tailwindcss/forms')],

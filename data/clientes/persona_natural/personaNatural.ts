@@ -77,7 +77,8 @@ const validations = {
 	p_fecha_nacimiento: yup
 		.date()
 		.required('Requerido')
-		.max(moment(), 'Fecha inválida'),
+		.max(moment(), 'Fecha inválida')
+		.typeError('Fecha Inválida (formato YYYY-MM-DD)'),
 	p_cargo_publico: yup
 		.mixed()
 		.notOneOf([0], 'Seleccione un valor')

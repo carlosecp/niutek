@@ -5,7 +5,7 @@ import IndexPage from '../../../layout/IndexPage'
 import Search from '../../../templates/search/Search'
 import SearchResults from '../../../templates/search/SearchResults'
 
-const searchConfig: SearchConfig = {
+const config: SearchConfig = {
 	title: 'Persona Natural',
 	heading: 'Buscar Cliente Persona Natural',
 	description: 'Busca entre los clientes persona natural registrados.',
@@ -24,8 +24,8 @@ interface Response {
 }
 
 const getDescription = (result: Response) => ({
-	idKey: result.cod_cliente,
-	description: `${result.cod_cliente} - ${result.nombres} ${result.apellidos}`,
+	accessor: `ID: ${result.cod_cliente}`,
+	description: `${result.nombres} ${result.apellidos}`,
 })
 
 const Index = () => {
@@ -37,26 +37,26 @@ const Index = () => {
 
 	return (
 		<>
-			<Meta title={searchConfig.title} />
+			<Meta title={config.title} />
 			<IndexPage>
-				<section className='text-center'>
+				<section className='flex flex-col items-center'>
 					<article className='mb-4'>
-						<h1 className='font-semibold text-2xl'>
-							{searchConfig.title}
+						<h1 className='font-semibold text-2xl text-center'>
+							{config.title}
 						</h1>
-						<p className='text-gray-700'>
-							{searchConfig.description}
-						</p>
+						<p className='text-gray-700'>{config.description}</p>
 					</article>
-					<Search
-						searchConfig={searchConfig}
-						updateResults={updateResults}
-					/>
+					<article className='max-w-md w-full flex flex-col gap-2 items-center rounded-lg bg-white shadow pb-2'>
+						<Search
+							searchConfig={config}
+							updateResults={updateResults}
+						/>
+						<SearchResults<Response>
+							results={results}
+							getDescription={getDescription}
+						/>
+					</article>
 				</section>
-				<SearchResults<Response>
-					results={results}
-					getDescription={getDescription}
-				/>
 			</IndexPage>
 		</>
 	)

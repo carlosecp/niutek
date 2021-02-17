@@ -1,23 +1,24 @@
-import { GlobalSearchResults } from '../../../interfaces/search'
 interface Props<T> {
 	results: T[]
-	getDescription: (x: T) => { idKey: number; description: string }
+	getDescription: (x: T) => { accessor: string; description: string }
 }
 
-const SearchResults = <T extends GlobalSearchResults>({
-	results,
-	getDescription,
-}: Props<T>) => {
+const SearchResults = <T,>({ results, getDescription }: Props<T>) => {
 	return (
-		<div className='mt-4 flex flex-col gap-3'>
+		<div className='w-full flex flex-col px-4'>
 			{results.map((result) => {
-				const { idKey, description } = getDescription(result)
+				const { accessor, description } = getDescription(result)
 				return (
 					<div
-						key={idKey}
-						className='p-2 rounded bg-blue-400 shadow-sm text-white cursor-pointer transition transform hover:scale-102 hover:shadow-md'
+						key={accessor}
+						className='flex gap-2 p-2 hover:bg-gray-100 transition rounded cursor-pointer'
 					>
-						{description}
+						<span className='text-xs px-2 py-1 bg-indigo-500 text-white rounded'>
+							{accessor}
+						</span>
+						<span className='text-sm text-gray-700'>
+							{description}
+						</span>
 					</div>
 				)
 			})}

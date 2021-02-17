@@ -6,7 +6,7 @@ const values = {
 	p_nombre_empresa: 'Nombre Empresa Prueba',
 	p_actividad_empresa: 'Profesion Prueba',
 	p_tel_empresa: 'Telefono Empresa Prueba',
-	p_email_empresa: 'corre@electronico.com',
+	p_email_empresa: 'correo@electronico.com',
 	p_ingreso_anual: (69).toFixed(2),
 }
 
