@@ -11,7 +11,7 @@ interface Props<Schema> {
 	limit: number
 }
 
-const TableContainer = <Values, Schema>({
+const ComercialesTable = <Values, Schema>({
 	name,
 	schema,
 	handleAdd,
@@ -34,8 +34,8 @@ const TableContainer = <Values, Schema>({
 
 	const styles = useMemo(
 		() => ({
-			container: '',
-			input: 'form-input',
+			container: 'w-auto',
+			input: 'w-full p-2 text-sm outline-none',
 		}),
 		[]
 	)
@@ -101,7 +101,11 @@ const TableContainer = <Values, Schema>({
 				Header: 'Eliminar',
 				id: 'eliminar',
 				Cell: ({ row: { index } }) => (
-					<button type='button' onClick={() => onRemove(index)}>
+					<button
+						type='button'
+						className='pl-2 text-sm'
+						onClick={() => onRemove(index)}
+					>
 						Eliminar
 					</button>
 				),
@@ -130,4 +134,4 @@ const TableContainer = <Values, Schema>({
 	)
 }
 
-export default TableContainer
+export default ComercialesTable
