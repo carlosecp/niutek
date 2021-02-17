@@ -142,7 +142,7 @@ const BancariasTable = <Values, Schema>({
 				Cell: ({ row: { index } }) => (
 					<button
 						type='button'
-						className='text-indigo-500 font-medium outline-none pl-2 text-sm'
+						className='text-primary font-medium outline-none pl-2 text-sm'
 						onClick={() => onRemove(index)}
 					>
 						Eliminar
@@ -161,7 +161,7 @@ const BancariasTable = <Values, Schema>({
 				</h1>
 				<button
 					type='button'
-					className='inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-default '
+					className='inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary btn-disabled transition'
 					onClick={onAdd}
 					disabled={data.length >= limit}
 				>

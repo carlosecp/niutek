@@ -15,6 +15,8 @@ module.exports = {
 		},
 		colors: {
 			bgl0: '#f3f4f6',
+			primary: colors.indigo['500'],
+			error: colors.red['500'],
 			transparent: 'transparent',
 			current: 'currentColor',
 			black: colors.black,

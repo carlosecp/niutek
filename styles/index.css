@@ -58,7 +58,23 @@ body {
 	}
 
 	.form-input-border {
-		@apply border border-gray-300 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm;
+		@apply border border-gray-300 focus:ring-1 shadow-sm;
+	}
+
+	.border-primary {
+		@apply focus:ring-primary focus:border-primary;
+	}
+
+	.border-error {
+		@apply focus:ring-error focus:border-error;
+	}
+
+	.form-disabled {
+		@apply disabled:cursor-default;
+	}
+
+	.btn-disabled {
+		@apply disabled:cursor-default disabled:opacity-50;
 	}
 }
 
@@ -69,4 +85,8 @@ body {
 .no-scrollbar {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+}
+
+button {
+	@apply outline-none focus:outline-none;
 }

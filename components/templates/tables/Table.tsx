@@ -32,8 +32,6 @@ const Table = ({ columns, data }: Props) => {
 		usePagination
 	)
 
-	console.log(data)
-
 	return (
 		<section className='my-3 rounded-lg shadow'>
 			<div className='overflow-x-auto no-scrollbar'>
@@ -69,7 +67,7 @@ const Table = ({ columns, data }: Props) => {
 												return (
 													<td
 														{...cell.getCellProps()}
-														className='pl-4 py-2'
+														className='pl-6 py-2'
 													>
 														{cell.render('Cell')}
 													</td>

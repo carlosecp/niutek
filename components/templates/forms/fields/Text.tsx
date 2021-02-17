@@ -1,7 +1,8 @@
-import { useField, useFormikContext } from 'formik'
 import { useEffect } from 'react'
+import { useField, useFormikContext } from 'formik'
+import { FaExclamationCircle } from 'react-icons/fa'
 
-interface TextProps {
+interface Props {
 	name: string
 	classes?: {
 		container: string
@@ -15,12 +16,12 @@ interface TextProps {
 	[x: string]: any
 }
 
-const defaultClasses = {
+const styles = {
 	container: 'fc-lg md:fc',
-	input: 'w-full block form-input form-input-border disabled:disabled',
+	input: 'w-full block form-input form-input-border',
 }
 
-const Text = ({ name, classes = defaultClasses, ...props }: TextProps) => {
+const Text = ({ name, classes = styles, ...props }: Props) => {
 	const [field, meta, helpers] = useField({ name, ...props })
 	const { isSubmitting } = useFormikContext()
 
@@ -40,14 +41,26 @@ const Text = ({ name, classes = defaultClasses, ...props }: TextProps) => {
 					{props?.label}
 				</label>
 			)}
-			<input
-				className={classes.input}
-				placeholder={props?.label || props?.placeholder}
-				disabled={isSubmitting || props?.disabled}
-				type={props?.type}
-				{...field}
-			/>
-			{meta.error && meta.touched && <small>{meta.error}</small>}
+			<div className='relative'>
+				<input
+					className={`${classes.input} transition form-disabled ${
+						meta.touched && meta.error
+							? 'border-error'
+							: 'border-primary'
+					}`}
+					placeholder={props?.placeholder || props?.label}
+					disabled={isSubmitting || props?.disabled}
+					type={props?.type}
+					{...field}
+				/>
+				{meta.error && meta.touched && (
+					<FaExclamationCircle className='absolute right-2 top-1/2 transform -translate-y-1/2 text-error fill-current' />
+				)}
+			</div>
+
+			{meta.error && meta.touched && (
+				<small className='text-error font-semibold'>{meta.error}</small>
+			)}
 		</div>
 	)
 }

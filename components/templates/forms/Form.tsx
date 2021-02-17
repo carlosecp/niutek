@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Formik, Form } from 'formik'
+import { Formik, Form as FormikForm } from 'formik'
 import IndexPage from '../../layout/IndexPage'
 
 interface Props<Values, Validations> {
@@ -11,7 +11,7 @@ interface Props<Values, Validations> {
 }
 
 // T: InitialValues del formulario a mostrar.
-const FormPage = <Values, Validations>({
+const Form = <Values, Validations>({
 	data,
 	children,
 }: Props<Values, Validations>) => {
@@ -26,10 +26,12 @@ const FormPage = <Values, Validations>({
 					setSubmitting(false)
 				}}
 			>
-				<Form className='flex flex-col gap-6'>{children}</Form>
+				<FormikForm className='flex flex-col gap-6'>
+					{children}
+				</FormikForm>
 			</Formik>
 		</IndexPage>
 	)
 }
 
-export default FormPage
+export default Form

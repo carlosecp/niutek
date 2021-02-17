@@ -1,6 +1,6 @@
 import { useField, useFormikContext } from 'formik'
 
-interface TextAreaProps {
+interface Props {
 	name: string
 	classes?: {
 		container: string
@@ -13,16 +13,12 @@ interface TextAreaProps {
 	[x: string]: any
 }
 
-const defaultClasses = {
+const styles = {
 	container: 'fc-lg',
-	input: 'w-full block form-input form-input-border disabled:disabled',
+	input: 'w-full block form-input form-input-border',
 }
 
-const TextArea = ({
-	name,
-	classes = defaultClasses,
-	...props
-}: TextAreaProps) => {
+const TextArea = ({ name, classes = styles, ...props }: Props) => {
 	const [field, meta, helpers] = useField({ name, ...props })
 	const { isSubmitting } = useFormikContext()
 
@@ -37,8 +33,12 @@ const TextArea = ({
 				</label>
 			)}
 			<textarea
-				className={classes.input}
-				placeholder={props?.label || props?.placeholder}
+				className={`${classes.input} transition form-disabled ${
+					meta.touched && meta.error
+						? 'border-error'
+						: 'border-primary'
+				}`}
+				placeholder={props?.placeholder || props?.label}
 				disabled={isSubmitting}
 				rows={5}
 				{...field}

@@ -1,9 +1,9 @@
-import type { valuesPersonaNatural } from '../../../../data/clientes/persona_natural/_data'
+import type { Values } from './_crear'
 import { useFormikContext } from 'formik'
 import { Text, Checkbox } from '../../../templates/forms/_fields'
 
 const OrigenFondos = () => {
-	const { values } = useFormikContext<valuesPersonaNatural>()
+	const { values } = useFormikContext<Values>()
 
 	return (
 		<section id='origen_fondos'>
@@ -17,13 +17,12 @@ const OrigenFondos = () => {
 						label='Negocio Propio'
 					/>
 					<Text
-						name='p_nombre_empresa'
+						name='p_of_nombre_negocio'
 						classes={{
 							container: 'fc-lg md:fc-md',
-							input:
-								'w-full block form-input form-input-border disabled:disabled',
+							input: 'w-full block form-input form-input-border',
 						}}
-						label='Nombre empresa'
+						label='Nombre Negocio'
 						disabled={!values.p_of_negocio_propio}
 						reset={!values.p_of_negocio_propio}
 					/>
@@ -35,7 +34,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
-								'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
+								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
 						}}
 						label='Profesión Independiente'
 					/>
@@ -43,8 +42,7 @@ const OrigenFondos = () => {
 						name='p_of_prof_ejerce'
 						classes={{
 							container: 'fc-lg md:fc',
-							input:
-								'w-full block form-input form-input-border disabled:disabled',
+							input: 'w-full block form-input form-input-border',
 						}}
 						label='Profesión'
 						disabled={!values.p_of_prof_independiente}
@@ -58,7 +56,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-sm',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
-								'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
+								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
 						}}
 						label='Herencia'
 					/>
@@ -66,8 +64,7 @@ const OrigenFondos = () => {
 						name='p_of_de_quien'
 						classes={{
 							container: 'fc-lg md:fc-md',
-							input:
-								'w-full block form-input form-input-border disabled:disabled',
+							input: 'w-full block form-input form-input-border ',
 						}}
 						label='Origen'
 						disabled={!values.p_of_herencia}
@@ -81,7 +78,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-sm',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
-								'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
+								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
 						}}
 						label='Inversiones'
 					/>
@@ -89,8 +86,7 @@ const OrigenFondos = () => {
 						name='p_of_tipos_inversiones'
 						classes={{
 							container: 'fc-lg md:fc-md',
-							input:
-								'w-full block form-input form-input-border disabled:disabled',
+							input: 'w-full block form-input form-input-border ',
 						}}
 						label='Tipos de Inversiones'
 						disabled={!values.p_of_inversiones}
@@ -104,7 +100,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-sm',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
-								'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
+								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
 						}}
 						label='Préstamo'
 					/>
@@ -112,8 +108,7 @@ const OrigenFondos = () => {
 						name='p_of_inst_financiera'
 						classes={{
 							container: 'fc-lg md:fc-md',
-							input:
-								'w-full block form-input form-input-border disabled:disabled',
+							input: 'w-full block form-input form-input-border',
 						}}
 						label='Tipos de Inversiones'
 						disabled={!values.p_of_prestamo}
@@ -127,7 +122,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-sm',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
-								'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
+								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
 						}}
 						label='Venta de'
 					/>
@@ -135,8 +130,7 @@ const OrigenFondos = () => {
 						name='p_of_descrip_venta_de'
 						classes={{
 							container: 'fc-lg md:fc-md',
-							input:
-								'w-full block form-input form-input-border disabled:disabled',
+							input: 'w-full block form-input form-input-border',
 						}}
 						label='Descripción'
 						disabled={!values.p_of_venta_de}
@@ -151,7 +145,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
-								'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
+								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
 						}}
 						label='Salario'
 					/>
@@ -163,7 +157,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-sm',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
-								'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
+								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
 						}}
 						label='Ahorro'
 					/>
@@ -171,8 +165,7 @@ const OrigenFondos = () => {
 						name='p_of_aho_inst_financiera'
 						classes={{
 							container: 'fc-lg md:fc-md',
-							input:
-								'w-full block form-input form-input-border disabled:disabled',
+							input: 'w-full block form-input form-input-border',
 						}}
 						label='Institución Financiera'
 						disabled={!values.p_of_ahorro}
@@ -187,7 +180,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-sm',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
-								'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
+								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
 						}}
 						label='Otros'
 					/>
@@ -195,8 +188,7 @@ const OrigenFondos = () => {
 						name='p_of_des_otros'
 						classes={{
 							container: 'fc-lg md:fc-md',
-							input:
-								'w-full block form-input form-input-border disabled:disabled',
+							input: 'w-full block form-input form-input-border',
 						}}
 						label='Descripción'
 						disabled={!values.p_of_otros}

@@ -41,7 +41,11 @@ const PersonaNatural = ({ options }) => {
 				<Text name='p_telefono1' label='Teléfono 1' />
 				<Text name='p_telefono2' label='Teléfono 2' />
 				<Text name='p_lugar_nacimiento' label='Lugar de nacimiento' />
-				<Text name='p_fecha_nacimiento' label='Fecha de nacimiento' />
+				<Text
+					name='p_fecha_nacimiento'
+					label='Fecha de nacimiento'
+					placeholder='YYYY-MM-DD'
+				/>
 				<Text
 					name='p_cargo_publico'
 					label='Cargo Público'
