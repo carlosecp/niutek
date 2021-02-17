@@ -1,6 +1,6 @@
 import { Text, Select, TextArea } from '../../../templates/forms/_fields'
 
-const PersonaNatural = () => {
+const PersonaNatural = ({ options }) => {
 	return (
 		<section id='persona_natural'>
 			<h1 className='font-medium text-xl text-gray-900'>
@@ -10,8 +10,14 @@ const PersonaNatural = () => {
 				<Text name='p_nombres' label='Nombres' />
 				<Text name='p_apellidos' label='Apellidos' />
 				<Select name='p_sexo' label='Sexo'>
-					<option value={1}>Primera Opcion</option>
-					<option value={2}>Segunda Opcion</option>
+					{options.p_sexo.map((option) => (
+						<option
+							value={option.codigo}
+							label={option.descripcion}
+						>
+							{option.descripcion}
+						</option>
+					))}
 				</Select>
 				<Select name='p_tipo_doc' label='Tipo de documento'>
 					<option value={1}>Primera Opcion</option>

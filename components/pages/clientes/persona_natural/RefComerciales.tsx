@@ -15,9 +15,6 @@ const RefComerciales = () => {
 
 	return (
 		<section id='referencias_comerciales'>
-			<h1 className='font-medium text-xl text-gray-900'>
-				Referencias Comerciales
-			</h1>
 			<article className='flex flex-col'>
 				<FieldArray name='referencias_comerciales'>
 					{(arrayHelpers) => (
