@@ -30,12 +30,12 @@ export const getStaticProps = async () => {
 		},
 	}
 
-	const options = {}
-
 	try {
 		const res = await axios.post(req.path, req.body, {
 			headers: req.headers,
 		})
+
+		const options = {}
 
 		res.data.forEach((table, index: string) => {
 			if (!Array.isArray(format[index])) {
@@ -46,14 +46,14 @@ export const getStaticProps = async () => {
 				})
 			}
 		})
-	} catch (err) {
-		console.error(err)
-	} finally {
+
 		return {
 			props: {
 				options,
 			},
 		}
+	} catch (err) {
+		console.error(err)
 	}
 }
 
