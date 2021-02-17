@@ -8,10 +8,21 @@ import ReferenciasComerciales from './RefComerciales'
 export type Values = typeof data.values
 export type Validations = typeof data.validations
 
-const crear = () => {
+interface Props {
+	options: {
+		dep: { cod_depto: number; nom_depto: string }[]
+		p_cod_nac: { codigo: number; descripcion: string }[]
+		p_moneda: { codigo: number; descripcion: string }[]
+		p_sexo: { codigo: number; descripcion: string }[]
+		p_tipo_doc: { codigo: number; descripcion: string }[]
+		pct_cod_banco: { codigo: number; descripcion: string }[]
+	}
+}
+
+const Crear = ({ options }) => {
 	return (
 		<FormPage<Values, Validations> data={data}>
-			<PersonaNatural />
+			<PersonaNatural options={options} />
 			<DatosProfesionales />
 			<OrigenFondos />
 			<ReferenciasComerciales />
@@ -20,4 +31,4 @@ const crear = () => {
 	)
 }
 
-export default crear
+export default Crear

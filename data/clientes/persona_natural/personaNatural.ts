@@ -15,7 +15,7 @@ const values = {
 	p_telefono1: 'Prueba Telefono 1',
 	p_telefono2: 'Prueba Telefono 2',
 	p_lugar_nacimiento: 'Lugar Nacimiento Prueba',
-	p_fecha_nacimiento: moment().format('DD-MM-YY'),
+	p_fecha_nacimiento: moment().format('YYYY-MM-DD'),
 	p_cargo_publico: 1,
 	p_num_hijos: 1,
 }

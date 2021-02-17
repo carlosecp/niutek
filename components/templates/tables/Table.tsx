@@ -17,7 +17,7 @@ const Table = ({ columns, data }) => {
 
 	return (
 		<div className='overflow-x-auto no-scrollbar'>
-			<div className='my-2 align-middle inline-block min-w-full sm:px-1'>
+			<div className='my-4 align-middle inline-block min-w-full sm:px-1'>
 				<div className='shadow overflow-hidden border-b border-gray-200 rounded-lg'>
 					<table
 						{...getTableProps()}
@@ -29,7 +29,7 @@ const Table = ({ columns, data }) => {
 									{headerGroup.headers.map((column) => (
 										<th
 											{...column.getHeaderProps()}
-											className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
+											className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap'
 										>
 											{column.render('Header')}
 										</th>

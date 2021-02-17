@@ -4,13 +4,11 @@ import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 import { Text } from '../forms/_fields'
 
-// Determina el tipo de configuracion de la request que se va a realizar. Recordemos que al componente principal de este archivo: Search, se le pasa un generico que determina el tipo de respuesta que se espera recibir.
 interface SearchRequest<T> {
 	url: string
 	body: { search: string }
 }
 
-// Esta es solo la funcion que se ejecuta cuando mandamos a buscar algun cliente. Nos devuelve un arreglo de tipo T[], generico que recibe el componente Search para determinar el tipo de valores que regresa la busqueda.
 const getSearch = async <T,>({ url, body }: SearchRequest<T>) => {
 	const req = {
 		path: `${process.env.backend}/${url}`,
@@ -33,9 +31,6 @@ const getSearch = async <T,>({ url, body }: SearchRequest<T>) => {
 	}
 }
 
-// El componente Search realiza las busquedas de todas las pantallas que lo ameriten, sin embargo, debido a que los diferentes buscadores retornan diferentes tipos de items, como por ejemplo clientes !== productos !== cheques, etc... entonces debemos pasar el generico, que determina el tipo de respuesta que esperamos dentro del array que nos retorna el metodo getSearch() (arriba).
-
-// Tambien se le esta pasando la funcion que se encarga de actualizar el state que luego se utiliza para mostrar los resultados en SearchResults.tsx, esta funcion toma el mismo generico, ya que espera un arreglo de ese tipo de dato.
 interface Props<T> {
 	searchConfig: SearchConfig
 	updateResults: (x: T[]) => void
