@@ -1,4 +1,4 @@
-export interface PersonaNatural {
+export interface OptionsPersonaNatural {
 	dep: { cod_depto: number; nom_depto: string }[]
 	p_cod_nac: { codigo: number; descripcion: string }[]
 	p_moneda: { codigo: number; descripcion: string }[]

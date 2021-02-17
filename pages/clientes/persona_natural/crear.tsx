@@ -3,6 +3,8 @@ import { InferGetStaticPropsType } from 'next'
 import Crear from '../../../components/pages/clientes/persona_natural/_crear'
 
 const crear = ({ options }: InferGetStaticPropsType<typeof getStaticProps>) => {
+	console.log(options)
+
 	return (
 		<>
 			<Crear options={options} />
