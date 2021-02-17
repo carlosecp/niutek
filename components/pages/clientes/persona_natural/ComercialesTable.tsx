@@ -103,7 +103,7 @@ const ComercialesTable = <Values, Schema>({
 				Cell: ({ row: { index } }) => (
 					<button
 						type='button'
-						className='pl-2 text-sm'
+						className='outline-none pl-2 text-sm'
 						onClick={() => onRemove(index)}
 					>
 						Eliminar
