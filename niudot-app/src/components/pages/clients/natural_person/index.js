@@ -31,9 +31,10 @@ const NaturalPerson = () => {
 
 		const res = await axios.post(
 			`${process.env.REACT_APP_URL}/read/client`,
-			{ p_cod_cliente: clientId },
+			{ p_cod_cliente: clientId, p_cod_sucursal:0, p_cod_empresa:1},
 			requestConfig
 		)
+		console.log(res)
 
 		setFetchingClient(false)
 		setClient({ p_cod_cliente: clientId, ...res.data })
