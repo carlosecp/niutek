@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { useTable } from 'react-table'
+import { useTable, usePagination } from 'react-table'
 import Pagination from './Pagination'
 
 const Table = ({ columns, data }) => {
@@ -7,12 +7,21 @@ const Table = ({ columns, data }) => {
 		getTableProps,
 		getTableBodyProps,
 		headerGroups,
-		rows,
+		page,
+		canPreviousPage,
+		canNextPage,
+		nextPage,
+		previousPage,
 		prepareRow,
-	} = useTable({
-		columns,
-		data,
-	})
+		state: { pageIndex, pageSize },
+	} = useTable(
+		{
+			columns,
+			data,
+			initialState: { pageIndex: 0 },
+		},
+		usePagination
+	)
 
 	return (
 		<section className='my-3 rounded-lg shadow'>
@@ -41,7 +50,7 @@ const Table = ({ columns, data }) => {
 								{...getTableBodyProps()}
 								className='bg-white divide-y divide-gray-200'
 							>
-								{rows.map((row) => {
+								{page.map((row) => {
 									prepareRow(row)
 									return (
 										<tr {...row.getRowProps()}>
@@ -63,7 +72,13 @@ const Table = ({ columns, data }) => {
 					</div>
 				</div>
 			</div>
-			<Pagination data={data} />
+			<Pagination
+				data={data}
+				canPreviousPage={canPreviousPage}
+				canNextPage={canNextPage}
+				previousPage={previousPage}
+				nextPage={nextPage}
+			/>
 		</section>
 	)
 }
