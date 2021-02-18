@@ -27,15 +27,13 @@ const Navigation = <SearchResult extends SearchResults>({
 				<div className='h-14 flex flex-center border-b'>Navegación</div>
 				<ul id='navigation'>
 					<li>
-						<a href='#persona_natural_anchor'>Persona Natural</a>
+						<a href='#_persona_natural'>Persona Natural</a>
 					</li>
 					<li>
-						<a href='#datos_profesionales_anchor'>
-							Datos Profesionales
-						</a>
+						<a href='#_datos_profesionales'>Datos Profesionales</a>
 					</li>
 					<li>
-						<a href='#origen_fondos_anchor'>Origen de Fondos</a>
+						<a href='#_origen_fondos'>Origen de Fondos</a>
 					</li>
 				</ul>
 			</section>
