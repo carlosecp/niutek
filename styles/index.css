@@ -72,10 +72,6 @@ body {
 	.form-disabled {
 		@apply disabled:cursor-default;
 	}
-
-	.btn-disabled {
-		@apply disabled:cursor-default disabled:opacity-50;
-	}
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -87,6 +83,14 @@ body {
 	scrollbar-width: none;
 }
 
-button {
-	@apply outline-none focus:outline-none;
+.btn {
+	@apply w-max inline-flex items-center px-4 rounded-md  py-2 border shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition disabled:cursor-default disabled:opacity-50;
+}
+
+.btn-outline-primary {
+	@apply border-primary text-primary hover:text-white hover:border-transparent hover:bg-indigo-700 focus:ring-primary;
+}
+
+.btn-primary {
+	@apply border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-primary;
 }

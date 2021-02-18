@@ -1,10 +1,13 @@
 export interface SearchConfig {
-	title: string
-	heading: string
-	description: string
-	labels: {
-		searchbox: string
-		button: string
-	}
+	placeholder: string
 	url: string
 }
+
+export type PersonaNaturalResult = {
+	cod_cliente: number
+	nombres: string
+	apellidos: string
+	description: string
+}
+
+export type SearchResults = PersonaNaturalResult

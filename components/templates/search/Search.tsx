@@ -1,15 +1,9 @@
-import type { SearchConfig } from '../../../interfaces/search'
+import type { SearchConfig, SearchResults } from '../../../interfaces/search'
 import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
-import { Text } from '../forms/_fields'
 
-interface SearchRequest {
-	url: string
-	body: { search: string }
-}
-
-const getSearch = async <Response,>({ url, body }: SearchRequest) => {
+const getResults = async <SearchResult,>({ url, body }) => {
 	const req = {
 		path: `${process.env.backend}/${url}`,
 		body,
@@ -24,29 +18,26 @@ const getSearch = async <Response,>({ url, body }: SearchRequest) => {
 			headers: req.headers,
 		})
 
-		console.log(res.data)
-		return res.data as Response[]
-	} catch (err) {
-		return [] as Response[]
-	}
+		return res.data as SearchResult[]
+	} catch (err) {}
 }
 
-interface Props<Response> {
-	searchConfig: SearchConfig
-	updateResults: (x: Response[]) => void
+interface Props<SearchResult> {
+	config: SearchConfig
+	updateResults: (results: SearchResult[]) => void
 }
 
-const Search = <Response,>({
-	searchConfig,
+const Search = <SearchResult extends SearchResults>({
+	config,
 	updateResults,
-}: Props<Response>) => {
+}: Props<SearchResult>) => {
 	return (
 		<Formik
 			initialValues={{ search: '' }}
 			onSubmit={async (values, { setSubmitting }) => {
 				setSubmitting(true)
-				const results = await getSearch<Response>({
-					url: searchConfig.url,
+				const results = await getResults<SearchResult>({
+					url: config.url,
 					body: values,
 				})
 				updateResults(results)
@@ -61,31 +52,19 @@ const Search = <Response,>({
 				handleSubmit,
 			}) => (
 				<form
-					className='mt-4 w-full mx-auto flex justify-center'
+					className='flex-1 h-full flex items-center'
 					onSubmit={handleSubmit}
 				>
-					<div className='w-full flex'>
-						<button
-							type='submit'
-							className='px-4 bg-transparent text-gray-500 disabled:disabled'
-							disabled={isSubmitting}
-						>
-							<FaSearch className={`transition text-current`} />
-						</button>
-						<Text
-							name='search'
-							classes={{
-								container: 'w-full rounded-r-lg flex',
-								input:
-									'pr-2 flex-1 outline-none text-sm rounded-r-lg bg-transparent disabled:disabled',
-							}}
-							placeholder={searchConfig.labels.searchbox}
-							value={values.search}
-							onChange={handleChange}
-							onBlur={handleBlur}
-							disabled={isSubmitting}
-						/>
-					</div>
+					<button type='submit' className='p-2'>
+						<FaSearch className='text-gray-600 fill-current' />
+					</button>
+					<input
+						name='search'
+						type='text'
+						className='w-full border-none outline-none ring-0 focus:ring-0'
+						placeholder={`Buscar`}
+						onChange={handleChange}
+					/>
 				</form>
 			)}
 		</Formik>

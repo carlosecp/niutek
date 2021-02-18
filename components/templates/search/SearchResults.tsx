@@ -1,12 +1,11 @@
-interface Props<Response> {
-	results: Response[]
-	getDescription: (x: Response) => { accessor: string; description: string }
+interface Props<Result> {
+	results: Result[]
+	getDescription: (
+		result: Result
+	) => { accessor: string | number; description: string }
 }
 
-const SearchResults = <Response,>({
-	results,
-	getDescription,
-}: Props<Response>) => {
+const SearchResults = <Result,>({ results, getDescription }: Props<Result>) => {
 	return (
 		<div className='w-full flex flex-col px-4'>
 			{results.map((result) => {
