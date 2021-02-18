@@ -31,7 +31,7 @@ const Navigation = <SearchResult extends SearchResults>({
 					</li>
 					<li>
 						<a href='#datos_profesionales_anchor'>
-							Persona Natural
+							Datos Profesionales
 						</a>
 					</li>
 					<li>

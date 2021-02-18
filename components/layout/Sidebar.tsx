@@ -1,5 +1,4 @@
 import React from 'react'
-import { CSSTransition } from 'react-transition-group'
 
 interface Props {
 	showSidebar: boolean
@@ -20,7 +19,7 @@ const Sidebar = ({ showSidebar, toggleSidebar }: Props) => {
 					showSidebar ? 'left-0' : '-left-full'
 				} transition-left shadow-xl sm:shadow-none sm:transition duration-500 sm:left-0 transition flex flex-col top-0 w-64 bg-white h-full border-r`}
 			>
-				<div className='sticky top-0 flex items-center justify-center h-14 border-b'>
+				<div className='top-0 flex items-center justify-center h-14 border-b'>
 					<div className='h-14 flex flex-center'>niudot</div>
 				</div>
 				<div className='overflow-y-auto overflow-x-hidden'>
