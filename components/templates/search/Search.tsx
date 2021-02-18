@@ -55,7 +55,11 @@ const Search = <SearchResult extends SearchResults>({
 					className='flex-1 h-full flex items-center'
 					onSubmit={handleSubmit}
 				>
-					<button type='submit' className='p-2'>
+					<button
+						type='submit'
+						className='p-2 disabled:cursor-default disabled:opacity-50'
+						disabled={isSubmitting}
+					>
 						<FaSearch className='text-gray-600 fill-current' />
 					</button>
 					<input
@@ -64,6 +68,7 @@ const Search = <SearchResult extends SearchResults>({
 						className='w-full border-none outline-none ring-0 focus:ring-0'
 						placeholder={`Buscar`}
 						onChange={handleChange}
+						disabled={isSubmitting}
 					/>
 				</form>
 			)}

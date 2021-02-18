@@ -23,7 +23,7 @@ const config: SearchConfig = {
 }
 
 const getDescription = (result: PersonaNaturalResult) => ({
-	accessor: result.cod_cliente,
+	accessor: `ID: ${result.cod_cliente}`,
 	description: `${result.nombres} ${result.apellidos}`,
 })
 

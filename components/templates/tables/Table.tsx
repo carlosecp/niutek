@@ -33,7 +33,7 @@ const Table = ({ columns, data }: Props) => {
 	)
 
 	return (
-		<section className='my-3 rounded-lg shadow'>
+		<section className='my-3 rounded-lg border'>
 			<div className='overflow-x-auto no-scrollbar'>
 				<div className='align-middle inline-block min-w-full'>
 					<div className='overflow-hidden border-b border-gray-200 rounded-t-lg'>
