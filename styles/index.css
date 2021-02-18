@@ -23,7 +23,7 @@ body {
 }
 
 .form-section {
-	@apply p-4 bg-white rounded-md shadow;
+	@apply p-4 bg-white rounded-md border;
 }
 
 /* Classes encargadas de determinar el posicionamiento de los contenedores de cada input, independientemente del tipo de esta. Anteriormente teniamos clases que se encargaban directamente de lo responsive. Ahora simplemente utilizamos las queries de Tailwind para determinar nosotros mismos el comportamiento responsive. */
@@ -54,11 +54,11 @@ body {
 /* Classes tambien encargas de los estilos de las inputs en si. La mayoria estan aplicadas por defecto en los componentes de cada uno de los tipos de input, pero pueden ser utilizadas de manera modular e independiente. */
 @layer utilities {
 	.form-input {
-		@apply p-2 text-sm rounded-md outline-none transition;
+		@apply p-2 text-sm rounded-md outline-none transition duration-100;
 	}
 
 	.form-input-border {
-		@apply border border-gray-300 focus:ring-1 shadow-sm;
+		@apply border border-gray-300 focus:ring-1;
 	}
 
 	.border-primary {

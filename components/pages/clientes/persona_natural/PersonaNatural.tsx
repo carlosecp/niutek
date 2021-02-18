@@ -4,7 +4,7 @@ const PersonaNatural = ({ options }) => {
 	return (
 		<section id='persona_natural'>
 			<h1 className='font-medium text-xl text-gray-900'>
-				Crear Persona Natural
+				Persona Natural
 			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='p_nombres' label='Nombres' />

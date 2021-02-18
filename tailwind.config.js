@@ -8,13 +8,23 @@ module.exports = {
 	],
 	darkMode: 'class',
 	theme: {
+		screens: {
+			xs: '425px',
+			sm: '640px',
+			md: '768px',
+			lg: '1024px',
+			xl: '1280px',
+		},
 		extend: {
 			spacing: {
 				input: '38px',
 			},
+			transitionProperty: {
+				left: 'left',
+			},
 		},
 		colors: {
-			bgl0: '#f3f4f6',
+			light: '#f1f5f8',
 			primary: colors.indigo['500'],
 			error: colors.red['500'],
 			transparent: 'transparent',
