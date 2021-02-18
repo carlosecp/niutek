@@ -3,6 +3,7 @@ import { Text, Select, TextArea } from '../../../templates/forms/_fields'
 const PersonaNatural = ({ options }) => {
 	return (
 		<section id='persona_natural'>
+			<a href='#!' id='persona_natural_anchor' className='anchor'></a>
 			<h1 className='font-medium text-xl text-gray-900'>
 				Persona Natural
 			</h1>

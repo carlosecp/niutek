@@ -1,4 +1,4 @@
-import type { Values } from './_crear'
+import type { Values } from './Index'
 import { FieldArray } from 'formik'
 import ComercialesTable from './ComercialesTable'
 

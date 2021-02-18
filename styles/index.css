@@ -79,7 +79,7 @@ body {
 }
 
 .no-scrollbar {
-	-ms-overflow-style: none;
+	-ms-overfglow-style: none;
 	scrollbar-width: none;
 }
 
@@ -93,4 +93,11 @@ body {
 
 .btn-primary {
 	@apply border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-primary;
+}
+
+a.anchor {
+	display: block;
+	position: relative;
+	top: -72px;
+	visibility: hidden;
 }

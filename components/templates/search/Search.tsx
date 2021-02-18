@@ -44,24 +44,11 @@ const Search = <SearchResult extends SearchResults>({
 				setSubmitting(false)
 			}}
 		>
-			{({
-				values,
-				isSubmitting,
-				handleChange,
-				handleBlur,
-				handleSubmit,
-			}) => (
+			{({ values, isSubmitting, handleChange, handleSubmit }) => (
 				<form
-					className='flex-1 h-full flex items-center'
+					className='mt-4 h-14 border-b border-t flex-1 flex items-center'
 					onSubmit={handleSubmit}
 				>
-					<button
-						type='submit'
-						className='p-2 disabled:cursor-default disabled:opacity-50'
-						disabled={isSubmitting}
-					>
-						<FaSearch className='text-gray-600 fill-current' />
-					</button>
 					<input
 						name='search'
 						type='text'
@@ -70,6 +57,13 @@ const Search = <SearchResult extends SearchResults>({
 						onChange={handleChange}
 						disabled={isSubmitting}
 					/>
+					<button
+						type='submit'
+						className='p-2 disabled:cursor-default disabled:opacity-50 mr-2'
+						disabled={isSubmitting}
+					>
+						<FaSearch className='text-gray-600 fill-current' />
+					</button>
 				</form>
 			)}
 		</Formik>

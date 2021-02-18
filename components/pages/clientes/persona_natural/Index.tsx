@@ -39,10 +39,7 @@ const Index = ({ options }) => {
 
 	return (
 		<main className='sm:ml-64 relative bg-light'>
-			<Navbar<PersonaNaturalResult>
-				config={config}
-				updateResults={updateResults}
-			/>
+			<Navbar />
 			<div className='flex lg:pr-64'>
 				<Form<Values, Validations> data={defaults}>
 					<PersonaNatural options={options} />
@@ -53,6 +50,8 @@ const Index = ({ options }) => {
 					<button type='submit'>Submit</button>
 				</Form>
 				<Navigation<PersonaNaturalResult>
+					config={config}
+					updateResults={updateResults}
 					results={searchResults}
 					getDescription={getDescription}
 				/>

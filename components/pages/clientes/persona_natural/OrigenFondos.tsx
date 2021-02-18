@@ -1,4 +1,4 @@
-import type { Values } from './_crear'
+import type { Values } from './Index'
 import { useFormikContext } from 'formik'
 import { Text, Checkbox } from '../../../templates/forms/_fields'
 
@@ -7,6 +7,7 @@ const OrigenFondos = () => {
 
 	return (
 		<section id='origen_fondos'>
+			<a href='#!' id='origen_fondos_anchor' className='anchor'></a>
 			<h1 className='font-medium text-xl text-gray-900'>
 				Origen de Fondos
 			</h1>
