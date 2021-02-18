@@ -2,28 +2,30 @@ import * as yup from 'yup'
 
 const values = []
 
-const validations = [
-	{
-		Header: 'Nombre Entidad',
-		accessor: 'prc_nombre_entidad',
-	},
-	{
-		Header: 'Persona de Contacto',
-		accessor: 'prc_persona_contacto',
-	},
-	{
-		Header: 'Dirección',
-		accessor: 'prc_direccion',
-	},
-	{
-		Header: 'Años con entidad',
-		accessor: 'prc_annios_con_entidad',
-	},
-	{
-		Header: 'Teléfono',
-		accessor: 'prc_telefono',
-	},
-]
+const validations = yup.array().of(
+	yup.object().shape({
+		prc_nombre_entidad: yup
+			.string()
+			.max(50, 'Caracteres Máximos 50')
+			.required('Requerido'),
+		prc_persona_contacto: yup
+			.string()
+			.max(50, 'Caracteres Máximos 50')
+			.required('Requerido'),
+		prc_direccion: yup
+			.string()
+			.max(100, 'Caracteres Máximos 100')
+			.required('Requerido'),
+		prc_annios_con_entidad: yup
+			.number()
+			.min(0, 'Valor Mínimo 0')
+			.required('Requerido'),
+		prc_telefono: yup
+			.string()
+			.max(30, 'Caracteres Máximos 30')
+			.required('Requerido'),
+	})
+)
 
 export const referencias_bancarias = [
 	{

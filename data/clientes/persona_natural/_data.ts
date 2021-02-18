@@ -14,6 +14,8 @@ const values = {
 const validations = yup.object({
 	...personaNatural.validations,
 	...datosProfesionales.validations,
+	...origenFondos.validations,
+	referencias_comerciales: refComerciales.validations,
 })
 
 export default { values, validations }

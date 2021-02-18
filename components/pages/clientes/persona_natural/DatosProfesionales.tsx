@@ -3,6 +3,7 @@ import { Text } from '../../../templates/forms/_fields'
 const DatosProfesionales = () => {
 	return (
 		<section id='datos_profesionales'>
+			<a href='#!' id='_datos_profesionales' className='anchor'></a>
 			<h1 className='font-medium text-xl text-gray-900'>
 				Datos Profesionales
 			</h1>

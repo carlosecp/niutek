@@ -40,7 +40,7 @@ const validations = {
 		otherwise: yup.string(),
 	}),
 	p_of_herencia: yup.boolean(),
-	p_of_de_quien: yup.string().when('p_of_prof_independiente', {
+	p_of_de_quien: yup.string().when('p_of_herencia', {
 		is: true,
 		then: yup
 			.string()

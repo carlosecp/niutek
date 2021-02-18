@@ -1,17 +1,18 @@
 import { useCallback, useMemo } from 'react'
 import { useFormikContext, getIn } from 'formik'
-import { Text } from '../../../templates/forms/_fields'
+import { Text, Select } from '../../../templates/forms/_fields'
 import Table from '../../../templates/tables/Table'
 
 interface Props<Schema> {
 	name: string
 	schema: Schema
+	options: any[]
 	handleAdd: (obj: Schema) => void
 	handleRemove: (index: number) => void
 	limit: number
 }
 
-const ComercialesTable = <Values, Schema>({
+const BancariasTable = <Values, Schema>({
 	name,
 	schema,
 	handleAdd,
@@ -35,7 +36,7 @@ const ComercialesTable = <Values, Schema>({
 	const styles = useMemo(
 		() => ({
 			container: 'w-auto',
-			input: 'w-full p-2 pl-0 text-sm outline-none',
+			input: 'w-full p-2 text-sm outline-none',
 		}),
 		[]
 	)
@@ -54,18 +55,18 @@ const ComercialesTable = <Values, Schema>({
 				),
 			},
 			{
-				Header: 'Persona de Contacto',
+				Header: 'Servicio Recibido',
 				id: 'prc_persona_contacto',
 				Cell: ({ row: { index } }) => (
 					<Text
 						name={`${name}[${index}].prc_persona_contacto`}
 						classes={styles}
-						placeholder='Persona de Contacto'
+						placeholder='Servicio Recibido'
 					/>
 				),
 			},
 			{
-				Header: 'Dirección',
+				Header: 'Fecha de Inición Relación',
 				id: 'prc_direccion',
 				Cell: ({ row: { index } }) => (
 					<Text
@@ -88,12 +89,50 @@ const ComercialesTable = <Values, Schema>({
 			},
 			{
 				Header: 'Teléfono',
-				id: 'prc_telefono',
+				id: 'prc_telefono1',
 				Cell: ({ row: { index } }) => (
 					<Text
 						name={`${name}[${index}].prc_telefono`}
 						classes={styles}
 						placeholder='Teléfono'
+					/>
+				),
+			},
+			{
+				Header: 'No. Cuenta',
+				id: 'prc_telefono2',
+				Cell: ({ row: { index } }) => (
+					<Text
+						name={`${name}[${index}].prc_telefono`}
+						classes={styles}
+						placeholder='No. Cuenta'
+					/>
+				),
+			},
+			{
+				Header: 'Moneda',
+				id: 'prc_telefono3',
+				Cell: ({ row: { index } }) => (
+					<Select
+						name='p_tipo_doc'
+						classes={{
+							container: 'w-36',
+							input:
+								'border-none w-full p-2 text-sm outline-none',
+						}}
+					>
+						<option value={1}>Primera Opcion</option>
+						<option value={2}>Segunda Opcion</option>
+					</Select>
+				),
+			},
+			{
+				Header: 'Banco',
+				id: 'prc_telefono4',
+				Cell: ({ row: { index } }) => (
+					<Text
+						name={`${name}[${index}].prc_telefono`}
+						classes={styles}
 					/>
 				),
 			},
@@ -118,7 +157,7 @@ const ComercialesTable = <Values, Schema>({
 		<div>
 			<div className='flex justify-between items-center'>
 				<h1 className='font-medium text-xl text-gray-900'>
-					Referencias Comerciales
+					Referencias Bancarias
 				</h1>
 				<button
 					type='button'
@@ -134,4 +173,4 @@ const ComercialesTable = <Values, Schema>({
 	)
 }
 
-export default ComercialesTable
+export default BancariasTable

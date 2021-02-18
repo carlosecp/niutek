@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { useField, useFormikContext } from 'formik'
 
-interface SelectProps {
+interface Props {
 	name: string
 	classes?: {
 		container: string
@@ -13,17 +13,12 @@ interface SelectProps {
 	[x: string]: any
 }
 
-const defaultClasses = {
+const styles = {
 	container: 'fc-lg md:fc',
-	input: 'w-full block form-input form-input-border disabled:disabled',
+	input: 'w-full block form-input form-input-border',
 }
 
-const Select = ({
-	name,
-	classes = defaultClasses,
-	children,
-	...props
-}: SelectProps) => {
+const Select = ({ name, classes = styles, children, ...props }: Props) => {
 	const [field, meta, helpers] = useField({ name, type: 'select', ...props })
 	const { isSubmitting } = useFormikContext()
 
@@ -38,7 +33,11 @@ const Select = ({
 				</label>
 			)}
 			<select
-				className={classes.input}
+				className={`${classes.input} transition form-disabled ${
+					meta.touched && meta.error
+						? 'border-error'
+						: 'border-primary'
+				}`}
 				disabled={isSubmitting}
 				{...field}
 				{...props}

@@ -1,7 +1,7 @@
 import classes from '*.module.css'
 import { useField, useFormikContext } from 'formik'
 
-interface CheckboxProps {
+interface Props {
 	name: string
 	classes?: {
 		container: string
@@ -13,19 +13,14 @@ interface CheckboxProps {
 	[x: string]: any
 }
 
-const defaultClasses = {
+const styles = {
 	container: 'fc-lg md:fc-sm',
 	input: 'h-input md:mt-6 flex form-input relative',
 	checkbox:
-		'mr-2 focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded',
+		'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
 }
 
-const Checkbox = ({
-	name,
-	classes = defaultClasses,
-	label,
-	...props
-}: CheckboxProps) => {
+const Checkbox = ({ name, classes = styles, label, ...props }: Props) => {
 	const [field, meta] = useField({ name, type: 'checkbox' })
 	const { isSubmitting } = useFormikContext()
 
@@ -41,7 +36,7 @@ const Checkbox = ({
 				/>
 				<label
 					htmlFor={name}
-					className='text-sm font-medium text-gray-700 relative bottom-1'
+					className='text-sm font-medium text-gray-700 relative bottom-px'
 				>
 					{label}
 				</label>

@@ -23,7 +23,7 @@ body {
 }
 
 .form-section {
-	@apply p-4 bg-white rounded-md shadow;
+	@apply p-4 bg-white rounded-md border;
 }
 
 /* Classes encargadas de determinar el posicionamiento de los contenedores de cada input, independientemente del tipo de esta. Anteriormente teniamos clases que se encargaban directamente de lo responsive. Ahora simplemente utilizamos las queries de Tailwind para determinar nosotros mismos el comportamiento responsive. */
@@ -54,11 +54,23 @@ body {
 /* Classes tambien encargas de los estilos de las inputs en si. La mayoria estan aplicadas por defecto en los componentes de cada uno de los tipos de input, pero pueden ser utilizadas de manera modular e independiente. */
 @layer utilities {
 	.form-input {
-		@apply p-2 text-sm rounded-md outline-none;
+		@apply p-2 text-sm rounded-md outline-none transition duration-100;
 	}
 
 	.form-input-border {
-		@apply border border-gray-300 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm;
+		@apply border border-gray-300 focus:ring-1;
+	}
+
+	.border-primary {
+		@apply focus:ring-primary focus:border-primary;
+	}
+
+	.border-error {
+		@apply focus:ring-error focus:border-error;
+	}
+
+	.form-disabled {
+		@apply disabled:cursor-default;
 	}
 }
 
@@ -67,6 +79,25 @@ body {
 }
 
 .no-scrollbar {
-	-ms-overflow-style: none;
+	-ms-overfglow-style: none;
 	scrollbar-width: none;
+}
+
+.btn {
+	@apply w-max inline-flex items-center px-4 rounded-md  py-2 border shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition disabled:cursor-default disabled:opacity-50;
+}
+
+.btn-outline-primary {
+	@apply border-primary text-primary hover:text-white hover:border-transparent hover:bg-indigo-700 focus:ring-primary;
+}
+
+.btn-primary {
+	@apply border-transparent text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-primary;
+}
+
+a.anchor {
+	display: block;
+	position: relative;
+	top: -72px;
+	visibility: hidden;
 }

@@ -1,15 +1,9 @@
-import type { SearchConfig } from '../../../interfaces/search'
+import type { SearchConfig, SearchResults } from '../../../interfaces/search'
 import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
-import { Text } from '../forms/_fields'
 
-interface SearchRequest<T> {
-	url: string
-	body: { search: string }
-}
-
-const getSearch = async <T,>({ url, body }: SearchRequest<T>) => {
+const getResults = async <SearchResult,>({ url, body }) => {
 	const req = {
 		path: `${process.env.backend}/${url}`,
 		body,
@@ -24,66 +18,52 @@ const getSearch = async <T,>({ url, body }: SearchRequest<T>) => {
 			headers: req.headers,
 		})
 
-		console.log(res.data)
-		return res.data as T[]
-	} catch (err) {
-		return [] as T[]
-	}
+		return res.data as SearchResult[]
+	} catch (err) {}
 }
 
-interface Props<T> {
-	searchConfig: SearchConfig
-	updateResults: (x: T[]) => void
+interface Props<SearchResult> {
+	config: SearchConfig
+	updateResults: (results: SearchResult[]) => void
 }
 
-// Componente en si
-const Search = <T extends GlobalSearchResults>({
-	searchConfig,
+const Search = <SearchResult extends SearchResults>({
+	config,
 	updateResults,
-}: Props<T>) => {
+}: Props<SearchResult>) => {
 	return (
 		<Formik
 			initialValues={{ search: '' }}
 			onSubmit={async (values, { setSubmitting }) => {
 				setSubmitting(true)
-				const results = await getSearch<T>({
-					url: searchConfig.url,
+				const results = await getResults<SearchResult>({
+					url: config.url,
 					body: values,
 				})
 				updateResults(results)
 				setSubmitting(false)
 			}}
 		>
-			{({
-				values,
-				isSubmitting,
-				handleChange,
-				handleBlur,
-				handleSubmit,
-			}) => (
-				<form className='mx-auto' onSubmit={handleSubmit}>
-					<div
-						className={`w-full flex ${isSubmitting && 'disabled'}`}
+			{({ values, isSubmitting, handleChange, handleSubmit }) => (
+				<form
+					className='mt-4 h-14 border-b border-t flex-1 flex items-center'
+					onSubmit={handleSubmit}
+				>
+					<input
+						name='search'
+						type='text'
+						className='w-full border-none outline-none ring-0 focus:ring-0'
+						placeholder={`Buscar`}
+						onChange={handleChange}
+						disabled={isSubmitting}
+					/>
+					<button
+						type='submit'
+						className='p-2 disabled:cursor-default disabled:opacity-50 mr-2'
+						disabled={isSubmitting}
 					>
-						<Text
-							name='search'
-							classes={{
-								container: 'w-64',
-								input: '',
-							}}
-							placeholder={searchConfig.labels.searchbox}
-							value={values.search}
-							onChange={handleChange}
-							onBlur={handleBlur}
-						/>
-						<button
-							type='submit'
-							className='w-12 flex-center bg-blue-500 rounded-r transition cursor-pointer text-white disabled:disabled outline-none'
-							disabled={isSubmitting}
-						>
-							<FaSearch className={`transition text-current`} />
-						</button>
-					</div>
+						<FaSearch className='text-gray-600 fill-current' />
+					</button>
 				</form>
 			)}
 		</Formik>
