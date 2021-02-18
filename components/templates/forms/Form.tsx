@@ -23,7 +23,7 @@ const Form = <Values, Validations>({
 				setSubmitting(false)
 			}}
 		>
-			<FormikForm className='max-w-3xl container p-4 flex flex-col gap-6'>
+			<FormikForm className='flex-1 max-w-3xl container p-4 flex flex-col gap-6 no-scrollbar'>
 				{children}
 			</FormikForm>
 		</Formik>

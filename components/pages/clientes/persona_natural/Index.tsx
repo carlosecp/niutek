@@ -11,8 +11,7 @@ import Form from '../../../templates/forms/Form'
 import RefComerciales from './RefComerciales'
 import RefBancarias from './RefBancarias'
 import Navbar from '../../../layout/Navbar'
-import { resourceLimits } from 'worker_threads'
-import SearchResults from '../../../templates/search/SearchResults'
+import Navigation from '../../../templates/search/Navigation'
 
 export type Values = typeof defaults.values
 export type Validations = typeof defaults.validations
@@ -44,18 +43,20 @@ const Index = ({ options }) => {
 				config={config}
 				updateResults={updateResults}
 			/>
-			<SearchResults<PersonaNaturalResult>
-				results={searchResults}
-				getDescription={getDescription}
-			/>
-			<Form<Values, Validations> data={defaults}>
-				<PersonaNatural options={options} />
-				<DatosProfesionales />
-				<OrigenFondos />
-				<RefComerciales />
-				<RefBancarias options={options} />
-				<button type='submit'>Submit</button>
-			</Form>
+			<div className='flex lg:pr-64'>
+				<Form<Values, Validations> data={defaults}>
+					<PersonaNatural options={options} />
+					<DatosProfesionales />
+					<OrigenFondos />
+					<RefComerciales />
+					<RefBancarias options={options} />
+					<button type='submit'>Submit</button>
+				</Form>
+				<Navigation<PersonaNaturalResult>
+					results={searchResults}
+					getDescription={getDescription}
+				/>
+			</div>
 		</main>
 	)
 }

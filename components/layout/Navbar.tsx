@@ -16,7 +16,7 @@ const Navbar = <SearchResult extends SearchResults>({
 	const { toggleSidebar } = useContext(sidebarCtx)
 
 	return (
-		<header className='sticky top-0 z-10 flex flex-col'>
+		<header className='sticky top-0 z-10 flex flex-col lg:mr-64'>
 			<div className='h-14 bg-white border-b flex items-center px-2'>
 				<button
 					type='button'
