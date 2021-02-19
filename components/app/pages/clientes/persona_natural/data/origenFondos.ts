@@ -96,4 +96,4 @@ const validations = {
 	}),
 }
 
-export default { values, validations }
+export const origenFondos = { values, validations }

@@ -1,22 +1,20 @@
-import { ReactNode } from 'react'
+import * as React from 'react'
 import { Formik, Form as FormikForm } from 'formik'
 
-interface Props<Values, Validations> {
-	values: Values
-	data: Values
-	validations: Validations
-	children: ReactNode
+interface Props<Data, ValidationSchema> {
+	values: Data
+	validations: ValidationSchema
+	children: React.ReactNode
 }
 
-const Form = <Values, Validations>({
+const Form = <Data, ValidationSchema>({
 	values,
-	data,
 	validations,
 	children,
-}: Props<Values, Validations>) => {
+}: Props<Data, ValidationSchema>) => {
 	return (
 		<Formik
-			initialValues={data || values}
+			initialValues={values}
 			enableReinitialize
 			validationSchema={validations}
 			onSubmit={(values, { setSubmitting }) => {

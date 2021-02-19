@@ -42,4 +42,4 @@ const validations = {
 		.required('Requerido'),
 }
 
-export default { values, validations }
+export const datosProfesionales = { values, validations }

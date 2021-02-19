@@ -1,7 +1,12 @@
-import Index from '../../../../components/pages/clientes/persona_natural/Index'
+import Index from '../../../../components/app/pages/clientes/persona_natural/Index'
+import IndexPage from '../../../../components/templates/IndexPage'
 
 const index = () => {
-	return <Index options={{ p_sexo: [] }} />
+	return (
+		<IndexPage>
+			<Index options={{ options: [] }} />
+		</IndexPage>
+	)
 }
 
 export default index

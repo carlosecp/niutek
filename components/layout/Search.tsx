@@ -1,7 +1,12 @@
-import type { SearchConfig, SearchResults } from '../../../interfaces/search'
+import type { SearchConfig, SearchResults } from '../../interfaces/search'
 import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
+
+interface Props<SearchResult> {
+	config: SearchConfig
+	setSearchResults: (results: SearchResult[]) => void
+}
 
 const getResults = async <SearchResult,>({ url, body }) => {
 	const req = {
@@ -22,15 +27,9 @@ const getResults = async <SearchResult,>({ url, body }) => {
 	} catch (err) {}
 }
 
-interface Props<SearchResult> {
-	config: SearchConfig
-	updateResults: (results: SearchResult[]) => void
-}
-
-const Search = <SearchResult extends SearchResults>({
-	config,
-	updateResults,
-}: Props<SearchResult>) => {
+const Search = <SearchResult extends SearchResults>(
+	props: Props<SearchResult>
+) => {
 	return (
 		<Formik
 			initialValues={{ search: '' }}
@@ -44,7 +43,7 @@ const Search = <SearchResult extends SearchResults>({
 				setSubmitting(false)
 			}}
 		>
-			{({ values, isSubmitting, handleChange, handleSubmit }) => (
+			{({ isSubmitting, handleChange, handleSubmit }) => (
 				<form
 					className='h-14 border-b border-t flex-1 flex items-center'
 					onSubmit={handleSubmit}
