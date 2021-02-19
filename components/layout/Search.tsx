@@ -36,10 +36,10 @@ const Search = <SearchResult extends SearchResults>(
 			onSubmit={async (values, { setSubmitting }) => {
 				setSubmitting(true)
 				const results = await getResults<SearchResult>({
-					url: config.url,
+					url: props.config.url,
 					body: values,
 				})
-				updateResults(results)
+				props.setSearchResults(results)
 				setSubmitting(false)
 			}}
 		>

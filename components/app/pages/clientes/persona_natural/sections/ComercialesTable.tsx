@@ -1,38 +1,33 @@
-import { useCallback, useMemo } from 'react'
+import * as React from 'react'
 import { useFormikContext, getIn } from 'formik'
-import { Text } from '../../../templates/forms/_fields'
-import Table from '../../../templates/tables/Table'
+import { Text } from '../../../../../templates/forms'
+import Table from '../../../../../templates/tables/Table'
 
-interface Props<Schema> {
+interface Props<RefSchema> {
 	name: string
-	schema: Schema
-	handleAdd: (obj: Schema) => void
-	handleRemove: (index: number) => void
+	refSchema: RefSchema
 	limit: number
+	handleAdd: (obj: RefSchema) => void
+	handleRemove: (index: number) => void
 }
 
-const ComercialesTable = <Values, Schema>({
-	name,
-	schema,
-	handleAdd,
-	handleRemove,
-	limit,
-}: Props<Schema>) => {
-	const { values } = useFormikContext<Values>()
-	const data: Schema[] = getIn(values, name) || []
+// RefSchema es el schema de cada una de las rows de la tabla, no el validationSchema.
+const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
+	const { values } = useFormikContext<Data>()
+	const data: RefSchema[] = getIn(values, props.name) || []
 
-	const onAdd = useCallback(() => {
-		handleAdd(schema)
-	}, [handleAdd])
+	const onAdd = React.useCallback(() => {
+		props.handleAdd(props.refSchema)
+	}, [props.handleAdd])
 
-	const onRemove = useCallback(
+	const onRemove = React.useCallback(
 		(index) => {
-			handleRemove(index)
+			props.handleRemove(index)
 		},
-		[handleRemove]
+		[props.handleRemove]
 	)
 
-	const styles = useMemo(
+	const styles = React.useMemo(
 		() => ({
 			container: 'w-auto',
 			input: 'w-full p-2 pl-0 text-sm outline-none',
@@ -40,14 +35,14 @@ const ComercialesTable = <Values, Schema>({
 		[]
 	)
 
-	const columns = useMemo(
+	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Nombre Entidad',
 				id: 'prc_nombre_entidad',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_nombre_entidad`}
+						name={`${props.name}[${index}].prc_nombre_entidad`}
 						classes={styles}
 						placeholder='Nombre Entidad'
 					/>
@@ -58,7 +53,7 @@ const ComercialesTable = <Values, Schema>({
 				id: 'prc_persona_contacto',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_persona_contacto`}
+						name={`${props.name}[${index}].prc_persona_contacto`}
 						classes={styles}
 						placeholder='Persona de Contacto'
 					/>
@@ -69,7 +64,7 @@ const ComercialesTable = <Values, Schema>({
 				id: 'prc_direccion',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_direccion`}
+						name={`${props.name}[${index}].prc_direccion`}
 						classes={styles}
 						placeholder='Dirección'
 					/>
@@ -80,7 +75,7 @@ const ComercialesTable = <Values, Schema>({
 				id: 'prc_annios_con_entidad',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_annios_con_entidad`}
+						name={`${props.name}[${index}].prc_annios_con_entidad`}
 						classes={styles}
 						placeholder='Años con entidad'
 					/>
@@ -91,7 +86,7 @@ const ComercialesTable = <Values, Schema>({
 				id: 'prc_telefono',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_telefono`}
+						name={`${props.name}[${index}].prc_telefono`}
 						classes={styles}
 						placeholder='Teléfono'
 					/>
@@ -111,7 +106,7 @@ const ComercialesTable = <Values, Schema>({
 				),
 			},
 		],
-		[name, onRemove]
+		[props.name, onRemove]
 	)
 
 	return (
@@ -124,7 +119,7 @@ const ComercialesTable = <Values, Schema>({
 					type='button'
 					className='inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary btn-disabled transition'
 					onClick={onAdd}
-					disabled={data.length >= limit}
+					disabled={data.length >= props.limit}
 				>
 					Agregar
 				</button>

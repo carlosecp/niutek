@@ -1,6 +1,6 @@
-import { Text, Select, TextArea } from '../../../templates/forms/_fields'
+import { Text, Select, TextArea } from '../../../../../templates/forms'
 
-const PersonaNatural = ({ options }) => {
+const PersonaNatural = (props) => {
 	return (
 		<section id='persona_natural'>
 			<a href='#!' id='_persona_natural' className='anchor'></a>
@@ -11,7 +11,7 @@ const PersonaNatural = ({ options }) => {
 				<Text name='p_nombres' label='Nombres' />
 				<Text name='p_apellidos' label='Apellidos' />
 				<Select name='p_sexo' label='Sexo'>
-					{options.p_sexo.map((option) => (
+					{props.options.p_sexo.map((option) => (
 						<option
 							value={option.codigo}
 							label={option.descripcion}

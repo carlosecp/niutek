@@ -1,39 +1,33 @@
-import { useCallback, useMemo } from 'react'
+import * as React from 'react'
 import { useFormikContext, getIn } from 'formik'
-import { Text, Select } from '../../../templates/forms/_fields'
-import Table from '../../../templates/tables/Table'
+import { Text, Select } from '../../../../../templates/forms'
+import Table from '../../../../../templates/tables/Table'
 
-interface Props<Schema> {
+interface Props<RefSchema> {
 	name: string
-	schema: Schema
-	options: any[]
-	handleAdd: (obj: Schema) => void
-	handleRemove: (index: number) => void
+	refSchema: RefSchema
+	options: { [x: string]: any }[]
 	limit: number
+	handleAdd: (obj: RefSchema) => void
+	handleRemove: (index: number) => void
 }
 
-const BancariasTable = <Values, Schema>({
-	name,
-	schema,
-	handleAdd,
-	handleRemove,
-	limit,
-}: Props<Schema>) => {
-	const { values } = useFormikContext<Values>()
-	const data: Schema[] = getIn(values, name) || []
+const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
+	const { values } = useFormikContext<Data>()
+	const data: RefSchema[] = getIn(values, props.name) || []
 
-	const onAdd = useCallback(() => {
-		handleAdd(schema)
-	}, [handleAdd])
+	const onAdd = React.useCallback(() => {
+		props.handleAdd(props.refSchema)
+	}, [props.handleAdd])
 
-	const onRemove = useCallback(
+	const onRemove = React.useCallback(
 		(index) => {
-			handleRemove(index)
+			props.handleRemove(index)
 		},
-		[handleRemove]
+		[props.handleRemove]
 	)
 
-	const styles = useMemo(
+	const styles = React.useMemo(
 		() => ({
 			container: 'w-auto',
 			input: 'w-full p-2 text-sm outline-none',
@@ -41,14 +35,14 @@ const BancariasTable = <Values, Schema>({
 		[]
 	)
 
-	const columns = useMemo(
+	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Nombre Entidad',
 				id: 'prb_nombre_entidad',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prb_nombre_entidad`}
+						name={`${props.name}[${index}].prb_nombre_entidad`}
 						classes={styles}
 						placeholder='Nombre Entidad'
 					/>
@@ -59,7 +53,7 @@ const BancariasTable = <Values, Schema>({
 				id: 'prb_tipo_servicio_recibido',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prb_tipo_servicio_recibido`}
+						name={`${props.name}[${index}].prb_tipo_servicio_recibido`}
 						classes={styles}
 						placeholder='Servicio Recibido'
 					/>
@@ -70,7 +64,7 @@ const BancariasTable = <Values, Schema>({
 				id: 'prb_fecha_inicio_relacion',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prb_fecha_inicio_relacion`}
+						name={`${props.name}[${index}].prb_fecha_inicio_relacion`}
 						classes={styles}
 						placeholder='YYYY-MM-DD'
 					/>
@@ -81,7 +75,7 @@ const BancariasTable = <Values, Schema>({
 				id: 'prb_annios_con_entidad',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prb_annios_con_entidad`}
+						name={`${props.name}[${index}].prb_annios_con_entidad`}
 						classes={styles}
 						placeholder='Años con entidad'
 					/>
@@ -92,7 +86,7 @@ const BancariasTable = <Values, Schema>({
 				id: 'prb_telefono1',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prb_telefono`}
+						name={`${props.name}[${index}].prb_telefono`}
 						classes={styles}
 						placeholder='Teléfono'
 					/>
@@ -103,7 +97,7 @@ const BancariasTable = <Values, Schema>({
 				id: 'prb_telefono2',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prb_telefono`}
+						name={`${props.name}[${index}].prb_telefono`}
 						classes={styles}
 						placeholder='No. Cuenta'
 					/>
@@ -114,7 +108,7 @@ const BancariasTable = <Values, Schema>({
 				id: 'prb_telefono3',
 				Cell: ({ row: { index } }) => (
 					<Select
-						name='p_tipo_doc'
+						name='p_cod_moneda'
 						classes={{
 							container: 'w-36',
 							input:
@@ -131,7 +125,7 @@ const BancariasTable = <Values, Schema>({
 				id: 'prb_telefono4',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prb_telefono`}
+						name={`${props.name}[${index}].prb_telefono`}
 						classes={styles}
 					/>
 				),
@@ -150,7 +144,7 @@ const BancariasTable = <Values, Schema>({
 				),
 			},
 		],
-		[name, onRemove]
+		[props.name, onRemove]
 	)
 
 	return (
@@ -163,7 +157,7 @@ const BancariasTable = <Values, Schema>({
 					type='button'
 					className='inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary btn-disabled transition'
 					onClick={onAdd}
-					disabled={data.length >= limit}
+					disabled={data.length >= props.limit}
 				>
 					Agregar
 				</button>

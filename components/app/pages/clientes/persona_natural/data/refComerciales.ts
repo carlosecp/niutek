@@ -23,7 +23,7 @@ const validations = yup.array().of(
 		prc_telefono: yup
 			.string()
 			.max(30, 'Caracteres Máximos 30')
-			.required('Requerido'),
+			.required('Requerido')
 	})
 )
 

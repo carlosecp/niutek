@@ -1,4 +1,4 @@
-import { Text } from '../../../templates/forms/_fields'
+import { Text } from '../../../../../templates/forms'
 
 const DatosProfesionales = () => {
 	return (

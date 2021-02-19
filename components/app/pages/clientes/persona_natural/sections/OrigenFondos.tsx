@@ -1,9 +1,9 @@
-import type { Values } from './Index'
+import type { Data } from '../data'
 import { useFormikContext } from 'formik'
-import { Text, Checkbox } from '../../../templates/forms/_fields'
+import { Text, Checkbox } from '../../../../../templates/forms'
 
 const OrigenFondos = () => {
-	const { values } = useFormikContext<Values>()
+	const { values } = useFormikContext<Data>()
 
 	return (
 		<section id='origen_fondos'>

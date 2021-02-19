@@ -27,8 +27,12 @@ const navLinks = [
 	{ name: 'Referencias Personales', anchor: '_referencias_personales' },
 ]
 
+interface Props {
+	options: { [x: string]: any }[]
+}
+
 // & Me falta tipar las options
-const Index = ({ options }) => {
+const Index = (props: Props) => {
 	const [showNavigation, setShowNavigation] = React.useState(false)
 	const [searchResults, setSearchResults] = React.useState<SearchResult[]>([])
 
@@ -103,11 +107,11 @@ const Index = ({ options }) => {
 					values={data}
 					validations={initialValues.validations}
 				>
-					<PersonaNatural options={options} />
+					<PersonaNatural options={props.options} />
 					<DatosProfesionales />
 					<OrigenFondos />
 					<RefComerciales />
-					<RefBancarias options={options} />
+					<RefBancarias options={props.options} />
 					<button type='submit'>Submit</button>
 				</Form>
 				<Navigation {...navigationProps}>

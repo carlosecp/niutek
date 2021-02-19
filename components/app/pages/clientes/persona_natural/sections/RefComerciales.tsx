@@ -1,9 +1,9 @@
-import type { Values } from '../Index'
+import type { Data } from '../data'
 import { FieldArray } from 'formik'
 import ComercialesTable from './ComercialesTable'
 
 const RefComerciales = () => {
-	const schema = {
+	const refSchema = {
 		prc_nombre_entidad: '',
 		prc_persona_contacto: '',
 		prc_direccion: '',
@@ -11,7 +11,13 @@ const RefComerciales = () => {
 		prc_telefono: '',
 	}
 
-	type Schema = typeof schema
+	type RefSchema = typeof refSchema
+
+	const tableProps = {
+		name: 'referencias_comerciales',
+		refSchema,
+		limit: 2,
+	}
 
 	return (
 		<section id='referencias_comerciales'>
@@ -19,12 +25,10 @@ const RefComerciales = () => {
 			<article className='flex flex-col'>
 				<FieldArray name='referencias_comerciales'>
 					{(arrayHelpers) => (
-						<ComercialesTable<Values, Schema>
-							name='referencias_comerciales'
-							schema={schema}
+						<ComercialesTable<Data, RefSchema>
+							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
-							limit={2}
 						/>
 					)}
 				</FieldArray>
