@@ -45,10 +45,10 @@ const BancariasTable = <Values, Schema>({
 		() => [
 			{
 				Header: 'Nombre Entidad',
-				id: 'prc_nombre_entidad',
+				id: 'prb_nombre_entidad',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_nombre_entidad`}
+						name={`${name}[${index}].prb_nombre_entidad`}
 						classes={styles}
 						placeholder='Nombre Entidad'
 					/>
@@ -56,10 +56,10 @@ const BancariasTable = <Values, Schema>({
 			},
 			{
 				Header: 'Servicio Recibido',
-				id: 'prc_persona_contacto',
+				id: 'prb_tipo_servicio_recibido',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_persona_contacto`}
+						name={`${name}[${index}].prb_tipo_servicio_recibido`}
 						classes={styles}
 						placeholder='Servicio Recibido'
 					/>
@@ -67,21 +67,21 @@ const BancariasTable = <Values, Schema>({
 			},
 			{
 				Header: 'Fecha de Inición Relación',
-				id: 'prc_direccion',
+				id: 'prb_fecha_inicio_relacion',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_direccion`}
+						name={`${name}[${index}].prb_fecha_inicio_relacion`}
 						classes={styles}
-						placeholder='Dirección'
+						placeholder='YYYY-MM-DD'
 					/>
 				),
 			},
 			{
 				Header: 'Años con entidad',
-				id: 'prc_annios_con_entidad',
+				id: 'prb_annios_con_entidad',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_annios_con_entidad`}
+						name={`${name}[${index}].prb_annios_con_entidad`}
 						classes={styles}
 						placeholder='Años con entidad'
 					/>
@@ -89,10 +89,10 @@ const BancariasTable = <Values, Schema>({
 			},
 			{
 				Header: 'Teléfono',
-				id: 'prc_telefono1',
+				id: 'prb_telefono1',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_telefono`}
+						name={`${name}[${index}].prb_telefono`}
 						classes={styles}
 						placeholder='Teléfono'
 					/>
@@ -100,10 +100,10 @@ const BancariasTable = <Values, Schema>({
 			},
 			{
 				Header: 'No. Cuenta',
-				id: 'prc_telefono2',
+				id: 'prb_telefono2',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_telefono`}
+						name={`${name}[${index}].prb_telefono`}
 						classes={styles}
 						placeholder='No. Cuenta'
 					/>
@@ -111,7 +111,7 @@ const BancariasTable = <Values, Schema>({
 			},
 			{
 				Header: 'Moneda',
-				id: 'prc_telefono3',
+				id: 'prb_telefono3',
 				Cell: ({ row: { index } }) => (
 					<Select
 						name='p_tipo_doc'
@@ -128,10 +128,10 @@ const BancariasTable = <Values, Schema>({
 			},
 			{
 				Header: 'Banco',
-				id: 'prc_telefono4',
+				id: 'prb_telefono4',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${name}[${index}].prc_telefono`}
+						name={`${name}[${index}].prb_telefono`}
 						classes={styles}
 					/>
 				),

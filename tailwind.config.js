@@ -21,6 +21,7 @@ module.exports = {
 			},
 			transitionProperty: {
 				left: 'left',
+				right: 'right',
 			},
 		},
 		colors: {

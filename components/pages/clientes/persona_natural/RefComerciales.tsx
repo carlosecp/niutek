@@ -15,6 +15,7 @@ const RefComerciales = () => {
 
 	return (
 		<section id='referencias_comerciales'>
+			<a href='#!' id='_referencias_comerciales' className='anchor'></a>
 			<article className='flex flex-col'>
 				<FieldArray name='referencias_comerciales'>
 					{(arrayHelpers) => (

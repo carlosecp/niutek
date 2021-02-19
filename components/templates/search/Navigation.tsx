@@ -1,8 +1,13 @@
+import type { SearchResults, SearchConfig } from '../../../interfaces/search'
 import { useEffect } from 'react'
-import type { SearchConfig, SearchResults } from '../../../interfaces/search'
 import Search from './Search'
+import Results from './Results'
 
 interface Props<SearchResult> {
+	showNavigation: boolean
+	toggleNavigation: () => void
+	getData: (x: string | number) => void
+	navLinks: { name: string; anchor: string }[]
 	config: SearchConfig
 	updateResults: (x: SearchResult[]) => void
 	results: SearchResult[]
@@ -11,54 +16,54 @@ interface Props<SearchResult> {
 	) => { accessor: string | number; description: string }
 }
 
-const Navigation = <SearchResult extends SearchResults>({
-	config,
-	updateResults,
-	results,
-	getDescription,
-}: Props<SearchResult>) => {
+const Navigation = <SearchResult extends SearchResults>(
+	props: Props<SearchResult>
+) => {
 	useEffect(() => {
-		console.log('results from Navigation.tsx: ', results)
-	}, [results])
+		console.log('results from Navigation.tsx: ', props.results)
+	}, [props.results])
 
 	return (
-		<aside className='fixed top-0 -right-full lg:right-0 w-64 h-full bg-white border-l overflow-y-auto no-scrollbar'>
-			<section className='flex flex-col'>
-				<div className='h-14 flex flex-center border-b'>Navegación</div>
-				<ul id='navigation'>
-					<li>
-						<a href='#_persona_natural'>Persona Natural</a>
-					</li>
-					<li>
-						<a href='#_datos_profesionales'>Datos Profesionales</a>
-					</li>
-					<li>
-						<a href='#_origen_fondos'>Origen de Fondos</a>
-					</li>
-				</ul>
-			</section>
-			<section id='search'>
-				<Search config={config} updateResults={updateResults} />
-				<ul className=''>
-					{results.map((result) => {
-						const { accessor, description } = getDescription(result)
-						return (
+		<>
+			{props.showNavigation && (
+				<div
+					className='absolute top-0 z-20 w-full h-full'
+					onClick={props.toggleNavigation}
+				/>
+			)}
+			<aside
+				className={`fixed z-30 top-0 transition-right duration-500 ${
+					props.showNavigation ? 'right-0' : '-right-full'
+				} lg:right-0 w-64 h-screen bg-white border-l overflow-y-scroll no-scrollbar`}
+			>
+				<section className='flex flex-col'>
+					<div className='h-14 flex flex-center border-b'>
+						Navegación
+					</div>
+					<ul id='navigation' className='p-4 flex flex-col gap-2'>
+						{props.navLinks.map((link) => (
 							<li
-								key={accessor}
-								className='flex gap-2 p-2 hover:bg-gray-100 transition rounded cursor-pointer'
+								key={link.anchor}
+								className='text-gray-700 hover:text-primary transition'
 							>
-								<span className='text-xs px-2 py-1 bg-primary text-white rounded'>
-									{accessor}
-								</span>
-								<span className='text-sm text-gray-700'>
-									{description}
-								</span>
+								<a href={`#${link.anchor}`}>{link.name}</a>
 							</li>
-						)
-					})}
-				</ul>
-			</section>
-		</aside>
+						))}
+					</ul>
+				</section>
+				<section id='search'>
+					<Search<SearchResult>
+						config={props.config}
+						updateResults={props.updateResults}
+					/>
+					<Results<SearchResult>
+						results={props.results}
+						getData={props.getData}
+						getDescription={props.getDescription}
+					/>
+				</section>
+			</aside>
+		</>
 	)
 }
 

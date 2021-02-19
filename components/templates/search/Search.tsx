@@ -46,7 +46,7 @@ const Search = <SearchResult extends SearchResults>({
 		>
 			{({ values, isSubmitting, handleChange, handleSubmit }) => (
 				<form
-					className='mt-4 h-14 border-b border-t flex-1 flex items-center'
+					className='h-14 border-b border-t flex-1 flex items-center'
 					onSubmit={handleSubmit}
 				>
 					<input

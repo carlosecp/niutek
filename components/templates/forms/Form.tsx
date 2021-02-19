@@ -1,22 +1,24 @@
-import { MutableRefObject, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { Formik, Form as FormikForm } from 'formik'
 
 interface Props<Values, Validations> {
-	data: {
-		values: Values
-		validations: Validations
-	}
+	values: Values
+	data: Values
+	validations: Validations
 	children: ReactNode
 }
 
 const Form = <Values, Validations>({
+	values,
 	data,
+	validations,
 	children,
 }: Props<Values, Validations>) => {
 	return (
 		<Formik
-			initialValues={data.values}
-			validationSchema={data.validations}
+			initialValues={data || values}
+			enableReinitialize
+			validationSchema={validations}
 			onSubmit={(values, { setSubmitting }) => {
 				setSubmitting(true)
 				console.log(values)
