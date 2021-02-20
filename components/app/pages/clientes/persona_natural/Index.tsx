@@ -1,5 +1,6 @@
 import type { SearchResult, Data, ValidationSchema } from './data/index'
 import * as React from 'react'
+import {useRouter} from 'next/router'
 import axios from 'axios'
 import { initialValues } from './data'
 import {
@@ -12,7 +13,8 @@ import {
 import Form from '../../../../templates/forms/Form'
 import { Navbar, Navigation, Search, Results } from '../../../../layout'
 
-// Funcion utilizada para determinar que informcion mostrar en la lista de busqueda, ya que cada tipo de busqueda tiene retornos diferentes. El componente que recibe esto es <Navigation>
+// Funcion utilizada para determinar que informcion mostrar en la lista de busqueda,
+// ya que cada tipo de busqueda tiene retornos diferentes. El componente que recibe esto es <Navigation>
 const getDescription = (result: SearchResult) => ({
 	accessor: result.cod_cliente,
 	description: `${result.nombres} ${result.apellidos}`,
@@ -33,40 +35,50 @@ interface Props {
 
 // & Me falta tipar las options
 const Index = (props: Props) => {
-	const [showNavigation, setShowNavigation] = React.useState(false)
-	const [searchResults, setSearchResults] = React.useState<SearchResult[]>([])
 
-	// Este state (data) es el que contiene los valores que se encuentran actualmente en el formulario. Estos pueden cambiar. Proe defecto se utilizan los valores por defecto, pero cuando se carga un cliente/producto/cheque, etc... se actualizan.
-	const [data, setData] = React.useState<Data>(initialValues.values)
-	const [loading, setLoading] = React.useState(false)
+	const useIndex = <searchResult, > (key: string) => {
+		const [showNavigation, setShowNavigation] = React.useState(false)
+		const [searchResults, setSearchResults] = React.useState<searchResult[]>([])
+		
+		const [data, setData] = React.useState<Data>(initialValues.values)
+		const [loading, setLoading] = React.useState(false)
+		const router = useRouter()
+		const getData = async (accessor: string | number) => {
+			const req = {
+				path: `${process.env.backend}/read/client`,
+				body: {
+					[key]: accessor,
+					p_cod_sucursal: 0,
+					p_cod_empresa: 1,
+				},
+				headers: {
+					'Content-Type': 'application/json',
+					'Access-Control-Allow-Credentials': 'true',
+				},
+			}
 
-	// Funcion encargada de actualizar (data). Esta no se como abstraerla asi rapido sin pensarla, porque el problema es que necesitamos el accessor.
-	// Por ejemplo: Cuando le damos click a un cliente para buscar sus datos, necesitamos identificar a que cliente es, y para eso se le envia una llave al back con el accessor del item a buscar, pero con la llave correspodiente al tipo de busqueda que se hace. Asi por ejemplo, para buscar un cliente natural, requiero de la llave p_cod_cliente, que va a contener el accessor, que tomo directamente de esta funcion, activada al darle click en uno de los items de <Navigation />.
-	const getData = async (accessor: string | number) => {
-		const req = {
-			path: `${process.env.backend}/read/client`,
-			body: {
-				p_cod_cliente: accessor,
-				p_cod_sucursal: 0,
-				p_cod_empresa: 1,
-			},
-			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Credentials': 'true',
-			},
+			setLoading(true)
+
+			try {
+				const res = await axios.post(req.path, req.body, {
+					headers: req.headers,
+				})
+				setData(res.data)
+			} catch (err) {
+				console.error('useRequest: ', err)
+			}
 		}
-
-		setLoading(true)
-
-		try {
-			const res = await axios.post(req.path, req.body, {
-				headers: req.headers,
-			})
-			setData(res.data)
-		} catch (err) {
-			console.error('useRequest: ', err)
+		return {
+			showNavigation, setShowNavigation, searchResults, setSearchResults,
+			data, setData, loading, setLoading, getData
 		}
 	}
+
+	const {
+			showNavigation, setShowNavigation, searchResults, setSearchResults,
+			data, setData, loading, setLoading, getData
+	} = useIndex('p_cod_cliente')
+
 
 	const navbarProps = {
 		title: 'Persona Natural',
