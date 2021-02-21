@@ -1,5 +1,5 @@
 import type { RootState } from '../store/store'
-import type { Data as GlobalData } from '../interfaces/forms'
+import type { GlobalValues } from '../interfaces'
 import * as React from 'react'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
@@ -13,14 +13,16 @@ interface Args<Data> {
 	initialValues: Data // Formik initialValues que esperamos recibir.
 }
 
-const useIndex = <SearchResult, Data extends GlobalData>(props: Args<Data>) => {
+const useIndex = <SearchResult, Data extends GlobalValues>(
+	props: Args<Data>
+) => {
 	const [showNavigation, setShowNavigation] = React.useState(false)
 	const [searchResults, setSearchResults] = React.useState<SearchResult[]>([])
 
 	const [data, setData] = React.useState<Data>(props.initialValues)
 	const [loading, setLoading] = React.useState(false)
 	const [editingExisting, setEditingExisting] = React.useState(false)
-	const [currentId, setCurrentId] = React.useState<number | string>(null)
+	const [currentId, setCurrentId] = React.useState<string | number | null>(null)
 
 	const auth = useSelector((state: RootState) => state.auth)
 

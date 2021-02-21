@@ -1,4 +1,4 @@
-import type { GlobalSearchResults } from '../../interfaces/search'
+import type { GlobalSearchResults } from '../../interfaces'
 import * as React from 'react'
 
 interface Props<SearchResult> {

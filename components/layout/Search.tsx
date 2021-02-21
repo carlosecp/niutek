@@ -1,7 +1,4 @@
-import type {
-	GlobalSearchConfig,
-	GlobalSearchResults
-} from '../../interfaces/search'
+import type { GlobalSearchConfig, GlobalSearchResults } from '../../interfaces'
 import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
