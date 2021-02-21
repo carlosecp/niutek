@@ -16,7 +16,6 @@ const Layout = ({ children }: Props) => {
 	const [showSidebar, setShowSidebar] = useState(false)
 
 	const toggleSidebar = () => {
-		console.log(showSidebar)
 		setShowSidebar(!showSidebar)
 	}
 

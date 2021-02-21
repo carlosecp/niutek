@@ -1,31 +1,39 @@
-import { MutableRefObject, ReactNode } from 'react'
+import type { GlobalValues } from '../../../interfaces'
+import * as React from 'react'
 import { Formik, Form as FormikForm } from 'formik'
+import LogErrors from '../../../utils/LogErrors'
 
-interface Props<Values, Validations> {
-	data: {
-		values: Values
-		validations: Validations
-	}
-	children: ReactNode
+interface Props<Values, ValidationSchema> {
+	accessKey: string
+	children: React.ReactNode
+	currentId: string | number | null
+	validations: ValidationSchema
+	values: Values
+	writeData: (values: Values, key: string) => void
 }
 
-const Form = <Values, Validations>({
-	data,
-	children,
-}: Props<Values, Validations>) => {
+const Form = <Values extends GlobalValues, ValidationSchema>(
+	props: Props<Values, ValidationSchema>
+) => {
 	return (
 		<Formik
-			initialValues={data.values}
-			validationSchema={data.validations}
+			initialValues={props.values}
+			enableReinitialize
+			validationSchema={props.validations}
 			onSubmit={(values, { setSubmitting }) => {
+				console.table(values)
+
 				setSubmitting(true)
-				console.log(values)
+				props.writeData(values, props.accessKey)
 				setSubmitting(false)
 			}}
 		>
-			<FormikForm className='flex-1 max-w-3xl container p-4 flex flex-col gap-6 no-scrollbar'>
-				{children}
-			</FormikForm>
+			{({ errors }) => (
+				<FormikForm className="flex-1 max-w-3xl container p-4 flex flex-col gap-6 no-scrollbar">
+					{props.children}
+					<LogErrors errors={errors} />
+				</FormikForm>
+			)}
 		</Formik>
 	)
 }
