@@ -25,7 +25,7 @@ const TextArea = ({ name, classes = styles, ...props }: Props) => {
 	return (
 		<div className={classes.container}>
 			{props?.label && (
-				<label htmlFor={name} className="text-sm font-medium text-gray-700">
+				<label htmlFor={name} className='text-sm font-medium text-gray-700'>
 					{props?.label}
 				</label>
 			)}

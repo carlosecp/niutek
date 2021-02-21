@@ -17,10 +17,10 @@ const RefPersonales = (props: Props) => {
 	}
 
 	return (
-		<section id="referencias_personales">
-			<a href="#!" id="_referencias_personales" className="anchor"></a>
-			<article className="flex flex-col">
-				<FieldArray name="referencias_personales">
+		<section id='referencias_personales'>
+			<a href='#!' id='_referencias_personales' className='anchor'></a>
+			<article className='flex flex-col'>
+				<FieldArray name='referencias_personales'>
 					{(arrayHelpers) => (
 						<PersonalesTable<Data, RefSchema>
 							{...tableProps}

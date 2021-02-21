@@ -56,7 +56,7 @@ const Index = (props: Props) => {
 	const searchProps = {
 		config: {
 			placeholder: 'Buscar persona natural',
-			url: '/busca/clientes_natural'
+			url: 'busca/clientes_natural'
 		},
 		loading: state.loading,
 		setLoading: state.setLoading,
@@ -72,9 +72,9 @@ const Index = (props: Props) => {
 	}
 
 	return (
-		<main className="sm:ml-64 relative bg-light">
+		<main className='sm:ml-64 relative bg-light'>
 			<Navbar {...navbarProps} />
-			<div className="flex lg:pr-64">
+			<div className='flex lg:pr-64'>
 				<Form<PersonaNaturalValues, PersonaNaturalValidationSchema>
 					{...formProps}
 				>
@@ -84,7 +84,7 @@ const Index = (props: Props) => {
 					<RefComerciales />
 					<RefBancarias options={props.options} />
 					<RefPersonales options={props.options} />
-					<button type="submit" disabled={state.loading}>
+					<button type='submit' disabled={state.loading}>
 						Submit
 					</button>
 				</Form>

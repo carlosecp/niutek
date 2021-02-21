@@ -44,7 +44,7 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prb_nombre_entidad`}
 						classes={styles}
-						placeholder="Nombre Entidad"
+						placeholder='Nombre Entidad'
 					/>
 				)
 			},
@@ -55,7 +55,7 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prb_tipo_servicio_recibido`}
 						classes={styles}
-						placeholder="Servicio Recibido"
+						placeholder='Servicio Recibido'
 					/>
 				)
 			},
@@ -66,7 +66,7 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prb_fecha_inicio_relacion`}
 						classes={styles}
-						placeholder="YYYY-MM-DD"
+						placeholder='YYYY-MM-DD'
 					/>
 				)
 			},
@@ -77,8 +77,8 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prb_annios_con_entidad`}
 						classes={styles}
-						placeholder="Años con entidad"
-						type="number"
+						placeholder='Años con entidad'
+						type='number'
 						steps={1}
 					/>
 				)
@@ -90,7 +90,7 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prb_telefono`}
 						classes={styles}
-						placeholder="Teléfono"
+						placeholder='Teléfono'
 					/>
 				)
 			},
@@ -101,7 +101,7 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prb_telefono`}
 						classes={styles}
-						placeholder="No. Cuenta"
+						placeholder='No. Cuenta'
 					/>
 				)
 			},
@@ -142,8 +142,8 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				id: 'eliminar',
 				Cell: ({ row: { index } }) => (
 					<button
-						type="button"
-						className="text-primary font-medium outline-none pl-2 text-sm"
+						type='button'
+						className='text-primary font-medium outline-none pl-2 text-sm'
 						onClick={() => onRemove(index)}
 					>
 						Eliminar
@@ -156,13 +156,13 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 
 	return (
 		<div>
-			<div className="flex justify-between items-center">
-				<h1 className="font-medium text-xl text-gray-900">
+			<div className='flex justify-between items-center'>
+				<h1 className='font-medium text-xl text-gray-900'>
 					Referencias Bancarias
 				</h1>
 				<button
-					type="button"
-					className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary btn-disabled transition"
+					type='button'
+					className='inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary btn-disabled transition'
 					onClick={onAdd}
 					disabled={data.length >= props.limit}
 				>

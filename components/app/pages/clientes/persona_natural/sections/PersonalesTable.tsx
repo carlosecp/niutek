@@ -44,7 +44,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_nombre`}
 						classes={styles}
-						placeholder="Nombre"
+						placeholder='Nombre'
 					/>
 				)
 			},
@@ -55,7 +55,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_tipo_doc`}
 						classes={styles}
-						placeholder="Tipo Documento"
+						placeholder='Tipo Documento'
 					/>
 				)
 			},
@@ -66,7 +66,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_num_doc`}
 						classes={styles}
-						placeholder="No. Documento"
+						placeholder='No. Documento'
 					/>
 				)
 			},
@@ -77,7 +77,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_telefono1`}
 						classes={styles}
-						placeholder="Teléfono 1"
+						placeholder='Teléfono 1'
 					/>
 				)
 			},
@@ -88,7 +88,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_telefono2`}
 						classes={styles}
-						placeholder="Teléfono 2"
+						placeholder='Teléfono 2'
 					/>
 				)
 			},
@@ -99,7 +99,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_direccion`}
 						classes={styles}
-						placeholder="Dirección"
+						placeholder='Dirección'
 					/>
 				)
 			},
@@ -110,7 +110,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_lugar_trabajo`}
 						classes={styles}
-						placeholder="Lugar Trabajo"
+						placeholder='Lugar Trabajo'
 					/>
 				)
 			},
@@ -121,7 +121,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_telefono_trabajo`}
 						classes={styles}
-						placeholder="Teléfono Trabajo"
+						placeholder='Teléfono Trabajo'
 					/>
 				)
 			},
@@ -132,8 +132,8 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_tiempo_conocer`}
 						classes={styles}
-						placeholder="Tiempo de Conocer"
-						type="number"
+						placeholder='Tiempo de Conocer'
+						type='number'
 						steps={1}
 					/>
 				)
@@ -145,7 +145,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].prp_e_mail`}
 						classes={styles}
-						placeholder="Email"
+						placeholder='Email'
 					/>
 				)
 			},
@@ -154,8 +154,8 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				id: 'eliminar',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<button
-						type="button"
-						className="text-primary font-medium outline-none pl-2 text-sm"
+						type='button'
+						className='text-primary font-medium outline-none pl-2 text-sm'
 						onClick={() => onRemove(index)}
 					>
 						Eliminar
@@ -168,13 +168,13 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 
 	return (
 		<div>
-			<div className="flex justify-between items-center">
-				<h1 className="font-medium text-xl text-gray-900">
+			<div className='flex justify-between items-center'>
+				<h1 className='font-medium text-xl text-gray-900'>
 					Referencias Personales
 				</h1>
 				<button
-					type="button"
-					className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary btn-disabled transition"
+					type='button'
+					className='inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary btn-disabled transition'
 					onClick={onAdd}
 					disabled={data.length >= props.limit}
 				>

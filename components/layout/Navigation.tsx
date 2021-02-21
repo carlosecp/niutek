@@ -12,7 +12,7 @@ const Navigation = (props: Props) => {
 		<>
 			{props.showNavigation && (
 				<div
-					className="absolute top-0 z-20 w-full h-full"
+					className='absolute top-0 z-20 w-full h-full'
 					onClick={props.toggleNavigation}
 				/>
 			)}
@@ -21,20 +21,20 @@ const Navigation = (props: Props) => {
 					props.showNavigation ? 'right-0' : '-right-full'
 				} lg:right-0 w-64 h-screen bg-white border-l overflow-y-scroll no-scrollbar`}
 			>
-				<section className="flex flex-col">
-					<div className="h-14 flex flex-center border-b">Navegación</div>
-					<ul id="navigation" className="p-4 flex flex-col gap-2">
+				<section className='flex flex-col'>
+					<div className='h-14 flex flex-center border-b'>Navegación</div>
+					<ul id='navigation' className='p-4 flex flex-col gap-2'>
 						{props.navLinks.map((link) => (
 							<li
 								key={link.anchor}
-								className="text-gray-700 hover:text-primary transition"
+								className='text-gray-700 hover:text-primary transition'
 							>
 								<a href={`#${link.anchor}`}>{link.name}</a>
 							</li>
 						))}
 					</ul>
 				</section>
-				<section id="search">{props.children}</section>
+				<section id='search'>{props.children}</section>
 			</aside>
 		</>
 	)

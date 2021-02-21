@@ -15,7 +15,7 @@ const Results = <SearchResult extends GlobalSearchResults>(
 	props: Props<SearchResult>
 ) => {
 	return (
-		<ul className="h-full p-2 flex flex-col gap-1 overflow-y-auto">
+		<ul className='h-full p-2 flex flex-col gap-1 overflow-y-auto'>
 			{props.results.map((result) => {
 				const { accessor, description } = props.getDescription(result)
 				return (
@@ -31,10 +31,10 @@ const Results = <SearchResult extends GlobalSearchResults>(
 							}
 						}}
 					>
-						<span className="whitespace-nowrap text-xs px-2 py-1 bg-primary text-white rounded">
+						<span className='whitespace-nowrap text-xs px-2 py-1 bg-primary text-white rounded'>
 							{accessor}
 						</span>
-						<span className="text-sm text-gray-700">{description}</span>
+						<span className='text-sm text-gray-700'>{description}</span>
 					</li>
 				)
 			})}

@@ -7,7 +7,7 @@ interface Args {
 const LogErrors = ({ errors }: Args) => {
 	React.useEffect(() => {
 		console.groupCollapsed(
-			'%c validation errors ',
+			'%c validations ',
 			'background: #c60022; color: #FFFFFF'
 		)
 		console.log('errors: ', errors)

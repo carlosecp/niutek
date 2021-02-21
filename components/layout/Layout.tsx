@@ -1,4 +1,5 @@
 import { useState, createContext, ReactNode } from 'react'
+import Alerts from './Alerts'
 import Sidebar from './Sidebar'
 
 interface Context {
@@ -22,6 +23,7 @@ const Layout = ({ children }: Props) => {
 	return (
 		<sidebarCtx.Provider value={{ showSidebar, toggleSidebar }}>
 			<Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
+			{/* <Alerts /> */}
 			{children}
 		</sidebarCtx.Provider>
 	)

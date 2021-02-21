@@ -17,10 +17,10 @@ const RefBancarias = (props: Props) => {
 	}
 
 	return (
-		<section id="referencias_bancarias">
-			<a href="#!" id="_referencias_bancarias" className="anchor"></a>
-			<article className="flex flex-col">
-				<FieldArray name="referencias_bancarias">
+		<section id='referencias_bancarias'>
+			<a href='#!' id='_referencias_bancarias' className='anchor'></a>
+			<article className='flex flex-col'>
+				<FieldArray name='referencias_bancarias'>
 					{(arrayHelpers) => (
 						<BancariasTable<Data, RefSchema>
 							{...tableProps}

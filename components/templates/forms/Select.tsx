@@ -25,7 +25,7 @@ const Select = ({ name, classes = styles, children, ...props }: Props) => {
 	return (
 		<div className={classes.container}>
 			{props?.label && (
-				<label htmlFor={name} className="text-sm font-medium text-gray-700">
+				<label htmlFor={name} className='text-sm font-medium text-gray-700'>
 					{props?.label}
 				</label>
 			)}

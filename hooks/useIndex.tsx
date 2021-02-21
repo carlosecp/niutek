@@ -2,7 +2,9 @@ import type { RootState } from '../store/store'
 import type { GlobalValues, GlobalSearchResults } from '../interfaces'
 import * as React from 'react'
 import axios from 'axios'
-import { useSelector } from 'react-redux'
+import { v4 as uuidv4 } from 'uuid'
+import { useSelector, useDispatch } from 'react-redux'
+import { addAlert } from '../store/alerts/actions'
 
 interface Args<Values> {
 	url: {
@@ -27,7 +29,8 @@ const useIndex = <
 	const [editingExisting, setEditingExisting] = React.useState(false)
 	const [currentId, setCurrentId] = React.useState<string | number | null>(null)
 
-	const auth = useSelector((state: RootState) => state.auth)
+	const dispatch = useDispatch()
+	const { auth, alerts } = useSelector((state: RootState) => state)
 
 	const getData = async (accessor: string | number) => {
 		const req = {
@@ -43,8 +46,15 @@ const useIndex = <
 			}
 		}
 
-		console.group('useIndex')
-		console.log('request config: ', req)
+		console.group(
+			'%cGetting Data',
+			'font-weight: bold; font-size: 16px; text-transform: uppercase; text-decoration: underline'
+		)
+		console.log(
+			'%c config ',
+			'background: #06B6D4; color: #FFFFFF; font-weight: bold',
+			req
+		)
 		setLoading(true)
 
 		try {
@@ -54,14 +64,31 @@ const useIndex = <
 
 			setData(res.data)
 			setEditingExisting(true)
+
+			dispatch(
+				addAlert({
+					id: uuidv4(),
+					message: `${res.data.success}`,
+					type: 'success'
+				})
+			)
+
 			console.log(
-				'%c SUCCESS ~ fetching data: ',
+				'%c success ',
 				'background: #149414; color: #FFFFFF; font-weight: bold',
 				res.data
 			)
 		} catch (err) {
+			dispatch(
+				addAlert({
+					id: uuidv4(),
+					message: `${err.message}`,
+					type: 'warning'
+				})
+			)
+
 			console.error(
-				'%c ERROR ~ fetching data: ',
+				'%c error ',
 				'background: #c60022; color: #FFFFFF; font-weight: bold',
 				err
 			)
@@ -89,8 +116,15 @@ const useIndex = <
 			}
 		}
 
-		console.group('useIndex')
-		console.log('request config: ', req)
+		console.group(
+			'%cWriting Data',
+			'font-weight: bold; font-size: 16px; text-transform: uppercase; text-decoration: underline'
+		)
+		console.log(
+			'%c config ',
+			'background: #06B6D4; color: #FFFFFF; font-weight: bold',
+			req
+		)
 		setLoading(true)
 
 		try {
@@ -98,14 +132,30 @@ const useIndex = <
 				headers: req.headers
 			})
 
+			dispatch(
+				addAlert({
+					id: uuidv4(),
+					message: `${res.data.success}`,
+					type: 'success'
+				})
+			)
+
 			console.log(
-				'%c writing data: ',
+				'%c success ',
 				'background: #149414; color: #FFFFFF; font-weight: bold',
 				res.data
 			)
 		} catch (err) {
+			dispatch(
+				addAlert({
+					id: uuidv4(),
+					message: `${err.message}`,
+					type: 'warning'
+				})
+			)
+
 			console.error(
-				'%c writing data: ',
+				'%c error ',
 				'background: #c60022; color: #FFFFFF; font-weight: bold',
 				err
 			)
