@@ -1,130 +1,87 @@
 import type { SearchResult, Data, ValidationSchema } from './data/index'
 import * as React from 'react'
-import {useRouter} from 'next/router'
-import axios from 'axios'
-import { initialValues } from './data'
+import useIndex from '../../../../../hooks/useIndex'
+import { initialValues, navLinks, getDescription } from './data'
 import {
 	PersonaNatural,
 	DatosProfesionales,
 	OrigenFondos,
 	RefComerciales,
 	RefBancarias,
+	RefPersonales
 } from './sections'
-import Form from '../../../../templates/forms/Form'
 import { Navbar, Navigation, Search, Results } from '../../../../layout'
-
-// Funcion utilizada para determinar que informcion mostrar en la lista de busqueda,
-// ya que cada tipo de busqueda tiene retornos diferentes. El componente que recibe esto es <Navigation>
-const getDescription = (result: SearchResult) => ({
-	accessor: result.cod_cliente,
-	description: `${result.nombres} ${result.apellidos}`,
-})
-
-const navLinks = [
-	{ name: 'Persona Natural', anchor: '_persona_natural' },
-	{ name: 'Datos Profesionales', anchor: '_datos_profesionales' },
-	{ name: 'Origen de Fondos', anchor: '_origen_fondos' },
-	{ name: 'Referencias Comerciales', anchor: '_referencias_comerciales' },
-	{ name: 'Referencias Bancarias', anchor: '_referencias_bancarias' },
-	{ name: 'Referencias Personales', anchor: '_referencias_personales' },
-]
+import Form from '../../../../templates/forms/Form'
 
 interface Props {
 	options: { [x: string]: any }[]
 }
 
-// & Me falta tipar las options
 const Index = (props: Props) => {
+	const state = useIndex<SearchResult, Data>({
+		url: 'client',
+		key: 'p_cod_cliente',
+		initialValues: initialValues.values
+	})
 
-	const useIndex = <searchResult, > (key: string) => {
-		const [showNavigation, setShowNavigation] = React.useState(false)
-		const [searchResults, setSearchResults] = React.useState<searchResult[]>([])
-		
-		const [data, setData] = React.useState<Data>(initialValues.values)
-		const [loading, setLoading] = React.useState(false)
-		const router = useRouter()
-		const getData = async (accessor: string | number) => {
-			const req = {
-				path: `${process.env.backend}/read/client`,
-				body: {
-					[key]: accessor,
-					p_cod_sucursal: 0,
-					p_cod_empresa: 1,
-				},
-				headers: {
-					'Content-Type': 'application/json',
-					'Access-Control-Allow-Credentials': 'true',
-				},
-			}
+	const navbarProps = React.useMemo(
+		() => ({
+			title: 'Persona Natural',
+			toggleNavigation: () => state.setShowNavigation(!state.showNavigation),
+			onReset: () => state.setData(initialValues.values) // Funcion que resetea los valores del formulario a los valores por defecto.
+		}),
+		[state.showNavigation]
+	)
 
-			setLoading(true)
+	const formProps = React.useMemo(
+		() => ({
+			values: state.data,
+			validations: initialValues.validations
+		}),
+		[state.data]
+	)
 
-			try {
-				const res = await axios.post(req.path, req.body, {
-					headers: req.headers,
-				})
-				setData(res.data)
-			} catch (err) {
-				console.error('useRequest: ', err)
-			}
-		}
-		return {
-			showNavigation, setShowNavigation, searchResults, setSearchResults,
-			data, setData, loading, setLoading, getData
-		}
-	}
+	const navigationProps = React.useMemo(
+		() => ({
+			navLinks,
+			showNavigation: state.showNavigation,
+			toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
+		}),
+		[state.showNavigation]
+	)
 
-	const {
-			showNavigation, setShowNavigation, searchResults, setSearchResults,
-			data, setData, loading, setLoading, getData
-	} = useIndex('p_cod_cliente')
+	const searchProps = React.useMemo(
+		() => ({
+			config: {
+				placeholder: 'Buscar persona natural',
+				url: '/busca/clientes_natural'
+			},
+			setSearchResults: state.setSearchResults
+		}),
+		[]
+	)
 
-
-	const navbarProps = {
-		title: 'Persona Natural',
-		toggleNavigation: () => setShowNavigation(!showNavigation),
-		onReset: () => setData(null), // Funcion que resetea los valores del formulario a los valores por defecto.
-	}
-
-	const formProps = {
-		values: data,
-		validations: initialValues.validations,
-	}
-
-	const navigationProps = {
-		navLinks,
-		showNavigation,
-		toggleNavigation: () => setShowNavigation(!showNavigation),
-	}
-
-	const searchProps = {
-		config: {
-			placeholder: 'Buscar persona natural',
-			url: '/busca/clientes_natural',
-		},
-		setSearchResults,
-	}
-
-	const resultsProps = {
-		results: searchResults,
-		getDescription,
-		getData,
-	}
+	const resultsProps = React.useMemo(
+		() => ({
+			results: state.searchResults,
+			getDescription,
+			getData: state.getData
+		}),
+		[state.searchResults]
+	)
 
 	return (
-		<main className='sm:ml-64 relative bg-light'>
+		<main className="sm:ml-64 relative bg-light">
 			<Navbar {...navbarProps} />
-			<div className='flex lg:pr-64'>
-				<Form<Data, ValidationSchema>
-					values={data}
-					validations={initialValues.validations}
-				>
+			<div className="flex lg:pr-64">
+				<Form<Data, ValidationSchema> {...formProps}>
 					<PersonaNatural options={props.options} />
 					<DatosProfesionales />
 					<OrigenFondos />
 					<RefComerciales />
 					<RefBancarias options={props.options} />
-					<button type='submit'>Submit</button>
+					<RefPersonales options={props.options} />
+					<button type="submit">Submit</button>
 				</Form>
 				<Navigation {...navigationProps}>
 					<Search<SearchResult> {...searchProps} />

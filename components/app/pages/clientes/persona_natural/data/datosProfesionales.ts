@@ -1,13 +1,13 @@
 import * as yup from 'yup'
 
 const values = {
-	p_profesion_oficio: 'Profesion Prueba',
-	p_ocupacion_puesto: 'Puesto Prueba',
-	p_nombre_empresa: 'Nombre Empresa Prueba',
-	p_actividad_empresa: 'Profesion Prueba',
-	p_tel_empresa: 'Telefono Empresa Prueba',
-	p_email_empresa: 'correo@electronico.com',
-	p_ingreso_anual: (69).toFixed(2),
+	p_profesion_oficio: '',
+	p_ocupacion_puesto: '',
+	p_nombre_empresa: '',
+	p_actividad_empresa: '',
+	p_tel_empresa: '',
+	p_email_empresa: '',
+	p_ingreso_anual: (0).toFixed(2)
 }
 
 const validations = {
@@ -36,10 +36,7 @@ const validations = {
 		.email('Corre Electrónico Inválido')
 		.max(50, 'Caracteres Máximos 50')
 		.required('Requerido'),
-	p_ingreso_anual: yup
-		.number()
-		.min(0, 'Valor Mínimo 0')
-		.required('Requerido'),
+	p_ingreso_anual: yup.number().min(0, 'Valor Mínimo 0').required('Requerido')
 }
 
 export const datosProfesionales = { values, validations }

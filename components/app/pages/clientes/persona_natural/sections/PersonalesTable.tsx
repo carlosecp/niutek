@@ -12,7 +12,7 @@ interface Props<RefSchema> {
 	handleRemove: (index: number) => void
 }
 
-const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
+const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const { values } = useFormikContext<Data>()
 	const data: RefSchema[] = getIn(values, props.name) || []
 
@@ -38,107 +38,121 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'Nombre Entidad',
-				id: 'prb_nombre_entidad',
+				Header: 'Nombre',
+				id: 'prp_nombre',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_nombre_entidad`}
+						name={`${props.name}[${index}].prp_nombre`}
 						classes={styles}
-						placeholder="Nombre Entidad"
+						placeholder="Nombre"
 					/>
 				)
 			},
 			{
-				Header: 'Servicio Recibido',
-				id: 'prb_tipo_servicio_recibido',
+				Header: 'Tipo Documento',
+				id: 'prp_tipo_doc',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_tipo_servicio_recibido`}
+						name={`${props.name}[${index}].prp_tipo_doc`}
 						classes={styles}
-						placeholder="Servicio Recibido"
+						placeholder="Tipo Documento"
 					/>
 				)
 			},
 			{
-				Header: 'Fecha de Inición Relación',
-				id: 'prb_fecha_inicio_relacion',
+				Header: 'No. Documento',
+				id: 'prp_num_doc',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_fecha_inicio_relacion`}
+						name={`${props.name}[${index}].prp_num_doc`}
 						classes={styles}
-						placeholder="YYYY-MM-DD"
+						placeholder="No. Documento"
 					/>
 				)
 			},
 			{
-				Header: 'Años con entidad',
-				id: 'prb_annios_con_entidad',
+				Header: 'Teléfono 1',
+				id: 'prp_telefono1',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_annios_con_entidad`}
+						name={`${props.name}[${index}].prp_telefono1`}
 						classes={styles}
-						placeholder="Años con entidad"
+						placeholder="Teléfono 1"
 					/>
 				)
 			},
 			{
-				Header: 'Teléfono',
-				id: 'prb_telefono1',
+				Header: 'Teléfono 2',
+				id: 'prp_telefono2',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_telefono`}
+						name={`${props.name}[${index}].prp_telefono2`}
 						classes={styles}
-						placeholder="Teléfono"
+						placeholder="Teléfono 2"
 					/>
 				)
 			},
 			{
-				Header: 'No. Cuenta',
-				id: 'prb_telefono2',
+				Header: 'Dirección',
+				id: 'prp_direccion',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_telefono`}
+						name={`${props.name}[${index}].prp_direccion`}
 						classes={styles}
-						placeholder="No. Cuenta"
+						placeholder="Dirección"
 					/>
 				)
 			},
 			{
-				Header: 'Moneda',
-				id: 'pct_cod_moneda',
+				Header: 'Lugar Trabajo',
+				id: 'prp_lugar_trabajo',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
-					<Select
-						name={`${props.name}[${index}].pct_cod_moneda`}
-						classes={{
-							container: 'w-36',
-							input: 'border-none w-full p-2 text-sm outline-none'
-						}}
-					>
-						<option value={1}>Primera Opcion</option>
-						<option value={2}>Segunda Opcion</option>
-					</Select>
+					<Text
+						name={`${props.name}[${index}].prp_lugar_trabajo`}
+						classes={styles}
+						placeholder="Lugar Trabajo"
+					/>
 				)
 			},
 			{
-				Header: 'Banco',
-				id: 'pct_cod_banco',
-				Cell: ({ row: { index } }) => (
-					<Select
-						name={`${props.name}[${index}].pct_cod_banco`}
-						classes={{
-							container: 'w-36',
-							input: 'border-none w-full p-2 text-sm outline-none'
-						}}
-					>
-						<option value={1}>Primera Opcion</option>
-						<option value={2}>Segunda Opcion</option>
-					</Select>
+				Header: 'Teléfono Trabajo',
+				id: 'prp_telefono_trabajo',
+				Cell: ({ row: { index } }: { row: { index: number } }) => (
+					<Text
+						name={`${props.name}[${index}].prp_telefono_trabajo`}
+						classes={styles}
+						placeholder="Teléfono Trabajo"
+					/>
+				)
+			},
+			{
+				Header: 'Tiempo de Conocer',
+				id: 'prp_tiempo_conocer',
+				Cell: ({ row: { index } }: { row: { index: number } }) => (
+					<Text
+						name={`${props.name}[${index}].prp_tiempo_conocer`}
+						classes={styles}
+						placeholder="Tiempo de Conocer"
+						type="number"
+						steps={1}
+					/>
+				)
+			},
+			{
+				Header: 'Email',
+				id: 'prp_e_mail',
+				Cell: ({ row: { index } }: { row: { index: number } }) => (
+					<Text
+						name={`${props.name}[${index}].prp_e_mail`}
+						classes={styles}
+						placeholder="Email"
+					/>
 				)
 			},
 			{
 				Header: 'Eliminar',
 				id: 'eliminar',
-				Cell: ({ row: { index } }) => (
+				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<button
 						type="button"
 						className="text-primary font-medium outline-none pl-2 text-sm"
@@ -156,7 +170,7 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 		<div>
 			<div className="flex justify-between items-center">
 				<h1 className="font-medium text-xl text-gray-900">
-					Referencias Bancarias
+					Referencias Personales
 				</h1>
 				<button
 					type="button"
@@ -172,4 +186,4 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	)
 }
 
-export default BancariasTable
+export default PersonalesTable

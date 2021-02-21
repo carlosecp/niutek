@@ -1,33 +1,48 @@
-import type { SearchConfig, SearchResults } from '../../interfaces/search'
+import type {
+	GlobalSearchConfig,
+	GlobalSearchResults
+} from '../../interfaces/search'
 import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 
-interface Props<SearchResult> {
-	config: SearchConfig
-	setSearchResults: (results: SearchResult[]) => void
+interface Args {
+	url: string
+	body: { search: string }
 }
 
-const getResults = async <SearchResult,>({ url, body }) => {
+const getResults = async <SearchResult extends GlobalSearchResults>({
+	url,
+	body
+}: Args) => {
 	const req = {
 		path: `${process.env.backend}/${url}`,
 		body,
 		headers: {
 			'Content-Type': 'application/json',
-			'Access-Control-Allow-Credentials': 'true',
-		},
+			'Access-Control-Allow-Credentials': 'true'
+		}
 	}
 
 	try {
 		const res = await axios.post(req.path, req.body, {
-			headers: req.headers,
+			headers: req.headers
 		})
 
+		console.log(res)
+
 		return res.data as SearchResult[]
-	} catch (err) {}
+	} catch (err) {
+		return []
+	}
 }
 
-const Search = <SearchResult extends SearchResults>(
+interface Props<SearchResult> {
+	config: GlobalSearchConfig
+	setSearchResults: (results: SearchResult[]) => void
+}
+
+const Search = <SearchResult extends GlobalSearchResults>(
 	props: Props<SearchResult>
 ) => {
 	return (
@@ -37,31 +52,33 @@ const Search = <SearchResult extends SearchResults>(
 				setSubmitting(true)
 				const results = await getResults<SearchResult>({
 					url: props.config.url,
-					body: values,
+					body: values
 				})
+
+				console.log('results: ', results)
 				props.setSearchResults(results)
 				setSubmitting(false)
 			}}
 		>
 			{({ isSubmitting, handleChange, handleSubmit }) => (
 				<form
-					className='h-14 border-b border-t flex-1 flex items-center'
+					className="h-14 border-b border-t flex-1 flex items-center"
 					onSubmit={handleSubmit}
 				>
 					<input
-						name='search'
-						type='text'
-						className='w-full border-none outline-none ring-0 focus:ring-0'
+						name="search"
+						type="text"
+						className="w-full border-none outline-none ring-0 focus:ring-0"
 						placeholder={`Buscar`}
 						onChange={handleChange}
 						disabled={isSubmitting}
 					/>
 					<button
-						type='submit'
-						className='p-2 disabled:cursor-default disabled:opacity-50 mr-2'
+						type="submit"
+						className="p-2 disabled:cursor-default disabled:opacity-50 mr-2"
 						disabled={isSubmitting}
 					>
-						<FaSearch className='text-gray-600 fill-current' />
+						<FaSearch className="text-gray-600 fill-current" />
 					</button>
 				</form>
 			)}

@@ -10,7 +10,7 @@ interface Props<Data, ValidationSchema> {
 const Form = <Data, ValidationSchema>({
 	values,
 	validations,
-	children,
+	children
 }: Props<Data, ValidationSchema>) => {
 	return (
 		<Formik
@@ -23,7 +23,7 @@ const Form = <Data, ValidationSchema>({
 				setSubmitting(false)
 			}}
 		>
-			<FormikForm className='flex-1 max-w-3xl container p-4 flex flex-col gap-6 no-scrollbar'>
+			<FormikForm className="flex-1 max-w-3xl container p-4 flex flex-col gap-6 no-scrollbar">
 				{children}
 			</FormikForm>
 		</Formik>

@@ -1,19 +1,22 @@
 import * as yup from 'yup'
 
-const values = [
-	{
-		prp_nombre: 'Test Nombre Referencia 1',
-		prp_tipo_doc: 2,
-		prp_num_doc: '001-100901-1037U',
-		prp_telefono1: '12312323',
-		prp_telefono2: '78978923',
-		prp_direccion: 'Test Direccion 1',
-		prp_lugar_trabajo: 'Test Lugar Trabajo 1',
-		prp_telefono_trabajo: '12312312',
-		prp_tiempo_conocer: 4,
-		prp_e_mail: 'test1@gmail.com',
-	},
-]
+// Utilizado en cada una de las secciones que contienen tablas.
+export const refSchema = {
+	prp_nombre: '',
+	prp_tipo_doc: 0,
+	prp_num_doc: '',
+	prp_telefono1: '',
+	prp_telefono2: '',
+	prp_direccion: '',
+	prp_lugar_trabajo: '',
+	prp_telefono_trabajo: '',
+	prp_tiempo_conocer: 0,
+	prp_e_mail: ''
+}
+
+export type RefSchema = typeof refSchema
+
+const values: RefSchema[] = []
 
 const validations = yup.array().of(
 	yup.object().shape({
@@ -57,7 +60,7 @@ const validations = yup.array().of(
 			.string()
 			.email('Corre Electrónico Inválido')
 			.max(50, 'Caracteres Máximos 50')
-			.required('Requerido'),
+			.required('Requerido')
 	})
 )
 

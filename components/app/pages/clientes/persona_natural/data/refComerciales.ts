@@ -1,6 +1,17 @@
 import * as yup from 'yup'
 
-const values = []
+// Utilizado en cada una de las secciones que contienen tablas.
+export const refSchema = {
+	prc_nombre_entidad: '',
+	prc_persona_contacto: '',
+	prc_direccion: '',
+	prc_annios_con_entidad: 0,
+	prc_telefono: ''
+}
+
+export type RefSchema = typeof refSchema
+
+const values: RefSchema[] = []
 
 const validations = yup.array().of(
 	yup.object().shape({

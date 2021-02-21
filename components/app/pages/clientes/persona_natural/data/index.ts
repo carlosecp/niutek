@@ -19,7 +19,7 @@ const values = {
 	...origenFondos.values,
 	referencias_comerciales: refComerciales.values,
 	referencias_bancarias: refBancarias.values,
-	referencias_personales: refPersonales.values,
+	referencias_personales: refPersonales.values
 }
 
 export type PersonaNaturalValues = typeof personaNatural.values
@@ -37,6 +37,8 @@ const validations = yup.object({
 	...datosProfesionales.validations,
 	...origenFondos.validations,
 	referencias_comerciales: refComerciales.validations,
+	referencias_bancarias: refBancarias.validations,
+	referencias_personales: refPersonales.validations
 })
 
 export type PersonaNaturalValidations = typeof personaNatural.validations
@@ -50,3 +52,17 @@ export type RefPersonalesValidations = typeof refPersonales.validations
 export type ValidationSchema = typeof validations
 
 export const initialValues = { values, validations }
+
+export const navLinks = [
+	{ name: 'Persona Natural', anchor: '_persona_natural' },
+	{ name: 'Datos Profesionales', anchor: '_datos_profesionales' },
+	{ name: 'Origen de Fondos', anchor: '_origen_fondos' },
+	{ name: 'Referencias Comerciales', anchor: '_referencias_comerciales' },
+	{ name: 'Referencias Bancarias', anchor: '_referencias_bancarias' },
+	{ name: 'Referencias Personales', anchor: '_referencias_personales' }
+]
+
+export const getDescription = (result: SearchResult) => ({
+	accessor: result.cod_cliente,
+	description: `${result.nombres} ${result.apellidos}`
+})

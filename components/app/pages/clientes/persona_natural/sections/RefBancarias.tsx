@@ -1,4 +1,6 @@
 import type { Data } from '../data'
+import type { RefSchema } from '../data/refBancarias'
+import { refSchema } from '../data/refBancarias'
 import { FieldArray } from 'formik'
 import BancariasTable from './BancariasTable'
 
@@ -7,27 +9,18 @@ interface Props {
 }
 
 const RefBancarias = (props: Props) => {
-	const refSchema = {
-		prc_nombre_entidad: '',
-		prc_persona_contacto: '',
-		prc_direccion: '',
-		prc_annios_con_entidad: 0,
-		prc_telefono: '',
-	}
-
-	type RefSchema = typeof refSchema
-
 	const tableProps = {
 		name: 'referencias_bancarias',
 		refSchema,
 		options: props.options,
-		limit: 2,
+		limit: 2
 	}
 
 	return (
-		<section id='referencias_bancarias'>
-			<article className='flex flex-col'>
-				<FieldArray name='referencias_bancarias'>
+		<section id="referencias_bancarias">
+			<a href="#!" id="_referencias_bancarias" className="anchor"></a>
+			<article className="flex flex-col">
+				<FieldArray name="referencias_bancarias">
 					{(arrayHelpers) => (
 						<BancariasTable<Data, RefSchema>
 							{...tableProps}
