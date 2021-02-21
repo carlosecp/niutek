@@ -3,7 +3,6 @@ import type { Data as GlobalData } from '../interfaces/forms'
 import * as React from 'react'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
-import { initialValues } from '../components/app/pages/clientes/persona_natural/data'
 
 interface Args<Data> {
 	url: {
@@ -26,7 +25,7 @@ const useIndex = <SearchResult, Data extends GlobalData>(props: Args<Data>) => {
 
 	const getData = async (accessor: string | number) => {
 		const req = {
-			path: `${process.env.backend}/lee/${props.url.fetch}`,
+			path: `${process.env.backend}/proc/lee/${props.url.fetch}`,
 			body: {
 				[props.key]: accessor,
 				p_cod_empresa: auth.user.p_cod_empresa,
@@ -70,7 +69,7 @@ const useIndex = <SearchResult, Data extends GlobalData>(props: Args<Data>) => {
 		const reqType = editingExisting ? 'create' : 'registra'
 
 		const req = {
-			path: `${process.env.backend}/${reqType}/${props.url.write}`,
+			path: `${process.env.backend}/proc/${reqType}/${props.url.write}`,
 			body: {
 				p_cod_empresa: auth.user.p_cod_empresa,
 				p_cod_sucursal: auth.user.p_cod_sucursal,
