@@ -20,6 +20,7 @@ const useIndex = <SearchResult, Data extends GlobalData>(props: Args<Data>) => {
 	const [data, setData] = React.useState<Data>(props.initialValues)
 	const [loading, setLoading] = React.useState(false)
 	const [editingExisting, setEditingExisting] = React.useState(false)
+	const [currentId, setCurrentId] = React.useState<number | string>(null)
 
 	const auth = useSelector((state: RootState) => state.auth)
 
@@ -49,14 +50,14 @@ const useIndex = <SearchResult, Data extends GlobalData>(props: Args<Data>) => {
 			setData(res.data)
 			setEditingExisting(true)
 			console.log(
-				'%c fetching data: ',
-				'background: #149414; color: #FFFFFF',
+				'%c SUCCESS ~ fetching data: ',
+				'background: #149414; color: #FFFFFF; font-weight: bold',
 				res.data
 			)
 		} catch (err) {
 			console.error(
-				'%c fetching data: ',
-				'background: #c60022; color: #FFFFFF',
+				'%c ERROR ~ fetching data: ',
+				'background: #c60022; color: #FFFFFF; font-weight: bold',
 				err
 			)
 		} finally {
@@ -65,8 +66,8 @@ const useIndex = <SearchResult, Data extends GlobalData>(props: Args<Data>) => {
 		}
 	}
 
-	const writeData = async (values: Data) => {
-		const reqType = editingExisting ? 'create' : 'registra'
+	const writeData = async (values: Data, key: string) => {
+		const reqType = editingExisting ? 'modifica' : 'registra'
 
 		const req = {
 			path: `${process.env.backend}/proc/${reqType}/${props.url.write}`,
@@ -74,6 +75,7 @@ const useIndex = <SearchResult, Data extends GlobalData>(props: Args<Data>) => {
 				p_cod_empresa: auth.user.p_cod_empresa,
 				p_cod_sucursal: auth.user.p_cod_sucursal,
 				p_clase_persona: auth.user.p_clase_persona,
+				[key]: currentId,
 				...values
 			},
 			headers: {
@@ -93,13 +95,13 @@ const useIndex = <SearchResult, Data extends GlobalData>(props: Args<Data>) => {
 
 			console.log(
 				'%c writing data: ',
-				'background: #149414; color: #FFFFFF',
+				'background: #149414; color: #FFFFFF; font-weight: bold',
 				res.data
 			)
 		} catch (err) {
 			console.error(
 				'%c writing data: ',
-				'background: #c60022; color: #FFFFFF',
+				'background: #c60022; color: #FFFFFF; font-weight: bold',
 				err
 			)
 		} finally {
@@ -113,6 +115,8 @@ const useIndex = <SearchResult, Data extends GlobalData>(props: Args<Data>) => {
 		setData,
 		getData,
 		writeData,
+		currentId,
+		setCurrentId,
 		editingExisting,
 		setEditingExisting,
 		showNavigation,

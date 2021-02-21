@@ -5,7 +5,9 @@ import LogErrors from '../../../utils/LogErrors'
 interface Props<Data, ValidationSchema> {
 	values: Data
 	validations: ValidationSchema
-	writeData: (values: Data) => void
+	currentId: string | number
+	accessKey: string
+	writeData: (values: Data, key: string) => void
 	children: React.ReactNode
 }
 
@@ -19,7 +21,7 @@ const Form = <Data, ValidationSchema>(props: Props<Data, ValidationSchema>) => {
 				console.table(values)
 
 				setSubmitting(true)
-				props.writeData(values)
+				props.writeData(values, props.accessKey)
 				setSubmitting(false)
 			}}
 		>

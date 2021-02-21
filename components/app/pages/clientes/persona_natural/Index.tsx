@@ -38,6 +38,8 @@ const Index = (props: Props) => {
 	const formProps = {
 		values: state.data,
 		validations: initialValues.validations,
+		accessKey: 'p_cod_cliente',
+		currentId: state.currentId,
 		writeData: state.writeData
 	}
 
@@ -60,6 +62,7 @@ const Index = (props: Props) => {
 	const resultsProps = {
 		results: state.searchResults,
 		loading: state.loading,
+		setCurrentId: state.setCurrentId,
 		getDescription,
 		getData: state.getData
 	}

@@ -10,7 +10,7 @@ const LogErrors = ({ errors }: Args) => {
 			'%c validation errors ',
 			'background: #c60022; color: #FFFFFF'
 		)
-		console.log('errors: ', errors.errors)
+		console.log('errors: ', errors)
 		console.groupEnd()
 	}, [errors])
 

@@ -4,6 +4,7 @@ import * as React from 'react'
 interface Props<SearchResult> {
 	results: SearchResult[]
 	loading: boolean
+	setCurrentId: (x: string | number) => void
 	getDescription: (
 		result: SearchResult
 	) => { accessor: string | number; description: string }
@@ -26,6 +27,7 @@ const Results = <SearchResult extends GlobalSearchResults>(
 						onClick={() => {
 							if (!props.loading) {
 								props.getData(accessor)
+								props.setCurrentId(accessor)
 							}
 						}}
 					>

@@ -34,13 +34,16 @@ const getResults = async <SearchResult extends GlobalSearchResults>({
 
 		console.log(
 			'%c response: ',
-			'background: #149414; color: #FFFFFF',
+			'background: #149414; color: #FFFFFF; font-weight: bold',
 			res.data
 		)
 
 		return res.data as SearchResult[]
 	} catch (err) {
-		console.error('%c error: ', 'background: #c60022; color: #FFFFFF')
+		console.error(
+			'%c error: ',
+			'background: #c60022; color: #FFFFFF; font-weight: bold'
+		)
 		return []
 	} finally {
 		console.groupEnd()
