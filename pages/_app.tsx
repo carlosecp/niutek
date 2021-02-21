@@ -4,7 +4,6 @@ import store from '../store/store'
 import { Layout } from '../components/layout/'
 import '../styles/index.css'
 
-// Hi there.
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
 	if (router.pathname.startsWith('/app')) {
 		return (
