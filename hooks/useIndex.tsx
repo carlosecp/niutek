@@ -1,25 +1,28 @@
 import type { RootState } from '../store/store'
-import type { GlobalValues } from '../interfaces'
+import type { GlobalValues, GlobalSearchResults } from '../interfaces'
 import * as React from 'react'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 
-interface Args<Data> {
+interface Args<Values> {
 	url: {
 		fetch: string
 		write: string
 	}
 	key: string // key to make the request to fetch client/product/check...
-	initialValues: Data // Formik initialValues que esperamos recibir.
+	initialValues: Values // Formik initialValues que esperamos recibir.
 }
 
-const useIndex = <SearchResult, Data extends GlobalValues>(
-	props: Args<Data>
+const useIndex = <
+	Values extends GlobalValues,
+	SearchResult extends GlobalSearchResults
+>(
+	props: Args<Values>
 ) => {
 	const [showNavigation, setShowNavigation] = React.useState(false)
 	const [searchResults, setSearchResults] = React.useState<SearchResult[]>([])
 
-	const [data, setData] = React.useState<Data>(props.initialValues)
+	const [data, setData] = React.useState<Values>(props.initialValues)
 	const [loading, setLoading] = React.useState(false)
 	const [editingExisting, setEditingExisting] = React.useState(false)
 	const [currentId, setCurrentId] = React.useState<string | number | null>(null)
@@ -68,7 +71,7 @@ const useIndex = <SearchResult, Data extends GlobalValues>(
 		}
 	}
 
-	const writeData = async (values: Data, key: string) => {
+	const writeData = async (values: Values, key: string) => {
 		const reqType = editingExisting ? 'modifica' : 'registra'
 
 		const req = {

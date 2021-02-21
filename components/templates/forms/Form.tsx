@@ -1,17 +1,20 @@
+import type { GlobalValues } from '../../../interfaces'
 import * as React from 'react'
 import { Formik, Form as FormikForm } from 'formik'
 import LogErrors from '../../../utils/LogErrors'
 
-interface Props<Data, ValidationSchema> {
-	values: Data
-	validations: ValidationSchema
-	currentId: string | number
+interface Props<Values, ValidationSchema> {
 	accessKey: string
-	writeData: (values: Data, key: string) => void
 	children: React.ReactNode
+	currentId: string | number | null
+	validations: ValidationSchema
+	values: Values
+	writeData: (values: Values, key: string) => void
 }
 
-const Form = <Data, ValidationSchema>(props: Props<Data, ValidationSchema>) => {
+const Form = <Values extends GlobalValues, ValidationSchema>(
+	props: Props<Values, ValidationSchema>
+) => {
 	return (
 		<Formik
 			initialValues={props.values}

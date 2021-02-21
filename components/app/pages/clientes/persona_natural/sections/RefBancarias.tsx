@@ -1,4 +1,4 @@
-import type { Data } from '../data'
+import type { Values } from '../data'
 import type { RefSchema } from '../data/refBancarias'
 import { refSchema } from '../data/refBancarias'
 import { FieldArray } from 'formik'

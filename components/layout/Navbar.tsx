@@ -3,11 +3,11 @@ import { sidebarCtx } from '../layout/Layout'
 import { FaBars, FaPlus, FaSearch } from 'react-icons/fa'
 
 interface Props {
-	title: string
 	loading: boolean
+	title: string
+	onReset: () => void
 	setEditingExisting: (x: boolean) => void
 	toggleNavigation: () => void
-	onReset: () => void
 }
 
 const Navbar = (props: Props) => {

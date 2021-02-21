@@ -1,6 +1,6 @@
 import type {
-	PersonaNaturalSearchResult,
-	PersonaNaturalValues
+	PersonaNaturalValues,
+	PersonaNaturalSearchResult
 } from '../components/app/pages/clientes/persona_natural/data'
 
 export type GlobalSearchResults = PersonaNaturalSearchResult

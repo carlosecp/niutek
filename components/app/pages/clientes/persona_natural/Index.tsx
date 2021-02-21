@@ -1,4 +1,8 @@
-import type { SearchResult, Data, ValidationSchema } from './data/index'
+import type {
+	PersonaNaturalValues,
+	PersonaNaturalValidationSchema,
+	PersonaNaturalSearchResult
+} from './data/index'
 import * as React from 'react'
 import useIndex from '../../../../../hooks/useIndex'
 import { initialValues, navLinks, getDescription } from './data'
@@ -18,28 +22,28 @@ interface Props {
 }
 
 const Index = (props: Props) => {
-	const state = useIndex<SearchResult, Data>({
+	const state = useIndex<PersonaNaturalValues, PersonaNaturalSearchResult>({
+		key: 'p_cod_cliente',
+		initialValues: initialValues.values,
 		url: {
 			fetch: 'datos_cliente_natural',
 			write: 'cliente_natural'
-		},
-		key: 'p_cod_cliente',
-		initialValues: initialValues.values
+		}
 	})
 
 	const navbarProps = {
-		title: 'Persona Natural',
 		loading: state.loading,
+		title: 'Persona Natural',
+		onReset: () => state.setData(initialValues.values),
 		setEditingExisting: state.setEditingExisting,
-		toggleNavigation: () => state.setShowNavigation(!state.showNavigation),
-		onReset: () => state.setData(initialValues.values) // Funcion que resetea los valores del formulario a los valores por defecto.
+		toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
 	}
 
 	const formProps = {
-		values: state.data,
-		validations: initialValues.validations,
 		accessKey: 'p_cod_cliente',
 		currentId: state.currentId,
+		validations: initialValues.validations,
+		values: state.data,
 		writeData: state.writeData
 	}
 
@@ -54,24 +58,26 @@ const Index = (props: Props) => {
 			placeholder: 'Buscar persona natural',
 			url: '/busca/clientes_natural'
 		},
-		setSearchResults: state.setSearchResults,
 		loading: state.loading,
-		setLoading: state.setLoading
+		setLoading: state.setLoading,
+		setSearchResults: state.setSearchResults
 	}
 
 	const resultsProps = {
-		results: state.searchResults,
 		loading: state.loading,
-		setCurrentId: state.setCurrentId,
+		results: state.searchResults,
+		getData: state.getData,
 		getDescription,
-		getData: state.getData
+		setCurrentId: state.setCurrentId
 	}
 
 	return (
 		<main className="sm:ml-64 relative bg-light">
 			<Navbar {...navbarProps} />
 			<div className="flex lg:pr-64">
-				<Form<Data, ValidationSchema> {...formProps}>
+				<Form<PersonaNaturalValues, PersonaNaturalValidationSchema>
+					{...formProps}
+				>
 					<PersonaNatural options={props.options} />
 					<DatosProfesionales />
 					<OrigenFondos />
@@ -83,7 +89,7 @@ const Index = (props: Props) => {
 					</button>
 				</Form>
 				<Navigation {...navigationProps}>
-					<Search<SearchResult> {...searchProps} />
+					<Search<PersonaNaturalSearchResult> {...searchProps} />
 					<Results {...resultsProps} />
 				</Navigation>
 			</div>
