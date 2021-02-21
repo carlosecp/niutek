@@ -12,7 +12,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
 					<Component {...pageProps} />
 				</Layout>
 			</Provider>
-		);
+		)
 	}
 
 	return <Component {...pageProps} />
