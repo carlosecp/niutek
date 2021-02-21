@@ -15,7 +15,7 @@ interface Props {
 
 const styles = {
 	container: 'fc-lg',
-	input: 'w-full block form-input form-input-border',
+	input: 'w-full block form-input form-input-border'
 }
 
 const TextArea = ({ name, classes = styles, ...props }: Props) => {
@@ -25,18 +25,13 @@ const TextArea = ({ name, classes = styles, ...props }: Props) => {
 	return (
 		<div className={classes.container}>
 			{props?.label && (
-				<label
-					htmlFor={name}
-					className='text-sm font-medium text-gray-700'
-				>
+				<label htmlFor={name} className="text-sm font-medium text-gray-700">
 					{props?.label}
 				</label>
 			)}
 			<textarea
 				className={`${classes.input} transition form-disabled ${
-					meta.touched && meta.error
-						? 'border-error'
-						: 'border-primary'
+					meta.touched && meta.error ? 'border-error' : 'border-primary'
 				}`}
 				placeholder={props?.placeholder || props?.label}
 				disabled={isSubmitting}

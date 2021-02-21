@@ -3,7 +3,7 @@ import Index from '../../../../components/app/pages/clientes/persona_natural/Ind
 
 const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 	const indexProps = {
-		options: props.options,
+		options: props.options
 	}
 
 	return <Index {...indexProps} />
@@ -16,9 +16,9 @@ export const getStaticProps = async (context) => {
 	return {
 		props: {
 			options: {
-				p_sexo: [],
-			},
-		},
+				p_sexo: []
+			}
+		}
 	}
 }
 

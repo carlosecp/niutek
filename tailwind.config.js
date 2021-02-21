@@ -2,10 +2,7 @@ const colors = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-	purge: [
-		'./pages/**/*.{js,ts,jsx,tsx}',
-		'./components/**/*.{js,ts,jsx,tsx}',
-	],
+	purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
 	darkMode: 'class',
 	theme: {
 		screens: {
@@ -13,16 +10,16 @@ module.exports = {
 			sm: '640px',
 			md: '768px',
 			lg: '1024px',
-			xl: '1280px',
+			xl: '1280px'
 		},
 		extend: {
 			spacing: {
-				input: '38px',
+				input: '38px'
 			},
 			transitionProperty: {
 				left: 'left',
-				right: 'right',
-			},
+				right: 'right'
+			}
 		},
 		colors: {
 			light: '#f1f5f8',
@@ -38,22 +35,22 @@ module.exports = {
 			yellow: colors.amber,
 			blue: colors.blue,
 			green: colors.green,
-			cyan: colors.cyan,
+			cyan: colors.cyan
 		},
 		container: {
 			center: true,
-			padding: '1rem',
+			padding: '1rem'
 		},
 		scale: {
-			102: '1.02',
-		},
+			102: '1.02'
+		}
 	},
 	variants: {
 		extend: {
 			opacity: ['disabled'],
 			cursor: ['disabled'],
-			padding: ['last'],
-		},
+			padding: ['last']
+		}
 	},
-	plugins: [require('@tailwindcss/forms')],
+	plugins: [require('@tailwindcss/forms')]
 }

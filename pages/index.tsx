@@ -1,7 +1,5 @@
 const Index = () => {
-	return (
-		<div>Niudot</div>
-	)
+	return <div>Niudot</div>
 }
 
 export default Index

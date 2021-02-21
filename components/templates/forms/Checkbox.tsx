@@ -17,7 +17,7 @@ const styles = {
 	container: 'fc-lg md:fc-sm',
 	input: 'h-input md:mt-6 flex form-input relative',
 	checkbox:
-		'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded',
+		'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
 }
 
 const Checkbox = ({ name, classes = styles, label, ...props }: Props) => {
@@ -28,7 +28,7 @@ const Checkbox = ({ name, classes = styles, label, ...props }: Props) => {
 		<div className={classes.container}>
 			<div className={classes.input}>
 				<input
-					type='checkbox'
+					type="checkbox"
 					className={classes.checkbox}
 					disabled={isSubmitting || props?.disabled}
 					{...field}
@@ -36,7 +36,7 @@ const Checkbox = ({ name, classes = styles, label, ...props }: Props) => {
 				/>
 				<label
 					htmlFor={name}
-					className='text-sm font-medium text-gray-700 relative bottom-px'
+					className="text-sm font-medium text-gray-700 relative bottom-px"
 				>
 					{label}
 				</label>
