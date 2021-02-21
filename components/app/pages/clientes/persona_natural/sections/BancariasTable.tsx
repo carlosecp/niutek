@@ -30,7 +30,7 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const styles = React.useMemo(
 		() => ({
 			container: 'w-auto',
-			input: 'w-full p-2 text-sm outline-none'
+			input: 'w-full p-2 text-sm outline-none border-none'
 		}),
 		[]
 	)
@@ -78,6 +78,8 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 						name={`${props.name}[${index}].prb_annios_con_entidad`}
 						classes={styles}
 						placeholder="Años con entidad"
+						type="number"
+						steps={1}
 					/>
 				)
 			},

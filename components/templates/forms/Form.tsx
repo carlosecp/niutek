@@ -1,31 +1,34 @@
 import * as React from 'react'
 import { Formik, Form as FormikForm } from 'formik'
+import LogErrors from '../../../utils/LogErrors'
 
 interface Props<Data, ValidationSchema> {
 	values: Data
 	validations: ValidationSchema
+	writeData: (values: Data) => void
 	children: React.ReactNode
 }
 
-const Form = <Data, ValidationSchema>({
-	values,
-	validations,
-	children
-}: Props<Data, ValidationSchema>) => {
+const Form = <Data, ValidationSchema>(props: Props<Data, ValidationSchema>) => {
 	return (
 		<Formik
-			initialValues={values}
+			initialValues={props.values}
 			enableReinitialize
-			validationSchema={validations}
+			validationSchema={props.validations}
 			onSubmit={(values, { setSubmitting }) => {
+				console.table(values)
+
 				setSubmitting(true)
-				console.log(values)
+				props.writeData(values)
 				setSubmitting(false)
 			}}
 		>
-			<FormikForm className="flex-1 max-w-3xl container p-4 flex flex-col gap-6 no-scrollbar">
-				{children}
-			</FormikForm>
+			{({ errors }) => (
+				<FormikForm className="flex-1 max-w-3xl container p-4 flex flex-col gap-6 no-scrollbar">
+					{props.children}
+					<LogErrors errors={errors} />
+				</FormikForm>
+			)}
 		</Formik>
 	)
 }

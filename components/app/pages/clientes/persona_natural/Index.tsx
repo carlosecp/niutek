@@ -19,56 +19,50 @@ interface Props {
 
 const Index = (props: Props) => {
 	const state = useIndex<SearchResult, Data>({
-		url: 'client',
+		url: {
+			fetch: 'datos_cliente_natural',
+			write: 'cliente_natural'
+		},
 		key: 'p_cod_cliente',
 		initialValues: initialValues.values
 	})
 
-	const navbarProps = React.useMemo(
-		() => ({
-			title: 'Persona Natural',
-			toggleNavigation: () => state.setShowNavigation(!state.showNavigation),
-			onReset: () => state.setData(initialValues.values) // Funcion que resetea los valores del formulario a los valores por defecto.
-		}),
-		[state.showNavigation]
-	)
+	const navbarProps = {
+		title: 'Persona Natural',
+		loading: state.loading,
+		setEditingExisting: state.setEditingExisting,
+		toggleNavigation: () => state.setShowNavigation(!state.showNavigation),
+		onReset: () => state.setData(initialValues.values) // Funcion que resetea los valores del formulario a los valores por defecto.
+	}
 
-	const formProps = React.useMemo(
-		() => ({
-			values: state.data,
-			validations: initialValues.validations
-		}),
-		[state.data]
-	)
+	const formProps = {
+		values: state.data,
+		validations: initialValues.validations,
+		writeData: state.writeData
+	}
 
-	const navigationProps = React.useMemo(
-		() => ({
-			navLinks,
-			showNavigation: state.showNavigation,
-			toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
-		}),
-		[state.showNavigation]
-	)
+	const navigationProps = {
+		navLinks,
+		showNavigation: state.showNavigation,
+		toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
+	}
 
-	const searchProps = React.useMemo(
-		() => ({
-			config: {
-				placeholder: 'Buscar persona natural',
-				url: '/busca/clientes_natural'
-			},
-			setSearchResults: state.setSearchResults
-		}),
-		[]
-	)
+	const searchProps = {
+		config: {
+			placeholder: 'Buscar persona natural',
+			url: '/busca/clientes_natural'
+		},
+		setSearchResults: state.setSearchResults,
+		loading: state.loading,
+		setLoading: state.setLoading
+	}
 
-	const resultsProps = React.useMemo(
-		() => ({
-			results: state.searchResults,
-			getDescription,
-			getData: state.getData
-		}),
-		[state.searchResults]
-	)
+	const resultsProps = {
+		results: state.searchResults,
+		loading: state.loading,
+		getDescription,
+		getData: state.getData
+	}
 
 	return (
 		<main className="sm:ml-64 relative bg-light">
@@ -81,7 +75,9 @@ const Index = (props: Props) => {
 					<RefComerciales />
 					<RefBancarias options={props.options} />
 					<RefPersonales options={props.options} />
-					<button type="submit">Submit</button>
+					<button type="submit" disabled={state.loading}>
+						Submit
+					</button>
 				</Form>
 				<Navigation {...navigationProps}>
 					<Search<SearchResult> {...searchProps} />

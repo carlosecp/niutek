@@ -30,7 +30,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const styles = React.useMemo(
 		() => ({
 			container: 'w-auto',
-			input: 'w-full p-2 text-sm outline-none'
+			input: 'w-full p-2 text-sm outline-none border-none'
 		}),
 		[]
 	)

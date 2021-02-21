@@ -29,17 +29,29 @@ const getResults = async <SearchResult extends GlobalSearchResults>({
 			headers: req.headers
 		})
 
-		console.log(res)
+		console.group('search')
+		console.log('request config: ', req)
+
+		console.log(
+			'%c response: ',
+			'background: #149414; color: #FFFFFF',
+			res.data
+		)
 
 		return res.data as SearchResult[]
 	} catch (err) {
+		console.error('%c error: ', 'background: #c60022; color: #FFFFFF')
 		return []
+	} finally {
+		console.groupEnd()
 	}
 }
 
 interface Props<SearchResult> {
 	config: GlobalSearchConfig
 	setSearchResults: (results: SearchResult[]) => void
+	loading: boolean
+	setLoading: (x: boolean) => void
 }
 
 const Search = <SearchResult extends GlobalSearchResults>(
@@ -50,14 +62,16 @@ const Search = <SearchResult extends GlobalSearchResults>(
 			initialValues={{ search: '' }}
 			onSubmit={async (values, { setSubmitting }) => {
 				setSubmitting(true)
+				props.setLoading(true)
+
 				const results = await getResults<SearchResult>({
 					url: props.config.url,
 					body: values
 				})
-
-				console.log('results: ', results)
 				props.setSearchResults(results)
+
 				setSubmitting(false)
+				props.setLoading(false)
 			}}
 		>
 			{({ isSubmitting, handleChange, handleSubmit }) => (
@@ -71,12 +85,12 @@ const Search = <SearchResult extends GlobalSearchResults>(
 						className="w-full border-none outline-none ring-0 focus:ring-0"
 						placeholder={`Buscar`}
 						onChange={handleChange}
-						disabled={isSubmitting}
+						disabled={isSubmitting || props.loading}
 					/>
 					<button
 						type="submit"
 						className="p-2 disabled:cursor-default disabled:opacity-50 mr-2"
-						disabled={isSubmitting}
+						disabled={isSubmitting || props.loading}
 					>
 						<FaSearch className="text-gray-600 fill-current" />
 					</button>

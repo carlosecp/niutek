@@ -3,6 +3,7 @@ import * as React from 'react'
 
 interface Props<SearchResult> {
 	results: SearchResult[]
+	loading: boolean
 	getDescription: (
 		result: SearchResult
 	) => { accessor: string | number; description: string }
@@ -19,8 +20,14 @@ const Results = <SearchResult extends GlobalSearchResults>(
 				return (
 					<li
 						key={accessor}
-						className="flex items-center gap-2 p-2 hover:bg-gray-100 transition rounded cursor-pointer"
-						onClick={() => props.getData(accessor)}
+						className={`flex items-center gap-2 p-2 hover:bg-gray-100 transition rounded ${
+							props.loading ? 'cursor-wait' : 'cursor-pointer'
+						}`}
+						onClick={() => {
+							if (!props.loading) {
+								props.getData(accessor)
+							}
+						}}
 					>
 						<span className="whitespace-nowrap text-xs px-2 py-1 bg-primary text-white rounded">
 							{accessor}

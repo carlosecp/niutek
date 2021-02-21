@@ -15,7 +15,7 @@ interface Props {
 
 const styles = {
 	container: 'fc-lg md:fc',
-	input: 'w-full block form-input form-input-border',
+	input: 'w-full block form-input form-input-border'
 }
 
 const Select = ({ name, classes = styles, children, ...props }: Props) => {
@@ -25,18 +25,13 @@ const Select = ({ name, classes = styles, children, ...props }: Props) => {
 	return (
 		<div className={classes.container}>
 			{props?.label && (
-				<label
-					htmlFor={name}
-					className='text-sm font-medium text-gray-700'
-				>
+				<label htmlFor={name} className="text-sm font-medium text-gray-700">
 					{props?.label}
 				</label>
 			)}
 			<select
 				className={`${classes.input} transition form-disabled ${
-					meta.touched && meta.error
-						? 'border-error'
-						: 'border-primary'
+					meta.touched && meta.error ? 'border-error' : 'border-primary'
 				}`}
 				disabled={isSubmitting}
 				{...field}

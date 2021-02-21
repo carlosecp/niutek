@@ -130,13 +130,12 @@ const OrigenFondos = () => {
 						}}
 						label="Descripción"
 						disabled={!values.p_of_venta_de}
-						restart={!values.p_of_venta_de}
 						reset={!values.p_of_venta_de}
 					/>
 				</fieldset>
 				<fieldset className="fc-lg grid grid-cols-12">
 					<Checkbox
-						name="p_ofsalario"
+						name="p_of_salario"
 						classes={{
 							container: 'fc-lg',
 							input: 'h-input md:mt-6 flex form-input',
@@ -165,7 +164,6 @@ const OrigenFondos = () => {
 						}}
 						label="Institución Financiera"
 						disabled={!values.p_of_ahorro}
-						restart={!values.p_of_ahorro}
 						reset={!values.p_of_ahorro}
 					/>
 				</fieldset>
@@ -188,7 +186,6 @@ const OrigenFondos = () => {
 						}}
 						label="Descripción"
 						disabled={!values.p_of_otros}
-						restart={!values.p_of_otros}
 						reset={!values.p_of_otros}
 					/>
 				</fieldset>
