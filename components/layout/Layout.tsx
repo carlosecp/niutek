@@ -1,5 +1,4 @@
-import { useState, createContext, ReactNode } from 'react'
-import Alerts from './Alerts'
+import * as React from 'react'
 import Sidebar from './Sidebar'
 
 interface Context {
@@ -7,14 +6,14 @@ interface Context {
 	toggleSidebar: () => void
 }
 
-export const sidebarCtx = createContext<Context>(null)
+export const sidebarCtx = React.createContext<Context | null>(null)
 
 interface Props {
-	children: ReactNode
+	children: React.ReactNode
 }
 
 const Layout = ({ children }: Props) => {
-	const [showSidebar, setShowSidebar] = useState(false)
+	const [showSidebar, setShowSidebar] = React.useState(false)
 
 	const toggleSidebar = () => {
 		setShowSidebar(!showSidebar)
@@ -23,7 +22,6 @@ const Layout = ({ children }: Props) => {
 	return (
 		<sidebarCtx.Provider value={{ showSidebar, toggleSidebar }}>
 			<Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
-			{/* <Alerts /> */}
 			{children}
 		</sidebarCtx.Provider>
 	)

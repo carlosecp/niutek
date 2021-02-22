@@ -42,14 +42,6 @@ const getResults = async <SearchResult extends GlobalSearchResults>({
 			headers: req.headers
 		})
 
-		dispatch(
-			addAlert({
-				id: uuidv4(),
-				message: `${res.data.success}`,
-				type: 'success'
-			})
-		)
-
 		console.log(
 			'%c success ',
 			'background: #149414; color: #FFFFFF; font-weight: bold',

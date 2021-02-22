@@ -35,7 +35,8 @@ module.exports = {
 			yellow: colors.amber,
 			blue: colors.blue,
 			green: colors.green,
-			cyan: colors.cyan
+			cyan: colors.cyan,
+			emerald: colors.emerald
 		},
 		container: {
 			center: true,
@@ -49,7 +50,8 @@ module.exports = {
 		extend: {
 			opacity: ['disabled'],
 			cursor: ['disabled'],
-			padding: ['last']
+			padding: ['last'],
+			margin: ['last']
 		}
 	},
 	plugins: [require('@tailwindcss/forms')]

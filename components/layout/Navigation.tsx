@@ -18,8 +18,8 @@ const Navigation = (props: Props) => {
 			)}
 			<aside
 				className={`fixed z-30 top-0 transition-right duration-500 ${
-					props.showNavigation ? 'right-0' : '-right-full'
-				} lg:right-0 w-64 h-screen bg-white border-l overflow-y-scroll no-scrollbar`}
+					props.showNavigation ? 'right-0 shadow-xl' : '-right-full'
+				} sm:shadow-none lg:right-0 w-64 h-screen bg-white border-l overflow-y-scroll no-scrollbar`}
 			>
 				<section className='flex flex-col'>
 					<div className='h-14 flex flex-center border-b'>Navegación</div>
@@ -27,7 +27,7 @@ const Navigation = (props: Props) => {
 						{props.navLinks.map((link) => (
 							<li
 								key={link.anchor}
-								className='text-gray-700 hover:text-primary transition'
+								className='py-2 text-gray-700 hover:text-primary transition text-sm'
 							>
 								<a href={`#${link.anchor}`}>{link.name}</a>
 							</li>

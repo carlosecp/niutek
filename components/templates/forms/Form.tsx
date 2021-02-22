@@ -27,7 +27,7 @@ const Form = <Values extends GlobalValues, ValidationSchema>(
 			}}
 		>
 			{({ errors }) => (
-				<FormikForm className='flex-1 max-w-3xl container p-4 flex flex-col gap-6 no-scrollbar'>
+				<FormikForm className='flex-1 max-w-3xl container px-4 flex flex-col gap-6 no-scrollbar'>
 					{props.children}
 					<LogErrors errors={errors} />
 				</FormikForm>

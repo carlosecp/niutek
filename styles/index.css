@@ -101,3 +101,17 @@ a.anchor {
 	top: -72px;
 	visibility: hidden;
 }
+
+@layer utilities {
+	.alert {
+		@apply rounded border last:mb-4 text-sm p-2;
+	}
+
+	.alert-success {
+		@apply bg-emerald-200 border-emerald-300 text-emerald-600;
+	}
+
+	.alert-warning {
+		@apply bg-red-200 border-red-300 text-red-500;
+	}
+}

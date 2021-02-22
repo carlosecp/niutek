@@ -16,6 +16,7 @@ import {
 } from './sections'
 import { Navbar, Navigation, Search, Results } from '../../../../layout'
 import Form from '../../../../templates/forms/Form'
+import Alerts from '../../../../layout/Alerts'
 
 interface Props {
 	options: { [x: string]: any }[]
@@ -74,7 +75,8 @@ const Index = (props: Props) => {
 	return (
 		<main className='sm:ml-64 relative bg-light'>
 			<Navbar {...navbarProps} />
-			<div className='flex lg:pr-64'>
+			<div className='flex flex-col py-4 lg:pr-64'>
+				<Alerts />
 				<Form<PersonaNaturalValues, PersonaNaturalValidationSchema>
 					{...formProps}
 				>
