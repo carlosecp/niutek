@@ -10,8 +10,6 @@ interface OptionsTypes {
 }
 
 const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-	console.log(props)
-
 	const indexProps = {
 		options: props.options
 	}
@@ -32,7 +30,6 @@ export const getStaticProps = async () => {
 	}
 
 	const res = await axios.post(req.path, req.body, { headers: req.headers })
-	console.log(res.data)
 
 	return {
 		props: {

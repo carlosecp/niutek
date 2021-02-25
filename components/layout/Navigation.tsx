@@ -23,12 +23,9 @@ const Navigation = (props: Props) => {
 			>
 				<section className='flex flex-col'>
 					<div className='h-14 flex flex-center border-b'>Navegación</div>
-					<ul id='navigation' className='p-4 flex flex-col gap-2'>
+					<ul id='navigation' className='flex flex-col'>
 						{props.navLinks.map((link) => (
-							<li
-								key={link.anchor}
-								className='py-2 text-gray-700 hover:text-primary transition text-sm'
-							>
+							<li key={link.anchor} className='px-4 py-3 nav-link'>
 								<a href={`#${link.anchor}`}>{link.name}</a>
 							</li>
 						))}
