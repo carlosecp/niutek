@@ -116,6 +116,6 @@ a.anchor {
 	}
 }
 
-.sidebar-li i {
-	@apply w-16 h-16 font-normal fill-current;
+.nav-link {
+	@apply hover:bg-gray-50 hover:text-primary transition duration-100 text-sm text-gray-600  transition-colors duration-100 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500;
 }
