@@ -3,7 +3,14 @@ import type {
 	PersonaNaturalSearchResult
 } from '../components/app/pages/clientes/persona_natural/data'
 
-export type GlobalSearchResults = PersonaNaturalSearchResult
+import type {
+	ProductoDeCreditoValues,
+	ProductoDeCreditoSearchResult
+} from '../components/app/pages/credito/producto/data'
+
+export type GlobalSearchResults =
+	| PersonaNaturalSearchResult
+	| ProductoDeCreditoSearchResult
 
 export interface GlobalSearchConfig {
 	placeholder: string
@@ -34,4 +41,4 @@ export interface Alert {
 	type: 'success' | 'warning'
 }
 
-export type GlobalValues = PersonaNaturalValues
+export type GlobalValues = PersonaNaturalValues | ProductoDeCreditoValues
