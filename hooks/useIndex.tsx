@@ -1,10 +1,9 @@
 import type { RootState } from '../store/store'
-import type { GlobalValues, GlobalSearchResults } from '../interfaces'
+import type { GlobalValues, GlobalSearchResults, Alert } from '../interfaces'
 import * as React from 'react'
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 import { useSelector, useDispatch } from 'react-redux'
-import { addAlert } from '../store/alerts/actions'
 
 interface Args<Values> {
 	url: {
@@ -29,8 +28,14 @@ const useIndex = <
 	const [editingExisting, setEditingExisting] = React.useState(false)
 	const [currentId, setCurrentId] = React.useState<string | number | null>(null)
 
+	const [alerts, setAlerts] = React.useState<Alert[]>([])
+
+	const closeAlert = (id: string) => {
+		setAlerts(alerts.filter((alert) => alert.id !== id))
+	}
+
 	const dispatch = useDispatch()
-	const { auth, alerts } = useSelector((state: RootState) => state)
+	const auth = useSelector((state: RootState) => state.auth)
 
 	const getData = async (accessor: string | number) => {
 		const req = {
@@ -71,13 +76,14 @@ const useIndex = <
 				res.data
 			)
 		} catch (err) {
-			dispatch(
-				addAlert({
+			setAlerts([
+				...alerts,
+				{
 					id: uuidv4(),
 					message: `${err.message}`,
 					type: 'warning'
-				})
-			)
+				}
+			])
 
 			console.error(
 				'%c error ',
@@ -124,27 +130,28 @@ const useIndex = <
 				headers: req.headers
 			})
 
-			dispatch(
-				addAlert({
-					id: uuidv4(),
-					message: `${res.data.success}`,
-					type: 'success'
-				})
-			)
-
 			console.log(
 				'%c success ',
 				'background: #149414; color: #FFFFFF; font-weight: bold',
 				res.data
 			)
+			setAlerts([
+				...alerts,
+				{
+					id: uuidv4(),
+					message: `${res.data.success}`,
+					type: 'success'
+				}
+			])
 		} catch (err) {
-			dispatch(
-				addAlert({
+			setAlerts([
+				...alerts,
+				{
 					id: uuidv4(),
 					message: `${err.message}`,
 					type: 'warning'
-				})
-			)
+				}
+			])
 
 			console.error(
 				'%c error ',
@@ -171,7 +178,9 @@ const useIndex = <
 		searchResults,
 		setSearchResults,
 		loading,
-		setLoading
+		setLoading,
+		alerts,
+		closeAlert
 	}
 
 	React.useDebugValue(state)

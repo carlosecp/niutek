@@ -1,16 +1,16 @@
-import type { RootState } from '../../store/store'
-import { useSelector } from 'react-redux'
+import type { Alert } from '../../interfaces/index'
 import AlertItem from './AlertItem'
 
-interface Props {}
+interface Props {
+	alerts: Alert[]
+	closeAlert: (id: string) => void
+}
 
-const Alerts = ({}: Props) => {
-	const alerts = useSelector((state: RootState) => state.alerts)
-
+const Alerts = (props: Props) => {
 	return (
 		<ul className='container max-w-3xl px-4 flex flex-col gap-2'>
-			{alerts.alerts.map((alert) => (
-				<AlertItem key={alert.id} alert={alert} />
+			{props.alerts.map((alert) => (
+				<AlertItem key={alert.id} alert={alert} closeAlert={props.closeAlert} />
 			))}
 		</ul>
 	)

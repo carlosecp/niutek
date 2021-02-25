@@ -1,3 +1,4 @@
+import type { TablaOptions } from '../../../../../../interfaces'
 import * as React from 'react'
 import { useFormikContext, getIn } from 'formik'
 import { Text, Select } from '../../../../../templates/forms'
@@ -6,14 +7,14 @@ import Table from '../../../../../templates/tables/Table'
 interface Props<RefSchema> {
 	name: string
 	refSchema: RefSchema
-	options: { [x: string]: any }[]
+	options: TablaOptions
 	limit: number
 	handleAdd: (obj: RefSchema) => void
 	handleRemove: (index: number) => void
 }
 
-const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
-	const { values } = useFormikContext<Data>()
+const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
+	const { values } = useFormikContext<Values>()
 	const data: RefSchema[] = getIn(values, props.name) || []
 
 	const onAdd = React.useCallback(() => {
@@ -162,7 +163,7 @@ const BancariasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				</h1>
 				<button
 					type='button'
-					className='inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary btn-disabled transition'
+					className='btn btn-primary'
 					onClick={onAdd}
 					disabled={data.length >= props.limit}
 				>

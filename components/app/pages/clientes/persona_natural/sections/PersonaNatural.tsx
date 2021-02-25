@@ -1,6 +1,27 @@
+import type { PersonaNaturalValues } from '../data'
+import type {
+	TablaOptions,
+	DeptosOption,
+	MuniOption
+} from '../../../../../../interfaces'
+import * as React from 'react'
+import { useFormikContext } from 'formik'
 import { Text, Select, TextArea } from '../../../../../templates/forms'
+import getMunicipio from '../../../../../../utils/getMunicipio'
+import useMunicipio from '../../../../../../hooks/useMunicipio'
 
-const PersonaNatural = (props) => {
+interface Props {
+	options: {
+		tabla: TablaOptions
+		deptos_municipios: DeptosOption[]
+	}
+}
+
+const PersonaNatural = (props: Props) => {
+	const { values } = useFormikContext<PersonaNaturalValues>()
+
+	const municipios = useMunicipio(values.p_cod_depto)
+
 	return (
 		<section id='persona_natural'>
 			<a href='#!' id='_persona_natural' className='anchor'></a>
@@ -12,37 +33,56 @@ const PersonaNatural = (props) => {
 					<option value={0} disabled>
 						Seleccione
 					</option>
-					<option value={1}>Primera Opcion</option>
-					<option value={2}>Segunda Opcion</option>
+					{props.options.tabla.sexo.map((option) => (
+						<option key={option.codigo} value={option.codigo}>
+							{option.descripcion}
+						</option>
+					))}
 				</Select>
 				<Select name='p_tipo_doc' label='Tipo de documento'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
-					<option value={1}>Primera Opcion</option>
-					<option value={2}>Segunda Opcion</option>
+					{props.options.tabla.tipo_doc.map((option) => (
+						<option key={option.codigo} value={option.codigo}>
+							{option.descripcion}
+						</option>
+					))}
 				</Select>
 				<Text name='p_num_doc' label='No. de documento' />
 				<Select name='p_cod_nac' label='Nacionalidad'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
-					<option value={1}>Primera Opcion</option>
-					<option value={2}>Segunda Opcion</option>
+					{props.options.tabla.nacionalidad.map((option) => (
+						<option key={option.codigo} value={option.codigo}>
+							{option.descripcion}
+						</option>
+					))}
 				</Select>
 				<Select name='p_cod_depto' label='Departamento'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
-					<option value={1}>Primera Opcion</option>
-					<option value={2}>Segunda Opcion</option>
+					{props.options.deptos_municipios.map((option) => (
+						<option key={option.cod_depto} value={option.cod_depto}>
+							{option.nom_depto}
+						</option>
+					))}
 				</Select>
-				<Select name='p_cod_muni' label='Municipio'>
+				<Select
+					name='p_cod_muni'
+					label='Municipio'
+					disabled={municipios.loading}
+				>
 					<option value={0} disabled>
 						Seleccione
 					</option>
-					<option value={1}>Primera Opcion</option>
-					<option value={2}>Segunda Opcion</option>
+					{municipios.values.map((option) => (
+						<option key={option.cod_muni} value={option.cod_muni}>
+							{option.nom_municipio}
+						</option>
+					))}
 				</Select>
 				<TextArea name='p_direccion' label='Dirección' />
 				<Text name='p_notas' label='Observaciones' />

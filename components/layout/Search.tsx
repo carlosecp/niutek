@@ -1,9 +1,7 @@
 import type { Dispatch } from 'react'
 import type { GlobalSearchConfig, GlobalSearchResults } from '../../interfaces'
 import axios from 'axios'
-import { v4 as uuidv4 } from 'uuid'
 import { useDispatch } from 'react-redux'
-import { addAlert } from '../../store/alerts/actions'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 
@@ -50,14 +48,6 @@ const getResults = async <SearchResult extends GlobalSearchResults>({
 
 		return res.data as SearchResult[]
 	} catch (err) {
-		dispatch(
-			addAlert({
-				id: uuidv4(),
-				message: `${err.message}`,
-				type: 'warning'
-			})
-		)
-
 		console.log('%c error ', 'background: #c60022; color: #FFFFFF', err)
 		return []
 	} finally {

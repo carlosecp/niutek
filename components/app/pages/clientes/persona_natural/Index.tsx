@@ -1,3 +1,4 @@
+import type { TablaOptions, DeptosOption } from '../../../../../interfaces'
 import type {
 	PersonaNaturalValues,
 	PersonaNaturalValidationSchema,
@@ -19,7 +20,10 @@ import Form from '../../../../templates/forms/Form'
 import Alerts from '../../../../layout/Alerts'
 
 interface Props {
-	options: { [x: string]: any }[]
+	options: {
+		tabla: TablaOptions
+		deptos_municipios: DeptosOption[]
+	}
 }
 
 const Index = (props: Props) => {
@@ -76,7 +80,7 @@ const Index = (props: Props) => {
 		<main className='sm:ml-64 relative bg-light'>
 			<Navbar {...navbarProps} />
 			<div className='flex flex-col py-4 lg:pr-64'>
-				<Alerts />
+				<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
 				<Form<PersonaNaturalValues, PersonaNaturalValidationSchema>
 					{...formProps}
 				>
@@ -84,9 +88,13 @@ const Index = (props: Props) => {
 					<DatosProfesionales />
 					<OrigenFondos />
 					<RefComerciales />
-					<RefBancarias options={props.options} />
-					<RefPersonales options={props.options} />
-					<button type='submit' disabled={state.loading}>
+					<RefBancarias options={props.options.tabla} />
+					<RefPersonales options={props.options.tabla} />
+					<button
+						type='submit'
+						className='btn btn-primary'
+						disabled={state.loading}
+					>
 						Submit
 					</button>
 				</Form>

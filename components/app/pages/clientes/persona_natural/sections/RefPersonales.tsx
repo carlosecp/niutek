@@ -1,11 +1,12 @@
-import type { Data } from '../data'
+import type { TablaOptions } from '../../../../../../interfaces'
+import type { PersonaNaturalValues } from '../data'
 import type { RefSchema } from '../data/refPersonales'
 import { refSchema } from '../data/refPersonales'
 import { FieldArray } from 'formik'
 import PersonalesTable from './PersonalesTable'
 
 interface Props {
-	options: { [x: string]: any }[]
+	options: TablaOptions
 }
 
 const RefPersonales = (props: Props) => {
@@ -22,7 +23,7 @@ const RefPersonales = (props: Props) => {
 			<article className='flex flex-col'>
 				<FieldArray name='referencias_personales'>
 					{(arrayHelpers) => (
-						<PersonalesTable<Data, RefSchema>
+						<PersonalesTable<PersonaNaturalValues, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
