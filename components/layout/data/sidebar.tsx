@@ -1,4 +1,4 @@
-import * as Icons from 'react-icons/bs'
+import * as Icons from 'react-bootstrap-icons'
 
 const sidebar = [
 	{
@@ -8,12 +8,12 @@ const sidebar = [
 			{
 				anchor: 'Persona Natural',
 				subpath: 'persona_natural',
-				icon: <Icons.BsPersonCheck />
+				icon: <Icons.PersonCheck />
 			},
 			{
 				anchor: 'Persona Juridica',
 				subpath: 'persona_juridica',
-				icon: <Icons.BsPeople />
+				icon: <Icons.People />
 			}
 		]
 	},
@@ -24,17 +24,38 @@ const sidebar = [
 			{
 				anchor: 'Ahorro',
 				subpath: 'ahorro',
-				icon: <Icons.BsWallet />
+				icon: <Icons.Wallet2 />
 			},
 			{
 				anchor: 'Certificados a Plazo Fijo',
 				subpath: 'certificados_plazo_fijo',
-				icon: <Icons.BsCardChecklist />
+				icon: <Icons.FileEarmarkMedical />
 			},
 			{
 				anchor: 'Crédito',
 				subpath: 'credito',
-				icon: <Icons.BsCreditCard />
+				icon: <Icons.CreditCard2Front />
+			}
+		]
+	},
+	{
+		name: 'Crédito',
+		path: 'credito',
+		items: [
+			{
+				anchor: 'Solicitud',
+				subpath: 'solicitud',
+				icon: <Icons.JournalPlus />
+			},
+			{
+				anchor: 'Resolución',
+				subpath: 'resolucion',
+				icon: <Icons.JournalCheck />
+			},
+			{
+				anchor: 'Formalización',
+				subpath: 'formalizacion',
+				icon: <Icons.JournalText />
 			}
 		]
 	}

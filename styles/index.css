@@ -115,3 +115,7 @@ a.anchor {
 		@apply bg-red-200 border-red-300 text-red-500;
 	}
 }
+
+.sidebar-li i {
+	@apply w-16 h-16 font-normal fill-current;
+}

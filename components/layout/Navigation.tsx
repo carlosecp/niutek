@@ -23,11 +23,11 @@ const Navigation = (props: Props) => {
 			>
 				<section className='flex flex-col'>
 					<div className='h-14 flex flex-center border-b'>Navegación</div>
-					<ul id='navigation' className='p-4 flex flex-col gap-2'>
+					<ul id='navigation' className='flex flex-col'>
 						{props.navLinks.map((link) => (
 							<li
 								key={link.anchor}
-								className='py-2 text-gray-700 hover:text-primary transition text-sm'
+								className='px-4 py-3 hover:bg-gray-50 hover:text-primary transition duration-100 text-sm text-gray-600  transition-colors duration-100 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500'
 							>
 								<a href={`#${link.anchor}`}>{link.name}</a>
 							</li>
