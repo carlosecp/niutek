@@ -30,11 +30,6 @@ const sidebar = [
 				anchor: 'Certificados a Plazo Fijo',
 				subpath: 'certificados_plazo_fijo',
 				icon: <Icons.FileEarmarkMedical />
-			},
-			{
-				anchor: 'Crédito',
-				subpath: 'credito',
-				icon: <Icons.CreditCard2Front />
 			}
 		]
 	},
@@ -42,6 +37,11 @@ const sidebar = [
 		name: 'Crédito',
 		path: 'credito',
 		items: [
+			{
+				anchor: 'Productos de Crédito',
+				subpath: 'productos',
+				icon: <Icons.CreditCard2Front />
+			},
 			{
 				anchor: 'Solicitud',
 				subpath: 'solicitud',
