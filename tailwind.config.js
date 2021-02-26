@@ -19,6 +19,9 @@ module.exports = {
 			transitionProperty: {
 				left: 'left',
 				right: 'right'
+			},
+			strokeWidth: {
+				0.5: '0.5'
 			}
 		},
 		colors: {
