@@ -9,7 +9,7 @@ import useIndex from '../../../../hooks/useIndex'
 import { initialValues, navLinks, getDescription } from './data'
 import { Navbar, Navigation, Search, Results } from '../../../layout'
 import Form from '../../../templates/forms/Form'
-import { Solicitud } from './components'
+import { Garantias, Solicitud } from './components'
 import Alerts from '../../../layout/Alerts'
 
 interface Props {
@@ -81,6 +81,7 @@ const Index = (props: Props) => {
 					{...formProps}
 				>
 					<Solicitud options={props.options} />
+					<Garantias />
 					<button
 						type='submit'
 						className='btn btn-primary'
