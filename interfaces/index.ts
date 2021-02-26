@@ -2,7 +2,10 @@ import type {
 	PersonaNaturalValues,
 	PersonaNaturalSearchResult
 } from '../components/pages/clientes/persona_natural/data'
-
+import {
+	PersonaJuridicaSearchResult,
+	PersonaJuridicaValues
+} from '../components/pages/clientes/persona_juridica/data'
 import type {
 	ProductoDeCreditoValues,
 	ProductoDeCreditoSearchResult
@@ -14,6 +17,7 @@ import type {
 
 export type GlobalSearchResults =
 	| PersonaNaturalSearchResult
+	| PersonaJuridicaSearchResult
 	| ProductoDeCreditoSearchResult
 	| SolicitudDeCreditoSearchResult
 
@@ -48,5 +52,6 @@ export interface Alert {
 
 export type GlobalValues =
 	| PersonaNaturalValues
+	| PersonaJuridicaValues
 	| ProductoDeCreditoValues
 	| SolicitudDeCreditoValues

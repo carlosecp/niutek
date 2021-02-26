@@ -64,4 +64,4 @@ const validations = yup.array().of(
 	})
 )
 
-export const refPersonales = { values, validations }
+export const proveedores = { values, validations }

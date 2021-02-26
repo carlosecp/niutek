@@ -1,9 +1,9 @@
-import type { PersonaNaturalValues } from './data'
+import type { PersonaJuridicaValues } from './data'
 import { useFormikContext } from 'formik'
 import { Text, Checkbox } from '../../../templates/forms'
 
 const OrigenFondos = () => {
-	const { values } = useFormikContext<PersonaNaturalValues>()
+	const { values } = useFormikContext<PersonaJuridicaValues>()
 
 	return (
 		<section id='origen_fondos'>
@@ -11,38 +11,16 @@ const OrigenFondos = () => {
 			<h1 className='font-medium text-xl text-gray-900'>Origen de Fondos</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<fieldset className='fc-lg grid grid-cols-12'>
-					<Checkbox name='p_of_negocio_propio' label='Negocio Propio' />
+					<Checkbox name='p_of_donacion' label='Donación' />
 					<Text
-						name='p_of_nombre_negocio'
+						name='p_of_nombre_donante'
 						classes={{
 							container: 'fc-lg md:fc-md',
 							input: 'w-full block form-input form-input-border'
 						}}
-						label='Nombre Negocio'
-						disabled={!values.p_of_negocio_propio}
-						reset={!values.p_of_negocio_propio}
-					/>
-				</fieldset>
-				<fieldset className='fc-lg grid grid-cols-12'>
-					<Checkbox
-						name='p_of_prof_independiente'
-						classes={{
-							container: 'fc-lg md:fc',
-							input: 'h-input md:mt-6 flex form-input',
-							checkbox:
-								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
-						}}
-						label='Profesión Independiente'
-					/>
-					<Text
-						name='p_of_prof_ejerce'
-						classes={{
-							container: 'fc-lg md:fc',
-							input: 'w-full block form-input form-input-border'
-						}}
-						label='Profesión'
-						disabled={!values.p_of_prof_independiente}
-						reset={!values.p_of_prof_independiente}
+						label='Nombre Donante'
+						disabled={!values.p_of_donacion}
+						reset={!values.p_of_donacion}
 					/>
 				</fieldset>
 				<fieldset className='fc-lg grid grid-cols-12'>
@@ -135,36 +113,26 @@ const OrigenFondos = () => {
 				</fieldset>
 				<fieldset className='fc-lg grid grid-cols-12'>
 					<Checkbox
-						name='p_of_salario'
+						name='p_of_ing_giro_emp'
 						classes={{
 							container: 'fc-lg',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
 								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
 						}}
-						label='Salario'
+						label='Ingresos por giro comercial de la empresa'
 					/>
 				</fieldset>
 				<fieldset className='fc-lg grid grid-cols-12'>
 					<Checkbox
-						name='p_of_ahorro'
+						name='p_of_aporte_socios'
 						classes={{
-							container: 'fc-lg md:fc-sm',
+							container: 'fc-lg',
 							input: 'h-input md:mt-6 flex form-input',
 							checkbox:
 								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
 						}}
-						label='Ahorro'
-					/>
-					<Text
-						name='p_of_aho_inst_financiera'
-						classes={{
-							container: 'fc-lg md:fc-md',
-							input: 'w-full block form-input form-input-border'
-						}}
-						label='Institución Financiera'
-						disabled={!values.p_of_ahorro}
-						reset={!values.p_of_ahorro}
+						label='Aporte de los socios'
 					/>
 				</fieldset>
 				<fieldset className='fc-lg grid grid-cols-12'>

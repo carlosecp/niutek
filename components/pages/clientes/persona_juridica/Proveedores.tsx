@@ -1,29 +1,29 @@
 import type { TablaOptions } from '../../../../interfaces'
 import type { PersonaJuridicaValues } from './data'
-import type { RefSchema } from './data/refPersonales'
-import { refSchema } from './data/refPersonales'
+import type { RefSchema } from './data/proveedores'
+import { refSchema } from './data/proveedores'
 import { FieldArray } from 'formik'
-import PersonalesTable from './PersonalesTable'
+import ProveedoresTable from './ProveedoresTable'
 
 interface Props {
 	options: TablaOptions
 }
 
-const RefPersonales = (props: Props) => {
+const Proveedores = (props: Props) => {
 	const tableProps = {
-		name: 'referencias_personales',
+		name: 'proveedores',
 		refSchema,
 		options: props.options,
 		limit: 2
 	}
 
 	return (
-		<section id='referencias_personales'>
-			<a href='#!' id='_referencias_personales' className='anchor'></a>
+		<section id='proveedores'>
+			<a href='#!' id='_proveedores' className='anchor'></a>
 			<article className='flex flex-col'>
-				<FieldArray name='referencias_personales'>
+				<FieldArray name='proveedores'>
 					{(arrayHelpers) => (
-						<PersonalesTable<PersonaJuridicaValues, RefSchema>
+						<ProveedoresTable<PersonaJuridicaValues, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
@@ -35,4 +35,4 @@ const RefPersonales = (props: Props) => {
 	)
 }
 
-export default RefPersonales
+export default Proveedores

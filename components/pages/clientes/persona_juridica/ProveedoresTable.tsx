@@ -170,9 +170,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	return (
 		<div>
 			<div className='flex justify-between items-center'>
-				<h1 className='font-medium text-xl text-gray-900'>
-					Referencias Personales
-				</h1>
+				<h1 className='font-medium text-xl text-gray-900'>Proveedores</h1>
 				<button
 					type='button'
 					className='btn btn-primary'

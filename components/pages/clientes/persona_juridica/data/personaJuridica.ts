@@ -2,22 +2,22 @@ import * as yup from 'yup'
 import moment from 'moment'
 
 const values = {
-	p_nombres: '',
-	p_apellidos: '',
-	p_sexo: 0,
+	p_nombre: '',
 	p_tipo_doc: 0,
 	p_num_doc: '',
 	p_cod_nac: 0,
 	p_cod_depto: 0,
 	p_cod_muni: 0,
-	p_direccion: '',
-	p_notas: '',
+	p_num_empleados: 10,
+	p_sitio_web: '',
+	p_e_mail: '',
 	p_telefono1: '',
 	p_telefono2: '',
-	p_lugar_nacimiento: '',
-	p_fecha_nacimiento: moment().format('YYYY-MM-DD'),
-	p_cargo_publico: 0,
-	p_num_hijos: 0
+	p_direccion: '',
+	p_fecha_constitucion: '',
+	p_fecha_personeria: '',
+	p_ingreso_anual: 0,
+	p_actividad_empresa: ''
 }
 
 const validations = {

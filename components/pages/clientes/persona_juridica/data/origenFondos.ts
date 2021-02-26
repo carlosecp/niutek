@@ -1,10 +1,8 @@
 import * as yup from 'yup'
 
 const values = {
-	p_of_negocio_propio: false,
-	p_of_nombre_negocio: '',
-	p_of_prof_independiente: false,
-	p_of_prof_ejerce: '',
+	p_of_donacion: false,
+	p_of_nombre_donante: '',
 	p_of_herencia: false,
 	p_of_de_quien: '',
 	p_of_inversiones: false,
@@ -13,9 +11,8 @@ const values = {
 	p_of_inst_financiera: '',
 	p_of_venta_de: false,
 	p_of_descrip_venta_de: '',
-	p_of_salario: false,
-	p_of_ahorro: false,
-	p_of_aho_inst_financiera: '',
+	p_of_ing_giro_emp: false,
+	p_of_aporte_socios: false,
 	p_of_otros: false,
 	p_of_des_otros: ''
 }

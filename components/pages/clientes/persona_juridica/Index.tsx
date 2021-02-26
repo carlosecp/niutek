@@ -9,11 +9,10 @@ import useIndex from '../../../../hooks/useIndex'
 import { initialValues, navLinks, getDescription } from './data'
 import {
 	PersonaJuridica,
-	DatosProfesionales,
 	OrigenFondos,
 	RefComerciales,
 	RefBancarias,
-	RefPersonales
+	Proveedores
 } from './components'
 import { Navbar, Navigation, Search, Results } from '../../../layout'
 import Form from '../../../templates/forms/Form'
@@ -85,11 +84,10 @@ const Index = (props: Props) => {
 					{...formProps}
 				>
 					<PersonaJuridica options={props.options} />
-					<DatosProfesionales />
 					<OrigenFondos />
 					<RefComerciales />
 					<RefBancarias options={props.options.tabla} />
-					<RefPersonales options={props.options.tabla} />
+					<Proveedores options={props.options.tabla} />
 					<button
 						type='submit'
 						className='btn btn-primary'

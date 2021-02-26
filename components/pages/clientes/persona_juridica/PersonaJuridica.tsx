@@ -25,20 +25,9 @@ const PersonaJuridica = (props: Props) => {
 	return (
 		<section id='persona_natural'>
 			<a href='#!' id='_persona_natural' className='anchor'></a>
-			<h1 className='font-medium text-xl text-gray-900'>Persona Juridica</h1>
+			<h1 className='font-medium text-xl text-gray-900'>Persona Jurídica</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<Text name='p_nombres' label='Nombres' />
-				<Text name='p_apellidos' label='Apellidos' />
-				<Select name='p_sexo' label='Sexo'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-					{props.options.tabla.sexo.map((option) => (
-						<option key={option.codigo} value={option.codigo}>
-							{option.descripcion}
-						</option>
-					))}
-				</Select>
+				<Text name='p_nombre' label='Nombre' />
 				<Select name='p_tipo_doc' label='Tipo de documento'>
 					<option value={0} disabled>
 						Seleccione
@@ -84,24 +73,29 @@ const PersonaJuridica = (props: Props) => {
 						</option>
 					))}
 				</Select>
-				<TextArea name='p_direccion' label='Dirección' />
-				<Text name='p_notas' label='Observaciones' />
-				<Text name='p_telefono1' label='Teléfono 1' />
-				<Text name='p_telefono2' label='Teléfono 2' />
-				<Text name='p_lugar_nacimiento' label='Lugar de nacimiento' />
+				<Text name='p_num_empleados' label='No. Empleados' type='number' />
+				<Text name='p_sitio_web' label='Sitio Web' />
+				<Text name='p_e_mail' label='Email' />
 				<Text
-					name='p_fecha_nacimiento'
-					label='Fecha de nacimiento'
+					name='p_telefono1'
+					label='Teléfono 1'
+					classes={{
+						container: 'fc-lg md:fc break-line',
+						input: 'w-full block form-input form-input-border'
+					}}
+				/>
+				<Text name='p_telefono2' label='Teléfono 2' />
+				<Text
+					name='p_fecha_constitucion'
+					label='Fecha Constitución'
 					placeholder='YYYY-MM-DD'
 				/>
-				<Select name='p_cargo_publico' label='Cargo Público'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-					<option value={1}>Si</option>
-					<option value={2}>No</option>
-				</Select>
-				<Text name='p_num_hijos' label='No. de hijos' type='number' />
+				<Text
+					name='p_fecha_personeria'
+					label='Fecha Personería'
+					placeholder='YYYY-MM-DD'
+				/>
+				<TextArea name='p_actividad_empresa' label='Actividad Empresa' />
 			</article>
 		</section>
 	)
