@@ -3,7 +3,7 @@ import type { DeptosOption, TablaOptions } from '../../../../interfaces'
 import * as React from 'react'
 import axios from 'axios'
 import Meta from '../../../../components/Meta'
-import Index from '../../../../components/app/pages/credito/solicitud/Index'
+import Index from '../../../../components/pages/credito/solicitud/Index'
 
 interface OptionsTypes {
 	tabla: TablaOptions

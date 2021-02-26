@@ -1,16 +1,21 @@
 import type {
 	PersonaNaturalValues,
 	PersonaNaturalSearchResult
-} from '../components/app/pages/clientes/persona_natural/data'
+} from '../components/pages/clientes/persona_natural/data'
 
 import type {
 	ProductoDeCreditoValues,
 	ProductoDeCreditoSearchResult
-} from '../components/app/pages/credito/producto/data'
+} from '../components/pages/credito/productos/data'
+import type {
+	SolicitudDeCreditoSearchResult,
+	SolicitudDeCreditoValues
+} from '../components/pages/credito/solicitud/data'
 
 export type GlobalSearchResults =
 	| PersonaNaturalSearchResult
 	| ProductoDeCreditoSearchResult
+	| SolicitudDeCreditoSearchResult
 
 export interface GlobalSearchConfig {
 	placeholder: string
@@ -41,4 +46,7 @@ export interface Alert {
 	type: 'success' | 'warning'
 }
 
-export type GlobalValues = PersonaNaturalValues | ProductoDeCreditoValues
+export type GlobalValues =
+	| PersonaNaturalValues
+	| ProductoDeCreditoValues
+	| SolicitudDeCreditoValues

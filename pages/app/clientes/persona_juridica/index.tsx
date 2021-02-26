@@ -3,7 +3,7 @@ import type { DeptosOption, TablaOptions } from '../../../../interfaces'
 import * as React from 'react'
 import axios from 'axios'
 import Meta from '../../../../components/Meta'
-import Index from '../../../../components/pages/credito/productos/Index'
+import Index from '../../../../components/pages/clientes/persona_juridica/Index'
 
 interface OptionsTypes {
 	tabla: TablaOptions
@@ -11,15 +11,13 @@ interface OptionsTypes {
 }
 
 const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-	console.log(props)
-
 	const indexProps = {
 		options: props.options
 	}
 
 	return (
 		<>
-			<Meta title='Productos de Crédito' />
+			<Meta title='Persona Jurídica' />
 			<Index {...indexProps} />
 		</>
 	)
@@ -38,7 +36,6 @@ export const getStaticProps = async () => {
 	}
 
 	const res = await axios.post(req.path, req.body, { headers: req.headers })
-	console.log(res.data)
 
 	return {
 		props: {

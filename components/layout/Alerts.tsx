@@ -8,7 +8,7 @@ interface Props {
 
 const Alerts = (props: Props) => {
 	return (
-		<ul className='container max-w-3xl px-4 flex flex-col gap-2'>
+		<ul className='sticky top-20 z-20 container max-w-3xl px-4 flex flex-col gap-2'>
 			{props.alerts.map((alert) => (
 				<AlertItem key={alert.id} alert={alert} closeAlert={props.closeAlert} />
 			))}
