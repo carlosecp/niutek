@@ -70,7 +70,8 @@ const Index = (props: Props) => {
 
 	return (
 		<main className='sm:ml-64 relative bg-light'>
-			<Navbar {...navbarProps} />
+			{' '}
+			<Navbar {...navbarProps} />{' '}
 			<div className='flex lg:pr-64'>
 				<Form<ProductoDeCreditoValues, ProductoDeCreditoValidationSchema>
 					{...formProps}
@@ -83,7 +84,12 @@ const Index = (props: Props) => {
 					<RefBancarias options={props.options} />
 					<RefPersonales options={props.options} />
 					*/}
-					<button type='submit' disabled={state.loading}>
+					{`${JSON.stringify(state, null, 2)}`}
+					<button
+						type='submit'
+						className='btn btn-primary'
+						disabled={state.loading}
+					>
 						Submit
 					</button>
 				</Form>
