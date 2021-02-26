@@ -1,3 +1,4 @@
+import type { SidebarContext } from '../layout/Layout'
 import * as React from 'react'
 import { sidebarCtx } from '../layout/Layout'
 import { FaBars, FaPlus, FaSearch } from 'react-icons/fa'
@@ -11,7 +12,7 @@ interface Props {
 }
 
 const Navbar = (props: Props) => {
-	const { toggleSidebar } = React.useContext(sidebarCtx)
+	const { toggleSidebar } = React.useContext(sidebarCtx) as SidebarContext
 
 	return (
 		<header className='sticky top-0 z-10 flex flex-col lg:mr-64'>

@@ -20,8 +20,7 @@ const values = {
 	cargos: cargos.values
 }
 const validations = yup.object({
-	...ProductoDeCredito.validations,
-	cargos: cargos.validations
+	...ProductoDeCredito.validations
 })
 
 export type ProductoDeCreditoValues = typeof values

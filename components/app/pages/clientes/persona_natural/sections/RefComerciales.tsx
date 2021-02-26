@@ -1,4 +1,4 @@
-import type { Data } from '../data'
+import type { PersonaNaturalValues } from '../data'
 import type { RefSchema } from '../data/refComerciales'
 import { refSchema } from '../data/refComerciales'
 import { FieldArray } from 'formik'
@@ -17,7 +17,7 @@ const RefComerciales = () => {
 			<article className='flex flex-col'>
 				<FieldArray name='referencias_comerciales'>
 					{(arrayHelpers) => (
-						<ComercialesTable<Data, RefSchema>
+						<ComercialesTable<PersonaNaturalValues, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
