@@ -1,3 +1,4 @@
+import type { DeptosOption, TablaOptions } from '../../../../../interfaces'
 import type {
 	ProductoDeCreditoValues,
 	ProductoDeCreditoValidationSchema,
@@ -7,12 +8,14 @@ import type {
 import * as React from 'react'
 import useIndex from '../../../../../hooks/useIndex'
 import { initialValues, navLinks, getDescription } from './data'
-import { ProductoDeCredito, Cargos } from './sections'
 import { Navbar, Navigation, Search, Results } from '../../../../layout'
 import Form from '../../../../templates/forms/Form'
 
 interface Props {
-	options: { [x: string]: any }
+	options: {
+		tabla: TablaOptions
+		deptos_municipios: DeptosOption[]
+	}
 }
 
 const Index = (props: Props) => {

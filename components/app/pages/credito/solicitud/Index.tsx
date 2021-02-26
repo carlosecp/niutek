@@ -1,23 +1,14 @@
-import type { TablaOptions, DeptosOption } from '../../../../../interfaces'
+import type { DeptosOption, TablaOptions } from '../../../../../interfaces'
 import type {
-	PersonaNaturalValues,
-	PersonaNaturalValidationSchema,
-	PersonaNaturalSearchResult
+	ProductoDeCreditoValues,
+	ProductoDeCreditoValidationSchema,
+	ProductoDeCreditoSearchResult
 } from './data/index'
 import * as React from 'react'
 import useIndex from '../../../../../hooks/useIndex'
 import { initialValues, navLinks, getDescription } from './data'
-import {
-	PersonaNatural,
-	DatosProfesionales,
-	OrigenFondos,
-	RefComerciales,
-	RefBancarias,
-	RefPersonales
-} from './components'
 import { Navbar, Navigation, Search, Results } from '../../../../layout'
 import Form from '../../../../templates/forms/Form'
-import Alerts from '../../../../layout/Alerts'
 
 interface Props {
 	options: {
@@ -27,25 +18,28 @@ interface Props {
 }
 
 const Index = (props: Props) => {
-	const state = useIndex<PersonaNaturalValues, PersonaNaturalSearchResult>({
-		key: 'p_cod_cliente',
+	const state = useIndex<
+		ProductoDeCreditoValues,
+		ProductoDeCreditoSearchResult
+	>({
+		key: 'p_cod_producto',
 		initialValues: initialValues.values,
 		url: {
-			fetch: 'datos_cliente_natural',
-			write: 'cliente_natural'
+			fetch: 'datos_solicitud_credito',
+			write: 'solicitud_credito'
 		}
 	})
 
 	const navbarProps = {
 		loading: state.loading,
-		title: 'Persona Natural',
+		title: 'Solicitud de Credito',
 		onReset: () => state.setData(initialValues.values),
 		setEditingExisting: state.setEditingExisting,
 		toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
 	}
 
 	const formProps = {
-		accessKey: 'p_cod_cliente',
+		accessKey: 'p_cod_producto',
 		currentId: state.currentId,
 		validations: initialValues.validations,
 		values: state.data,
@@ -60,8 +54,8 @@ const Index = (props: Props) => {
 
 	const searchProps = {
 		config: {
-			placeholder: 'Buscar persona natural',
-			url: 'busca/clientes_natural'
+			placeholder: 'Buscar producto',
+			url: 'busca/productos_credito'
 		},
 		loading: state.loading,
 		setLoading: state.setLoading,
@@ -78,18 +72,12 @@ const Index = (props: Props) => {
 
 	return (
 		<main className='sm:ml-64 relative bg-light'>
-			<Navbar {...navbarProps} />
-			<div className='flex flex-col py-4 lg:pr-64'>
-				<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
-				<Form<PersonaNaturalValues, PersonaNaturalValidationSchema>
+			{' '}
+			<Navbar {...navbarProps} />{' '}
+			<div className='flex lg:pr-64'>
+				<Form<ProductoDeCreditoValues, ProductoDeCreditoValidationSchema>
 					{...formProps}
 				>
-					<PersonaNatural options={props.options} />
-					<DatosProfesionales />
-					<OrigenFondos />
-					<RefComerciales />
-					<RefBancarias options={props.options.tabla} />
-					<RefPersonales options={props.options.tabla} />
 					<button
 						type='submit'
 						className='btn btn-primary'
@@ -99,7 +87,7 @@ const Index = (props: Props) => {
 					</button>
 				</Form>
 				<Navigation {...navigationProps}>
-					<Search<PersonaNaturalSearchResult> {...searchProps} />
+					<Search<ProductoDeCreditoSearchResult> {...searchProps} />
 					<Results {...resultsProps} />
 				</Navigation>
 			</div>

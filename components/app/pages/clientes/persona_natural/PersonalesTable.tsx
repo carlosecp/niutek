@@ -1,8 +1,8 @@
-import type { TablaOptions } from '../../../../../../interfaces'
+import type { TablaOptions } from '../../../../../interfaces'
 import * as React from 'react'
 import { useFormikContext, getIn } from 'formik'
-import { Text } from '../../../../../templates/forms'
-import Table from '../../../../../templates/tables/Table'
+import { Text } from '../../../../templates/forms'
+import Table from '../../../../templates/tables/Table'
 
 interface Props<RefSchema> {
 	name: string
