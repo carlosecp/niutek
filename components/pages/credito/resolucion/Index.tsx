@@ -11,8 +11,7 @@ import { initialValues, navLinks, getDescription } from './data'
 import { Navbar, Navigation, Search, Results } from '../../../layout'
 import Form from '../../../templates/forms/Form'
 import Alerts from '../../../layout/Alerts'
-import ProductoDeCredito from './ProductoDeCredito'
-import CargosTable from './CargosTable'
+
 interface Props {
 	options: {
 		tabla: TablaOptions
@@ -89,8 +88,7 @@ const Index = (props: Props) => {
 					<RefBancarias options={props.options} />
 					<RefPersonales options={props.options} />
 					*/}
-					<ProductoDeCredito options={props.options} />
-					{/*<Cargos options={props.options}/>*/}
+					{JSON.stringify(state, null, 2)}
 					<button
 						type='submit'
 						className='btn btn-primary'
