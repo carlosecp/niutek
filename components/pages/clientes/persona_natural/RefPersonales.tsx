@@ -6,7 +6,9 @@ import { FieldArray } from 'formik'
 import PersonalesTable from './PersonalesTable'
 
 interface Props {
-	options: TablaOptions
+	options: {
+		tabla: TablaOptions
+	}
 }
 
 const RefPersonales = (props: Props) => {
