@@ -1,13 +1,8 @@
 import type { PersonaJuridicaValues } from './data'
-import type {
-	TablaOptions,
-	DeptosOption,
-	MuniOption
-} from '../../../../interfaces'
+import type { TablaOptions, DeptosOption } from '../../../../interfaces'
 import * as React from 'react'
 import { useFormikContext } from 'formik'
 import { Text, Select, TextArea } from '../../../templates/forms'
-import getMunicipio from '../../../../utils/getMunicipio'
 import useMunicipio from '../../../../hooks/useMunicipio'
 
 interface Props {
@@ -73,9 +68,9 @@ const PersonaJuridica = (props: Props) => {
 						</option>
 					))}
 				</Select>
-				<Text name='p_num_empleados' label='No. Empleados' type='number' />
-				<Text name='p_sitio_web' label='Sitio Web' />
-				<Text name='p_e_mail' label='Email' />
+				<Text name='p_num_empleados' label='No. empleados' type='number' />
+				<Text name='p_sitio_web' label='Sitio web' />
+				<Text name='p_e_mail' label='Correo electrónico' />
 				<Text
 					name='p_telefono1'
 					label='Teléfono 1'
@@ -87,15 +82,15 @@ const PersonaJuridica = (props: Props) => {
 				<Text name='p_telefono2' label='Teléfono 2' />
 				<Text
 					name='p_fecha_constitucion'
-					label='Fecha Constitución'
+					label='Fecha constitución'
 					placeholder='YYYY-MM-DD'
 				/>
 				<Text
 					name='p_fecha_personeria'
-					label='Fecha Personería'
+					label='Fecha personería'
 					placeholder='YYYY-MM-DD'
 				/>
-				<TextArea name='p_actividad_empresa' label='Actividad Empresa' />
+				<TextArea name='p_actividad_empresa' label='Actividad empresa' />
 			</article>
 		</section>
 	)

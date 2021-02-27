@@ -7,7 +7,6 @@ import type {
 import * as React from 'react'
 import { useFormikContext } from 'formik'
 import { Text, Select, TextArea } from '../../../templates/forms'
-import getMunicipio from '../../../../utils/getMunicipio'
 import useMunicipio from '../../../../hooks/useMunicipio'
 
 interface Props {

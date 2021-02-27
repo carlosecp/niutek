@@ -18,7 +18,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-md',
 							input: 'w-full block form-input form-input-border'
 						}}
-						label='Nombre Negocio'
+						label='Nombre negocio'
 						disabled={!values.p_of_negocio_propio}
 						reset={!values.p_of_negocio_propio}
 					/>
@@ -32,7 +32,7 @@ const OrigenFondos = () => {
 							checkbox:
 								'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
 						}}
-						label='Profesión Independiente'
+						label='Profesión independiente'
 					/>
 					<Text
 						name='p_of_prof_ejerce'
@@ -84,7 +84,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-md',
 							input: 'w-full block form-input form-input-border '
 						}}
-						label='Tipos de Inversiones'
+						label='Tipos de inversiones'
 						disabled={!values.p_of_inversiones}
 						reset={!values.p_of_inversiones}
 					/>
@@ -106,7 +106,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-md',
 							input: 'w-full block form-input form-input-border'
 						}}
-						label='Tipos de Inversiones'
+						label='Tipos de inversiones'
 						disabled={!values.p_of_prestamo}
 						reset={!values.p_of_prestamo}
 					/>
@@ -162,7 +162,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-md',
 							input: 'w-full block form-input form-input-border'
 						}}
-						label='Institución Financiera'
+						label='Institución financiera'
 						disabled={!values.p_of_ahorro}
 						reset={!values.p_of_ahorro}
 					/>

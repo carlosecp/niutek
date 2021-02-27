@@ -7,7 +7,9 @@ import Table from '../../../templates/tables/Table'
 interface Props<RefSchema> {
 	name: string
 	refSchema: RefSchema
-	options: TablaOptions
+	options: {
+		tabla: TablaOptions
+	}
 	limit: number
 	handleAdd: (obj: RefSchema) => void
 	handleRemove: (index: number) => void

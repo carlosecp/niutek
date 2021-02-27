@@ -18,7 +18,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-md',
 							input: 'w-full block form-input form-input-border'
 						}}
-						label='Nombre Donante'
+						label='Nombre donante'
 						disabled={!values.p_of_donacion}
 						reset={!values.p_of_donacion}
 					/>
@@ -62,7 +62,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-md',
 							input: 'w-full block form-input form-input-border '
 						}}
-						label='Tipos de Inversiones'
+						label='Tipos de inversiones'
 						disabled={!values.p_of_inversiones}
 						reset={!values.p_of_inversiones}
 					/>
@@ -84,7 +84,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-md',
 							input: 'w-full block form-input form-input-border'
 						}}
-						label='Tipos de Inversiones'
+						label='Tipos de inversiones'
 						disabled={!values.p_of_prestamo}
 						reset={!values.p_of_prestamo}
 					/>

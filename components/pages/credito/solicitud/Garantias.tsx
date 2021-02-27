@@ -6,12 +6,14 @@ import { FieldArray } from 'formik'
 import GarantiasTable from './GarantiasTable'
 
 interface Props {
-	options: TablaOptions
+	options: {
+		tabla: TablaOptions
+	}
 }
 
-const RefBancarias = (props: Props) => {
+const Garantias = (props: Props) => {
 	const tableProps = {
-		name: 'referencias_bancarias',
+		name: 'garantias',
 		refSchema,
 		options: props.options,
 		limit: 2
@@ -35,4 +37,4 @@ const RefBancarias = (props: Props) => {
 	)
 }
 
-export default RefBancarias
+export default Garantias

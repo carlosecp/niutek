@@ -2,15 +2,22 @@ import * as yup from 'yup'
 import moment from 'moment'
 
 export const refSchema = {
-	pcr_cod_moneda: 0,
-	pcr_cod_tipo: 0,
-	pcr_descripcion_cargo: '',
-	pcr_valor: 0
+	prc_cod_moneda: 0,
+	prc_cod_tipo: 0,
+	prc_descripcion_cargo: '',
+	prc_valor: 0
 }
 
 export type RefSchema = typeof refSchema
 
-const values: RefSchema[] = []
+const values: RefSchema[] = [
+	{
+		prc_cod_tipo: 0,
+		prc_descripcion_cargo: '',
+		prc_valor: 0,
+		prc_cod_moneda: 0
+	}
+]
 
 const validations = {
 	p_nombres: yup
@@ -49,7 +56,6 @@ const validations = {
 		.string()
 		.required('Requerido')
 		.max(100, 'Caracteres máximos 100'),
-
 	p_notas: yup
 		.string()
 		.required('Requerido')

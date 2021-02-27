@@ -1,12 +1,23 @@
 import * as yup from 'yup'
 import moment from 'moment'
 
-const values = {
-	pcr_cod_moneda: '1',
-	pcr_cod_tipo: '1',
-	pcr_descripcion_cargo: 'test',
-	pcr_valor: '1.00'
+export const refSchema = {
+	prc_cod_moneda: 0,
+	prc_cod_tipo: 0,
+	prc_descripcion_cargo: '',
+	prc_valor: 0
 }
+
+export type RefSchema = typeof refSchema
+
+const values: RefSchema[] = [
+	{
+		prc_cod_moneda: 0,
+		prc_cod_tipo: 0,
+		prc_descripcion_cargo: '',
+		prc_valor: 0
+	}
+]
 
 const validations = {
 	p_nombres: yup

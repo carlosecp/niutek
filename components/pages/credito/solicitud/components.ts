@@ -1,4 +1,5 @@
-import Solicitud from './Solicitud'
+import SolicitudDeCredito from './SolicitudDeCredito'
 import Garantias from './Garantias'
+import Observaciones from './Observaciones'
 
-export { Solicitud, Garantias }
+export { SolicitudDeCredito, Garantias, Observaciones }

@@ -6,7 +6,9 @@ import { FieldArray } from 'formik'
 import BancariasTable from './BancariasTable'
 
 interface Props {
-	options: TablaOptions
+	options: {
+		tabla: TablaOptions
+	}
 }
 
 const RefBancarias = (props: Props) => {

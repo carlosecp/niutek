@@ -1,16 +1,19 @@
 import type { TablaOptions } from '../../../../interfaces'
 import type { ProductoDeCreditoValues } from './data'
-import type { RefSchema } from './data/refCargos'
-import { refSchema } from './data/refCargos'
+import type { RefSchema } from './data/cargos'
+import { refSchema } from './data/cargos'
 import { FieldArray } from 'formik'
 import CargosTable from './CargosTable'
+
 interface Props {
-	options: TablaOptions
+	options: {
+		tabla: TablaOptions
+	}
 }
 
 const RefCargos = (props: Props) => {
 	const tableProps = {
-		name: 'referencias_bancarias',
+		name: 'cargos',
 		refSchema,
 		options: props.options,
 		limit: 2
@@ -22,7 +25,7 @@ const RefCargos = (props: Props) => {
 			<article className='flex flex-col'>
 				<FieldArray name='referencias_bancarias'>
 					{(arrayHelpers) => (
-						<CargosTable<PersonaNaturalValues, RefSchema>
+						<CargosTable<ProductoDeCreditoValues, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}

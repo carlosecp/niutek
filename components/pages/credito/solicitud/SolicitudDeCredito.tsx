@@ -12,7 +12,7 @@ interface Props {
 	}
 }
 
-const Solicitud = (props: Props) => {
+const SolicitudDeCredito = (props: Props) => {
 	const { values } = useFormikContext<SolicitudDeCreditoValues>()
 
 	return (
@@ -64,11 +64,11 @@ const Solicitud = (props: Props) => {
 				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 					<Text
 						name='p_of_nombre_negocio'
+						label='Plazo Hasta'
 						classes={{
 							container: 'fc',
 							input: 'w-full block form-input form-input-border'
 						}}
-						label='Plazo Hasta'
 					/>
 					<Select name='p_tipo_doc' label='Período'>
 						<option value={0} disabled>
@@ -87,4 +87,4 @@ const Solicitud = (props: Props) => {
 	)
 }
 
-export default Solicitud
+export default SolicitudDeCredito

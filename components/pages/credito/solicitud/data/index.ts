@@ -4,7 +4,8 @@ import { garantias } from './garantias'
 
 export const navLinks = [
 	{ name: 'Solicitud', anchor: '_solicitud' },
-	{ name: 'Garantías', anchor: '_garantias' }
+	{ name: 'Garantías', anchor: '_garantias' },
+	{ name: 'Observaciones', anchor: '_observaciones' }
 ]
 
 export type SolicitudDeCreditoSearchResult = {
@@ -20,7 +21,7 @@ export const getDescription = (result: SolicitudDeCreditoSearchResult) => ({
 
 const values = {
 	...solicitud.values,
-	cargos: garantias.values
+	garantias: garantias.values
 }
 const validations = yup.object({
 	...solicitud.validations

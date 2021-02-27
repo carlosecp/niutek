@@ -7,7 +7,9 @@ import Table from '../../../templates/tables/Table'
 interface Props<RefSchema> {
 	name: string
 	refSchema: RefSchema
-	options: TablaOptions
+	options: {
+		tabla: TablaOptions
+	}
 	limit: number
 	handleAdd: (obj: RefSchema) => void
 	handleRemove: (index: number) => void
@@ -28,6 +30,8 @@ const GarantiasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 		[props.handleRemove]
 	)
 
+	console.log(values)
+
 	const styles = React.useMemo(
 		() => ({
 			container: 'w-auto',
@@ -39,11 +43,11 @@ const GarantiasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'Tipo Garantía',
-				id: 'pcr_cod_moneda',
+				Header: 'Tipo garantía',
+				id: 'prc_cod_moneda',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].pcr_cod_tipo`}
+						name={`${props.name}[${index}].prc_cod_tipo`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
@@ -55,11 +59,11 @@ const GarantiasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 				)
 			},
 			{
-				Header: 'Descripción Cargo',
-				id: 'pcr_descripcion_cargo',
+				Header: 'Descripción cargo',
+				id: 'prc_descripcion_cargo',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${props.name}[${index}].pcr_descripcion_cargo`}
+						name={`${props.name}[${index}].prc_descripcion_cargo`}
 						classes={styles}
 						placeholder='Descripción Cargo'
 					/>
@@ -67,10 +71,10 @@ const GarantiasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Valor',
-				id: 'pcr_valor',
+				id: 'prc_valor',
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${props.name}[${index}].pcr_valor`}
+						name={`${props.name}[${index}].prc_valor`}
 						classes={styles}
 						placeholder='Valor'
 						type='number'
@@ -97,9 +101,7 @@ const GarantiasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 	return (
 		<div>
 			<div className='flex justify-between items-center'>
-				<h1 className='font-medium text-xl text-gray-900'>
-					Referencias Garantias
-				</h1>
+				<h1 className='font-medium text-xl text-gray-900'>Garantias</h1>
 				<button
 					type='button'
 					className='btn btn-primary'

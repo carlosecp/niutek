@@ -8,9 +8,9 @@ import * as React from 'react'
 import useIndex from '../../../../hooks/useIndex'
 import { initialValues, navLinks, getDescription } from './data'
 import { Navbar, Navigation, Search, Results } from '../../../layout'
-import Form from '../../../templates/forms/Form'
-import { Garantias, Solicitud } from './components'
 import Alerts from '../../../layout/Alerts'
+import Form from '../../../templates/forms/Form'
+import { SolicitudDeCredito, Garantias, Observaciones } from './components'
 
 interface Props {
 	options: {
@@ -80,8 +80,9 @@ const Index = (props: Props) => {
 				<Form<SolicitudDeCreditoValues, SolicitudDeCreditoValidationSchema>
 					{...formProps}
 				>
-					<Solicitud options={props.options} />
-					<Garantias />
+					<SolicitudDeCredito options={props.options} />
+					<Garantias options={props.options} />
+					<Observaciones />
 					<button
 						type='submit'
 						className='btn btn-primary'
