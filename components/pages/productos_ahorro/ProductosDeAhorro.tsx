@@ -11,7 +11,7 @@ interface Props {
 	}
 }
 
-const ProductosDeCredito = (props: Props) => {
+const ProductosDeAhorro = (props: Props) => {
 	const { values } = useFormikContext<ProductoDeAhorroValues>()
 
 	return (
@@ -19,7 +19,41 @@ const ProductosDeCredito = (props: Props) => {
 			<a href='#!' id='_productos' className='anchor' />
 			<h1 className='font-medium text-xl text-gray-900'>Producto de Ahorro</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<Select name='p_tipo_credito' label='Tipo de crédito'>
+				<Text name='p_nombre' label='Nombre del producto' />
+				<TextArea name='p_descripcion' label='Descripcion' />
+
+				<Select name='p_cod_moneda' label='Moneda'>
+					<option value={0} disabled>
+						Seleccione
+					</option>
+				</Select>
+				<Text
+					name='p_tasa_interes'
+					label='Tasa de interes mensual'
+					type='number'
+				/>
+				<Text
+					name='p_monto_minimo_apertura'
+					label='Monto minimo apertura'
+					type='number'
+				/>
+				<Text
+					name='p_monto_promedio_mensual'
+					label='Monto promedio mensual'
+					type='number'
+				/>
+				<Text
+					name='p_max_retiros_mes'
+					label='Maximos retiros mensuales'
+					type='number'
+				/>
+				<Text
+					name='p_monto_max_por_retiro'
+					label='Monto maximo por retiro'
+					type='number'
+				/>
+
+				<Select name='' label='Tipo de crédito'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
@@ -29,4 +63,4 @@ const ProductosDeCredito = (props: Props) => {
 	)
 }
 
-export default ProductosDeCredito
+export default ProductosDeAhorro
