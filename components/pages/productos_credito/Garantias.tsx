@@ -1,44 +1,13 @@
-import { Checkbox } from '@/components/forms'
-import MultipleChoice from '@/components/forms/MultipleChoice'
+import { MultipleChoice } from '@/components/forms'
 
 const Garantias = () => {
-	return (
-		<MultipleChoice title='Tipo de garantías'>
-			<Checkbox
-				name='test1'
-				label='Fiduciaria'
-				value={1}
-				classes={{
-					container: 'fc-lg md:fc-sm',
-					input: 'h-input flex form-input relative',
-					checkbox:
-						'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
-				}}
-			/>
-			<Checkbox
-				name='test1'
-				label='Prendaria'
-				value={2}
-				classes={{
-					container: 'fc-lg md:fc-sm',
-					input: 'h-input flex form-input relative',
-					checkbox:
-						'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
-				}}
-			/>
-			<Checkbox
-				name='test1'
-				label='Hipotecaria'
-				value={3}
-				classes={{
-					container: 'fc-lg md:fc-sm',
-					input: 'h-input flex form-input relative',
-					checkbox:
-						'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
-				}}
-			/>
-		</MultipleChoice>
-	)
+	const fields = [
+		{ name: 'pdc_cod_documento', label: 'Fiduciaria', value: 1 },
+		{ name: 'pdc_cod_documento', label: 'Prendaria', value: 2 },
+		{ name: 'pdc_cod_documento', label: 'Hipotecaria', value: 3 }
+	]
+
+	return <MultipleChoice title='Garantías' fields={fields} />
 }
 
 export default Garantias

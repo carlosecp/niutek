@@ -1,19 +1,19 @@
 import type { DeptosOption, TablaOptions } from '@/lib/interfaces'
 import type {
-	ProductoDeCreditoValues,
-	ProductoDeCreditoValidationSchema,
-	ProductoDeCreditoSearchResult
-} from '@/data/productos_credito/index'
+	SolicitudDeCreditoValues,
+	SolicitudDeCreditoValidationSchema,
+	SolicitudDeCreditoSearchResult
+} from '@/data/solicitud_credito/index'
 import * as React from 'react'
 import useIndex from '@/lib/useIndex'
 import {
 	initialValues,
 	navLinks,
 	getDescription
-} from '@/data/productos_credito'
+} from '@/data/solicitud_credito'
 import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
 import Form from '@/components/forms/Form'
-import { ProductosDeCredito, Cargos } from './components'
+import { SolicitudDeCredito } from './components'
 
 interface Props {
 	options: {
@@ -24,20 +24,20 @@ interface Props {
 
 const Index = (props: Props) => {
 	const state = useIndex<
-		ProductoDeCreditoValues,
-		ProductoDeCreditoSearchResult
+		SolicitudDeCreditoValues,
+		SolicitudDeCreditoSearchResult
 	>({
 		key: 'p_cod_producto',
 		initialValues: initialValues.values,
 		url: {
-			fetch: 'datos_producto_credito',
-			write: 'producto_credito'
+			fetch: 'datos_solicitud_credito',
+			write: 'solicitud_credito'
 		}
 	})
 
 	const navbarProps = {
 		loading: state.loading,
-		title: 'Producto de Crédito',
+		title: 'Certificados a Plazo Fijo',
 		onReset: () => state.setData(initialValues.values),
 		setEditingExisting: state.setEditingExisting,
 		toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
@@ -80,11 +80,10 @@ const Index = (props: Props) => {
 			<Navbar {...navbarProps} />
 			<div className='flex flex-col py-4 lg:pr-64'>
 				<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
-				<Form<ProductoDeCreditoValues, ProductoDeCreditoValidationSchema>
+				<Form<SolicitudDeCreditoValues, SolicitudDeCreditoValidationSchema>
 					{...formProps}
 				>
-					<ProductosDeCredito options={props.options} />
-					<Cargos options={props.options} />
+					<SolicitudDeCredito options={props.options} />
 					<button
 						type='submit'
 						className='btn btn-primary'
@@ -94,7 +93,7 @@ const Index = (props: Props) => {
 					</button>
 				</Form>
 				<Navigation {...navigationProps}>
-					<Search<ProductoDeCreditoSearchResult> {...searchProps} />
+					<Search<SolicitudDeCreditoSearchResult> {...searchProps} />
 					<Results {...resultsProps} />
 				</Navigation>
 			</div>

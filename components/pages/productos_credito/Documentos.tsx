@@ -1,44 +1,13 @@
-import { Checkbox } from '@/components/forms'
-import MultipleChoice from '@/components/forms/MultipleChoice'
+import { MultipleChoice } from '@/components/forms'
 
 const Documentos = () => {
-	return (
-		<MultipleChoice title='Documentos Requeridos'>
-			<Checkbox
-				name='pdc_cod_documento'
-				label='Fotocopia Cédula'
-				value={1}
-				classes={{
-					container: 'fc-lg md:fc-sm',
-					input: 'h-input flex form-input relative',
-					checkbox:
-						'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
-				}}
-			/>
-			<Checkbox
-				name='pdc_cod_documento'
-				label='Constancia Salarial'
-				value={2}
-				classes={{
-					container: 'fc-lg md:fc-sm',
-					input: 'h-input flex form-input relative',
-					checkbox:
-						'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
-				}}
-			/>
-			<Checkbox
-				name='pdc_cod_documento'
-				label='Carta Recomendación'
-				value={3}
-				classes={{
-					container: 'fc-lg md:fc-sm',
-					input: 'h-input flex form-input relative',
-					checkbox:
-						'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
-				}}
-			/>
-		</MultipleChoice>
-	)
+	const fields = [
+		{ name: 'pdc_cod_documento', label: 'Fotocopia de cédula', value: 1 },
+		{ name: 'pdc_cod_documento', label: 'Constancia salarial', value: 2 },
+		{ name: 'pdc_cod_documento', label: 'Carta de recomendación', value: 3 }
+	]
+
+	return <MultipleChoice title='Documentos Requeridos' fields={fields} />
 }
 
 export default Documentos
