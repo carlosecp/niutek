@@ -39,7 +39,7 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 		() => [
 			{
 				Header: 'Cargos',
-				id: '_tipo_cargo',
+				id: 'pcr_tipo_cargo',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
 						name={`${props.name}[${index}].pct_tipo_cargo`}
@@ -56,7 +56,7 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Moneda',
-				id: '_tipo_moneda',
+				id: 'pcr_cod_moneda',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
 						name={`${props.name}[${index}].pct_cod_moneda`}
@@ -73,7 +73,7 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Valor',
-				id: '_valor',
+				id: 'pcr_valor',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].valor`}
@@ -84,7 +84,7 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Tipo',
-				id: '_tipo_monto',
+				id: 'pcr_cod_tipo',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
 						name={`${props.name}[${index}].pct_cod_moneda`}
@@ -100,7 +100,7 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Aplica',
-				id: '_tipo_aplica',
+				id: 'pcr_cod_aplica',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
 						name={`${props.name}[${index}].tipo_aplica`}
