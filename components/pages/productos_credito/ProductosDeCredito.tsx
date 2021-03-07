@@ -3,6 +3,8 @@ import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import * as React from 'react'
 import { useFormikContext } from 'formik'
 import { Text, Select, TextArea } from '@/components/forms'
+import Garantias from './Garantias'
+import Documentos from './Documentos'
 
 interface Props {
 	options: {
@@ -43,6 +45,8 @@ const ProductosDeCredito = (props: Props) => {
 					}}
 				/>
 				<TextArea name='p_descripcion' label='Descripción' />
+				<Documentos />
+				<Garantias />
 				<Select name='p_cod_moneda' label='Moneda'>
 					<option value={0} disabled>
 						Seleccione

@@ -13,7 +13,7 @@ import {
 } from '@/data/productos_credito'
 import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
 import Form from '@/components/forms/Form'
-import { ProductosDeCredito, Cargos, Garantias, Documentos } from './components'
+import { ProductosDeCredito, Cargos } from './components'
 
 interface Props {
 	options: {
@@ -85,8 +85,6 @@ const Index = (props: Props) => {
 				>
 					<ProductosDeCredito options={props.options} />
 					<Cargos options={props.options} />
-					<Garantias />
-					<Documentos />
 					<button
 						type='submit'
 						className='btn btn-primary'
