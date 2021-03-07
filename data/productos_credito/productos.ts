@@ -2,25 +2,29 @@ import * as yup from 'yup'
 import moment from 'moment'
 
 const values = {
-	p_aplica_grupo_solidario: false,
-	p_aplica_individual: false,
-	p_cod_frecuencia_pago: 0,
-	p_cod_fuente_fondo: 0,
-	p_cod_moneda: 0,
 	p_cod_tipo_credito: 0,
-	p_descripcion: '',
-	p_monto_maximo: 0,
-	p_monto_minimo: 0,
+	p_cod_fuente_fondo: 0,
 	p_nombre: '',
-	p_plazo: 0,
+	p_descripcion: '',
+	p_cod_moneda: 0,
+	p_tasa_interes_minima: 0,
+	p_tasa_interes_maxima: 0,
+	p_monto_minimo: 0,
+	p_monto_maximo: 0,
+	p_plazo_minimo: 0,
+	p_plazo_maximo: 0,
+	p_cod_frec_plazo_minimo: 0,
+	p_cod_frec_plazo_maximo: 0,
+	p_cod_frecuencia_pago: 0,
 	p_porc_aportacion: 0,
-	p_tasa_interes: 0,
+	p_cod_tipo_cuota: 0,
+	p_cod_aplica_grupo: 0,
 	pcr_cod_moneda: '',
 	pcr_cod_tipo: '',
-	pcr_descripcion_cargo: '',
+	pcr_cod_cargo: '',
 	pcr_valor: ''
 }
-
+/*
 const validations = {
 	p_nombres: yup
 		.string()
@@ -90,5 +94,6 @@ const validations = {
 		.min(0, 'Valor Mínimo 0')
 		.required('Requerido')
 }
-
+*/
+const validations = {}
 export const productos = { values, validations }

@@ -42,33 +42,33 @@ const ProductosDeCredito = (props: Props) => {
 						input: 'w-full block form-input form-input-border'
 					}}
 				/>
-				<TextArea name='_descripcion' label='Descripción' />
-				<Select name='p_moneda' label='Moneda'>
+				<TextArea name='p_descripcion' label='Descripción' />
+				<Select name='p_cod_moneda' label='Moneda'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
 				<Text
-					name='_tasa_interes_minima'
+					name='p_tasa_interes_minima'
 					label='Tasa de interes mínima'
 					classes={{
 						container: 'fc-lg md:fc break-line',
 						input: 'w-full block form-input form-input-border'
 					}}
 				/>
-				<Text name='_tasa_interes_maxima' label='Tasa de interes máxima' />
-				<Text name='_monto_minimo' label='Monto mínimo' type='number' />
-				<Text name='_monto_maximo' label='Monto máximo' type='number' />
+				<Text name='p_tasa_interes_maxima' label='Tasa de interes máxima' />
+				<Text name='p_monto_minimo' label='Monto mínimo' type='number' />
+				<Text name='p_monto_maximo' label='Monto máximo' type='number' />
 				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 					<Text
-						name='p_of_nombre_negocio'
+						name='p_plazo_minimo'
 						label='Plazo mínimo'
 						classes={{
 							container: 'fc',
 							input: 'w-full block form-input form-input-border'
 						}}
 					/>
-					<Select name='p_tipo_doc' label='Período'>
+					<Select name='p_tipo_doc1' label='Período'>
 						<option value={0} disabled>
 							Seleccione
 						</option>
@@ -76,7 +76,7 @@ const ProductosDeCredito = (props: Props) => {
 				</fieldset>
 				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 					<Text
-						name='p_of_nombre_negocio'
+						name='p_plazo_maximo'
 						classes={{
 							container: 'fc',
 							input: 'w-full block form-input form-input-border'
@@ -89,12 +89,12 @@ const ProductosDeCredito = (props: Props) => {
 						</option>
 					</Select>
 				</fieldset>
-				<Select name='p_tipo_doc' label='Frecuencia de pago'>
+				<Select name='p_cod_frecuencia_pago' label='Frecuencia de pago'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
-				<Select name='p_tipo_doc' label='Tipo de cuota'>
+				<Select name='p_cod_tipo_cuota' label='Tipo de cuota'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
