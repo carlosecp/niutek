@@ -18,9 +18,8 @@ import {
 	RefBancarias,
 	Proveedores
 } from './components'
-import { Navbar, Navigation, Search, Results } from '@/layout'
+import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
 import Form from '@/components/forms/Form'
-import Alerts from '@/layout/Alerts'
 
 interface Props {
 	options: {

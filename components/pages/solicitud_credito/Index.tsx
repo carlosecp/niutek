@@ -11,9 +11,8 @@ import {
 	navLinks,
 	getDescription
 } from '@/data/solicitud_credito'
-import { Navbar, Navigation, Search, Results } from '@/layout'
-import Alerts from '@/layout/Alerts'
-import Form from '@/forms/Form'
+import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
+import Form from '@/components/forms/Form'
 import { SolicitudDeCredito, Garantias, Observaciones } from './components'
 
 interface Props {

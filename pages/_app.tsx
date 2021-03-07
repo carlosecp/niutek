@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
-import { Layout } from '../layout'
+import { Layout } from '@/layouts/index'
 import '../styles/index.css'
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => {

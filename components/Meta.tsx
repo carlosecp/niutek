@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 interface Props {
 	title?: string
@@ -14,11 +15,18 @@ const Meta = ({
 	title = defaults.title,
 	description = defaults.description
 }: Props) => {
+	const router = useRouter()
+
 	return (
 		<Head>
+			<title>{title}</title>
 			<meta name='viewport' content='width=device-width, initial-scale=1' />
 			<meta name='description' content={description} />
-			<title>{title}</title>
+			<meta name='robots' content='follow, index' />
+			<meta property='og:url' content={`https://niutek.dev${router.asPath}`} />
+			<meta property='og:site_name' content='niutek' />
+			<meta property='og:description' content={description} />
+			<meta property='og:title' content={title} />
 		</Head>
 	)
 }
