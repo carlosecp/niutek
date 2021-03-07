@@ -19,7 +19,6 @@ export type PersonaJuridicaSearchResult = {
 	description: string
 }
 
-// Funcion utilizada para generar la descripcion que se muestra en la seccion de busqueda. Funcion llamada en Results.tsx.
 export const getDescription = (result: PersonaJuridicaSearchResult) => ({
 	accessor: result.cod_cliente,
 	description: `${result.nombre}`

@@ -1,19 +1,19 @@
 import type {
 	PersonaNaturalValues,
 	PersonaNaturalSearchResult
-} from '../data/persona_natural'
+} from '@/data/persona_natural'
 import {
 	PersonaJuridicaSearchResult,
 	PersonaJuridicaValues
-} from '../data/persona_juridica'
+} from '@/data/persona_juridica'
 import type {
 	ProductoDeCreditoValues,
 	ProductoDeCreditoSearchResult
-} from '../data/productos_credito'
+} from '@/data/productos_credito'
 import type {
 	SolicitudDeCreditoSearchResult,
 	SolicitudDeCreditoValues
-} from '../data/solicitud_credito'
+} from '@/data/solicitud_credito'
 
 export type GlobalSearchResults =
 	| PersonaNaturalSearchResult
