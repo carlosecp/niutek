@@ -3,7 +3,7 @@ import MultipleChoice from '@/components/forms/MultipleChoice'
 
 const Documentos = () => {
 	return (
-		<MultipleChoice title='Documentos Requeridos'>
+		<MultipleChoice name='pdc_cod_documento' title='Documentos Requeridos'>
 			<Checkbox
 				name='test1'
 				label='Fotocopia Cédula'

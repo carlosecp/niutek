@@ -22,7 +22,8 @@ const values = {
 	pcr_cod_moneda: '',
 	pcr_cod_tipo: '',
 	pcr_cod_cargo: '',
-	pcr_valor: ''
+	pcr_valor: '',
+	pdc_cod_documento: []
 }
 /*
 const validations = {
