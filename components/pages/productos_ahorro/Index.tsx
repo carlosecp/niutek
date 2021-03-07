@@ -1,14 +1,19 @@
-import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
+import type { DeptosOption, TablaOptions } from '@/lib/interfaces'
 import type {
-	PersonaNaturalValues,
-	PersonaNaturalValidationSchema,
-	PersonaNaturalSearchResult
-} from '@/data/persona_natural'
+	ProductoDeCreditoValues,
+	ProductoDeCreditoValidationSchema,
+	ProductoDeCreditoSearchResult
+} from '@/data/productos_credito/index'
 import * as React from 'react'
 import useIndex from '@/lib/useIndex'
-import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
+import {
+	initialValues,
+	navLinks,
+	getDescription
+} from '@/data/productos_credito'
 import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
 import Form from '@/components/forms/Form'
+import { ProductosDeAhorro, Cargos } from './components'
 
 interface Props {
 	options: {
@@ -18,25 +23,28 @@ interface Props {
 }
 
 const Index = (props: Props) => {
-	const state = useIndex<PersonaNaturalValues, PersonaNaturalSearchResult>({
-		key: 'p_cod_cliente',
+	const state = useIndex<
+		ProductoDeCreditoValues,
+		ProductoDeCreditoSearchResult
+	>({
+		key: 'p_cod_producto',
 		initialValues: initialValues.values,
 		url: {
-			fetch: 'datos_cliente_natural',
-			write: 'cliente_natural'
+			fetch: 'datos_producto_credito',
+			write: 'producto_credito'
 		}
 	})
 
 	const navbarProps = {
 		loading: state.loading,
-		title: 'Persona Natural',
+		title: 'Producto de Ahorro',
 		onReset: () => state.setData(initialValues.values),
 		setEditingExisting: state.setEditingExisting,
 		toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
 	}
 
 	const formProps = {
-		accessKey: 'p_cod_cliente',
+		accessKey: 'p_cod_producto',
 		currentId: state.currentId,
 		validations: initialValues.validations,
 		values: state.data,
@@ -51,8 +59,8 @@ const Index = (props: Props) => {
 
 	const searchProps = {
 		config: {
-			placeholder: 'Buscar persona natural',
-			url: 'busca/clientes_natural'
+			placeholder: 'Buscar producto',
+			url: 'busca/productos_credito'
 		},
 		loading: state.loading,
 		setLoading: state.setLoading,
@@ -72,9 +80,10 @@ const Index = (props: Props) => {
 			<Navbar {...navbarProps} />
 			<div className='flex flex-col py-4 lg:pr-64'>
 				<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
-				<Form<PersonaNaturalValues, PersonaNaturalValidationSchema>
+				<Form<ProductoDeCreditoValues, ProductoDeCreditoValidationSchema>
 					{...formProps}
 				>
+					<ProductosDeAhorro options={props.options} />
 					<button
 						type='submit'
 						className='btn btn-primary'
@@ -84,7 +93,7 @@ const Index = (props: Props) => {
 					</button>
 				</Form>
 				<Navigation {...navigationProps}>
-					<Search<PersonaNaturalSearchResult> {...searchProps} />
+					<Search<ProductoDeCreditoSearchResult> {...searchProps} />
 					<Results {...resultsProps} />
 				</Navigation>
 			</div>

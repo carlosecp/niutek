@@ -3,7 +3,7 @@ import type { DeptosOption, TablaOptions } from '@/lib/interfaces'
 import * as React from 'react'
 import axios from 'axios'
 import Meta from '@/components/Meta'
-import Index from '@/components/pages/solicitud_credito/Index'
+import Index from '@/components/pages/productos_ahorro/Index'
 
 interface OptionsTypes {
 	tabla: TablaOptions
@@ -19,7 +19,7 @@ const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 	return (
 		<>
-			<Meta title='Certificados a Plazo Fijo' />
+			<Meta title='Ahorro' />
 			<Index {...indexProps} />
 		</>
 	)
