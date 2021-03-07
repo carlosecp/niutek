@@ -1,8 +1,8 @@
-import type { SolicitudDeCreditoValues } from './data'
-import type { TablaOptions, DeptosOption } from '../../../../interfaces'
+import type { SolicitudDeCreditoValues } from '../../../../data/solicitud_credito'
+import type { TablaOptions, DeptosOption } from '../../../../lib/interfaces'
 import * as React from 'react'
 import { useFormikContext } from 'formik'
-import { Text, Select } from '../../../templates/forms'
+import { Text, Select } from '../../../forms'
 import Documentos from './Documentos'
 
 interface Props {

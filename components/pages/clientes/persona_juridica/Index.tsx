@@ -1,22 +1,26 @@
-import type { TablaOptions, DeptosOption } from '../../../../interfaces'
+import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import type {
 	PersonaJuridicaValues,
 	PersonaJuridicaValidationSchema,
 	PersonaJuridicaSearchResult
-} from './data/index'
+} from '@/data/persona_juridica'
 import * as React from 'react'
-import useIndex from '../../../../hooks/useIndex'
-import { initialValues, navLinks, getDescription } from './data'
+import useIndex from '@/lib/useIndex'
+import {
+	initialValues,
+	navLinks,
+	getDescription
+} from '@/data/persona_juridica'
 import {
 	PersonaJuridica,
 	OrigenFondos,
 	RefComerciales,
 	RefBancarias,
 	Proveedores
-} from './components'
-import { Navbar, Navigation, Search, Results } from '../../../layout'
-import Form from '../../../templates/forms/Form'
-import Alerts from '../../../layout/Alerts'
+} from '@/components'
+import { Navbar, Navigation, Search, Results } from '../../../../layout'
+import Form from '@components/forms/Form'
+import Alerts from '@/layout/Alerts'
 
 interface Props {
 	options: {

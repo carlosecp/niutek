@@ -1,7 +1,7 @@
-import type { GlobalValues } from '../../../interfaces'
+import type { GlobalValues } from '../../lib/interfaces'
 import * as React from 'react'
 import { Formik, Form as FormikForm } from 'formik'
-import LogErrors from '../../../utils/LogErrors'
+import LogErrors from '../../lib/LogErrors'
 
 interface Props<Values, ValidationSchema> {
 	accessKey: string

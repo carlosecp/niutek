@@ -1,7 +1,7 @@
-import type { TablaOptions } from '../../../../interfaces'
-import type { PersonaJuridicaValues } from './data'
-import type { RefSchema } from './data/proveedores'
-import { refSchema } from './data/proveedores'
+import type { TablaOptions } from '../../../../lib/interfaces'
+import type { PersonaJuridicaValues } from '../../../../data/persona_juridica'
+import type { RefSchema } from '../../../../data/persona_juridica/proveedores'
+import { refSchema } from '../../../../data/persona_juridica/proveedores'
 import { FieldArray } from 'formik'
 import ProveedoresTable from './ProveedoresTable'
 

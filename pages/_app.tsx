@@ -1,17 +1,16 @@
 import type { AppProps } from 'next/app'
-import { Provider } from 'react-redux'
-import store from '../store/store'
-import { Layout } from '../components/layout/'
+import { ThemeProvider } from 'next-themes'
+import { Layout } from '../layout'
 import '../styles/index.css'
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
 	if (router.pathname.startsWith('/app')) {
 		return (
-			<Provider store={store}>
+			<ThemeProvider attribute='class'>
 				<Layout>
 					<Component {...pageProps} />
 				</Layout>
-			</Provider>
+			</ThemeProvider>
 		)
 	}
 

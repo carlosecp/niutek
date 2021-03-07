@@ -1,8 +1,8 @@
-import type { ProductoDeCreditoValues } from './data'
-import type { TablaOptions, DeptosOption } from '../../../../interfaces'
+import type { ProductoDeCreditoValues } from '../../../../data/productos_credito'
+import type { TablaOptions, DeptosOption } from '../../../../lib/interfaces'
 import * as React from 'react'
 import { useFormikContext } from 'formik'
-import { Text, Select, TextArea } from '../../../templates/forms'
+import { Text, Select, TextArea } from '../../../forms'
 
 interface Props {
 	options: {

@@ -1,9 +1,9 @@
-import type { PersonaJuridicaValues } from './data'
-import type { TablaOptions, DeptosOption } from '../../../../interfaces'
+import type { PersonaJuridicaValues } from '../../../../data/persona_juridica'
+import type { TablaOptions, DeptosOption } from '../../../../lib/interfaces'
 import * as React from 'react'
 import { useFormikContext } from 'formik'
-import { Text, Select, TextArea } from '../../../templates/forms'
-import useMunicipio from '../../../../hooks/useMunicipio'
+import { Text, Select, TextArea } from '../../../forms'
+import useMunicipio from '../../../../lib/useMunicipio'
 
 interface Props {
 	options: {

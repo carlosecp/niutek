@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useFormikContext, getIn } from 'formik'
-import { Select, Text } from '../../../templates/forms'
-import Table from '../../../templates/tables/Table'
+import { Select, Text } from '../../../forms'
+import Table from '../../../tables/Table'
 
 interface Props<RefSchema> {
 	name: string

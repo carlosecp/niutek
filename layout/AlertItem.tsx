@@ -1,4 +1,4 @@
-import type { Alert } from '../../interfaces/index'
+import type { Alert } from '../lib/interfaces'
 import { FaTimes } from 'react-icons/fa'
 
 interface Props {

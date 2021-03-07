@@ -1,7 +1,7 @@
-import type { TablaOptions } from '../../../../interfaces'
-import type { SolicitudDeCreditoValues } from './data'
-import type { RefSchema } from './data/garantias'
-import { refSchema } from './data/garantias'
+import type { TablaOptions } from '../../../../lib/interfaces'
+import type { SolicitudDeCreditoValues } from '../../../../data/solicitud_credito'
+import type { RefSchema } from '../../../../data/solicitud_credito/garantias'
+import { refSchema } from '../../../../data/solicitud_credito/garantias'
 import { FieldArray } from 'formik'
 import GarantiasTable from './GarantiasTable'
 

@@ -1,16 +1,20 @@
-import type { DeptosOption, TablaOptions } from '../../../../interfaces'
+import type { DeptosOption, TablaOptions } from '../../../../lib/interfaces'
 import type {
 	ProductoDeCreditoValues,
 	ProductoDeCreditoValidationSchema,
 	ProductoDeCreditoSearchResult
-} from './data/index'
+} from '../../../../data/resolucion_credito/index'
 
 import * as React from 'react'
-import useIndex from '../../../../hooks/useIndex'
-import { initialValues, navLinks, getDescription } from './data'
-import { Navbar, Navigation, Search, Results } from '../../../layout'
-import Form from '../../../templates/forms/Form'
-import Alerts from '../../../layout/Alerts'
+import useIndex from '../../../../lib/useIndex'
+import {
+	initialValues,
+	navLinks,
+	getDescription
+} from '../../../../data/resolucion_credito'
+import { Navbar, Navigation, Search, Results } from '../../../../layout'
+import Form from '../../../forms/Form'
+import Alerts from '../../../../layout/Alerts'
 
 interface Props {
 	options: {

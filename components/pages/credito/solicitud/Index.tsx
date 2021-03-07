@@ -1,15 +1,19 @@
-import type { DeptosOption, TablaOptions } from '../../../../interfaces'
+import type { DeptosOption, TablaOptions } from '../../../../lib/interfaces'
 import type {
 	SolicitudDeCreditoValues,
 	SolicitudDeCreditoValidationSchema,
 	SolicitudDeCreditoSearchResult
-} from './data/index'
+} from '../../../../data/solicitud_credito/index'
 import * as React from 'react'
-import useIndex from '../../../../hooks/useIndex'
-import { initialValues, navLinks, getDescription } from './data'
-import { Navbar, Navigation, Search, Results } from '../../../layout'
-import Alerts from '../../../layout/Alerts'
-import Form from '../../../templates/forms/Form'
+import useIndex from '../../../../lib/useIndex'
+import {
+	initialValues,
+	navLinks,
+	getDescription
+} from '../../../../data/solicitud_credito'
+import { Navbar, Navigation, Search, Results } from '../../../../layout'
+import Alerts from '../../../../layout/Alerts'
+import Form from '../../../forms/Form'
 import { SolicitudDeCredito, Garantias, Observaciones } from './components'
 
 interface Props {

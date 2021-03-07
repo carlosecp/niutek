@@ -1,7 +1,7 @@
-import type { TablaOptions } from '../../../../interfaces'
-import type { PersonaNaturalValues } from './data'
-import type { RefSchema } from './data/refPersonales'
-import { refSchema } from './data/refPersonales'
+import type { TablaOptions } from '../../../../lib/interfaces'
+import type { PersonaNaturalValues } from '../../../../data/persona_natural'
+import type { RefSchema } from '../../../../data/persona_natural/refPersonales'
+import { refSchema } from '../../../../data/persona_natural/refPersonales'
 import { FieldArray } from 'formik'
 import PersonalesTable from './PersonalesTable'
 

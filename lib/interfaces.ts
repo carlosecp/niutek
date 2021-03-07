@@ -1,19 +1,19 @@
 import type {
 	PersonaNaturalValues,
 	PersonaNaturalSearchResult
-} from '../components/pages/clientes/persona_natural/data'
+} from '../data/persona_natural'
 import {
 	PersonaJuridicaSearchResult,
 	PersonaJuridicaValues
-} from '../components/pages/clientes/persona_juridica/data'
+} from '../data/persona_juridica'
 import type {
 	ProductoDeCreditoValues,
 	ProductoDeCreditoSearchResult
-} from '../components/pages/credito/productos/data'
+} from '../data/productos_credito'
 import type {
 	SolicitudDeCreditoSearchResult,
 	SolicitudDeCreditoValues
-} from '../components/pages/credito/solicitud/data'
+} from '../data/solicitud_credito'
 
 export type GlobalSearchResults =
 	| PersonaNaturalSearchResult

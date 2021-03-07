@@ -1,13 +1,13 @@
-import type { PersonaNaturalValues } from './data'
+import type { PersonaNaturalValues } from '../../../../data/persona_natural'
 import type {
 	TablaOptions,
 	DeptosOption,
 	MuniOption
-} from '../../../../interfaces'
+} from '../../../../lib/interfaces'
 import * as React from 'react'
 import { useFormikContext } from 'formik'
-import { Text, Select, TextArea } from '../../../templates/forms'
-import useMunicipio from '../../../../hooks/useMunicipio'
+import { Text, Select, TextArea } from '../../../forms'
+import useMunicipio from '../../../../lib/useMunicipio'
 
 interface Props {
 	options: {

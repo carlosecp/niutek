@@ -1,4 +1,4 @@
-import { TextArea } from '../../../templates/forms'
+import { TextArea } from '../../../forms'
 
 const Observaciones = () => {
 	return (

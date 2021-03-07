@@ -1,6 +1,6 @@
-import type { PersonaNaturalValues } from './data'
-import type { RefSchema } from './data/refComerciales'
-import { refSchema } from './data/refComerciales'
+import type { PersonaNaturalValues } from '../../../../data/persona_natural'
+import type { RefSchema } from '../../../../data/persona_natural/refComerciales'
+import { refSchema } from '../../../../data/persona_natural/refComerciales'
 import { FieldArray } from 'formik'
 import ComercialesTable from './ComercialesTable'
 

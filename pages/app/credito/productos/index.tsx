@@ -1,5 +1,5 @@
 import type { InferGetStaticPropsType } from 'next'
-import type { DeptosOption, TablaOptions } from '../../../../interfaces'
+import type { DeptosOption, TablaOptions } from '../../../../lib/interfaces'
 import * as React from 'react'
 import axios from 'axios'
 import Meta from '../../../../components/Meta'

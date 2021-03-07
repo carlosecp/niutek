@@ -1,20 +1,16 @@
-import type { Dispatch } from 'react'
-import type { GlobalSearchConfig, GlobalSearchResults } from '../../interfaces'
+import type { GlobalSearchConfig, GlobalSearchResults } from '../lib/interfaces'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 
 interface Args {
 	url: string
 	body: { search: string }
-	dispatch: Dispatch<any>
 }
 
 const getResults = async <SearchResult extends GlobalSearchResults>({
 	url,
-	body,
-	dispatch
+	body
 }: Args) => {
 	const req = {
 		path: `${process.env.backend}/proc/${url}`,
@@ -65,8 +61,6 @@ interface Props<SearchResult> {
 const Search = <SearchResult extends GlobalSearchResults>(
 	props: Props<SearchResult>
 ) => {
-	const dispatch = useDispatch()
-
 	return (
 		<Formik
 			initialValues={{ search: '' }}
@@ -76,8 +70,7 @@ const Search = <SearchResult extends GlobalSearchResults>(
 
 				const results = await getResults<SearchResult>({
 					url: props.config.url,
-					body: values,
-					dispatch
+					body: values
 				})
 				props.setSearchResults(results)
 

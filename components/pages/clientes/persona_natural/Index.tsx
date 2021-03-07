@@ -1,12 +1,16 @@
-import type { TablaOptions, DeptosOption } from '../../../../interfaces'
+import type { TablaOptions, DeptosOption } from '../../../../lib/interfaces'
 import type {
 	PersonaNaturalValues,
 	PersonaNaturalValidationSchema,
 	PersonaNaturalSearchResult
-} from './data/index'
+} from '../../../../data/persona_natural/index'
 import * as React from 'react'
-import useIndex from '../../../../hooks/useIndex'
-import { initialValues, navLinks, getDescription } from './data'
+import useIndex from '../../../../lib/useIndex'
+import {
+	initialValues,
+	navLinks,
+	getDescription
+} from '../../../../data/persona_natural'
 import {
 	PersonaNatural,
 	DatosProfesionales,
@@ -15,9 +19,9 @@ import {
 	RefBancarias,
 	RefPersonales
 } from './components'
-import { Navbar, Navigation, Search, Results } from '../../../layout'
-import Form from '../../../templates/forms/Form'
-import Alerts from '../../../layout/Alerts'
+import { Navbar, Navigation, Search, Results } from '../../../../layout'
+import Form from '../../../forms/Form'
+import Alerts from '../../../../layout/Alerts'
 
 interface Props {
 	options: {

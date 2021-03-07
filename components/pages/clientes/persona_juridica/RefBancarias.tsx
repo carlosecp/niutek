@@ -1,7 +1,7 @@
-import type { TablaOptions } from '../../../../interfaces'
-import type { PersonaNaturalValues } from './data'
-import type { RefSchema } from './data/refBancarias'
-import { refSchema } from './data/refBancarias'
+import type { TablaOptions } from '../../../../lib/interfaces'
+import type { PersonaNaturalValues } from '../../../../data/persona_juridica'
+import type { RefSchema } from '../../../../data/persona_juridica/refBancarias'
+import { refSchema } from '../../../../data/persona_juridica/refBancarias'
 import { FieldArray } from 'formik'
 import BancariasTable from './BancariasTable'
 

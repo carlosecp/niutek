@@ -1,5 +1,5 @@
-import { Checkbox } from '../../../templates/forms'
-import MultipleChoice from '../../../templates/forms/MultipleChoice'
+import { Checkbox } from '../../../forms'
+import MultipleChoice from '../../../forms/MultipleChoice'
 
 const Garantias = () => {
 	return (

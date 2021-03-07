@@ -1,7 +1,7 @@
-import type { TablaOptions } from '../../../../interfaces'
-import type { ProductoDeCreditoValues } from './data'
-import type { RefSchema } from './data/cargos'
-import { refSchema } from './data/cargos'
+import type { TablaOptions } from '../../../../lib/interfaces'
+import type { ProductoDeCreditoValues } from '../../../../data/productos_credito'
+import type { RefSchema } from '../../../../data/productos_credito/cargos'
+import { refSchema } from '../../../../data/productos_credito/cargos'
 import { FieldArray } from 'formik'
 import CargosTable from './CargosTable'
 
