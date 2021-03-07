@@ -1,8 +1,9 @@
+import type { RootState } from '@/lib/store'
 import type { GlobalValues, GlobalSearchResults, Alert } from './interfaces'
 import * as React from 'react'
 import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
-import authContext from '../context/auth/authContext'
+import { useSelector, useDispatch } from 'react-redux'
 
 interface Args<Values> {
 	url: {
@@ -33,15 +34,16 @@ const useIndex = <
 		setAlerts(alerts.filter((alert) => alert.id !== id))
 	}
 
-	const authState = React.useContext(authContext)
+	const dispatch = useDispatch()
+	const auth = useSelector((state: RootState) => state.auth)
 
 	const getData = async (accessor: string | number) => {
 		const req = {
 			path: `${process.env.backend}/proc/lee/${props.url.fetch}`,
 			body: {
 				[props.key]: accessor,
-				p_cod_empresa: authState.user.p_cod_empresa,
-				p_cod_sucursal: authState.user.p_cod_sucursal
+				p_cod_empresa: auth.user.p_cod_empresa,
+				p_cod_sucursal: auth.user.p_cod_sucursal
 			},
 			headers: {
 				'Content-Type': 'application/json',
