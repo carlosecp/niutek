@@ -11,6 +11,7 @@ interface Props<RefSchema> {
 	handleRemove: (index: number) => void
 }
 
+// RefSchema es el schema de cada una de las rows de la tabla, no el validationSchema.
 const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const { values } = useFormikContext<Data>()
 	const data: RefSchema[] = getIn(values, props.name) || []
@@ -98,6 +99,17 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				)
 			},
 			{
+				Header: 'Monto',
+				id: '_monto',
+				Cell: ({ row: { index } }: { row: { index: number } }) => (
+					<Text
+						name={`${props.name}[${index}].monto`}
+						classes={styles}
+						placeholder=''
+					/>
+				)
+			},
+			{
 				Header: 'Aplica',
 				id: '_tipo_aplica',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
@@ -133,7 +145,9 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	return (
 		<div>
 			<div className='flex justify-between items-center'>
-				<h1 className='font-medium text-xl text-gray-900'>Cargos</h1>
+				<h1 className='font-medium text-xl text-gray-900'>
+					Cargos Formalización
+				</h1>
 				<button
 					type='button'
 					className='btn btn-primary'

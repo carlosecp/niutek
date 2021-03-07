@@ -20,7 +20,7 @@ const RefCargos = (props: Props) => {
 	}
 
 	return (
-		<section id='_cargos'>
+		<section id='cargos'>
 			<a href='#!' id='_cargos' className='anchor'></a>
 			<article className='flex flex-col'>
 				<FieldArray name='cargos'>
