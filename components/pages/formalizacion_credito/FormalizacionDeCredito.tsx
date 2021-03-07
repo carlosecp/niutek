@@ -15,73 +15,73 @@ const ProductosDeCredito = (props: Props) => {
 	const { values } = useFormikContext<ProductoDeCreditoValues>()
 
 	return (
-		<section id='productos'>
-			<a href='#!' id='_productos' className='anchor' />
-			<h1 className='font-medium text-xl text-gray-900'>Producto de Crédito</h1>
+		<section id='formalizacion_de_credito'>
+			<a href='#!' id='_formalizacion' className='anchor' />
+			<h1 className='font-medium text-xl text-gray-900'>
+				Formalización de Crédito
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<Select name='p_tipo_credito' label='Tipo de crédito'>
+				<Text name='_cliente' label='Cliente' />
+				<Text name='_cliente' label='Producto' />
+				<Select name='fuente_de_fondos' label='Promotor'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
-				<Select name='fuente_de_fondos' label='Fondos propios'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
-				<Select name='p_tipo_contrato' label='Tipo de contrato'>
+				<Text name='_cliente' label='Monto aprobado' type='number' />
+				<Select name='p_tipo_contrato' label='Actividad económica'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
 				<Text
-					name='nombre_del_producto'
-					label='Nombre del producto'
+					name='_cliente'
+					label='Total cargos formalización'
+					type='number'
+				/>
+				<Select name='p_tipo_contrato' label='Sector económico'>
+					<option value={0} disabled>
+						Seleccione
+					</option>
+				</Select>
+				<Select
+					name='p_tipo_contrato'
+					label='Destino del crédito'
 					classes={{
-						container: 'fc-lg',
+						container: 'fc-lg md:fc break-line',
 						input: 'w-full block form-input form-input-border'
 					}}
-				/>
-				<TextArea name='p_descripcion' label='Descripción' />
-				<Select name='p_cod_moneda' label='Moneda'>
+				>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
+				<Text name='_cliente' label='Desembolso neto' type='number' />
+				<Text name='_cliente' label='Fecha resolución' />
+				<Text name='_cliente' label='Fecha desembolso' />
+				<Select name='p_moneda' label='Moneda'>
+					<option value={0} disabled>
+						Seleccione
+					</option>
+				</Select>
+				<Text name='_cliente' label='Fecha primer pago' />
 				<Text
-					name='p_tasa_interes_minima'
-					label='Tasa de interes mínima'
+					name='_tasa_interes_minima'
+					label='Tasa de interés mensual'
 					classes={{
 						container: 'fc-lg md:fc break-line',
 						input: 'w-full block form-input form-input-border'
 					}}
 				/>
-				<Text name='p_tasa_interes_maxima' label='Tasa de interes máxima' />
-				<Text name='p_monto_minimo' label='Monto mínimo' type='number' />
-				<Text name='p_monto_maximo' label='Monto máximo' type='number' />
+				<Text name='_tasa_interes_maxima' label='Tipo desembolso' />
 				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 					<Text
-						name='p_plazo_minimo'
-						label='Plazo mínimo'
+						name='p_of_nombre_negocio'
+						label='Plazo hasta'
 						classes={{
 							container: 'fc',
 							input: 'w-full block form-input form-input-border'
 						}}
-					/>
-					<Select name='p_tipo_doc1' label='Período'>
-						<option value={0} disabled>
-							Seleccione
-						</option>
-					</Select>
-				</fieldset>
-				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
-					<Text
-						name='p_plazo_maximo'
-						classes={{
-							container: 'fc',
-							input: 'w-full block form-input form-input-border'
-						}}
-						label='Plazo máximo'
 					/>
 					<Select name='p_tipo_doc' label='Período'>
 						<option value={0} disabled>
@@ -89,12 +89,8 @@ const ProductosDeCredito = (props: Props) => {
 						</option>
 					</Select>
 				</fieldset>
-				<Select name='p_cod_frecuencia_pago' label='Frecuencia de pago'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
-				<Select name='p_cod_tipo_cuota' label='Tipo de cuota'>
+				<Text name='_tasa_interes_maxima' label='Cuota' type='number' />
+				<Select name='p_tipo_doc' label='Frecuencia de pago'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
