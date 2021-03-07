@@ -3,9 +3,9 @@ import MultipleChoice from '@/components/forms/MultipleChoice'
 
 const Documentos = () => {
 	return (
-		<MultipleChoice name='pdc_cod_documento' title='Documentos Requeridos'>
+		<MultipleChoice title='Documentos Requeridos'>
 			<Checkbox
-				name='test1'
+				name='pdc_cod_documento'
 				label='Fotocopia Cédula'
 				value={1}
 				classes={{
@@ -16,7 +16,7 @@ const Documentos = () => {
 				}}
 			/>
 			<Checkbox
-				name='test1'
+				name='pdc_cod_documento'
 				label='Constancia Salarial'
 				value={2}
 				classes={{
@@ -27,7 +27,7 @@ const Documentos = () => {
 				}}
 			/>
 			<Checkbox
-				name='test1'
+				name='pdc_cod_documento'
 				label='Carta Recomendación'
 				value={3}
 				classes={{
