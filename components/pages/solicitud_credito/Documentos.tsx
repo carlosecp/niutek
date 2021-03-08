@@ -3,7 +3,7 @@ import MultipleChoice from '@/components/forms/MultipleChoice'
 
 const Documentos = () => {
 	return (
-		<MultipleChoice title='Documentos Requeridos'>
+		<>
 			<Checkbox
 				name='test1'
 				label='Fotocopia Cédula'
@@ -37,7 +37,7 @@ const Documentos = () => {
 						'mr-2 focus:ring-primary h-4 w-4 text-indigo-600 border-gray-300 rounded'
 				}}
 			/>
-		</MultipleChoice>
+		</>
 	)
 }
 

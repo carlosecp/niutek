@@ -1,5 +1,4 @@
-import classes from '*.module.css'
-import { useField, useFormikContext } from 'formik'
+import { Field, useField, useFormikContext } from 'formik'
 
 interface Props {
 	name: string
@@ -27,7 +26,7 @@ const Checkbox = ({ name, classes = styles, label, ...props }: Props) => {
 	return (
 		<div className={classes.container}>
 			<div className={classes.input}>
-				<input
+				<Field
 					type='checkbox'
 					className={classes.checkbox}
 					disabled={isSubmitting || props?.disabled}

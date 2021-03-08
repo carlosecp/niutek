@@ -25,6 +25,7 @@ const values = {
 	pcr_valor: '',
 	pdc_cod_documento: []
 }
+
 /*
 const validations = {
 	p_nombres: yup
