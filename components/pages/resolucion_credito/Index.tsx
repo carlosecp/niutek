@@ -1,9 +1,10 @@
 import type { DeptosOption, TablaOptions } from '@/lib/interfaces'
 import type {
-	ProductoDeCreditoValues,
-	ProductoDeCreditoValidationSchema,
-	ProductoDeCreditoSearchResult
+	ResolucionDeCreditoValues,
+	ResolucionDeCreditoValidationSchema,
+	ResolucionDeCreditoSearchResult
 } from '@/data/resolucion_credito/index'
+import { Garantias, ResolucionDeCredito, Observaciones } from './components'
 import * as React from 'react'
 import useIndex from '@/lib/useIndex'
 import {
@@ -23,8 +24,8 @@ interface Props {
 
 const Index = (props: Props) => {
 	const state = useIndex<
-		ProductoDeCreditoValues,
-		ProductoDeCreditoSearchResult
+		ResolucionDeCreditoValues,
+		ResolucionDeCreditoSearchResult
 	>({
 		key: 'p_cod_producto',
 		initialValues: initialValues.values,
@@ -36,7 +37,7 @@ const Index = (props: Props) => {
 
 	const navbarProps = {
 		loading: state.loading,
-		title: 'Producto de Crédito',
+		title: 'Resolucion de Crédito',
 		onReset: () => state.setData(initialValues.values),
 		setEditingExisting: state.setEditingExisting,
 		toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
@@ -79,7 +80,7 @@ const Index = (props: Props) => {
 			<Navbar {...navbarProps} />
 			<div className='flex flex-col py-4 lg:pr-64'>
 				<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
-				<Form<ProductoDeCreditoValues, ProductoDeCreditoValidationSchema>
+				<Form<ResolucionDeCreditoValues, ResolucionDeCreditoValidationSchema>
 					{...formProps}
 				>
 					{/*
@@ -90,7 +91,9 @@ const Index = (props: Props) => {
 					<RefBancarias options={props.options} />
 					<RefPersonales options={props.options} />
 					*/}
-					{JSON.stringify(state, null, 2)}
+					<ResolucionDeCredito options={props.options} />
+					<Garantias options={props.options} />
+					<Observaciones />
 					<button
 						type='submit'
 						className='btn btn-primary'
@@ -100,7 +103,7 @@ const Index = (props: Props) => {
 					</button>
 				</Form>
 				<Navigation {...navigationProps}>
-					<Search<ProductoDeCreditoSearchResult> {...searchProps} />
+					<Search<ResolucionDeCreditoSearchResult> {...searchProps} />
 					<Results {...resultsProps} />
 				</Navigation>
 			</div>
