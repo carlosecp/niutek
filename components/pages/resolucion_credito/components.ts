@@ -1,4 +1,5 @@
-import ProductoDeCredito from './ProductoDeCredito'
-import Cargos from './Cargos'
+import ResolucionDeCredito from './ResolucionDeCredito'
+import Garantias from './Garantias'
+import Observaciones from './Observaciones'
 
-export { ProductoDeCredito, Cargos }
+export { ResolucionDeCredito, Garantias, Observaciones }
