@@ -9,23 +9,26 @@ import useIndex from '@/lib/useIndex'
 import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
 import Form from '@/components/forms/Form'
 
-interface Props<Validations> {
+export interface Config<Values, Validations, searchResult> {
 	accessKey: string //p_cod_cliente por ejemplo
 	endpoint: string
 	navLinks: {
 		name: string
 		anchor: string
 	}[]
-	getDescription: (
-		results: GlobalSearchResults
-	) => {
-		accessor: string
-		description: string
-	}
 	initialValues: {
-		values: GlobalValues
+		values: Values
 		validations: Validations
 	}
+	getDescription: (
+		results: searchResult
+	) => {
+		accessor: number
+		description: string
+	}
+}
+
+export interface Props {
 	options: {
 		tabla: TablaOptions
 		deptos_municipios: DeptosOption[]
@@ -33,78 +36,86 @@ interface Props<Validations> {
 	children: React.ReactNode
 }
 
-const Index = <Validations extends {}>(props: Props<Validations>) => {
-	const state = useIndex<GlobalValues, GlobalSearchResults>({
-		key: props.accessKey,
-		initialValues: props.initialValues.values,
-		url: {
-			fetch: `datos_${props.endpoint}`,
-			write: props.endpoint
+export const Index = <
+	Values extends GlobalValues,
+	Validations extends {},
+	SearchResult extends GlobalSearchResults
+>(
+	args: Config<Values, Validations, SearchResult>
+) => {
+	return (props: Props) => {
+		const state = useIndex<Values, SearchResult>({
+			key: args.accessKey,
+			initialValues: args.initialValues.values,
+			url: {
+				fetch: `datos_${args.endpoint}`,
+				write: args.endpoint
+			}
+		})
+
+		const navbarProps = {
+			loading: state.loading,
+			title: 'Persona Natural',
+			onReset: () => state.setData(args.initialValues.values),
+			setEditingExisting: state.setEditingExisting,
+			toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
 		}
-	})
 
-	const navbarProps = {
-		loading: state.loading,
-		title: 'Persona Natural',
-		onReset: () => state.setData(props.initialValues.values),
-		setEditingExisting: state.setEditingExisting,
-		toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
+		const formProps = {
+			accessKey: args.accessKey,
+			currentId: state.currentId,
+			validations: args.initialValues.validations,
+			values: state.data,
+			writeData: state.writeData
+		}
+
+		const navigationProps = {
+			navLinks: args.navLinks,
+			showNavigation: state.showNavigation,
+			toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
+		}
+
+		const searchProps = {
+			config: {
+				placeholder: 'Buscar persona natural',
+				url: 'busca/clientes_natural'
+			},
+			loading: state.loading,
+			setLoading: state.setLoading,
+			setSearchResults: state.setSearchResults
+		}
+
+		const resultsProps = {
+			loading: state.loading,
+			results: state.searchResults,
+			getData: state.getData,
+			getDescription: args.getDescription,
+			setCurrentId: state.setCurrentId
+		}
+
+		return (
+			<main className='sm:ml-64 relative bg-light'>
+				<Navbar {...navbarProps} />
+				<div className='flex flex-col py-4 lg:pr-64'>
+					<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
+					<Form<Values, Validations> {...formProps}>
+						{props.children}
+						<button
+							type='submit'
+							className='btn btn-primary'
+							disabled={state.loading}
+						>
+							Submit
+						</button>{' '}
+					</Form>
+					<Navigation {...navigationProps}>
+						<Search<SearchResult> {...searchProps} />
+						<Results {...resultsProps} />
+					</Navigation>
+				</div>
+			</main>
+		)
 	}
-
-	const formProps = {
-		accessKey: props.accessKey,
-		currentId: state.currentId,
-		validations: props.initialValues.validations,
-		values: state.data,
-		writeData: state.writeData
-	}
-
-	const navigationProps = {
-		navLinks: props.navLinks,
-		showNavigation: state.showNavigation,
-		toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
-	}
-
-	const searchProps = {
-		config: {
-			placeholder: 'Buscar persona natural',
-			url: 'busca/clientes_natural'
-		},
-		loading: state.loading,
-		setLoading: state.setLoading,
-		setSearchResults: state.setSearchResults
-	}
-
-	const resultsProps = {
-		loading: state.loading,
-		results: state.searchResults,
-		getData: state.getData,
-		getDescription: props.getDescription,
-		setCurrentId: state.setCurrentId
-	}
-
-	return (
-		<main className='sm:ml-64 relative bg-light'>
-			<Navbar {...navbarProps} />
-			<div className='flex flex-col py-4 lg:pr-64'>
-				<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
-				<Form<GlobalValues, Validations> {...formProps}>
-					{props.children}
-					<button
-						type='submit'
-						className='btn btn-primary'
-						disabled={state.loading}
-					>
-						Submit
-					</button>
-				</Form>
-				<Navigation {...navigationProps}>
-					<Search<GlobalSearchResults> {...searchProps} />
-					<Results {...resultsProps} />
-				</Navigation>
-			</div>
-		</main>
-	)
 }
 
 export default Index
