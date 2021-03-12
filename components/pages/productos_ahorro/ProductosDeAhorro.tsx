@@ -21,11 +21,12 @@ const ProductosDeAhorro = (props: Props) => {
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='p_nombre' label='Nombre del producto' />
 				<TextArea name='p_descripcion' label='Descripcion' />
-
 				<Select name='p_cod_moneda' label='Moneda'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
+					{props.options.tabla.moneda.map((option) => (
+						<option key={option.codigo} value={option.codigo}>
+							{option.descripcion}
+						</option>
+					))}
 				</Select>
 				<Text
 					name='p_tasa_interes'

@@ -61,9 +61,6 @@ const ResolucionDeCredito = (props: Props) => {
 				<Text name='p_monto_aprobado' label='Monto Aprobado' />
 
 				<Select name='p_cod_moneda' label='Moneda'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					{props.options.tabla.moneda.map((option) => (
 						<option key={option.codigo} value={option.codigo}>
 							{option.descripcion}
@@ -71,9 +68,6 @@ const ResolucionDeCredito = (props: Props) => {
 					))}
 				</Select>
 				<Select name='p_cod_moneda' label='Moneda'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					{props.options.tabla.moneda.map((option) => (
 						<option key={option.codigo} value={option.codigo}>
 							{option.descripcion}
@@ -88,15 +82,9 @@ const ResolucionDeCredito = (props: Props) => {
 				<Text name='p_plazo' label='Plazo en Meses' />
 
 				<Select name='p_cod_frecuencia' label='Frecuencia de Pago'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					<option value={1}>Mensual</option>
 				</Select>
 				<Select name='p_cod_frecuencia' label='Frecuencia de Pago'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					<option value={1}>Mensual</option>
 				</Select>
 				<Text name='p_cuota' label='Cuota' />

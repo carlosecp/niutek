@@ -60,9 +60,11 @@ const ProductosDeCredito = (props: Props) => {
 				<Text name='_cliente' label='Fecha resolución' />
 				<Text name='_cliente' label='Fecha desembolso' />
 				<Select name='p_moneda' label='Moneda'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
+					{props.options.tabla.moneda.map((option) => (
+						<option key={option.codigo} value={option.codigo}>
+							{option.descripcion}
+						</option>
+					))}
 				</Select>
 				<Text name='_cliente' label='Fecha primer pago' />
 				<Text

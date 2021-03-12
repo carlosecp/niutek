@@ -21,23 +21,23 @@ const ProductosDeCredito = (props: Props) => {
 			<a href='#!' id='_productos' className='anchor' />
 			<h1 className='font-medium text-xl text-gray-900'>Producto de Crédito</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<Select name='p_tipo_credito' label='Tipo de crédito'>
+				<Select name='p_cod_tipo_credito' label='Tipo de crédito'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
-				<Select name='fuente_de_fondos' label='Fondos propios'>
+				<Select name='p_cod_fuente_de_fondos' label='Fondos propios'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
-				<Select name='p_tipo_contrato' label='Tipo de contrato'>
+				<Select name='p_cod_tipo_contrato' label='Tipo de contrato'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
 				<Text
-					name='nombre_del_producto'
+					name='p_nombre'
 					label='Nombre del producto'
 					classes={{
 						container: 'fc-lg',
@@ -48,9 +48,11 @@ const ProductosDeCredito = (props: Props) => {
 				<Documentos />
 				<Garantias />
 				<Select name='p_cod_moneda' label='Moneda'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
+					{props.options.tabla.moneda.map((option) => (
+						<option key={option.codigo} value={option.codigo}>
+							{option.descripcion}
+						</option>
+					))}
 				</Select>
 				<Text
 					name='p_tasa_interes_minima'
@@ -72,7 +74,7 @@ const ProductosDeCredito = (props: Props) => {
 							input: 'w-full block form-input form-input-border'
 						}}
 					/>
-					<Select name='p_tipo_doc1' label='Período'>
+					<Select name='p_cod_frec_plazo_minimo' label='Período'>
 						<option value={0} disabled>
 							Seleccione
 						</option>
@@ -80,7 +82,7 @@ const ProductosDeCredito = (props: Props) => {
 				</fieldset>
 				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 					<Text
-						name='p_plazo_maximo'
+						name='p_cod_fre_plazo_maximo'
 						classes={{
 							container: 'fc',
 							input: 'w-full block form-input form-input-border'
@@ -99,6 +101,16 @@ const ProductosDeCredito = (props: Props) => {
 					</option>
 				</Select>
 				<Select name='p_cod_tipo_cuota' label='Tipo de cuota'>
+					<option value={0} disabled>
+						Seleccione
+					</option>
+				</Select>
+				<Text
+					name='p_porc_aportacion'
+					label='Porcentaje de aportación'
+					type='number'
+				/>
+				<Select name='p_cod_aplica_grupo' label='Grupo'>
 					<option value={0} disabled>
 						Seleccione
 					</option>

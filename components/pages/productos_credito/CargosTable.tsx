@@ -1,3 +1,4 @@
+import type { TablaOptions } from '@/lib/interfaces'
 import * as React from 'react'
 import { useFormikContext, getIn } from 'formik'
 import { Select, Text } from '@/components/forms'
@@ -6,6 +7,9 @@ import Table from '@/components/tables/Table'
 interface Props<RefSchema> {
 	name: string
 	refSchema: RefSchema
+	options: {
+		tabla: TablaOptions
+	}
 	limit: number
 	handleAdd: (obj: RefSchema) => void
 	handleRemove: (index: number) => void
@@ -38,10 +42,10 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 		() => [
 			{
 				Header: 'Cargos',
-				id: 'pcr_tipo_cargo',
+				id: 'pcr_cod_cargo',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].pct_tipo_cargo`}
+						name={`${props.name}[${index}].pcr_cod_cargo`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
@@ -58,15 +62,17 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				id: 'pcr_cod_moneda',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].pct_cod_moneda`}
+						name={`${props.name}[${index}].pcr_cod_moneda`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
 						}}
 					>
-						<option value={1}>Dolares</option>
-						<option value={2}>Cordobas</option>
-						<option value={3}>Colones</option>
+						{props.options.tabla.moneda.map((option) => (
+							<option key={option.codigo} value={option.codigo}>
+								{option.descripcion}
+							</option>
+						))}
 					</Select>
 				)
 			},
@@ -75,9 +81,10 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				id: 'pcr_valor',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].valor`}
+						name={`${props.name}[${index}].pcr_valor`}
 						classes={styles}
 						placeholder=''
+						type='number'
 					/>
 				)
 			},
@@ -86,7 +93,7 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				id: 'pcr_cod_tipo',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].pct_cod_moneda`}
+						name={`${props.name}[${index}].pct_cod_tipo`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
@@ -102,7 +109,7 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				id: 'pcr_cod_aplica',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].tipo_aplica`}
+						name={`${props.name}[${index}].pcr_cod_aplica`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'

@@ -37,6 +37,9 @@ const Select = ({ name, classes = styles, children, ...props }: Props) => {
 				{...field}
 				{...props}
 			>
+				<option value={0} disabled>
+					Seleccione
+				</option>
 				{children}
 			</select>
 		</div>

@@ -3,10 +3,9 @@ import type {
 	PersonaNaturalValidationSchema,
 	PersonaNaturalSearchResult
 } from '@/data/persona_natural'
+import type { Props, Config } from '@/components/Index'
 import * as React from 'react'
-
 import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
-
 import {
 	PersonaNatural,
 	DatosProfesionales,
@@ -15,11 +14,9 @@ import {
 	RefBancarias,
 	RefPersonales
 } from './components'
-
-import type { Props, Config } from '@/components/Index'
 import { Index } from '@/components/Index'
 
-const personaNaturalConfig: Config<
+const config: Config<
 	PersonaNaturalValues,
 	PersonaNaturalValidationSchema,
 	PersonaNaturalSearchResult
@@ -34,7 +31,7 @@ const Wrapper = Index<
 	PersonaNaturalValues,
 	PersonaNaturalValidationSchema,
 	PersonaNaturalSearchResult
->(personaNaturalConfig)
+>(config)
 
 const pnIndex = (props: Props) => {
 	return (

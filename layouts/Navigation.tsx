@@ -25,8 +25,13 @@ const Navigation = (props: Props) => {
 					<div className='h-14 flex flex-center border-b'>Navegación</div>
 					<ul id='navigation' className='flex flex-col'>
 						{props.navLinks.map((link) => (
-							<li key={link.anchor} className='px-4 py-3 nav-link'>
-								<a href={`#${link.anchor}`}>{link.name}</a>
+							<li key={link.anchor} className='nav-link'>
+								<a
+									href={`#${link.anchor}`}
+									className='px-4 py-3 block w-full h-full'
+								>
+									{link.name}
+								</a>
 							</li>
 						))}
 					</ul>

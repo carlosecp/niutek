@@ -20,68 +20,70 @@ const SolicitudDeCredito = (props: Props) => {
 			<a href='#!' id='_solicitud' className='anchor'></a>
 			<h1 className='font-medium text-xl text-gray-900'>Solicitud</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<Select name='p_sexo' label='Promotor'>
+				<Select name='p_cod_promotor' label='Promotor'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
-				<Select name='p_sexo' label='Actividad Económica'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
-				<Select name='p_sexo' label='Sector Económico'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
-				<Select name='p_tipo_doc' label='Destino Crédito'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
-				<Documentos />
 				<Text
-					name='p_fecha_nacimiento'
-					label='Fecha de nacimiento'
+					name='p_fecha_solicitud'
+					label='Fecha de solicitud'
 					placeholder='YYYY-MM-DD'
 				/>
-				<Text
-					name='p_fecha_nacimiento'
-					label='Monto Solicitado'
-					type='number'
-				/>
-				<Select name='p_tipo_doc' label='Moneda'>
+				<Select name='p_cod_act_economica' label='Actividad económica'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
 				<Text
-					name='p_fecha_nacimiento'
-					label='Tasa Interés Mensual'
+					name='p_monto_solicitado'
+					label='Monto solicitado'
 					type='number'
 				/>
+				<Select name='p_cod_sec_economico' label='Sector económico'>
+					<option value={0} disabled>
+						Seleccione
+					</option>
+				</Select>
+				<Select name='p_cod_moneda' label='Moneda'>
+					{props.options.tabla.moneda.map((option) => (
+						<option key={option.codigo} value={option.codigo}>
+							{option.descripcion}
+						</option>
+					))}
+				</Select>
+				<Select name='p_cod_destino_credito' label='Destino de crédito'>
+					<option value={0} disabled>
+						Seleccione
+					</option>
+				</Select>
+				<Text
+					name='p_tasa_interes'
+					label='Tasa de interés mensual'
+					type='number'
+				/>
+				<Documentos />
 				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 					<Text
-						name='p_of_nombre_negocio'
+						name='p_plazo'
 						label='Plazo Hasta'
 						classes={{
 							container: 'fc',
 							input: 'w-full block form-input form-input-border'
 						}}
 					/>
-					<Select name='p_tipo_doc' label='Período'>
+					<Select name='p_cod_frec_plazo' label='Frecuencia'>
 						<option value={0} disabled>
 							Seleccione
 						</option>
 					</Select>
 				</fieldset>
-				<Select name='p_tipo_doc' label='Frecuencia Pago'>
+				<Select name='p_cod_frecuencia_pago' label='Frecuncia de pago'>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
-				<Text name='p_fecha_nacimiento' label='Couta' type='number' />
+				<Text name='cuota' label='Couta' type='number' />
 			</article>
 		</section>
 	)
