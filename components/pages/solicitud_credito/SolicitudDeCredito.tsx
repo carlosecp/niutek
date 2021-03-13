@@ -20,7 +20,7 @@ const SolicitudDeCredito = (props: Props) => {
 			<a href='#!' id='_solicitud' className='anchor'></a>
 			<h1 className='font-medium text-xl text-gray-900'>Solicitud</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<p className='col-span-6 flex items-center gap-2'>
+				<p className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
 					Promotor{' '}
 					<Field
 						name='p_cod_promotor'
@@ -29,7 +29,7 @@ const SolicitudDeCredito = (props: Props) => {
 						disabled
 					/>
 				</p>
-				<p className='col-span-6 flex items-center gap-2'>
+				<p className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
 					Actividad económica{' '}
 					<Field
 						name='p_cod_act_economica'
@@ -38,7 +38,7 @@ const SolicitudDeCredito = (props: Props) => {
 						disabled
 					/>
 				</p>
-				<p className='col-span-6 flex items-center gap-2'>
+				<p className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
 					Sector económico{' '}
 					<Field
 						name='p_cod_sec_economico'
@@ -47,7 +47,7 @@ const SolicitudDeCredito = (props: Props) => {
 						disabled
 					/>
 				</p>
-				<p className='col-span-6 flex items-center gap-2'>
+				<p className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
 					Destino del crédito{' '}
 					<Field
 						name='p_cod_destino_credito'
@@ -79,23 +79,28 @@ const SolicitudDeCredito = (props: Props) => {
 					label='Tasa de interés mensual'
 					type='number'
 				/>
-				<div className='col-span-6'>
+				<div className='col-span-12 md:col-span-6'>
 					<Documentos />
 				</div>
-				<div className='col-span-6 flex flex-col gap-4'>
+				<div className='col-span-12 md:col-span-6 flex flex-col gap-4'>
 					<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 						<Text
 							name='p_plazo'
 							label='Plazo Hasta'
 							classes={{
-								container: 'fc-lg sm:fc',
+								container: 'fc',
 								input: 'w-full block form-input form-input-border'
 							}}
 						/>
-						<Select name='p_cod_frec_plazo' label='Frecuencia'>
-							<option value={0} disabled>
-								Seleccione
-							</option>
+						<Select
+							name='p_cod_frec_plazo'
+							label='Frecuencia'
+							classes={{
+								container: 'fc',
+								input: 'w-full block form-input form-input-border'
+							}}
+						>
+							<option value={0} disabled></option>
 						</Select>
 					</fieldset>
 					<Select name='p_cod_frecuencia_pago' label='Frecuncia de pago'>
