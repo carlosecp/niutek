@@ -1,9 +1,9 @@
-import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import type {
 	PersonaJuridicaValues,
 	PersonaJuridicaValidationSchema,
 	PersonaJuridicaSearchResult
 } from '@/data/persona_juridica'
+import type { Props, Config } from '@/components/Index'
 import * as React from 'react'
 import {
 	initialValues,
@@ -37,7 +37,7 @@ const Wrapper = Index<
 	PersonaJuridicaSearchResult
 >(config)
 
-const pjIndex = (props: Props) => {
+const index = (props: Props) => {
 	return (
 		<Wrapper {...props}>
 			<PersonaJuridica options={props.options} />
@@ -49,4 +49,4 @@ const pjIndex = (props: Props) => {
 	)
 }
 
-export default pjIndex
+export default index
