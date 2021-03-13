@@ -29,10 +29,10 @@ const MultipleChoice = ({ fields, title, classes = styles }: Props) => {
 			<div
 				role='group'
 				aria-labelledby='checkbox-group'
-				className='flex flex-wrap'
+				className='flex flex-wrap mt-2'
 			>
 				{fields.map((field) => (
-					<div className='h-input flex form-input relative'>
+					<div className='w-full h-input flex form-input relative'>
 						<Field
 							name={field.name}
 							type='checkbox'

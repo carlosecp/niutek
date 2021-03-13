@@ -24,13 +24,8 @@ const ResolucionDeCredito = (props: Props) => {
 				Resolucion de Credito
 			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<Select name='_promotor' label='Promotor'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-					<option value={1}>Fulano de tal</option>
-				</Select>
-				<Select name='p_act_economica' label='Actividad economica'>
+				<Text name='_promotor' label='Promotor' disabled />
+				<Select name='p_act_economica' label='Actividad economica' disabled>
 					<option value={0} disabled>
 						Seleccione
 					</option>
@@ -54,7 +49,14 @@ const ResolucionDeCredito = (props: Props) => {
 					</option>
 					<option value={1}>Aprobada</option>
 				</Select>
-				<Text name='p_fecha_solicitud' label='Fecha de Solicitud' />
+				<Text
+					name='p_fecha_solicitud'
+					label='Fecha de Solicitud'
+					classes={{
+						container: 'fc-lg md:fc break-line',
+						input: 'w-full block form-input form-input-border'
+					}}
+				/>
 				<Text name='p_fecha_resolucion' label='Fecha de Resolucion' />
 
 				<Text name='p_monto_solicitud' label='Monto de Solicitud' />

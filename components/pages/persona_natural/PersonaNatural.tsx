@@ -25,9 +25,6 @@ const PersonaNatural = (props: Props) => {
 				<Text name='p_nombres' label='Nombres' />
 				<Text name='p_apellidos' label='Apellidos' />
 				<Select name='p_sexo' label='Sexo'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					{props.options.tabla.sexo.map((option) => (
 						<option key={option.codigo} value={option.codigo}>
 							{option.descripcion}
@@ -35,9 +32,6 @@ const PersonaNatural = (props: Props) => {
 					))}
 				</Select>
 				<Select name='p_tipo_doc' label='Tipo de documento'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					{props.options.tabla.tipo_doc.map((option) => (
 						<option key={option.codigo} value={option.codigo}>
 							{option.descripcion}
@@ -46,9 +40,6 @@ const PersonaNatural = (props: Props) => {
 				</Select>
 				<Text name='p_num_doc' label='No. de documento' />
 				<Select name='p_cod_nac' label='Nacionalidad'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					{props.options.tabla.nacionalidad.map((option) => (
 						<option key={option.codigo} value={option.codigo}>
 							{option.descripcion}
@@ -56,9 +47,6 @@ const PersonaNatural = (props: Props) => {
 					))}
 				</Select>
 				<Select name='p_cod_depto' label='Departamento'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					{props.options.deptos_municipios.map((option) => (
 						<option key={option.cod_depto} value={option.cod_depto}>
 							{option.nom_depto}
@@ -70,9 +58,6 @@ const PersonaNatural = (props: Props) => {
 					label='Municipio'
 					disabled={municipios.loading}
 				>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					{municipios.values.map((option) => (
 						<option key={option.cod_muni} value={option.cod_muni}>
 							{option.nom_municipio}

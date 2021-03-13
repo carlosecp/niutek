@@ -17,7 +17,7 @@ const values = {
 	pga_cod_garantia: []
 }
 
-const validation = {}
+const validations = {}
 // const validations = {
 // 	p_nombres: yup
 // 		.string()
