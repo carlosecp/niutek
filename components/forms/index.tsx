@@ -5,4 +5,5 @@ import Select from './Select'
 import Checkbox from './Checkbox'
 import MultipleChoice from './MultipleChoice'
 
+export default Form
 export { Text, TextArea, Select, Checkbox, MultipleChoice }
