@@ -23,7 +23,6 @@ const config: Config<
 > = {
 	pageType: 'cliente',
 	pageName: 'natural',
-	navBarTitle: 'p_naturales',
 	navLinks,
 	getDescription,
 	initialValues
