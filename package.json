@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"postinstall": "husky install",
-		"lint": "echo '********************\n* Juan se la come *\n********************\n' && prettier --write . && git add ."
+		"lint": "prettier --write . && git add ."
 	},
 	"dependencies": {
 		"@tailwindcss/forms": "^0.2.1",
