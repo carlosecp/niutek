@@ -7,13 +7,17 @@ import {
 	PersonaJuridicaValues
 } from '@/data/persona_juridica'
 import type {
-	ProductosDeCreditoValues,
-	ProductosDeCreditoSearchResult
-} from '@/data/productos_credito'
-import type {
 	ProductosDeAhorroValues,
 	ProductosDeAhorroSearchResult
 } from '@/data/productos_ahorro'
+import type {
+	CertificadosPlazoFijoValues,
+	CertificadosPlazoFijoSearchResults
+} from '@/data/certificados_plazo_fijo'
+import type {
+	ProductosDeCreditoValues,
+	ProductosDeCreditoSearchResult
+} from '@/data/productos_credito'
 import type {
 	ResolucionDeCreditoValues,
 	ResolucionDeCreditoSearchResult
@@ -28,6 +32,7 @@ export type GlobalSearchResults =
 	| PersonaNaturalSearchResult
 	| PersonaJuridicaSearchResult
 	| ProductosDeAhorroSearchResult
+	| CertificadosPlazoFijoSearchResults
 	| ProductosDeCreditoSearchResult
 	| SolicitudDeCreditoSearchResult
 	| FormalizacionDeCreditoValues
@@ -66,6 +71,7 @@ export type GlobalValues =
 	| PersonaNaturalValues
 	| PersonaJuridicaValues
 	| ProductosDeAhorroValues
+	| CertificadosPlazoFijoValues
 	| ProductosDeCreditoValues
 	| SolicitudDeCreditoValues
 	| FormalizacionDeCreditoValues

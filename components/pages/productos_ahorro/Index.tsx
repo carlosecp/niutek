@@ -21,6 +21,7 @@ const config: Config<
 	pageType: 'productos',
 	pageName: 'ahorro',
 	navLinks,
+	navBarTitle: 'Productos de Ahorro',
 	getDescription,
 	initialValues
 }

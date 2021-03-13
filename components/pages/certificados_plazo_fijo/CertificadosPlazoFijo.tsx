@@ -1,4 +1,4 @@
-import type { ProductosDeAhorroValues } from '@/data/productos_ahorro'
+import type { CertificadosPlazoFijoValues } from '@/data/certificados_plazo_fijo'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import * as React from 'react'
 import { useFormikContext } from 'formik'
@@ -12,12 +12,14 @@ interface Props {
 }
 
 const ProductosDeAhorro = (props: Props) => {
-	const { values } = useFormikContext<ProductosDeAhorroValues>()
+	const { values } = useFormikContext<CertificadosPlazoFijoValues>()
 
 	return (
 		<section id='productos'>
 			<a href='#!' id='_productos' className='anchor' />
-			<h1 className='font-medium text-xl text-gray-900'>Producto de Ahorro</h1>
+			<h1 className='font-medium text-xl text-gray-900'>
+				Certificados a Plazo Fijo
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='p_nombre' label='Nombre del producto' />
 				<TextArea name='p_descripcion' label='Descripcion' />

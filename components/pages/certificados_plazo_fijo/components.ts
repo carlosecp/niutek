@@ -1,3 +1,3 @@
-import SolicitudDeCredito from './SolicitudDeCredito'
+import CertificadosPlazoFijo from './CertificadosPlazoFijo'
 
-export { SolicitudDeCredito }
+export { CertificadosPlazoFijo }

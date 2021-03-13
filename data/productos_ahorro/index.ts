@@ -3,7 +3,7 @@ import { productos } from './productos'
 import { cargos } from './cargos'
 
 export const navLinks = [
-	{ name: 'Productos de Ahorro', anchor: '_productos' },
+	{ name: 'Productos', anchor: '_productos' },
 	{ name: 'Cargos', anchor: '_cargos' }
 ]
 
