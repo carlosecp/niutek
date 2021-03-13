@@ -13,7 +13,7 @@ import {
 	getDescription
 } from '@/data/resolucion_credito'
 import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
-import Form from '@/components/forms/Form'
+import Form from '@/components/forms'
 
 interface Props {
 	options: {

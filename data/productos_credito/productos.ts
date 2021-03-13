@@ -30,6 +30,7 @@ const values = {
 	pcr_cod_aplica: 0
 }
 
+const validations = {}
 /*
 const validations = {
 	p_nombres: yup
@@ -101,5 +102,5 @@ const validations = {
 		.required('Requerido')
 }
 */
-const validations = {}
+
 export const productos = { values, validations }

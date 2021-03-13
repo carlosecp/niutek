@@ -7,11 +7,12 @@ import type {
 } from '@/lib/interfaces'
 import useIndex from '@/lib/useIndex'
 import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
-import Form from '@/components/forms/Form'
+import Form from '@/components/forms'
 
 export interface Config<Values, Validations, searchResult> {
-	accessKey: string //p_cod_cliente por ejemplo
-	endpoint: string
+	pageType: string
+	pageName: string
+	navBarTitle?: string
 	navLinks: {
 		name: string
 		anchor: string
@@ -43,26 +44,28 @@ export const Index = <
 >(
 	args: Config<Values, Validations, SearchResult>
 ) => {
+	const accessKey = `p_cod_${args.pageType}`
+	const endpoint = `${args.pageType}_${args.pageName}`
 	return (props: Props) => {
 		const state = useIndex<Values, SearchResult>({
-			key: args.accessKey,
+			key: accessKey,
 			initialValues: args.initialValues.values,
 			url: {
-				fetch: `datos_${args.endpoint}`,
-				write: args.endpoint
+				fetch: `datos_${args.pageType}_${args.pageName}`,
+				write: endpoint
 			}
 		})
 
 		const navbarProps = {
 			loading: state.loading,
-			title: 'Persona Natural',
+			title: args.navBarTitle ? args.navBarTitle : args.navLinks[0].name,
 			onReset: () => state.setData(args.initialValues.values),
 			setEditingExisting: state.setEditingExisting,
 			toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
 		}
 
 		const formProps = {
-			accessKey: args.accessKey,
+			accessKey: accessKey,
 			currentId: state.currentId,
 			validations: args.initialValues.validations,
 			values: state.data,
@@ -78,7 +81,7 @@ export const Index = <
 		const searchProps = {
 			config: {
 				placeholder: 'Buscar persona natural',
-				url: 'busca/clientes_natural'
+				url: `busca/${args.pageType}s_${args.pageName}`
 			},
 			loading: state.loading,
 			setLoading: state.setLoading,

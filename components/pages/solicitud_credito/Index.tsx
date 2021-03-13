@@ -31,7 +31,7 @@ const Wrapper = Index<
 	SolicitudDeCreditoSearchResult
 >(config)
 
-const scIndex = (props: Props) => {
+const index = (props: Props) => {
 	return (
 		<Wrapper {...props}>
 			<SolicitudDeCredito options={props.options} />
@@ -41,4 +41,4 @@ const scIndex = (props: Props) => {
 	)
 }
 
-export default scIndex
+export default index

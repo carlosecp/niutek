@@ -19,7 +19,7 @@ const styles = {
 }
 
 const Select = ({ name, classes = styles, children, ...props }: Props) => {
-	const [field, meta, helpers] = useField({ name, type: 'select', ...props })
+	const [field, meta] = useField({ name, type: 'select', ...props })
 	const { isSubmitting } = useFormikContext()
 
 	return (

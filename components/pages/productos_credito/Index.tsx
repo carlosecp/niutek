@@ -12,7 +12,7 @@ import {
 	getDescription
 } from '@/data/productos_credito'
 import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
-import Form from '@/components/forms/Form'
+import Form from '@/components/forms'
 import { ProductosDeCredito, Cargos } from './components'
 
 interface Props {
