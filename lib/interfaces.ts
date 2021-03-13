@@ -7,9 +7,13 @@ import {
 	PersonaJuridicaValues
 } from '@/data/persona_juridica'
 import type {
-	ProductoDeCreditoValues,
-	ProductoDeCreditoSearchResult
+	ProductosDeCreditoValues,
+	ProductosDeCreditoSearchResult
 } from '@/data/productos_credito'
+import type {
+	ProductosDeAhorroValues,
+	ProductosDeAhorroSearchResult
+} from '@/data/productos_ahorro'
 import type {
 	ResolucionDeCreditoValues,
 	ResolucionDeCreditoSearchResult
@@ -23,7 +27,8 @@ import { FormalizacionDeCreditoValues } from '@/data/formalizacion_credito'
 export type GlobalSearchResults =
 	| PersonaNaturalSearchResult
 	| PersonaJuridicaSearchResult
-	| ProductoDeCreditoSearchResult
+	| ProductosDeAhorroSearchResult
+	| ProductosDeCreditoSearchResult
 	| SolicitudDeCreditoSearchResult
 	| FormalizacionDeCreditoValues
 	| ResolucionDeCreditoSearchResult
@@ -60,7 +65,8 @@ export interface Alert {
 export type GlobalValues =
 	| PersonaNaturalValues
 	| PersonaJuridicaValues
-	| ProductoDeCreditoValues
+	| ProductosDeAhorroValues
+	| ProductosDeCreditoValues
 	| SolicitudDeCreditoValues
 	| FormalizacionDeCreditoValues
 	| ResolucionDeCreditoValues

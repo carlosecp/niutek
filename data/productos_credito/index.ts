@@ -7,13 +7,13 @@ export const navLinks = [
 	{ name: 'Cargos', anchor: '_cargos' }
 ]
 
-export type ProductoDeCreditoSearchResult = {
+export type ProductosDeCreditoSearchResult = {
 	cod_producto: number
 	nombre: string
 	description: string
 }
 
-export const getDescription = (result: ProductoDeCreditoSearchResult) => ({
+export const getDescription = (result: ProductosDeCreditoSearchResult) => ({
 	accessor: result.cod_producto,
 	description: result.nombre
 })
@@ -26,7 +26,7 @@ const validations = yup.object({
 	...productos.validations
 })
 
-export type ProductoDeCreditoValues = typeof values
-export type ProductoDeCreditoValidationSchema = typeof validations
+export type ProductosDeCreditoValues = typeof values
+export type ProductosDeCreditoValidationSchema = typeof validations
 
 export const initialValues = { values, validations }

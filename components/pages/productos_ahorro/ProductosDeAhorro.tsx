@@ -1,4 +1,4 @@
-import type { ProductoDeAhorroValues } from '@/data/productos_ahorro'
+import type { ProductosDeAhorroValues } from '@/data/productos_ahorro'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import * as React from 'react'
 import { useFormikContext } from 'formik'

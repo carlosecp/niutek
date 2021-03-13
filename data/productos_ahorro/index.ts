@@ -3,17 +3,17 @@ import { productos } from './productos'
 import { cargos } from './cargos'
 
 export const navLinks = [
-	{ name: 'Productos', anchor: '_productos' },
+	{ name: 'Productos de Ahorro', anchor: '_productos' },
 	{ name: 'Cargos', anchor: '_cargos' }
 ]
 
-export type ProductosAhorroSearchResult = {
+export type ProductosDeAhorroSearchResult = {
 	cod_producto: number
 	nombre: string
 	description: string
 }
 
-export const getDescription = (result: ProductosAhorroSearchResult) => ({
+export const getDescription = (result: ProductosDeAhorroSearchResult) => ({
 	accessor: result.cod_producto,
 	description: result.nombre
 })
@@ -26,7 +26,7 @@ const validations = yup.object({
 	...productos.validations
 })
 
-export type ProductoDeAhorroValues = typeof values
-export type ProductoDeAhorroValidationSchema = typeof validations
+export type ProductosDeAhorroValues = typeof values
+export type ProductosDeAhorroValidationSchema = typeof validations
 
 export const initialValues = { values, validations }

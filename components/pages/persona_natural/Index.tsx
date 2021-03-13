@@ -27,22 +27,22 @@ const config: Config<
 	getDescription,
 	initialValues
 }
+
 const Wrapper = Index<
 	PersonaNaturalValues,
 	PersonaNaturalValidationSchema,
 	PersonaNaturalSearchResult
 >(config)
 
-const pnIndex = (props: Props) => {
-	return (
-		<Wrapper {...props}>
-			<PersonaNatural options={props.options} />
-			<DatosProfesionales />
-			<OrigenFondos />
-			<RefComerciales />
-			<RefBancarias options={props.options} />
-			<RefPersonales options={props.options} />
-		</Wrapper>
-	)
-}
-export default pnIndex
+const index = (props: Props) => (
+	<Wrapper {...props}>
+		<PersonaNatural options={props.options} />
+		<DatosProfesionales />
+		<OrigenFondos />
+		<RefComerciales />
+		<RefBancarias options={props.options} />
+		<RefPersonales options={props.options} />
+	</Wrapper>
+)
+
+export default index
