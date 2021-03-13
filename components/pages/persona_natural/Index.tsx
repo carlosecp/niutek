@@ -21,8 +21,9 @@ const config: Config<
 	PersonaNaturalValidationSchema,
 	PersonaNaturalSearchResult
 > = {
-	accessKey: 'p_cod_cliente',
-	endpoint: 'cliente_natural',
+	pageType: 'cliente',
+	pageName: 'natural',
+	navBarTitle: 'p_naturales',
 	navLinks,
 	getDescription,
 	initialValues
