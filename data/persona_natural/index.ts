@@ -6,17 +6,24 @@ import { refComerciales } from './refComerciales'
 import { refBancarias } from './refBancarias'
 import { refPersonales } from './refPersonales'
 
-// Link en navigation bar.
 export const navLinks = [
-	{ name: 'Persona Natural', anchor: '_persona_natural' },
-	{ name: 'Datos Profesionales', anchor: '_datos_profesionales' },
-	{ name: 'Origen de Fondos', anchor: '_origen_fondos' },
-	{ name: 'Referencias Comerciales', anchor: '_referencias_comerciales' },
-	{ name: 'Referencias Bancarias', anchor: '_referencias_bancarias' },
-	{ name: 'Referencias Personales', anchor: '_referencias_personales' }
+	{ name: 'Persona Natural', anchor: 'persona_natural' },
+	{ name: 'Datos Profesionales', anchor: 'datos_profesionales' },
+	{ name: 'Origen de Fondos', anchor: 'origen_fondos' },
+	{ name: 'Referencias Comerciales', anchor: 'referencias_comerciales' },
+	{ name: 'Referencias Bancarias', anchor: 'referencias_bancarias' },
+	{ name: 'Referencias Personales', anchor: 'referencias_personales' }
 ]
 
-// Tipo para getDescription y GlobalSearchResults.
+export enum NavLinks {
+	PersonaNatural,
+	DatosProfesionales,
+	OrigenFondos,
+	RefComerciales,
+	RefBancarias,
+	RefPersonales
+}
+
 export type PersonaNaturalSearchResult = {
 	cod_cliente: number
 	nombres: string
@@ -24,7 +31,6 @@ export type PersonaNaturalSearchResult = {
 	description: string
 }
 
-// Funcion utilizada para generar la descripcion que se muestra en la seccion de busqueda. Funcion llamada en Results.tsx.
 export const getDescription = (result: PersonaNaturalSearchResult) => ({
 	accessor: result.cod_cliente,
 	description: `${result.nombres} ${result.apellidos}`

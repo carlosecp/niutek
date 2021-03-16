@@ -84,7 +84,7 @@ const OrigenFondos = () => {
 							container: 'fc-lg md:fc-md',
 							input: 'w-full block form-input form-input-border'
 						}}
-						label='Tipos de inversiones'
+						label='Institución financiera'
 						disabled={!values.p_of_prestamo}
 						reset={!values.p_of_prestamo}
 					/>

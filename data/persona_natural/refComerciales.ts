@@ -1,6 +1,5 @@
 import * as yup from 'yup'
 
-// Utilizado en cada una de las secciones que contienen tablas.
 export const refSchema = {
 	prc_nombre_entidad: '',
 	prc_persona_contacto: '',

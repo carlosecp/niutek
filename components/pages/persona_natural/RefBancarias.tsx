@@ -1,9 +1,13 @@
 import type { TablaOptions } from '@/lib/interfaces'
 import type { PersonaNaturalValues } from '@/data/persona_natural'
 import type { RefSchema } from '@/data/persona_natural/refBancarias'
+import { navLinks, NavLinks } from '@/data/persona_natural'
 import { refSchema } from '@/data/persona_natural/refBancarias'
 import { FieldArray } from 'formik'
 import BancariasTable from './BancariasTable'
+
+const name = 'referencias_bancarias'
+const SECTION_NAME = NavLinks.RefBancarias
 
 interface Props {
 	options: {
@@ -13,17 +17,21 @@ interface Props {
 
 const RefBancarias = (props: Props) => {
 	const tableProps = {
-		name: 'referencias_bancarias',
+		name,
 		refSchema,
 		options: props.options,
 		limit: 2
 	}
 
 	return (
-		<section id='referencias_bancarias'>
-			<a href='#!' id='_referencias_bancarias' className='anchor'></a>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
 			<article className='flex flex-col'>
-				<FieldArray name='referencias_bancarias'>
+				<FieldArray name={navLinks[SECTION_NAME].anchor}>
 					{(arrayHelpers) => (
 						<BancariasTable<PersonaNaturalValues, RefSchema>
 							{...tableProps}

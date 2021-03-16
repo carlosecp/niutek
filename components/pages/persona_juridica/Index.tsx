@@ -15,7 +15,8 @@ import {
 	OrigenFondos,
 	RefComerciales,
 	RefBancarias,
-	Proveedores
+	Proveedores,
+	Accionistas
 } from './components'
 import { Index } from '@/components/Index'
 
@@ -45,6 +46,7 @@ const index = (props: Props) => {
 			<RefComerciales />
 			<RefBancarias options={props.options} />
 			<Proveedores options={props.options} />
+			<Accionistas options={props.options} />
 		</Wrapper>
 	)
 }

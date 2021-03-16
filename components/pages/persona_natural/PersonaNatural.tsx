@@ -1,9 +1,11 @@
 import type { PersonaNaturalValues } from '@/data/persona_natural'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
-import * as React from 'react'
+import { navLinks, NavLinks } from '@/data/persona_natural'
 import { useFormikContext } from 'formik'
 import { Text, Select, TextArea } from '@/components/forms'
 import useMunicipio from '@/lib/useMunicipio'
+
+const SECTION_NAME = NavLinks.PersonaNatural
 
 interface Props {
 	options: {
@@ -18,9 +20,15 @@ const PersonaNatural = (props: Props) => {
 	const municipios = useMunicipio(values.p_cod_depto)
 
 	return (
-		<section id='persona_natural'>
-			<a href='#!' id='_persona_natural' className='anchor'></a>
-			<h1 className='font-medium text-xl text-gray-900'>Persona Natural</h1>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
+			<h1 className='font-medium text-xl text-gray-900'>
+				{navLinks[SECTION_NAME].name}
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='p_nombres' label='Nombres' />
 				<Text name='p_apellidos' label='Apellidos' />
@@ -75,9 +83,6 @@ const PersonaNatural = (props: Props) => {
 					placeholder='YYYY-MM-DD'
 				/>
 				<Select name='p_cargo_publico' label='Cargo Público'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
 					<option value={1}>Si</option>
 					<option value={2}>No</option>
 				</Select>

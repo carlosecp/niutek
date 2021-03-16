@@ -8,7 +8,7 @@ const values = {
 	p_cod_nac: 0,
 	p_cod_depto: 0,
 	p_cod_muni: 0,
-	p_num_empleados: 10,
+	p_num_empleados: 0,
 	p_sitio_web: '',
 	p_e_mail: '',
 	p_telefono1: '',
@@ -21,18 +21,7 @@ const values = {
 }
 
 const validations = {
-	p_nombres: yup
-		.string()
-		.required('Requerido')
-		.max(50, 'Caracteres máximos 50'),
-	p_apellidos: yup
-		.string()
-		.required('Requerido')
-		.max(50, 'Caracteres máximos 50'),
-	p_sexo: yup
-		.mixed()
-		.notOneOf([0], 'Seleccione un valor')
-		.required('Requerido'),
+	p_nombre: yup.string().required('Requerido').max(50, 'Caracteres máximos 50'),
 	p_tipo_doc: yup
 		.mixed()
 		.notOneOf([0], 'Seleccione un valor')
@@ -53,15 +42,20 @@ const validations = {
 		.mixed()
 		.notOneOf([0], 'Seleccione un valor')
 		.required('Requerido'),
-	p_direccion: yup
+	p_num_empleados: yup
+		.number()
+		.integer('Valor entero')
+		.min(0, 'Valor Mínimo 0')
+		.required('Requerido'),
+	p_sitio_web: yup
 		.string()
 		.required('Requerido')
-		.max(100, 'Caracteres máximos 100'),
-
-	p_notas: yup
+		.max(50, 'Caracteres máximos 50'),
+	p_e_mail: yup
 		.string()
-		.required('Requerido')
-		.max(300, 'Caracteres máximos 300'),
+		.email('Corre Electrónico Inválido')
+		.max(50, 'Caracteres Máximos 50')
+		.required('Requerido'),
 	p_telefono1: yup
 		.string()
 		.required('Requerido')
@@ -70,24 +64,29 @@ const validations = {
 		.string()
 		.required('Requerido')
 		.max(30, 'Caracteres máximos 30'),
-	p_lugar_nacimiento: yup
+	p_direccion: yup
 		.string()
 		.required('Requerido')
-		.max(30, 'Caracteres máximos 30'),
-	p_fecha_nacimiento: yup
+		.max(100, 'Caracteres máximos 100'),
+	p_fecha_constitucion: yup
 		.date()
 		.required('Requerido')
 		.max(moment(), 'Fecha inválida')
 		.typeError('Fecha Inválida (formato YYYY-MM-DD)'),
-	p_cargo_publico: yup
-		.mixed()
-		.notOneOf([0], 'Seleccione un valor')
-		.required('Requerido'),
-	p_num_hijos: yup
+	p_fecha_personeria: yup
+		.date()
+		.required('Requerido')
+		.max(moment(), 'Fecha inválida')
+		.typeError('Fecha Inválida (formato YYYY-MM-DD)'),
+	p_ingreso_anual: yup
 		.number()
 		.integer('Valor entero')
 		.min(0, 'Valor Mínimo 0')
+		.required('Requerido'),
+	p_actividad_empresa: yup
+		.string()
 		.required('Requerido')
+		.max(500, 'Caracteres máximos 500')
 }
 
 export const personaJuridica = { values, validations }

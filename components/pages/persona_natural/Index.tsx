@@ -34,15 +34,19 @@ const Wrapper = Index<
 	PersonaNaturalSearchResult
 >(config)
 
-const index = (props: Props) => (
-	<Wrapper {...props}>
-		<PersonaNatural options={props.options} />
-		<DatosProfesionales />
-		<OrigenFondos />
-		<RefComerciales />
-		<RefBancarias options={props.options} />
-		<RefPersonales options={props.options} />
-	</Wrapper>
-)
+const index = (props: Props) => {
+	console.log('Estas son las props (tables)', props)
+
+	return (
+		<Wrapper {...props}>
+			<PersonaNatural options={props.options} />
+			<DatosProfesionales />
+			<OrigenFondos />
+			<RefComerciales />
+			<RefBancarias options={props.options} />
+			<RefPersonales options={props.options} />
+		</Wrapper>
+	)
+}
 
 export default index

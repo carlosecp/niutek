@@ -88,7 +88,7 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Teléfono',
-				id: 'prb_telefono1',
+				id: 'prb_telefono',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].prb_telefono`}
@@ -99,10 +99,10 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'No. Cuenta',
-				id: 'prb_telefono2',
+				id: 'pct_num_cuenta',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_telefono`}
+						name={`${props.name}[${index}].pct_num_cuenta`}
 						classes={styles}
 						placeholder='No. Cuenta'
 					/>

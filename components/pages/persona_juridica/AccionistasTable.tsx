@@ -15,7 +15,7 @@ interface Props<RefSchema> {
 	handleRemove: (index: number) => void
 }
 
-const ProveedoresTable = <Data, RefSchema>(props: Props<RefSchema>) => {
+const AccionistasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const { values } = useFormikContext<Data>()
 	const data: RefSchema[] = getIn(values, props.name) || []
 
@@ -41,35 +41,35 @@ const ProveedoresTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'Nombre proveedor',
-				id: 'ppv_nombre',
+				Header: 'Nombre accionista',
+				id: 'pac_nombre_accionista',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].ppv_nombre_proveedor`}
+						name={`${props.name}[${index}].pac_nombre_accionista`}
 						classes={styles}
-						placeholder='Nombre proveedor'
+						placeholder='Nombre accionista'
 					/>
 				)
 			},
 			{
-				Header: 'Nombre contacto',
-				id: 'ppv_nombre_contacto',
+				Header: 'Tipo documento',
+				id: 'pac_tipo_doc',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].ppv_nombre_contacto`}
+						name={`${props.name}[${index}].pac_tipo_doc`}
 						classes={styles}
-						placeholder='Nombre contacto'
+						placeholder='Tipo documento'
 					/>
 				)
 			},
 			{
-				Header: 'Teléfono',
-				id: 'ppv_telefono',
+				Header: 'Porcentaje',
+				id: 'pac_porcentaje',
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].ppv_telefono`}
+						name={`${props.name}[${index}].pac_porcentaje`}
 						classes={styles}
-						placeholder='Teléfono'
+						placeholder='Porcentaje'
 					/>
 				)
 			},
@@ -108,4 +108,4 @@ const ProveedoresTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	)
 }
 
-export default ProveedoresTable
+export default AccionistasTable

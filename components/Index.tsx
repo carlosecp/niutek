@@ -108,7 +108,7 @@ export const Index = <
 							className='btn btn-primary'
 							disabled={state.loading}
 						>
-							Submit
+							Guardar
 						</button>{' '}
 					</Form>
 					<Navigation {...navigationProps}>

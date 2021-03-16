@@ -138,8 +138,11 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 							input: 'border-none w-full p-2 text-sm outline-none'
 						}}
 					>
-						<option value={1}>Primera Opcion</option>
-						<option value={2}>Segunda Opcion</option>
+						{props.options.tabla.banco.map((option) => (
+							<option key={option.codigo} value={option.codigo}>
+								{option.descripcion}
+							</option>
+						))}
 					</Select>
 				)
 			},

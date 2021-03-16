@@ -44,7 +44,7 @@ export interface GlobalSearchConfig {
 }
 
 export interface TablaOptions {
-	bancos: { codigo: number; descripcion: string }[]
+	banco: { codigo: number; descripcion: string }[]
 	moneda: { codigo: number; descripcion: string }[]
 	nacionalidad: { codigo: number; descripcion: string }[]
 	sexo: { codigo: number; descripcion: string }[]

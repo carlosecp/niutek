@@ -1,14 +1,23 @@
 import type { PersonaNaturalValues } from '@/data/persona_natural'
 import { useFormikContext } from 'formik'
+import { navLinks, NavLinks } from '@/data/persona_natural'
 import { Text, Checkbox } from '@/components/forms'
+
+const SECTION_NAME = NavLinks.OrigenFondos
 
 const OrigenFondos = () => {
 	const { values } = useFormikContext<PersonaNaturalValues>()
 
 	return (
-		<section id='origen_fondos'>
-			<a href='#!' id='_origen_fondos' className='anchor'></a>
-			<h1 className='font-medium text-xl text-gray-900'>Origen de Fondos</h1>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
+			<h1 className='font-medium text-xl text-gray-900'>
+				{navLinks[SECTION_NAME].name}
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<fieldset className='fc-lg grid grid-cols-12'>
 					<Checkbox name='p_of_negocio_propio' label='Negocio Propio' />

@@ -1,9 +1,11 @@
 import type { PersonaJuridicaValues } from '@/data/persona_juridica'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
-import * as React from 'react'
+import { navLinks, NavLinks } from '@/data/persona_juridica'
 import { useFormikContext } from 'formik'
 import { Text, Select, TextArea } from '@/components/forms'
 import useMunicipio from '@/lib/useMunicipio'
+
+const SECTION_NAME = NavLinks.PersonaJuridica
 
 interface Props {
 	options: {
@@ -18,9 +20,15 @@ const PersonaJuridica = (props: Props) => {
 	const municipios = useMunicipio(values.p_cod_depto)
 
 	return (
-		<section id='persona_natural'>
-			<a href='#!' id='_persona_natural' className='anchor'></a>
-			<h1 className='font-medium text-xl text-gray-900'>Persona Jurídica</h1>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
+			<h1 className='font-medium text-xl text-gray-900'>
+				{navLinks[SECTION_NAME].name}
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='p_nombre' label='Nombre' />
 				<Select name='p_tipo_doc' label='Tipo de documento'>
@@ -69,6 +77,14 @@ const PersonaJuridica = (props: Props) => {
 				/>
 				<Text name='p_telefono2' label='Teléfono 2' />
 				<Text
+					name='p_of_direccion'
+					label='Dirección'
+					classes={{
+						container: 'fc-lg',
+						input: 'w-full block form-input form-input-border'
+					}}
+				/>
+				<Text
 					name='p_fecha_constitucion'
 					label='Fecha constitución'
 					placeholder='YYYY-MM-DD'
@@ -78,6 +94,7 @@ const PersonaJuridica = (props: Props) => {
 					label='Fecha personería'
 					placeholder='YYYY-MM-DD'
 				/>
+				<Text name='p_ingreso_anual' label='Ingreso anual' type='number' />
 				<TextArea name='p_actividad_empresa' label='Actividad empresa' />
 			</article>
 		</section>

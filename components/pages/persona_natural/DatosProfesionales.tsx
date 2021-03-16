@@ -1,10 +1,19 @@
+import { navLinks, NavLinks } from '@/data/persona_natural'
 import { Text, TextArea } from '@/components/forms'
+
+const SECTION_NAME = NavLinks.DatosProfesionales
 
 const DatosProfesionales = () => {
 	return (
-		<section id='datos_profesionales'>
-			<a href='#!' id='_datos_profesionales' className='anchor'></a>
-			<h1 className='font-medium text-xl text-gray-900'>Datos Profesionales</h1>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
+			<h1 className='font-medium text-xl text-gray-900'>
+				{navLinks[SECTION_NAME].name}
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='p_profesion_oficio' label='Profesión' />
 				<Text name='p_ocupacion_puesto' label='Ocupación' />

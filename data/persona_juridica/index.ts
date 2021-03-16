@@ -4,14 +4,27 @@ import { origenFondos } from './origenFondos'
 import { refComerciales } from './refComerciales'
 import { refBancarias } from './refBancarias'
 import { proveedores } from './proveedores'
+import { accionistas } from './accionistas'
 
 export const navLinks = [
-	{ name: 'Persona Jurídica', anchor: '_persona_juridica' },
-	{ name: 'Origen de Fondos', anchor: '_origen_fondos' },
-	{ name: 'Referencias Comerciales', anchor: '_referencias_comerciales' },
-	{ name: 'Referencias Bancarias', anchor: '_referencias_bancarias' },
-	{ name: 'Referencias Personales', anchor: '_referencias_personales' }
+	{ name: 'Persona Jurídica', anchor: 'persona_juridica' },
+	{ name: 'Origen de Fondos', anchor: 'origen_fondos' },
+	{ name: 'Referencias Comerciales', anchor: 'referencias_comerciales' },
+	{ name: 'Referencias Bancarias', anchor: 'referencias_bancarias' },
+	{ name: 'Referencias Personales', anchor: 'referencias_personales' },
+	{ name: 'Proveedores', anchor: 'proveedores' },
+	{ name: 'Accionistas', anchor: 'accionistas' }
 ]
+
+export enum NavLinks {
+	PersonaJuridica,
+	OrigenFondos,
+	RefComerciales,
+	RefBancarias,
+	RefPersonales,
+	Proveedores,
+	Accionistas
+}
 
 export type PersonaJuridicaSearchResult = {
 	cod_cliente: number
@@ -29,7 +42,8 @@ const values = {
 	...origenFondos.values,
 	referencias_comerciales: refComerciales.values,
 	referencias_bancarias: refBancarias.values,
-	proveedores: proveedores.values
+	proveedores: proveedores.values,
+	accionistas: accionistas.values
 }
 
 const validations = yup.object({
@@ -37,7 +51,8 @@ const validations = yup.object({
 	...origenFondos.validations,
 	referencias_comerciales: refComerciales.validations,
 	referencias_bancarias: refBancarias.validations,
-	proveedores: proveedores.validations
+	proveedores: proveedores.validations,
+	accionistas: accionistas.validations
 })
 
 export type PersonaJuridicaValues = typeof values

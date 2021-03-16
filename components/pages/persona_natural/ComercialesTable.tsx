@@ -11,7 +11,6 @@ interface Props<RefSchema> {
 	handleRemove: (index: number) => void
 }
 
-// RefSchema es el schema de cada una de las rows de la tabla, no el validationSchema.
 const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const { values } = useFormikContext<Data>()
 	const data: RefSchema[] = getIn(values, props.name) || []

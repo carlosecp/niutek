@@ -27,7 +27,7 @@ const Navigation = (props: Props) => {
 						{props.navLinks.map((link) => (
 							<li key={link.anchor} className='nav-link'>
 								<a
-									href={`#${link.anchor}`}
+									href={`#_${link.anchor}`}
 									className='px-4 py-3 block w-full h-full'
 								>
 									{link.name}

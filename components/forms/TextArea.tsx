@@ -1,4 +1,5 @@
 import { useField, useFormikContext } from 'formik'
+import { FaExclamationCircle } from 'react-icons/fa'
 
 interface Props {
 	name: string
@@ -29,16 +30,23 @@ const TextArea = ({ name, classes = styles, ...props }: Props) => {
 					{props?.label}
 				</label>
 			)}
-			<textarea
-				className={`${classes.input} transition form-disabled ${
-					meta.touched && meta.error ? 'border-error' : 'border-primary'
-				}`}
-				placeholder={props?.placeholder || props?.label}
-				disabled={isSubmitting}
-				rows={5}
-				{...field}
-			/>
-			{meta.error && meta.touched && <small>{meta.error}</small>}
+			<div className='relative'>
+				<textarea
+					className={`${classes.input} transition form-disabled ${
+						meta.touched && meta.error ? 'border-error' : 'border-primary'
+					}`}
+					placeholder={props?.placeholder || props?.label}
+					disabled={isSubmitting}
+					rows={5}
+					{...field}
+				/>
+				{meta.error && meta.touched && (
+					<FaExclamationCircle className='absolute right-2 top-1/2 transform -translate-y-1/2 text-error fill-current' />
+				)}
+			</div>
+			{meta.error && meta.touched && (
+				<small className='text-error font-semibold'>{meta.error}</small>
+			)}
 		</div>
 	)
 }
