@@ -11,6 +11,7 @@ interface Props {
 	classes?: {
 		container: string
 	}
+	horizontal?: boolean
 	disabled?: boolean
 }
 
@@ -18,7 +19,12 @@ const styles = {
 	container: 'fc-lg'
 }
 
-const MultipleChoice = ({ fields, title, classes = styles }: Props) => {
+const MultipleChoice = ({
+	fields,
+	title,
+	classes = styles,
+	horizontal = false
+}: Props) => {
 	const { isSubmitting } = useFormikContext()
 
 	return (
@@ -29,10 +35,13 @@ const MultipleChoice = ({ fields, title, classes = styles }: Props) => {
 			<div
 				role='group'
 				aria-labelledby='checkbox-group'
-				className='flex flex-wrap mt-2'
+				className={`flex ${!horizontal && 'flex-wrap'} mt-2`}
 			>
 				{fields.map((field) => (
-					<div className='w-full h-input flex form-input relative'>
+					<div
+						key={field.value}
+						className='w-full h-input flex form-input relative'
+					>
 						<Field
 							name={field.name}
 							type='checkbox'

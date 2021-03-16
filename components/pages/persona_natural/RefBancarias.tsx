@@ -6,7 +6,6 @@ import { refSchema } from '@/data/persona_natural/refBancarias'
 import { FieldArray } from 'formik'
 import BancariasTable from './BancariasTable'
 
-const name = 'referencias_bancarias'
 const SECTION_NAME = NavLinks.RefBancarias
 
 interface Props {
@@ -17,7 +16,9 @@ interface Props {
 
 const RefBancarias = (props: Props) => {
 	const tableProps = {
-		name,
+		name: navLinks[SECTION_NAME].anchor,
+		title: navLinks[SECTION_NAME].name,
+		tableKeys: Object.keys(refSchema),
 		refSchema,
 		options: props.options,
 		limit: 2

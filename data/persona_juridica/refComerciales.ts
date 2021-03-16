@@ -1,6 +1,5 @@
 import * as yup from 'yup'
 
-// Utilizado en cada una de las secciones que contienen tablas.
 export const refSchema = {
 	prc_nombre_entidad: '',
 	prc_persona_contacto: '',
@@ -29,7 +28,7 @@ const validations = yup.array().of(
 			.required('Requerido'),
 		prc_annios_con_entidad: yup
 			.number()
-			.min(0, 'Valor Mínimo 0')
+			.min(0, 'Valor mínimo 0')
 			.required('Requerido'),
 		prc_telefono: yup
 			.string()

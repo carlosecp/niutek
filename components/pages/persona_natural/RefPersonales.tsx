@@ -17,6 +17,8 @@ interface Props {
 const RefPersonales = (props: Props) => {
 	const tableProps = {
 		name: navLinks[SECTION_NAME].anchor,
+		title: navLinks[SECTION_NAME].name,
+		tableKeys: Object.keys(refSchema),
 		refSchema,
 		options: props.options,
 		limit: 2

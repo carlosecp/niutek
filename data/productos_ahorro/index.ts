@@ -1,11 +1,11 @@
 import * as yup from 'yup'
 import { productos } from './productos'
-import { cargos } from './cargos'
 
-export const navLinks = [
-	{ name: 'Productos', anchor: '_productos' },
-	{ name: 'Cargos', anchor: '_cargos' }
-]
+export const navLinks = [{ name: 'Productos', anchor: 'productos' }]
+
+export enum NavLinks {
+	Productos
+}
 
 export type ProductosDeAhorroSearchResult = {
 	cod_producto: number
@@ -19,8 +19,7 @@ export const getDescription = (result: ProductosDeAhorroSearchResult) => ({
 })
 
 const values = {
-	...productos.values,
-	cargos: cargos.values
+	...productos.values
 }
 const validations = yup.object({
 	...productos.validations

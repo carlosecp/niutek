@@ -28,7 +28,7 @@ const validations = yup.array().of(
 			.required('Requerido'),
 		prc_annios_con_entidad: yup
 			.number()
-			.min(0, 'Valor Mínimo 0')
+			.min(0, 'Valor mínimo 0')
 			.required('Requerido'),
 		prc_telefono: yup
 			.string()

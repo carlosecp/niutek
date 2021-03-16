@@ -1,15 +1,18 @@
-import type { TablaOptions } from '@/lib/interfaces'
 import * as React from 'react'
 import { useFormikContext, getIn } from 'formik'
 import { Text } from '@/components/forms'
 import Table from '@/components/tables/Table'
 
+const styles = {
+	container: 'w-auto',
+	input: 'w-full p-2 pl-0 text-sm outline-none border-none'
+}
+
 interface Props<RefSchema> {
 	name: string
+	title: string
+	tableKeys: string[]
 	refSchema: RefSchema
-	options: {
-		tabla: TablaOptions
-	}
 	limit: number
 	handleAdd: (obj: RefSchema) => void
 	handleRemove: (index: number) => void
@@ -30,22 +33,14 @@ const ProveedoresTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 		[props.handleRemove]
 	)
 
-	const styles = React.useMemo(
-		() => ({
-			container: 'w-auto',
-			input: 'w-full p-2 text-sm outline-none border-none'
-		}),
-		[]
-	)
-
 	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Nombre proveedor',
-				id: 'ppv_nombre',
+				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].ppv_nombre_proveedor`}
+						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
 						placeholder='Nombre proveedor'
 					/>
@@ -53,10 +48,10 @@ const ProveedoresTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Nombre contacto',
-				id: 'ppv_nombre_contacto',
+				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].ppv_nombre_contacto`}
+						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={styles}
 						placeholder='Nombre contacto'
 					/>
@@ -64,10 +59,10 @@ const ProveedoresTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Teléfono',
-				id: 'ppv_telefono',
+				id: props.tableKeys[2],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].ppv_telefono`}
+						name={`${props.name}[${index}].${props.tableKeys[2]}`}
 						classes={styles}
 						placeholder='Teléfono'
 					/>
@@ -91,9 +86,9 @@ const ProveedoresTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	)
 
 	return (
-		<div>
+		<>
 			<div className='flex justify-between items-center'>
-				<h1 className='font-medium text-xl text-gray-900'>Proveedores</h1>
+				<h1 className='font-medium text-xl text-gray-900'>{props.title}</h1>
 				<button
 					type='button'
 					className='btn btn-primary'
@@ -104,7 +99,7 @@ const ProveedoresTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				</button>
 			</div>
 			<Table columns={columns} data={data} />
-		</div>
+		</>
 	)
 }
 

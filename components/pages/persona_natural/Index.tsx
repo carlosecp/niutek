@@ -35,8 +35,6 @@ const Wrapper = Index<
 >(config)
 
 const index = (props: Props) => {
-	console.log('Estas son las props (tables)', props)
-
 	return (
 		<Wrapper {...props}>
 			<PersonaNatural options={props.options} />

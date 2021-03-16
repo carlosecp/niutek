@@ -85,7 +85,7 @@ const validations = {
 	p_num_hijos: yup
 		.number()
 		.integer('Valor entero')
-		.min(0, 'Valor Mínimo 0')
+		.min(0, 'Valor mínimo 0')
 		.required('Requerido')
 }
 

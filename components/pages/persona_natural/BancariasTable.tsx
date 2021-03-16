@@ -4,8 +4,15 @@ import { useFormikContext, getIn } from 'formik'
 import { Text, Select } from '@/components/forms'
 import Table from '@/components/tables/Table'
 
+const styles = {
+	container: 'w-auto',
+	input: 'w-full p-2 pl-0 text-sm outline-none border-none'
+}
+
 interface Props<RefSchema> {
 	name: string
+	title: string
+	tableKeys: string[]
 	refSchema: RefSchema
 	options: {
 		tabla: TablaOptions
@@ -30,22 +37,14 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 		[props.handleRemove]
 	)
 
-	const styles = React.useMemo(
-		() => ({
-			container: 'w-auto',
-			input: 'w-full p-2 text-sm outline-none border-none'
-		}),
-		[]
-	)
-
 	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Nombre Entidad',
-				id: 'prb_nombre_entidad',
+				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_nombre_entidad`}
+						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
 						placeholder='Nombre Entidad'
 					/>
@@ -53,10 +52,10 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Servicio Recibido',
-				id: 'prb_tipo_servicio_recibido',
+				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_tipo_servicio_recibido`}
+						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={styles}
 						placeholder='Servicio Recibido'
 					/>
@@ -64,10 +63,10 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Fecha de Inición Relación',
-				id: 'prb_fecha_inicio_relacion',
+				id: props.tableKeys[2],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_fecha_inicio_relacion`}
+						name={`${props.name}[${index}].${props.tableKeys[2]}`}
 						classes={styles}
 						placeholder='YYYY-MM-DD'
 					/>
@@ -75,10 +74,10 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Años con entidad',
-				id: 'prb_annios_con_entidad',
+				id: props.tableKeys[3],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_annios_con_entidad`}
+						name={`${props.name}[${index}].${props.tableKeys[3]}`}
 						classes={styles}
 						placeholder='Años con entidad'
 						type='number'
@@ -88,10 +87,10 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Teléfono',
-				id: 'prb_telefono1',
+				id: props.tableKeys[4],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_telefono`}
+						name={`${props.name}[${index}].${props.tableKeys[4]}`}
 						classes={styles}
 						placeholder='Teléfono'
 					/>
@@ -99,10 +98,10 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'No. Cuenta',
-				id: 'prb_telefono2',
+				id: props.tableKeys[5],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prb_telefono`}
+						name={`${props.name}[${index}].${props.tableKeys[5]}`}
 						classes={styles}
 						placeholder='No. Cuenta'
 					/>
@@ -110,10 +109,10 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Moneda',
-				id: 'pct_cod_moneda',
+				id: props.tableKeys[6],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].pct_cod_moneda`}
+						name={`${props.name}[${index}].${props.tableKeys[6]}`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
@@ -129,10 +128,10 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Banco',
-				id: 'pct_cod_banco',
+				id: props.tableKeys[7],
 				Cell: ({ row: { index } }) => (
 					<Select
-						name={`${props.name}[${index}].pct_cod_banco`}
+						name={`${props.name}[${index}].${props.tableKeys[7]}`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
@@ -164,11 +163,9 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 	)
 
 	return (
-		<div>
+		<>
 			<div className='flex justify-between items-center'>
-				<h1 className='font-medium text-xl text-gray-900'>
-					Referencias Bancarias
-				</h1>
+				<h1 className='font-medium text-xl text-gray-900'>{props.title}</h1>
 				<button
 					type='button'
 					className='btn btn-primary'
@@ -179,7 +176,7 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 				</button>
 			</div>
 			<Table columns={columns} data={data} />
-		</div>
+		</>
 	)
 }
 

@@ -36,7 +36,7 @@ const validations = {
 		.email('Corre Electrónico Inválido')
 		.max(50, 'Caracteres Máximos 50')
 		.required('Requerido'),
-	p_ingreso_anual: yup.number().min(0, 'Valor Mínimo 0').required('Requerido')
+	p_ingreso_anual: yup.number().min(0, 'Valor mínimo 0').required('Requerido')
 }
 
 export const datosProfesionales = { values, validations }

@@ -3,8 +3,15 @@ import { useFormikContext, getIn } from 'formik'
 import { Text } from '@/components/forms'
 import Table from '@/components/tables/Table'
 
+const styles = {
+	container: 'w-auto',
+	input: 'w-full p-2 pl-0 text-sm outline-none border-none'
+}
+
 interface Props<RefSchema> {
 	name: string
+	title: string
+	tableKeys: string[]
 	refSchema: RefSchema
 	limit: number
 	handleAdd: (obj: RefSchema) => void
@@ -26,22 +33,14 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 		[props.handleRemove]
 	)
 
-	const styles = React.useMemo(
-		() => ({
-			container: 'w-auto',
-			input: 'w-full p-2 pl-0 text-sm outline-none border-none'
-		}),
-		[]
-	)
-
 	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Nombre Entidad',
-				id: 'prc_nombre_entidad',
+				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prc_nombre_entidad`}
+						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
 						placeholder='Nombre Entidad'
 					/>
@@ -49,10 +48,10 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Persona de Contacto',
-				id: 'prc_persona_contacto',
+				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prc_persona_contacto`}
+						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={styles}
 						placeholder='Persona de Contacto'
 					/>
@@ -60,10 +59,10 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Dirección',
-				id: 'prc_direccion',
+				id: props.tableKeys[2],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prc_direccion`}
+						name={`${props.name}[${index}].${props.tableKeys[2]}`}
 						classes={styles}
 						placeholder='Dirección'
 					/>
@@ -71,10 +70,10 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Años con entidad',
-				id: 'prc_annios_con_entidad',
+				id: props.tableKeys[3],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prc_annios_con_entidad`}
+						name={`${props.name}[${index}].${props.tableKeys[3]}`}
 						classes={styles}
 						placeholder='Años con entidad'
 						type='number'
@@ -84,10 +83,10 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Teléfono',
-				id: 'prc_telefono',
+				id: props.tableKeys[4],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prc_telefono`}
+						name={`${props.name}[${index}].${props.tableKeys[4]}`}
 						classes={styles}
 						placeholder='Teléfono'
 					/>
@@ -111,11 +110,9 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	)
 
 	return (
-		<div>
+		<>
 			<div className='flex justify-between items-center'>
-				<h1 className='font-medium text-xl text-gray-900'>
-					Referencias Comerciales
-				</h1>
+				<h1 className='font-medium text-xl text-gray-900'>{props.title}</h1>
 				<button
 					type='button'
 					className='btn btn-primary'
@@ -126,7 +123,7 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				</button>
 			</div>
 			<Table columns={columns} data={data} />
-		</div>
+		</>
 	)
 }
 

@@ -27,8 +27,8 @@ const validations = yup.array().of(
 			.required('Requerido'),
 		pac_porcentaje: yup
 			.number()
-			.min(0, 'Valor Mínimo 0')
-			.max(100, 'Valor Máximo 100')
+			.min(0, 'Valor mínimo 0')
+			.max(100, 'Valor máximo 100')
 			.required('Requerido')
 	})
 )

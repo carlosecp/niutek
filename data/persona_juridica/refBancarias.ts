@@ -1,7 +1,6 @@
 import * as yup from 'yup'
 import moment from 'moment'
 
-// Utilizado en cada una de las secciones que contienen tablas.
 export const refSchema = {
 	prb_nombre_entidad: '',
 	prb_tipo_servicio_recibido: '',
@@ -34,7 +33,7 @@ const validations = yup.array().of(
 			.typeError('Fecha Inválida (formato YYYY-MM-DD)'),
 		prb_annios_con_entidad: yup
 			.number()
-			.min(0, 'Valor Mínimo 0')
+			.min(0, 'Valor mínimo 0')
 			.required('Requerido'),
 		prb_telefono: yup
 			.string()

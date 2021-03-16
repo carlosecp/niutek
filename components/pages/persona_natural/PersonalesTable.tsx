@@ -4,8 +4,15 @@ import { useFormikContext, getIn } from 'formik'
 import { Text } from '@/components/forms'
 import Table from '@/components/tables/Table'
 
+const styles = {
+	container: 'w-auto',
+	input: 'w-full p-2 pl-0 text-sm outline-none border-none'
+}
+
 interface Props<RefSchema> {
 	name: string
+	title: string
+	tableKeys: string[]
 	refSchema: RefSchema
 	options: {
 		tabla: TablaOptions
@@ -30,22 +37,14 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 		[props.handleRemove]
 	)
 
-	const styles = React.useMemo(
-		() => ({
-			container: 'w-auto',
-			input: 'w-full p-2 text-sm outline-none border-none'
-		}),
-		[]
-	)
-
 	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Nombre',
-				id: 'prp_nombre',
+				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_nombre`}
+						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
 						placeholder='Nombre'
 					/>
@@ -53,10 +52,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Tipo Documento',
-				id: 'prp_tipo_doc',
+				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_tipo_doc`}
+						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={styles}
 						placeholder='Tipo Documento'
 					/>
@@ -64,10 +63,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'No. Documento',
-				id: 'prp_num_doc',
+				id: props.tableKeys[2],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_num_doc`}
+						name={`${props.name}[${index}].${props.tableKeys[2]}`}
 						classes={styles}
 						placeholder='No. Documento'
 					/>
@@ -75,10 +74,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Teléfono 1',
-				id: 'prp_telefono1',
+				id: props.tableKeys[3],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_telefono1`}
+						name={`${props.name}[${index}].${props.tableKeys[3]}`}
 						classes={styles}
 						placeholder='Teléfono 1'
 					/>
@@ -86,10 +85,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Teléfono 2',
-				id: 'prp_telefono2',
+				id: props.tableKeys[4],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_telefono2`}
+						name={`${props.name}[${index}].${props.tableKeys[4]}`}
 						classes={styles}
 						placeholder='Teléfono 2'
 					/>
@@ -97,10 +96,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Dirección',
-				id: 'prp_direccion',
+				id: props.tableKeys[5],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_direccion`}
+						name={`${props.name}[${index}].${props.tableKeys[5]}`}
 						classes={styles}
 						placeholder='Dirección'
 					/>
@@ -108,10 +107,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Lugar Trabajo',
-				id: 'prp_lugar_trabajo',
+				id: props.tableKeys[6],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_lugar_trabajo`}
+						name={`${props.name}[${index}].${props.tableKeys[6]}`}
 						classes={styles}
 						placeholder='Lugar Trabajo'
 					/>
@@ -119,10 +118,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Teléfono Trabajo',
-				id: 'prp_telefono_trabajo',
+				id: props.tableKeys[7],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_telefono_trabajo`}
+						name={`${props.name}[${index}].${props.tableKeys[7]}`}
 						classes={styles}
 						placeholder='Teléfono Trabajo'
 					/>
@@ -130,10 +129,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Tiempo de Conocer',
-				id: 'prp_tiempo_conocer',
+				id: props.tableKeys[8],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_tiempo_conocer`}
+						name={`${props.name}[${index}].${props.tableKeys[8]}`}
 						classes={styles}
 						placeholder='Tiempo de Conocer'
 						type='number'
@@ -143,10 +142,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Email',
-				id: 'prp_e_mail',
+				id: props.tableKeys[9],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].prp_e_mail`}
+						name={`${props.name}[${index}].${props.tableKeys[9]}`}
 						classes={styles}
 						placeholder='Email'
 					/>
@@ -170,11 +169,9 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	)
 
 	return (
-		<div>
+		<>
 			<div className='flex justify-between items-center'>
-				<h1 className='font-medium text-xl text-gray-900'>
-					Referencias Personales
-				</h1>
+				<h1 className='font-medium text-xl text-gray-900'>{props.title}</h1>
 				<button
 					type='button'
 					className='btn btn-primary'
@@ -185,7 +182,7 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				</button>
 			</div>
 			<Table columns={columns} data={data} />
-		</div>
+		</>
 	)
 }
 

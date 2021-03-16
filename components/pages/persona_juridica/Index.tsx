@@ -45,7 +45,7 @@ const index = (props: Props) => {
 			<OrigenFondos />
 			<RefComerciales />
 			<RefBancarias options={props.options} />
-			<Proveedores options={props.options} />
+			<Proveedores />
 			<Accionistas options={props.options} />
 		</Wrapper>
 	)

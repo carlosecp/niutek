@@ -1,29 +1,30 @@
-import type { TablaOptions } from '@/lib/interfaces'
 import type { PersonaJuridicaValues } from '@/data/persona_juridica'
 import type { RefSchema } from '@/data/persona_juridica/proveedores'
+import { navLinks, NavLinks } from '@/data/persona_juridica'
 import { refSchema } from '@/data/persona_juridica/proveedores'
 import { FieldArray } from 'formik'
 import ProveedoresTable from './ProveedoresTable'
 
-interface Props {
-	options: {
-		tabla: TablaOptions
-	}
-}
+const SECTION_NAME = NavLinks.Proveedores
 
-const Proveedores = (props: Props) => {
+const Proveedores = () => {
 	const tableProps = {
-		name: 'proveedores',
+		name: navLinks[SECTION_NAME].anchor,
+		title: navLinks[SECTION_NAME].name,
+		tableKeys: Object.keys(refSchema),
 		refSchema,
-		options: props.options,
 		limit: 2
 	}
 
 	return (
-		<section id='proveedores'>
-			<a href='#!' id='_proveedores' className='anchor'></a>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
 			<article className='flex flex-col'>
-				<FieldArray name='proveedores'>
+				<FieldArray name={navLinks[SECTION_NAME].anchor}>
 					{(arrayHelpers) => (
 						<ProveedoresTable<PersonaJuridicaValues, RefSchema>
 							{...tableProps}

@@ -1,7 +1,13 @@
 import * as yup from 'yup'
 import { certificados } from './certificados'
 
-export const navLinks = [{ name: 'Certificados', anchor: '_certificados' }]
+export const navLinks = [
+	{ name: 'Certificado a Plazo Fijo', anchor: 'certificados' }
+]
+
+export enum NavLinks {
+	Certificados
+}
 
 export type CertificadosPlazoFijoSearchResults = {
 	cod_producto: number

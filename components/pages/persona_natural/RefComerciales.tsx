@@ -10,6 +10,8 @@ const SECTION_NAME = NavLinks.RefComerciales
 const RefComerciales = () => {
 	const tableProps = {
 		name: navLinks[SECTION_NAME].anchor,
+		title: navLinks[SECTION_NAME].name,
+		tableKeys: Object.keys(refSchema),
 		refSchema,
 		limit: 2
 	}

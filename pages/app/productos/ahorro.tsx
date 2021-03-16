@@ -11,8 +11,6 @@ interface OptionsTypes {
 }
 
 const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-	console.log(props)
-
 	const indexProps = {
 		options: props.options
 	}

@@ -45,7 +45,7 @@ const validations = {
 	p_num_empleados: yup
 		.number()
 		.integer('Valor entero')
-		.min(0, 'Valor Mínimo 0')
+		.min(0, 'Valor mínimo 0')
 		.required('Requerido'),
 	p_sitio_web: yup
 		.string()
@@ -81,7 +81,7 @@ const validations = {
 	p_ingreso_anual: yup
 		.number()
 		.integer('Valor entero')
-		.min(0, 'Valor Mínimo 0')
+		.min(0, 'Valor mínimo 0')
 		.required('Requerido'),
 	p_actividad_empresa: yup
 		.string()

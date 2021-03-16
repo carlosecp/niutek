@@ -1,11 +1,18 @@
 import type { TablaOptions } from '@/lib/interfaces'
 import * as React from 'react'
 import { useFormikContext, getIn } from 'formik'
-import { Text } from '@/components/forms'
+import { Text, Select } from '@/components/forms'
 import Table from '@/components/tables/Table'
+
+const styles = {
+	container: 'w-auto',
+	input: 'w-full p-2 pl-0 text-sm outline-none border-none'
+}
 
 interface Props<RefSchema> {
 	name: string
+	title: string
+	tableKeys: string[]
 	refSchema: RefSchema
 	options: {
 		tabla: TablaOptions
@@ -30,22 +37,14 @@ const AccionistasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 		[props.handleRemove]
 	)
 
-	const styles = React.useMemo(
-		() => ({
-			container: 'w-auto',
-			input: 'w-full p-2 text-sm outline-none border-none'
-		}),
-		[]
-	)
-
 	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Nombre accionista',
-				id: 'pac_nombre_accionista',
+				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].pac_nombre_accionista`}
+						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
 						placeholder='Nombre accionista'
 					/>
@@ -53,23 +52,32 @@ const AccionistasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Tipo documento',
-				id: 'pac_tipo_doc',
+				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
-					<Text
-						name={`${props.name}[${index}].pac_tipo_doc`}
-						classes={styles}
-						placeholder='Tipo documento'
-					/>
+					<Select
+						name={`${props.name}[${index}].${props.tableKeys[1]}`}
+						classes={{
+							container: 'w-36',
+							input: 'border-none w-full p-2 text-sm outline-none'
+						}}
+					>
+						{props.options.tabla.tipo_doc.map((option) => (
+							<option key={option.codigo} value={option.codigo}>
+								{option.descripcion}
+							</option>
+						))}
+					</Select>
 				)
 			},
 			{
 				Header: 'Porcentaje',
-				id: 'pac_porcentaje',
+				id: props.tableKeys[2],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].pac_porcentaje`}
+						name={`${props.name}[${index}].${props.tableKeys[2]}`}
 						classes={styles}
 						placeholder='Porcentaje'
+						type='number'
 					/>
 				)
 			},
@@ -91,9 +99,9 @@ const AccionistasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	)
 
 	return (
-		<div>
+		<>
 			<div className='flex justify-between items-center'>
-				<h1 className='font-medium text-xl text-gray-900'>Proveedores</h1>
+				<h1 className='font-medium text-xl text-gray-900'>{props.title}</h1>
 				<button
 					type='button'
 					className='btn btn-primary'
@@ -104,7 +112,7 @@ const AccionistasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				</button>
 			</div>
 			<Table columns={columns} data={data} />
-		</div>
+		</>
 	)
 }
 

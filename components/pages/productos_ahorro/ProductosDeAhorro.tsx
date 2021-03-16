@@ -1,8 +1,9 @@
-import type { ProductosDeAhorroValues } from '@/data/productos_ahorro'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import * as React from 'react'
-import { useFormikContext } from 'formik'
-import { Text, Select, TextArea } from '@/components/forms'
+import { navLinks, NavLinks } from '@/data/productos_ahorro'
+import { Text, Select, TextArea, MultipleChoice } from '@/components/forms'
+
+const SECTION_NAME = NavLinks.Productos
 
 interface Props {
 	options: {
@@ -12,15 +13,25 @@ interface Props {
 }
 
 const ProductosDeAhorro = (props: Props) => {
-	const { values } = useFormikContext<ProductosDeAhorroValues>()
+	const documentos = [
+		{ name: 'pdc_cod_documento', label: 'Fotocopia de cédula', value: 1 },
+		{ name: 'pdc_cod_documento', label: 'Constancia salarial', value: 2 },
+		{ name: 'pdc_cod_documento', label: 'Carta de recomendación', value: 3 }
+	]
 
 	return (
-		<section id='productos'>
-			<a href='#!' id='_productos' className='anchor' />
-			<h1 className='font-medium text-xl text-gray-900'>Producto de Ahorro</h1>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
+			<h1 className='font-medium text-xl text-gray-900'>
+				{navLinks[SECTION_NAME].name}
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='p_nombre' label='Nombre del producto' />
-				<TextArea name='p_descripcion' label='Descripcion' />
+				<TextArea name='p_descripcion' label='Descripción' />
 				<Select name='p_cod_moneda' label='Moneda'>
 					{props.options.tabla.moneda.map((option) => (
 						<option key={option.codigo} value={option.codigo}>
@@ -35,7 +46,7 @@ const ProductosDeAhorro = (props: Props) => {
 				/>
 				<Text
 					name='p_monto_minimo_apertura'
-					label='Monto minimo apertura'
+					label='Monto mínimo apertura'
 					type='number'
 				/>
 				<Text
@@ -45,20 +56,19 @@ const ProductosDeAhorro = (props: Props) => {
 				/>
 				<Text
 					name='p_max_retiros_mes'
-					label='Maximos retiros mensuales'
+					label='Máximos retiros mensuales'
 					type='number'
 				/>
 				<Text
 					name='p_monto_max_por_retiro'
-					label='Monto maximo por retiro'
+					label='Monto máximo por retiro'
 					type='number'
 				/>
-
-				<Select name='' label='Tipo de crédito'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
+				<MultipleChoice
+					title='Documentos Requeridos'
+					fields={documentos}
+					horizontal
+				/>
 			</article>
 		</section>
 	)
