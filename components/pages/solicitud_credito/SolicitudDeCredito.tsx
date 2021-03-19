@@ -1,9 +1,7 @@
-import type { SolicitudDeCreditoValues } from '@/data/solicitud_credito'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import { navLinks, NavLinks } from '@/data/solicitud_credito'
 import { Field } from 'formik'
-import { Text, Select } from '@/components/forms'
-import Documentos from './Documentos'
+import { Text, Select, MultipleChoice } from '@/components/forms'
 
 const SECTION_NAME = NavLinks.Solicitud
 
@@ -13,6 +11,12 @@ interface Props {
 		deptos_municipios: DeptosOption[]
 	}
 }
+
+const documentos = [
+	{ name: 'pdc_cod_documento', label: 'Fotocopia de cédula', value: 1 },
+	{ name: 'pdc_cod_documento', label: 'Constancia salarial', value: 2 },
+	{ name: 'pdc_cod_documento', label: 'Carta de recomendación', value: 3 }
+]
 
 const SolicitudDeCredito = (props: Props) => {
 	return (
@@ -85,9 +89,11 @@ const SolicitudDeCredito = (props: Props) => {
 					label='Tasa de interés mensual'
 					type='number'
 				/>
-				<div className='col-span-12 md:col-span-6'>
-					<Documentos />
-				</div>
+				<MultipleChoice
+					title='Documentos requeridos'
+					fields={documentos}
+					horizontal
+				/>
 				<div className='col-span-12 md:col-span-6 flex flex-col gap-4'>
 					<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 						<Text

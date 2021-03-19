@@ -1,8 +1,6 @@
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import { navLinks, NavLinks } from '@/data/productos_credito'
-import { Text, Select, TextArea } from '@/components/forms'
-import Garantias from './Garantias'
-import Documentos from './Documentos'
+import { Text, Select, TextArea, MultipleChoice } from '@/components/forms'
 
 const SECTION_NAME = NavLinks.Productos
 
@@ -12,6 +10,12 @@ interface Props {
 		deptos_municipios: DeptosOption[]
 	}
 }
+
+const documentos = [
+	{ name: 'pdc_cod_documento', label: 'Fotocopia de cédula', value: 1 },
+	{ name: 'pdc_cod_documento', label: 'Constancia salarial', value: 2 },
+	{ name: 'pdc_cod_documento', label: 'Carta de recomendación', value: 3 }
+]
 
 const ProductosDeCredito = (props: Props) => {
 	return (
@@ -49,8 +53,11 @@ const ProductosDeCredito = (props: Props) => {
 					}}
 				/>
 				<TextArea name='p_descripcion' label='Descripción' />
-				<Documentos />
-				<Garantias />
+				<MultipleChoice
+					title='Documentos requeridos'
+					fields={documentos}
+					horizontal
+				/>
 				<Select name='p_cod_moneda' label='Moneda'>
 					{props.options.tabla.moneda.map((option) => (
 						<option key={option.codigo} value={option.codigo}>
