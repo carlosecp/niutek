@@ -12,13 +12,13 @@ interface Props {
 	}
 }
 
-const ProductosDeAhorro = (props: Props) => {
-	const documentos = [
-		{ name: 'pdc_cod_documento', label: 'Fotocopia de cédula', value: 1 },
-		{ name: 'pdc_cod_documento', label: 'Constancia salarial', value: 2 },
-		{ name: 'pdc_cod_documento', label: 'Carta de recomendación', value: 3 }
-	]
+const documentos = [
+	{ name: 'pdc_cod_documento', label: 'Fotocopia de cédula', value: 1 },
+	{ name: 'pdc_cod_documento', label: 'Constancia salarial', value: 2 },
+	{ name: 'pdc_cod_documento', label: 'Carta de recomendación', value: 3 }
+]
 
+const ProductosDeAhorro = (props: Props) => {
 	return (
 		<section id={navLinks[SECTION_NAME].anchor}>
 			<a

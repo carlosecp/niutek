@@ -3,9 +3,14 @@ import { productos } from './productos'
 import { cargos } from './cargos'
 
 export const navLinks = [
-	{ name: 'Productos', anchor: '_productos' },
-	{ name: 'Cargos', anchor: '_cargos' }
+	{ name: 'Producto de Crédito', anchor: 'productos' },
+	{ name: 'Cargos', anchor: 'cargos' }
 ]
+
+export enum NavLinks {
+	Productos,
+	Cargos
+}
 
 export type ProductosDeCreditoSearchResult = {
 	cod_producto: number

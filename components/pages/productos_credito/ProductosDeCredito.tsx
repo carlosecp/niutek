@@ -1,10 +1,10 @@
-import type { ProductoDeCreditoValues } from '@/data/productos_credito'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
-import * as React from 'react'
-import { useFormikContext } from 'formik'
+import { navLinks, NavLinks } from '@/data/productos_credito'
 import { Text, Select, TextArea } from '@/components/forms'
 import Garantias from './Garantias'
 import Documentos from './Documentos'
+
+const SECTION_NAME = NavLinks.Productos
 
 interface Props {
 	options: {
@@ -14,12 +14,16 @@ interface Props {
 }
 
 const ProductosDeCredito = (props: Props) => {
-	const { values } = useFormikContext<ProductoDeCreditoValues>()
-
 	return (
-		<section id='productos'>
-			<a href='#!' id='_productos' className='anchor' />
-			<h1 className='font-medium text-xl text-gray-900'>Producto de Crédito</h1>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
+			<h1 className='font-medium text-xl text-gray-900'>
+				{navLinks[SECTION_NAME].name}
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Select name='p_cod_tipo_credito' label='Tipo de crédito'>
 					<option value={0} disabled>

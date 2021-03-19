@@ -1,7 +1,7 @@
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import * as React from 'react'
 import { navLinks, NavLinks } from '@/data/certificados_plazo_fijo'
-import { Text, Select, TextArea } from '@/components/forms'
+import { Text, Select, TextArea, MultipleChoice } from '@/components/forms'
 
 const SECTION_NAME = NavLinks.Certificados
 interface Props {
@@ -10,6 +10,12 @@ interface Props {
 		deptos_municipios: DeptosOption[]
 	}
 }
+
+const documentos = [
+	{ name: 'pdc_cod_documento', label: 'Fotocopia de cédula', value: 1 },
+	{ name: 'pdc_cod_documento', label: 'Constancia salarial', value: 2 },
+	{ name: 'pdc_cod_documento', label: 'Carta de recomendación', value: 3 }
+]
 
 const CertificadosPlazoFijo = (props: Props) => {
 	return (
@@ -56,6 +62,11 @@ const CertificadosPlazoFijo = (props: Props) => {
 					name='p_monto_max_por_retiro'
 					label='Monto maximo por retiro'
 					type='number'
+				/>
+				<MultipleChoice
+					title='Documentos Requeridos'
+					fields={documentos}
+					horizontal
 				/>
 			</article>
 		</section>
