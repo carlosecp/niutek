@@ -4,8 +4,15 @@ import { useFormikContext, getIn } from 'formik'
 import { Select, Text } from '@/components/forms'
 import Table from '@/components/tables/Table'
 
+const styles = {
+	container: 'w-auto',
+	input: 'w-full p-2 pl-0 text-sm outline-none border-none'
+}
+
 interface Props<RefSchema> {
 	name: string
+	title: string
+	tableKeys: string[]
 	refSchema: RefSchema
 	options: {
 		tabla: TablaOptions
@@ -30,22 +37,14 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 		[props.handleRemove]
 	)
 
-	const styles = React.useMemo(
-		() => ({
-			container: 'w-auto',
-			input: 'w-full p-2 pl-0 text-sm outline-none border-none'
-		}),
-		[]
-	)
-
 	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Cargos',
-				id: 'pcr_cod_cargo',
+				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].pcr_cod_cargo`}
+						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
@@ -59,10 +58,10 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Moneda',
-				id: 'pcr_cod_moneda',
+				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].pcr_cod_moneda`}
+						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
@@ -78,10 +77,10 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Valor',
-				id: 'pcr_valor',
+				id: props.tableKeys[2],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
-						name={`${props.name}[${index}].pcr_valor`}
+						name={`${props.name}[${index}].${props.tableKeys[2]}`}
 						classes={styles}
 						placeholder=''
 						type='number'
@@ -90,10 +89,10 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Tipo',
-				id: 'pcr_cod_tipo',
+				id: props.tableKeys[3],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].pct_cod_tipo`}
+						name={`${props.name}[${index}].${props.tableKeys[3]}`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
@@ -106,10 +105,10 @@ const CargosTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Aplica',
-				id: 'pcr_cod_aplica',
+				id: props.tableKeys[4],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].pcr_cod_aplica`}
+						name={`${props.name}[${index}].${props.tableKeys[3]}`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'

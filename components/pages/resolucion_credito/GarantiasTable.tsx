@@ -30,8 +30,6 @@ const GarantiasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 		[props.handleRemove]
 	)
 
-	console.log(values)
-
 	const styles = React.useMemo(
 		() => ({
 			container: 'w-auto',

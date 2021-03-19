@@ -22,8 +22,8 @@ const sidebar = [
 		path: 'garantias',
 		items: [
 			{
-				anchor: 'Tipo 1',
-				subpath: 'garantias_1',
+				anchor: 'Garantías',
+				subpath: 'garantias',
 				icon: <Icons.PersonCheck />
 			}
 		]

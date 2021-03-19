@@ -4,8 +4,15 @@ import { useFormikContext, getIn } from 'formik'
 import { Text, Select } from '@/components/forms'
 import Table from '@/components/tables/Table'
 
+const styles = {
+	container: 'w-auto',
+	input: 'w-full p-2 pl-0 text-sm outline-none border-none'
+}
+
 interface Props<RefSchema> {
 	name: string
+	title: string
+	tableKeys: string[]
 	refSchema: RefSchema
 	options: {
 		tabla: TablaOptions
@@ -30,24 +37,14 @@ const GarantiasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 		[props.handleRemove]
 	)
 
-	console.log(values)
-
-	const styles = React.useMemo(
-		() => ({
-			container: 'w-auto',
-			input: 'w-full p-2 text-sm outline-none border-none'
-		}),
-		[]
-	)
-
 	const columns = React.useMemo(
 		() => [
 			{
 				Header: 'Tipo garantía',
-				id: 'prc_cod_moneda',
+				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Select
-						name={`${props.name}[${index}].prc_cod_tipo`}
+						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={{
 							container: 'w-36',
 							input: 'border-none w-full p-2 text-sm outline-none'
@@ -60,10 +57,10 @@ const GarantiasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Descripción cargo',
-				id: 'prc_descripcion_cargo',
+				id: props.tableKeys[1],
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${props.name}[${index}].prc_descripcion_cargo`}
+						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={styles}
 						placeholder='Descripción Cargo'
 					/>
@@ -71,10 +68,10 @@ const GarantiasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 			},
 			{
 				Header: 'Valor',
-				id: 'prc_valor',
+				id: props.tableKeys[2],
 				Cell: ({ row: { index } }) => (
 					<Text
-						name={`${props.name}[${index}].prc_valor`}
+						name={`${props.name}[${index}].${props.tableKeys[2]}`}
 						classes={styles}
 						placeholder='Valor'
 						type='number'
