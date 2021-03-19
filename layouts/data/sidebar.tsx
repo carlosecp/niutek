@@ -23,8 +23,8 @@ const sidebar = [
 		items: [
 			{
 				anchor: 'Garantías',
-				subpath: 'garantias',
-				icon: <Icons.PersonCheck />
+				subpath: '',
+				icon: <Icons.FileEarmarkCheck />
 			}
 		]
 	},

@@ -36,8 +36,6 @@ export const getStaticProps = async () => {
 	}
 
 	const res = await axios.post(req.path, req.body, { headers: req.headers })
-	console.log(res.data)
-
 	return {
 		props: {
 			options: res.data.lee as OptionsTypes
