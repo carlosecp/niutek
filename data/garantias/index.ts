@@ -14,8 +14,8 @@ export type GarantiasSearchResult = {
 }
 
 export const getDescription = (result: GarantiasSearchResult) => ({
-	accessor: result.cod_producto,
-	description: result.nombre
+	accessor: result.cod_cliente,
+	description: `${result.nombres} ${result.apellidos}`
 })
 
 const values = {

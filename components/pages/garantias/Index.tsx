@@ -14,7 +14,7 @@ const config: Config<
 	GarantiasValidationSchema,
 	GarantiasSearchResult
 > = {
-	pageType: 'clientes',
+	pageType: 'cliente',
 	pageName: 'natural',
 	navLinks,
 	getDescription,

@@ -29,22 +29,50 @@ const ProductosDeCredito = (props: Props) => {
 				{navLinks[SECTION_NAME].name}
 			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<Select name='p_cod_gar' label='Tipo de garantía'>
+				<Select
+					name='p_cod_gar'
+					label='Tipo de garantía'
+					classes={{
+						container: 'fc-lg md:fc break-line',
+						input: 'w-full block form-input form-input-border'
+					}}
+				>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
-				<Select name='p_cod_cla' label='Clasificación'>
+				<Select
+					name='p_cod_cla'
+					label='Clasificación'
+					classes={{
+						container: 'fc-lg md:fc break-line',
+						input: 'w-full block form-input form-input-border'
+					}}
+				>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
-				<Select name='p_cod_cat' label='Categoría'>
+				<Select
+					name='p_cod_cat'
+					label='Categoría'
+					classes={{
+						container: 'fc-lg md:fc break-line',
+						input: 'w-full block form-input form-input-border'
+					}}
+				>
 					<option value={0} disabled>
 						Seleccione
 					</option>
 				</Select>
-				<Text name='p_marca' label='Marca' />
+				<Text
+					name='p_marca'
+					label='Marca'
+					classes={{
+						container: 'fc-lg md:fc break-line',
+						input: 'w-full block form-input form-input-border'
+					}}
+				/>
 				<Text name='p_modelo' label='Modelo' />
 				<Text name='p_annio' label='Año' />
 				<Text name='p_color' label='Color' />
