@@ -1,9 +1,11 @@
 import type { SolicitudDeCreditoValues } from '@/data/solicitud_credito'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
-import * as React from 'react'
-import { Field, useFormikContext } from 'formik'
+import { navLinks, NavLinks } from '@/data/solicitud_credito'
+import { Field } from 'formik'
 import { Text, Select } from '@/components/forms'
 import Documentos from './Documentos'
+
+const SECTION_NAME = NavLinks.Solicitud
 
 interface Props {
 	options: {
@@ -13,12 +15,16 @@ interface Props {
 }
 
 const SolicitudDeCredito = (props: Props) => {
-	const { values } = useFormikContext<SolicitudDeCreditoValues>()
-
 	return (
-		<section id='solicitud'>
-			<a href='#!' id='_solicitud' className='anchor'></a>
-			<h1 className='font-medium text-xl text-gray-900'>Solicitud</h1>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
+			<h1 className='font-medium text-xl text-gray-900'>
+				{navLinks[SECTION_NAME].name}
+			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<p className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
 					Promotor{' '}

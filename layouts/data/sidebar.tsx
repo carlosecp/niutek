@@ -18,6 +18,17 @@ const sidebar = [
 		]
 	},
 	{
+		name: 'Garantías',
+		path: 'garantias',
+		items: [
+			{
+				anchor: 'Tipo 1',
+				subpath: 'garantias_1',
+				icon: <Icons.PersonCheck />
+			}
+		]
+	},
+	{
 		name: 'Productos',
 		path: 'productos',
 		items: [

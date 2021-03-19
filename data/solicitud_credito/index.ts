@@ -3,10 +3,16 @@ import { solicitud } from './solicitud'
 import { garantias } from './garantias'
 
 export const navLinks = [
-	{ name: 'Solicitud', anchor: '_solicitud' },
-	{ name: 'Garantías', anchor: '_garantias' },
-	{ name: 'Observaciones', anchor: '_observaciones' }
+	{ name: 'Solicitud', anchor: 'solicitud' },
+	{ name: 'Garantías', anchor: 'garantias' },
+	{ name: 'Observaciones', anchor: 'observaciones' }
 ]
+
+export enum NavLinks {
+	Solicitud,
+	Garantias,
+	Observaciones
+}
 
 export type SolicitudDeCreditoSearchResult = {
 	cod_producto: number

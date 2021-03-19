@@ -18,8 +18,8 @@ const config: Config<
 	SolicitudDeCreditoValidationSchema,
 	SolicitudDeCreditoSearchResult
 > = {
-	accessKey: 'p_cod_producto',
-	endpoint: 'cliente_natural',
+	pageType: 'producto',
+	pageName: 'credito',
 	navLinks,
 	getDescription,
 	initialValues

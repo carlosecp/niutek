@@ -1,9 +1,12 @@
 import type { TablaOptions } from '@/lib/interfaces'
-import type { ProductoDeCreditoValues } from '@/data/productos_credito'
+import type { ProductosDeCreditoValues } from '@/data/productos_credito'
 import type { RefSchema } from '@/data/productos_credito/cargos'
+import { navLinks, NavLinks } from '@/data/productos_credito'
 import { refSchema } from '@/data/productos_credito/cargos'
 import { FieldArray } from 'formik'
 import CargosTable from './CargosTable'
+
+const SECTION_NAME = NavLinks.Cargos
 
 interface Props {
 	options: {
@@ -13,19 +16,25 @@ interface Props {
 
 const RefCargos = (props: Props) => {
 	const tableProps = {
-		name: 'cargos',
+		name: navLinks[SECTION_NAME].anchor,
+		title: navLinks[SECTION_NAME].name,
+		tableKeys: Object.keys(refSchema),
 		refSchema,
 		options: props.options,
 		limit: 2
 	}
 
 	return (
-		<section id='_cargos'>
-			<a href='#!' id='_cargos' className='anchor'></a>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
 			<article className='flex flex-col'>
-				<FieldArray name='cargos'>
+				<FieldArray name={navLinks[SECTION_NAME].anchor}>
 					{(arrayHelpers) => (
-						<CargosTable<ProductoDeCreditoValues, RefSchema>
+						<CargosTable<ProductosDeCreditoValues, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
