@@ -1,9 +1,8 @@
-import type { PersonaNaturalValues } from '@/data/persona_natural'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
-import * as React from 'react'
-import { useFormikContext } from 'formik'
-import { Text, Select, TextArea } from '@/components/forms'
-import useMunicipio from '@/lib/useMunicipio'
+import { Text, Select } from '@/components/forms'
+import { navLinks, NavLinks } from '@/data/resolucion_credito'
+
+const SECTION_NAME = NavLinks.Productos
 
 interface Props {
 	options: {
@@ -13,15 +12,15 @@ interface Props {
 }
 
 const ResolucionDeCredito = (props: Props) => {
-	const { values } = useFormikContext<PersonaNaturalValues>()
-
-	const municipios = useMunicipio(values.p_cod_depto)
-
 	return (
-		<section id='resolucion_de_credito'>
-			<a href='#!' id='_resolucion_de_credito' className='anchor'></a>
+		<section id={navLinks[SECTION_NAME].anchor}>
+			<a
+				href='#!'
+				id={`_${navLinks[SECTION_NAME].anchor}`}
+				className='anchor'
+			></a>
 			<h1 className='font-medium text-xl text-gray-900'>
-				Resolucion de Credito
+				{navLinks[SECTION_NAME].name}
 			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='_promotor' label='Promotor' disabled />
