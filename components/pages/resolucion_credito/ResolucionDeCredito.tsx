@@ -2,7 +2,7 @@ import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import { Text, Select } from '@/components/forms'
 import { navLinks, NavLinks } from '@/data/resolucion_credito'
 
-const SECTION_NAME = NavLinks.Productos
+const SECTION_NAME = NavLinks.Resolucion
 
 interface Props {
 	options: {

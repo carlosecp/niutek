@@ -4,12 +4,14 @@ import { cargos } from './cargos'
 
 export const navLinks = [
 	{ name: 'Resolución', anchor: 'productos' },
-	{ name: 'Cargos', anchor: 'cargos' }
+	{ name: 'Garantías', anchor: 'garantias' },
+	{ name: 'Observaciones', anchor: 'observaciones' }
 ]
 
 export enum NavLinks {
-	Productos,
-	Cargos
+	Resolucion,
+	Garantias,
+	Observaciones
 }
 
 export type ResolucionDeCreditoSearchResult = {
