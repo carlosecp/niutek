@@ -7,6 +7,11 @@ export const navLinks = [
 	{ name: 'Cargos', anchor: '_cargos' }
 ]
 
+export enum NavLinks {
+	Productos,
+	Cargos
+}
+
 export type FormalizacionDeCreditoSearchResult = {
 	cod_producto: number
 	nombre: string
