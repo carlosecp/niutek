@@ -36,24 +36,24 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'Nombre Entidad',
+				Header: 'Nombre entidad',
 				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
-						placeholder='Nombre Entidad'
+						placeholder='Nombre entidad'
 					/>
 				)
 			},
 			{
-				Header: 'Persona de Contacto',
+				Header: 'Persona de contacto',
 				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={styles}
-						placeholder='Persona de Contacto'
+						placeholder='Persona de contacto'
 					/>
 				)
 			},

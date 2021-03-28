@@ -109,7 +109,7 @@ a.anchor {
 
 @layer utilities {
 	.alert {
-		@apply rounded border last:mb-4 text-sm p-2 flex items-center;
+		@apply rounded border last:mb-4 text-sm p-2 flex items-center shadow-lg;
 	}
 
 	.alert-success {

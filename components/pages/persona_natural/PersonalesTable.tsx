@@ -40,35 +40,35 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'Nombre Entidad',
+				Header: 'Nombre entidad',
 				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
-						placeholder='Nombre Entidad'
+						placeholder='Nombre entidad'
 					/>
 				)
 			},
 			{
-				Header: 'Tipo Documento',
+				Header: 'Tipo documento',
 				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={styles}
-						placeholder='Tipo Documento'
+						placeholder='Tipo documento'
 					/>
 				)
 			},
 			{
-				Header: 'No. Documento',
+				Header: 'No. documento',
 				id: props.tableKeys[2],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[2]}`}
 						classes={styles}
-						placeholder='No. Documento'
+						placeholder='No. documento'
 					/>
 				)
 			},
@@ -109,35 +109,35 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				)
 			},
 			{
-				Header: 'Lugar Trabajo',
+				Header: 'Lugar trabajo',
 				id: props.tableKeys[6],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[6]}`}
 						classes={styles}
-						placeholder='Lugar Trabajo'
+						placeholder='Lugar trabajo'
 					/>
 				)
 			},
 			{
-				Header: 'Teléfono Trabajo',
+				Header: 'Teléfono trabajo',
 				id: props.tableKeys[7],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[7]}`}
 						classes={styles}
-						placeholder='Teléfono Trabajo'
+						placeholder='Teléfono trabajo'
 					/>
 				)
 			},
 			{
-				Header: 'Tiempo de Conocer',
+				Header: 'Tiempo de conocer',
 				id: props.tableKeys[8],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[8]}`}
 						classes={styles}
-						placeholder='Tiempo de Conocer'
+						placeholder='Tiempo de conocer'
 						type='number'
 						steps={1}
 					/>

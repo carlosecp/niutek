@@ -40,29 +40,29 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'Nombre Entidad',
+				Header: 'Nombre entidad',
 				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
-						placeholder='Nombre Entidad'
+						placeholder='Nombre entidad'
 					/>
 				)
 			},
 			{
-				Header: 'Servicio Recibido',
+				Header: 'Servicio recibido',
 				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={styles}
-						placeholder='Servicio Recibido'
+						placeholder='Servicio recibido'
 					/>
 				)
 			},
 			{
-				Header: 'Fecha de Inición Relación',
+				Header: 'Fecha de inición relación',
 				id: props.tableKeys[2],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
@@ -97,13 +97,13 @@ const BancariasTable = <Values, RefSchema>(props: Props<RefSchema>) => {
 				)
 			},
 			{
-				Header: 'No. Cuenta',
+				Header: 'No. cuenta',
 				id: props.tableKeys[5],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[5]}`}
 						classes={styles}
-						placeholder='No. Cuenta'
+						placeholder='No. cuenta'
 					/>
 				)
 			},

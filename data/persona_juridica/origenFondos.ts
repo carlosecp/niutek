@@ -17,6 +17,23 @@ const values = {
 	p_of_des_otros: ''
 }
 
+const testingValues = {
+	p_of_donacion: true,
+	p_of_nombre_donante: 'p_of_nombre_donante',
+	p_of_herencia: true,
+	p_of_de_quien: 'p_of_de_quien',
+	p_of_inversiones: true,
+	p_of_tipos_inversiones: 'p_of_tipos_inversiones',
+	p_of_prestamo: true,
+	p_of_inst_financiera: 'p_of_inst_financiera',
+	p_of_venta_de: true,
+	p_of_descrip_venta_de: 'p_of_descrip_venta_de',
+	p_of_ing_giro_emp: true,
+	p_of_aporte_socios: true,
+	p_of_otros: true,
+	p_of_des_otros: 'p_of_des_otros'
+}
+
 const validations = {
 	p_of_donacion: yup.boolean(),
 	p_of_nombre_donante: yup.string().when('p_of_donacion', {
@@ -58,4 +75,5 @@ const validations = {
 	})
 }
 
-export const origenFondos = { values, validations }
+// export const origenFondos = { values, validations }
+export const origenFondos = { values: testingValues, validations }

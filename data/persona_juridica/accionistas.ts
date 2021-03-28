@@ -11,6 +11,21 @@ export type RefSchema = typeof refSchema
 
 const values: RefSchema[] = []
 
+const testingValues = [
+	{
+		pac_nombre_accionista: 'pac_nombre_accionista 0',
+		pac_tipo_doc: 0,
+		pac_num_doc: 'pac_num_doc 0',
+		pac_porcentaje: 0
+	},
+	{
+		pac_nombre_accionista: 'pac_nombre_accionista 1',
+		pac_tipo_doc: 0,
+		pac_num_doc: 'pac_num_doc 1',
+		pac_porcentaje: 0
+	}
+]
+
 const validations = yup.array().of(
 	yup.object().shape({
 		pac_nombre_accionista: yup
@@ -33,4 +48,5 @@ const validations = yup.array().of(
 	})
 )
 
-export const accionistas = { values, validations }
+// export const accionistas = { values, validations }
+export const accionistas = { values: testingValues, validations }

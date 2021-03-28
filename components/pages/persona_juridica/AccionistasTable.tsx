@@ -70,11 +70,22 @@ const AccionistasTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				)
 			},
 			{
-				Header: 'Porcentaje',
+				Header: 'No. documento',
 				id: props.tableKeys[2],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[2]}`}
+						classes={styles}
+						placeholder='No. documento'
+					/>
+				)
+			},
+			{
+				Header: 'Porcentaje',
+				id: props.tableKeys[3],
+				Cell: ({ row: { index } }: { row: { index: number } }) => (
+					<Text
+						name={`${props.name}[${index}].${props.tableKeys[3]}`}
 						classes={styles}
 						placeholder='Porcentaje'
 						type='number'

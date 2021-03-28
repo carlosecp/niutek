@@ -12,6 +12,23 @@ export type RefSchema = typeof refSchema
 
 const values: RefSchema[] = []
 
+const testingValues = [
+	{
+		prc_nombre_entidad: 'prc_nombre_entidad 0',
+		prc_persona_contacto: 'prc_persona_contacto 0',
+		prc_direccion: 'prc_direccion 0',
+		prc_annios_con_entidad: 0,
+		prc_telefono: 'prc_telefono 0'
+	},
+	{
+		prc_nombre_entidad: 'prc_nombre_entidad 1',
+		prc_persona_contacto: 'prc_persona_contacto 1',
+		prc_direccion: 'prc_direccion 1',
+		prc_annios_con_entidad: 0,
+		prc_telefono: 'prc_telefono 1'
+	}
+]
+
 const validations = yup.array().of(
 	yup.object().shape({
 		prc_nombre_entidad: yup
@@ -37,4 +54,5 @@ const validations = yup.array().of(
 	})
 )
 
-export const refComerciales = { values, validations }
+// export const refComerciales = { values, validations }
+export const refComerciales = { values: testingValues, validations }

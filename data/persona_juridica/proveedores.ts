@@ -10,6 +10,19 @@ export type RefSchema = typeof refSchema
 
 const values: RefSchema[] = []
 
+const testingValues = [
+	{
+		ppv_nombre_proveedor: 'ppv_nombre_proveedor 0',
+		ppv_nombre_contacto: 'ppv_nombre_contacto 0',
+		ppv_telefono: 'ppv_telefono 0'
+	},
+	{
+		ppv_nombre_proveedor: 'ppv_nombre_proveedor 1',
+		ppv_nombre_contacto: 'ppv_nombre_contacto 1',
+		ppv_telefono: 'ppv_telefono 1'
+	}
+]
+
 const validations = yup.array().of(
 	yup.object().shape({
 		ppv_nombre_proveedor: yup
@@ -27,4 +40,5 @@ const validations = yup.array().of(
 	})
 )
 
-export const proveedores = { values, validations }
+// export const proveedores = { values, validations }
+export const proveedores = { values: testingValues, validations }

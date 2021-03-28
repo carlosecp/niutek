@@ -77,7 +77,7 @@ const PersonaJuridica = (props: Props) => {
 				/>
 				<Text name='p_telefono2' label='Teléfono 2' />
 				<Text
-					name='p_of_direccion'
+					name='p_direccion'
 					label='Dirección'
 					classes={{
 						container: 'fc-lg',

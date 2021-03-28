@@ -14,10 +14,29 @@ const values = {
 	p_telefono1: '',
 	p_telefono2: '',
 	p_direccion: '',
-	p_fecha_constitucion: '',
-	p_fecha_personeria: '',
-	p_ingreso_anual: 0,
+	p_fecha_constitucion: moment().format('YYYY-MM-DD'),
+	p_fecha_personeria: moment().format('YYYY-MM-DD'),
+	p_ingreso_anual: (0).toFixed(2),
 	p_actividad_empresa: ''
+}
+
+const testingValues = {
+	p_nombre: 'p_nombre',
+	p_tipo_doc: 0,
+	p_num_doc: 'p_num_doc',
+	p_cod_nac: 0,
+	p_cod_depto: 0,
+	p_cod_muni: 0,
+	p_num_empleados: 0,
+	p_sitio_web: 'p_sition_web',
+	p_e_mail: 'p_e_mail@test.com',
+	p_telefono1: 'p_telefono1',
+	p_telefono2: 'p_telefono2',
+	p_direccion: 'p_direccion',
+	p_fecha_constitucion: moment().format('YYYY-MM-DD'),
+	p_fecha_personeria: moment().format('YYYY-MM-DD'),
+	p_ingreso_anual: (0).toFixed(2),
+	p_actividad_empresa: 'p_actividad_empresa'
 }
 
 const validations = {
@@ -89,4 +108,5 @@ const validations = {
 		.max(500, 'Caracteres máximos 500')
 }
 
-export const personaJuridica = { values, validations }
+// export const personaJuridica = { values, validations }
+export const personaJuridica = { values: testingValues, validations }

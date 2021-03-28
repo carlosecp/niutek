@@ -42,7 +42,7 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
-						placeholder='Nombre Entidad'
+						placeholder='Nombre entidad'
 					/>
 				)
 			},
@@ -53,7 +53,7 @@ const ComercialesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[1]}`}
 						classes={styles}
-						placeholder='Persona de Contacto'
+						placeholder='Persona de contacto'
 					/>
 				)
 			},
