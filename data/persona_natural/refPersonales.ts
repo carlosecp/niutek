@@ -18,6 +18,33 @@ export type RefSchema = typeof refSchema
 
 const values: RefSchema[] = []
 
+const testingValues = [
+	{
+		prp_nombre: 'prp_nombre 0',
+		prp_tipo_doc: 0,
+		prp_num_doc: 'prp_num_doc 0',
+		prp_telefono1: 'prp_telefono1 0',
+		prp_telefono2: 'prp_telefono2 0',
+		prp_direccion: 'prp_direccion 0',
+		prp_lugar_trabajo: 'prp_lugar_trabajo 0',
+		prp_telefono_trabajo: 'prp_telefono_trabajo 0',
+		prp_tiempo_conocer: 0,
+		prp_e_mail: 'prp_e_mail0@test.com'
+	},
+	{
+		prp_nombre: 'prp_nombre 1',
+		prp_tipo_doc: 0,
+		prp_num_doc: 'prp_num_doc 1',
+		prp_telefono1: 'prp_telefono1 1',
+		prp_telefono2: 'prp_telefono2 1',
+		prp_direccion: 'prp_direccion 1',
+		prp_lugar_trabajo: 'prp_lugar_trabajo 1',
+		prp_telefono_trabajo: 'prp_telefono_trabajo 1',
+		prp_tiempo_conocer: 0,
+		prp_e_mail: 'prp_e_mail1@test.com'
+	}
+]
+
 const validations = yup.array().of(
 	yup.object().shape({
 		prp_nombre: yup
@@ -64,4 +91,5 @@ const validations = yup.array().of(
 	})
 )
 
-export const refPersonales = { values, validations }
+// export const refPersonales = { values, validations }
+export const refPersonales = { values: testingValues, validations }

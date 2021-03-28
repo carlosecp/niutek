@@ -10,6 +10,16 @@ const values = {
 	p_ingreso_anual: (0).toFixed(2)
 }
 
+const testingValues = {
+	p_profesion_oficio: 'p_profesion_oficio',
+	p_ocupacion_puesto: 'p_ocupacion_puesto',
+	p_nombre_empresa: 'p_nombre_empresa',
+	p_actividad_empresa: 'p_actividad_empresa',
+	p_tel_empresa: 'p_tel_empresa',
+	p_email_empresa: 'p_email_empresa',
+	p_ingreso_anual: (0).toFixed(2)
+}
+
 const validations = {
 	p_profesion_oficio: yup
 		.string()
@@ -39,4 +49,5 @@ const validations = {
 	p_ingreso_anual: yup.number().min(0, 'Valor mínimo 0').required('Requerido')
 }
 
-export const datosProfesionales = { values, validations }
+// export const datosProfesionales = { values, validations }
+export const datosProfesionales = { values: testingValues, validations }

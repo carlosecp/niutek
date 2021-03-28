@@ -18,8 +18,8 @@ const config: Config<
 	CertificadosPlazoFijoValidationSchema,
 	CertificadosPlazoFijoSearchResults
 > = {
-	pageType: 'productos',
-	pageName: 'certificados',
+	pageType: 'producto',
+	pageName: 'certificado',
 	navLinks,
 	navBarTitle: 'Certificados a Plazo Fijo',
 	getDescription,

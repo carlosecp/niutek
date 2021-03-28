@@ -80,7 +80,7 @@ export const Index = <
 
 		const searchProps = {
 			config: {
-				placeholder: 'Buscar persona natural',
+				placeholder: `Buscar ${args.navBarTitle?.toLowerCase()}`,
 				url: `busca/${args.pageType}s_${args.pageName}`
 			},
 			loading: state.loading,

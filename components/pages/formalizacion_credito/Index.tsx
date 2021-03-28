@@ -18,8 +18,8 @@ const config: Config<
 	FormalizacionDeCreditoValidationSchema,
 	FormalizacionDeCreditoSearchResult
 > = {
-	pageType: 'productos',
-	pageName: 'credito',
+	pageType: 'producto',
+	pageName: 'formalizacion',
 	navLinks,
 	getDescription,
 	initialValues

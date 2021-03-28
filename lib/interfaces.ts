@@ -27,6 +27,7 @@ import type {
 	SolicitudDeCreditoValues
 } from '@/data/solicitud_credito'
 import { FormalizacionDeCreditoValues } from '@/data/formalizacion_credito'
+import { GarantiasSearchResult, GarantiasValues } from '@/data/garantias'
 
 export type GlobalSearchResults =
 	| PersonaNaturalSearchResult
@@ -37,6 +38,7 @@ export type GlobalSearchResults =
 	| SolicitudDeCreditoSearchResult
 	| FormalizacionDeCreditoValues
 	| ResolucionDeCreditoSearchResult
+	| GarantiasSearchResult
 
 export interface GlobalSearchConfig {
 	placeholder: string
@@ -76,3 +78,4 @@ export type GlobalValues =
 	| SolicitudDeCreditoValues
 	| FormalizacionDeCreditoValues
 	| ResolucionDeCreditoValues
+	| GarantiasValues

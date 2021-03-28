@@ -18,7 +18,7 @@ const config: Config<
 	ProductosDeAhorroValidationSchema,
 	ProductosDeAhorroSearchResult
 > = {
-	pageType: 'productos',
+	pageType: 'producto',
 	pageName: 'ahorro',
 	navLinks,
 	navBarTitle: 'Productos de Ahorro',

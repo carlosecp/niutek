@@ -40,13 +40,13 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 	const columns = React.useMemo(
 		() => [
 			{
-				Header: 'Nombre',
+				Header: 'Nombre Entidad',
 				id: props.tableKeys[0],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[0]}`}
 						classes={styles}
-						placeholder='Nombre'
+						placeholder='Nombre Entidad'
 					/>
 				)
 			},
@@ -100,7 +100,10 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[5]}`}
-						classes={styles}
+						classes={{
+							container: 'w-full',
+							input: 'w-full px-2 pl-0 text-sm outline-none border-none'
+						}}
 						placeholder='Dirección'
 					/>
 				)
@@ -141,13 +144,16 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				)
 			},
 			{
-				Header: 'Email',
+				Header: 'Correo Electrónico',
 				id: props.tableKeys[9],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
 					<Text
 						name={`${props.name}[${index}].${props.tableKeys[9]}`}
-						classes={styles}
-						placeholder='Email'
+						classes={{
+							container: 'w-36',
+							input: 'w-full p-2 pl-0 text-sm outline-none border-none'
+						}}
+						placeholder='Correo Electrónico'
 					/>
 				)
 			},

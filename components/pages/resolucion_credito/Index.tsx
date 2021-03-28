@@ -18,8 +18,8 @@ const config: Config<
 	ResolucionDeCreditoValidationSchema,
 	ResolucionDeCreditoSearchResult
 > = {
-	pageType: 'productos',
-	pageName: 'credito',
+	pageType: 'producto',
+	pageName: 'resolucion',
 	navLinks,
 	getDescription,
 	initialValues

@@ -20,6 +20,26 @@ const values = {
 	p_of_des_otros: ''
 }
 
+const testingValues = {
+	p_of_negocio_propio: true,
+	p_of_nombre_negocio: 'p_of_nombre_negocio',
+	p_of_prof_independiente: true,
+	p_of_prof_ejerce: 'p_of_prof_ejerce',
+	p_of_herencia: true,
+	p_of_de_quien: 'p_of_de_quien',
+	p_of_inversiones: true,
+	p_of_tipos_inversiones: 'p_of_tipos_inversiones',
+	p_of_prestamo: true,
+	p_of_inst_financiera: 'p_of_inst_financiera',
+	p_of_venta_de: true,
+	p_of_descrip_venta_de: 'p_of_descrip_venta_de',
+	p_of_salario: true,
+	p_of_ahorro: true,
+	p_of_aho_inst_financiera: 'p_of_aho_inst_financiera',
+	p_of_otros: true,
+	p_of_des_otros: 'p_of_des_otros'
+}
+
 const validations = {
 	p_of_negocio_propio: yup.boolean(),
 	p_of_nombre_negocio: yup.string().when('p_of_negocio_propio', {
@@ -72,4 +92,5 @@ const validations = {
 	})
 }
 
-export const origenFondos = { values, validations }
+// export const origenFondos = { values, validations }
+export const origenFondos = { values: testingValues, validations }

@@ -18,7 +18,7 @@ const config: Config<
 	ProductosDeCreditoValidationSchema,
 	ProductosDeCreditoSearchResult
 > = {
-	pageType: 'productos',
+	pageType: 'producto',
 	pageName: 'credito',
 	navLinks,
 	getDescription,

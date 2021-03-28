@@ -19,7 +19,7 @@ const config: Config<
 	SolicitudDeCreditoSearchResult
 > = {
 	pageType: 'producto',
-	pageName: 'credito',
+	pageName: 'solicitud',
 	navLinks,
 	getDescription,
 	initialValues
