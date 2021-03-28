@@ -36,7 +36,6 @@ const testingValues = [
 ]
 
 const validations = {}
-
 // const validations = {
 // 	p_nombres: yup
 // 		.string()
