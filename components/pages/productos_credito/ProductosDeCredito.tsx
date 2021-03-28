@@ -29,21 +29,9 @@ const ProductosDeCredito = (props: Props) => {
 				{navLinks[SECTION_NAME].name}
 			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<Select name='p_cod_tipo_credito' label='Tipo de crédito'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
-				<Select name='p_cod_fuente_de_fondos' label='Fondos propios'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
-				<Select name='p_cod_tipo_contrato' label='Tipo de contrato'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
+				<Select name='p_cod_tipo_credito' label='Tipo de crédito'></Select>
+				<Select name='p_cod_fuente_fondo' label='Fondos propios'></Select>
+				<Select name='p_cod_tipo_contrato' label='Tipo de contrato'></Select>
 				<Text
 					name='p_nombre'
 					label='Nombre del producto'
@@ -85,11 +73,7 @@ const ProductosDeCredito = (props: Props) => {
 							input: 'w-full block form-input form-input-border'
 						}}
 					/>
-					<Select name='p_cod_frec_plazo_minimo' label='Período'>
-						<option value={0} disabled>
-							Seleccione
-						</option>
-					</Select>
+					<Select name='p_cod_frec_plazo_minimo' label='Período'></Select>
 				</fieldset>
 				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 					<Text
@@ -100,32 +84,19 @@ const ProductosDeCredito = (props: Props) => {
 						}}
 						label='Plazo máximo'
 					/>
-					<Select name='p_tipo_doc' label='Período'>
-						<option value={0} disabled>
-							Seleccione
-						</option>
-					</Select>
+					<Select name='p_cod_frec_plazo_maximo' label='Período'></Select>
 				</fieldset>
-				<Select name='p_cod_frecuencia_pago' label='Frecuencia de pago'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
-				<Select name='p_cod_tipo_cuota' label='Tipo de cuota'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
+				<Select
+					name='p_cod_frecuencia_pago'
+					label='Frecuencia de pago'
+				></Select>
+				<Select name='p_cod_tipo_cuota' label='Tipo de cuota'></Select>
 				<Text
 					name='p_porc_aportacion'
 					label='Porcentaje de aportación'
 					type='number'
 				/>
-				<Select name='p_cod_aplica_grupo' label='Grupo'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
+				<Select name='p_cod_aplica_grupo' label='Grupo'></Select>
 			</article>
 		</section>
 	)

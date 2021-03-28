@@ -16,7 +16,7 @@ const testingValues = {
 	p_nombre_empresa: 'p_nombre_empresa',
 	p_actividad_empresa: 'p_actividad_empresa',
 	p_tel_empresa: 'p_tel_empresa',
-	p_email_empresa: 'p_email_empresa',
+	p_email_empresa: 'p_email_empresa@test.com',
 	p_ingreso_anual: (0).toFixed(2)
 }
 

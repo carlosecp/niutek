@@ -1,5 +1,4 @@
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
-import * as React from 'react'
 import { navLinks, NavLinks } from '@/data/certificados_plazo_fijo'
 import { Text, Select, TextArea, MultipleChoice } from '@/components/forms'
 
@@ -44,25 +43,17 @@ const CertificadosPlazoFijo = (props: Props) => {
 					type='number'
 				/>
 				<Text
-					name='p_monto_minimo_apertura'
+					name='p_monto_minimo'
 					label='Monto minimo apertura'
 					type='number'
 				/>
 				<Text
-					name='p_monto_promedio_mensual'
-					label='Monto promedio mensual'
+					name='p_monto_maximo'
+					label='Monto máximo apertura'
 					type='number'
 				/>
-				<Text
-					name='p_max_retiros_mes'
-					label='Maximos retiros mensuales'
-					type='number'
-				/>
-				<Text
-					name='p_monto_max_por_retiro'
-					label='Monto maximo por retiro'
-					type='number'
-				/>
+				<Text name='p_plazo_meses' label='Plazo máximo' />
+				<Text name='p_capitaliza_meses' label='Capitaliza cada' type='number' />
 				<MultipleChoice
 					title='Documentos Requeridos'
 					fields={documentos}

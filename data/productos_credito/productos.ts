@@ -1,5 +1,4 @@
 import * as yup from 'yup'
-import moment from 'moment'
 
 const values = {
 	p_cod_tipo_credito: 0,
@@ -9,25 +8,40 @@ const values = {
 	pdc_cod_documento: [],
 	pga_cod_garantia: [],
 	p_cod_moneda: 0,
-	p_tasa_interes_minima: 0,
-	p_tasa_interes_maxima: 0,
-	p_monto_minimo: 0,
+	p_tasa_interes_minima: (0).toFixed(2),
+	p_tasa_interes_maxima: (0).toFixed(2),
+	p_monto_minimo: (0).toFixed(2),
 	p_cod_frec_plazo_minimo: 0,
-	p_monto_maximo: 0,
-	p_cod_frec_plazo_maximo: 0,
+	p_monto_maximo: (0).toFixed(2),
+	p_cod_frec_plazo_maximo: (0).toFixed(2),
+	p_plazo_minimo: 0,
+	p_plazo_maximo: 0,
+	p_cod_frecuencia_pago: 0,
+	p_cod_tipo_cuota: 0,
+	p_porc_aportacion: (0).toFixed(2),
+	p_cod_aplica_grupo: 0
+}
+
+const testingValues = {
+	p_cod_tipo_credito: 0,
+	p_cod_fuente_fondo: 0,
+	p_nombre: 'p_nombre',
+	p_descripcion: 'p_descripcion',
+	pdc_cod_documento: ['2', '1'],
+	pga_cod_garantia: ['2', '1'],
+	p_cod_moneda: 0,
+	p_tasa_interes_minima: (0).toFixed(2),
+	p_tasa_interes_maxima: (0).toFixed(2),
+	p_monto_minimo: (0).toFixed(2),
+	p_cod_frec_plazo_minimo: 0,
+	p_monto_maximo: (0).toFixed(2),
+	p_cod_frec_plazo_maximo: (0).toFixed(2),
 	p_plazo_minimo: 0,
 	p_plazo_maximo: 0,
 	p_cod_frecuencia_pago: 0,
 	p_cod_tipo_cuota: 0,
 	p_porc_aportacion: 0,
-	p_cod_aplica_grupo: 0,
-
-	// Cargos
-	pcr_cod_cargo: 0,
-	pcr_cod_moneda: 0,
-	pcr_valor: 0,
-	pcr_cod_tipo: 0,
-	pcr_cod_aplica: 0
+	p_cod_aplica_grupo: 0
 }
 
 const validations = {}
@@ -103,4 +117,5 @@ const validations = {
 }
 */
 
-export const productos = { values, validations }
+// export const productos = { values, validations }
+export const productos = { values: testingValues, validations }

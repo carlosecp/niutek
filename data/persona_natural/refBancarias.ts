@@ -4,7 +4,7 @@ import moment from 'moment'
 export const refSchema = {
 	prb_nombre_entidad: '',
 	prb_tipo_servicio_recibido: '',
-	prb_fecha_inicio_relacion: '',
+	prb_fecha_inicio_relacion: moment().format('YYYY-MM-DD'),
 	prb_annios_con_entidad: 0,
 	prb_telefono: '',
 	pct_num_cuenta: '',
@@ -20,7 +20,7 @@ const testingValues = [
 	{
 		prb_nombre_entidad: 'prb_nombre_entidad 0',
 		prb_tipo_servicio_recibido: 'prb_tipo_servicio_recibido 0',
-		prb_fecha_inicio_relacion: 'prb_fecha_inicio_relacion 0',
+		prb_fecha_inicio_relacion: moment().format('YYYY-MM-DD'),
 		prb_annios_con_entidad: 0,
 		prb_telefono: 'prb_telefono 0',
 		pct_num_cuenta: 'pct_num_cuenta 0',
@@ -30,7 +30,7 @@ const testingValues = [
 	{
 		prb_nombre_entidad: 'prb_nombre_entidad 1',
 		prb_tipo_servicio_recibido: 'prb_tipo_servicio_recibido 1',
-		prb_fecha_inicio_relacion: 'prb_fecha_inicio_relacion 1',
+		prb_fecha_inicio_relacion: moment().format('YYYY-MM-DD'),
 		prb_annios_con_entidad: 0,
 		prb_telefono: 'prb_telefono 1',
 		pct_num_cuenta: 'pct_num_cuenta 1',

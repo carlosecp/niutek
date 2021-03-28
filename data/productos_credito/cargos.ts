@@ -4,18 +4,27 @@ import moment from 'moment'
 export const refSchema = {
 	pcr_cod_cargo: 0,
 	pcr_cod_moneda: 0,
-	pcr_valor: 0,
+	pcr_valor: (0).toFixed(2),
 	pcr_cod_tipo: 0,
 	pcr_cod_aplica: 0
 }
 
 export type RefSchema = typeof refSchema
 
-const values: RefSchema[] = [
+const values: RefSchema[] = []
+
+const testingValues = [
 	{
 		pcr_cod_cargo: 0,
 		pcr_cod_moneda: 0,
-		pcr_valor: 0,
+		pcr_valor: (0).toFixed(2),
+		pcr_cod_tipo: 0,
+		pcr_cod_aplica: 0
+	},
+	{
+		pcr_cod_cargo: 0,
+		pcr_cod_moneda: 0,
+		pcr_valor: (0).toFixed(2),
 		pcr_cod_tipo: 0,
 		pcr_cod_aplica: 0
 	}
@@ -93,4 +102,5 @@ const validations = {
 		*/
 }
 
-export const cargos = { values, validations }
+// export const cargos = { values, validations }
+export const cargos = { values: testingValues, validations }

@@ -1,7 +1,7 @@
 import type { TablaOptions } from '@/lib/interfaces'
 import * as React from 'react'
 import { useFormikContext, getIn } from 'formik'
-import { Text } from '@/components/forms'
+import { Text, Select } from '@/components/forms'
 import Table from '@/components/tables/Table'
 
 const styles = {
@@ -54,11 +54,19 @@ const PersonalesTable = <Data, RefSchema>(props: Props<RefSchema>) => {
 				Header: 'Tipo documento',
 				id: props.tableKeys[1],
 				Cell: ({ row: { index } }: { row: { index: number } }) => (
-					<Text
+					<Select
 						name={`${props.name}[${index}].${props.tableKeys[1]}`}
-						classes={styles}
-						placeholder='Tipo documento'
-					/>
+						classes={{
+							container: 'w-36',
+							input: 'border-none w-full p-2 text-sm outline-none'
+						}}
+					>
+						{props.options.tabla.tipo_doc.map((option) => (
+							<option key={option.codigo} value={option.codigo}>
+								{option.descripcion}
+							</option>
+						))}
+					</Select>
 				)
 			},
 			{
