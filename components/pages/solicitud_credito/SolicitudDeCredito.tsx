@@ -112,13 +112,13 @@ const SolicitudDeCredito = (props: Props) => {
 								input: 'w-full block form-input form-input-border'
 							}}
 						>
-							<option value={0} disabled></option>
+							<option value={1}>Opcion 1</option>
+							<option value={2}>Opcion 2</option>
 						</Select>
 					</fieldset>
 					<Select name='p_cod_frecuencia_pago' label='Frecuncia de pago'>
-						<option value={0} disabled>
-							Seleccione
-						</option>
+						<option value={1}>Opcion 1</option>
+						<option value={2}>Opcion 2</option>
 					</Select>
 					<Text name='cuota' label='Couta' type='number' />
 				</div>

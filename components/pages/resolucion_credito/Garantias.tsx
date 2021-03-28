@@ -1,8 +1,8 @@
 import type { TablaOptions } from '@/lib/interfaces'
-import type { SolicitudDeCreditoValues } from '@/data/solicitud_credito'
-import type { RefSchema } from '@/data/solicitud_credito/garantias'
+import type { ResolucionDeCreditoValues } from '@/data/resolucion_credito'
+import type { RefSchema } from '@/data/resolucion_credito/garantias'
 import { navLinks, NavLinks } from '@/data/resolucion_credito'
-import { refSchema } from '@/data/solicitud_credito/garantias'
+import { refSchema } from '@/data/resolucion_credito/garantias'
 import { FieldArray } from 'formik'
 import GarantiasTable from './GarantiasTable'
 
@@ -34,7 +34,7 @@ const Garantias = (props: Props) => {
 			<article className='flex flex-col'>
 				<FieldArray name={navLinks[SECTION_NAME].anchor}>
 					{(arrayHelpers) => (
-						<GarantiasTable<SolicitudDeCreditoValues, RefSchema>
+						<GarantiasTable<ResolucionDeCreditoValues, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}

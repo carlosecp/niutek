@@ -11,8 +11,23 @@ const values = {
 	p_motor: '',
 	p_chasis: '',
 	p_no_serie: '',
-	p_valor: 0,
+	p_valor: (0).toFixed(2),
 	p_descripcion: ''
+}
+
+const testingValues = {
+	p_cod_gar: 0,
+	p_cod_cla: 0,
+	p_cod_cat: 0,
+	p_marca: 'p_marca',
+	p_modelo: 'p_modelo',
+	p_annio: 'p_annio',
+	p_color: 'p_color',
+	p_motor: 'p_motor',
+	p_chasis: 'p_chasis',
+	p_no_serie: 'p_no_serie',
+	p_valor: (0).toFixed(2),
+	p_descripcion: 'p_descripcion'
 }
 
 const validations = {
@@ -48,4 +63,5 @@ const validations = {
 		.max(200, 'Caracteres máximos 200')
 }
 
-export const garantias = { values, validations }
+// export const garantias = { values, validations }
+export const garantias = { values: testingValues, validations }

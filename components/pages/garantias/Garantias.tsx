@@ -11,12 +11,6 @@ interface Props {
 	}
 }
 
-const documentos = [
-	{ name: 'pdc_cod_documento', label: 'Fotocopia de cédula', value: 1 },
-	{ name: 'pdc_cod_documento', label: 'Constancia salarial', value: 2 },
-	{ name: 'pdc_cod_documento', label: 'Carta de recomendación', value: 3 }
-]
-
 const ProductosDeCredito = (props: Props) => {
 	return (
 		<section id={navLinks[SECTION_NAME].anchor}>
@@ -37,9 +31,8 @@ const ProductosDeCredito = (props: Props) => {
 						input: 'w-full block form-input form-input-border'
 					}}
 				>
-					<option value={0} disabled>
-						Seleccione
-					</option>
+					<option value={1}>Opcion 1</option>
+					<option value={2}>Opcion 2</option>
 				</Select>
 				<Select
 					name='p_cod_cla'
@@ -49,9 +42,8 @@ const ProductosDeCredito = (props: Props) => {
 						input: 'w-full block form-input form-input-border'
 					}}
 				>
-					<option value={0} disabled>
-						Seleccione
-					</option>
+					<option value={1}>Opcion 1</option>
+					<option value={2}>Opcion 2</option>
 				</Select>
 				<Select
 					name='p_cod_cat'
@@ -61,9 +53,8 @@ const ProductosDeCredito = (props: Props) => {
 						input: 'w-full block form-input form-input-border'
 					}}
 				>
-					<option value={0} disabled>
-						Seleccione
-					</option>
+					<option value={1}>Opcion 1</option>
+					<option value={2}>Opcion 2</option>
 				</Select>
 				<Text
 					name='p_marca'

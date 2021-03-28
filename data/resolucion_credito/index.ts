@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 import { productos } from './productos'
-import { cargos } from './cargos'
+import { garantias } from './garantias'
 
 export const navLinks = [
 	{ name: 'Resolución', anchor: 'productos' },
@@ -27,7 +27,7 @@ export const getDescription = (result: ResolucionDeCreditoSearchResult) => ({
 
 const values = {
 	...productos.values,
-	cargos: cargos.values
+	garantias: garantias.values
 }
 const validations = yup.object({
 	...productos.validations
