@@ -17,6 +17,21 @@ const values = {
 	pga_cod_garantia: []
 }
 
+const testingValues = {
+	p_cod_promotor: 0,
+	p_fecha_solicitud: moment().format('YYYY-MM-DD'),
+	p_cod_act_economica: 0,
+	p_monto_solicitado: 100,
+	p_cod_sec_economico: 0,
+	p_cod_moneda: 1,
+	p_cod_destino_credito: 0,
+	p_tasa_interes: 10,
+	p_plazo: 0,
+	p_cod_frec_plazo: 0,
+	p_cod_frecuencia_pago: 0,
+	pdc_cod_documento: [],
+	pga_cod_garantia: []
+}
 const validations = {}
 // const validations = {
 // 	p_nombres: yup
@@ -88,4 +103,4 @@ const validations = {}
 // 		.required('Requerido')
 // }
 
-export const solicitud = { values, validations }
+export const solicitud = { testingValues, validations }
