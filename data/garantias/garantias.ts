@@ -1,6 +1,7 @@
 import * as yup from 'yup'
 
 const values = {
+	p_cod_cliente: 0,
 	p_cod_gar: 0,
 	p_cod_cla: 0,
 	p_cod_cat: 0,
@@ -16,6 +17,7 @@ const values = {
 }
 
 const testingValues = {
+	p_cod_cliente: 0,
 	p_cod_gar: 0,
 	p_cod_cla: 0,
 	p_cod_cat: 0,

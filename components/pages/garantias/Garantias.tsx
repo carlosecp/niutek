@@ -25,6 +25,17 @@ const ProductosDeCredito = (props: Props) => {
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Select
 					name='p_cod_gar'
+					label='Seleccionar garantía'
+					classes={{
+						container: 'fc-lg md:fc break-line',
+						input: 'w-full block form-input form-input-border'
+					}}
+				>
+					<option value={1}>Opcion 1</option>
+					<option value={2}>Opcion 2</option>
+				</Select>
+				<Select
+					name='p_cod_gar'
 					label='Tipo de garantía'
 					classes={{
 						container: 'fc-lg md:fc break-line',

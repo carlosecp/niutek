@@ -91,4 +91,4 @@ const validations = {
 		.required('Requerido')
 }
 
-export const productos = { values, validations }
+export const resolucion = { values, validations }

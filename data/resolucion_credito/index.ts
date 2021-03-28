@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { productos } from './productos'
+import { resolucion } from './resolucion'
 import { garantias } from './garantias'
 
 export const navLinks = [
@@ -26,11 +26,11 @@ export const getDescription = (result: ResolucionDeCreditoSearchResult) => ({
 })
 
 const values = {
-	...productos.values,
+	...resolucion.values,
 	garantias: garantias.values
 }
 const validations = yup.object({
-	...productos.validations
+	...resolucion.validations
 })
 
 export type ResolucionDeCreditoValues = typeof values
