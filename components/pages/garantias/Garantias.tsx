@@ -2,6 +2,7 @@ import type { GarantiasSearchResult } from '@/data/garantias'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import { navLinks, NavLinks } from '@/data/garantias'
 import { Text, Select, TextArea } from '@/components/forms'
+import { FaExclamationCircle } from 'react-icons/fa'
 
 const SECTION_NAME = NavLinks.Garantias
 
@@ -24,11 +25,13 @@ const ProductosDeCredito = (props: Props) => {
 			<h1 className='font-medium text-xl text-gray-900'>
 				{navLinks[SECTION_NAME].name}
 			</h1>
-			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<div className='fc-full md:fc'>
-					Cliente seleccionado:{' '}
-					{props.selected ? props.selected.cod_cliente : 'Ninguno'}
+			<article className='form-section my-2 flex justify-between items-center'>
+				<div className='text-sm font-medium text-gray-700'>
+					Ningun cliente seleccionado
 				</div>
+				<FaExclamationCircle className='text-error fill-current' />
+			</article>
+			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Select
 					name='p_cod_gar'
 					label='Seleccionar garantía'
