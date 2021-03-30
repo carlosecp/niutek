@@ -46,6 +46,7 @@ export const Index = <
 ) => {
 	const accessKey = `p_cod_${args.pageType}`
 	const endpoint = `${args.pageType}_${args.pageName}`
+
 	return (props: Props) => {
 		const state = useIndex<Values, SearchResult>({
 			key: accessKey,

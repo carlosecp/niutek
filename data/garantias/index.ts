@@ -8,14 +8,15 @@ export enum NavLinks {
 }
 
 export type GarantiasSearchResult = {
-	cod_producto: number
-	nombre: string
+	cod_cliente: number
+	nombres: string
+	apellidos: string
 	description: string
 }
 
 export const getDescription = (result: GarantiasSearchResult) => ({
-	accessor: 1,
-	description: `Hello`
+	accessor: result.cod_cliente,
+	description: `${result.nombres} ${result.apellidos}`
 })
 
 const values = {

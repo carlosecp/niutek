@@ -14,8 +14,8 @@ const config: Config<
 	GarantiasValidationSchema,
 	GarantiasSearchResult
 > = {
-	pageType: 'garantia',
-	pageName: 'cliente',
+	pageType: 'cliente',
+	pageName: 'natural',
 	navLinks,
 	getDescription,
 	initialValues
@@ -28,9 +28,13 @@ const Wrapper = Index<
 >(config)
 
 const index = (props: Props) => {
+	const [selected, setSelected] = React.useState<GarantiasSearchResult | null>(
+		null
+	)
+
 	return (
 		<Wrapper {...props}>
-			<Garantias options={props.options} />
+			<Garantias selected={selected} options={props.options} />
 		</Wrapper>
 	)
 }

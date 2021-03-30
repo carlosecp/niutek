@@ -1,3 +1,4 @@
+import type { GarantiasSearchResult } from '@/data/garantias'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import { navLinks, NavLinks } from '@/data/garantias'
 import { Text, Select, TextArea } from '@/components/forms'
@@ -5,6 +6,7 @@ import { Text, Select, TextArea } from '@/components/forms'
 const SECTION_NAME = NavLinks.Garantias
 
 interface Props {
+	selected: GarantiasSearchResult | null
 	options: {
 		tabla: TablaOptions
 		deptos_municipios: DeptosOption[]
@@ -23,6 +25,10 @@ const ProductosDeCredito = (props: Props) => {
 				{navLinks[SECTION_NAME].name}
 			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
+				<div className='fc-full md:fc'>
+					Cliente seleccionado:{' '}
+					{props.selected ? props.selected.cod_cliente : 'Ninguno'}
+				</div>
 				<Select
 					name='p_cod_gar'
 					label='Seleccionar garantía'

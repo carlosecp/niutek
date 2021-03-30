@@ -53,6 +53,7 @@ const getResults = async <SearchResult extends GlobalSearchResults>({
 
 interface Props<SearchResult> {
 	config: GlobalSearchConfig
+	placeholder?: string
 	setSearchResults: (results: SearchResult[]) => void
 	loading: boolean
 	setLoading: (x: boolean) => void
@@ -87,7 +88,7 @@ const Search = <SearchResult extends GlobalSearchResults>(
 						name='search'
 						type='text'
 						className='w-full border-none outline-none ring-0 focus:ring-0'
-						placeholder={`Buscar`}
+						placeholder={props.placeholder || `Buscar`}
 						onChange={handleChange}
 						disabled={isSubmitting || props.loading}
 					/>
