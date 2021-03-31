@@ -34,7 +34,7 @@ export interface Props {
 		tabla: TablaOptions
 		deptos_municipios: DeptosOption[]
 	}
-	children: React.ReactNode
+	children?: React.ReactNode
 }
 
 export const Index = <
