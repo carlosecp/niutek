@@ -9,6 +9,7 @@ import useIndex from '@/lib/useIndex'
 import { initialValues, navLinks, getDescription } from '@/data/garantias'
 import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
 import Form from '@/components/forms'
+import { Garantias } from './components'
 
 interface Props {
 	options: {
@@ -73,7 +74,7 @@ const index = (props: Props) => {
 			<div className='flex flex-col py-4 lg:pr-64'>
 				<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
 				<Form<GarantiasValues, GarantiasValidationSchema> {...formProps}>
-					<Garantias options={props.options} />
+					<Garantias />
 					<button
 						type='submit'
 						className='btn btn-primary'
