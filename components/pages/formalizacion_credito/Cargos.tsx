@@ -1,5 +1,5 @@
 import type { TablaOptions } from '@/lib/interfaces'
-import type { ProductoDeCreditoValues } from '@/data/productos_credito'
+import type { ProductosDeCreditoValues } from '@/data/productos_credito'
 import type { RefSchema } from '@/data/productos_credito/cargos'
 import { refSchema } from '@/data/productos_credito/cargos'
 import { FieldArray } from 'formik'
@@ -25,7 +25,7 @@ const RefCargos = (props: Props) => {
 			<article className='flex flex-col'>
 				<FieldArray name='cargos'>
 					{(arrayHelpers) => (
-						<CargosTable<ProductoDeCreditoValues, RefSchema>
+						<CargosTable<ProductosDeCreditoValues, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
