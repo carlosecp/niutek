@@ -1,12 +1,84 @@
-import type { GarantiasSearchResult } from '@/data/garantias'
-import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
+import type { RootState } from '@/lib/store'
+import type { AuthState } from '@/lib/store/auth/types'
+import * as React from 'react'
+import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
 import { navLinks, NavLinks } from '@/data/garantias'
 import { Text, Select, TextArea } from '@/components/forms'
 import { FaExclamationCircle } from 'react-icons/fa'
 
 const SECTION_NAME = NavLinks.Garantias
 
-const Garantias = () => {
+type CurrentId = string | number | null
+
+const getGarantias = async (
+	auth: AuthState,
+	setLoading: (x: boolean) => void,
+	currentId: CurrentId
+) => {
+	const req = {
+		path: `${process.env.backend}/proc/lee/lista_garantias_cliente`,
+		body: {
+			p_cod_empresa: auth.user.p_cod_empresa,
+			p_cod_sucursal: auth.user.p_cod_sucursal,
+			p_cod_cliente: currentId
+		},
+		headers: {
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Credentials': 'true'
+		}
+	}
+
+	console.group(
+		'%cGetting Data',
+		'font-weight: bold; font-size: 16px; text-transform: uppercase; text-decoration: underline'
+	)
+	console.log(
+		'%c config ',
+		'background: #06B6D4; color: #FFFFFF; font-weight: bold',
+		req
+	)
+	setLoading(true)
+
+	try {
+		const res = await axios.post(req.path, req.body, {
+			headers: req.headers
+		})
+
+		return res.data as number[]
+	} catch (err) {
+		return []
+	} finally {
+		console.groupEnd()
+		setLoading(false)
+	}
+}
+
+interface Props {
+	currentId: CurrentId
+	loading: boolean
+	setLoading: (x: boolean) => void
+}
+
+const Garantias = (props: Props) => {
+	const [garantias, setGarantias] = React.useState<number[]>()
+
+	const auth = useSelector((state: RootState) => state.auth)
+	const getInfo = async () => {
+		const garantiasData = await getGarantias(
+			auth,
+			props.setLoading,
+			props.currentId
+		)
+		setGarantias(garantiasData)
+	}
+
+	React.useEffect(() => {
+		if (props.currentId) {
+			getInfo()
+		}
+	}, [props.currentId])
+
 	return (
 		<section id={navLinks[SECTION_NAME].anchor}>
 			<a
@@ -19,9 +91,10 @@ const Garantias = () => {
 			</h1>
 			<article className='form-section my-2 flex justify-between items-center'>
 				<div className='text-sm font-medium text-gray-700'>
-					Ningun cliente seleccionado
+					{props.currentId
+						? `Cliente seleccionado: ${props.currentId}`
+						: 'Ningun cliente seleccionado'}
 				</div>
-				<FaExclamationCircle className='text-error fill-current' />
 			</article>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Select
@@ -32,8 +105,8 @@ const Garantias = () => {
 						input: 'w-full block form-input form-input-border'
 					}}
 				>
-					<option value={1}>Opcion 1</option>
-					<option value={2}>Opcion 2</option>
+					{garantias &&
+						garantias.map((garantia) => <option value={1}>Opcion 1</option>)}
 				</Select>
 				<Select
 					name='p_cod_gar'

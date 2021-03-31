@@ -3,7 +3,6 @@ import type {
 	GarantiasValidationSchema,
 	GarantiasSearchResult
 } from '@/data/garantias/index'
-import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import * as React from 'react'
 import useIndex from '@/lib/useIndex'
 import { initialValues, navLinks, getDescription } from '@/data/garantias'
@@ -11,14 +10,7 @@ import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
 import Form from '@/components/forms'
 import { Garantias } from './components'
 
-interface Props {
-	options: {
-		tabla: TablaOptions
-		deptos_municipios: DeptosOption[]
-	}
-}
-
-const index = (props: Props) => {
+const index = () => {
 	const state = useIndex<GarantiasValues, GarantiasSearchResult>({
 		key: 'p_cod_cliente',
 		initialValues: initialValues.values,
@@ -74,13 +66,17 @@ const index = (props: Props) => {
 			<div className='flex flex-col py-4 lg:pr-64'>
 				<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
 				<Form<GarantiasValues, GarantiasValidationSchema> {...formProps}>
-					<Garantias />
+					<Garantias
+						currentId={state.currentId}
+						loading={state.loading}
+						setLoading={state.setLoading}
+					/>
 					<button
 						type='submit'
 						className='btn btn-primary'
 						disabled={state.loading}
 					>
-						Submit
+						Guardar
 					</button>
 				</Form>
 				<Navigation {...navigationProps}>
