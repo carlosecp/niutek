@@ -13,7 +13,6 @@ export interface Config<Values, Validations, searchResult> {
 	pageType: string
 	pageName: string
 	navBarTitle?: string
-	navBar?: (props: any) => any
 	navLinks: {
 		name: string
 		anchor: string
@@ -47,7 +46,7 @@ export const Index = <
 ) => {
 	const accessKey = `p_cod_${args.pageType}`
 	const endpoint = `${args.pageType}_${args.pageName}`
-	const NavBar = args.navBar || Navbar
+
 	return (props: Props) => {
 		const state = useIndex<Values, SearchResult>({
 			key: accessKey,
@@ -100,7 +99,7 @@ export const Index = <
 
 		return (
 			<main className='sm:ml-64 relative bg-light'>
-				<NavBar {...navbarProps} />
+				<Navbar {...navbarProps} />
 				<div className='flex flex-col py-4 lg:pr-64'>
 					<Alerts alerts={state.alerts} closeAlert={state.closeAlert} />
 					<Form<Values, Validations> {...formProps}>
