@@ -6,15 +6,7 @@ import { FaExclamationCircle } from 'react-icons/fa'
 
 const SECTION_NAME = NavLinks.Garantias
 
-interface Props {
-	selected: GarantiasSearchResult | null
-	options: {
-		tabla: TablaOptions
-		deptos_municipios: DeptosOption[]
-	}
-}
-
-const ProductosDeCredito = (props: Props) => {
+const Garantias = () => {
 	return (
 		<section id={navLinks[SECTION_NAME].anchor}>
 			<a
@@ -97,4 +89,4 @@ const ProductosDeCredito = (props: Props) => {
 	)
 }
 
-export default ProductosDeCredito
+export default Garantias
