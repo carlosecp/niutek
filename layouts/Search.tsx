@@ -94,6 +94,7 @@ const Search = <SearchResult extends GlobalSearchResults>(
 					/>
 					<button
 						type='submit'
+						aria-label='Search'
 						className='p-2 disabled:cursor-default disabled:opacity-50 mr-2'
 						disabled={isSubmitting || props.loading}
 					>
