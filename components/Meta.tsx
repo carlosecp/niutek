@@ -23,10 +23,12 @@ const Meta = ({
 			<meta name='viewport' content='width=device-width, initial-scale=1' />
 			<meta name='description' content={description} />
 			<meta name='robots' content='follow, index' />
+			<meta name='googlebot' content='index,follow' />
 			<meta property='og:url' content={`https://niutek.dev${router.asPath}`} />
 			<meta property='og:site_name' content='niutek' />
 			<meta property='og:description' content={description} />
 			<meta property='og:title' content={title} />
+			<link rel='canonical' href={`https;//niutek.dev${router.asPath}`} />
 		</Head>
 	)
 }

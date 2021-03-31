@@ -30,6 +30,7 @@ const Checkbox = ({ name, classes = styles, label, ...props }: Props) => {
 					type='checkbox'
 					className={classes.checkbox}
 					disabled={isSubmitting || props?.disabled}
+					id={name}
 					{...field}
 					{...props}
 				/>

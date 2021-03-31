@@ -19,6 +19,7 @@ const Navbar = (props: Props) => {
 			<div className='h-14 bg-white border-b flex items-center px-2'>
 				<button
 					type='button'
+					aria-label='Toggle Sidebar'
 					className='block sm:hidden text-indigo-700 mx-2'
 					onClick={toggleSidebar}
 				>
@@ -27,12 +28,16 @@ const Navbar = (props: Props) => {
 				<h1 className='font-medium text-lg'>{props.title}</h1>
 				<div className='ml-auto flex gap-2'>
 					<button
+						type='button'
+						aria-label='Toggle Search'
 						className='block lg:hidden h-9 btn btn-outline-primary'
 						onClick={props.toggleNavigation}
 					>
 						<FaSearch className='fill-current' />
 					</button>
 					<button
+						type='button'
+						aria-label='Create New'
 						className='h-9 btn btn-outline-primary'
 						onClick={() => {
 							props.setEditingExisting(false)
