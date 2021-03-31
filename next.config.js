@@ -6,6 +6,7 @@ module.exports = {
 		if (isServer) {
 			require('./scripts/generate-sitemap')
 		}
+
 		if (!dev && !isServer) {
 			Object.assign(config.resolve.alias, {
 				react: 'preact/compat',
@@ -13,5 +14,7 @@ module.exports = {
 				'react-dom': 'preact/compat'
 			})
 		}
+
+		return config
 	}
 }

@@ -28,7 +28,7 @@ const Meta = ({
 			<meta property='og:site_name' content='niutek' />
 			<meta property='og:description' content={description} />
 			<meta property='og:title' content={title} />
-			<link rel='canonical' href={`https;//niutek.dev${router.asPath}`} />
+			<link rel='canonical' href={`https://niutek.dev${router.asPath}`} />
 		</Head>
 	)
 }
