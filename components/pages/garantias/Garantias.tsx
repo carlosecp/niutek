@@ -1,18 +1,16 @@
-import type { RootState } from '@/lib/store'
-import type { AuthState } from '@/lib/store/auth/types'
+import type { AuthStateType } from '@/context/auth/authContext'
 import * as React from 'react'
 import axios from 'axios'
-import { useSelector, useDispatch } from 'react-redux'
+import authContext from '@/context/auth/authContext'
 import { navLinks, NavLinks } from '@/data/garantias'
 import { Text, Select, TextArea } from '@/components/forms'
-import { FaExclamationCircle } from 'react-icons/fa'
 
 const SECTION_NAME = NavLinks.Garantias
 
 type CurrentId = string | number | null
 
 const getGarantias = async (
-	auth: AuthState,
+	auth: AuthStateType,
 	setLoading: (x: boolean) => void,
 	currentId: CurrentId
 ) => {
@@ -63,7 +61,8 @@ interface Props {
 const Garantias = (props: Props) => {
 	const [garantias, setGarantias] = React.useState<number[]>()
 
-	const auth = useSelector((state: RootState) => state.auth)
+	const auth = React.useContext(authContext)
+
 	const getInfo = async () => {
 		const garantiasData = await getGarantias(
 			auth,

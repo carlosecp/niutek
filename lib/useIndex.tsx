@@ -1,9 +1,8 @@
-import type { RootState } from '@/lib/store'
 import type { GlobalValues, GlobalSearchResults, Alert } from './interfaces'
 import * as React from 'react'
 import axios from 'axios'
+import authContext from '@/context/auth/authContext'
 import { v4 as uuidv4 } from 'uuid'
-import { useSelector, useDispatch } from 'react-redux'
 
 interface Args<Values> {
 	url: {
@@ -34,8 +33,7 @@ const useIndex = <
 		setAlerts(alerts.filter((alert) => alert.id !== id))
 	}
 
-	const dispatch = useDispatch()
-	const auth = useSelector((state: RootState) => state.auth)
+	const auth = React.useContext(authContext)
 
 	const getData = async (accessor: string | number) => {
 		const req = {

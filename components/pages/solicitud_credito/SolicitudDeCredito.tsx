@@ -30,42 +30,76 @@ const SolicitudDeCredito = (props: Props) => {
 				{navLinks[SECTION_NAME].name}
 			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
-				<p className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
+				<div className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
 					Promotor{' '}
-					<Field
+					<Select
 						name='p_cod_promotor'
-						className='w-full block form-input form-input-border transition form-disabled border-primary form-disabled'
-						placeholder='Promotor'
+						classes={{
+							container: 'w-full',
+							input: 'w-full block form-input form-input-border'
+						}}
 						disabled
-					/>
-				</p>
-				<p className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
+					>
+						<option value={1}>Opcion 1</option>
+						<option value={2}>Opcion 2</option>
+					</Select>
+				</div>
+				<div className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
 					Actividad económica{' '}
-					<Field
+					<Select
 						name='p_cod_act_economica'
-						className='w-full block form-input form-input-border transition form-disabled border-primary form-disabled'
-						placeholder='Actividad económica'
+						classes={{
+							container: 'w-full',
+							input: 'w-full block form-input form-input-border'
+						}}
 						disabled
-					/>
-				</p>
-				<p className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
+					>
+						<option value={1}>Opcion 1</option>
+						<option value={2}>Opcion 2</option>
+					</Select>
+				</div>
+				<div className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
 					Sector económico{' '}
-					<Field
+					<Select
 						name='p_cod_sec_economico'
-						className='w-full block form-input form-input-border transition form-disabled border-primary form-disabled'
-						placeholder='Sector económico'
+						classes={{
+							container: 'w-full',
+							input: 'w-full block form-input form-input-border'
+						}}
 						disabled
-					/>
-				</p>
-				<p className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
+					>
+						<option value={1}>Opcion 1</option>
+						<option value={2}>Opcion 2</option>
+					</Select>
+				</div>
+				<div className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
 					Destino del crédito{' '}
-					<Field
+					<Select
 						name='p_cod_destino_credito'
-						className='w-full block form-input form-input-border transition form-disabled border-primary form-disabled'
-						placeholder='Destino del crédito'
+						classes={{
+							container: 'w-full',
+							input: 'w-full block form-input form-input-border'
+						}}
 						disabled
-					/>
-				</p>
+					>
+						<option value={1}>Opcion 1</option>
+						<option value={2}>Opcion 2</option>
+					</Select>
+				</div>
+				<div className='col-span-12 md:col-span-6 flex items-center gap-2 text-sm font-medium text-gray-700'>
+					Estado de solicitud{' '}
+					<Select
+						name='p_cod_destino_credito'
+						classes={{
+							container: 'w-full',
+							input: 'w-full block form-input form-input-border'
+						}}
+						disabled
+					>
+						<option value={1}>Opcion 1</option>
+						<option value={2}>Opcion 2</option>
+					</Select>
+				</div>
 				<hr className='col-span-12 my-2' />
 				<Text
 					name='p_fecha_solicitud'
@@ -91,8 +125,8 @@ const SolicitudDeCredito = (props: Props) => {
 				/>
 				<MultipleChoice
 					title='Documentos requeridos'
+					classes={{ container: 'fc-lg sm:fc' }}
 					fields={documentos}
-					horizontal
 				/>
 				<div className='col-span-12 md:col-span-6 flex flex-col gap-4'>
 					<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>

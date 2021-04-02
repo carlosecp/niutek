@@ -17,6 +17,12 @@ const documentos = [
 	{ name: 'pdc_cod_documento', label: 'Carta de recomendación', value: 3 }
 ]
 
+const garantias = [
+	{ name: 'pga_cod_garantia', label: 'Fiduciaria', value: 1 },
+	{ name: 'pga_cod_garantia', label: 'Prendaria', value: 2 },
+	{ name: 'pga_cod_garantia', label: 'Hipotecaria', value: 3 }
+]
+
 const ProductosDeCredito = (props: Props) => {
 	return (
 		<section id={navLinks[SECTION_NAME].anchor}>
@@ -50,74 +56,75 @@ const ProductosDeCredito = (props: Props) => {
 					}}
 				/>
 				<TextArea name='p_descripcion' label='Descripción' />
-				<MultipleChoice
-					title='Documentos requeridos'
-					fields={documentos}
-					horizontal
-				/>
-				<Select name='p_cod_moneda' label='Moneda'>
-					{props.options.tabla.moneda.map((option) => (
-						<option key={option.codigo} value={option.codigo}>
-							{option.descripcion}
-						</option>
-					))}
-				</Select>
-				<Text
-					name='p_tasa_interes_minima'
-					label='Tasa de interes mínima'
-					classes={{
-						container: 'fc-lg md:fc break-line',
-						input: 'w-full block form-input form-input-border'
-					}}
-				/>
-				<Text name='p_tasa_interes_maxima' label='Tasa de interes máxima' />
-				<Text name='p_monto_minimo' label='Monto mínimo' type='number' />
-				<Text name='p_monto_maximo' label='Monto máximo' type='number' />
-				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
+				<div className='fc-lg sm:fc flex flex-col gap-4'>
+					<MultipleChoice title='Documentos requeridos' fields={documentos} />
+					<MultipleChoice title='Garantías requeridas' fields={garantias} />
+				</div>
+				<div className='fc-lg sm:fc grid gap-4'>
+					<Select name='p_cod_moneda' label='Moneda'>
+						{props.options.tabla.moneda.map((option) => (
+							<option key={option.codigo} value={option.codigo}>
+								{option.descripcion}
+							</option>
+						))}
+					</Select>
 					<Text
-						name='p_plazo_minimo'
-						label='Plazo mínimo'
+						name='p_tasa_interes_minima'
+						label='Tasa de interes mínima'
 						classes={{
-							container: 'fc',
+							container: 'fc-lg md:fc break-line',
 							input: 'w-full block form-input form-input-border'
 						}}
 					/>
-					<Select name='p_cod_frec_plazo_minimo' label='Período'>
+					<Text name='p_tasa_interes_maxima' label='Tasa de interes máxima' />
+					<Text name='p_monto_minimo' label='Monto mínimo' type='number' />
+					<Text name='p_monto_maximo' label='Monto máximo' type='number' />
+					<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
+						<Text
+							name='p_plazo_minimo'
+							label='Plazo mínimo'
+							classes={{
+								container: 'fc',
+								input: 'w-full block form-input form-input-border'
+							}}
+						/>
+						<Select name='p_cod_frec_plazo_minimo' label='Período'>
+							<option value={1}>Opcion 1</option>
+							<option value={2}>Opcion 2</option>
+						</Select>
+					</fieldset>
+					<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
+						<Text
+							name='p_cod_fre_plazo_maximo'
+							classes={{
+								container: 'fc',
+								input: 'w-full block form-input form-input-border'
+							}}
+							label='Plazo máximo'
+						/>
+						<Select name='p_cod_frec_plazo_maximo' label='Período'>
+							<option value={1}>Opcion 1</option>
+							<option value={2}>Opcion 2</option>
+						</Select>
+					</fieldset>
+					<Select name='p_cod_frecuencia_pago' label='Frecuencia de pago'>
 						<option value={1}>Opcion 1</option>
 						<option value={2}>Opcion 2</option>
 					</Select>
-				</fieldset>
-				<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
+					<Select name='p_cod_tipo_cuota' label='Tipo de cuota'>
+						<option value={1}>Opcion 1</option>
+						<option value={2}>Opcion 2</option>
+					</Select>
 					<Text
-						name='p_cod_fre_plazo_maximo'
-						classes={{
-							container: 'fc',
-							input: 'w-full block form-input form-input-border'
-						}}
-						label='Plazo máximo'
+						name='p_porc_aportacion'
+						label='Porcentaje de aportación'
+						type='number'
 					/>
-					<Select name='p_cod_frec_plazo_maximo' label='Período'>
+					<Select name='p_cod_aplica_grupo' label='Grupo'>
 						<option value={1}>Opcion 1</option>
 						<option value={2}>Opcion 2</option>
 					</Select>
-				</fieldset>
-				<Select name='p_cod_frecuencia_pago' label='Frecuencia de pago'>
-					<option value={1}>Opcion 1</option>
-					<option value={2}>Opcion 2</option>
-				</Select>
-				<Select name='p_cod_tipo_cuota' label='Tipo de cuota'>
-					<option value={1}>Opcion 1</option>
-					<option value={2}>Opcion 2</option>
-				</Select>
-				<Text
-					name='p_porc_aportacion'
-					label='Porcentaje de aportación'
-					type='number'
-				/>
-				<Select name='p_cod_aplica_grupo' label='Grupo'>
-					<option value={1}>Opcion 1</option>
-					<option value={2}>Opcion 2</option>
-				</Select>
+				</div>
 			</article>
 		</section>
 	)

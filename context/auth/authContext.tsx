@@ -10,6 +10,14 @@ export interface AuthStateType {
 	user: User
 }
 
-const authContext = createContext<AuthStateType | null>(null)
+const defaultValues = {
+	user: {
+		p_cod_sucursal: 0,
+		p_cod_empresa: 1,
+		p_clase_persona: 1
+	}
+}
+
+const authContext = createContext<AuthStateType>(defaultValues)
 
 export default authContext

@@ -1,20 +1,19 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
-import { Provider } from 'react-redux'
-import store from '@/lib/store'
 import { Layout } from '@/layouts/index'
 import '../styles/index.css'
+import AuthState from '@/context/auth/AuthState'
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => {
 	if (router.pathname.startsWith('/app')) {
 		return (
-			<Provider store={store}>
-				<ThemeProvider attribute='class'>
+			<ThemeProvider attribute='class'>
+				<AuthState>
 					<Layout>
 						<Component {...pageProps} />
 					</Layout>
-				</ThemeProvider>
-			</Provider>
+				</AuthState>
+			</ThemeProvider>
 		)
 	}
 
