@@ -21,21 +21,21 @@ const testingValues = [
 		prb_nombre_entidad: 'prb_nombre_entidad 0',
 		prb_tipo_servicio_recibido: 'prb_tipo_servicio_recibido 0',
 		prb_fecha_inicio_relacion: moment().format('YYYY-MM-DD'),
-		prb_annios_con_entidad: 0,
+		prb_annios_con_entidad: 1,
 		prb_telefono: 'prb_telefono 0',
 		pct_num_cuenta: 'pct_num_cuenta 0',
-		pct_cod_moneda: 0,
-		pct_cod_banco: 0
+		pct_cod_moneda: 1,
+		pct_cod_banco: 1
 	},
 	{
 		prb_nombre_entidad: 'prb_nombre_entidad 1',
 		prb_tipo_servicio_recibido: 'prb_tipo_servicio_recibido 1',
 		prb_fecha_inicio_relacion: moment().format('YYYY-MM-DD'),
-		prb_annios_con_entidad: 0,
+		prb_annios_con_entidad: 2,
 		prb_telefono: 'prb_telefono 1',
 		pct_num_cuenta: 'pct_num_cuenta 1',
-		pct_cod_moneda: 0,
-		pct_cod_banco: 0
+		pct_cod_moneda: 2,
+		pct_cod_banco: 2
 	}
 ]
 
@@ -77,5 +77,5 @@ const validations = yup.array().of(
 	})
 )
 
-// export const refBancarias = { values, validations }
-export const refBancarias = { values: testingValues, validations }
+export const refBancarias = { values, validations }
+// export const refBancarias = { values: testingValues, validations }

@@ -37,7 +37,7 @@ const Navbar = (props: Props) => {
 					</button>
 					<button
 						type='button'
-						aria-label='Create New'
+						alia-label='Reset Form'
 						className='h-9 btn btn-outline-primary'
 						onClick={() => {
 							props.setEditingExisting(false)

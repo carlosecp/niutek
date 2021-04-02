@@ -17,7 +17,7 @@ const testingValues = {
 	p_actividad_empresa: 'p_actividad_empresa',
 	p_tel_empresa: 'p_tel_empresa',
 	p_email_empresa: 'p_email_empresa@test.com',
-	p_ingreso_anual: (0).toFixed(2)
+	p_ingreso_anual: (69).toFixed(2)
 }
 
 const validations = {
@@ -49,5 +49,5 @@ const validations = {
 	p_ingreso_anual: yup.number().min(0, 'Valor mínimo 0').required('Requerido')
 }
 
-// export const datosProfesionales = { values, validations }
-export const datosProfesionales = { values: testingValues, validations }
+export const datosProfesionales = { values, validations }
+// export const datosProfesionales = { values: testingValues, validations }

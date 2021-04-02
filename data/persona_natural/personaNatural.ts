@@ -23,20 +23,20 @@ const values = {
 const testingValues = {
 	p_nombres: 'p_nombre',
 	p_apellidos: 'p_apellidos',
-	p_sexo: 0,
-	p_tipo_doc: 0,
+	p_sexo: 1,
+	p_tipo_doc: 1,
 	p_num_doc: 'p_num_doc',
-	p_cod_nac: 0,
-	p_cod_depto: 0,
-	p_cod_muni: 0,
+	p_cod_nac: 1,
+	p_cod_depto: 1,
+	p_cod_muni: 1,
 	p_direccion: 'p_direccion',
 	p_notas: 'p_notas',
 	p_telefono1: 'p_telefono1',
 	p_telefono2: 'p_telefono2',
 	p_lugar_nacimiento: 'p_lugar_nacimiento',
 	p_fecha_nacimiento: moment().format('YYYY-MM-DD'),
-	p_cargo_publico: 0,
-	p_num_hijos: 0
+	p_cargo_publico: 1,
+	p_num_hijos: 1
 }
 
 const validations = {
@@ -109,5 +109,5 @@ const validations = {
 		.required('Requerido')
 }
 
-// export const personaNatural = { values, validations }
-export const personaNatural = { values: testingValues, validations }
+export const personaNatural = { values, validations }
+// export const personaNatural = { values: testingValues, validations }
