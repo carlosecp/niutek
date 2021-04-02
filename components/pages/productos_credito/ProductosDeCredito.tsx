@@ -77,8 +77,8 @@ const ProductosDeCredito = (props: Props) => {
 						}}
 					/>
 					<Text name='p_tasa_interes_maxima' label='Tasa de interes máxima' />
-					<Text name='p_monto_minimo' label='Monto mínimo' type='number' />
-					<Text name='p_monto_maximo' label='Monto máximo' type='number' />
+					<Text name='p_monto_min' label='Monto mínimo' type='number' />
+					<Text name='p_monto_max' label='Monto máximo' type='number' />
 					<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 						<Text
 							name='p_plazo_minimo'
@@ -95,7 +95,7 @@ const ProductosDeCredito = (props: Props) => {
 					</fieldset>
 					<fieldset className='fc-lg md:fc grid grid-cols-12 gap-3'>
 						<Text
-							name='p_cod_fre_plazo_maximo'
+							name='p_plazo_maximo'
 							classes={{
 								container: 'fc',
 								input: 'w-full block form-input form-input-border'
