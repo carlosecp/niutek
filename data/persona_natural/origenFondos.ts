@@ -92,5 +92,5 @@ const validations = {
 	})
 }
 
-export const origenFondos = { values, validations }
-// export const origenFondos = { values: testingValues, validations }
+// export const origenFondos = { values, validations }
+export const origenFondos = { values: testingValues, validations }

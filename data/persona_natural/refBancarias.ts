@@ -77,5 +77,5 @@ const validations = yup.array().of(
 	})
 )
 
-export const refBancarias = { values, validations }
-// export const refBancarias = { values: testingValues, validations }
+// export const refBancarias = { values, validations }
+export const refBancarias = { values: testingValues, validations }

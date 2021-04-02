@@ -60,7 +60,7 @@ export const Index = <
 		const navbarProps = {
 			loading: state.loading,
 			title: args.navBarTitle ? args.navBarTitle : args.navLinks[0].name,
-			onReset: () => state.setData(),
+			onReset: () => state.setData(args.initialValues.values),
 			setEditingExisting: state.setEditingExisting,
 			toggleNavigation: () => state.setShowNavigation(!state.showNavigation)
 		}

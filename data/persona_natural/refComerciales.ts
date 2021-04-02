@@ -54,5 +54,5 @@ const validations = yup.array().of(
 	})
 )
 
-export const refComerciales = { values, validations }
-// export const refComerciales = { values: testingValues, validations }
+// export const refComerciales = { values, validations }
+export const refComerciales = { values: testingValues, validations }

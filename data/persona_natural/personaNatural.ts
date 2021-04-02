@@ -109,5 +109,5 @@ const validations = {
 		.required('Requerido')
 }
 
-export const personaNatural = { values, validations }
-// export const personaNatural = { values: testingValues, validations }
+// export const personaNatural = { values, validations }
+export const personaNatural = { values: testingValues, validations }

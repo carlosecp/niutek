@@ -49,5 +49,5 @@ const validations = {
 	p_ingreso_anual: yup.number().min(0, 'Valor mínimo 0').required('Requerido')
 }
 
-export const datosProfesionales = { values, validations }
-// export const datosProfesionales = { values: testingValues, validations }
+// export const datosProfesionales = { values, validations }
+export const datosProfesionales = { values: testingValues, validations }
