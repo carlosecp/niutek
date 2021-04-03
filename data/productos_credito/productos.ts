@@ -44,7 +44,53 @@ const testingValues = {
 	pga_cod_garantia: ['2', '1']
 }
 
-const validations = {}
+const validations = {
+	p_nombre: yup.string().required('Requerido').max(50, 'Caracteres máximos 50'),
+	p_descripcion: yup
+		.string()
+		.required('Requerido')
+		.max(100, 'Caracteres máximos 100'),
+	p_cod_moneda: yup
+		.mixed()
+		.notOneOf([0], 'Seleccione un valor')
+		.required('Requerido'),
+	p_tasa_interes_minima: yup
+		.number()
+		.min(0, 'Valor mínimo 0')
+		.required('Requerido'),
+	p_tasa_interes_maxima: yup
+		.number()
+		.min(0, 'Valor mínimo 0')
+		.required('Requerido'),
+	p_monto_minimo: yup.number().min(0, 'Valor mínimo 0').required('Requerido'),
+	p_monto_maximo: yup.number().min(0, 'Valor mínimo 0').required('Requerido'),
+	p_plazo_minimo: yup.number().min(0, 'Valor mínimo 0').required('Requerido'),
+	p_plazo_maximo: yup.number().min(0, 'Valor mínimo 0').required('Requerido'),
+	p_cod_frec_plazo_min: yup
+		.mixed()
+		.notOneOf([0], 'Seleccione un valor')
+		.required('Requerido'),
+	p_cod_frec_plazo_max: yup
+		.mixed()
+		.notOneOf([0], 'Seleccione un valor')
+		.required('Requerido'),
+	p_cod_frecuencia_pago: yup
+		.mixed()
+		.notOneOf([0], 'Seleccione un valor')
+		.required('Requerido'),
+	p_porc_aportacion: yup
+		.number()
+		.min(0, 'Valor mínimo 0')
+		.required('Requerido'),
+	p_cod_tipo_cuota: yup
+		.mixed()
+		.notOneOf([0], 'Seleccione un valor')
+		.required('Requerido'),
+	p_cod_aplica_grupo: yup
+		.mixed()
+		.notOneOf([0], 'Seleccione un valor')
+		.required('Requerido')
+}
 
 // export const productos = { values, validations }
 export const productos = { values: testingValues, validations }
