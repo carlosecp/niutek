@@ -76,7 +76,6 @@ const validations = {
 		.string()
 		.required('Requerido')
 		.max(100, 'Caracteres máximos 100'),
-
 	p_notas: yup
 		.string()
 		.required('Requerido')

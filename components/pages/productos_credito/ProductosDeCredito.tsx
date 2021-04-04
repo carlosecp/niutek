@@ -43,10 +43,6 @@ const ProductosDeCredito = (props: Props) => {
 					<option value={1}>Opcion 1</option>
 					<option value={2}>Opcion 2</option>
 				</Select>
-				<Select name='p_cod_tipo_contrato' label='Tipo de contrato'>
-					<option value={1}>Opcion 1</option>
-					<option value={2}>Opcion 2</option>
-				</Select>
 				<Text
 					name='p_nombre'
 					label='Nombre del producto'
