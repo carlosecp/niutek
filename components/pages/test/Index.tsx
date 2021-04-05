@@ -7,74 +7,54 @@ import * as React from 'react'
 import useForm from '@/lib/hooks/useForm'
 import useSearch from '@/lib/hooks/useSearch'
 import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
-import FormPage from '@/components/FormPage'
-import Search from '@/layouts/NewSearch'
-import Results from '@/layouts/NewResults'
+import FormPage from '@/components/Index'
 
 interface Props {
 	children: React.ReactNode
 }
 
 const index = (props: Props) => {
-	const search = useSearch<PersonaNaturalSearchResult>({
-		endpoint: 'clientes_natural'
-	})
 	const state = useForm<PersonaNaturalValues>({
 		initialValues: initialValues.values,
 		endpoints: {
-			read: '',
-			write: ''
+			read: 'datos_cliente_natural',
+			write: 'cliente_natural'
 		}
 	})
+	const search = useSearch<PersonaNaturalSearchResult>({
+		endpoint: 'clientes_natural',
+		loading: state.loading,
+		setLoading: state.setLoading
+	})
 
-	const NavigationChildren = (
-		<>
-			<Search
-				placeholder='testing'
-				loading={state.loading}
-				callback={(searchValue: string) => {
-					state.setLoading(true)
-					search.getResults({
-						searchValue
-					})
-					state.setLoading(false)
-				}}
-			/>
-			<Results<PersonaNaturalSearchResult>
-				results={search.results}
-				loading={state.loading}
-				getDescription={getDescription}
-				callback={(accessor: string | number) => {
-					state.getValues({
-						extraKeys: {
-							p_cod_cliente: accessor
-						}
-					})
-					state.setCurrent(true)
-				}}
-			/>
-		</>
+	const defaultFormProps = state.getDefaultProps<PersonaNaturalValidationSchema>(
+		{
+			validations: initialValues.validations,
+			navLinks,
+			navbarTitle: 'Test Navbar'
+		}
 	)
 
+	const defaultSearchProps = search.getDefaultProps({
+		searchBarPlaceholder: 'Buscar test test',
+		getDescription,
+		getValues: state.getValues,
+		setCurrent: state.setCurrent
+	})
+
 	return (
-		<FormPage<PersonaNaturalValues, PersonaNaturalValidationSchema>
-			form={{
-				values: state.values,
-				validations: initialValues.validations,
-				writeData: (values: PersonaNaturalValues) => {
-					state.writeValues(values)
-				}
-			}}
+		<FormPage<
+			PersonaNaturalValues,
+			PersonaNaturalValidationSchema,
+			PersonaNaturalSearchResult
+		>
+			form={defaultFormProps.form}
 			navigation={{
-				children: NavigationChildren,
 				navLinks
 			}}
-			navbar={{
-				title: 'Test Page',
-				loading: state.loading,
-				onReset: state.reset,
-				setEditingExisting: state.setCurrent
-			}}
+			navbar={defaultFormProps.navbar}
+			search={defaultSearchProps.search}
+			results={defaultSearchProps.results}
 		>
 			{props.children}
 		</FormPage>

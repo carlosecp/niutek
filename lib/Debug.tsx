@@ -17,4 +17,4 @@ const LogErrors = ({ errors }: Args) => {
 	return <div></div>
 }
 
-export default LogErrors
+export { LogErrors }

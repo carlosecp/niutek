@@ -3,47 +3,61 @@ import type {
 	PersonaNaturalValidationSchema,
 	PersonaNaturalSearchResult
 } from '@/data/persona_natural'
-import type { Props, Config } from '@/components/Index'
 import * as React from 'react'
+import useForm from '@/lib/hooks/useForm'
+import useSearch from '@/lib/hooks/useSearch'
 import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
-import {
-	PersonaNatural,
-	DatosProfesionales,
-	OrigenFondos,
-	RefComerciales,
-	RefBancarias,
-	RefPersonales
-} from './components'
-import { Index } from '@/components/Index'
+import FormPage from '@/components/Index'
 
-const config: Config<
-	PersonaNaturalValues,
-	PersonaNaturalValidationSchema,
-	PersonaNaturalSearchResult
-> = {
-	pageType: 'cliente',
-	pageName: 'natural',
-	navLinks,
-	getDescription,
-	initialValues
+interface Props {
+	children: React.ReactNode
 }
 
-const Wrapper = Index<
-	PersonaNaturalValues,
-	PersonaNaturalValidationSchema,
-	PersonaNaturalSearchResult
->(config)
-
 const index = (props: Props) => {
+	const state = useForm<PersonaNaturalValues>({
+		initialValues: initialValues.values,
+		endpoints: {
+			read: 'datos_cliente_natural',
+			write: 'cliente_natural'
+		}
+	})
+	const search = useSearch<PersonaNaturalSearchResult>({
+		endpoint: 'clientes_natural',
+		loading: state.loading,
+		setLoading: state.setLoading
+	})
+
+	const defaultFormProps = state.getDefaultProps<PersonaNaturalValidationSchema>(
+		{
+			validations: initialValues.validations,
+			navLinks,
+			navbarTitle: 'Persona Natural'
+		}
+	)
+
+	const defaultSearchProps = search.getDefaultProps({
+		searchBarPlaceholder: 'Buscar persona natural',
+		getDescription,
+		getValues: state.getValues,
+		setCurrent: state.setCurrent
+	})
+
 	return (
-		<Wrapper {...props}>
-			<PersonaNatural options={props.options} />
-			<DatosProfesionales />
-			<OrigenFondos />
-			<RefComerciales />
-			<RefBancarias options={props.options} />
-			<RefPersonales options={props.options} />
-		</Wrapper>
+		<FormPage<
+			PersonaNaturalValues,
+			PersonaNaturalValidationSchema,
+			PersonaNaturalSearchResult
+		>
+			form={defaultFormProps.form}
+			navigation={{
+				navLinks
+			}}
+			navbar={defaultFormProps.navbar}
+			search={defaultSearchProps.search}
+			results={defaultSearchProps.results}
+		>
+			{props.children}
+		</FormPage>
 	)
 }
 

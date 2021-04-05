@@ -3,7 +3,7 @@ import type {
 	SolicitudDeCreditoValidationSchema,
 	SolicitudDeCreditoSearchResult
 } from '@/data/solicitud_credito/index'
-import type { Props, Config } from '@/components/Index'
+import type { Props, Config } from '@/components/OldIndex'
 import * as React from 'react'
 import {
 	initialValues,
@@ -11,7 +11,7 @@ import {
 	getDescription
 } from '@/data/solicitud_credito'
 import { SolicitudDeCredito, Garantias, Observaciones } from './components'
-import { Index } from '@/components/Index'
+import { Index } from '@/components/OldIndex'
 
 const config: Config<
 	SolicitudDeCreditoValues,

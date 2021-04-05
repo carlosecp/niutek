@@ -23,6 +23,12 @@ interface WriteConfig {
 	extraHeaders?: { [x: string]: any }
 }
 
+interface DefaultProps<Validations> {
+	validations: Validations
+	navLinks: { name: string; anchor: string }[]
+	navbarTitle: string
+}
+
 const useForm = <Values,>(args: Args<Values>) => {
 	const [values, setValues] = React.useState(args.initialValues)
 	const [loading, setLoading] = React.useState(false)
@@ -66,6 +72,27 @@ const useForm = <Values,>(args: Args<Values>) => {
 
 	const reset = () => setValues(args.initialValues)
 
+	const getDefaultProps = <Validations,>(
+		defaultProps: DefaultProps<Validations>
+	) => ({
+		form: {
+			values,
+			validations: defaultProps.validations,
+			writeData: (values: Values) => {
+				writeValues(values)
+			}
+		},
+		navigation: {
+			navLinks: defaultProps.navLinks
+		},
+		navbar: {
+			title: defaultProps.navbarTitle,
+			loading,
+			onReset: reset,
+			setEditingExisting: setCurrent
+		}
+	})
+
 	return {
 		values,
 		loading,
@@ -76,7 +103,8 @@ const useForm = <Values,>(args: Args<Values>) => {
 		reset,
 		setLoading,
 		setCurrent,
-		setEditing
+		setEditing,
+		getDefaultProps
 	}
 }
 
