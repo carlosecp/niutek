@@ -3,9 +3,9 @@ import getFormValues from '@/lib/api/getValues'
 import writeFormValues from '@/lib/api/writeValues'
 interface Args<Values> {
 	initialValues: Values
-	debug: {
-		read: boolean
-		write: boolean
+	debug?: {
+		read?: boolean
+		write?: boolean
 	}
 	endpoints: {
 		read: string
@@ -38,7 +38,7 @@ const useForm = <Values,>(args: Args<Values>) => {
 				p_cod_sucursal: 0,
 				...config?.extraKeys
 			},
-			debug: args.debug.read || false,
+			debug: args.debug?.read || false,
 			fallbackValues: args.initialValues
 		})
 
@@ -56,7 +56,7 @@ const useForm = <Values,>(args: Args<Values>) => {
 				data,
 				...config?.extraKeys
 			},
-			debug: args.debug.write || false,
+			debug: args.debug?.write || false,
 			type: editing ? 'modifica' : 'registra'
 		})
 

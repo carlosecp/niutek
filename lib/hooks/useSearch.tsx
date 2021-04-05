@@ -2,7 +2,7 @@ import * as React from 'react'
 import getSearchResults from '@/lib/api/getSearchResults'
 
 interface Args {
-	debug: boolean
+	debug?: boolean
 	endpoint: string
 }
 
@@ -17,7 +17,7 @@ const useSearch = <SearchResult,>(args: Args) => {
 	const getResults = async (config: SearchConfig) => {
 		const data = await getSearchResults<SearchResult>({
 			endpoint: args.endpoint,
-			debug: args.debug,
+			debug: args.debug || false,
 			body: { ...config.extraKeys, search: config.searchValue }
 		})
 

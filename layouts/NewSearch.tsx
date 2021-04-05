@@ -1,11 +1,6 @@
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 
-interface Args {
-	url: string
-	body: { search: string }
-}
-
 interface Props {
 	placeholder?: string
 	loading: boolean

@@ -3,6 +3,7 @@ import type {
 	PersonaNaturalValidationSchema,
 	PersonaNaturalSearchResult
 } from '@/data/persona_natural'
+import * as React from 'react'
 import useForm from '@/lib/hooks/useForm'
 import useSearch from '@/lib/hooks/useSearch'
 import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
@@ -15,13 +16,11 @@ interface Props {
 }
 
 const index = (props: Props) => {
-	const search = useSearch<PersonaNaturalSearchResult>()
+	const search = useSearch<PersonaNaturalSearchResult>({
+		endpoint: 'clientes_natural'
+	})
 	const state = useForm<PersonaNaturalValues>({
 		initialValues: initialValues.values,
-		debug: {
-			read: false,
-			write: false
-		},
 		endpoints: {
 			read: '',
 			write: ''
