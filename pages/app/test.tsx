@@ -11,10 +11,14 @@ interface OptionsTypes {
 }
 
 const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+	const indexProps = {
+		options: props.options
+	}
+
 	return (
 		<>
 			<Meta title='Persona Natural' />
-			<Index />
+			<Index {...indexProps} />
 		</>
 	)
 }

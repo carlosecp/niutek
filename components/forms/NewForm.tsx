@@ -1,4 +1,3 @@
-import type { GlobalValues } from '@/lib/interfaces'
 import * as React from 'react'
 import { Formik, Form as FormikForm } from 'formik'
 import LogErrors from '@/lib/LogErrors'
@@ -6,20 +5,21 @@ import LogErrors from '@/lib/LogErrors'
 interface Props<Values, ValidationSchema> {
 	values: Values
 	validations: ValidationSchema
-	writeData: (values: Values, key: string) => void
+	writeData: (x: Values) => void
 	children: React.ReactNode
 }
 
-const Form = <Values extends GlobalValues, ValidationSchema>(
+const Form = <Values, ValidationSchema>(
 	props: Props<Values, ValidationSchema>
 ) => {
 	return (
 		<Formik
-			initialValues={props.data}
+			initialValues={props.values}
 			enableReinitialize
 			validationSchema={props.validations}
 			onSubmit={(values, { setSubmitting }) => {
 				setSubmitting(true)
+				props.writeData(values)
 				setSubmitting(false)
 			}}
 		>

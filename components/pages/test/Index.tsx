@@ -1,32 +1,40 @@
-// Types
 import type {
 	PersonaNaturalValues,
 	PersonaNaturalSearchResult,
 	PersonaNaturalValidationSchema
 } from '@/data/persona_natural'
+import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import * as React from 'react'
-// Hooks
 import useForm from '@/lib/hooks/useForm'
 import useNavigation from '@/lib/hooks/useNavigation'
-// Values
 import { navLinks, initialValues } from '@/data/persona_natural'
-// Components
 import { Navbar, Navigation, Results, Alerts } from '@/layouts/index'
 import NewSearch from '@/layouts/NewSearch'
 import Form from '@/components/forms/NewForm'
 import {
+	PersonaNatural,
 	DatosProfesionales,
 	OrigenFondos,
-	RefComerciales
+	RefComerciales,
+	RefBancarias,
+	RefPersonales
 } from '../persona_natural/components'
 
-const index = () => {
+export interface Props {
+	options: {
+		tabla: TablaOptions
+		deptos_municipios: DeptosOption[]
+	}
+	children?: React.ReactNode
+}
+
+const index = (props: Props) => {
+	const navigation = useNavigation()
+
 	const [loading, setLoading] = React.useState(false)
 	const state = useForm<PersonaNaturalValues>({
 		initialValues: initialValues.values
 	})
-
-	const navigation = useNavigation()
 
 	return (
 		<main className='sm:ml-64 relative bg-light'>
@@ -36,8 +44,36 @@ const index = () => {
 					validations={initialValues.validations}
 					writeData={() => {}}
 				>
+					<PersonaNatural options={props.options} />
 					<DatosProfesionales />
+					<OrigenFondos />
 					<RefComerciales />
+					<RefBancarias options={props.options} />
+					<RefPersonales options={props.options} />
+					<button
+						type='button'
+						className='flex justify-center'
+						onClick={() =>
+							state.getValues({
+								requestBody: {
+									p_cod_cliente: 3,
+									p_cod_empresa: 1,
+									p_cod_sucursal: 0
+								}
+							})
+						}
+					>
+						Press Me
+					</button>
+					<button
+						type='button'
+						className='flex justify-center'
+						onClick={() =>
+							state.writeValues({ p_cod_empresa: 1, p_cod_sucursal: 0 })
+						}
+					>
+						Write
+					</button>
 				</Form>
 				<Navigation
 					navLinks={navLinks}
