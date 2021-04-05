@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { setNestedObjectValues } from 'formik'
 
 interface Args<Data> {
 	body: { [x: string]: any }
@@ -8,7 +7,7 @@ interface Args<Data> {
 	setData: (x: Data) => void
 }
 
-const getData = async <Data>(args: Args<Data>) => {
+const getFormData = async <Data>(args: Args<Data>) => {
 	const path = `${process.env.backend}/${args.debug ? 'debug' : 'proc'}/lee/${
 		args.endpoint
 	}`
@@ -33,4 +32,4 @@ const getData = async <Data>(args: Args<Data>) => {
 	}
 }
 
-export default getData
+export default getFormData
