@@ -5,7 +5,7 @@ import type {
 	GlobalValues,
 	GlobalSearchResults
 } from '@/lib/interfaces'
-import useIndex from '@/lib/useIndex'
+import useIndex from '@/lib/hooks/useIndex'
 import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
 import Form from '@/components/forms'
 

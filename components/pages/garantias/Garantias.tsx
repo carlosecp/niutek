@@ -15,8 +15,8 @@ const Garantias = () => {
 			<h1 className='font-medium text-xl text-gray-900'>
 				{navLinks[SECTION_NAME].name}
 			</h1>
-			<article className='form-section my-2 flex justify-between items-center'></article>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
+				<Text name='p_cod_cliente' label='Código cliente' />
 				<Select
 					name='p_cod_gar'
 					label='Seleccionar garantía'
@@ -65,7 +65,7 @@ const Garantias = () => {
 					name='p_marca'
 					label='Marca'
 					classes={{
-						container: 'fc-lg md:fc break-line',
+						container: 'fc-lg md:fc',
 						input: 'w-full block form-input form-input-border'
 					}}
 				/>

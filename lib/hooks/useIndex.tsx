@@ -1,4 +1,4 @@
-import type { GlobalValues, GlobalSearchResults, Alert } from './interfaces'
+import type { GlobalValues, GlobalSearchResults, Alert } from '../interfaces'
 import * as React from 'react'
 import axios from 'axios'
 import authContext from '@/context/auth/authContext'
@@ -9,8 +9,8 @@ interface Args<Values> {
 		fetch: string
 		write: string
 	}
-	key: string // key to make the request to fetch client/product/check...
-	initialValues: Values // Formik initialValues que esperamos recibir.
+	key: string
+	initialValues: Values
 }
 
 const useIndex = <

@@ -1,6 +1,6 @@
-import type { MuniOption } from './interfaces'
+import type { MuniOption } from '../interfaces'
 import * as React from 'react'
-import getMunicipio from './getMunicipio'
+import getMunicipio from '../utils/getMunicipio'
 
 const useMunicipio = (codDepto: number) => {
 	const [municipios, setMunicipios] = React.useState<MuniOption[]>([])

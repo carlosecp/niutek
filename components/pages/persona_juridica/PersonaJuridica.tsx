@@ -3,7 +3,7 @@ import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import { navLinks, NavLinks } from '@/data/persona_juridica'
 import { useFormikContext } from 'formik'
 import { Text, Select, TextArea } from '@/components/forms'
-import useMunicipio from '@/lib/useMunicipio'
+import useMunicipio from '@/lib/hooks/useMunicipio'
 
 const SECTION_NAME = NavLinks.PersonaJuridica
 

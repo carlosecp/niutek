@@ -17,10 +17,10 @@ const values = {
 }
 
 const testingValues = {
-	p_cod_cliente: 0,
-	p_cod_gar: 0,
-	p_cod_cla: 0,
-	p_cod_cat: 0,
+	p_cod_cliente: 1,
+	p_cod_gar: 1,
+	p_cod_cla: 1,
+	p_cod_cat: 1,
 	p_marca: 'p_marca',
 	p_modelo: 'p_modelo',
 	p_annio: 'p_annio',
@@ -28,7 +28,7 @@ const testingValues = {
 	p_motor: 'p_motor',
 	p_chasis: 'p_chasis',
 	p_no_serie: 'p_no_serie',
-	p_valor: (0).toFixed(2),
+	p_valor: (10).toFixed(2),
 	p_descripcion: 'p_descripcion'
 }
 

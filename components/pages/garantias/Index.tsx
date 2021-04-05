@@ -14,8 +14,8 @@ const config: Config<
 	GarantiasValidationSchema,
 	GarantiasSearchResult
 > = {
-	pageType: 'producto',
-	pageName: 'credito',
+	pageType: 'garantia',
+	pageName: 'clientes',
 	navLinks,
 	getDescription,
 	initialValues
