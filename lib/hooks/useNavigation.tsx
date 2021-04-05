@@ -3,13 +3,13 @@ import * as React from 'react'
 const useNavigation = () => {
 	const [showNavigation, setShowNavigation] = React.useState(false)
 
-	const toggleNavigation = (x: boolean) => {
-		setShowNavigation(false)
+	const toggleNavigation = () => {
+		setShowNavigation(!showNavigation)
 	}
 
 	React.useDebugValue(showNavigation)
 
-	return { showNavigation, setShowNavigation }
+	return { showNavigation, toggleNavigation }
 }
 
 export default useNavigation

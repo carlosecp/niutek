@@ -1,5 +1,3 @@
-import type { GlobalSearchConfig, GlobalSearchResults } from '../lib/interfaces'
-import axios from 'axios'
 import { Formik } from 'formik'
 import { FaSearch } from 'react-icons/fa'
 
@@ -8,42 +6,20 @@ interface Args {
 	body: { search: string }
 }
 
-interface Props<SearchResult> {
-	config: GlobalSearchConfig
+interface Props {
 	placeholder?: string
-	setSearchResults: (results: SearchResult[]) => void
 	loading: boolean
-	setLoading: (x: boolean) => void
+	searchCallback: (x: string) => void
 }
 
-const Search = <SearchResult extends GlobalSearchResults>(
-	props: Props<SearchResult>
-) => {
+const Search = (props: Props) => {
 	return (
 		<Formik
 			initialValues={{ search: '' }}
 			onSubmit={async (values, { setSubmitting }) => {
 				setSubmitting(true)
-				props.setLoading(true)
-
-				const results = await axios.post<SearchResult[]>(
-					'/api/search',
-					{
-						searchEndpoint: props.config.url,
-						requestBody: values
-					},
-					{
-						headers: {
-							'Content-Type': 'application/json',
-							'Access-Control-Allow-Credentials': 'true'
-						}
-					}
-				)
-
-				props.setSearchResults(results.data)
-
+				props.searchCallback(values.search)
 				setSubmitting(false)
-				props.setLoading(false)
 			}}
 		>
 			{({ isSubmitting, handleChange, handleSubmit }) => (
@@ -55,7 +31,7 @@ const Search = <SearchResult extends GlobalSearchResults>(
 						name='search'
 						type='text'
 						className='w-full border-none outline-none ring-0 focus:ring-0'
-						placeholder={props.config.placeholder || `Buscar`}
+						placeholder={props.placeholder || `Buscar`}
 						onChange={handleChange}
 						disabled={isSubmitting || props.loading}
 					/>

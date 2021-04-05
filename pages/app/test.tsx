@@ -1,9 +1,16 @@
 import type { InferGetStaticPropsType } from 'next'
 import type { DeptosOption, TablaOptions } from '@/lib/interfaces'
-import * as React from 'react'
 import axios from 'axios'
 import Meta from '@/components/Meta'
 import Index from '@/components/pages/test/Index'
+import {
+	PersonaNatural,
+	DatosProfesionales,
+	OrigenFondos,
+	RefComerciales,
+	RefBancarias,
+	RefPersonales
+} from '@/components/pages/persona_natural/components'
 
 interface OptionsTypes {
 	tabla: TablaOptions
@@ -11,14 +18,17 @@ interface OptionsTypes {
 }
 
 const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-	const indexProps = {
-		options: props.options
-	}
-
 	return (
 		<>
 			<Meta title='Persona Natural' />
-			<Index {...indexProps} />
+			<Index>
+				<PersonaNatural options={props.options} />
+				<DatosProfesionales />
+				<OrigenFondos />
+				<RefComerciales />
+				<RefBancarias options={props.options} />
+				<RefPersonales options={props.options} />
+			</Index>
 		</>
 	)
 }

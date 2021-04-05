@@ -1,36 +1,24 @@
-import type { GlobalSearchConfig, GlobalSearchResults } from '../lib/interfaces'
-import axios from 'axios'
+import * as React from 'react'
+import getSearchResults from '@/lib/api/getSearchResults'
 
-interface Args {
-	url: string
-	body: { search: string }
+interface SearchConfig {
+	searchValue: string
+	extraKeys?: { [x: string]: any }
 }
 
-const getResults = async <SearchResult extends GlobalSearchResults>({
-	url,
-	body
-}: Args) => {
-	const req = {
-		path: `${process.env.backend}/proc/${url}`,
-		body,
-		headers: {
-			'Content-Type': 'application/json',
-			'Access-Control-Allow-Credentials': 'true'
-		}
-	}
+const useSearch = <SearchResult,>() => {
+	const [results, setResults] = React.useState<SearchResult[]>([])
 
-	try {
-		const res = await axios.post(req.path, req.body, {
-			headers: req.headers
+	const getResults = async (config: SearchConfig) => {
+		const data = await getSearchResults<SearchResult>({
+			endpoint: 'clientes_natural',
+			body: { ...config.extraKeys, search: config.searchValue }
 		})
 
-		return res.data as SearchResult[]
-	} catch (err) {
-		console.log('%c error ', 'background: #c60022; color: #FFFFFF', err)
-		return []
-	} finally {
-		console.groupEnd()
+		setResults(data)
 	}
+
+	return { results, getResults }
 }
 
-export default getResults
+export default useSearch

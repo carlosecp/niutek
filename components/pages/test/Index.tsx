@@ -1,99 +1,66 @@
 import type {
 	PersonaNaturalValues,
-	PersonaNaturalSearchResult,
-	PersonaNaturalValidationSchema
+	PersonaNaturalValidationSchema,
+	PersonaNaturalSearchResult
 } from '@/data/persona_natural'
-import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
-import * as React from 'react'
 import useForm from '@/lib/hooks/useForm'
-import useNavigation from '@/lib/hooks/useNavigation'
-import { navLinks, initialValues } from '@/data/persona_natural'
-import { Navbar, Navigation, Results, Alerts } from '@/layouts/index'
-import NewSearch from '@/layouts/NewSearch'
-import Form from '@/components/forms/NewForm'
-import {
-	PersonaNatural,
-	DatosProfesionales,
-	OrigenFondos,
-	RefComerciales,
-	RefBancarias,
-	RefPersonales
-} from '../persona_natural/components'
+import useSearch from '@/lib/hooks/useSearch'
+import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
+import FormPage from '@/components/FormPage'
+import Search from '@/layouts/NewSearch'
+import Results from '@/layouts/NewResults'
 
-export interface Props {
-	options: {
-		tabla: TablaOptions
-		deptos_municipios: DeptosOption[]
-	}
-	children?: React.ReactNode
+interface Props {
+	children: React.ReactNode
 }
 
 const index = (props: Props) => {
-	const navigation = useNavigation()
-
-	const [loading, setLoading] = React.useState(false)
 	const state = useForm<PersonaNaturalValues>({
 		initialValues: initialValues.values
 	})
+	const search = useSearch<PersonaNaturalSearchResult>()
+
+	const NavigationChildren = (
+		<>
+			<Search
+				placeholder='testing'
+				loading={state.loading}
+				searchCallback={(x: string) => {
+					search.getResults({
+						searchValue: x
+					})
+				}}
+			/>
+			<Results<PersonaNaturalSearchResult>
+				results={search.results}
+				loading={state.loading}
+				setCurrentId={(x: any) => {}}
+				getDescription={getDescription}
+				getValues={() => {}}
+			/>
+		</>
+	)
 
 	return (
-		<main className='sm:ml-64 relative bg-light'>
-			<div className='flex flex-col py-4 lg:pr-64'>
-				<Form<PersonaNaturalValues, PersonaNaturalValidationSchema>
-					values={state.values}
-					validations={initialValues.validations}
-					writeData={() => {}}
-				>
-					<PersonaNatural options={props.options} />
-					<DatosProfesionales />
-					<OrigenFondos />
-					<RefComerciales />
-					<RefBancarias options={props.options} />
-					<RefPersonales options={props.options} />
-					<button
-						type='button'
-						className='flex justify-center'
-						onClick={() =>
-							state.getValues({
-								requestBody: {
-									p_cod_cliente: 3,
-									p_cod_empresa: 1,
-									p_cod_sucursal: 0
-								}
-							})
-						}
-					>
-						Press Me
-					</button>
-					<button
-						type='button'
-						className='flex justify-center'
-						onClick={() =>
-							state.writeValues({ p_cod_empresa: 1, p_cod_sucursal: 0 })
-						}
-					>
-						Write
-					</button>
-				</Form>
-				<Navigation
-					navLinks={navLinks}
-					showNavigation={navigation.showNavigation}
-					toggleNavigation={() =>
-						navigation.setShowNavigation(!navigation.showNavigation)
-					}
-				>
-					<NewSearch<PersonaNaturalSearchResult>
-						config={{
-							placeholder: 'Buscar test',
-							url: 'clientes_natural'
-						}}
-						loading={loading}
-						setLoading={setLoading}
-						setSearchResults={() => {}}
-					/>
-				</Navigation>
-			</div>
-		</main>
+		<FormPage<PersonaNaturalValues, PersonaNaturalValidationSchema>
+			form={{
+				values: state.values,
+				validations: initialValues.validations,
+				writeData: state.writeValues
+			}}
+			navigation={{
+				children: NavigationChildren,
+				navLinks
+			}}
+			navbar={{
+				loading: state.loading,
+				title: 'Test Page',
+				onReset: state.reset,
+				setEditingExisting: (x: boolean) => {}
+			}}
+		>
+			{props.children}
+		</FormPage>
 	)
 }
 

@@ -12,6 +12,8 @@ interface GetConfig {
 
 const useForm = <Values,>(args: Args<Values>) => {
 	const [values, setValues] = React.useState(args.initialValues)
+	const [loading, setLoading] = React.useState(false)
+	const [current, setCurrent] = React.useState<string | number | null>(null)
 
 	const getValues = async (config: GetConfig) => {
 		const data = await getFormValues<Values>({
@@ -22,16 +24,30 @@ const useForm = <Values,>(args: Args<Values>) => {
 		setValues(data)
 	}
 
-	const writeValues = async (extraKeys?: { [x: string]: any }) => {
+	const writeValues = async (
+		data = values,
+		extraKeys?: { [x: string]: any }
+	) => {
 		const endpoint = 'registra/cliente_natural'
 
 		await writeFormValues<Values>({
-			requestBody: { ...extraKeys, ...values },
+			requestBody: { ...extraKeys, ...data },
 			endpoint
 		})
 	}
 
-	return { values, getValues, writeValues }
+	const reset = () => setValues(args.initialValues)
+
+	return {
+		values,
+		getValues,
+		writeValues,
+		loading,
+		setLoading,
+		current,
+		setCurrent,
+		reset
+	}
 }
 
 export default useForm
