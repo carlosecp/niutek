@@ -2,13 +2,16 @@ import axios from 'axios'
 
 interface Args {
 	endpoint: string
+	debug: boolean
 	body: { search: string }
 }
 
-const getSearchResults = async <SearchResult>(props: Args) => {
+const getSearchResults = async <SearchResult>(args: Args) => {
 	const req = {
-		path: `${process.env.backend}/proc/busca/${props.endpoint}`,
-		body: props.body,
+		path: `${process.env.backend}/${args.debug ? 'debug' : 'proc'}/busca/${
+			args.endpoint
+		}`,
+		body: args.body,
 		headers: {
 			'Content-Type': 'application/json',
 			'Access-Control-Allow-Credentials': 'true'

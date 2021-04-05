@@ -5,7 +5,7 @@ import LogErrors from '@/lib/LogErrors'
 interface Props<Values, ValidationSchema> {
 	values: Values
 	validations: ValidationSchema
-	writeData: (x: Values) => void
+	writeData: (values: Values) => void
 	children: React.ReactNode
 }
 
@@ -27,6 +27,9 @@ const Form = <Values, ValidationSchema>(
 				<FormikForm className='flex-1 max-w-3xl container px-4 flex flex-col gap-6 no-scrollbar'>
 					{props.children}
 					<LogErrors errors={errors} />
+					<button className='flex justify-center' type='submit'>
+						Submit
+					</button>
 				</FormikForm>
 			)}
 		</Formik>

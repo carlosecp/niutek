@@ -1,15 +1,19 @@
 import axios from 'axios'
 
 interface RequestConfig<Values> {
+	debug: boolean
 	endpoint: string
-	requestBody: { [x: string]: any }
+	body: { [x: string]: any }
 	extraHeaders?: { [x: string]: any }
+	type: 'registra' | 'modifica'
 }
 
 const writeValues = async <Values>(config: RequestConfig<Values>) => {
 	const req = {
-		endpoint: `${process.env.backend}/proc/${config.endpoint}`,
-		body: config.requestBody,
+		endpoint: `${process.env.backend}/${config.debug ? 'debug' : 'proc'}/${
+			config.type
+		}/${config.endpoint}`,
+		body: config.body,
 		headers: {
 			'Content-Type': 'application/json',
 			'Access-Control-Allow-Credentials': 'true',
@@ -22,9 +26,9 @@ const writeValues = async <Values>(config: RequestConfig<Values>) => {
 			headers: req.headers
 		})
 
-		console.log(res)
+		return { type: 'success', msg: 'Operación exitosa' }
 	} catch (err) {
-		console.error(err)
+		return { type: 'error', msg: 'Ha habido un error' }
 	}
 }
 

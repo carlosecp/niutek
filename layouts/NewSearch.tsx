@@ -9,16 +9,16 @@ interface Args {
 interface Props {
 	placeholder?: string
 	loading: boolean
-	searchCallback: (x: string) => void
+	callback: (searchValue: string) => void
 }
 
 const Search = (props: Props) => {
 	return (
 		<Formik
-			initialValues={{ search: '' }}
+			initialValues={{ searchValue: '' }}
 			onSubmit={async (values, { setSubmitting }) => {
 				setSubmitting(true)
-				props.searchCallback(values.search)
+				props.callback(values.searchValue)
 				setSubmitting(false)
 			}}
 		>
@@ -28,7 +28,7 @@ const Search = (props: Props) => {
 					onSubmit={handleSubmit}
 				>
 					<input
-						name='search'
+						name='searchValue'
 						type='text'
 						className='w-full border-none outline-none ring-0 focus:ring-0'
 						placeholder={props.placeholder || `Buscar`}

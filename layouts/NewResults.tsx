@@ -1,18 +1,12 @@
 import * as React from 'react'
 
-interface GetValuesConfig {
-	requestBody: { [x: string]: any }
-	extraHeaders?: { [x: string]: any }
-}
-
 interface Props<SearchResult> {
 	results: SearchResult[]
 	loading: boolean
-	setCurrentId: (x: string | number) => void
 	getDescription: (
 		result: SearchResult
 	) => { accessor: string | number; description: string }
-	getValues: () => void
+	callback: (accessor: string | number) => void
 }
 
 const Results = <SearchResult,>(props: Props<SearchResult>) => {
@@ -30,8 +24,7 @@ const Results = <SearchResult,>(props: Props<SearchResult>) => {
 							}`}
 							onClick={() => {
 								if (!props.loading) {
-									console.log(accessor)
-									props.setCurrentId(accessor)
+									props.callback(accessor)
 								}
 							}}
 						>

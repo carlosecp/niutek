@@ -15,28 +15,44 @@ interface Props {
 }
 
 const index = (props: Props) => {
-	const state = useForm<PersonaNaturalValues>({
-		initialValues: initialValues.values
-	})
 	const search = useSearch<PersonaNaturalSearchResult>()
+	const state = useForm<PersonaNaturalValues>({
+		initialValues: initialValues.values,
+		debug: {
+			read: false,
+			write: false
+		},
+		endpoints: {
+			read: '',
+			write: ''
+		}
+	})
 
 	const NavigationChildren = (
 		<>
 			<Search
 				placeholder='testing'
 				loading={state.loading}
-				searchCallback={(x: string) => {
+				callback={(searchValue: string) => {
+					state.setLoading(true)
 					search.getResults({
-						searchValue: x
+						searchValue
 					})
+					state.setLoading(false)
 				}}
 			/>
 			<Results<PersonaNaturalSearchResult>
 				results={search.results}
 				loading={state.loading}
-				setCurrentId={(x: any) => {}}
 				getDescription={getDescription}
-				getValues={() => {}}
+				callback={(accessor: string | number) => {
+					state.getValues({
+						extraKeys: {
+							p_cod_cliente: accessor
+						}
+					})
+					state.setCurrent(true)
+				}}
 			/>
 		</>
 	)
@@ -46,17 +62,19 @@ const index = (props: Props) => {
 			form={{
 				values: state.values,
 				validations: initialValues.validations,
-				writeData: state.writeValues
+				writeData: (values: PersonaNaturalValues) => {
+					state.writeValues(values)
+				}
 			}}
 			navigation={{
 				children: NavigationChildren,
 				navLinks
 			}}
 			navbar={{
-				loading: state.loading,
 				title: 'Test Page',
+				loading: state.loading,
 				onReset: state.reset,
-				setEditingExisting: (x: boolean) => {}
+				setEditingExisting: state.setCurrent
 			}}
 		>
 			{props.children}
