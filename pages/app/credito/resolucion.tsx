@@ -25,7 +25,7 @@ const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps = async () => {
 	const req = {
-		path: `${process.env.backend}/procs`,
+		path: `${process.env.BACKEND_URL}/procs`,
 		body: {
 			lee: { tabla: { p_tipo: '*' }, deptos_municipios: { codigo: '0' } }
 		},

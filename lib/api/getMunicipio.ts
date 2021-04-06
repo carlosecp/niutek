@@ -8,7 +8,7 @@ const getMunicipio = async (
 	setLoading: (x: boolean) => void
 ) => {
 	const req = {
-		path: `${process.env.backend}/procs`,
+		path: `${process.env.BACKEND_URL}/procs`,
 		body: {
 			lee: { deptos_municipios: { codigo: codDepto } }
 		},

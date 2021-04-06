@@ -62,7 +62,7 @@ const log = {
 		console.groupEnd()
 	},
 	procedures: async () => {
-		await axios.post(`${process.env.backend}/proc/list`)
+		await axios.post(`${process.env.BACKEND_URL}/proc/list`)
 	}
 }
 

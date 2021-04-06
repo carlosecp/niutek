@@ -11,9 +11,9 @@ interface RequestConfig<Values> {
 
 const getValues = async <Values>(config: RequestConfig<Values>) => {
 	const req = {
-		endpoint: `${process.env.backend}/${config.debug ? 'debug' : 'proc'}/lee/${
-			config.endpoint
-		}`,
+		endpoint: `${process.env.BACKEND_URL}/${
+			config.debug ? 'debug' : 'proc'
+		}/lee/${config.endpoint}`,
 		body: config.body,
 		headers: {
 			'Content-Type': 'application/json',

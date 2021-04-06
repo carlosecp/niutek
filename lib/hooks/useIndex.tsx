@@ -37,7 +37,7 @@ const useIndex = <
 
 	const getData = async (accessor: string | number) => {
 		const req = {
-			path: `${process.env.backend}/proc/lee/${props.url.fetch}`,
+			path: `${process.env.BACKEND_URL}/proc/lee/${props.url.fetch}`,
 			body: {
 				[props.key]: accessor,
 				p_cod_empresa: auth.user.p_cod_empresa,
@@ -98,7 +98,7 @@ const useIndex = <
 		const reqType = editingExisting ? 'modifica' : 'registra'
 
 		const req = {
-			path: `${process.env.backend}/proc/${reqType}/${props.url.write}`,
+			path: `${process.env.BACKEND_URL}/proc/${reqType}/${props.url.write}`,
 			body: {
 				p_cod_empresa: auth.user.p_cod_empresa,
 				p_cod_sucursal: auth.user.p_cod_sucursal,

@@ -11,13 +11,13 @@ interface RequestConfig<Values> {
 
 const writeValues = async <Values>(config: RequestConfig<Values>) => {
 	const req = {
-		endpoint: `${process.env.backend}/${config.debug ? 'debug' : 'proc'}/${
+		endpoint: `${process.env.BACKEND_URL}/${config.debug ? 'debug' : 'proc'}/${
 			config.type
 		}/${config.endpoint}`,
 		body: config.body,
 		headers: {
 			'Content-Type': 'application/json',
-			'Access-Control-Allow-Credentials': 'true',
+			'Access-Control-Allow-Credentials': true,
 			...config?.extraHeaders
 		}
 	}

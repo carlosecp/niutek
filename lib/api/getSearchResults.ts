@@ -9,7 +9,7 @@ interface SearchConfig {
 
 const getSearchResults = async <SearchResult>(config: SearchConfig) => {
 	const req = {
-		endpoint: `${process.env.backend}/${
+		endpoint: `${process.env.BACKEND_URL}/${
 			config.debug ? 'debug' : 'proc'
 		}/busca/${config.endpoint}`,
 		body: config.body,
