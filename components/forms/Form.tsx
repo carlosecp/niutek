@@ -27,9 +27,6 @@ const Form = <Values, ValidationSchema>(
 				<FormikForm className='flex-1 max-w-3xl container px-4 flex flex-col gap-6 no-scrollbar'>
 					{props.children}
 					<LogErrors errors={errors} />
-					<button className='flex justify-center' type='submit'>
-						Submit
-					</button>
 				</FormikForm>
 			)}
 		</Formik>

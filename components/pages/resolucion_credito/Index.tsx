@@ -10,8 +10,8 @@ import {
 	getDescription
 } from '@/data/resolucion_credito'
 import { Garantias, ResolucionDeCredito, Observaciones } from './components'
-import { Index } from '@/components/Index'
-import type { Props, Config } from '@/components/Index'
+import { Index } from '@/components/OldIndex'
+import type { Props, Config } from '@/components/OldIndex'
 
 const config: Config<
 	ResolucionDeCreditoValues,

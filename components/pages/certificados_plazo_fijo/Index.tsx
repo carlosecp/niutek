@@ -3,7 +3,7 @@ import type {
 	CertificadosPlazoFijoValidationSchema,
 	CertificadosPlazoFijoSearchResults
 } from '@/data/certificados_plazo_fijo'
-import type { Props, Config } from '@/components/Index'
+import type { Props, Config } from '@/components/OldIndex'
 import * as React from 'react'
 import {
 	initialValues,
@@ -11,7 +11,7 @@ import {
 	getDescription
 } from '@/data/certificados_plazo_fijo'
 import { CertificadosPlazoFijo } from './components'
-import { Index } from '@/components/Index'
+import { Index } from '@/components/OldIndex'
 
 const config: Config<
 	CertificadosPlazoFijoValues,

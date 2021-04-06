@@ -3,11 +3,10 @@ import * as React from 'react'
 interface Props<SearchResult> {
 	results: SearchResult[]
 	loading: boolean
-	setCurrentId: (x: string | number) => void
 	getDescription: (
 		result: SearchResult
 	) => { accessor: string | number; description: string }
-	getData: (x: string | number) => void
+	callback: (accessor: string | number) => void
 }
 
 const Results = <SearchResult,>(props: Props<SearchResult>) => {
@@ -16,6 +15,7 @@ const Results = <SearchResult,>(props: Props<SearchResult>) => {
 			{props.results.map &&
 				props.results.map((result) => {
 					const { accessor, description } = props.getDescription(result)
+
 					return (
 						<li
 							key={accessor}
@@ -24,8 +24,7 @@ const Results = <SearchResult,>(props: Props<SearchResult>) => {
 							}`}
 							onClick={() => {
 								if (!props.loading) {
-									props.getData(accessor)
-									props.setCurrentId(accessor)
+									props.callback(accessor)
 								}
 							}}
 						>

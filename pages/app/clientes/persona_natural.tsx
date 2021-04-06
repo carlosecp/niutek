@@ -2,7 +2,7 @@ import type { InferGetStaticPropsType } from 'next'
 import type { DeptosOption, TablaOptions } from '@/lib/interfaces'
 import axios from 'axios'
 import Meta from '@/components/Meta'
-import Index from '@/components/pages/test/Index'
+import Index from '@/components/pages/persona_natural/Index'
 import {
 	PersonaNatural,
 	DatosProfesionales,

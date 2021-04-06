@@ -10,8 +10,8 @@ import {
 	getDescription
 } from '@/data/formalizacion_credito'
 import { FormalizacionDeCredito, Cargos } from './components'
-import type { Props, Config } from '@/components/Index'
-import { Index } from '@/components/Index'
+import type { Props, Config } from '@/components/OldIndex'
+import { Index } from '@/components/OldIndex'
 
 const config: Config<
 	FormalizacionDeCreditoValues,

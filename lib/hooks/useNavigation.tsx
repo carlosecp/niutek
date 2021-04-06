@@ -7,9 +7,11 @@ const useNavigation = () => {
 		setShowNavigation(!showNavigation)
 	}
 
-	React.useDebugValue(showNavigation)
+	const state = { showNavigation, toggleNavigation }
 
-	return { showNavigation, toggleNavigation }
+	React.useDebugValue({ showNavigation })
+
+	return state
 }
 
 export default useNavigation

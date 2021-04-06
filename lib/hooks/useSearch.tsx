@@ -18,11 +18,8 @@ interface DefaultProps<SearchResult> {
 	getDescription: (
 		result: SearchResult
 	) => { accessor: string | number; description: string }
-	getValues: (config?: {
-		extraKeys?: { [x: string]: any }
-		extraHeaders?: { [x: string]: any }
-	}) => void
-	setCurrent: (x: boolean) => void
+	callback: (accessor: string | number) => void
+	setEditing: (x: boolean) => void
 }
 
 const useSearch = <SearchResult,>(args: Args) => {
@@ -53,13 +50,17 @@ const useSearch = <SearchResult,>(args: Args) => {
 			loading: args.loading,
 			getDescription: defaultProps.getDescription,
 			callback: (accessor: string | number) => {
-				defaultProps.getValues()
-				defaultProps.setCurrent(true)
+				defaultProps.callback(accessor)
+				defaultProps.setEditing(true)
 			}
 		}
 	})
 
-	return { results, getResults, getDefaultProps }
+	const state = { results, getResults, getDefaultProps }
+
+	React.useDebugValue({ results })
+
+	return state
 }
 
 export default useSearch

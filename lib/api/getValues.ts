@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { log } from '../Debug'
 
 interface RequestConfig<Values> {
 	debug: boolean
@@ -21,14 +22,21 @@ const getValues = async <Values>(config: RequestConfig<Values>) => {
 		}
 	}
 
+	log.open('Read', 'lib/api/getValues')
+	log.request(req)
+
 	try {
 		const res = await axios.post(req.endpoint, req.body, {
 			headers: req.headers
 		})
 
+		log.response(res)
 		return res.data as Values
 	} catch (err) {
+		log.error(err)
 		return config.fallbackValues
+	} finally {
+		log.close()
 	}
 }
 

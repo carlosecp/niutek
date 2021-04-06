@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { log } from '../Debug'
 
 interface RequestConfig<Values> {
 	debug: boolean
@@ -21,14 +22,21 @@ const writeValues = async <Values>(config: RequestConfig<Values>) => {
 		}
 	}
 
+	log.open('Write', 'lib/api/writeValues')
+	log.request(req)
+
 	try {
 		const res = await axios.post(req.endpoint, req.body, {
 			headers: req.headers
 		})
 
+		log.response(res)
 		return { type: 'success', msg: 'Operación exitosa' }
 	} catch (err) {
+		log.error(err)
 		return { type: 'error', msg: 'Ha habido un error' }
+	} finally {
+		log.close()
 	}
 }
 

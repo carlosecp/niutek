@@ -3,7 +3,7 @@ import type {
 	ProductosDeCreditoValidationSchema,
 	ProductosDeCreditoSearchResult
 } from '@/data/productos_credito/index'
-import type { Props, Config } from '@/components/Index'
+import type { Props, Config } from '@/components/OldIndex'
 import * as React from 'react'
 import {
 	initialValues,
@@ -11,7 +11,7 @@ import {
 	getDescription
 } from '@/data/productos_credito'
 import { ProductosDeCredito, Cargos } from './components'
-import { Index } from '@/components/Index'
+import { Index } from '@/components/OldIndex'
 
 const config: Config<
 	ProductosDeCreditoValues,

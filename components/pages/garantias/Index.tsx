@@ -3,11 +3,11 @@ import type {
 	GarantiasValidationSchema,
 	GarantiasSearchResult
 } from '@/data/garantias/index'
-import type { Props, Config } from '@/components/Index'
+import type { Props, Config } from '@/components/OldIndex'
 import * as React from 'react'
 import { initialValues, navLinks, getDescription } from '@/data/garantias'
 import { Garantias } from './components'
-import { Index } from '@/components/Index'
+import { Index } from '@/components/OldIndex'
 
 const config: Config<
 	GarantiasValues,

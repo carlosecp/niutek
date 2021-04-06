@@ -1,8 +1,6 @@
 import * as React from 'react'
-import { Navbar, Navigation } from '@/layouts/index'
-import Form from '@/components/forms/NewForm'
-import Search from '@/layouts/NewSearch'
-import Results from '@/layouts/NewResults'
+import { Navbar, Navigation, Search, Results } from '@/layouts/index'
+import Form from '@/components/forms'
 import useNavigation from '@/lib/hooks/useNavigation'
 
 interface Props<Values, Validations, SearchResult> {
@@ -49,7 +47,16 @@ const Index = <Values, Validations, SearchResult>(
 				toggleNavigation={navigation.toggleNavigation}
 			/>
 			<div className='flex flex-col py-4 lg:pr-64'>
-				<Form<Values, Validations> {...props.form}>{props.children}</Form>
+				<Form<Values, Validations> {...props.form}>
+					{props.children}
+					<button
+						type='submit'
+						className='btn btn-primary'
+						disabled={props.search.loading}
+					>
+						Guardar
+					</button>{' '}
+				</Form>
 				<Navigation navLinks={props.navigation.navLinks} {...navigation}>
 					{props.navigation.children || (
 						<>

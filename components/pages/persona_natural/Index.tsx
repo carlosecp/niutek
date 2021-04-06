@@ -38,8 +38,14 @@ const index = (props: Props) => {
 	const defaultSearchProps = search.getDefaultProps({
 		searchBarPlaceholder: 'Buscar persona natural',
 		getDescription,
-		getValues: state.getValues,
-		setCurrent: state.setCurrent
+		callback: (accessor: string | number) => {
+			state.getValues({
+				extraKeys: {
+					p_cod_cliente: accessor
+				}
+			})
+		},
+		setEditing: state.setEditing
 	})
 
 	return (

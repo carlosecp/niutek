@@ -3,51 +3,72 @@ import type {
 	PersonaJuridicaValidationSchema,
 	PersonaJuridicaSearchResult
 } from '@/data/persona_juridica'
-import type { Props, Config } from '@/components/Index'
 import * as React from 'react'
+import useForm from '@/lib/hooks/useForm'
+import useSearch from '@/lib/hooks/useSearch'
 import {
 	initialValues,
 	navLinks,
 	getDescription
 } from '@/data/persona_juridica'
-import {
-	PersonaJuridica,
-	OrigenFondos,
-	RefComerciales,
-	RefBancarias,
-	Proveedores,
-	Accionistas
-} from './components'
-import { Index } from '@/components/Index'
+import FormPage from '@/components/Index'
+import { log } from '@/lib/Debug'
 
-const config: Config<
-	PersonaJuridicaValues,
-	PersonaJuridicaValidationSchema,
-	PersonaJuridicaSearchResult
-> = {
-	pageType: 'cliente',
-	pageName: 'juridico',
-	navLinks,
-	getDescription,
-	initialValues
+interface Props {
+	children: React.ReactNode
 }
 
-const Wrapper = Index<
-	PersonaJuridicaValues,
-	PersonaJuridicaValidationSchema,
-	PersonaJuridicaSearchResult
->(config)
-
 const index = (props: Props) => {
+	const state = useForm<PersonaJuridicaValues>({
+		initialValues: initialValues.values,
+		endpoints: {
+			read: 'datos_cliente_juridico',
+			write: 'cliente_juridico'
+		}
+	})
+	const search = useSearch<PersonaJuridicaSearchResult>({
+		endpoint: 'clientes_juridico',
+		loading: state.loading,
+		setLoading: state.setLoading
+	})
+
+	const defaultFormProps = state.getDefaultProps<PersonaJuridicaValidationSchema>(
+		{
+			validations: initialValues.validations,
+			navLinks,
+			navbarTitle: 'Persona Jurídica'
+		}
+	)
+
+	const defaultSearchProps = search.getDefaultProps({
+		searchBarPlaceholder: 'Buscar persona jurídica',
+		getDescription,
+		callback: (accessor: string | number) => {
+			state.getValues({
+				extraKeys: {
+					p_cod_cliente: accessor
+				}
+			})
+		},
+		setEditing: state.setEditing
+	})
+
 	return (
-		<Wrapper {...props}>
-			<PersonaJuridica options={props.options} />
-			<OrigenFondos />
-			<RefComerciales />
-			<RefBancarias options={props.options} />
-			<Proveedores />
-			<Accionistas options={props.options} />
-		</Wrapper>
+		<FormPage<
+			PersonaJuridicaValues,
+			PersonaJuridicaValidationSchema,
+			PersonaJuridicaSearchResult
+		>
+			form={defaultFormProps.form}
+			navigation={{
+				navLinks
+			}}
+			navbar={defaultFormProps.navbar}
+			search={defaultSearchProps.search}
+			results={defaultSearchProps.results}
+		>
+			{props.children}
+		</FormPage>
 	)
 }
 

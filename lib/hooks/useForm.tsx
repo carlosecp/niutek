@@ -1,6 +1,7 @@
 import * as React from 'react'
 import getFormValues from '@/lib/api/getValues'
 import writeFormValues from '@/lib/api/writeValues'
+import authContext from '@/context/auth/authContext'
 interface Args<Values> {
 	initialValues: Values
 	debug?: {
@@ -32,16 +33,17 @@ interface DefaultProps<Validations> {
 const useForm = <Values,>(args: Args<Values>) => {
 	const [values, setValues] = React.useState(args.initialValues)
 	const [loading, setLoading] = React.useState(false)
-	const [current, setCurrent] = React.useState(false)
 	const [editing, setEditing] = React.useState(false)
+
+	const auth = React.useContext(authContext)
 
 	const getValues = async (config?: GetConfig) => {
 		setLoading(true)
 		const data = await getFormValues<Values>({
 			endpoint: args.endpoints.read,
 			body: {
-				p_cod_empresa: 1,
-				p_cod_sucursal: 0,
+				p_cod_empresa: auth.user.p_cod_empresa,
+				p_cod_sucursal: auth.user.p_cod_sucursal,
 				...config?.extraKeys
 			},
 			debug: args.debug?.read || false,
@@ -89,23 +91,29 @@ const useForm = <Values,>(args: Args<Values>) => {
 			title: defaultProps.navbarTitle,
 			loading,
 			onReset: reset,
-			setEditingExisting: setCurrent
+			setEditingExisting: setEditing
 		}
 	})
 
-	return {
+	const state = {
 		values,
 		loading,
-		current,
 		editing,
 		getValues,
 		writeValues,
 		reset,
 		setLoading,
-		setCurrent,
 		setEditing,
 		getDefaultProps
 	}
+
+	React.useDebugValue({
+		values,
+		loading,
+		editing
+	})
+
+	return state
 }
 
 export default useForm
