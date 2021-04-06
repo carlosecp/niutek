@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Meta from '@/components/Meta'
 import Sidebar from './Sidebar'
 
 export interface SidebarContext {
@@ -9,10 +10,11 @@ export interface SidebarContext {
 export const sidebarCtx = React.createContext<SidebarContext | null>(null)
 
 interface Props {
+	title: string
 	children: React.ReactNode
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ title, children }: Props) => {
 	const [showSidebar, setShowSidebar] = React.useState(false)
 
 	const toggleSidebar = () => {
@@ -20,10 +22,13 @@ const Layout = ({ children }: Props) => {
 	}
 
 	return (
-		<sidebarCtx.Provider value={{ showSidebar, toggleSidebar }}>
-			<Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
-			{children}
-		</sidebarCtx.Provider>
+		<>
+			<Meta title={title} />
+			<sidebarCtx.Provider value={{ showSidebar, toggleSidebar }}>
+				<Sidebar showSidebar={showSidebar} toggleSidebar={toggleSidebar} />
+				{children}
+			</sidebarCtx.Provider>
+		</>
 	)
 }
 
