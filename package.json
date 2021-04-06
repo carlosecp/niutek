@@ -10,7 +10,7 @@
 		"lint": "prettier --write . && git add ."
 	},
 	"dependencies": {
-		"@auth0/nextjs-auth0": "^1.3.0",
+		"@auth0/auth0-react": "^1.4.0",
 		"@tailwindcss/forms": "^0.2.1",
 		"@types/react-redux": "^7.1.16",
 		"@types/react-table": "^7.0.28",

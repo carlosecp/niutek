@@ -8,16 +8,12 @@ import useForm from '@/lib/hooks/useForm'
 import useSearch from '@/lib/hooks/useSearch'
 import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
 import Index from '@/components/Index'
-import { useUser } from '@auth0/nextjs-auth0'
 
 interface Props {
 	children: React.ReactNode
 }
 
 const index = (props: Props) => {
-	const { user, error, isLoading } = useUser()
-	console.log(user)
-
 	const state = useForm<PersonaNaturalValues>({
 		initialValues: initialValues.values,
 		endpoints: {

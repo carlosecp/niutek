@@ -1,6 +1,6 @@
-import type { SidebarContext } from './Layout'
+import type { SidebarContext } from './AppPage'
 import * as React from 'react'
-import { sidebarCtx } from './Layout'
+import { sidebarCtx } from './AppPage'
 import { FaBars, FaPlus, FaSearch } from 'react-icons/fa'
 
 interface Props {

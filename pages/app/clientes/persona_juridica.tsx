@@ -1,7 +1,7 @@
 import type { InferGetStaticPropsType } from 'next'
 import type { DeptosOption, TablaOptions } from '@/lib/interfaces'
 import axios from 'axios'
-import Meta from '@/components/Meta'
+import AppPage from '@/layouts/AppPage'
 import Index from '@/components/pages/persona_juridica/Index'
 import {
 	PersonaJuridica,
@@ -19,8 +19,7 @@ interface OptionsTypes {
 
 const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
-		<>
-			<Meta title='Persona Jurídica' />
+		<AppPage title='Persona Jurídica'>
 			<Index>
 				<PersonaJuridica options={props.options} />
 				<OrigenFondos />
@@ -29,7 +28,7 @@ const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 				<Proveedores />
 				<Accionistas options={props.options} />
 			</Index>
-		</>
+		</AppPage>
 	)
 }
 
