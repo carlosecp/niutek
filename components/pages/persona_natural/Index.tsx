@@ -7,7 +7,7 @@ import * as React from 'react'
 import useForm from '@/lib/hooks/useForm'
 import useSearch from '@/lib/hooks/useSearch'
 import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
-import FormPage from '@/components/Index'
+import Index from '@/components/Index'
 
 interface Props {
 	children: React.ReactNode
@@ -49,7 +49,7 @@ const index = (props: Props) => {
 	})
 
 	return (
-		<FormPage<
+		<Index<
 			PersonaNaturalValues,
 			PersonaNaturalValidationSchema,
 			PersonaNaturalSearchResult
@@ -63,7 +63,7 @@ const index = (props: Props) => {
 			results={defaultSearchProps.results}
 		>
 			{props.children}
-		</FormPage>
+		</Index>
 	)
 }
 

@@ -11,8 +11,7 @@ import {
 	navLinks,
 	getDescription
 } from '@/data/persona_juridica'
-import FormPage from '@/components/Index'
-import { log } from '@/lib/Debug'
+import Index from '@/components/Index'
 
 interface Props {
 	children: React.ReactNode
@@ -54,7 +53,7 @@ const index = (props: Props) => {
 	})
 
 	return (
-		<FormPage<
+		<Index<
 			PersonaJuridicaValues,
 			PersonaJuridicaValidationSchema,
 			PersonaJuridicaSearchResult
@@ -68,7 +67,7 @@ const index = (props: Props) => {
 			results={defaultSearchProps.results}
 		>
 			{props.children}
-		</FormPage>
+		</Index>
 	)
 }
 
