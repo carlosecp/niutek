@@ -1,7 +1,7 @@
 import * as React from 'react'
-import getFormValues from '@/lib/api/getValues'
-import writeFormValues from '@/lib/api/writeValues'
+import axios from 'axios'
 import authContext from '@/context/auth/authContext'
+import { log } from '../Debug'
 interface Args<Values> {
 	initialValues: Values
 	debug?: {
@@ -39,37 +39,73 @@ const useForm = <Values,>(args: Args<Values>) => {
 
 	const getValues = async (config?: GetConfig) => {
 		setLoading(true)
-		const data = await getFormValues<Values>({
-			endpoint: args.endpoints.read,
+
+		const req = {
+			endpoint: `${process.env.BACKEND_URL}/${
+				args.debug?.read ? 'debug' : 'proc'
+			}/lee/${args.endpoints.read}`,
 			body: {
 				p_cod_empresa: auth.user.p_cod_empresa,
 				p_cod_sucursal: auth.user.p_cod_sucursal,
 				...config?.extraKeys
 			},
-			debug: args.debug?.read || false,
-			fallbackValues: args.initialValues
-		})
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Credentials': 'true',
+				...config?.extraHeaders
+			}
+		}
 
-		setValues(data)
-		setLoading(false)
+		log.open('Read', 'useForm')
+		log.request(req)
+
+		try {
+			const res = await axios.post<Values>('/api/forms/get', req)
+
+			log.response(res)
+			setValues(res.data)
+		} catch (err) {
+			log.error(err)
+		} finally {
+			log.close()
+			setLoading(false)
+		}
 	}
 
 	const writeValues = async (data = values, config?: WriteConfig) => {
 		setLoading(true)
-		const res = await writeFormValues<Values>({
-			endpoint: args.endpoints.write,
+
+		const req = {
+			endpoint: `${process.env.BACKEND_URL}/${
+				args.debug?.write ? 'debug' : 'proc'
+			}/${editing ? 'modifica' : 'registra'}/${args.endpoints.write}`,
 			body: {
 				p_cod_empresa: 1,
 				p_cod_sucursal: 0,
 				data,
 				...config?.extraKeys
 			},
-			debug: args.debug?.write || false,
-			type: editing ? 'modifica' : 'registra'
-		})
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Credentials': true,
+				...config?.extraHeaders
+			}
+		}
 
-		reset()
-		setLoading(false)
+		log.open('Read', 'useForm')
+		log.request(req)
+
+		try {
+			const res = await axios.post<Values>('/api/forms/write', req)
+
+			log.response(res)
+			setValues(res.data)
+		} catch (err) {
+			log.error(err)
+		} finally {
+			log.close()
+			setLoading(false)
+		}
 	}
 
 	const reset = () => setValues(args.initialValues)

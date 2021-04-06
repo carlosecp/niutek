@@ -1,4 +1,4 @@
-import type { MuniOption } from './interfaces'
+import type { MuniOption } from '../interfaces'
 import * as React from 'react'
 import axios from 'axios'
 

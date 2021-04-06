@@ -5,10 +5,8 @@ import AuthState from '@/context/auth/AuthState'
 import { UserProvider } from '@auth0/nextjs-auth0'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-	const { user } = pageProps
-
 	return (
-		<UserProvider user={user}>
+		<UserProvider>
 			<ThemeProvider attribute='class'>
 				<AuthState>
 					<Component {...pageProps} />
@@ -16,8 +14,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 			</ThemeProvider>
 		</UserProvider>
 	)
-
-	return <Component {...pageProps} />
 }
 
 export default MyApp
