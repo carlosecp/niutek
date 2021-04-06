@@ -41,17 +41,14 @@ const useForm = <Values,>(args: Args<Values>) => {
 		setLoading(true)
 
 		const req = {
-			endpoint: `${process.env.BACKEND_URL}/${
-				args.debug?.read ? 'debug' : 'proc'
-			}/lee/${args.endpoints.read}`,
+			debug: args.debug?.read,
+			endpoint: args.endpoints.read,
 			body: {
 				p_cod_empresa: auth.user.p_cod_empresa,
 				p_cod_sucursal: auth.user.p_cod_sucursal,
 				...config?.extraKeys
 			},
 			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Credentials': 'true',
 				...config?.extraHeaders
 			}
 		}

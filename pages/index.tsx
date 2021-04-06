@@ -1,17 +1,25 @@
-import { useAuth0 } from '@auth0/auth0-react'
+import * as React from 'react'
+import { useUser } from '@auth0/nextjs-auth0'
 
 const Index = () => {
-	const { user, error, isLoading } = useAuth0()
+	const { user, error, isLoading } = useUser()
+
+	React.useEffect(() => {
+		console.log(user)
+	}, [user])
+
+	if (isLoading) return <div>Loading...</div>
+	if (error) return <div>{error.message}</div>
 
 	if (user) {
-		return <div>Niudot - Logged In</div>
+		return (
+			<div>
+				Welcome {user.name}! <a href='/api/auth/logout'>Logout</a>
+			</div>
+		)
 	}
 
-	return (
-		<div>
-			Niudot - Not Logged In - <a href='/api/auth/login'>Login</a>
-		</div>
-	)
+	return <a href='/api/auth/login'>Login</a>
 }
 
 export default Index
