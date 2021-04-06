@@ -1,18 +1,37 @@
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import type { Alert } from '../lib/interfaces'
-import AlertItem from './AlertItem'
+import { FaTimes } from 'react-icons/fa'
 
 interface Props {
 	alerts: Alert[]
-	closeAlert: (id: string) => void
+	remove: (id: string) => void
 }
 
 const Alerts = (props: Props) => {
 	return (
-		<ul className='sticky top-20 z-20 container max-w-3xl px-4 flex flex-col gap-2'>
+		<TransitionGroup
+			component='ul'
+			className='sticky top-20 z-20 container max-w-3xl px-4 flex flex-col gap-2'
+		>
 			{props.alerts.map((alert) => (
-				<AlertItem key={alert.id} alert={alert} closeAlert={props.closeAlert} />
+				<CSSTransition key={alert.id} timeout={250} classNames='alert'>
+					<li
+						className={`alert alert-${
+							alert.type === 'success' ? 'success' : 'warning'
+						}`}
+					>
+						<p className='mr-auto'>
+							<b>{alert.type === 'success' ? 'Exito' : 'Error'}: </b>
+							{alert.message}
+						</p>
+						<FaTimes
+							className='fill-current cursor-pointer'
+							onClick={() => props.remove(alert.id)}
+						/>
+					</li>
+				</CSSTransition>
 			))}
-		</ul>
+		</TransitionGroup>
 	)
 }
 

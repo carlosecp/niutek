@@ -13,14 +13,24 @@ export default withApiAuthRequired(
 
 		const { accessToken } = await getAccessToken(req, res)
 
+		const config = {
+			endpoint: `${process.env.BACKEND_URL}/${req.body.endpoint}`,
+			body: req.body.body,
+			headers: {
+				'Content-Type': 'application/json',
+				'Access-Control-Allow-Credentials': 'true',
+				'x-auth-token': accessToken,
+				...req.body?.headers
+			}
+		}
+
 		try {
-			const APIres = await axios.post(req.body.endpoint, req.body.body, {
-				headers: req.body.headers
+			const APIres = await axios.post(config.endpoint, config.body, {
+				headers: config.headers
 			})
 
 			res.json(APIres.data)
 		} catch (err) {
-			console.error(err)
 			res.status(err.status || 500).json(err)
 		}
 	}

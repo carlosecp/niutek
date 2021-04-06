@@ -12,6 +12,7 @@ interface Args<Values> {
 		read: string
 		write: string
 	}
+	addAlert: (msg: string, type: 'success' | 'warning') => void
 }
 
 interface GetConfig {
@@ -41,8 +42,9 @@ const useForm = <Values,>(args: Args<Values>) => {
 		setLoading(true)
 
 		const req = {
-			debug: args.debug?.read,
-			endpoint: args.endpoints.read,
+			endpoint: `${args.debug?.read ? 'debug' : 'proc'}/lee/${
+				args.endpoints.read
+			}`,
 			body: {
 				p_cod_empresa: auth.user.p_cod_empresa,
 				p_cod_sucursal: auth.user.p_cod_sucursal,
@@ -60,9 +62,11 @@ const useForm = <Values,>(args: Args<Values>) => {
 			const res = await axios.post<Values>('/api/forms/get', req)
 
 			log.response(res)
+			args.addAlert('Success', 'success')
 			setValues(res.data)
 		} catch (err) {
 			log.error(err)
+			args.addAlert('Error', 'warning')
 		} finally {
 			log.close()
 			setLoading(false)
@@ -73,9 +77,9 @@ const useForm = <Values,>(args: Args<Values>) => {
 		setLoading(true)
 
 		const req = {
-			endpoint: `${process.env.BACKEND_URL}/${
-				args.debug?.write ? 'debug' : 'proc'
-			}/${editing ? 'modifica' : 'registra'}/${args.endpoints.write}`,
+			endpoint: `${args.debug?.write ? 'debug' : 'proc'}/${
+				editing ? 'modifica' : 'registra'
+			}/${args.endpoints.write}`,
 			body: {
 				p_cod_empresa: 1,
 				p_cod_sucursal: 0,
@@ -83,8 +87,6 @@ const useForm = <Values,>(args: Args<Values>) => {
 				...config?.extraKeys
 			},
 			headers: {
-				'Content-Type': 'application/json',
-				'Access-Control-Allow-Credentials': true,
 				...config?.extraHeaders
 			}
 		}

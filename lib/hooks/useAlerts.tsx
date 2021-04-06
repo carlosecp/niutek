@@ -2,8 +2,6 @@ import type { Alert } from '../interfaces'
 import * as React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-const ALERT_TIMEOUT = 3000
-
 const useAlerts = () => {
 	const [alerts, setAlerts] = React.useState<Alert[]>([])
 
@@ -15,10 +13,6 @@ const useAlerts = () => {
 			type
 		}
 		setAlerts([...alerts, newAlert])
-
-		setTimeout(() => {
-			setAlerts(alerts.filter((alert) => alert.id !== id))
-		}, ALERT_TIMEOUT)
 	}
 
 	const remove = (id: string) =>

@@ -1,5 +1,6 @@
+import type { Alert } from '@/lib/interfaces'
 import * as React from 'react'
-import { Navbar, Navigation, Search, Results } from '@/layouts/index'
+import { Navbar, Navigation, Search, Results, Alerts } from '@/layouts/index'
 import Form from '@/components/forms'
 import useNavigation from '@/lib/hooks/useNavigation'
 
@@ -33,6 +34,11 @@ interface Props<Values, Validations, SearchResult> {
 		) => { accessor: string | number; description: string }
 		callback: (accessor: string | number) => void
 	}
+	alerts: {
+		alerts: Alert[]
+		add: (msg: string, type: 'success' | 'warning') => void
+		remove: (id: string) => void
+	}
 }
 
 const Index = <Values, Validations, SearchResult>(
@@ -47,6 +53,7 @@ const Index = <Values, Validations, SearchResult>(
 				toggleNavigation={navigation.toggleNavigation}
 			/>
 			<div className='flex flex-col py-4 lg:pr-64'>
+				<Alerts alerts={props.alerts.alerts} remove={props.alerts.remove} />
 				<Form<Values, Validations> {...props.form}>
 					{props.children}
 					<button

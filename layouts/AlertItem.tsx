@@ -3,7 +3,7 @@ import { FaTimes } from 'react-icons/fa'
 
 interface Props {
 	alert: Alert
-	closeAlert: (id: string) => void
+	remove: (id: string) => void
 }
 
 const AlertItem = (props: Props) => {
@@ -19,7 +19,7 @@ const AlertItem = (props: Props) => {
 			</p>
 			<FaTimes
 				className='fill-current cursor-pointer'
-				onClick={() => props.closeAlert(props.alert.id)}
+				onClick={() => props.remove(props.alert.id)}
 			/>
 		</li>
 	)

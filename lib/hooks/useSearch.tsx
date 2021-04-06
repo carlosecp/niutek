@@ -1,5 +1,6 @@
 import * as React from 'react'
-import getSearchResults from '@/lib/api/getSearchResults'
+import axios from 'axios'
+import { log } from '@/lib/Debug'
 
 interface Args {
 	debug?: boolean
@@ -11,6 +12,7 @@ interface Args {
 interface SearchConfig {
 	searchValue: string
 	extraKeys?: { [x: string]: any }
+	extraHeaders?: { [x: string]: any }
 }
 
 interface DefaultProps<SearchResult> {
@@ -27,14 +29,26 @@ const useSearch = <SearchResult,>(args: Args) => {
 
 	const getResults = async (config: SearchConfig) => {
 		args.setLoading(true)
-		const data = await getSearchResults<SearchResult>({
-			endpoint: args.endpoint,
-			debug: args.debug || false,
-			body: { ...config.extraKeys, search: config.searchValue }
-		})
 
-		setResults(data)
-		args.setLoading(false)
+		const req = {
+			endpoint: `${args.debug ? 'debug' : 'proc'}/busca/${args.endpoint}`,
+			body: { ...config.extraKeys, search: config.searchValue },
+			headers: {
+				...config?.extraHeaders
+			}
+		}
+
+		try {
+			const res = await axios.post<SearchResult[]>('/api/forms/search', req)
+
+			log.response(res)
+			setResults(res.data)
+		} catch (err) {
+			log.error(err)
+		} finally {
+			log.close()
+			args.setLoading(false)
+		}
 	}
 
 	const getDefaultProps = (defaultProps: DefaultProps<SearchResult>) => ({
