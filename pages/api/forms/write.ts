@@ -31,7 +31,7 @@ export default withApiAuthRequired(
 				headers: config.headers
 			})
 
-			res.json(APIres.data)
+			res.status(200).json(APIres.data)
 		} catch (err) {
 			console.error(err)
 			res.status(err.status || 500).json(err)

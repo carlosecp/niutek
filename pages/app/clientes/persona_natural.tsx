@@ -11,6 +11,7 @@ import {
 	RefBancarias,
 	RefPersonales
 } from '@/components/pages/persona_natural/components'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 
 interface OptionsTypes {
 	tabla: TablaOptions
@@ -53,4 +54,4 @@ export const getStaticProps = async () => {
 	}
 }
 
-export default index
+export default withPageAuthRequired(index)

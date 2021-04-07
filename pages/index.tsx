@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Link from 'next/link'
 import { useUser } from '@auth0/nextjs-auth0'
 
 const Index = () => {
@@ -15,6 +16,11 @@ const Index = () => {
 		return (
 			<div>
 				Welcome {user.name}! <a href='/api/auth/logout'>Logout</a>
+				<div className='flex'>
+					<Link href='/app/clientes/persona_natural'>
+						<a className='rounded p-1 bg-blue-500'>Ir a Persona Natural</a>
+					</Link>
+				</div>
 			</div>
 		)
 	}
