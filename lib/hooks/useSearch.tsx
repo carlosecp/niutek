@@ -63,7 +63,7 @@ const useSearch = <SearchResult,>(args: Args) => {
 			results,
 			loading: args.loading,
 			getDescription: defaultProps.getDescription,
-			callback: (accessor: string | number) => {
+			callback: async (accessor: string | number) => {
 				defaultProps.resultsCallback(accessor)
 				defaultProps.setEditing(true)
 			}

@@ -1,5 +1,5 @@
+import type { Alert } from '@/lib/interfaces'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
-import type { Alert } from '../lib/interfaces'
 import { FaTimes } from 'react-icons/fa'
 
 interface Props {
