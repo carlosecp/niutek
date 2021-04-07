@@ -55,7 +55,7 @@ const Sidebar = ({ showSidebar, toggleSidebar }: Props) => {
 							<li className='px-5'>
 								<div className='flex flex-row items-center h-8'>
 									<div className='text-sm font-light tracking-wide text-gray-500'>
-										Ajustes
+										Configuración
 									</div>
 								</div>
 							</li>
@@ -78,7 +78,7 @@ const Sidebar = ({ showSidebar, toggleSidebar }: Props) => {
 										{user ? <Icons.BoxArrowRight /> : <Icons.BoxArrowInRight />}
 									</span>
 									<span className='ml-2 text-sm tracking-wide truncate'>
-										{user ? 'Logout' : 'Login'}
+										{user ? 'Cerrar Sesión' : 'Iniciar Sesión'}
 									</span>
 								</a>
 							</li>
