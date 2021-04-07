@@ -59,13 +59,28 @@ const Sidebar = ({ showSidebar, toggleSidebar }: Props) => {
 									</div>
 								</div>
 							</li>
-							<li className='relative flex flex-row items-center h-11 focus:outline-none nav-link pr-6'>
-								<span className='inline-flex justify-center items-center ml-4'>
-									<Icons.PersonCircle />
-								</span>
-								<span className='ml-2 text-sm tracking-wide truncate'>
-									{user?.name}
-								</span>
+							{user && (
+								<li className='relative flex flex-row items-center h-11 focus:outline-none pr-6 text-sm text-gray-600 border-l-4 border-transparent'>
+									<span className='inline-flex justify-center items-center ml-4'>
+										<Icons.PersonCircle />
+									</span>
+									<span className='ml-2 text-sm tracking-wide truncate'>
+										{user.name}
+									</span>
+								</li>
+							)}
+							<li>
+								<a
+									href='/api/auth/logout'
+									className='relative flex flex-row items-center h-11 focus:outline-none nav-link pr-6'
+								>
+									<span className='inline-flex justify-center items-center ml-4'>
+										{user ? <Icons.BoxArrowRight /> : <Icons.BoxArrowInRight />}
+									</span>
+									<span className='ml-2 text-sm tracking-wide truncate'>
+										{user ? 'Logout' : 'Login'}
+									</span>
+								</a>
 							</li>
 						</ul>
 					</div>
