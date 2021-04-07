@@ -41,7 +41,7 @@ const log = {
 		console.log(
 			'%c config ',
 			'background: #3666F1; color: #FFFFFF; font-weight: bold',
-			{ ...request, endpoint: request.endpoint.split('.com')[1] }
+			{ ...request, endpoint: request.endpoint }
 		)
 	},
 	response: (response: ResponseLog) => {
