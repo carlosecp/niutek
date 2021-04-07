@@ -30,19 +30,25 @@ const index = (props: Props) => {
 		setLoading: state.setLoading
 	})
 
-	const defaultFormProps = state.getDefaultProps<PersonaNaturalValidationSchema>(
-		{
-			validations: initialValues.validations,
-			navLinks,
-			navbarTitle: 'Persona Natural'
+	const defaultFormProps = state.getDefaultProps<
+		PersonaNaturalValues,
+		PersonaNaturalValidationSchema
+	>({
+		validations: initialValues.validations,
+		navLinks,
+		navbarTitle: 'Persona Natural',
+		writeValues: (values: PersonaNaturalValues) => {
+			state.writeValues(values, {
+				extraKeys: { p_clase_persona: 1, p_cod_cliente: state.currentId }
+			})
 		}
-	)
+	})
 
 	const defaultSearchProps = search.getDefaultProps({
 		searchBarPlaceholder: 'Buscar persona natural',
 		getDescription,
-		callback: (accessor: string | number) => {
-			state.getValues({
+		resultsCallback: (accessor: string | number) => {
+			state.getValues(accessor, {
 				extraKeys: {
 					p_cod_cliente: accessor
 				}

@@ -20,7 +20,7 @@ interface DefaultProps<SearchResult> {
 	getDescription: (
 		result: SearchResult
 	) => { accessor: string | number; description: string }
-	callback: (accessor: string | number) => void
+	resultsCallback: (accessor: string | number) => void
 	setEditing: (x: boolean) => void
 }
 
@@ -64,7 +64,7 @@ const useSearch = <SearchResult,>(args: Args) => {
 			loading: args.loading,
 			getDescription: defaultProps.getDescription,
 			callback: (accessor: string | number) => {
-				defaultProps.callback(accessor)
+				defaultProps.resultsCallback(accessor)
 				defaultProps.setEditing(true)
 			}
 		}

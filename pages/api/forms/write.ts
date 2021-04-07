@@ -24,6 +24,8 @@ export default withApiAuthRequired(
 			}
 		}
 
+		console.log(config.body)
+
 		try {
 			const APIres = await axios.post(config.endpoint, config.body, {
 				headers: config.headers
@@ -31,6 +33,7 @@ export default withApiAuthRequired(
 
 			res.json(APIres.data)
 		} catch (err) {
+			console.error(err)
 			res.status(err.status || 500).json(err)
 		}
 	}

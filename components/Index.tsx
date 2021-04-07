@@ -9,7 +9,7 @@ interface Props<Values, Validations, SearchResult> {
 	form: {
 		values: Values
 		validations: Validations
-		writeData: (x: Values) => void
+		writeValues: (x: Values) => void
 	}
 	navigation: {
 		children?: React.ReactNode

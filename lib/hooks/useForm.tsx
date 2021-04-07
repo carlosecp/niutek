@@ -25,20 +25,22 @@ interface WriteConfig {
 	extraHeaders?: { [x: string]: any }
 }
 
-interface DefaultProps<Validations> {
+interface DefaultProps<Values, Validations> {
 	validations: Validations
 	navLinks: { name: string; anchor: string }[]
 	navbarTitle: string
+	writeValues: (values: Values) => void
 }
 
 const useForm = <Values,>(args: Args<Values>) => {
 	const [values, setValues] = React.useState(args.initialValues)
 	const [loading, setLoading] = React.useState(false)
+	const [currentId, setCurrentId] = React.useState<string | number>('')
 	const [editing, setEditing] = React.useState(false)
 
 	const auth = React.useContext(authContext)
 
-	const getValues = async (config?: GetConfig) => {
+	const getValues = async (accessor: string | number, config?: GetConfig) => {
 		setLoading(true)
 
 		const req = {
@@ -64,6 +66,7 @@ const useForm = <Values,>(args: Args<Values>) => {
 			log.response(res)
 			args.addAlert('Success', 'success')
 			setValues(res.data)
+			setCurrentId(accessor)
 		} catch (err) {
 			log.error(err)
 			args.addAlert('Error', 'warning')
@@ -81,9 +84,9 @@ const useForm = <Values,>(args: Args<Values>) => {
 				editing ? 'modifica' : 'registra'
 			}/${args.endpoints.write}`,
 			body: {
-				p_cod_empresa: 1,
-				p_cod_sucursal: 0,
-				data,
+				p_cod_empresa: auth.user.p_cod_empresa,
+				p_cod_sucursal: auth.user.p_cod_sucursal,
+				...data,
 				...config?.extraKeys
 			},
 			headers: {
@@ -91,14 +94,13 @@ const useForm = <Values,>(args: Args<Values>) => {
 			}
 		}
 
-		log.open('Read', 'useForm')
+		log.open('Write', 'useForm')
 		log.request(req)
 
 		try {
 			const res = await axios.post<Values>('/api/forms/write', req)
 
 			log.response(res)
-			setValues(res.data)
 		} catch (err) {
 			log.error(err)
 		} finally {
@@ -109,15 +111,13 @@ const useForm = <Values,>(args: Args<Values>) => {
 
 	const reset = () => setValues(args.initialValues)
 
-	const getDefaultProps = <Validations,>(
-		defaultProps: DefaultProps<Validations>
+	const getDefaultProps = <Values, Validations>(
+		defaultProps: DefaultProps<Values, Validations>
 	) => ({
 		form: {
 			values,
 			validations: defaultProps.validations,
-			writeData: (values: Values) => {
-				writeValues(values)
-			}
+			writeValues: defaultProps.writeValues
 		},
 		navigation: {
 			navLinks: defaultProps.navLinks
@@ -133,10 +133,12 @@ const useForm = <Values,>(args: Args<Values>) => {
 	const state = {
 		values,
 		loading,
+		currentId,
 		editing,
 		getValues,
 		writeValues,
 		reset,
+		setCurrentId,
 		setLoading,
 		setEditing,
 		getDefaultProps

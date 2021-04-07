@@ -31,6 +31,7 @@ interface ResponseLog {
 
 const log = {
 	open: (title: string, filePath: string) => {
+		console.groupEnd()
 		console.group(
 			`%c${title}`,
 			'font-weight: bold; font-size: 16px; text-transform: uppercase; text-decoration: underline'

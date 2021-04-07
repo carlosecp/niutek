@@ -5,7 +5,7 @@ import { LogErrors } from '@/lib/Debug'
 interface Props<Values, ValidationSchema> {
 	values: Values
 	validations: ValidationSchema
-	writeData: (values: Values) => void
+	writeValues: (values: Values) => void
 	children: React.ReactNode
 }
 
@@ -19,7 +19,7 @@ const Form = <Values, ValidationSchema>(
 			validationSchema={props.validations}
 			onSubmit={(values, { setSubmitting }) => {
 				setSubmitting(true)
-				props.writeData(values)
+				props.writeValues(values)
 				setSubmitting(false)
 			}}
 		>
