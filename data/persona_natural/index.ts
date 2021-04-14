@@ -24,14 +24,14 @@ export enum NavLinks {
 	RefPersonales
 }
 
-export type PersonaNaturalSearchResult = {
+export type SearchResult = {
 	cod_cliente: number
 	nombres: string
 	apellidos: string
 	description: string
 }
 
-export const getDescription = (result: PersonaNaturalSearchResult) => ({
+export const getDescription = (result: SearchResult) => ({
 	accessor: result.cod_cliente,
 	description: `${result.nombres} ${result.apellidos}`
 })
@@ -54,7 +54,7 @@ const validations = yup.object({
 	referencias_personales: refPersonales.validations
 })
 
-export type PersonaNaturalValues = typeof values
-export type PersonaNaturalValidationSchema = typeof validations
+export type Values = typeof values
+export type Validations = typeof validations
 
 export const initialValues = { values, validations }

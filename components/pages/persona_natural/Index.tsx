@@ -9,16 +9,12 @@ import useSearch from '@/lib/hooks/useSearch'
 import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
 import Index from '@/components/Index'
 import useAlerts from '@/lib/hooks/useAlerts'
-import { useUser } from '@auth0/nextjs-auth0'
 
 interface Props {
 	children: React.ReactNode
 }
 
 const index = (props: Props) => {
-	const all = useUser()
-	console.log(all)
-
 	const alerts = useAlerts()
 	const state = useForm<PersonaNaturalValues>({
 		initialValues: initialValues.values,

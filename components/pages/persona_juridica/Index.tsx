@@ -1,8 +1,4 @@
-import type {
-	PersonaJuridicaValues,
-	PersonaJuridicaValidationSchema,
-	PersonaJuridicaSearchResult
-} from '@/data/persona_juridica'
+import type { Values, Validations, SearchResult } from '@/data/persona_juridica'
 import * as React from 'react'
 import useForm from '@/lib/hooks/useForm'
 import useSearch from '@/lib/hooks/useSearch'
