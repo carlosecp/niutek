@@ -23,13 +23,13 @@ const index = (props: Props) => {
 	const state = useForm<Values>({
 		initialValues: initialValues.values,
 		endpoints: {
-			read: '',
-			write: 'cliente_natural'
+			read: 'producto_ahorro',
+			write: 'producto_ahorro'
 		},
 		addAlert: alerts.add
 	})
 	const search = useSearch<SearchResults>({
-		endpoint: 'clientes_natural',
+		endpoint: 'productos_ahorro',
 		loading: state.loading,
 		setLoading: state.setLoading
 	})

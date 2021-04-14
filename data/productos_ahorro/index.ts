@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 import { productos } from './productos'
 
-export const navLinks = [{ name: 'Productos', anchor: 'productos' }]
+export const navLinks = [{ name: 'Productos de Ahorro', anchor: 'productos' }]
 
 export enum NavLinks {
 	Productos

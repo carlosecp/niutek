@@ -2,7 +2,7 @@ import * as yup from 'yup'
 import { certificados } from './certificados'
 
 export const navLinks = [
-	{ name: 'Certificado a Plazo Fijo', anchor: 'certificados' }
+	{ name: 'Certificados a Plazo Fijo', anchor: 'certificados' }
 ]
 
 export enum NavLinks {

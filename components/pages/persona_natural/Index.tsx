@@ -29,7 +29,7 @@ const index = (props: Props) => {
 	const defaultFormProps = state.getDefaultProps<Values, Validations>({
 		validations: initialValues.validations,
 		navLinks,
-		navbarTitle: 'Certificados a Plazo Fijo',
+		navbarTitle: 'Persona Natural',
 		writeValues: (values: Values) => {
 			state.writeValues(values, {
 				extraKeys: { p_clase_persona: 1, p_cod_cliente: state.currentId }

@@ -12,13 +12,13 @@ export enum NavLinks {
 	Cargos
 }
 
-export type ProductosDeCreditoSearchResult = {
+export type SearchResults = {
 	cod_producto: number
 	nombre: string
 	description: string
 }
 
-export const getDescription = (result: ProductosDeCreditoSearchResult) => ({
+export const getDescription = (result: SearchResults) => ({
 	accessor: result.cod_producto,
 	description: result.nombre
 })
@@ -31,7 +31,7 @@ const validations = yup.object({
 	...productos.validations
 })
 
-export type ProductosDeCreditoValues = typeof values
-export type ProductosDeCreditoValidationSchema = typeof validations
+export type Values = typeof values
+export type Validations = typeof validations
 
 export const initialValues = { values, validations }
