@@ -1,41 +1,77 @@
 import type {
-	ProductosDeAhorroValues,
-	ProductosDeAhorroValidationSchema,
-	ProductosDeAhorroSearchResult
-} from '@/data/productos_ahorro/index'
-import type { Props, Config } from '@/components/OldIndex'
+	Values,
+	Validations,
+	SearchResults
+} from '@/data/productos_ahorro'
 import * as React from 'react'
+import useForm from '@/lib/hooks/useForm'
+import useSearch from '@/lib/hooks/useSearch'
 import {
 	initialValues,
 	navLinks,
 	getDescription
 } from '@/data/productos_ahorro'
-import { ProductosDeAhorro } from './components'
-import { Index } from '@/components/OldIndex'
+import Index from '@/components/Index'
+import useAlerts from '@/lib/hooks/useAlerts'
 
-const config: Config<
-	ProductosDeAhorroValues,
-	ProductosDeAhorroValidationSchema,
-	ProductosDeAhorroSearchResult
-> = {
-	pageType: 'producto',
-	pageName: 'ahorro',
-	navLinks,
-	navBarTitle: 'Productos de Ahorro',
-	getDescription,
-	initialValues
+interface Props {
+	children: React.ReactNode
 }
 
-const Wrapper = Index<
-	ProductosDeAhorroValues,
-	ProductosDeAhorroValidationSchema,
-	ProductosDeAhorroSearchResult
->(config)
+const index = (props: Props) => {
+	const alerts = useAlerts()
+	const state = useForm<Values>({
+		initialValues: initialValues.values,
+		endpoints: {
+			read: '',
+			write: 'cliente_natural'
+		},
+		addAlert: alerts.add
+	})
+	const search = useSearch<SearchResults>({
+		endpoint: 'clientes_natural',
+		loading: state.loading,
+		setLoading: state.setLoading
+	})
 
-const index = (props: Props) => (
-	<Wrapper {...props}>
-		<ProductosDeAhorro options={props.options} />
-	</Wrapper>
-)
+	const defaultFormProps = state.getDefaultProps<Values, Validations>({
+		validations: initialValues.validations,
+		navLinks,
+		navbarTitle: 'Productos de Ahorro',
+		writeValues: (values: Values) => {
+			state.writeValues(values, {
+				extraKeys: { p_clase_persona: 1, p_cod_cliente: state.currentId }
+			})
+		}
+	})
+
+	const defaultSearchProps = search.getDefaultProps({
+		searchBarPlaceholder: 'Buscar producto',
+		getDescription,
+		resultsCallback: (accessor: string | number) => {
+			state.getValues(accessor, {
+				extraKeys: {
+					p_cod_cliente: accessor
+				}
+			})
+		},
+		setEditing: state.setEditing
+	})
+
+	return (
+		<Index<Values, Validations, SearchResults>
+			form={defaultFormProps.form}
+			navigation={{
+				navLinks
+			}}
+			navbar={defaultFormProps.navbar}
+			search={defaultSearchProps.search}
+			results={defaultSearchProps.results}
+			alerts={alerts}
+		>
+			{props.children}
+		</Index>
+	)
+}
 
 export default index

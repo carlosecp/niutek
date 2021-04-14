@@ -1,8 +1,4 @@
-import type {
-	PersonaNaturalValues,
-	PersonaNaturalValidationSchema,
-	PersonaNaturalSearchResult
-} from '@/data/persona_natural'
+import type { Values, Validations, SearchResults } from '@/data/persona_natural'
 import * as React from 'react'
 import useForm from '@/lib/hooks/useForm'
 import useSearch from '@/lib/hooks/useSearch'
@@ -16,7 +12,7 @@ interface Props {
 
 const index = (props: Props) => {
 	const alerts = useAlerts()
-	const state = useForm<PersonaNaturalValues>({
+	const state = useForm<Values>({
 		initialValues: initialValues.values,
 		endpoints: {
 			read: 'datos_cliente_natural',
@@ -24,20 +20,17 @@ const index = (props: Props) => {
 		},
 		addAlert: alerts.add
 	})
-	const search = useSearch<PersonaNaturalSearchResult>({
+	const search = useSearch<SearchResults>({
 		endpoint: 'clientes_natural',
 		loading: state.loading,
 		setLoading: state.setLoading
 	})
 
-	const defaultFormProps = state.getDefaultProps<
-		PersonaNaturalValues,
-		PersonaNaturalValidationSchema
-	>({
+	const defaultFormProps = state.getDefaultProps<Values, Validations>({
 		validations: initialValues.validations,
 		navLinks,
-		navbarTitle: 'Persona Natural',
-		writeValues: (values: PersonaNaturalValues) => {
+		navbarTitle: 'Certificados a Plazo Fijo',
+		writeValues: (values: Values) => {
 			state.writeValues(values, {
 				extraKeys: { p_clase_persona: 1, p_cod_cliente: state.currentId }
 			})
@@ -58,11 +51,7 @@ const index = (props: Props) => {
 	})
 
 	return (
-		<Index<
-			PersonaNaturalValues,
-			PersonaNaturalValidationSchema,
-			PersonaNaturalSearchResult
-		>
+		<Index<Values, Validations, SearchResults>
 			form={defaultFormProps.form}
 			navigation={{
 				navLinks

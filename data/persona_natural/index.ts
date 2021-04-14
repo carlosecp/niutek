@@ -24,7 +24,7 @@ export enum NavLinks {
 	RefPersonales
 }
 
-export type SearchResult = {
+export type SearchResults = {
 	cod_cliente: number
 	nombres: string
 	apellidos: string

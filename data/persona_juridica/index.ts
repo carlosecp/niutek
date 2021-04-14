@@ -26,13 +26,13 @@ export enum NavLinks {
 	Accionistas
 }
 
-export type SearchResult = {
+export type SearchResults = {
 	cod_cliente: number
 	nombre: string
 	description: string
 }
 
-export const getDescription = (result: SearchResult) => ({
+export const getDescription = (result: SearchResults) => ({
 	accessor: result.cod_cliente,
 	description: `${result.nombre}`
 })
