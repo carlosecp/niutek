@@ -14,26 +14,24 @@ interface Props {
 }
 
 const index = (props: Props) => {
-	const state = useForm<PersonaJuridicaValues>({
+	const state = useForm<Values>({
 		initialValues: initialValues.values,
 		endpoints: {
 			read: 'datos_cliente_juridico',
 			write: 'cliente_juridico'
 		}
 	})
-	const search = useSearch<PersonaJuridicaSearchResult>({
+	const search = useSearch<SearchResult>({
 		endpoint: 'clientes_juridico',
 		loading: state.loading,
 		setLoading: state.setLoading
 	})
 
-	const defaultFormProps = state.getDefaultProps<PersonaJuridicaValidationSchema>(
-		{
-			validations: initialValues.validations,
-			navLinks,
-			navbarTitle: 'Persona Jurídica'
-		}
-	)
+	const defaultFormProps = state.getDefaultProps<Validations>({
+		validations: initialValues.validations,
+		navLinks,
+		navbarTitle: 'Persona Jurídica'
+	})
 
 	const defaultSearchProps = search.getDefaultProps({
 		searchBarPlaceholder: 'Buscar persona jurídica',
