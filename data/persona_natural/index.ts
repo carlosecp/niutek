@@ -31,7 +31,7 @@ export type SearchResults = {
 	description: string
 }
 
-export const getDescription = (result: SearchResult) => ({
+export const getDescription = (result: SearchResults) => ({
 	accessor: result.cod_cliente,
 	description: `${result.nombres} ${result.apellidos}`
 })

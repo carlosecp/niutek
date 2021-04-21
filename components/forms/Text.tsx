@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React from 'react'
 import { useField, useFormikContext } from 'formik'
 import { FaExclamationCircle } from 'react-icons/fa'
 
@@ -25,7 +25,7 @@ const Text = ({ name, classes = styles, ...props }: Props) => {
 	const [field, meta, helpers] = useField({ name, ...props })
 	const { isSubmitting } = useFormikContext()
 
-	useEffect(() => {
+	React.useEffect(() => {
 		if (props?.reset) {
 			helpers.setValue('')
 		}

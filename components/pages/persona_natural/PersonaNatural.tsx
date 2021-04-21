@@ -31,6 +31,7 @@ const PersonaNatural = (props: Props) => {
 			</h1>
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='p_nombres' label='Nombres' />
+
 				<Text name='p_apellidos' label='Apellidos' />
 				<Select name='p_sexo' label='Sexo'>
 					{props.options.tabla.sexo.map((option) => (
