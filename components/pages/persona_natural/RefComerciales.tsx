@@ -13,7 +13,7 @@ const RefComerciales = () => {
 		title: navLinks[SECTION_NAME].name,
 		tableKeys: Object.keys(refSchema),
 		refSchema,
-		limit: 2
+		limit: 4
 	}
 
 	return (

@@ -1,4 +1,4 @@
-import type { PersonaNaturalValues } from '@/data/persona_natural'
+import type { Values } from '@/data/persona_natural'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import { navLinks, NavLinks } from '@/data/persona_natural'
 import { useFormikContext } from 'formik'
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const PersonaNatural = (props: Props) => {
-	const { values } = useFormikContext<PersonaNaturalValues>()
+	const { values } = useFormikContext<Values>()
 
 	const municipios = useMunicipio(values.p_cod_depto)
 
