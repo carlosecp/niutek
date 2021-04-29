@@ -1,5 +1,5 @@
 import type { TablaOptions } from '@/lib/interfaces'
-import type { ProductosDeCreditoValues } from '@/data/productos_credito'
+import type { Values } from '@/data/productos_credito'
 import type { RefSchema } from '@/data/productos_credito/cargos'
 import { navLinks, NavLinks } from '@/data/productos_credito'
 import { refSchema } from '@/data/productos_credito/cargos'
@@ -34,7 +34,7 @@ const RefCargos = (props: Props) => {
 			<article className='flex flex-col'>
 				<FieldArray name={navLinks[SECTION_NAME].anchor}>
 					{(arrayHelpers) => (
-						<CargosTable<ProductosDeCreditoValues, RefSchema>
+						<CargosTable<Values, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}

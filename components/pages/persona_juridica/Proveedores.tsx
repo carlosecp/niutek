@@ -1,4 +1,4 @@
-import type { PersonaJuridicaValues } from '@/data/persona_juridica'
+import type { Values } from '@/data/persona_juridica'
 import type { RefSchema } from '@/data/persona_juridica/proveedores'
 import { navLinks, NavLinks } from '@/data/persona_juridica'
 import { refSchema } from '@/data/persona_juridica/proveedores'
@@ -26,7 +26,7 @@ const Proveedores = () => {
 			<article className='flex flex-col'>
 				<FieldArray name={navLinks[SECTION_NAME].anchor}>
 					{(arrayHelpers) => (
-						<ProveedoresTable<PersonaJuridicaValues, RefSchema>
+						<ProveedoresTable<Values, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}

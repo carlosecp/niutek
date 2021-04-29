@@ -1,21 +1,22 @@
 import type { InferGetStaticPropsType } from 'next'
 import type { DeptosOption, TablaOptions } from '@/lib/interfaces'
-import * as React from 'react'
 import axios from 'axios'
-import Meta from '@/components/Meta'
+import { AppPage } from '@/layouts/index'
 import Index from '@/components/pages/garantias/Index'
+import { Garantias } from '@/components/pages/garantias/components'
+import { withPageAuthRequired } from '@auth0/nextjs-auth0'
 
 interface OptionsTypes {
 	tabla: TablaOptions
-	deptos_municipios: DeptosOption[]
 }
 
 const index = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
-		<>
-			<Meta title='Garantías' />
-			<Index />
-		</>
+		<AppPage title='Formalización de Crédito'>
+			<Index>
+				<Garantias options={props.options} />
+			</Index>
+		</AppPage>
 	)
 }
 
@@ -39,4 +40,4 @@ export const getStaticProps = async () => {
 	}
 }
 
-export default index
+export default withPageAuthRequired(index)

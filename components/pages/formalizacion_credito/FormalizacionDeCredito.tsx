@@ -7,7 +7,6 @@ const SECTION_NAME = NavLinks.Productos
 interface Props {
 	options: {
 		tabla: TablaOptions
-		deptos_municipios: DeptosOption[]
 	}
 }
 
@@ -25,27 +24,15 @@ const FormalizacionDeCredito = (props: Props) => {
 			<article className='form-section my-2 grid grid-cols-12 gap-4'>
 				<Text name='_cliente' label='Cliente' />
 				<Text name='_cliente' label='Producto' />
-				<Select name='fuente_de_fondos' label='Promotor'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
+				<Select name='fuente_de_fondos' label='Promotor'></Select>
 				<Text name='_cliente' label='Monto aprobado' type='number' />
-				<Select name='p_tipo_contrato' label='Actividad económica'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
+				<Select name='p_tipo_contrato' label='Actividad económica'></Select>
 				<Text
 					name='_cliente'
 					label='Total cargos formalización'
 					type='number'
 				/>
-				<Select name='p_tipo_contrato' label='Sector económico'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
+				<Select name='p_tipo_contrato' label='Sector económico'></Select>
 				<Select
 					name='p_tipo_contrato'
 					label='Destino del crédito'
@@ -53,11 +40,7 @@ const FormalizacionDeCredito = (props: Props) => {
 						container: 'fc-lg md:fc break-line',
 						input: 'w-full block form-input form-input-border'
 					}}
-				>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
+				></Select>
 				<Text name='_cliente' label='Desembolso neto' type='number' />
 				<Text name='_cliente' label='Fecha resolución' />
 				<Text name='_cliente' label='Fecha desembolso' />
@@ -87,18 +70,10 @@ const FormalizacionDeCredito = (props: Props) => {
 							input: 'w-full block form-input form-input-border'
 						}}
 					/>
-					<Select name='p_tipo_doc' label='Período'>
-						<option value={0} disabled>
-							Seleccione
-						</option>
-					</Select>
+					<Select name='p_tipo_doc' label='Período'></Select>
 				</fieldset>
 				<Text name='_tasa_interes_maxima' label='Cuota' type='number' />
-				<Select name='p_tipo_doc' label='Frecuencia de pago'>
-					<option value={0} disabled>
-						Seleccione
-					</option>
-				</Select>
+				<Select name='p_tipo_doc' label='Frecuencia de pago'></Select>
 			</article>
 		</section>
 	)

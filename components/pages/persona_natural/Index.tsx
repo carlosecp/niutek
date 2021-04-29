@@ -2,9 +2,9 @@ import type { Values, Validations, SearchResults } from '@/data/persona_natural'
 import * as React from 'react'
 import useForm from '@/lib/hooks/useForm'
 import useSearch from '@/lib/hooks/useSearch'
+import useAlerts from '@/lib/hooks/useAlerts'
 import { initialValues, navLinks, getDescription } from '@/data/persona_natural'
 import Index from '@/components/Index'
-import useAlerts from '@/lib/hooks/useAlerts'
 
 interface Props {
 	children: React.ReactNode

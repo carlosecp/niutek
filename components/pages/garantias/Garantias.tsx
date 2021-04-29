@@ -1,10 +1,16 @@
+import { TablaOptions } from '@/lib/interfaces'
 import * as React from 'react'
 import { navLinks, NavLinks } from '@/data/garantias'
 import { Text, Select, TextArea } from '@/components/forms'
 
 const SECTION_NAME = NavLinks.Garantias
 
-const Garantias = () => {
+interface Props {
+	options: {
+		tabla: TablaOptions
+	}
+}
+const Garantias = (props: Props) => {
 	return (
 		<section id={navLinks[SECTION_NAME].anchor}>
 			<a
@@ -49,6 +55,20 @@ const Garantias = () => {
 				>
 					<option value={1}>Opcion 1</option>
 					<option value={2}>Opcion 2</option>
+				</Select>
+				<Select
+					name='p_cod_moneda'
+					label='Moneda'
+					classes={{
+						container: 'fc-lg md:fc',
+						input: 'w-full block form-input form-input-border'
+					}}
+				>
+					{props.options.tabla.moneda.map((option) => (
+						<option key={option.codigo} value={option.codigo}>
+							{option.descripcion}
+						</option>
+					))}
 				</Select>
 				<Select
 					name='p_cod_cat'

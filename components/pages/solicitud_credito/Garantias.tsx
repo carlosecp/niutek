@@ -1,5 +1,5 @@
 import type { TablaOptions } from '@/lib/interfaces'
-import type { SolicitudDeCreditoValues } from '@/data/solicitud_credito'
+import type { Values } from '@/data/solicitud_credito'
 import type { RefSchema } from '@/data/solicitud_credito/garantias'
 import { navLinks, NavLinks } from '@/data/solicitud_credito'
 import { refSchema } from '@/data/solicitud_credito/garantias'
@@ -34,7 +34,7 @@ const Garantias = (props: Props) => {
 			<article className='flex flex-col'>
 				<FieldArray name={navLinks[SECTION_NAME].anchor}>
 					{(arrayHelpers) => (
-						<GarantiasTable<SolicitudDeCreditoValues, RefSchema>
+						<GarantiasTable<Values, RefSchema>
 							{...tableProps}
 							handleAdd={arrayHelpers.push}
 							handleRemove={arrayHelpers.remove}
