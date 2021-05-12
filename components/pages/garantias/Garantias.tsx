@@ -1,4 +1,4 @@
-import { TablaOptions } from '@/lib/interfaces'
+import { TablaCreOptions, TablaOptions } from '@/lib/interfaces'
 import * as React from 'react'
 import { navLinks, NavLinks } from '@/data/garantias'
 import { Text, Select, TextArea } from '@/components/forms'
@@ -8,6 +8,7 @@ const SECTION_NAME = NavLinks.Garantias
 interface Props {
 	options: {
 		tabla: TablaOptions
+		tablas_cre: TablaCreOptions
 	}
 }
 const Garantias = (props: Props) => {
@@ -42,8 +43,13 @@ const Garantias = (props: Props) => {
 						input: 'w-full block form-input form-input-border'
 					}}
 				>
-					<option value={1}>Opcion 1</option>
-					<option value={2}>Opcion 2</option>
+					{/*
+					props.options.tablas_cre.plazos.map((option) => (
+					<option key={option.codigo} value={option.codigo}>
+					{option.descripcion}
+					</option>
+					))
+					*/}
 				</Select>
 				<Select
 					name='p_cod_cla'

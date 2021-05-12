@@ -1,4 +1,4 @@
-import type { PersonaJuridicaValues } from '@/data/persona_juridica'
+import type { Values } from '@/data/persona_juridica'
 import type { TablaOptions, DeptosOption } from '@/lib/interfaces'
 import { navLinks, NavLinks } from '@/data/persona_juridica'
 import { useFormikContext } from 'formik'
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const PersonaJuridica = (props: Props) => {
-	const { values } = useFormikContext<PersonaJuridicaValues>()
+	const { values } = useFormikContext<Values>()
 
 	const municipios = useMunicipio(values.p_cod_depto)
 

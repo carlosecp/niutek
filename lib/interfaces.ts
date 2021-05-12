@@ -1,4 +1,4 @@
-import type {
+/*import type {
 	PersonaNaturalValues,
 	PersonaNaturalSearchResult
 } from '@/data/persona_natural'
@@ -38,7 +38,7 @@ export type GlobalSearchResults =
 	| SolicitudDeCreditoSearchResult
 	| FormalizacionDeCreditoValues
 	| ResolucionDeCreditoSearchResult
-	| GarantiasSearchResult
+	| GarantiasSearchResult*/
 
 export interface GlobalSearchConfig {
 	placeholder: string
@@ -51,6 +51,11 @@ export interface TablaOptions {
 	nacionalidad: { codigo: number; descripcion: string }[]
 	sexo: { codigo: number; descripcion: string }[]
 	tipo_doc: { codigo: number; descripcion: string }[]
+}
+
+export interface TablaCreOptions {
+	plazos: { codigo: number; descripcion: string }[]
+	tipo_gar: { p_cod_gar: number; nombre: string }[]
 }
 
 export interface DeptosOption {
@@ -68,7 +73,7 @@ export interface Alert {
 	message: string
 	type: 'success' | 'warning'
 }
-
+/*
 export type GlobalValues =
 	| PersonaNaturalValues
 	| PersonaJuridicaValues
@@ -78,4 +83,4 @@ export type GlobalValues =
 	| SolicitudDeCreditoValues
 	| FormalizacionDeCreditoValues
 	| ResolucionDeCreditoValues
-	| GarantiasValues
+	| GarantiasValues*/

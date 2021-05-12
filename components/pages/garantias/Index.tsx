@@ -15,7 +15,7 @@ const index = (props: Props) => {
 		initialValues: initialValues.values,
 		endpoints: {
 			read: 'datos_garantia_cliente',
-			write: 'garantia_cliente'
+			write: 'garantia_ccliente'
 		},
 		addAlert: alerts.add
 	})

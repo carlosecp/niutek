@@ -1,9 +1,9 @@
-import type { PersonaJuridicaValues } from '@/data/persona_juridica'
+import type { Values } from '@/data/persona_juridica'
 import { useFormikContext } from 'formik'
 import { Text, Checkbox } from '@/components/forms'
 
 const OrigenFondos = () => {
-	const { values } = useFormikContext<PersonaJuridicaValues>()
+	const { values } = useFormikContext<Values>()
 
 	return (
 		<section id='origen_fondos'>
